@@ -1,5 +1,5 @@
 import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
-import { Driver } from '../driver';
+import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError } from '../error';
 import { Server } from "../server"
 import { ProxyFactory } from '../proxy/proxyFactory';

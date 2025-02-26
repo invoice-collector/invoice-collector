@@ -1,15 +1,12 @@
 import path from 'path';
 import fs from 'fs';
-import { PageWithCursor, connect } from 'puppeteer-real-browser';
+import { connect } from './puppeteer/browser';
+import type { PageWithCursor } from "./puppeteer/pageController";
 import { Browser, DownloadPolicy, ElementHandle } from "rebrowser-puppeteer-core";
-import { ElementNotFoundError } from './error';
-import { Proxy } from './proxy/abstractProxy';
-import * as utils from './utils';
-import StealthPlugin from 'puppeteer-extra-plugin-stealth';
-import { ScrapperCollector } from './collectors/scrapperCollector';
-
-const stealth = StealthPlugin();
-stealth.enabledEvasions.delete('user-agent-override');
+import { ElementNotFoundError } from '../error';
+import { Proxy } from '../proxy/abstractProxy';
+import * as utils from '../utils';
+import { ScrapperCollector } from '../collectors/scrapperCollector';
 
 export class Driver {
 
@@ -17,12 +14,11 @@ export class Driver {
     static DEFAULT_POLLING = 1000;
     static DEFAULT_DELAY = 0;
 
-    static DOWNLOAD_PATH = path.resolve(__dirname, '../media/download');
+    static DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
     static PUPPETEER_CONFIG = {
         args: ["--start-maximized"],
         turnstile: true,
         headless: false,
-        // disableXvfb: true,
         customConfig: {
             prefs: {
                 download: {
@@ -43,8 +39,7 @@ export class Driver {
                 width: 1920,
                 height: 1080,
             }
-        },
-        plugins: [/*stealth*/],
+        }
     };
 
     collector: ScrapperCollector;

@@ -1,4 +1,4 @@
-import { Driver } from '../../driver';
+import { Driver } from '../../driver/driver';
 import { Invoice } from '../abstractCollector';
 import { ScrapperCollector } from '../scrapperCollector';
 import { LeclercSelectors } from './selectors';

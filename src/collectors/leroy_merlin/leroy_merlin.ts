@@ -1,6 +1,6 @@
 import { ScrapperCollector } from '../scrapperCollector';
 import { LeroyMerlinSelectors } from './selectors';
-import { Driver } from '../../driver';
+import { Driver } from '../../driver/driver';
 import * as utils from '../../utils';
 import { Invoice, DownloadedInvoice } from '../abstractCollector';
 

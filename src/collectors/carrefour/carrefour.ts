@@ -1,6 +1,6 @@
 import { ScrapperCollector } from '../scrapperCollector';
 import { CarrefourSelectors } from './selectors';
-import { Driver } from '../../driver';
+import { Driver } from '../../driver/driver';
 import { DownloadedInvoice, Invoice } from '../abstractCollector';
 
 export class CarrefourCollector extends ScrapperCollector {

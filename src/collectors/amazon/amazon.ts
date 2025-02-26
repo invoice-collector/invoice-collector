@@ -1,4 +1,4 @@
-import { Driver } from '../../driver';
+import { Driver } from '../../driver/driver';
 import { DownloadedInvoice, Invoice } from '../abstractCollector';
 import { ScrapperCollector } from '../scrapperCollector';
 import { AmazonSelectors } from './selectors';

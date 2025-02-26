@@ -1,6 +1,6 @@
 import { ScrapperCollector } from '../scrapperCollector';
 import { TotalEnergiesSelectors } from './selectors';
-import { Driver } from '../../driver';
+import { Driver } from '../../driver/driver';
 import { Invoice } from '../abstractCollector';
 
 export class TotalEnergiesCollector extends ScrapperCollector {
