@@ -1,6 +1,6 @@
-name: "\U2753 Question"
+name: "\U00002753 Question"
 description: You have a question?
-title: "\U2753 [QUESTION] Short question?"
+title: "\U00002753 [QUESTION] Short question?"
 labels: question
 assignees: LucBerge
 body:
