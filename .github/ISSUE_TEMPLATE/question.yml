@@ -1,0 +1,18 @@
+name: "\U2753 Question"
+description: You have a question?
+title: "\U2753 [QUESTION] Short question?"
+labels: question
+assignees: LucBerge
+body:
+  - type: input
+    id: question-question❓
+    attributes:
+      label: Question
+      description: Your question
+    validations:
+      required: true
+  - type: input
+    id: question-context
+    attributes:
+      label: Context
+      description: What is the context of your question?
