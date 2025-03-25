@@ -3,7 +3,7 @@ import { USelectors } from './selectors';
 import { Driver } from '../../driver';
 import { Invoice } from '../abstractCollector';
 
-export class TotalEnergiesCollector extends ScrapperCollector {
+export class UCollector extends ScrapperCollector {
 
     static CONFIG = {
         name: "U Courses",
@@ -27,7 +27,7 @@ export class TotalEnergiesCollector extends ScrapperCollector {
     }
 
     constructor() {
-        super(TotalEnergiesCollector.CONFIG);
+        super(UCollector.CONFIG);
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
