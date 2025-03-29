@@ -1,7 +1,6 @@
 import { createCursor, GhostCursor } from 'ghost-cursor';
 import { Browser, Page } from "rebrowser-puppeteer-core";
-import { LaunchedChrome } from "chrome-launcher";
-import kill from 'tree-kill';
+import { AbstractChrome } from "../chrome/abstractChrome";
 import { checkTurnstile } from './turnstile';
 import { ProxyOptions } from './browser';
 
@@ -22,9 +21,8 @@ export interface PageControllerOptions {
     proxy?: ProxyOptions,
     turnstile: boolean,
     xvfbsession: any,
-    pid: number,
     killProcess: boolean,
-    chrome?: LaunchedChrome
+    chrome?: AbstractChrome
 };
 
 export async function pageController({
@@ -33,7 +31,6 @@ export async function pageController({
     proxy,
     turnstile,
     xvfbsession,
-    pid,
     killProcess = false,
     chrome
 }: PageControllerOptions): Promise<PageWithCursor> {
@@ -49,8 +46,7 @@ export async function pageController({
         solveStatus = false
         if (killProcess === true) {
             if (xvfbsession) try { xvfbsession.stopSync() } catch (err) { }
-            if (chrome) try { chrome.kill() } catch (err) { console.log(err); }
-            if (pid) try { kill(pid, 'SIGKILL', () => { }) } catch (err) { }
+            if (chrome) try { chrome.close() } catch (err) { console.log(err); }
         }
     });
 

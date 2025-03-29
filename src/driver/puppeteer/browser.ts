@@ -1,6 +1,7 @@
 import puppeteer from "rebrowser-puppeteer-core";
 import { Browser } from "rebrowser-puppeteer-core";
 import { pageController, PageWithCursor } from "./pageController";
+import { ChromeFactory } from "../chrome/chromeFactory";
 
 let Xvfb;
 try {
@@ -23,6 +24,7 @@ interface Options {
   connectOption?: import("rebrowser-puppeteer-core").ConnectOptions;
   disableXvfb?: boolean;
   ignoreAllFlags?: boolean;
+  remoteChrome?: boolean;
 }
 
 export interface ProxyOptions {
@@ -41,9 +43,10 @@ export async function connect({
   connectOption = {},
   disableXvfb = false,
   ignoreAllFlags = false,
+  remoteChrome = false,
 }: Options = {}): Promise<ConnectResult> {
   const dynamicImport = new Function('specifier', 'return import(specifier)');
-  const { launch, Launcher } = await dynamicImport('chrome-launcher');
+  const { Launcher } = await dynamicImport('chrome-launcher');
 
   let xvfbsession;
 
@@ -92,14 +95,14 @@ export async function connect({
     ];
   }
 
-  const chrome = await launch({
+  const chrome = await ChromeFactory.launch(remoteChrome, {
     ignoreDefaultFlags: true,
     chromeFlags,
     ...customConfig,
   });
 
   const browser = await puppeteer.connect({
-    browserURL: `http://127.0.0.1:${chrome.port}`,
+    browserURL: chrome.url,
     ...connectOption,
   });
 
@@ -110,8 +113,7 @@ export async function connect({
     page,
     proxy,
     turnstile,
-    xvfbsession,
-    pid: chrome.pid
+    xvfbsession
   };
 
   let pageWithCursor = await pageController({

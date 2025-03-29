@@ -47,12 +47,12 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
         // Start browser and page
         this.driver = new Driver(this);
+        await this.driver.open(proxy);
+
+        // Open entry url
+        await this.driver.goto(this.config.entryUrl);
 
         try {
-            await this.driver.open(proxy);
-
-            // Open entry url
-            await this.driver.goto(this.config.entryUrl);
 
             // Check if website is in maintenance
             const is_in_maintenance = await this.is_in_maintenance(this.driver, params)
