@@ -1,10 +1,18 @@
+[![Join Invoice-Collector on Discord](https://img.shields.io/badge/Discord-Invoice--Collector-2e8555.svg?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/dMXTdpxMqY)
+
 <p align="center">
   <img width="100%" src="https://github.com/invoice-collector/invoice-collector/raw/master/images/preview/preview.svg" />
 </p>
 
 # Invoice Collector
 
-Invoice Collector is a free docker image used to retrieve invoices and receipts from suppliers. It can connect to customer areas, APIs and inboxes to get the invoices.
+Invoice Collector is a free Docker image designed to retrieve invoices and receipts from suppliers. It seamlessly connects to customer portals, APIs, and email inboxes to automatically gather invoices.
+
+<p align="center">
+  <a href="https://invoice-collector.com/demo" target="_blank">
+    <img width="150px" src="https://img.shields.io/badge/Try%20the%20Demo-2e8555?style=for-the-badge" />
+  </a>
+</p>
 
 ## Prerequisits
 - [Install docker engine](https://docs.docker.com/engine/install/)

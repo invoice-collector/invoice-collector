@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "start": "ts-node --transpile-only src/index.ts",
-    "test": "ts-node test/test.ts",
+    "test.manual": "ts-node test/manual.ts",
+    "test.auto": "jest test/auto.spec.ts",
     "debug": "nodemon --inspect=0.0.0.0:9229 --signal SIGINT --nolazy -L src/index.ts"
   },
   "dependencies": {
@@ -29,8 +30,10 @@
     "@types/node": "^22.10.1",
     "@typescript-eslint/parser": "^8.18.0",
     "dotenv": "^16.4.7",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.7",
     "prompt-sync": "^4.2.0",
+    "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0"
   },
@@ -44,5 +47,5 @@
     "execMap": {
       "ts": "node --require ts-node/register"
     }
-  }
+ }
 }
