@@ -6,7 +6,7 @@
   "scripts": {
     "start": "ts-node --transpile-only src/index.ts",
     "test.manual": "ts-node test/manual.ts",
-    "test.auto": "node --experimental-vm-modules node_modules/jest/bin/jest.js test/auto.spec.ts",
+    "test.auto": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/auto.spec.ts",
     "debug": "nodemon --inspect=0.0.0.0:9229 --signal SIGINT --nolazy -L src/index.ts"
   },
   "dependencies": {
