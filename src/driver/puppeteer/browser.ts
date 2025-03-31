@@ -1,5 +1,5 @@
-import puppeteer from "rebrowser-puppeteer-core";
-import { Browser } from "rebrowser-puppeteer-core";
+import puppeteer, { Browser, ConnectOptions } from "rebrowser-puppeteer-core";
+import * as ChromeLauncher from 'chrome-launcher';
 import { pageController, PageWithCursor } from "./pageController";
 import { ChromeFactory } from "../chrome/chromeFactory";
 
@@ -18,10 +18,10 @@ type ConnectResult = {
 interface Options {
   args?: string[];
   headless?: boolean;
-  customConfig?: import("chrome-launcher").Options;
+  customConfig?: ChromeLauncher.Options;
   proxy?: ProxyOptions;
   turnstile?: boolean;
-  connectOption?: import("rebrowser-puppeteer-core").ConnectOptions;
+  connectOption?: ConnectOptions;
   disableXvfb?: boolean;
   ignoreAllFlags?: boolean;
   remoteChrome?: boolean;
