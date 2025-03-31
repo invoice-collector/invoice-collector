@@ -18,7 +18,7 @@ export const AmazonSelectors = {
         info: "submit form button"
     },
     CONTAINER_LOGIN_ALERT: {
-        selector: "div[id='auth-error-message-box'] span",
+        selector: "div[id='auth-email-invalid-claim-alert'][style*='block'] div[class='a-alert-content'], div[id='auth-error-message-box'] div[class='a-alert-content']",
         info: "login alert container"
     },
     CONTAINER_CAPTCHA: {

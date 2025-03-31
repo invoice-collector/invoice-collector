@@ -9,7 +9,7 @@ export class AmazonCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "1",
+        version: "2",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
