@@ -8,7 +8,7 @@ export class UCollector extends ScrapperCollector {
     static CONFIG = {
         name: "U Courses",
         description: "i18n.collectors.u.description",
-        version: "1",
+        version: "2",
         website: "https://www.coursesu.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
         params: {

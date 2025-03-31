@@ -2,7 +2,7 @@ export const USelectors = {
     // COOKIES
 
     BUTTON_REFUSE_COOKIES: {
-        selector: "#popin_tc_privacy_button_2",
+        selector: "#popin_tc_privacy_button",
         info: "refuse cookies button"
     },
     BUTTON_ACCEPT_COOKIES: {
