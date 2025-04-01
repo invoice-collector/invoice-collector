@@ -21,6 +21,13 @@ export function delay(ms) {
     });
 }
 
+export function randomDelay(min: number=200, max: number=400): Promise<void> {
+    return new Promise(resolve => {
+        const delay = Math.floor(Math.random() * (max - min + 1)) + min;
+        setTimeout(resolve, delay);
+    });
+}
+
 export function timestampFromString(date: string, format: string, locale: string): number {
     const fnsLocales = {
         en: enUS,

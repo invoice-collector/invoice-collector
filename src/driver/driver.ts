@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import { connect } from './puppeteer/browser';
 import type { PageWithCursor } from "./puppeteer/pageController";
-import { Browser, DownloadPolicy, ElementHandle } from "rebrowser-puppeteer-core";
+import { Browser, DownloadPolicy, ElementHandle, KeyInput } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
@@ -250,6 +250,17 @@ export class Driver {
 
     async pressEnter() {
         await this.page?.keyboard.press('Enter');
+    }
+
+    async press(key: KeyInput, occurence: number = 1): Promise<void> {
+        for(let i = 0; i < occurence; i++) {
+            await utils.randomDelay();
+            await this.page?.keyboard.press(key);
+        }
+    }
+
+    async type(text: string): Promise<void> {
+        await this.page?.keyboard.type(text);
     }
 
     // CHECK
