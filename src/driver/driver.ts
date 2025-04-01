@@ -248,10 +248,6 @@ export class Driver {
         throw new Error("Not implemented");
     }
 
-    async pressEnter() {
-        await this.page?.keyboard.press('Enter');
-    }
-
     async press(key: KeyInput, occurence: number = 1): Promise<void> {
         for(let i = 0; i < occurence; i++) {
             await utils.randomDelay();

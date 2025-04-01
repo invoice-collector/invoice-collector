@@ -47,8 +47,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
 
         // Input email
         await driver.input_text(LeroyMerlinSelectors.INPUT_EMAIL, params.id);
-        await utils.delay(1000);
-        await driver.pressEnter();
+        await driver.press('Enter');
 
         // Check if email is incorrect
         const email_error = await driver.wait_for_element(LeroyMerlinSelectors.CONTAINER_EMAIL_ERROR, false, 2000);
