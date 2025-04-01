@@ -12,24 +12,16 @@ export const IntermarcheSelectors = {
 
     //LOGIN PAGE
 
-    FIELD_EMAIL: {
-        selector: "#username_display",
-        info: "email input"
+    CONTAINER_LOGIN: {
+        selector: "body",
+        info: "login container"
     },
     CONTAINER_ERROR_EMAIL: {
         selector: "#error-email:not(.hidden)",
         info: "email error"
     },
-    FIELD_PASSWORD: {
-        selector: "#password",
-        info: "password input"
-    },
     CONTAINER_ERROR_PASSWORD: {
         selector: "#error-label:not(.hidden)",
         info: "password error"
     },
-    BUTTON_SUBMIT: {
-        selector: "#kc-login",
-        info: "submit button"
-    }
 }
