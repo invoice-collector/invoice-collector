@@ -23,7 +23,8 @@ export class IntermarcheCollector extends ScrapperCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://itmconnect.intermarche.com/auth/realms/customers/protocol/openid-connect/auth?redirect=%252Fgestion-de-compte%252Fmes-courses%253Ftype%253Dcommandes&response_type=code&client_id=desktop&code_challenge_method=S256&code_challenge=EfjMaWEidzZY53KHjcwmCcCuWuB-Ys4csgAbR6bJyd8&redirect_uri=https%3A%2F%2Fwww.intermarche.com%2Fapi%2Fconnexion"
+        entryUrl: "https://itmconnect.intermarche.com/auth/realms/customers/protocol/openid-connect/auth?redirect=%252Fgestion-de-compte%252Fmes-courses%253Ftype%253Dcommandes&response_type=code&client_id=desktop&code_challenge_method=S256&code_challenge=EfjMaWEidzZY53KHjcwmCcCuWuB-Ys4csgAbR6bJyd8&redirect_uri=https%3A%2F%2Fwww.intermarche.com%2Fapi%2Fconnexion",
+        captcha: "datadome" as "datadome"
     }
 
     constructor() {
@@ -31,8 +32,8 @@ export class IntermarcheCollector extends ScrapperCollector {
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
-        // Focus on login page
-        await driver.left_click(IntermarcheSelectors.CONTAINER_LOGIN)
+        // Wait for Datadome captcha
+        await driver.waitForDatadomeCaptcha();
 
         // Input email and password
         await driver.press('Tab');

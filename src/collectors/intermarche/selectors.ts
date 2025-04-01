@@ -12,10 +12,6 @@ export const IntermarcheSelectors = {
 
     //LOGIN PAGE
 
-    CONTAINER_LOGIN: {
-        selector: "body",
-        info: "login container"
-    },
     CONTAINER_ERROR_EMAIL: {
         selector: "#error-email:not(.hidden)",
         info: "email error"
