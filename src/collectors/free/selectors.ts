@@ -21,8 +21,8 @@ export const FreeSelectors = {
     //INDEX PAGE
 
     BUTTON_INVOICES: {
-        selector: "a[title='Mes Factures']",
-        info: "my invoices button"
+        selector: ".more a:first-child",
+        info: "all my invoices button"
     },
 
     //INVOICES PAGE
