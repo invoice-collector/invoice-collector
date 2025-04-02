@@ -57,7 +57,7 @@ export class RegistryServer {
             console.log("Invoice-Collector server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach Invoice-Collector server at ${error.request.res.responseUrl}. Status code: ${error.response.status}`);
+            console.error(`Could not reach Invoice-Collector server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}`);
         });
     }
 
