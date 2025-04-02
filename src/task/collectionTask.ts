@@ -90,7 +90,7 @@ export class CollectionTask {
 
             // Check if secret not found
             if (!secret) {
-                throw new DesynchronizationError(credential.id, collector.config.id, collector.config.version);
+                throw new DesynchronizationError(credential.id, collector);
             }
 
             // Compute if this is the first collect

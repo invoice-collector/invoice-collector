@@ -1,5 +1,7 @@
 // API ERRORS
 
+import { AbstractCollector } from "./collectors/abstractCollector";
+
 export class StatusError extends Error {
     status_code: number;
 
@@ -48,23 +50,22 @@ export class MissingParams extends StatusError {
 // COLLECTOR ERRORS
 
 export class CollectorError extends Error {
-    collector: string|null;
-    version: string|null;
+    collector: string;
+    version: string;
 
-    constructor(message: string, collector: string|null, version: string|null, opts = {}) {
+    constructor(message: string, collector: AbstractCollector, opts = {}) {
         super(message, opts);
         this.name = this.constructor.name;
-        this.collector = collector;
-        this.version = version;
+        this.collector = collector.config.id;
+        this.version = collector.config.version;
     }
 }
 
 export class MaintenanceError extends CollectorError {
-    constructor(collector: string, version: string, opts = {}) {
+    constructor(collector: AbstractCollector, opts = {}) {
         super(
             `The website is in maintenance. Wait a moment and try again.`,
             collector,
-            version,
             opts
         );
         this.name = this.constructor.name;
@@ -72,11 +73,10 @@ export class MaintenanceError extends CollectorError {
 }
 
 export class AuthenticationError extends CollectorError {
-    constructor(message: string, collector: string, version: string, opts = {}) {
+    constructor(message: string, collector: AbstractCollector, opts = {}) {
         super(
             message.trim(),
             collector,
-            version,
             opts
         );
         this.name = this.constructor.name;
@@ -88,31 +88,26 @@ export class LoggableError extends CollectorError {
     source_code: string;
     screenshot: string;
 
-    constructor(message: string, collector: string|null, version: string|null, url: string, source_code: string, screenshot: string, opts = {}) {
+    constructor(message: string, collector: AbstractCollector, opts = {}) {
         super(
             message,
             collector,
-            version,
             opts
         );
         this.name = this.constructor.name;
-        this.url = url;
-        this.source_code = source_code;
-        this.screenshot = screenshot;
+        this.url = "";
+        this.source_code = "";
+        this.screenshot = "";
     }
 }
 
 export class ElementNotFoundError extends LoggableError {
     selector: any;
 
-    constructor(collector: string|null, version: string|null, url: string, source_code: string, screenshot: string, selector: any, opts = {}) {
+    constructor(collector: AbstractCollector, selector: any, opts = {}) {
         super(
-            `Could not find selector '${selector.selector}' corresponding to the "${selector.info}" on the page '${url}'. See the source code and the screenshot to find the issue.`,
+            `Could not find selector '${selector.selector}' corresponding to the "${selector.info}" on the page. See the source code and the screenshot to find the issue.`,
             collector,
-            version,
-            url,
-            source_code,
-            screenshot,
             opts
     );
         this.name = this.constructor.name;
@@ -121,14 +116,10 @@ export class ElementNotFoundError extends LoggableError {
 }
 
 export class UnfinishedCollectorError extends LoggableError {
-    constructor(collector: string, version: string, url: string, source_code: string, screenshot: string, opts = {}) {
+    constructor(collector: AbstractCollector, opts = {}) {
         super(
             `The collector is not finished`,
             collector,
-            version,
-            url,
-            source_code,
-            screenshot,
             opts
         );
         this.name = this.constructor.name;
@@ -136,8 +127,12 @@ export class UnfinishedCollectorError extends LoggableError {
 }
 
 export class DesynchronizationError extends AuthenticationError {
-    constructor(credential_id: string, collector: string, version: string, opts = {}) {
-        super(`Desynchronization Error - We are sorry but something went wrong with the collector. Please remove it and add it again. (${credential_id})`, collector, version, opts);
+    constructor(credential_id: string, collector: AbstractCollector, opts = {}) {
+        super(
+            `Desynchronization Error - We are sorry but something went wrong with the collector. Please remove it and add it again. (${credential_id})`,
+            collector,
+            opts
+        );
         this.name = this.constructor.name;
     }
 }

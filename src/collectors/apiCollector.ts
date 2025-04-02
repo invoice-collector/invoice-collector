@@ -38,7 +38,7 @@ export abstract class ApiCollector extends AbstractCollector {
         this.instance = null;
     }
 
-    async _collect(params: any, locale: any, location: Location | null): Promise<Invoice[]> {
+    async _collect(params: any, location: Location | null): Promise<Invoice[]> {
         console.log(`API Collector, do not use proxy`);
 
         // Initialise axios instance
@@ -53,25 +53,29 @@ export abstract class ApiCollector extends AbstractCollector {
             
             // If invoices is undefined, collector is unfinished
             if (invoices === undefined) {
-                throw new UnfinishedCollectorError(this.config.id, this.config.version, this.instance.defaults.baseURL || "", "", "");
+                throw new UnfinishedCollectorError(this);
             }
 
             return invoices;
         } catch (error) {
+            // Get url
+            const url = this.instance?.defaults.baseURL || '';
+            
+            if (error instanceof LoggableError) {
+                error.url = url;
+            }
             if (error instanceof CollectorError) {
                 throw error;
             }
 
             // For unexpected error happening during the collection, log the error
-            throw new LoggableError(
+            let loggableError = new LoggableError(
                 "An error occured while collecting invoices from API",
-                this.config.id,
-                this.config.version,
-                '',
-                '',
-                '',
+                this,
                 { cause: error }
             );
+            loggableError.url = url;
+            throw loggableError;
         }
     }
 
@@ -85,7 +89,7 @@ export abstract class ApiCollector extends AbstractCollector {
 
             // If data field is missing, collector is unfinished
             if (!downloadedInvoice) {
-                throw new UnfinishedCollectorError(this.config.id, this.config.version, this.instance.defaults.baseURL || "", "", "");
+                throw new UnfinishedCollectorError(this);
             }
 
             return {
@@ -93,20 +97,24 @@ export abstract class ApiCollector extends AbstractCollector {
                 mimetype: mimetypeFromBase64(downloadedInvoice.data)
             };
         } catch (error) {
+            // Get url
+            const url = this.instance?.defaults.baseURL || '';
+            
+            if (error instanceof LoggableError) {
+                error.url = url;
+            }
             if (error instanceof CollectorError) {
                 throw error;
             }
 
             // For unexpected error happening during the download, log the error
-            throw new LoggableError(
+            let loggableError = new LoggableError(
                 "An error occured while downloading invoices from API",
-                this.config.id,
-                this.config.version,
-                invoice.link || '',
-                '',
-                '',
+                this,
                 { cause: error }
             );
+            loggableError.url = url;
+            throw loggableError;
         }
     }
     

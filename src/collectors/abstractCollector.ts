@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { Location } from '../proxy/abstractProxy';
+import { CollectorError } from '../error';
+import { Server } from '../server';
 
 export type Config = {
     id: string,
@@ -66,58 +68,67 @@ export abstract class AbstractCollector {
                 }
             }
 
-            const invoices = await this._collect(params, locale, location);
+            try {
+                const invoices = await this._collect(params, location);
 
-            // Get new invoices
-            const newInvoices = invoices.filter((inv) => !previousInvoices.includes(inv.id));
-            let completeInvoices: CompleteInvoice[] = [];
+                // Get new invoices
+                const newInvoices = invoices.filter((inv) => !previousInvoices.includes(inv.id));
+                let completeInvoices: CompleteInvoice[] = [];
 
-            if(newInvoices.length > 0) {
-                console.log(`Found ${invoices.length} invoices but only ${newInvoices.length} are new`);
+                if(newInvoices.length > 0) {
+                    console.log(`Found ${invoices.length} invoices but only ${newInvoices.length} are new`);
 
-                // Download new invoices if needed
-                if(download) {
-                    console.log(`Downloading ${newInvoices.length} invoices`);
+                    // Download new invoices if needed
+                    if(download) {
+                        console.log(`Downloading ${newInvoices.length} invoices`);
 
-                    // For each invoice
-                    for(let newInvoice of newInvoices) {
-                        const completeInvoice = await this._download(newInvoice);
+                        // For each invoice
+                        for(let newInvoice of newInvoices) {
+                            const completeInvoice = await this._download(newInvoice);
 
-                        // If data is not null, the invoice is ready
-                        if(completeInvoice.data != null && completeInvoice.data.length > 0) {
-                            completeInvoices.push(completeInvoice);
+                            // If data is not null, the invoice is ready
+                            if(completeInvoice.data != null && completeInvoice.data.length > 0) {
+                                completeInvoices.push(completeInvoice);
+                            }
+                        }
+
+                        // Order invoices by timestamp
+                        completeInvoices.sort((a, b) => a.timestamp - b.timestamp);
+                    }
+                    else {
+                        console.log(`This is the first collect. Do not download invoices`);
+
+                        // Add not downloaded invoice to the list
+                        for(let newInvoice of newInvoices) {
+                            completeInvoices.push({
+                                ...newInvoice,
+                                data: null,
+                                mimetype: null
+                            });
                         }
                     }
-
-                    // Order invoices by timestamp
-                    completeInvoices.sort((a, b) => a.timestamp - b.timestamp);
                 }
                 else {
-                    console.log(`This is the first collect. Do not download invoices`);
-
-                    // Add not downloaded invoice to the list
-                    for(let newInvoice of newInvoices) {
-                        completeInvoices.push({
-                            ...newInvoice,
-                            data: null,
-                            mimetype: null
-                        });
-                    }
+                    console.log(`Found ${invoices.length} invoices but none are new`);
                 }
-            }
-            else {
-                console.log(`Found ${invoices.length} invoices but none are new`);
-            }
 
-            // Close the collector resources
-            this.close();
-
-            return completeInvoices;
+                return completeInvoices;
+            }
+            catch (error) {
+                if (error instanceof CollectorError) {
+                    error.message = Server.i18n.__({ phrase: error.message, locale });
+                }
+                throw error;
+            }
+            finally {
+                // Close the collector resources
+                this.close();
+            }
     }
 
     //NOT IMPLEMENTED
 
-    abstract _collect(params: any, locale: string, location: Location | null): Promise<Invoice[]>;
+    abstract _collect(params: any, location: Location | null): Promise<Invoice[]>;
 
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
 

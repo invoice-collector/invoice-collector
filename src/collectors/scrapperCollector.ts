@@ -1,7 +1,6 @@
 import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError } from '../error';
-import { Server } from "../server"
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -41,7 +40,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = null;
     }
 
-    async _collect(params: any, locale: string, location: Location | null): Promise<Invoice[]> {
+    async _collect(params: any, location: Location | null): Promise<Invoice[]> {
         // Get proxy
         const proxy = this.config.useProxy ? ProxyFactory.getProxy().get(location) : null;
 
@@ -58,7 +57,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
             const is_in_maintenance = await this.is_in_maintenance(this.driver, params)
             if (is_in_maintenance) {
                 await this.driver.close()
-                throw new MaintenanceError(this.config.id, this.config.version);
+                throw new MaintenanceError(this);
             }
 
             // Login
@@ -66,8 +65,8 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
             // Check if not authenticated
             if (login_error) {
-                await this.driver.close()
-                throw new AuthenticationError(Server.i18n.__({ phrase: login_error, locale }), this.config.id, this.config.version);
+                //await this.driver.close()
+                throw new AuthenticationError(login_error, this);
             }
 
             // Collect invoices
@@ -75,34 +74,35 @@ export abstract class ScrapperCollector extends AbstractCollector {
             
             // If invoices is undefined, collector is unfinished
             if (invoices === undefined) {
-                const url = this.driver.url();
-                const source_code = await this.driver.sourceCode();
-                const screenshot = await this.driver.screenshot();
-                await this.driver.close()
-                throw new UnfinishedCollectorError(this.config.id, this.config.version, url, source_code, screenshot);
+                throw new UnfinishedCollectorError(this);
             }
 
             return invoices;
         } catch (error) {
+            // Get url, source code and screenshot
+            const url = this.driver.url();
+            const source_code = await this.driver.sourceCode();
+            const screenshot = await this.driver.screenshot();
+
+            if (error instanceof LoggableError) {
+                error.url = url;
+                error.source_code = source_code;
+                error.screenshot = screenshot;
+            }
             if (error instanceof CollectorError) {
                 throw error;
             }
 
-            // For unexpected error happening during the collection
-            const url = this.driver.url();
-            const source_code = await this.driver.sourceCode();
-            const screenshot = await this.driver.screenshot();
-            await this.driver.close();
-            // Log the error
-            throw new LoggableError(
-                "An error occured while collecting invoices from web",
-                this.config.id,
-                this.config.version,
-                url,
-                source_code,
-                screenshot,
+            // For unexpected error happening during the collection, log the error
+            let loggableError = new LoggableError(
+                "An error occured while downloading invoice from web",
+                this,
                 { cause: error }
             );
+            loggableError.url = url;
+            loggableError.source_code = source_code;
+            loggableError.screenshot = screenshot;
+            throw loggableError;
         }
     }
 
@@ -116,11 +116,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
             // If downloadedInvoice is undefined, collector is unfinished
             if (!downloadedInvoice) {
-                const url = this.driver.url();
-                const source_code = await this.driver.sourceCode();
-                const screenshot = await this.driver.screenshot();
-                await this.driver.close()
-                throw new UnfinishedCollectorError(this.config.id, this.config.version, url, source_code, screenshot);
+                throw new UnfinishedCollectorError(this);
             }
 
             return {
@@ -128,25 +124,30 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 mimetype: mimetypeFromBase64(downloadedInvoice.data)
             };
         } catch (error) {
+            // Get url, source code and screenshot
+            const url = this.driver.url();
+            const source_code = await this.driver.sourceCode();
+            const screenshot = await this.driver.screenshot();
+
+            if (error instanceof LoggableError) {
+                error.url = url;
+                error.source_code = source_code;
+                error.screenshot = screenshot;
+            }
             if (error instanceof CollectorError) {
                 throw error;
             }
 
-            // For unexpected error happening during the download
-            const url = invoice.link || this.driver.url();
-            const source_code = await this.driver.sourceCode();
-            const screenshot = await this.driver.screenshot();
-            await this.driver.close();
-            // Log the error
-            throw new LoggableError(
+            // For unexpected error happening during the download, log the error
+            let loggableError = new LoggableError(
                 "An error occured while downloading invoice from web",
-                this.config.id,
-                this.config.version,
-                url,
-                source_code,
-                screenshot,
+                this,
                 { cause: error }
             );
+            loggableError.url = url;
+            loggableError.source_code = source_code;
+            loggableError.screenshot = screenshot;
+            throw loggableError;
         }
     }
 
