@@ -2,6 +2,7 @@ import * as crypto from 'crypto';
 import { AxiosInstance } from "axios";
 import { ApiCollector } from '../apiCollector';
 import { DownloadedInvoice } from '../abstractCollector';
+import { AuthenticationError } from '../../error';
 
 export class OvhCollector extends ApiCollector {
 
@@ -84,10 +85,11 @@ export class OvhCollector extends ApiCollector {
             headers: {
                 'X-Ovh-Timestamp': timestamp,
                 'X-Ovh-Signature': this.signRequest(params, method, instance.defaults.baseURL + path, '', timestamp),
-            }
+            },
+            validateStatus: () => true
         });
         if (response.status != 200) {
-            throw new Error(`Unable to ${method} ${path}`);
+            throw new AuthenticationError(`i18n.collectors.ovh.authentication_error`, this);
         }
         return response.data;
     }
