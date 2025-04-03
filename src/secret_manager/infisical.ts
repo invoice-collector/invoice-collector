@@ -19,8 +19,8 @@ export class Infisical extends AbstractSecretManager {
         if (!process.env.SECRET_MANAGER_INFISICAL_CLIENT_SECRET) {
             throw new Error("SECRET_MANAGER_INFISICAL_CLIENT_SECRET environment variable is required");
         }
-        if (!process.env.SECRET_MANAGER_INFISICAL_CLIENT_ID) {
-            throw new Error("SECRET_MANAGER_INFISICAL_CLIENT_ID environment variable is required");
+        if (!process.env.SECRET_MANAGER_INFISICAL_PROJECT_ID) {
+            throw new Error("SECRET_MANAGER_INFISICAL_PROJECT_ID environment variable is required");
         }
         if (!process.env.SECRET_MANAGER_INFISICAL_ENV) {
             throw new Error("SECRET_MANAGER_INFISICAL_ENV environment variable is required");
