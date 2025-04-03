@@ -1,4 +1,5 @@
 import { Bitwarden } from './bitwarden';
+import { Infisical } from './infisical';
 import { AbstractSecretManager } from './abstractSecretManager';
 
 export class SecretManagerFactory {
@@ -10,6 +11,9 @@ export class SecretManagerFactory {
             switch(type) {
                 case 'bitwarden':
                     SecretManagerFactory.instance = new Bitwarden();
+                break;
+                case 'infisical':
+                    SecretManagerFactory.instance = new Infisical();
                     break;
                 default:
                     throw new Error(`Unknown secret manager type: ${type}`);
