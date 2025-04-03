@@ -1,0 +1,42 @@
+services:
+  invoice-collector:
+    image: invoice-collector:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+      - 9229:9229
+    volumes:
+      - ./src:/usr/app/src
+      - ./locales:/usr/app/locales
+      - ./views:/usr/app/views
+    depends_on:
+      - mongodb
+    environment:
+      - PORT=8080
+      - REGISTRY_SERVER_ENDPOINT=https://registry.invoice-collector.com
+      - DATABASE_URI=mongodb://mongodb:27017
+      - DATABASE_MONGODB_NAME=dev
+      - SECRET_MANAGER_TYPE=infisical # bitwarden or infisical
+      - SECRET_MANAGER_BITWARDEN_API_URI=https://vault.bitwarden.eu/api
+      - SECRET_MANAGER_BITWARDEN_IDENTITY_URI=https://vault.bitwarden.eu/identity  
+      - SECRET_MANAGER_INFISICAL_API_URI=
+      - SECRET_MANAGER_INFISICAL_PROJECT_ID=
+      - SECRET_MANAGER_INFISICAL_CLIENT_ID=
+      - SECRET_MANAGER_INFISICAL_CLIENT_SECRET=   
+      - ENV=dev
+    command: npm run debug
+
+  mongodb:
+    image : mongo:8.0.3
+    container_name: mongodb
+    volumes:
+      - ./mongodb/data:/data/db
+      - ./mongodb/config:/etc/mongo/
+    ports:
+      - 27017:27017
+    command: --logpath /dev/null
+    #command: --quiet --config /etc/mongo/mongod.conf # Quiet option not working
