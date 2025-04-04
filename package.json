@@ -7,6 +7,8 @@
     "start": "ts-node --transpile-only src/index.ts",
     "test.manual": "ts-node test/manual.ts",
     "test.auto": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/auto.spec.ts",
+    "test.fingerprints": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/fingerprints.spec.ts",
+    "test.antibot": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/antibots.spec.ts",
     "debug": "nodemon --inspect=0.0.0.0:9229 --signal SIGINT --nolazy -L src/index.ts"
   },
   "dependencies": {
@@ -18,11 +20,11 @@
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "ghost-cursor": "^1.3.0",
-    "xvfb": "^0.4.0",
     "i18n": "^0.15.1",
     "mongodb": "^6.12.0",
     "rebrowser-puppeteer-core": "^23.10.3",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "xvfb": "^0.4.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
