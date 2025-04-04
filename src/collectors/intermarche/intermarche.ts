@@ -8,7 +8,7 @@ export class IntermarcheCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Intermarché",
         description: "i18n.collectors.intermarche.description",
-        version: "2",
+        version: "3",
         website: "https://www.intermarche.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg",
         params: {
@@ -23,7 +23,7 @@ export class IntermarcheCollector extends ScrapperCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://itmconnect.intermarche.com/auth/realms/customers/protocol/openid-connect/auth?redirect=%252Fgestion-de-compte%252Fmes-courses%253Ftype%253Dcommandes&response_type=code&client_id=desktop&code_challenge_method=S256&code_challenge=EfjMaWEidzZY53KHjcwmCcCuWuB-Ys4csgAbR6bJyd8&redirect_uri=https%3A%2F%2Fwww.intermarche.com%2Fapi%2Fconnexion",
+        entryUrl: "https://www.intermarche.com/",
         captcha: "datadome" as "datadome"
     }
 
@@ -34,6 +34,16 @@ export class IntermarcheCollector extends ScrapperCollector {
     async login(driver: Driver, params: any): Promise<string | void> {
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
+
+        // Refuse cookies
+        await driver.left_click(IntermarcheSelectors.BUTTON_REFUSE_COOKIES, { raise_exception: false, timeout: 5000});
+
+        // Connect with email
+        await driver.left_click(IntermarcheSelectors.BUTTON_LOGIN);
+        await driver.left_click(IntermarcheSelectors.BUTTON_CONNECT_WITH_EMAIL);
+
+        // Wait for login form
+        await driver.wait_for_element(IntermarcheSelectors.CONTAINER_FORM);
 
         // Input email and password
         await driver.press('Tab');
@@ -55,7 +65,7 @@ export class IntermarcheCollector extends ScrapperCollector {
 
         // Submit form
         await driver.press('Tab', 3);
-        await driver.type('Enter');
+        await driver.press('Enter');
 
         // Check if login error exists
         const error_login = await driver.wait_for_element(IntermarcheSelectors.CONTAINER_ERROR_PASSWORD, false, 2000)
