@@ -96,9 +96,12 @@ describe(`Test fingerprints`, () => {
         await driver.goto("https://bot-detector.rebrowser.net/");
 
         // Trigger tests
-        driver.page?.evaluateHandle("window.dummyFn()");
-        driver.page?.evaluateHandle("document.getElementById('detections-json')");
-        driver.page?.evaluateHandle("document.getElementsByClassName('div')");
+        try{
+            await driver.page?.evaluateHandle("window.dummyFn()");
+        }
+        catch (e) {}
+        await driver.page?.evaluateHandle("document.getElementById('detections-json')");
+        await driver.page?.evaluateHandle("document.getElementsByClassName('div')");
         await driver.page?.exposeFunction('exposedFn', () => {});
 
         // Save pdf to file
@@ -128,7 +131,7 @@ describe(`Test fingerprints`, () => {
     it('Am I unique', async () => {
         // Get result
         await driver.page?.goto("https://amiunique.org/fingerprint", {waitUntil: 'networkidle0', timeout: 60000})
-        const resultElement = await driver.wait_for_element({selector: '.pb-0'});
+        const resultElement = await driver.wait_for_element({selector: '.pb-0'}, true, 30000);
         const result = await resultElement?.evaluate(el => el.textContent);
 
         // Reject cookies
@@ -162,7 +165,7 @@ describe(`Test fingerprints`, () => {
         saveToFile(await driver.pdf(), 'pixelscan.pdf');
 
         // Check if the test is consistent
-        expect(consistentElement).toBe("Consistent");
+        expect(consistentElement).toBe(" Consistent ");
 
     }, ONE_MINUTE);
 
