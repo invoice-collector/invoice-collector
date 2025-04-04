@@ -8,7 +8,7 @@ import { LeroyMerlinCollector } from '../src/collectors/leroy_merlin/leroy_merli
 dotenv.config();
 
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
-const RESULTS_FOLDER = path.join(__dirname, 'results', new Date().toISOString().replace(/[:.]/g, '-'));
+const RESULTS_FOLDER = path.join(__dirname, 'results', `fingerprints.${new Date().toISOString().replace(/[:.]/g, '-')}`);
 fs.mkdirSync(RESULTS_FOLDER, { recursive: true });
 
 function saveToFile(content: string|object, filename: string) {
@@ -166,7 +166,6 @@ describe(`Test fingerprints`, () => {
 
         // Check if the test is consistent
         expect(consistentElement).toBe(" Consistent ");
-
     }, ONE_MINUTE);
 
     /*it('Iphey', async () => {
