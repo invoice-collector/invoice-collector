@@ -9,7 +9,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "4",
+        version: "5",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leroy_Merlin.svg",
         params: {
@@ -70,7 +70,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
     async collect(driver: Driver, params: any): Promise<Invoice[]> {    
         const data = await driver.goto('https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html', 'https://www.leroymerlin.fr/order-followup/backend/v2/orders?');
 
-        return data.map(order => { 
+        return data.responseBody.map(order => { 
             return {
                 id: order.orderPartNumber,
                 amount: order.price.totalAmount,

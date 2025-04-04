@@ -107,8 +107,7 @@ export class Driver {
     }
 
     // GOTO
-
-    async goto(url, network_request: string = ""): Promise<any> {
+    async goto(url, network_request: string = ""): Promise<{requestBody: any, responseBody: any}> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -127,8 +126,9 @@ export class Driver {
 
                 this.page.on('response', async (response) => {
                     if (response.url().includes(network_request) && response.status() === 200) {
-                        const json = await response.json();
-                        resolve(json);
+                        const requestBody = JSON.parse(response.request().postData() || '{}');
+                        const responseBody = await response.json();
+                        resolve({requestBody, responseBody});
                     }
                 });
             });
@@ -145,6 +145,7 @@ export class Driver {
         else {
             // Navigate to the page
             await this.page.goto(url, {waitUntil: 'networkidle0'});
+            return {requestBody: null, responseBody: null};
         }
     }
 
