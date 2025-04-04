@@ -34,6 +34,7 @@ COPY src/ ./src/
 COPY views/ ./views/
 COPY test/ ./test/
 COPY locales/ ./locales/
+COPY jest.config.js ./jest.config.js
 RUN mkdir media/ log/
     #&& sed -i 's/let \[page\] = await browser.pages();/let page = await browser.newPage();/g' node_modules/puppeteer-real-browser/lib/cjs/index.js
 
