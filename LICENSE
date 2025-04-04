@@ -13,6 +13,8 @@ This license agreement ("Agreement") is a legal agreement between you (either an
 
 Licensor grants you a limited, non-exclusive, non-transferable, and revocable license to use the Software solely for your internal purposes and to contribute to the Software in the ways outlined below. This license is for the specific purpose of evaluating, testing, using, and contributing to the Software on GitHub. No other rights are granted.
 
+"Internal purposes" refers to use within your organization or personal projects, excluding any form of public distribution or monetization, and compliant with the bellow conditions outlined in this Agreement.
+
 ## 2. Permitted Contributions
 
 Licensee is permitted to:
@@ -35,6 +37,8 @@ Licensee shall not:
 - Decompile, reverse engineer, disassemble, or attempt to derive the source code, except as permitted under Section 2.
 - Rent, lease, lend, sell, sublicense, or otherwise make the Software available to any third party.
 - Use the Software in a manner that is unlawful or prohibited by this Agreement.
+- Use the Software for any commercial purposes, including but not limited to selling, licensing, or monetizing the Software or its derivatives.
+- Fail to report any discovered security vulnerabilities to the Licensor in a timely and responsible manner.
 
 ## 4. Ownership
 
@@ -60,6 +64,12 @@ IN NO EVENT SHALL LICENSOR BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONS
 
 This Agreement shall be governed by and construed in accordance with the laws of France. Any disputes arising under or in connection with this Agreement shall be subject to the exclusive jurisdiction of the courts located in France.
 
+For international users, this Agreement shall be interpreted in accordance with French law, and any disputes shall be resolved in French courts.
+
 ## 10. Entire Agreement
 
 This Agreement constitutes the entire agreement between the parties regarding the Software and supersedes any prior or contemporaneous agreements, understandings, or communications, whether written or oral.
+
+## 11. Third-Party Dependencies
+
+The Software may include third-party libraries or dependencies that are subject to their own licenses. Licensee agrees to comply with the terms of such third-party licenses in addition to this Agreement.
