@@ -7,6 +7,7 @@ import { ElementNotFoundError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { ScrapperCollector } from '../collectors/scrapperCollector';
+import { Options } from './puppeteer/browser';
 
 export class Driver {
 
@@ -15,7 +16,7 @@ export class Driver {
     static DEFAULT_DELAY = 0;
 
     static DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
-    static PUPPETEER_CONFIG = {
+    static PUPPETEER_CONFIG: Options = {
         args: ["--start-maximized"],
         turnstile: true,
         headless: false,
@@ -54,7 +55,7 @@ export class Driver {
 
     async open(proxy: Proxy | null = null) {
         // Clone config static object
-        let puppeteerConfig = { ...Driver.PUPPETEER_CONFIG };
+        let puppeteerConfig: Options = { ...Driver.PUPPETEER_CONFIG };
         // If proxy is provided
         if (proxy != null) {
             // Set proxy
@@ -64,6 +65,9 @@ export class Driver {
         else {
             console.log(`Do not use proxy`);
         }
+
+        // Define if remote or local chrome must be used
+        puppeteerConfig.remoteChrome = (this.collector.config.captcha == "datadome");
 
         // Open browser and page
         const connectResult = await connect(puppeteerConfig);

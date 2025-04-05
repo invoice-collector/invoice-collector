@@ -15,7 +15,7 @@ type ConnectResult = {
   page: PageWithCursor;
 };
 
-interface Options {
+export interface Options {
   args?: string[];
   headless?: boolean;
   customConfig?: ChromeLauncher.Options;
@@ -102,7 +102,8 @@ export async function connect({
   });
 
   const browser = await puppeteer.connect({
-    browserURL: chrome.url,
+    browserURL: chrome.wsUrl ? undefined : chrome.url,            // Use browserURL if wsUrl is not available, for local Chrome
+    browserWSEndpoint: chrome.wsUrl ? chrome.wsUrl : undefined,   // Use browserWSEndpoint if wsUrl is available, for remote Chrome
     ...connectOption,
   });
 
