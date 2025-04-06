@@ -24,6 +24,7 @@ declare global {
 // Create server
 const server = new Server();
 const PORT = utils.getEnvVar("PORT");
+const DEBUG_ENABLED = utils.getEnvVar("ENV", "prod") === "debug";
 
 // ---------- BEARER TOKEN NEEDED ----------
 
@@ -173,7 +174,7 @@ function handle_error(e, req, res){
     else {
         console.error(e);
         let reason;
-        if (process.env.ENV === 'debug') {
+        if (DEBUG_ENABLED) {
             reason = e.message;
         }
         else {

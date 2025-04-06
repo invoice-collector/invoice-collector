@@ -74,10 +74,15 @@ export function generateUserAgent()  {
     return userAgent
 }
 
-export function getEnvVar(envVar: string){
+export function getEnvVar(envVar: string, fallback: string | undefined = undefined): string {
     const value = process.env[envVar];
-    if (value === undefined) {
-        throw new Error(`Environment variable ${envVar} is not set. See: https://invoice-collector.com/docs/developers/environment-variables`);
+    // If the value is undefined or empty
+    if (value === undefined || value === "") {
+        // If no fallback is provided, throw an error
+        if (fallback === undefined) {
+            throw new Error(`Environment variable ${envVar} is not set. See: https://invoice-collector.com/docs/developers/environment-variables`);
+        }
+        return fallback
     }
     return value;
 }
