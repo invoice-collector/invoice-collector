@@ -3,7 +3,7 @@ import fs from 'fs';
 import { connect } from './puppeteer/browser';
 import type { PageWithCursor } from "./puppeteer/pageController";
 import { Browser, DownloadPolicy, ElementHandle, KeyInput } from "rebrowser-puppeteer-core";
-import { ElementNotFoundError } from '../error';
+import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { ScrapperCollector } from '../collectors/scrapperCollector';
@@ -172,7 +172,7 @@ export class Driver {
         }
 
         if (raise_exception) {
-            throw new Error(error_message);
+            throw new LoggableError(error_message, this.collector);
         }
         return null;
     }
