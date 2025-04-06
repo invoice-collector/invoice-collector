@@ -72,4 +72,12 @@ export function generateUserAgent()  {
         : 'Macintosh; Intel Mac OS X 10_15_0'
     const userAgent = `Mozilla/5.0 (${osPlatform}) AppleWebKit/${webkitVersion}.36 (KHTML, like Gecko) Chrome/${chromeVersion}.0.3163.100 Safari/${webkitVersion}.36`
     return userAgent
-  }
+}
+
+export function getEnvVar(envVar: string){
+    const value = process.env[envVar];
+    if (value === undefined) {
+        throw new Error(`Environment variable ${envVar} is not set. See: https://invoice-collector.com/docs/developers/environment-variables`);
+    }
+    return value;
+}

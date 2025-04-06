@@ -1,18 +1,13 @@
 import { AbstractChrome } from "./abstractChrome";
+import * as utils from "../../utils";
 
 export class RemoteChrome extends AbstractChrome {
 
     server_port: number;
 
     constructor() {
-        if (!process.env.REMOTE_CHROME_IP) {
-            throw new Error("REMOTE_CHROME_IP environment variable is required");
-        }
-        if (!process.env.REMOTE_CHROME_PORT) {
-            throw new Error("REMOTE_CHROME_PORT environment variable is required");
-        }
-        super(process.env.REMOTE_CHROME_IP);
-        this.server_port = parseInt(process.env.REMOTE_CHROME_PORT);
+        super(utils.getEnvVar("REMOTE_CHROME_IP"));
+        this.server_port = parseInt(utils.getEnvVar("REMOTE_CHROME_PORT"));
     }
 
     async launch(options: any) {

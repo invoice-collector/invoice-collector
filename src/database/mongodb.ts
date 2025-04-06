@@ -3,7 +3,7 @@ import { AbstractDatabase } from "./abstractDatabase";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential } from "../model/credential";
-
+import * as utils from "../utils";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -16,13 +16,9 @@ export class MongoDB extends AbstractDatabase {
     db: Db|null;
 
     constructor(uri) {
-        if (!process.env.DATABASE_MONGODB_NAME) {
-            throw new Error("DATABASE_MONGODB_NAME environment variable is required");
-        }
-
         super();
         this.client = new MongoClient(uri);
-        this.db_name = process.env.DATABASE_MONGODB_NAME;
+        this.db_name = utils.getEnvVar("DATABASE_MONGODB_NAME");
         this.db = null;
     }
 

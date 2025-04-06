@@ -18,12 +18,9 @@ export class RegistryServer {
     private client: AxiosInstance;
 
     private constructor() {
-        if (!process.env.REGISTRY_SERVER_ENDPOINT) {
-            throw new Error("REGISTRY_SERVER_ENDPOINT environment variable is required");
-        }
-
+        const REGISTRY_SERVER_ENDPOINT = utils.getEnvVar("REGISTRY_SERVER_ENDPOINT");
         this.client = axios.create({
-            baseURL: `${process.env.REGISTRY_SERVER_ENDPOINT}/${RegistryServer.VERSION}`
+            baseURL: `${REGISTRY_SERVER_ENDPOINT}/${RegistryServer.VERSION}`
         });
     }
 

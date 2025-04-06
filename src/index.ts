@@ -1,10 +1,10 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
-dotenv.config();
-
 import { StatusError, TermsConditionsError } from "./error"
 import { Server } from "./server"
+import * as utils from "./utils"
+dotenv.config();
 
 // Configure express
 const app = express()
@@ -23,12 +23,7 @@ declare global {
 
 // Create server
 const server = new Server();
-const ENV_VARIABLES = [
-    "PORT",
-    "REGISTRY_SERVER_ENDPOINT",
-    "DATABASE_URI",
-    "SECRET_MANAGER_TYPE"
-]
+const PORT = utils.getEnvVar("PORT");
 
 // ---------- BEARER TOKEN NEEDED ----------
 
@@ -189,21 +184,7 @@ function handle_error(e, req, res){
     }
 }
 
-function has_env_variables(){
-	for(let env_var of ENV_VARIABLES) {
-		if(! (env_var in process.env)) {
-			return false
-		}
-	}
-	return true
-}
-
-//Start
-if(has_env_variables()){
-    app.listen(process.env.PORT, () => {
-        console.log(`App listening on port ${process.env.PORT}`)
-    });
-}
-else {
-    console.log(`In order to start the server, you must set following env variables: ${ENV_VARIABLES.join(', ')}`)
-}
+// Start
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`)
+});

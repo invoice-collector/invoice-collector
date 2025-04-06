@@ -1,10 +1,11 @@
 import { AbstractProxy } from "./abstractProxy";
 import { NoProxy } from "./noProxy";
 import { OxylabProxy } from "./oxylabProxy";
+import * as utils from "../utils";
 
 export class ProxyFactory {
     static getProxy(): AbstractProxy {
-        const type = process.env.PROXY_TYPE;
+        const type = utils.getEnvVar("PROXY_TYPE");
         switch(type) {
             case 'oxylab':
                 return new OxylabProxy();

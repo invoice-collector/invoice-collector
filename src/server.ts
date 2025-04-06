@@ -13,10 +13,11 @@ import { I18n } from 'i18n';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
+import * as utils from './utils';
 
 export class Server {
 
-    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(process.env.OAUTH_TOKEN_VALIDITY_DURATION_MS) || 600000; // 10 minutes, in ms
+    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS"));
     static LOCALES = ['en', 'fr'];
     static DEFAULT_LOCALE = 'en';
     static i18n = new I18n({
