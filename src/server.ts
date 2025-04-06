@@ -29,21 +29,23 @@ export class Server {
         cookie: 'lang'
     });
 
-    secret_manager: AbstractSecretManager;
     tokens: object;
-
+    secret_manager: AbstractSecretManager;
     collection_task: CollectionTask;
 
     constructor() {
+        this.tokens = {}
+
         // Connect to database
         DatabaseFactory.getDatabase().connect();
 
+        // Connect to secret manager
         this.secret_manager = SecretManagerFactory.getSecretManager();
-        this.tokens = {}
 
-        // Load collectors
+        // Load all collectors
         CollectorLoader.load();
 
+        // Start collection task
         this.collection_task = new CollectionTask(this.secret_manager);
 	}
 
