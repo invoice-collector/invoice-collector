@@ -42,6 +42,9 @@ export class Server {
         // Connect to secret manager
         this.secret_manager = SecretManagerFactory.getSecretManager();
 
+        // Check if registery server is reachable
+        RegistryServer.getInstance().ping();
+
         // Load all collectors
         CollectorLoader.load();
 
