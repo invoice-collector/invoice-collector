@@ -36,6 +36,9 @@ export class Server {
     constructor() {
         this.tokens = {}
 
+        // Load all collectors
+        CollectorLoader.load();
+
         // Connect to database
         DatabaseFactory.getDatabase().connect();
 
@@ -44,9 +47,6 @@ export class Server {
 
         // Check if registery server is reachable
         RegistryServer.getInstance().ping();
-
-        // Load all collectors
-        CollectorLoader.load();
 
         // Start collection task
         this.collection_task = new CollectionTask(this.secret_manager);
@@ -235,7 +235,7 @@ export class Server {
         }
 
         // Check if terms and conditions have been accepted
-       user.checkTermsConditions();
+        user.checkTermsConditions();
 
         return { locale: user.locale }
     }
@@ -357,6 +357,27 @@ export class Server {
 
         // Delete credential
         await credential.delete();
+    }
+
+    public async post_feedback(token: any, feedback: string | undefined, email: string | undefined): Promise<void> {
+        //Check if feedback field is missing
+        if(!feedback) {
+            throw new MissingField("feedback");
+        }
+
+        // Get user from token
+        const user = this.get_token_mapping(token);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Check if customer exists
+        if(!customer) {
+            throw new StatusError(`Could not find customer for user with id "${user.id}".`, 400);
+        }
+
+        // Send feedback to registry server
+        await RegistryServer.getInstance().feedback(customer.bearer, feedback, email);
     }
 
     // ---------- NO OAUTH TOKEN NEEDED ----------

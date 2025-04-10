@@ -139,6 +139,19 @@ app.delete('/api/v1/credential/:id', async (req, res) => {
     }
 });
 
+app.post('/api/v1/feedback', async (req, res) => {
+    try {
+        // Send feedback
+        console.log('POST feedback');
+        await server.post_feedback(req.query.token, req.body.feedback, req.body.email);
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // ---------- NO OAUTH TOKEN NEEDED ----------
 
 app.get('/api/v1/collectors', (req, res) => {

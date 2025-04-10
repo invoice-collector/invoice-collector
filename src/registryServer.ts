@@ -95,4 +95,21 @@ export class RegistryServer {
             sentTimestamp: Date.now(),
         };
     }
+
+    async feedback(bearer: string, feedback: string, email: string | undefined) {
+        const response = await this.client.post("/feedback", {
+            feedback,
+            email
+        },
+        {
+            headers: {
+                'Authorization': `Bearer ${bearer}`
+            }
+        });
+
+        // Check response status
+        if (response.status !== 200) {
+            throw new Error(`Could not reach Invoice-Collector server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
+        };
+    }
 }

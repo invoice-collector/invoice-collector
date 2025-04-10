@@ -10,7 +10,14 @@
     "i18n.views.manage.verification-code": "Code de vérification",
 	"i18n.views.manage.verification-code.placeholder": "Code de vérification à 6 chiffres reçu par email",
 	"i18n.views.manage.verification-code.error": "Code de vérification incorrect",
-    
+	"i18n.views.manage.no-collector": "Mon collecteur n'est pas dans la liste",
+	"i18n.views.manage.send-feedback": "Envoyer un retour utilisateur",
+	"i18n.views.manage.feedback": "Retour utilisateur",
+	"i18n.views.manage.feedback.placeholder": "Nouveau collecteurs souhaité, améliorations, bugs, etc.",
+	"i18n.views.manage.feedback.email.placeholder": "Si vous souhaitez être contacté suite à votre retour",
+	"i18n.views.manage.feedback.success": "Merci pour votre retour !",
+	"i18n.views.manage.feedback.error": "Erreur lors de l'envoi du retour",
+
 	"i18n.collectors.all.username": "Utilisateur",
 	"i18n.collectors.all.username.placeholder": "Utilisateur du compte",
 	"i18n.collectors.all.username.error": "Utilisateur incorrect",
