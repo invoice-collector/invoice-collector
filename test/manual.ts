@@ -1,11 +1,11 @@
 import promptSync from 'prompt-sync';
 const prompt = promptSync({});
+import dotenv from 'dotenv';
+dotenv.config();
 import fs from 'fs';
 import { Server } from "../src/server";
 import { CollectorLoader } from '../src/collectors/collectorLoader';
-import dotenv from 'dotenv';
 import { LoggableError } from '../src/error';
-dotenv.config();
 
 (async () => {
     let id;
