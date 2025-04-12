@@ -3,10 +3,11 @@ import fs from 'fs';
 import { connect } from './puppeteer/browser';
 import type { PageWithCursor } from "./puppeteer/pageController";
 import { Browser, DownloadPolicy, ElementHandle, KeyInput } from "rebrowser-puppeteer-core";
-import { ElementNotFoundError } from '../error';
+import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { ScrapperCollector } from '../collectors/scrapperCollector';
+import { Options } from './puppeteer/browser';
 
 export class Driver {
 
@@ -15,7 +16,7 @@ export class Driver {
     static DEFAULT_DELAY = 0;
 
     static DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
-    static PUPPETEER_CONFIG = {
+    static PUPPETEER_CONFIG: Options = {
         args: ["--start-maximized"],
         turnstile: true,
         headless: false,
@@ -54,7 +55,7 @@ export class Driver {
 
     async open(proxy: Proxy | null = null) {
         // Clone config static object
-        let puppeteerConfig = { ...Driver.PUPPETEER_CONFIG };
+        let puppeteerConfig: Options = { ...Driver.PUPPETEER_CONFIG };
         // If proxy is provided
         if (proxy != null) {
             // Set proxy
@@ -64,6 +65,9 @@ export class Driver {
         else {
             console.log(`Do not use proxy`);
         }
+
+        // Define if remote or local chrome must be used
+        puppeteerConfig.remoteChrome = (this.collector.config.captcha == "datadome");
 
         // Open browser and page
         const connectResult = await connect(puppeteerConfig);
@@ -107,8 +111,7 @@ export class Driver {
     }
 
     // GOTO
-
-    async goto(url, network_request: string = ""): Promise<any> {
+    async goto(url, network_request: string = ""): Promise<{requestBody: any, responseBody: any}> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -127,8 +130,9 @@ export class Driver {
 
                 this.page.on('response', async (response) => {
                     if (response.url().includes(network_request) && response.status() === 200) {
-                        const json = await response.json();
-                        resolve(json);
+                        const requestBody = JSON.parse(response.request().postData() || '{}');
+                        const responseBody = await response.json();
+                        resolve({requestBody, responseBody});
                     }
                 });
             });
@@ -145,6 +149,7 @@ export class Driver {
         else {
             // Navigate to the page
             await this.page.goto(url, {waitUntil: 'networkidle0'});
+            return {requestBody: null, responseBody: null};
         }
     }
 
@@ -167,7 +172,7 @@ export class Driver {
         }
 
         if (raise_exception) {
-            throw new Error(error_message);
+            throw new LoggableError(error_message, this.collector);
         }
         return null;
     }

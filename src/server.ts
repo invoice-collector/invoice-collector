@@ -13,10 +13,11 @@ import { I18n } from 'i18n';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
+import * as utils from './utils';
 
 export class Server {
 
-    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(process.env.OAUTH_TOKEN_VALIDITY_DURATION_MS) || 600000; // 10 minutes, in ms
+    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS"));
     static LOCALES = ['en', 'fr'];
     static DEFAULT_LOCALE = 'en';
     static i18n = new I18n({
@@ -28,21 +29,26 @@ export class Server {
         cookie: 'lang'
     });
 
-    secret_manager: AbstractSecretManager;
     tokens: object;
-
+    secret_manager: AbstractSecretManager;
     collection_task: CollectionTask;
 
     constructor() {
+        this.tokens = {}
+
+        // Load all collectors
+        CollectorLoader.load();
+
         // Connect to database
         DatabaseFactory.getDatabase().connect();
 
+        // Connect to secret manager
         this.secret_manager = SecretManagerFactory.getSecretManager();
-        this.tokens = {}
 
-        // Load collectors
-        CollectorLoader.load();
+        // Check if registery server is reachable
+        RegistryServer.getInstance().ping();
 
+        // Start collection task
         this.collection_task = new CollectionTask(this.secret_manager);
 	}
 
@@ -229,7 +235,7 @@ export class Server {
         }
 
         // Check if terms and conditions have been accepted
-       user.checkTermsConditions();
+        user.checkTermsConditions();
 
         return { locale: user.locale }
     }
@@ -351,6 +357,27 @@ export class Server {
 
         // Delete credential
         await credential.delete();
+    }
+
+    public async post_feedback(token: any, feedback: string | undefined, email: string | undefined): Promise<void> {
+        //Check if feedback field is missing
+        if(!feedback) {
+            throw new MissingField("feedback");
+        }
+
+        // Get user from token
+        const user = this.get_token_mapping(token);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Check if customer exists
+        if(!customer) {
+            throw new StatusError(`Could not find customer for user with id "${user.id}".`, 400);
+        }
+
+        // Send feedback to registry server
+        await RegistryServer.getInstance().feedback(customer.bearer, feedback, email);
     }
 
     // ---------- NO OAUTH TOKEN NEEDED ----------

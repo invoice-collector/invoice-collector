@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('return-to-credentials-button').addEventListener('click', showCredentials);
     document.getElementById('return-to-companies-button').addEventListener('click', showCompanies);
     document.getElementById('add-credential-form').addEventListener('submit', addCredential);
+    document.getElementById('feedback-form').addEventListener('submit', sendFeedback);
 
     getCollectors()
         .then(c => {
@@ -64,6 +65,7 @@ async function showCredentials() {
     document.getElementById('credentials-container').hidden = false;
     document.getElementById('companies-container').hidden = true;
     document.getElementById('form-container').hidden = true;
+    document.getElementById('feedback-container').hidden = true;
 
     const response = await fetch(`credentials?token=${token}`);
     const credentials = await response.json();
@@ -93,6 +95,7 @@ async function showCompanies() {
     document.getElementById('credentials-container').hidden = true;
     document.getElementById('companies-container').hidden = false;
     document.getElementById('form-container').hidden = true;
+    document.getElementById('feedback-container').hidden = true;
 
     const companyList = document.getElementById('companies-list');
     companyList.innerHTML = '';
@@ -116,6 +119,7 @@ function showForm(company) {
     document.getElementById('credentials-container').hidden = true;
     document.getElementById('companies-container').hidden = true;
     document.getElementById('form-container').hidden = false;
+    document.getElementById('feedback-container').hidden = true;
     
     // Update the form with the company's information
     document.getElementById('company-logo').src = company.logo;
@@ -192,4 +196,42 @@ async function deleteCredential(id) {
     });
 
     showCredentials();
+}
+
+async function showFeedback() {
+    document.getElementById('credentials-container').hidden = true;
+    document.getElementById('companies-container').hidden = true;
+    document.getElementById('form-container').hidden = true;
+    document.getElementById('feedback-container').hidden = false;
+    document.getElementById('feedback-response-success').hidden = true;
+    document.getElementById('feedback-response-error').hidden = true;
+}
+
+async function sendFeedback(event) {
+    event.preventDefault();
+
+    // Convert form data to object
+    const formData = new FormData(event.target);
+    let params = {};
+    formData.forEach((value, key) => {
+        params[key] = value;
+    });
+
+    const response = await fetch(`feedback?token=${token}`, {
+        method: 'POST',
+        body: JSON.stringify({...params}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    document.getElementById('feedback-form').reset();
+
+    // Check if the response is ok
+    if (!response.ok) {
+        document.getElementById('feedback-response-error').hidden = false;
+    }
+    else {
+        document.getElementById('feedback-response-success').hidden = false;
+    }
 }

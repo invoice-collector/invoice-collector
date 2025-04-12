@@ -27,43 +27,59 @@ Use the [docker-compose.yml](https://github.com/invoice-collector/invoice-collec
 curl https://raw.githubusercontent.com/invoice-collector/invoice-collector/refs/heads/master/docker-compose.yml >> docker-compose.yml
 ```
 
-2. Edit the `docker-compose.yml` and set the values for the env variables:
-    - `SECRET_MANAGER_BITWARDEN_ACCESS_TOKEN`
-    - `SECRET_MANAGER_BITWARDEN_ORGANIZATION_ID`
-    - `SECRET_MANAGER_BITWARDEN_PROJECT_ID`
-    - `LOG_SERVER_ACCESS_TOKEN`
+2. Edit the `docker-compose.yml` and set the values for the env variables.
 
 3. Build and run the container
 
-```
-# Run the container*
-sudo docker compose up --build
+```bash
+# Run the container
+sudo docker compose up -d
 ```
 
 <!-- ## Usage -->
 ## Contribution
 
 There are two ways you can contribute to Invoice-Collector:
-- [Open a new issue to report a bug are request a new feature](https://github.com/invoice-collector/invoice-collector/issues/new/choose)
+- [Open a new issue to report a bug or request a new feature](https://github.com/invoice-collector/invoice-collector/issues/new/choose)
 - Create a new collector for the benefit of all
 
-Here is how to run the docker container on your local machine.
+## Developers
+
+[Full documentation available on the website.](https://invoice-collector.com/docs/)
+
+Here is how to configure the project on your local machine.
+
+- Clone the repo
+- Install Google Chrome
+- Create a `.env` file with [all the required variables](https://invoice-collector.com/docs/developers/environment-variables)
+
+**Run a manual test**
+```bash
+npm run test.manual
+# Or
+npm run test.manual <collector_id>
+# Or
+npm run test.manual <collector_id> <first_param>
+# Or
+npm run test.manual <collector_id> <first_param> <second_param> ...
+```
+
+**Run a automatic test**
+```bash
+npm run test.auto <collector_id>
+```
+
+**Run on your local machine**
 
 ```bash
-# Clone the repo
-git clone https://github.com/invoice-collector/invoice-collector.git
+npm run start
+```
 
-# Enter the folder
-cd invoice-collector
-
-# Create a .env file with your values
-echo "SECRET_MANAGER_BITWARDEN_ACCESS_TOKEN=<TBD>" >> .env
-echo "SECRET_MANAGER_BITWARDEN_ORGANIZATION_ID=<TBD>" >> .env
-echo "SECRET_MANAGER_BITWARDEN_PROJECT_ID=<TBD>" >> .env
-echo "LOG_SERVER_ACCESS_TOKEN=<TBD>" >> .env
-
-# Run the debug container
+**Run the debug container**
+```bash
 docker-compose -f docker-compose-debug.yml up --build
 ```
+
+You can then use the postman collection (_available soon_) to query the dev environment.
 
 <!-- ## FAQ -->

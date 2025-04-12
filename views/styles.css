@@ -7,7 +7,7 @@ body {
 
 .container {
     max-width: 600px;
-    margin: 50px auto;
+    margin: 50px auto 0px auto;
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -175,4 +175,39 @@ input {
 
 .company-item > div > p {
     margin: 0px;
+}
+
+/* FEEDBACK */
+
+#send-feedback-button {
+    color: #000;
+    font-style: italic;
+    font-size: small;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+#feedback-form > textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.feedback-response {
+    font-size: small;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.feedback-response-error {
+    color: red;
+}
+
+.feedback-response-success {
+    color: green;
+}
+
+.no-collector-button {
+    width: 100%;
+    margin-top: 50px;
 }

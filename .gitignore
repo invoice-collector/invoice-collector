@@ -3,4 +3,5 @@ mongodb/data/
 dist/
 media/
 coverage/
+test/results/
 .env

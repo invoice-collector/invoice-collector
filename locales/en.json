@@ -10,6 +10,13 @@
     "i18n.views.manage.verification-code": "Verification code",
 	"i18n.views.manage.verification-code.placeholder": "6 digits verification code received by email",
 	"i18n.views.manage.verification-code.error": "Incorrect verification code",
+	"i18n.views.manage.no-collector": "My collector is not in the list",
+	"i18n.views.manage.send-feedback": "Send a user feedback",
+	"i18n.views.manage.feedback": "User feedback",
+	"i18n.views.manage.feedback.placeholder": "New collectors wanted, improvements, bugs, etc.",
+	"i18n.views.manage.feedback.email.placeholder": "If you want to be contacted after your feedback",
+	"i18n.views.manage.feedback.success": "Thank you for your feedback!",
+	"i18n.views.manage.feedback.error": "Error sending feedback",
     
 	"i18n.collectors.all.username": "Username",
 	"i18n.collectors.all.username.placeholder": "Username of the account",

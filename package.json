@@ -7,6 +7,8 @@
     "start": "ts-node --transpile-only src/index.ts",
     "test.manual": "ts-node test/manual.ts",
     "test.auto": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/auto.spec.ts",
+    "test.fingerprints": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/fingerprints.spec.ts",
+    "test.antibot": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/antibots.spec.ts",
     "debug": "nodemon --inspect=0.0.0.0:9229 --signal SIGINT --nolazy -L src/index.ts"
   },
   "dependencies": {

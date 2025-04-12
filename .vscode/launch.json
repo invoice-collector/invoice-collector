@@ -8,7 +8,7 @@
             "name": "Debug Collector",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceFolder}/test/test.ts",
+            "program": "${workspaceFolder}/test/manual.ts",
             "runtimeArgs": ["-r", "ts-node/register"],
             "preLaunchTask": "tsc: build - tsconfig.json",
             "localRoot": "${workspaceFolder}",

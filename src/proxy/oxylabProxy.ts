@@ -1,4 +1,5 @@
 import { AbstractProxy, Proxy, Location } from "./abstractProxy";
+import * as utils from "../utils";
 
 export class OxylabProxy extends AbstractProxy {
 
@@ -8,16 +9,9 @@ export class OxylabProxy extends AbstractProxy {
     password: string;
 
     constructor() {
-        if (!process.env.PROXY_OXYLAB_USERNAME) {
-            throw new Error("PROXY_OXYLAB_USERNAME environment variable is required");
-        }
-        if (!process.env.PROXY_OXYLAB_PASSWORD) {
-            throw new Error("PROXY_OXYLAB_PASSWORD environment variable is required");
-        }
-
         super();
-        this.username = process.env.PROXY_OXYLAB_USERNAME || "";
-        this.password = process.env.PROXY_OXYLAB_PASSWORD || "";
+        this.username = utils.getEnvVar("PROXY_OXYLAB_USERNAME");
+        this.password = utils.getEnvVar("PROXY_OXYLAB_PASSWORD");
     }
 
     get(location: Location | null): Proxy | null {

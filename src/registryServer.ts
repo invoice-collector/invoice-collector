@@ -18,12 +18,20 @@ export class RegistryServer {
     private client: AxiosInstance;
 
     private constructor() {
-        if (!process.env.REGISTRY_SERVER_ENDPOINT) {
-            throw new Error("REGISTRY_SERVER_ENDPOINT environment variable is required");
-        }
-
+        const REGISTRY_SERVER_ENDPOINT = utils.getEnvVar("REGISTRY_SERVER_ENDPOINT");
         this.client = axios.create({
-            baseURL: `${process.env.REGISTRY_SERVER_ENDPOINT}/${RegistryServer.VERSION}`
+            baseURL: `${REGISTRY_SERVER_ENDPOINT}/${RegistryServer.VERSION}`
+        });
+    }
+
+    ping() {
+        this.client.get("/ping")
+        .then(response => {
+            console.log("Pong! Invoice-Collector server successfully reached");
+        })
+        .catch(error => {
+            console.error(`Could not reach Invoice-Collector server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}\n
+                You are still able to use the product but some features may not work as expected.`);
         });
     }
 
@@ -85,6 +93,23 @@ export class RegistryServer {
         return {
             verificationCode,
             sentTimestamp: Date.now(),
+        };
+    }
+
+    async feedback(bearer: string, feedback: string, email: string | undefined) {
+        const response = await this.client.post("/feedback", {
+            feedback,
+            email
+        },
+        {
+            headers: {
+                'Authorization': `Bearer ${bearer}`
+            }
+        });
+
+        // Check response status
+        if (response.status !== 200) {
+            throw new Error(`Could not reach Invoice-Collector server at ${response.request.res?.responseUrl || response.request._currentUrl}. Status code: ${response.request?.status || response.status}`);
         };
     }
 }
