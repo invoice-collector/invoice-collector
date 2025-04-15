@@ -27,6 +27,8 @@ export abstract class AbstractDatabase {
 
     // USER
     
+    abstract getUsers(customer_id: string): Promise<User[]>;
+
     abstract getUser(user_id: string): Promise<User|null>;
 
     abstract getUserFromCustomerIdAndRemoteId(customer_id: string, remote_id: string): Promise<User|null>;
