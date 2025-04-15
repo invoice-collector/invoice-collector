@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { CronJob } from 'cron';
 import { IcCredential, State } from '../model/credential';
 import { LoggableError, AuthenticationError, MaintenanceError, DesynchronizationError } from '../error';
 import { RegistryServer } from '../registryServer';
 import { AbstractSecretManager } from '../secret_manager/abstractSecretManager';
 import { CollectorLoader } from '../collectors/collectorLoader';
+import { CallbackHandler } from '../callback/callback';
 
 export class CollectionTask {
     private secret_manager: AbstractSecretManager;
@@ -113,18 +113,13 @@ export class CollectionTask {
                         console.log(`Sending invoice ${index + 1}/${newInvoices.length} to callback`);
 
                         try {
-                            await axios.post(customer.callback, {
-                                type: "invoice",
-                                collector: credential.collector_id,
-                                remote_id: user.remote_id,
-                                invoice
-                            });
-                            console.log("Callback succesfully reached");
+                            // Send invoice to callback
+                            const callback = new CallbackHandler(customer);
+                            callback.sendInvoice(credential.collector_id, user.remote_id, invoice);
 
                             // Add invoice to credential only if callback successfully reached
                             credential.addInvoice(invoice);
                         } catch (error) {
-                            console.error(`Could not reach callback ${customer.callback}`);
                             console.error(error);
                         }
                     }
