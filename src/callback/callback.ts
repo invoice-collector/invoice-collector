@@ -21,14 +21,14 @@ export class CallbackHandler {
             
             // Check if response is successful
             if (response.status !== 200) {
-                throw new StatusError(`Callback request failed with status code ${response.status}`, 400);
+                throw new StatusError(`Callback request failed with status code ${response.status}`, 500);
             }
             console.log(`Callback ${this.callback} successfully reached`);
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                throw new StatusError(`Callback request failed with status code ${error.status}`, 400, { cause: error });
+                throw new StatusError(`Callback request failed with status code ${error.status}`, 500, { cause: error });
             }
-            throw new StatusError(`Callback request failed: ${error}`, 400, { cause: error });
+            throw new StatusError(`Callback request failed: ${error}`, 500, { cause: error });
         }
     }
 }
