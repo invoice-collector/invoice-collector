@@ -83,6 +83,19 @@ app.post('/api/v1/collect', async (req, res) => {
     }
 });
 
+app.get('/api/v1/test_callback', async (req, res) => {
+    try {
+        // Test callback
+        console.log('GET test_callback');
+        const response = await server.get_test_callback(req.headers.authorization);
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // ---------- OAUTH TOKEN NEEDED ----------
 
 app.get('/api/v1/user', async (req, res) => {

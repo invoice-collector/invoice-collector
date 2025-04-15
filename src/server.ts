@@ -14,6 +14,7 @@ import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
 import * as utils from './utils';
+import { CallbackHandler } from './callback/callback';
 
 export class Server {
 
@@ -136,7 +137,7 @@ export class Server {
         return { token }
     }
 
-    async delete_user(bearer: string |  undefined, remote_id: string |  undefined) {
+    async delete_user(bearer: string | undefined, remote_id: string | undefined) {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -170,7 +171,7 @@ export class Server {
         }
     }
 
-    async post_collect(bearer: string |  undefined, id: string |  undefined) {
+    async post_collect(bearer: string | undefined, id: string | undefined) {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -210,6 +211,31 @@ export class Server {
 
         // Update credential in database
         await credential.commit();
+    }
+
+    async get_test_callback(bearer: string | undefined): Promise<void> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        // Check if customer exists
+        if(!customer) {
+            throw new AuthenticationBearerError();
+        }
+
+        // Get users from customer
+        const users = await customer.getUsers();
+
+        // Get fake invoice datas
+        let {collector_id, remote_id, invoice} = utils.createFakeInvoice();
+
+        // Get remote_id from first user if exists
+        if(users.length > 0) {
+            remote_id = users[0].remote_id;
+        }
+
+        // Send invoice to callback
+        const callback = new CallbackHandler(customer);
+        await callback.sendInvoice(collector_id, remote_id, invoice);
     }
 
     // ---------- OAUTH TOKEN NEEDED ----------
