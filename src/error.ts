@@ -126,6 +126,17 @@ export class UnfinishedCollectorError extends LoggableError {
     }
 }
 
+export class NoInvoiceFoundError extends LoggableError {
+    constructor(collector: AbstractCollector, opts = {}) {
+        super(
+            `No invoice found, collector may be broken`,
+            collector,
+            opts
+        );
+        this.name = this.constructor.name;
+    }
+}
+
 export class DesynchronizationError extends AuthenticationError {
     constructor(credential_id: string, collector: AbstractCollector, opts = {}) {
         super(

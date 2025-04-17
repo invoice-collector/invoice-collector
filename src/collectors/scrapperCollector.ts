@@ -1,6 +1,6 @@
 import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
 import { Driver } from '../driver/driver';
-import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError } from '../error';
+import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -75,6 +75,11 @@ export abstract class ScrapperCollector extends AbstractCollector {
             // If invoices is undefined, collector is unfinished
             if (invoices === undefined) {
                 throw new UnfinishedCollectorError(this);
+            }
+
+            // If invoices is empty, collector may be broken
+            if (invoices.length === 0) {
+                throw new NoInvoiceFoundError(this);
             }
 
             return invoices;

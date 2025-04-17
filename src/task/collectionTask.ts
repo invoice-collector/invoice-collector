@@ -1,6 +1,6 @@
 import { CronJob } from 'cron';
 import { IcCredential, State } from '../model/credential';
-import { LoggableError, AuthenticationError, MaintenanceError, DesynchronizationError } from '../error';
+import { LoggableError, AuthenticationError, MaintenanceError, DesynchronizationError, NoInvoiceFoundError } from '../error';
 import { RegistryServer } from '../registryServer';
 import { AbstractSecretManager } from '../secret_manager/abstractSecretManager';
 import { CollectorLoader } from '../collectors/collectorLoader';
@@ -108,9 +108,9 @@ export class CollectionTask {
             if(newInvoices.length > 0) {
                 // Loop through invoices
                 for (const [index, invoice] of newInvoices.entries()) {
-                    // If not the first collect
-                    if (!first_collect) {
-                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} to callback`);
+                    // If not the first collect and invoice is more recent than the credential creation date
+                    if (!first_collect && credential.create_timestamp < invoice.timestamp) {
+                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                         try {
                             // Send invoice to callback
@@ -146,8 +146,25 @@ export class CollectionTask {
             credential.computeNextCollect();
         }
         catch (err) {
+            // If error is NoInvoiceFoundError
+            if (err instanceof NoInvoiceFoundError) {
+                console.warn(`Invoice collection for credential ${credential_id} succeed BUT no invoice found, collector may be broken`);
+                this.registry_server.logError(customer.bearer, err);
+
+                // If credential exists
+                if (credential) {
+                    // Update credential
+                    credential.state = State.SUCCESS;
+
+                    // Update last collect
+                    credential.last_collect_timestamp = Date.now();
+
+                    // Schedule next collect in 1 week
+                    credential.next_collect_timestamp = credential.last_collect_timestamp + IcCredential.ONE_DAY_MS;
+                }
+            }
             // If error is LoggableError
-            if(err instanceof LoggableError) {
+            else if(err instanceof LoggableError) {
                 console.warn(`Invoice collection for credential ${credential_id} has failed: ${err.message}`);
                 this.registry_server.logError(customer.bearer, err);
 
