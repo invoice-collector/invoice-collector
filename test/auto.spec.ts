@@ -1,11 +1,10 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import { expect, describe } from '@jest/globals';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { Server } from '../src/server';
 import { AuthenticationError } from '../src/error';
-import { ApiCollector } from '../src/collectors/apiCollector';
 import { ScrapperCollector } from '../src/collectors/scrapperCollector';
-import dotenv from 'dotenv';
-dotenv.config();
 
 const ids = process.argv.slice(3);
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds

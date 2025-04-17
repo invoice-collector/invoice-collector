@@ -1,11 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import fs from 'fs';
 import path from 'path';
 import { expect, describe, beforeAll, afterAll } from '@jest/globals';
-import dotenv from 'dotenv';
 import { OxylabProxy } from '../src/proxy/oxylabProxy';
 import { Driver } from '../src/driver/driver';
 import { LeroyMerlinCollector } from '../src/collectors/leroy_merlin/leroy_merlin';
-dotenv.config();
 
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
 const RESULTS_FOLDER = path.join(__dirname, 'results', `fingerprints.${new Date().toISOString().replace(/[:.]/g, '-')}`);
@@ -63,7 +63,7 @@ describe(`Test fingerprints`, () => {
         expect(score).toBeGreaterThanOrEqual(0.6);
     }, ONE_MINUTE);
 
-    // See also https://deviceandbrowserinfo.com/info_device
+    /*// See also https://deviceandbrowserinfo.com/info_device
     it('Device and browser info', async () => {
         // Get fingerprint
         const request = await driver.goto("https://deviceandbrowserinfo.com/are_you_a_bot", "/fingerprint_bot_test");
