@@ -9,7 +9,7 @@ export class AmazonCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "2",
+        version: "3",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -82,9 +82,6 @@ export class AmazonCollector extends ScrapperCollector {
     }
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
-        // Go to order history
-        await driver.page?.goto("https://www.amazon.fr/gp/css/order-history");
-
         // Get all order ids
         const orders = await driver.get_all_elements(AmazonSelectors.CONTAINER_ORDER, false, 5000);
 
