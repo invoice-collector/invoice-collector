@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { Location } from '../proxy/abstractProxy';
-import { CollectorError } from '../error';
-import { Server } from '../server';
 import { Secret } from '../secret_manager/abstractSecretManager';
+import { Progress } from '../collect/progress';
 
 export type Config = {
     id: string,
@@ -73,7 +72,7 @@ export abstract class AbstractCollector {
 
     //NOT IMPLEMENTED
 
-    abstract _collect(secret: Secret, location: Location | null): Promise<CollectResult>;
+    abstract _collect(progress: Progress, secret: Secret, location: Location | null, twofa_promise: Promise<string>): Promise<CollectResult>;
 
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
 

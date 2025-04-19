@@ -130,10 +130,38 @@ app.post('/api/v1/credential', async (req, res) => {
     try {
         // Save credential
         console.log(`POST credential`);
-        await server.post_credential(req.query.token, req.body.collector, req.body.params, req.headers['x-user-ip']);
+        const response = await server.post_credential(req.query.token, req.body.collector, req.body.params, req.headers['x-user-ip']);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+app.post('/api/v1/credential/:id/2fa', async (req, res) => {
+    try {
+        // Post 2fa
+        console.log(`POST 2fa ${req.params.id}`);
+        await server.post_credential_2fa(req.query.token, req.params.id, req.body.code);
 
         // Build response
         res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+app.get('/api/v1/credential/:id/status', async (req, res) => {
+    try {
+        // Get credential status
+        console.log(`GET credential status ${req.params.id}`);
+        const response = await server.get_credential_status(req.query.token, req.params.id);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
     } catch (e) {
         handle_error(e, req, res);
     }

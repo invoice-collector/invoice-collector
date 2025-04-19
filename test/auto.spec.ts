@@ -38,7 +38,7 @@ for (const collector of CollectorLoader.getAll()) {
                     cookies: null,
                 };
                 const collect = new Collect("")
-                await expect(collect.collect_new_invoices(collector, secret, true, [], Server.DEFAULT_LOCALE, null))
+                await expect(collect.collect_new_invoices(collector, secret, true, [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
@@ -51,7 +51,7 @@ for (const collector of CollectorLoader.getAll()) {
                     cookies: null,
                 };
                 const collect = new Collect("")
-                await expect(collect.collect_new_invoices(collector, secret, true, [], Server.DEFAULT_LOCALE, null))
+                await expect(collect.collect_new_invoices(collector, secret, true, [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 

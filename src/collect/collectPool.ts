@@ -17,15 +17,19 @@ export class CollectPool {
         this.collects = new Map();
     }
 
-    public registerCollect(collectId: string, collect: Collect): void {
-        this.collects.set(collectId, collect);
+    public registerCollect(id: string, collect: Collect): void {
+        this.collects.set(id, collect);
     }
 
-    public unregisterCollect(collectId: string): void {
-        this.collects.delete(collectId);
+    public unregisterCollect(id: string): void {
+        this.collects.delete(id);
     }
 
-    public isCollectInProgress(collectId: string): boolean {
-        return this.collects.has(collectId);
+    public get(id: string): Collect | undefined {
+        return this.collects.get(id);
+    }
+
+    public has(id: string): boolean {
+        return this.collects.has(id);
     }
 }

@@ -5,6 +5,7 @@ import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
+import { Progress } from "../collect/progress";
 
 export type ScrapperConfig = {
     name: string,
@@ -41,7 +42,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = null;
     }
 
-    async _collect(secret: Secret, location: Location | null): Promise<CollectResult> {
+    async _collect(progress: Progress, secret: Secret, location: Location | null, twofa_promise: Promise<string>): Promise<CollectResult> {
         // Get proxy
         const proxy = this.config.useProxy ? ProxyFactory.getProxy().get(location) : null;
 
@@ -59,7 +60,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
         try {
             // Check if website is in maintenance
-            const is_in_maintenance = await this.is_in_maintenance(this.driver, secret.params)
+            const is_in_maintenance = await this.is_in_maintenance(this.driver)
             if (is_in_maintenance) {
                 await this.driver.close()
                 throw new MaintenanceError(this);
@@ -70,17 +71,42 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
             // If user is not logged in, try to login
             if (!is_logged_in) {
-                console.log("User is not logged in, trying to login...")
+                // Set progress step to logging in
+                progress.setStep(Progress.STEP_1_LOGGING_IN);
+
+                console.log("User is not logged in, logging in...")
                 const login_error = await this.login(this.driver, secret.params)
 
                 // Check if not authenticated
                 if (login_error) {
                     throw new AuthenticationError(login_error, this);
                 }
+
+                // Check if 2fa is required
+                const is_2fa = await this.is_2fa(this.driver)
+
+                // If 2fa is required, 
+                if (is_2fa) {
+                    // Set progress step to 2fa
+                    progress.setStep(Progress.STEP_2_2FA);
+
+                    console.log("2FA is required, performing 2FA...")
+                    const twofa_error = await this.twofa(this.driver, secret.params, twofa_promise)
+
+                    // Check if 2fa error
+                    if (twofa_error) {
+                        throw new AuthenticationError(twofa_error, this);
+                    }
+                }
+
+                console.log("User is successfully logged in")
             }
             else {
                 console.log("User is successfully logged in using cookies")
             }
+
+            // Set progress step to collecting
+            progress.setStep(Progress.STEP_3_COLLECTING);
 
             // Collect invoices
             const invoices = await this.collect(this.driver, secret.params)
@@ -181,13 +207,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
     //NOT IMPLEMENTED
 
-    abstract login(driver: Driver, params: any): Promise<string | void>;
-
-    abstract collect(driver: Driver, params: any): Promise<Invoice[] | void>;
-
-    abstract download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice | void>;
-
-    async is_in_maintenance(driver: Driver, params: any): Promise<boolean>{
+    async is_in_maintenance(driver: Driver): Promise<boolean>{
         //Assume the website is not in maintenance
         return false;
     }
@@ -196,6 +216,21 @@ export abstract class ScrapperCollector extends AbstractCollector {
         // If user is logged in, the URL should be equal to the entry URL
         return driver.url() === this.config.entryUrl;
     }
+
+    abstract login(driver: Driver, params: any): Promise<string | void>;
+
+    async is_2fa(driver: Driver): Promise<boolean>{
+        //Assume the collector does not implement 2FA
+        return false;
+    }
+
+    async twofa(driver: Driver, params: any, twofa_promise: Promise<string>): Promise<string | void> {
+        //Assume the collector does not implement 2FA
+    }
+
+    abstract collect(driver: Driver, params: any): Promise<Invoice[] | void>;
+
+    abstract download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice | void>;
 
     // DOWNLOAD METHODS
 

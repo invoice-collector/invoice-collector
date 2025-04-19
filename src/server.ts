@@ -15,6 +15,9 @@ import { AbstractCollector, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
 import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
+import { CollectPool } from './collect/collectPool';
+import { Progress, Status } from './collect/progress';
+import { Collect } from './collect/collect';
 
 export class Server {
 
@@ -289,22 +292,22 @@ export class Server {
         });
     }
 
-    async post_credential(token: any, collector_id: string | undefined, params: any | undefined, ip: string | string[] | undefined): Promise<void> {
+    async post_credential(token: any, collector_id: string | undefined, params: any | undefined, ip: string | string[] | undefined): Promise<{id: string}> {
         // Get user from token
          const user = this.get_token_mapping(token);
 
+         //Check if id field is missing
+         if(!collector_id) {
+             throw new MissingField("collector");
+         }
+ 
+         //Check if params field is missing
+         if(!params) {
+             throw new MissingField("params");
+         }
+
          // Check if terms and conditions have been accepted
         user.checkTermsConditions();
-
-        //Check if id field is missing
-        if(!collector_id) {
-            throw new MissingField("collector");
-        }
-
-        //Check if params field is missing
-        if(!params) {
-            throw new MissingField("params");
-        }
 
         // Get collector from id
         const collector = this.get_collector(collector_id);
@@ -355,11 +358,67 @@ export class Server {
             secret_manager_id
         );
 
-        // Compute next collect
-        credential.computeNextCollect();
-
         // Create credential in database
         await credential.commit();
+
+        // Start collect
+        const collect = new Collect(credential.id)
+        // Do not wait for promise to resolve
+        collect.start();
+
+        // Return credential_id
+        return {id: credential.id};
+    }
+
+    async post_credential_2fa(token: any, id: string, code: string | undefined): Promise<void> {
+        // Get user from token
+         const user = this.get_token_mapping(token);
+
+         // Check code id field is missing
+         if(!code) {
+            throw new MissingField("code");
+        }
+
+         // Check if terms and conditions have been accepted
+        user.checkTermsConditions();
+
+        // Get collect from id
+        const collect = await CollectPool.getInstance().get(id);
+
+        // Check if collect exists
+        if (!collect) {
+            throw new StatusError(`No collect in progress for credential "${id}".`, 400);
+        }
+        
+        // Resolve collect promise and pass the code to the collector
+        collect.twofa_resolve(code);
+    }
+
+    async get_credential_status(token: any, id: string): Promise<Status> {
+        // Get user from token
+         const user = this.get_token_mapping(token);
+
+         // Check if terms and conditions have been accepted
+        user.checkTermsConditions();
+
+        // Get credential from id
+        const credential = await user.getCredential(id);
+
+        // Check if credential exists
+        if (!credential) {
+            throw new StatusError(`Credential with id "${id}" not found.`, 400);
+        }
+
+        // Check if credential belongs to user
+        if (credential.user_id != user.id) {
+            throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
+        }
+
+        // Get current collect
+        const collect = CollectPool.getInstance().get(credential.id);
+
+        // Get collect status
+        return collect?.progress.getStatus() || Progress.STATUS_DEFAULT;
     }
 
     async delete_credential(token: any, id: string): Promise<void> {

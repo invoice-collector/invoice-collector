@@ -62,7 +62,7 @@ import { Collect } from '../src/collect/collect';
 
         // Collect invoices
         const collect = new Collect("")
-        const { invoices, cookies } = await collect.collect_new_invoices(collector, secret, true, [], Server.DEFAULT_LOCALE, {country: "FR", lat: '', lon: ''});
+        const { invoices, cookies } = await collect.collect_new_invoices(collector, secret, true, [], {country: "FR", lat: '', lon: ''});
         console.log(`${invoices.length} invoices downloaded`);
 
         for (const invoice of invoices) {
@@ -76,6 +76,9 @@ import { Collect } from '../src/collect/collect';
             }
         }
     } catch (error) {
+        if (error instanceof Error) {
+            error.message = Server.i18n.__({ phrase: error.message, locale: Server.DEFAULT_LOCALE });
+        }
         console.error(error);
         if (error instanceof LoggableError) {
             // Save screenshot if exists

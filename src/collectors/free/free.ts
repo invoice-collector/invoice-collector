@@ -23,7 +23,7 @@ export class FreeCollector extends ScrapperCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://subscribe.free.fr/login/",
+        entryUrl: "https://adsl.free.fr/facture_liste.pl",
         useProxy: false, // TODO: Proxy is not compatible with Free
     }
 

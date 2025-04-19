@@ -3,24 +3,38 @@ import { AbstractCollector, CompleteCollectResult, CompleteInvoice } from "../co
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, CollectorError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential, State } from "../model/credential";
+import { User } from "../model/user";
 import { Location } from "../proxy/abstractProxy";
 import { RegistryServer } from "../registryServer";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { Server } from "../server";
 import { CollectPool } from "./collectPool";
+import { Progress } from "./progress";
 
 export class Collect {
 
+    static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 2 minutes
+
     credential_id: string;
+    progress: Progress;
+    twofa_promise: Promise<string>;
+    twofa_resolve: ( value: string ) => void;
 
     constructor(credential_id: string) {
         this.credential_id = credential_id;
+        this.progress = new Progress();
+        let twofa_resolve;
+        this.twofa_promise = new  Promise((resolve, reject) => {
+            twofa_resolve = resolve;
+            setTimeout(reject, Collect.TWOFA_TIMEOUT_MS)
+        });
+        this.twofa_resolve = twofa_resolve;
     }
 
     async start(): Promise<void> {
         // Check if a collect is in progress for this credential
-        if (CollectPool.getInstance().isCollectInProgress(this.credential_id)) {
+        if (CollectPool.getInstance().has(this.credential_id)) {
             throw new Error(`A collect is already in progress for credential ${this.credential_id}`);
         }
         
@@ -28,7 +42,9 @@ export class Collect {
         CollectPool.getInstance().registerCollect(this.credential_id, this);
 
         let credential: IcCredential|null = null;
+        let user: User|null = null;
         let customer;
+
         try {
             // Get credential from credential_id
             credential = await IcCredential.fromId(this.credential_id);
@@ -41,7 +57,7 @@ export class Collect {
             }
 
             // Get user from credential
-            const user = await credential.getUser();
+            user = await credential.getUser();
 
             // Check if user exists
             if (!user) {
@@ -79,7 +95,7 @@ export class Collect {
             const previousInvoices = credential.invoices.map((inv) => inv.id);
 
             // Collect invoices
-            const { invoices, cookies } = await this.collect_new_invoices(collector, secret, !first_collect, previousInvoices, user.locale, user.location);
+            const { invoices, cookies } = await this.collect_new_invoices(collector, secret, !first_collect, previousInvoices, user.location);
 
             // Save cookies in secret_manager
             secret.cookies = cookies;
@@ -163,10 +179,11 @@ export class Collect {
             else if (err instanceof AuthenticationError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 // If credential exists
-                if (credential) {
+                if (credential && user) {
                     // Update credential
                     credential.state = State.ERROR;
-                    credential.error = err.message;
+                    
+                    credential.error = Server.i18n.__({ phrase: err.message, locale: user.locale });
 
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
@@ -209,7 +226,6 @@ export class Collect {
             secret: Secret,
             download: boolean,
             previousInvoices: any[],
-            locale: string,
             location: Location | null): Promise<CompleteCollectResult> {  
 
         // Check if a mandatory field is missing
@@ -220,7 +236,7 @@ export class Collect {
             }
 
             try {
-                const { invoices, cookies } = await collector._collect(secret, location);
+                const { invoices, cookies } = await collector._collect(this.progress, secret, location, this.twofa_promise);
 
                 // Get new invoices
                 const newInvoices = invoices.filter((inv) => !previousInvoices.includes(inv.id));
@@ -232,6 +248,9 @@ export class Collect {
                     // Download new invoices if needed
                     if(download) {
                         console.log(`Downloading ${newInvoices.length} invoices`);
+
+                        // Set progress step to downloading
+                        this.progress.setStep(Progress.STEP_4_DOWNLOADING);
 
                         // For each invoice
                         for(let newInvoice of newInvoices) {
@@ -263,16 +282,13 @@ export class Collect {
                     console.log(`Found ${invoices.length} invoices but none are new`);
                 }
 
+                // Set progress step to done
+                this.progress.setStep(Progress.STEP_5_DONE);
+
                 return {
                     invoices: completeInvoices,
                     cookies
                 }
-            }
-            catch (error) {
-                if (error instanceof CollectorError) {
-                    error.message = Server.i18n.__({ phrase: error.message, locale });
-                }
-                throw error;
             }
             finally {
                 // Close the collector resources
