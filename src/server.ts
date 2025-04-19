@@ -8,7 +8,7 @@ import { CollectorLoader } from './collectors/collectorLoader';
 import { User } from './model/user';
 import { Customer } from './model/customer';
 import { IcCredential, State } from './model/credential';
-import { CollectionTask } from './task/collectionTask';
+import { CollectTask } from './collect/collectTask';
 import { I18n } from 'i18n';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, Config } from './collectors/abstractCollector';
@@ -32,7 +32,7 @@ export class Server {
 
     tokens: object;
     secret_manager: AbstractSecretManager;
-    collection_task: CollectionTask;
+    collect_task: CollectTask;
 
     constructor() {
         this.tokens = {}
@@ -49,8 +49,8 @@ export class Server {
         // Check if registery server is reachable
         RegistryServer.getInstance().ping();
 
-        // Start collection task
-        this.collection_task = new CollectionTask(this.secret_manager);
+        // Start collect task
+        this.collect_task = new CollectTask();
 	}
 
     // ---------- BEARER TOKEN NEEDED ----------

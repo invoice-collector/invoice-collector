@@ -6,6 +6,7 @@ import { Server } from '../src/server';
 import { AuthenticationError } from '../src/error';
 import { ScrapperCollector } from '../src/collectors/scrapperCollector';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
+import { Collect } from '../src/collect/collect';
 
 const ids = process.argv.slice(3);
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
@@ -36,7 +37,8 @@ for (const collector of CollectorLoader.getAll()) {
                     },
                     cookies: null,
                 };
-                await expect(collector.collect_new_invoices(secret, true, [], Server.DEFAULT_LOCALE, null))
+                const collect = new Collect("")
+                await expect(collect.collect_new_invoices(collector, secret, true, [], Server.DEFAULT_LOCALE, null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
@@ -48,7 +50,8 @@ for (const collector of CollectorLoader.getAll()) {
                     },
                     cookies: null,
                 };
-                await expect(collector.collect_new_invoices(secret, true, [], Server.DEFAULT_LOCALE, null))
+                const collect = new Collect("")
+                await expect(collect.collect_new_invoices(collector, secret, true, [], Server.DEFAULT_LOCALE, null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
