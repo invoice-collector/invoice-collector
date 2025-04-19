@@ -1,3 +1,8 @@
+export type Secret = {
+    params: any,
+    cookies: any,
+}
+
 export abstract class AbstractSecretManager {
     constructor() {
         if (new.target === AbstractSecretManager) {
@@ -11,9 +16,11 @@ export abstract class AbstractSecretManager {
 
     // SECRETS
 
-    abstract addSecret(key: string, params: any): Promise<string>;
+    abstract addSecret(key: string, secret: Secret): Promise<string>;
 
-    abstract getSecret(id: string): Promise<any | null>;
+    abstract getSecret(id: string): Promise<Secret | null>;
+
+    abstract updateSecret(id: string, key: string, secret: Secret): Promise<string>;
 
     abstract deleteSecret(id: string): Promise<void>;
 

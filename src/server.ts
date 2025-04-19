@@ -1,6 +1,6 @@
 import path from 'path';
 import { DatabaseFactory } from './database/databaseFactory';
-import { AbstractSecretManager } from './secret_manager/abstractSecretManager';
+import { AbstractSecretManager, Secret } from './secret_manager/abstractSecretManager';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { AuthenticationBearerError, OauthError, MissingField, MissingParams, StatusError } from './error';
 import { generate_token } from './utils';
@@ -341,7 +341,11 @@ export class Server {
         }
 
         // Add credential to Secure Storage
-        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector_id}`, params);
+        const secret: Secret = {
+            params,
+            cookies: null,
+        }
+        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector_id}`, secret);
 
         // Create credential
         let credential = new IcCredential(

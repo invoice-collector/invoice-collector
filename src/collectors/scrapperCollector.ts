@@ -1,9 +1,10 @@
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
+import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectResult } from "./abstractCollector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
+import { Secret } from "../secret_manager/abstractSecretManager";
 
 export type ScrapperConfig = {
     name: string,
@@ -40,7 +41,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = null;
     }
 
-    async _collect(params: any, location: Location | null): Promise<Invoice[]> {
+    async _collect(secret: Secret, location: Location | null): Promise<CollectResult> {
         // Get proxy
         const proxy = this.config.useProxy ? ProxyFactory.getProxy().get(location) : null;
 
@@ -48,20 +49,26 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = new Driver(this);
         await this.driver.open(proxy);
 
+        // Set cookies if any
+        // TODO: Uncomment once `isLoggedIn` is implemented
+        /*if (secret.cookies) {
+            await this.driver.browser?.setCookie(secret.cookies);
+        }*/
+
         // Open entry url
         await this.driver.goto(this.config.entryUrl);
 
         try {
 
             // Check if website is in maintenance
-            const is_in_maintenance = await this.is_in_maintenance(this.driver, params)
+            const is_in_maintenance = await this.is_in_maintenance(this.driver, secret.params)
             if (is_in_maintenance) {
                 await this.driver.close()
                 throw new MaintenanceError(this);
             }
 
             // Login
-            const login_error = await this.login(this.driver, params)
+            const login_error = await this.login(this.driver, secret.params)
 
             // Check if not authenticated
             if (login_error) {
@@ -70,7 +77,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
             }
 
             // Collect invoices
-            const invoices = await this.collect(this.driver, params)
+            const invoices = await this.collect(this.driver, secret.params)
             
             // If invoices is undefined, collector is unfinished
             if (invoices === undefined) {
@@ -82,7 +89,10 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 throw new NoInvoiceFoundError(this);
             }
 
-            return invoices;
+            return {
+                invoices,
+                cookies: await this.driver.browser?.cookies(),
+            };
         } catch (error) {
             // Get url, source code and screenshot
             const url = this.driver.url();

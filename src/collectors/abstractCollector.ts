@@ -2,6 +2,7 @@ import axios from 'axios';
 import { Location } from '../proxy/abstractProxy';
 import { CollectorError } from '../error';
 import { Server } from '../server';
+import { Secret } from '../secret_manager/abstractSecretManager';
 
 export type Config = {
     id: string,
@@ -40,6 +41,16 @@ export type CompleteInvoice = DownloadedInvoice & {
     mimetype: string | null
 }
 
+export type CompleteCollectResult = {
+    invoices: CompleteInvoice[],
+    cookies: any
+}
+
+export type CollectResult = {
+    invoices: Invoice[],
+    cookies: any
+}
+
 export abstract class AbstractCollector {
     config: Config;
 
@@ -60,16 +71,16 @@ export abstract class AbstractCollector {
         };
     }
 
-    async collect_new_invoices(params: any, download: boolean, previousInvoices: any[], locale: string, location: Location | null): Promise<CompleteInvoice[]> {
-            // Check if a mandatory field is missing
+    async collect_new_invoices(secret: Secret, download: boolean, previousInvoices: any[], locale: string, location: Location | null): Promise<CompleteCollectResult> {  
+        // Check if a mandatory field is missing
             for (const [key, value] of Object.entries(this.config.params)) {
-                if (value.mandatory && !params[key]) {
+                if (value.mandatory && !secret.params[key]) {
                     throw new Error(`Field "${key}" is missing.`);
                 }
             }
 
             try {
-                const invoices = await this._collect(params, location);
+                const { invoices, cookies } = await this._collect(secret, location);
 
                 // Get new invoices
                 const newInvoices = invoices.filter((inv) => !previousInvoices.includes(inv.id));
@@ -112,7 +123,10 @@ export abstract class AbstractCollector {
                     console.log(`Found ${invoices.length} invoices but none are new`);
                 }
 
-                return completeInvoices;
+                return {
+                    invoices: completeInvoices,
+                    cookies
+                }
             }
             catch (error) {
                 if (error instanceof CollectorError) {
@@ -128,7 +142,7 @@ export abstract class AbstractCollector {
 
     //NOT IMPLEMENTED
 
-    abstract _collect(params: any, location: Location | null): Promise<Invoice[]>;
+    abstract _collect(secret: Secret, location: Location | null): Promise<CollectResult>;
 
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
 

@@ -1,5 +1,5 @@
 import { BitwardenClient, ClientSettings, DeviceType, LogLevel } from "@bitwarden/sdk-napi";
-import { AbstractSecretManager } from "./abstractSecretManager";
+import { AbstractSecretManager, Secret } from "./abstractSecretManager";
 import * as utils from "../utils";
 
 export class Bitwarden extends AbstractSecretManager {
@@ -38,15 +38,16 @@ export class Bitwarden extends AbstractSecretManager {
 
     // SECRETS
 
-    async addSecret(key: string, params: any): Promise<string> {
-        //JSON param before sending
-        const stringParams: string = JSON.stringify(params);
-        return (await this.client.secrets().create(this.organizationId, key, stringParams, "", [this.projectId])).id;
+    async addSecret(key: string, secret: Secret): Promise<string> {
+        // JSON secret before sending
+        const stringSecret: string = JSON.stringify(secret);
+        return (await this.client.secrets().create(this.organizationId, key, stringSecret, "", [this.projectId])).id;
     }
 
     async getSecret(id: string): Promise<any | null> {
         try {
             const secret = await this.client.secrets().get(id);
+            // Parse JSON secret before returning
             return JSON.parse(secret.value);
         }
         catch (err) {
@@ -55,6 +56,12 @@ export class Bitwarden extends AbstractSecretManager {
             }
             throw err;
         }
+    }
+
+    async updateSecret(id: string, key: string, secret: Secret): Promise<string> {
+        // JSON secret before sending
+        const stringSecret: string = JSON.stringify(secret);
+        return (await this.client.secrets().update(this.organizationId, id, key, stringSecret, "", [this.projectId])).id;
     }
 
     async deleteSecret(id: string): Promise<void> {

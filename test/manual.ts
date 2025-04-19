@@ -6,6 +6,7 @@ import fs from 'fs';
 import { Server } from "../src/server";
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
+import { Secret } from '../src/secret_manager/abstractSecretManager';
 
 (async () => {
     let id;
@@ -30,13 +31,16 @@ import { LoggableError } from '../src/error';
             throw new Error(`No collector with id "${id}" found.`);
         }
 
-        let params = {}
+        let secret: Secret = {
+            params: {},
+            cookies: null,
+        }
         let argv_index = 3;
 
         // Loop throught each config
         for(const param_key of Object.keys(collector.config.params)) {
             if(process.argv[argv_index]) {
-                params[param_key] = process.argv[argv_index]
+                secret.params[param_key] = process.argv[argv_index]
                 if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
                     console.log(`${param_key}: <hidden>`)
                 }
@@ -46,17 +50,17 @@ import { LoggableError } from '../src/error';
             }
             else {
                 if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
-                    params[param_key] = prompt.hide(`${param_key}: `);
+                    secret.params[param_key] = prompt.hide(`${param_key}: `);
                 }
                 else {
-                    params[param_key] = prompt(`${param_key}: `);
+                    secret.params[param_key] = prompt(`${param_key}: `);
                 }
             }
             argv_index++;
         }
 
         // Collect invoices
-        const invoices = await collector.collect_new_invoices(params, true, [], Server.DEFAULT_LOCALE, {country: "FR", lat: '', lon: ''});
+        const { invoices, cookies } = await collector.collect_new_invoices(secret, true, [], Server.DEFAULT_LOCALE, {country: "FR", lat: '', lon: ''});
         console.log(`${invoices.length} invoices downloaded`);
 
         for (const invoice of invoices) {

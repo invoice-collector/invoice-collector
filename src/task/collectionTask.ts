@@ -100,17 +100,21 @@ export class CollectionTask {
             const previousInvoices = credential.invoices.map((inv) => inv.id);
 
             // Collect invoices
-            const newInvoices = await collector.collect_new_invoices(secret, !first_collect, previousInvoices, user.locale, user.location);
+            const { invoices, cookies } = await collector.collect_new_invoices(secret, !first_collect, previousInvoices, user.locale, user.location);
+
+            // Save cookies in secret_manager
+            secret.cookies = cookies;
+            await this.secret_manager.updateSecret(credential.secret_manager_id, `${user.customer_id}_${user.id}_${collector.config.id}`, secret);
                     
             console.log(`Invoice collection for credential ${credential_id} succeed`);
 
             // If at least one new invoice has been downloaded
-            if(newInvoices.length > 0) {
+            if(invoices.length > 0) {
                 // Loop through invoices
-                for (const [index, invoice] of newInvoices.entries()) {
+                for (const [index, invoice] of invoices.entries()) {
                     // If not the first collect and invoice is more recent than the credential creation date
                     if (!first_collect && credential.create_timestamp < invoice.timestamp) {
-                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
+                        console.log(`Sending invoice ${index + 1}/${invoices.length} (${invoice.id}) to callback`);
 
                         try {
                             // Send invoice to callback

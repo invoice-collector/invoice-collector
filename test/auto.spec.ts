@@ -5,6 +5,7 @@ import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { Server } from '../src/server';
 import { AuthenticationError } from '../src/error';
 import { ScrapperCollector } from '../src/collectors/scrapperCollector';
+import { Secret } from '../src/secret_manager/abstractSecretManager';
 
 const ids = process.argv.slice(3);
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
@@ -28,20 +29,26 @@ for (const collector of CollectorLoader.getAll()) {
     if (collector instanceof ScrapperCollector) {
         describe(`${id} tests`, () => {
             it('Login with incorrect email format', async () => {
-                const params = {
-                    id: 'test',
-                    password: 'test'
-                }
-                await expect(collector.collect_new_invoices(params, true, [], Server.DEFAULT_LOCALE, null))
+                const secret: Secret = {
+                    params: {
+                        id: 'test',
+                        password: 'test'
+                    },
+                    cookies: null,
+                };
+                await expect(collector.collect_new_invoices(secret, true, [], Server.DEFAULT_LOCALE, null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
             it('Login with non-existing account', async () => {
-                const params = {
-                    id: 'fakeemail@test.ic',
-                    password: 'test'
-                }
-                await expect(collector.collect_new_invoices(params, true, [], Server.DEFAULT_LOCALE, null))
+                const secret: Secret = {
+                    params: {
+                        id: 'fakeemail@test.ic',
+                        password: 'test'
+                    },
+                    cookies: null,
+                };
+                await expect(collector.collect_new_invoices(secret, true, [], Server.DEFAULT_LOCALE, null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
