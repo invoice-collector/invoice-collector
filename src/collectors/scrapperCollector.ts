@@ -50,16 +50,14 @@ export abstract class ScrapperCollector extends AbstractCollector {
         await this.driver.open(proxy);
 
         // Set cookies if any
-        // TODO: Uncomment once `isLoggedIn` is implemented
-        /*if (secret.cookies) {
-            await this.driver.browser?.setCookie(secret.cookies);
-        }*/
+        if (secret.cookies) {
+            await this.driver.browser?.setCookie(...secret.cookies);
+        }
 
         // Open entry url
         await this.driver.goto(this.config.entryUrl);
 
         try {
-
             // Check if website is in maintenance
             const is_in_maintenance = await this.is_in_maintenance(this.driver, secret.params)
             if (is_in_maintenance) {
@@ -67,13 +65,21 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 throw new MaintenanceError(this);
             }
 
-            // Login
-            const login_error = await this.login(this.driver, secret.params)
+            // Check if user is logged in
+            const is_logged_in = await this.is_logged_in(this.driver)
 
-            // Check if not authenticated
-            if (login_error) {
-                //await this.driver.close()
-                throw new AuthenticationError(login_error, this);
+            // If user is not logged in, try to login
+            if (!is_logged_in) {
+                console.log("User is not logged in, trying to login...")
+                const login_error = await this.login(this.driver, secret.params)
+
+                // Check if not authenticated
+                if (login_error) {
+                    throw new AuthenticationError(login_error, this);
+                }
+            }
+            else {
+                console.log("User is successfully logged in using cookies")
             }
 
             // Collect invoices
@@ -184,6 +190,11 @@ export abstract class ScrapperCollector extends AbstractCollector {
     async is_in_maintenance(driver: Driver, params: any): Promise<boolean>{
         //Assume the website is not in maintenance
         return false;
+    }
+
+    async is_logged_in(driver: Driver): Promise<boolean>{
+        // If user is logged in, the URL should be equal to the entry URL
+        return driver.url() === this.config.entryUrl;
     }
 
     // DOWNLOAD METHODS

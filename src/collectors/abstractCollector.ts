@@ -107,7 +107,7 @@ export abstract class AbstractCollector {
                         completeInvoices.sort((a, b) => a.timestamp - b.timestamp);
                     }
                     else {
-                        console.log(`This is the first collect. Do not download invoices`);
+                        console.log(`This is the first collect, do not download invoices`);
 
                         // Add not downloaded invoice to the list
                         for(let newInvoice of newInvoices) {
