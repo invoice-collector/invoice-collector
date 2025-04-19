@@ -63,7 +63,7 @@ describe(`Test fingerprints`, () => {
         expect(score).toBeGreaterThanOrEqual(0.6);
     }, ONE_MINUTE);
 
-    /*// See also https://deviceandbrowserinfo.com/info_device
+    // See also https://deviceandbrowserinfo.com/info_device
     it('Device and browser info', async () => {
         // Get fingerprint
         const request = await driver.goto("https://deviceandbrowserinfo.com/are_you_a_bot", "/fingerprint_bot_test");
