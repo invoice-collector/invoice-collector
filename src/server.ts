@@ -358,6 +358,9 @@ export class Server {
             secret_manager_id
         );
 
+        // Compute next collect
+        credential.computeNextCollect();
+
         // Create credential in database
         await credential.commit();
 
@@ -391,10 +394,13 @@ export class Server {
         }
         
         // Resolve collect promise and pass the code to the collector
-        collect.twofa_resolve(code);
+        collect.twofa_promise.setCode(code);
+
+        // Set progress step to 2FA proceeding
+        collect.progress.setStep(Progress.STEP_3_2FA_PROCEEDING);
     }
 
-    async get_credential_status(token: any, id: string): Promise<Status> {
+    async get_credential_status(token: any, id: string): Promise<{max: number, index: number, message: string}> {
         // Get user from token
          const user = this.get_token_mapping(token);
 
@@ -418,7 +424,14 @@ export class Server {
         const collect = CollectPool.getInstance().get(credential.id);
 
         // Get collect status
-        return collect?.progress.getStatus() || Progress.STATUS_DEFAULT;
+        const status = collect?.progress.getStatus() || Progress.STATUS_DEFAULT;
+
+        // Return status
+        return {
+            max: status.max,
+            index: status.index,
+            message: Server.i18n.__({ phrase: status.i18n, locale: user.locale })
+        };
     }
 
     async delete_credential(token: any, id: string): Promise<void> {

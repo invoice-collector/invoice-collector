@@ -156,7 +156,6 @@ app.post('/api/v1/credential/:id/2fa', async (req, res) => {
 app.get('/api/v1/credential/:id/status', async (req, res) => {
     try {
         // Get credential status
-        console.log(`GET credential status ${req.params.id}`);
         const response = await server.get_credential_status(req.query.token, req.params.id);
 
         // Build response

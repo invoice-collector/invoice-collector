@@ -5,6 +5,7 @@ import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { Progress } from "../collect/progress";
+import { TwofaPromise } from "../collect/twofaPromise";
 
 export type ApiConfig = {
     name: string,
@@ -40,7 +41,7 @@ export abstract class ApiCollector extends AbstractCollector {
         this.instance = null;
     }
 
-    async _collect(progress: Progress, secret: Secret, location: Location | null, twofa_promise: Promise<string>): Promise<CollectResult> {
+    async _collect(progress: Progress, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<CollectResult> {
         console.log(`API Collector, do not use proxy`);
 
         // Initialise axios instance
@@ -51,7 +52,7 @@ export abstract class ApiCollector extends AbstractCollector {
 
         try {
             // Set progress step to collecting
-            progress.setStep(Progress.STEP_3_COLLECTING);
+            progress.setStep(Progress.STEP_4_COLLECTING);
 
             // Collect invoices
             const invoices = await this.collect(this.instance, secret.params)

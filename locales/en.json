@@ -12,6 +12,9 @@
 	"i18n.views.manage.verification-code.error": "Incorrect verification code",
 	"i18n.views.manage.no-collector": "My collector is not in the list",
 	"i18n.views.manage.send-feedback": "Send a user feedback",
+	"i18n.views.manage.2fa": "2 Factor Authentication",
+	"i18n.views.manage.2fa.placeholder": "2FA code received by email or SMS",
+	"i18n.views.manage.success": "Credential successfully added!",
 	"i18n.views.manage.feedback": "User feedback",
 	"i18n.views.manage.feedback.placeholder": "New collectors wanted, improvements, bugs, etc.",
 	"i18n.views.manage.feedback.email.placeholder": "If you want to be contacted after your feedback",
@@ -39,6 +42,8 @@
 	"i18n.collectors.all.note": "Note",
 	"i18n.collectors.all.note.placeholder": "Custom note",
 	"i18n.collectors.all.signup.error": "No account found with these identifier",
+	"i18n.collectors.all.2fa.error": "2FA code is incorrect",
+	"i18n.collectors.all.2fa.timeout": "No 2FA code provided within the alloteted time. Please try again.",
 
     "i18n.collectors.free.description": "Free is a French telecommunications company.",
     "i18n.collectors.free.identifier.placeholder": "Identifier of the account (ex: fbx12345670)",

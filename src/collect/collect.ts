@@ -10,26 +10,19 @@ import { Secret } from "../secret_manager/abstractSecretManager";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { Server } from "../server";
 import { CollectPool } from "./collectPool";
+import { TwofaPromise } from "./twofaPromise";
 import { Progress } from "./progress";
 
 export class Collect {
 
-    static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 2 minutes
-
     credential_id: string;
     progress: Progress;
-    twofa_promise: Promise<string>;
-    twofa_resolve: ( value: string ) => void;
+    twofa_promise: TwofaPromise;
 
     constructor(credential_id: string) {
         this.credential_id = credential_id;
         this.progress = new Progress();
-        let twofa_resolve;
-        this.twofa_promise = new  Promise((resolve, reject) => {
-            twofa_resolve = resolve;
-            setTimeout(reject, Collect.TWOFA_TIMEOUT_MS)
-        });
-        this.twofa_resolve = twofa_resolve;
+        this.twofa_promise = new TwofaPromise();
     }
 
     async start(): Promise<void> {
@@ -82,6 +75,9 @@ export class Collect {
             if(collector == null) {
                 throw new Error(`No collector with id "${credential.collector_id}" found.`);
             }
+
+            // Set collector for twofa promise
+            this.twofa_promise.collector = collector;
 
             // Check if secret not found
             if (!secret) {
@@ -213,10 +209,10 @@ export class Collect {
                 // Commit credential
                 await credential.commit();
             }
-        }
 
-        // Unregister collect in progress
-        CollectPool.getInstance().unregisterCollect(this.credential_id);
+            // Unregister collect in progress
+            CollectPool.getInstance().unregisterCollect(this.credential_id);
+        }
     }
 
     
@@ -250,7 +246,7 @@ export class Collect {
                         console.log(`Downloading ${newInvoices.length} invoices`);
 
                         // Set progress step to downloading
-                        this.progress.setStep(Progress.STEP_4_DOWNLOADING);
+                        this.progress.setStep(Progress.STEP_5_DOWNLOADING);
 
                         // For each invoice
                         for(let newInvoice of newInvoices) {
@@ -283,7 +279,7 @@ export class Collect {
                 }
 
                 // Set progress step to done
-                this.progress.setStep(Progress.STEP_5_DONE);
+                this.progress.setStep(Progress.STEP_6_DONE);
 
                 return {
                     invoices: completeInvoices,

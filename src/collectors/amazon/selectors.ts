@@ -26,6 +26,29 @@ export const AmazonSelectors = {
         info: "captcha container"
     },
 
+    // 2FA PAGE
+    
+    CONTAINER_2FA_INSTRUCTIONS: {
+        selector: "#auth-mfa-form p",
+        info: "2fa instructions container"
+    },
+    FIELD_2FA_CODE: {
+        selector: "#auth-mfa-otpcode",
+        info: "2fa code input field"
+    },
+    BUTTON_2FA_DO_NOT_ASK: {
+        selector: "label[for='auth-mfa-remember-device']",
+        info: "do not ask again button"
+    },
+    BUTTON_2FA_SUBMIT: {
+        selector: "#auth-signin-button",
+        info: "2fa submit button"
+    },
+    CONTAINER_2FA_ALERT: {
+        selector: "#auth-error-message-box > div > div",
+        info: "2fa alert container"
+    },
+
     //INVOICES PAGE
 
     CONTAINER_ORDER: {

@@ -62,6 +62,13 @@ import { Collect } from '../src/collect/collect';
 
         // Collect invoices
         const collect = new Collect("")
+
+        // Define what to do on 2FA
+        collect.twofa_promise.instructions().then((twofa_instruction) => {
+            const twofa_code = prompt(`${twofa_instruction}: `);
+            collect.twofa_promise.setCode(twofa_code);
+        });
+
         const { invoices, cookies } = await collect.collect_new_invoices(collector, secret, true, [], {country: "FR", lat: '', lon: ''});
         console.log(`${invoices.length} invoices downloaded`);
 

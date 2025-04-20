@@ -3,10 +3,7 @@ let companies = [];
 let ip = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    showCredentials(); 
-    document.getElementById('add-credential-button').addEventListener('click', showCompanies);
-    document.getElementById('return-to-credentials-button').addEventListener('click', showCredentials);
-    document.getElementById('return-to-companies-button').addEventListener('click', showCompanies);
+    showCredentials();
     document.getElementById('add-credential-form').addEventListener('submit', addCredential);
     document.getElementById('feedback-form').addEventListener('submit', sendFeedback);
 
@@ -65,6 +62,7 @@ async function showCredentials() {
     document.getElementById('credentials-container').hidden = false;
     document.getElementById('companies-container').hidden = true;
     document.getElementById('form-container').hidden = true;
+    document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = true;
 
     const response = await fetch(`credentials?token=${token}`);
@@ -95,6 +93,7 @@ async function showCompanies() {
     document.getElementById('credentials-container').hidden = true;
     document.getElementById('companies-container').hidden = false;
     document.getElementById('form-container').hidden = true;
+    document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = true;
 
     const companyList = document.getElementById('companies-list');
@@ -119,6 +118,7 @@ function showForm(company) {
     document.getElementById('credentials-container').hidden = true;
     document.getElementById('companies-container').hidden = true;
     document.getElementById('form-container').hidden = false;
+    document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = true;
     
     // Update the form with the company's information
@@ -174,7 +174,7 @@ async function addCredential(event) {
         params[key] = value;
     });
 
-    await fetch(`credential?token=${token}`, {
+    const response = await fetch(`credential?token=${token}`, {
         method: 'POST',
         body: JSON.stringify({
             collector: event.target.dataset.collector,
@@ -186,8 +186,84 @@ async function addCredential(event) {
         }
     });
 
+    const content = await response.json();
     document.getElementById('add-credential-form').reset();
-    showCredentials();
+
+    if (!response.ok) {
+        console.error('Error adding credential:', content);
+        alert(`Error: ${content.message || 'An error occurred while adding the credential.'}`);
+        showCredentials();
+    }
+    else {
+        showProgress(content.id);
+    }
+}
+
+async function showProgress(credential_id) {
+    document.getElementById('credentials-container').hidden = true;
+    document.getElementById('companies-container').hidden = true;
+    document.getElementById('form-container').hidden = true;
+    document.getElementById('progress-container').hidden = false;
+    document.getElementById('feedback-container').hidden = true;
+
+    const progressText = document.getElementById('progress-text');
+    const progressBar = document.getElementById('progress-bar');
+    const responseSuccess = document.getElementById('progress-response-success');
+    const container_2fa = document.getElementById('send-2fa-container');
+    container_2fa.hidden = true;
+    progressBar.style.width = `0%`;
+    responseSuccess.hidden = true;
+
+    // Set the onsudmit event for the 2fa form
+    const form2fa = document.getElementById('send-2fa-form');
+    form2fa.addEventListener('submit', async (event) => {
+        container_2fa.hidden = true;
+        event.preventDefault();
+        await post2FA(credential_id, event.target["code"].value);
+    });
+
+    let response;
+    let previous_status, current_status;
+    
+    do {
+        response = await fetch(`credential/${credential_id}/status?token=${token}`);
+        current_status = await response.json();
+
+        if (previous_status && previous_status.index !== current_status.index) {
+            // Display 2fa code if needed
+            if (current_status.index === 2) {
+                container_2fa.hidden = false;
+            } else {
+                container_2fa.hidden = true;
+            }
+            // Update progress bar and text
+            progressBar.style.width = `${current_status.index / current_status.max * 100}%`;
+            progressText.classList.add('fade');
+            await new Promise(resolve => setTimeout(resolve, 500));
+            progressText.textContent = current_status.message;
+            progressText.classList.remove('fade');
+            await new Promise(resolve => setTimeout(resolve, 500));
+        }
+        else {
+            // Wait 1 second before polling again
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+        previous_status = current_status;
+    } while (0 <= current_status.index && current_status.index < current_status.max);
+
+    responseSuccess.hidden = false;
+}
+
+async function post2FA(credential_id, code) {
+    await fetch(`credential/${credential_id}/2fa?token=${token}`, {
+        method: 'POST',
+        body: JSON.stringify({
+            code
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 }
 
 async function deleteCredential(id) {
@@ -202,6 +278,7 @@ async function showFeedback() {
     document.getElementById('credentials-container').hidden = true;
     document.getElementById('companies-container').hidden = true;
     document.getElementById('form-container').hidden = true;
+    document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = false;
     document.getElementById('feedback-response-success').hidden = true;
     document.getElementById('feedback-response-error').hidden = true;

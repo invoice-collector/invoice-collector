@@ -6,6 +6,7 @@ import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { Progress } from "../collect/progress";
+import { TwofaPromise } from "../collect/twofaPromise";
 
 export type ScrapperConfig = {
     name: string,
@@ -42,7 +43,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = null;
     }
 
-    async _collect(progress: Progress, secret: Secret, location: Location | null, twofa_promise: Promise<string>): Promise<CollectResult> {
+    async _collect(progress: Progress, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<CollectResult> {
         // Get proxy
         const proxy = this.config.useProxy ? ProxyFactory.getProxy().get(location) : null;
 
@@ -88,7 +89,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 // If 2fa is required, 
                 if (is_2fa) {
                     // Set progress step to 2fa
-                    progress.setStep(Progress.STEP_2_2FA);
+                    progress.setStep(Progress.STEP_2_2FA_WAITING);
 
                     console.log("2FA is required, performing 2FA...")
                     const twofa_error = await this.twofa(this.driver, secret.params, twofa_promise)
@@ -106,7 +107,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
             }
 
             // Set progress step to collecting
-            progress.setStep(Progress.STEP_3_COLLECTING);
+            progress.setStep(Progress.STEP_4_COLLECTING);
 
             // Collect invoices
             const invoices = await this.collect(this.driver, secret.params)
@@ -224,7 +225,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
         return false;
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: Promise<string>): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
         //Assume the collector does not implement 2FA
     }
 

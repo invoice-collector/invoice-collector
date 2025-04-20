@@ -12,6 +12,9 @@
 	"i18n.views.manage.verification-code.error": "Code de vérification incorrect",
 	"i18n.views.manage.no-collector": "Mon collecteur n'est pas dans la liste",
 	"i18n.views.manage.send-feedback": "Envoyer un retour utilisateur",
+	"i18n.views.manage.2fa": "Authentification à 2 facteurs",
+	"i18n.views.manage.2fa.placeholder": "Code 2FA reçu par email ou SMS",
+	"i18n.views.manage.success": "Identifiants ajoutés avec succès !",
 	"i18n.views.manage.feedback": "Retour utilisateur",
 	"i18n.views.manage.feedback.placeholder": "Nouveau collecteurs souhaité, améliorations, bugs, etc.",
 	"i18n.views.manage.feedback.email.placeholder": "Si vous souhaitez être contacté suite à votre retour",
@@ -39,6 +42,8 @@
 	"i18n.collectors.all.note": "Note",
 	"i18n.collectors.all.note.placeholder": "Note personnalisée",
 	"i18n.collectors.all.signup.error": "Aucun compte trouvé avec cet identifiant",
+	"i18n.collectors.all.2fa.error": "Erreur d'authentification 2FA",
+	"i18n.collectors.all.2fa.timeout": "Aucun code 2FA fourni dans le temps imparti. Veuillez réessayer.",
 
     "i18n.collectors.free.description": "Free est un opérateur de télécommunications français.",
     "i18n.collectors.free.identifier.placeholder": "Identifiant du compte (ex: fbx12345670)",
