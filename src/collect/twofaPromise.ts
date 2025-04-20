@@ -2,7 +2,7 @@ import { AbstractCollector } from "../collectors/abstractCollector";
 import { AuthenticationError } from "../error";
 
 export class TwofaPromise{
-    static TWOFA_TIMEOUT_MS = 1000 * 60 * 0.5; // 2 minutes
+    static TWOFA_TIMEOUT_MS = 1000 * 60 * 2; // 2 minutes
 
     private instrcutionsPromise: Promise<string>;
     private instructionsResolve: (value: string) => void;
@@ -17,7 +17,6 @@ export class TwofaPromise{
         let instructionsResolve;
         this.instrcutionsPromise = new Promise<string>((resolve, reject) => {
             instructionsResolve = resolve;
-            //setTimeout(reject, TwofaPromise.TWOFA_TIMEOUT_MS)
         });
         this.instructionsResolve = instructionsResolve;
 
@@ -25,7 +24,6 @@ export class TwofaPromise{
         let codeResolve;
         this.codePromise = new Promise<string>((resolve, reject) => {
             codeResolve = resolve;
-            //setTimeout(reject, TwofaPromise.TWOFA_TIMEOUT_MS)
         });
         this.codeResolve = codeResolve;
     }

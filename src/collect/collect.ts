@@ -11,17 +11,15 @@ import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { Server } from "../server";
 import { CollectPool } from "./collectPool";
 import { TwofaPromise } from "./twofaPromise";
-import { Progress } from "./progress";
 
 export class Collect {
 
     credential_id: string;
-    progress: Progress;
+    state: State|undefined;
     twofa_promise: TwofaPromise;
 
     constructor(credential_id: string) {
         this.credential_id = credential_id;
-        this.progress = new Progress();
         this.twofa_promise = new TwofaPromise();
     }
 
@@ -48,6 +46,9 @@ export class Collect {
             if (!credential) {
                 throw new Error(`Credential with id "${this.credential_id}" not found.`);
             }
+
+            // Set state from credential
+            this.state = credential.state;
 
             // Get user from credential
             user = await credential.getUser();
@@ -91,7 +92,7 @@ export class Collect {
             const previousInvoices = credential.invoices.map((inv) => inv.id);
 
             // Collect invoices
-            const { invoices, cookies } = await this.collect_new_invoices(collector, secret, !first_collect, previousInvoices, user.location);
+            const { invoices, cookies } = await this.collect_new_invoices(this.state, collector, secret, !first_collect, previousInvoices, user.location);
 
             // Save cookies in secret_manager
             secret.cookies = cookies;
@@ -128,9 +129,6 @@ export class Collect {
                 credential.sortInvoices();
             }
 
-            // Update state
-            credential.state = State.SUCCESS;
-
             // Log success
             RegistryServer.getInstance().logSuccess(collector.config.id);
 
@@ -148,9 +146,6 @@ export class Collect {
 
                 // If credential exists
                 if (credential) {
-                    // Update credential
-                    credential.state = State.SUCCESS;
-
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
 
@@ -177,9 +172,8 @@ export class Collect {
                 // If credential exists
                 if (credential && user) {
                     // Update credential
-                    credential.state = State.ERROR;
-                    
-                    credential.error = Server.i18n.__({ phrase: err.message, locale: user.locale });
+                    credential.state.update(State._1_ERROR);
+                    credential.state.message = Server.i18n.__({ phrase: err.message, locale: user.locale });
 
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
@@ -218,6 +212,7 @@ export class Collect {
     
 
     async collect_new_invoices(
+            state: State,
             collector: AbstractCollector,
             secret: Secret,
             download: boolean,
@@ -232,7 +227,7 @@ export class Collect {
             }
 
             try {
-                const { invoices, cookies } = await collector._collect(this.progress, secret, location, this.twofa_promise);
+                const { invoices, cookies } = await collector._collect(state, secret, location, this.twofa_promise);
 
                 // Get new invoices
                 const newInvoices = invoices.filter((inv) => !previousInvoices.includes(inv.id));
@@ -246,7 +241,7 @@ export class Collect {
                         console.log(`Downloading ${newInvoices.length} invoices`);
 
                         // Set progress step to downloading
-                        this.progress.setStep(Progress.STEP_5_DOWNLOADING);
+                        state.update(State._5_DOWNLOADING);
 
                         // For each invoice
                         for(let newInvoice of newInvoices) {
@@ -279,7 +274,7 @@ export class Collect {
                 }
 
                 // Set progress step to done
-                this.progress.setStep(Progress.STEP_6_DONE);
+                state.update(State._6_DONE);
 
                 return {
                     invoices: completeInvoices,

@@ -8,6 +8,7 @@ import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
+import { State } from '../src/model/credential';
 
 (async () => {
     let id;
@@ -62,6 +63,7 @@ import { Collect } from '../src/collect/collect';
 
         // Collect invoices
         const collect = new Collect("")
+        collect.state = State.DEFAULT_STATE;
 
         // Define what to do on 2FA
         collect.twofa_promise.instructions().then((twofa_instruction) => {
@@ -69,7 +71,7 @@ import { Collect } from '../src/collect/collect';
             collect.twofa_promise.setCode(twofa_code);
         });
 
-        const { invoices, cookies } = await collect.collect_new_invoices(collector, secret, true, [], {country: "FR", lat: '', lon: ''});
+        const { invoices, cookies } = await collect.collect_new_invoices(collect.state, collector, secret, true, [], {country: "FR", lat: '', lon: ''});
         console.log(`${invoices.length} invoices downloaded`);
 
         for (const invoice of invoices) {

@@ -2,7 +2,7 @@ import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
-import { IcCredential } from "../model/credential";
+import { IcCredential, State } from "../model/credential";
 import * as utils from "../utils";
 
 export class MongoDB extends AbstractDatabase {
@@ -259,8 +259,7 @@ export class MongoDB extends AbstractDatabase {
                 document.last_collect_timestamp,
                 document.next_collect_timestamp,
                 document.invoices,
-                document.state,
-                document.error
+                State.fromObject(document.state)
             );
             credential.id = document._id.toString();
             return credential;
@@ -286,8 +285,7 @@ export class MongoDB extends AbstractDatabase {
             document.last_collect_timestamp,
             document.next_collect_timestamp,
             document.invoices,
-            document.state,
-            document.error
+            State.fromObject(document.state)
         );
         credential.id = document._id.toString();
         return credential;
@@ -306,8 +304,7 @@ export class MongoDB extends AbstractDatabase {
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
             invoices: credential.invoices,
-            state: credential.state,
-            error: credential.error
+            state: credential.state
         });
         credential.id = document.insertedId.toString();
         return credential;
@@ -328,8 +325,7 @@ export class MongoDB extends AbstractDatabase {
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 invoices: credential.invoices,
-                state: credential.state,
-                error: credential.error
+                state: credential.state
             }}
         );
     }

@@ -16,7 +16,6 @@ import { RegistryServer } from './registryServer';
 import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
 import { CollectPool } from './collect/collectPool';
-import { Progress, Status } from './collect/progress';
 import { Collect } from './collect/collect';
 
 export class Server {
@@ -269,7 +268,15 @@ export class Server {
         return { locale: user.locale }
     }
 
-    async get_credentials(token: any): Promise<{collector: Config, id: string, note: string, state: State, error: string}[]> {
+    async get_credentials(token: any): Promise<{
+        id: string,
+        note: string,
+        create_timestamp: number,
+        last_collect_timestamp: number,
+        next_collect_timestamp: number,
+        state: State,
+        collector: Config
+    }[]> {
         // Get user from token
          const user = this.get_token_mapping(token);
 
@@ -283,11 +290,13 @@ export class Server {
         return credentials.map((credential) => {
             const collector = this.get_collector(credential.collector_id);
             return {
-                collector: collector.config,
-                note: credential.note,
                 id: credential.id,
+                note: credential.note,
+                create_timestamp: credential.create_timestamp,
+                last_collect_timestamp: credential.last_collect_timestamp,
+                next_collect_timestamp: credential.next_collect_timestamp,
                 state: credential.state,
-                error: credential.error
+                collector: collector.config,
             }
         });
     }
@@ -397,10 +406,18 @@ export class Server {
         collect.twofa_promise.setCode(code);
 
         // Set progress step to 2FA proceeding
-        collect.progress.setStep(Progress.STEP_3_2FA_PROCEEDING);
+        collect.state?.update(State._3_2FA_PROCEEDING);
     }
 
-    async get_credential_status(token: any, id: string): Promise<{max: number, index: number, message: string}> {
+    async get_credential(token: any, id: string): Promise<{
+        id: string,
+        note: string,
+        create_timestamp: number,
+        last_collect_timestamp: number,
+        next_collect_timestamp: number,
+        state: State,
+        collector: Config
+    }> {
         // Get user from token
          const user = this.get_token_mapping(token);
 
@@ -423,14 +440,24 @@ export class Server {
         // Get current collect
         const collect = CollectPool.getInstance().get(credential.id);
 
-        // Get collect status
-        const status = collect?.progress.getStatus() || Progress.STATUS_DEFAULT;
+        // If collect in progress
+        if (collect && collect.state) {
+            // Replace state with collect state
+            credential.state = collect.state;
+        }
+
+        // Get collector from id
+        const collector = this.get_collector(credential.collector_id);
 
         // Return status
         return {
-            max: status.max,
-            index: status.index,
-            message: Server.i18n.__({ phrase: status.i18n, locale: user.locale })
+            id: credential.id,
+            note: credential.note,
+            create_timestamp: credential.create_timestamp,
+            last_collect_timestamp: credential.last_collect_timestamp,
+            next_collect_timestamp: credential.next_collect_timestamp,
+            state: credential.state,
+            collector: collector.config,
         };
     }
 

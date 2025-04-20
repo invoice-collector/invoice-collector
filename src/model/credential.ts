@@ -1,9 +1,50 @@
 import { DatabaseFactory } from "../database/databaseFactory";
 
-export enum State {
-    PENDING = "PENDING",
-    SUCCESS = "SUCCESS",
-    ERROR = "ERROR"
+export class State {
+
+    static SUCCESS_LEVEL: number = 6;
+
+    static _1_ERROR: State = new State(-1, "Error");
+    static _0_PREPARING: State = new State(0, "Preparing the collect...");
+    static _1_LOGGING_IN : State = new State(1, "Logging in...");
+    static _2_2FA_WAITING : State = new State(2, "Waiting for 2FA code...");
+    static _3_2FA_PROCEEDING : State = new State(3, "Proceeding with 2FA code...");
+    static _4_COLLECTING : State = new State(4, "Collecting new invoices...");
+    static _5_DOWNLOADING : State = new State(5, "Downloading invoices...");
+    static _6_DONE : State = new State(6, "Done!");
+
+    static DEFAULT_STATE: State = State._0_PREPARING;
+
+    static fromObject(obj: object): State {
+        let state = new State(obj["index"], obj["title"]);
+        state.max = obj["max"];
+        state.message = obj["message"];
+        return state;
+    }
+
+    index: number;
+    max: number;
+    title: string;
+    message: string;
+
+    constructor(index: number, title: string) {
+        this.index = index;
+        this.max = State.SUCCESS_LEVEL;
+        this.title = title;
+        this.message = "";
+    }
+
+    // Use update method to update the state values without creating a new instance
+    update(state: State) {
+        this.index = state.index;
+        this.max = state.max;
+        this.title = state.title;
+        this.message = state.message;
+    }
+
+    isError(): boolean {
+        return this.index < 0;
+    }
 }
 
 export class IcCredential {
@@ -31,7 +72,6 @@ export class IcCredential {
     next_collect_timestamp: number;
     invoices: any[];
     state: State;
-    error: string;
 
     constructor(
         user_id: string,
@@ -42,8 +82,7 @@ export class IcCredential {
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
         invoices: any[] = [],
-        state: State = State.PENDING,
-        error: string = ""
+        state: State = State.DEFAULT_STATE
     ) {
         this.id = "";
         this.user_id = user_id;
@@ -55,7 +94,6 @@ export class IcCredential {
         this.next_collect_timestamp = next_collect_timestamp;
         this.invoices = invoices;
         this.state = state;
-        this.error = error;
     }
 
     async getUser() {
@@ -79,7 +117,7 @@ export class IcCredential {
 
     computeNextCollect() {
         // If not in error
-        if (this.state != State.ERROR) {
+        if (!this.state.isError()) {
             // If last_collect_timestamp and next_collect_timestamp are NaN, the invoices has never been collected
             if (isNaN(this.last_collect_timestamp) && isNaN(this.next_collect_timestamp)) {
                 // Plan the next collection now

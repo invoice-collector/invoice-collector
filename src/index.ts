@@ -153,10 +153,10 @@ app.post('/api/v1/credential/:id/2fa', async (req, res) => {
     }
 });
 
-app.get('/api/v1/credential/:id/status', async (req, res) => {
+app.get('/api/v1/credential/:id', async (req, res) => {
     try {
         // Get credential status
-        const response = await server.get_credential_status(req.query.token, req.params.id);
+        const response = await server.get_credential(req.query.token, req.params.id);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');

@@ -5,8 +5,8 @@ import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
-import { Progress } from "../collect/progress";
 import { TwofaPromise } from "../collect/twofaPromise";
+import { State } from "../model/credential";
 
 export type ScrapperConfig = {
     name: string,
@@ -43,7 +43,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = null;
     }
 
-    async _collect(progress: Progress, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<CollectResult> {
+    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<CollectResult> {
         // Get proxy
         const proxy = this.config.useProxy ? ProxyFactory.getProxy().get(location) : null;
 
@@ -73,7 +73,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
             // If user is not logged in, try to login
             if (!is_logged_in) {
                 // Set progress step to logging in
-                progress.setStep(Progress.STEP_1_LOGGING_IN);
+                state.update(State._1_LOGGING_IN);
 
                 console.log("User is not logged in, logging in...")
                 const login_error = await this.login(this.driver, secret.params)
@@ -88,8 +88,8 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
                 // If 2fa is required, 
                 if (is_2fa) {
-                    // Set progress step to 2fa
-                    progress.setStep(Progress.STEP_2_2FA_WAITING);
+                    // Set progress step to 2fa waiting
+                    state.update(State._2_2FA_WAITING);
 
                     console.log("2FA is required, performing 2FA...")
                     const twofa_error = await this.twofa(this.driver, secret.params, twofa_promise)
@@ -107,7 +107,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
             }
 
             // Set progress step to collecting
-            progress.setStep(Progress.STEP_4_COLLECTING);
+            state.update(State._4_COLLECTING);
 
             // Collect invoices
             const invoices = await this.collect(this.driver, secret.params)
