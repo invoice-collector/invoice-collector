@@ -20,7 +20,16 @@
 	"i18n.views.manage.feedback.email.placeholder": "If you want to be contacted after your feedback",
 	"i18n.views.manage.feedback.success": "Thank you for your feedback!",
 	"i18n.views.manage.feedback.error": "Error sending feedback",
-    
+
+	"i18n.class.state.1_error": "Oops! Something went wrong...",
+	"i18n.class.state.0_preparing": "Getting ready for the adventure...",
+	"i18n.class.state.1_logging_in": "Sneaking into the system...",
+	"i18n.class.state.2_2fa_waiting": "Waiting for the magic code...",
+	"i18n.class.state.3_2fa_proceeding": "Unlocking the secrets...",
+	"i18n.class.state.4_collecting": "Hunting for invoices...",
+	"i18n.class.state.5_downloading": "Grabbing the loot...",
+	"i18n.class.state.6_done": "Mission accomplished!",
+
 	"i18n.collectors.all.username": "Username",
 	"i18n.collectors.all.username.placeholder": "Username of the account",
 	"i18n.collectors.all.username.error": "Incorrect username",

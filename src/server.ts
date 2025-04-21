@@ -449,6 +449,9 @@ export class Server {
         // Get collector from id
         const collector = this.get_collector(credential.collector_id);
 
+        // Translate the state title
+        credential.state.title = Server.i18n.__({ phrase: credential.state.title, locale: user.locale });
+
         // Return status
         return {
             id: credential.id,
