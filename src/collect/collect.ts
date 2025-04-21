@@ -9,7 +9,6 @@ import { Location } from "../proxy/abstractProxy";
 import { RegistryServer } from "../registryServer";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
-import { CollectPool } from "./collectPool";
 import { TwofaPromise } from "./twofaPromise";
 
 export class Collect {
@@ -24,14 +23,6 @@ export class Collect {
     }
 
     async start(): Promise<void> {
-        // Check if a collect is in progress for this credential
-        if (CollectPool.getInstance().has(this.credential_id)) {
-            throw new Error(`A collect is already in progress for credential ${this.credential_id}`);
-        }
-        
-        // Register collect in progress
-        CollectPool.getInstance().registerCollect(this.credential_id, this);
-
         let credential: IcCredential|null = null;
         let user: User|null = null;
         let secret: Secret|null = null;
@@ -224,9 +215,6 @@ export class Collect {
                 // Get cookies from error
                 await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, `${user.customer_id}_${user.id}_${collector.config.id}`, secret);
             }
-
-            // Unregister collect in progress
-            CollectPool.getInstance().unregisterCollect(this.credential_id);
         }
     }
 

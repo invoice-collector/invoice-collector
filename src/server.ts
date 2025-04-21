@@ -348,10 +348,18 @@ export class Server {
 
         // Start collect
         const collect = new Collect(credential.id)
+
+        // Register collect in progress
+        CollectPool.getInstance().registerCollect(credential.id, collect);
+
         // Do not wait for promise to resolve
         collect.start().catch((err) => {
             console.error(`Collect for credential ${credential.id} has failed`);
             console.error(err);
+        })
+        .finally(() => {
+            // Unregister collect in progress
+            CollectPool.getInstance().unregisterCollect(credential.id);
         });
 
         // Return credential_id
