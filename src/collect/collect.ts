@@ -1,14 +1,14 @@
 import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, CompleteCollectResult, CompleteInvoice } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
-import { AuthenticationError, CollectorError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
+import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
+import { I18n } from "../i18n";
 import { IcCredential, State } from "../model/credential";
 import { User } from "../model/user";
 import { Location } from "../proxy/abstractProxy";
 import { RegistryServer } from "../registryServer";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
-import { Server } from "../server";
 import { CollectPool } from "./collectPool";
 import { TwofaPromise } from "./twofaPromise";
 
@@ -172,7 +172,7 @@ export class Collect {
                 // If credential exists
                 if (credential && user) {
                     // Update credential
-                    credential.state.update(State._1_ERROR, Server.i18n.__({ phrase: err.message, locale: user.locale }));
+                    credential.state.update(State._1_ERROR, I18n.get(err.message, user.locale));
 
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();

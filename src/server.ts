@@ -1,4 +1,3 @@
-import path from 'path';
 import { DatabaseFactory } from './database/databaseFactory';
 import { AbstractSecretManager, Secret } from './secret_manager/abstractSecretManager';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
@@ -9,7 +8,6 @@ import { User } from './model/user';
 import { Customer } from './model/customer';
 import { IcCredential, State } from './model/credential';
 import { CollectTask } from './collect/collectTask';
-import { I18n } from 'i18n';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
@@ -17,20 +15,13 @@ import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
 import { CollectPool } from './collect/collectPool';
 import { Collect } from './collect/collect';
+import { I18n } from './i18n';
 
 export class Server {
 
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS"));
     static LOCALES = ['en', 'fr'];
     static DEFAULT_LOCALE = 'en';
-    static i18n = new I18n({
-        locales: Server.LOCALES,
-        directory: path.join(__dirname, '..', 'locales'),
-        defaultLocale: Server.DEFAULT_LOCALE,
-        retryInDefaultLocale: true,
-        updateFiles: false,
-        cookie: 'lang'
-    });
 
     tokens: object;
     secret_manager: AbstractSecretManager;
@@ -333,7 +324,7 @@ export class Server {
 
         // If no note, set it to collector description
         if(!note) {
-            note = Server.i18n.__({ phrase: collector.config.description, locale: user.locale });
+            I18n.get(collector.config.description, user.locale);
         }
 
         if (user.location === null) {
@@ -450,7 +441,7 @@ export class Server {
         const collector = this.get_collector(credential.collector_id);
 
         // Translate the state title
-        credential.state.title = Server.i18n.__({ phrase: credential.state.title, locale: user.locale });
+        credential.state.title = I18n.get(credential.state.title, user.locale);
 
         // Return status
         return {
@@ -526,16 +517,15 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${Server.LOCALES.join(", ")}.`, 400);
         }
 
-        console.log(`Listing all collectors`);
         return CollectorLoader.getAll().map((collector): Config => {
-            const name: string = Server.i18n.__({ phrase: collector.config.name, locale });
-            const description: string = Server.i18n.__({ phrase: collector.config.description, locale });
-            const instructions: string = Server.i18n.__({ phrase: collector.config.instructions, locale });
+            const name: string = I18n.get(collector.config.name, locale);
+            const description: string = I18n.get(collector.config.description, locale);
+            const instructions: string = I18n.get(collector.config.instructions, locale);
             const params = Object.keys(collector.config.params).reduce((acc, key) => {
                 acc[key] = {
                     ...collector.config.params[key],
-                    name: Server.i18n.__({ phrase: collector.config.params[key].name, locale }),
-                    placeholder: Server.i18n.__({ phrase: collector.config.params[key].placeholder, locale })
+                    name: I18n.get(collector.config.params[key].name, locale),
+                    placeholder: I18n.get(collector.config.params[key].placeholder, locale)
                 };
                 return acc;
             }, {});

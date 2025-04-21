@@ -4,12 +4,13 @@ import dotenv from 'dotenv';
 import { StatusError, TermsConditionsError } from "./error"
 import { Server } from "./server"
 import * as utils from "./utils"
+import { I18n } from './i18n';
 dotenv.config();
 
 // Configure express
 const app = express()
 app.use(express.json());
-app.use(Server.i18n.init);
+app.use(I18n.i18n.init);
 app.use('/views', express.static(path.join(__dirname, '..', 'views')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));

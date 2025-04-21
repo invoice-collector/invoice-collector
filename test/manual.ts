@@ -9,6 +9,7 @@ import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
 import { State } from '../src/model/credential';
+import { I18n } from '../src/i18n';
 
 (async () => {
     let id;
@@ -86,7 +87,7 @@ import { State } from '../src/model/credential';
         }
     } catch (error) {
         if (error instanceof Error) {
-            error.message = Server.i18n.__({ phrase: error.message, locale: Server.DEFAULT_LOCALE });
+            error.message = I18n.get(error.message, Server.DEFAULT_LOCALE);
         }
         console.error(error);
         if (error instanceof LoggableError) {
