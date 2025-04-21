@@ -10,7 +10,7 @@ export class AmazonCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "4",
+        version: "5",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -81,23 +81,19 @@ export class AmazonCollector extends ScrapperCollector {
         }
     }
 
-    async is_2fa(driver: Driver): Promise<boolean> {
-        return driver.url().includes("/ap/mfa");
+    async isTwofa(driver: Driver): Promise<string | void> {
+        // Check if 2FA is required
+        const twofa_instruction = await driver.wait_for_element(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, false, 2000);
+        if (twofa_instruction) {
+            return await twofa_instruction.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.instruction";
+        }
     }
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
-        // Get 2fa instructions
-        const twofa_instruction = await driver.wait_for_element(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS);
-        let instructions = "i18n.collectors.all.2fa.instruction";
-        if (twofa_instruction) {
-            instructions = await twofa_instruction.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.instruction";
-        }
-
-        // Set instructions for UI
-        await twofa_promise.setInstructions(instructions);
-
         // Wait for 2fa code from UI
         const twofa_code = await twofa_promise.code();
+
+        // Input 2fa code
         await driver.input_text(AmazonSelectors.FIELD_2FA_CODE, twofa_code);
         await driver.left_click(AmazonSelectors.BUTTON_2FA_DO_NOT_ASK);
         await driver.left_click(AmazonSelectors.BUTTON_2FA_SUBMIT);

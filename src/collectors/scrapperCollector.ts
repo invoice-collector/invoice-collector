@@ -84,12 +84,15 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 }
 
                 // Check if 2fa is required
-                const is_2fa = await this.is_2fa(this.driver)
+                const is_2fa = await this.isTwofa(this.driver)
 
                 // If 2fa is required, 
                 if (is_2fa) {
                     // Set progress step to 2fa waiting
                     state.update(State._2_2FA_WAITING);
+
+                    // Set instructions for UI
+                    await twofa_promise.setInstructions(is_2fa);
 
                     console.log("2FA is required, performing 2FA...")
                     const twofa_error = await this.twofa(this.driver, secret.params, twofa_promise)
@@ -220,9 +223,8 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
     abstract login(driver: Driver, params: any): Promise<string | void>;
 
-    async is_2fa(driver: Driver): Promise<boolean>{
+    async isTwofa(driver: Driver): Promise<string | void>{
         //Assume the collector does not implement 2FA
-        return false;
     }
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {

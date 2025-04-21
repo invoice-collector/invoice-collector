@@ -29,7 +29,7 @@ export class TwofaPromise{
     }
 
     async setInstructions(instructions: string): Promise<void> {
-        this.instructionsResolve(instructions.trim());
+        this.instructionsResolve(instructions.trim().replaceAll('\n', ' ').replace(/  +/g, ' '));
     }
 
     async instructions(): Promise<string> {
