@@ -232,7 +232,7 @@ export class MongoDB extends AbstractDatabase {
                 $and: [
                     { $expr: { $lt: [ "$last_collect_timestamp", "$next_collect_timestamp" ] } },
                     { $expr: { $lt: [ "$next_collect_timestamp", Date.now() ] } },
-                    { state: { $ne: "ERROR" } }
+                    { "state.index": { $gte: 0 } }
                 ]
             }
             ]
