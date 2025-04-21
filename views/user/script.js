@@ -216,6 +216,7 @@ async function showProgress(credential_id) {
     const progressText = document.getElementById('progress-text');
     const progressBar = document.getElementById('progress-bar');
     const responseSuccess = document.getElementById('progress-response-success');
+    const responseUnknown = document.getElementById('progress-response-unknown');
     const responseError = document.getElementById('progress-response-error');
     const responseErrorText = document.getElementById('progress-response-error-text');
     const container2FA = document.getElementById('send-2fa-container');
@@ -228,6 +229,7 @@ async function showProgress(credential_id) {
     progressText.classList.add('fade');
     progressBar.style.width = `0%`;
     responseSuccess.hidden = true;
+    responseUnknown.hidden = true;
     responseError.hidden = true;
     container2FA.hidden = true;
     form2fa.reset();
@@ -255,10 +257,12 @@ async function showProgress(credential_id) {
         current_state = (await response.json()).state;
 
         // Check if the response is ok
-        if (current_state.index >= 0) {
+        if (current_state.index > 0) {
             if (previous_state && previous_state.index !== current_state.index) {
                 // Update progress bar and text
                 progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
+
+                // Update progress text with fade effect
                 progressText.classList.add('fade');
                 await new Promise(resolve => setTimeout(resolve, 500));
                 progressText.textContent = current_state.title;
@@ -266,13 +270,17 @@ async function showProgress(credential_id) {
                 await new Promise(resolve => setTimeout(resolve, 500));
 
                 // Display 2fa code if needed
-                if (current_state.index === 2) {
+                if (current_state.index === 3) {
                     container2FA.hidden = false;
                     form2faInstructions.textContent = current_state.message;
                 }
             }
             else {
                 if (previous_state === undefined) {
+                    // Update progress bar and text
+                    progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
+
+                    // Update progress text with fade effect
                     progressText.textContent = current_state.title;
                     progressText.classList.remove('fade');
                 }
@@ -281,13 +289,14 @@ async function showProgress(credential_id) {
             }
         }
         previous_state = current_state;
-    } while (0 <= current_state.index && current_state.index < current_state.max);
+    } while (0 < current_state.index && current_state.index < current_state.max);
 
     // Display error or success message
     container2FA.hidden = true;
     responseErrorText.textContent = current_state.message;
-    responseSuccess.hidden = current_state.index < 0;
-    responseError.hidden = current_state.index >= current_state.max;
+    responseSuccess.hidden = !(current_state.index >= current_state.max);
+    responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
+    responseError.hidden = !(current_state.index < 0);
 }
 
 async function post2FA(credential_id, code) {

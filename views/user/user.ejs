@@ -87,6 +87,11 @@
             <p><%= __('i18n.views.manage.success') %></p>
             <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
         </div>
+        <div id="progress-response-unknown" class="progress-response" hidden>
+            <img src="/views/icons/pending.png" alt="Unknown">
+            <p><%= __('i18n.views.manage.unknown') %></p>
+            <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
+        </div>
         <div id="progress-response-error" class="progress-response" hidden>
             <img src="/views/icons/error.png" alt="Success">
             <p id="progress-response-error-text"></p>

@@ -464,7 +464,7 @@ export class Server {
         collect.twofa_promise.setCode(code);
 
         // Set progress step to 2FA proceeding
-        collect.state?.update(State._3_2FA_PROCEEDING);
+        collect.state?.update(State._4_2FA_PROCEEDING);
     }
 
     // ---------- COLLECTOR ENDPOINTS ----------

@@ -6,15 +6,16 @@ export class State {
     static SUCCESS_LEVEL: number = 6;
 
     static _1_ERROR: State = new State(-1, "i18n.class.state.1_error");
-    static _0_PREPARING: State = new State(0, "i18n.class.state.0_preparing");
-    static _1_LOGGING_IN : State = new State(1, "i18n.class.state.1_logging_in");
-    static _2_2FA_WAITING : State = new State(2, "i18n.class.state.2_2fa_waiting");
-    static _3_2FA_PROCEEDING : State = new State(3, "i18n.class.state.3_2fa_proceeding");
-    static _4_COLLECTING : State = new State(4, "i18n.class.state.4_collecting");
-    static _5_DOWNLOADING : State = new State(5, "i18n.class.state.5_downloading");
-    static _6_DONE : State = new State(6, "i18n.class.state.6_done");
+    static _0_UNKNOWN: State = new State(0, "i18n.class.state.0_unknown");
+    static _1_PREPARING: State = new State(1, "i18n.class.state.1_preparing");
+    static _2_LOGGING_IN : State = new State(2, "i18n.class.state.2_logging_in");
+    static _3_2FA_WAITING : State = new State(3, "i18n.class.state.3_2fa_waiting");
+    static _4_2FA_PROCEEDING : State = new State(4, "i18n.class.state.4_2fa_proceeding");
+    static _5_COLLECTING : State = new State(5, "i18n.class.state.5_collecting");
+    static _6_DOWNLOADING : State = new State(6, "i18n.class.state.6_downloading");
+    static _7_DONE : State = new State(7, "i18n.class.state.7_done");
 
-    static DEFAULT_STATE: State = State._0_PREPARING;
+    static DEFAULT_STATE: State = State._0_UNKNOWN;
     static DEFAULT_MESSAGE: string = "";
 
     static fromObject(obj: object): State {

@@ -63,7 +63,6 @@ export abstract class ScrapperCollector extends AbstractCollector {
             // Check if website is in maintenance
             const is_in_maintenance = await this.is_in_maintenance(this.driver)
             if (is_in_maintenance) {
-                await this.driver.close()
                 throw new MaintenanceError(this);
             }
 
@@ -73,7 +72,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
             // If user is not logged in, try to login
             if (!is_logged_in) {
                 // Set progress step to logging in
-                state.update(State._1_LOGGING_IN);
+                state.update(State._2_LOGGING_IN);
 
                 console.log("User is not logged in, logging in...")
                 const login_error = await this.login(this.driver, secret.params)
@@ -89,7 +88,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 // If 2fa is required, 
                 if (is_2fa) {
                     // Set progress step to 2fa waiting
-                    state.update(State._2_2FA_WAITING, is_2fa);
+                    state.update(State._3_2FA_WAITING, is_2fa);
 
                     // Set instructions for UI
                     await twofa_promise.setInstructions(is_2fa);
@@ -110,7 +109,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
             }
 
             // Set progress step to collecting
-            state.update(State._4_COLLECTING);
+            state.update(State._5_COLLECTING);
 
             // Collect invoices
             const invoices = await this.collect(this.driver, secret.params)

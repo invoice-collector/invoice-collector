@@ -52,7 +52,7 @@ export abstract class ApiCollector extends AbstractCollector {
 
         try {
             // Set progress step to collecting
-            state.update(State._4_COLLECTING);
+            state.update(State._5_COLLECTING);
 
             // Collect invoices
             const invoices = await this.collect(this.instance, secret.params)

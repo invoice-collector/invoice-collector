@@ -49,6 +49,9 @@ export class Collect {
 
             // Set state from credential
             this.state = credential.state;
+            
+            // Set progress step to logging in
+            this.state.update(State._1_PREPARING);
 
             // Get user from credential
             user = await credential.getUser();
@@ -146,6 +149,9 @@ export class Collect {
 
                 // If credential exists
                 if (credential) {
+                    // Update credential
+                    credential.state.update(State._7_DONE);
+
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
 
@@ -160,6 +166,9 @@ export class Collect {
 
                 // If credential exists
                 if (credential) {
+                    // Update credential
+                    credential.state.update(State._0_UNKNOWN);
+
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
 
@@ -185,6 +194,9 @@ export class Collect {
                 console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 // If credential exists
                 if (credential) {
+                    // Update credential
+                    credential.state.update(State._0_UNKNOWN);
+
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
 
@@ -194,6 +206,12 @@ export class Collect {
             }
             else {
                 console.error(err);
+                
+                // If credential exists
+                if (credential) {
+                    // Update credential
+                    credential.state.update(State._0_UNKNOWN);
+                }
             }
         }
         finally {
@@ -240,7 +258,7 @@ export class Collect {
                         console.log(`Downloading ${newInvoices.length} invoices`);
 
                         // Set progress step to downloading
-                        state.update(State._5_DOWNLOADING);
+                        state.update(State._6_DOWNLOADING);
 
                         // For each invoice
                         for(let newInvoice of newInvoices) {
@@ -273,7 +291,7 @@ export class Collect {
                 }
 
                 // Set progress step to done
-                state.update(State._6_DONE);
+                state.update(State._7_DONE);
 
                 return {
                     invoices: completeInvoices,
