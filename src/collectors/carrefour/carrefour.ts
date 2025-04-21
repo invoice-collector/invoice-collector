@@ -2,13 +2,15 @@ import { ScrapperCollector } from '../scrapperCollector';
 import { CarrefourSelectors } from './selectors';
 import { Driver } from '../../driver/driver';
 import { DownloadedInvoice, Invoice } from '../abstractCollector';
+import { TwofaPromise } from '../../collect/twofaPromise';
+import * as utils from '../../utils';
 
 export class CarrefourCollector extends ScrapperCollector {
 
     static CONFIG = {
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "2",
+        version: "3",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         params: {
@@ -46,6 +48,49 @@ export class CarrefourCollector extends ScrapperCollector {
         const login_alert = await driver.wait_for_element(CarrefourSelectors.CONTAINER_LOGIN_ALERT, false, 2000)
         if (login_alert) {
             return await login_alert.evaluate(el => el.textContent || "i18n.collectors.all.password.error");
+        }
+    }
+
+    async isTwofa(driver: Driver): Promise<string | void> {
+        // Check if 2FA is required
+        const two_factor_auth = await driver.wait_for_element(CarrefourSelectors.CONTAINER_2FA_INSTRUCTIONS, false, 2000);
+        if (two_factor_auth) {
+            return await two_factor_auth.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.instruction";
+        }
+    }
+
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+        // Check if too much attempts
+        const twofa_too_much = await driver.wait_for_element(CarrefourSelectors.CONTAINER_2FA_ALERT, false, 1000);
+        if (twofa_too_much) {
+            return await twofa_too_much.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.error";
+        }
+
+        // Wait for 2fa code from UI
+        const twofa_code = await twofa_promise.code();
+
+        // Check if 2fa code is 6 digits
+        if (twofa_code.length !== 6) {
+            return "i18n.collectors.all.2fa.error";
+        }
+
+        // Input 2fa code slowly to avoid focus out
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_0, twofa_code[0]);
+        await utils.delay(200);
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_1, twofa_code[1]);
+        await utils.delay(200);
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_2, twofa_code[2]);
+        await utils.delay(200);
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_3, twofa_code[3]);
+        await utils.delay(200);
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_4, twofa_code[4]);
+        await utils.delay(200);
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_5, twofa_code[5]);
+
+        // Check if 2fa code is incorrect
+        const twofa_alert = await driver.wait_for_element(CarrefourSelectors.CONTAINER_2FA_ALERT, false, 1000);
+        if (twofa_alert) {
+            return await twofa_alert.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.error";
         }
     }
 

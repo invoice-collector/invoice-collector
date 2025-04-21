@@ -3,6 +3,9 @@ import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
+import { Secret } from "../secret_manager/abstractSecretManager";
+import { TwofaPromise } from "../collect/twofaPromise";
+import { State } from "../model/credential";
 
 export type ApiConfig = {
     name: string,
@@ -38,7 +41,7 @@ export abstract class ApiCollector extends AbstractCollector {
         this.instance = null;
     }
 
-    async _collect(params: any, location: Location | null): Promise<Invoice[]> {
+    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]> {
         console.log(`API Collector, do not use proxy`);
 
         // Initialise axios instance
@@ -48,8 +51,11 @@ export abstract class ApiCollector extends AbstractCollector {
         });
 
         try {
+            // Set progress step to collecting
+            state.update(State._5_COLLECTING);
+
             // Collect invoices
-            const invoices = await this.collect(this.instance, params)
+            const invoices = await this.collect(this.instance, secret.params)
             
             // If invoices is undefined, collector is unfinished
             if (invoices === undefined) {
