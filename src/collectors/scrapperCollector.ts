@@ -89,7 +89,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 // If 2fa is required, 
                 if (is_2fa) {
                     // Set progress step to 2fa waiting
-                    state.update(State._2_2FA_WAITING);
+                    state.update(State._2_2FA_WAITING, is_2fa);
 
                     // Set instructions for UI
                     await twofa_promise.setInstructions(is_2fa);

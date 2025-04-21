@@ -1,5 +1,6 @@
 import { AbstractCollector } from "../collectors/abstractCollector";
 import { AuthenticationError } from "../error";
+import * as utils from "../utils";
 
 export class TwofaPromise{
     static TWOFA_TIMEOUT_MS = 1000 * 60 * 2; // 2 minutes
@@ -29,7 +30,7 @@ export class TwofaPromise{
     }
 
     async setInstructions(instructions: string): Promise<void> {
-        this.instructionsResolve(instructions.trim().replaceAll('\n', ' ').replace(/  +/g, ' '));
+        this.instructionsResolve(utils.trim(instructions));
     }
 
     async instructions(): Promise<string> {

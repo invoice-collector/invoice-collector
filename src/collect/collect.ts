@@ -172,8 +172,7 @@ export class Collect {
                 // If credential exists
                 if (credential && user) {
                     // Update credential
-                    credential.state.update(State._1_ERROR);
-                    credential.state.message = Server.i18n.__({ phrase: err.message, locale: user.locale });
+                    credential.state.update(State._1_ERROR, Server.i18n.__({ phrase: err.message, locale: user.locale }));
 
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();

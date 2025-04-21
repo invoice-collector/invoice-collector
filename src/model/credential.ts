@@ -1,4 +1,5 @@
 import { DatabaseFactory } from "../database/databaseFactory";
+import * as utils from "../utils"; 
 
 export class State {
 
@@ -14,6 +15,7 @@ export class State {
     static _6_DONE : State = new State(6, "Done!");
 
     static DEFAULT_STATE: State = State._0_PREPARING;
+    static DEFAULT_MESSAGE: string = "";
 
     static fromObject(obj: object): State {
         let state = new State(obj["index"], obj["title"]);
@@ -31,15 +33,15 @@ export class State {
         this.index = index;
         this.max = State.SUCCESS_LEVEL;
         this.title = title;
-        this.message = "";
+        this.message = State.DEFAULT_MESSAGE;
     }
 
     // Use update method to update the state values without creating a new instance
-    update(state: State) {
+    update(state: State, message: string = State.DEFAULT_MESSAGE) {
         this.index = state.index;
         this.max = state.max;
         this.title = state.title;
-        this.message = state.message;
+        this.message = utils.trim(message);
     }
 
     isError(): boolean {

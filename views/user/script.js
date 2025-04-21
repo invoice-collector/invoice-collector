@@ -220,6 +220,8 @@ async function showProgress(credential_id) {
     const responseErrorText = document.getElementById('progress-response-error-text');
     const container2FA = document.getElementById('send-2fa-container');
     const form2fa = document.getElementById('send-2fa-form');
+    const form2faInstructions = document.getElementById('send-2fa-instructions');
+    
 
     // Reset values
     progressText.textContent = '';
@@ -229,6 +231,7 @@ async function showProgress(credential_id) {
     responseError.hidden = true;
     container2FA.hidden = true;
     form2fa.reset();
+    form2faInstructions.textContent = '';
 
     // Hide other containers
     document.getElementById('credentials-container').hidden = true;
@@ -265,6 +268,7 @@ async function showProgress(credential_id) {
                 // Display 2fa code if needed
                 if (current_state.index === 2) {
                     container2FA.hidden = false;
+                    form2faInstructions.textContent = current_state.message;
                 }
             }
             else {

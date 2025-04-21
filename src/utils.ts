@@ -68,6 +68,10 @@ export function generateVerificationCode(): string {
     return Math.floor(100000 + Math.random() * 900000).toString().padStart(6, '0');
 }
 
+export function trim(str: string): string {
+    return str.trim().replaceAll('\n', ' ').replace(/  +/g, ' ');
+}
+
 export function generateUserAgent()  {
     const chromeVersion = Math.floor(Math.random() * 20) + 60
     const webkitVersion = Math.floor(Math.random() * 700) + 500

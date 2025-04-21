@@ -64,20 +64,19 @@
 
     <!-- PROGRESS CONTAINER -->
 
-    <div id="progress-container" class="container" hidden>
+    <div id="progress-container" class="container" >
         <!-- TITLE -->
-        <h1><%= __('i18n.views.manage.add-collectors') %></h1>
+        <h1><%= __('i18n.views.manage.adding-collector') %></h1>
         <!-- PROGRESS BAR -->
         <div id="progress-text">
-            In progress, please wait...
         </div>
         <div id="progress-bar-container">
             <div id="progress-bar"></div>
         </div>
         <!-- 2FA FORM -->
-        <div id="send-2fa-container" hidden>
+        <div id="send-2fa-container" >
             <form id="send-2fa-form">
-                <label><%= __('i18n.views.manage.2fa') %></label>
+                <label id="send-2fa-instructions"></label>
                 <input type="text" name="code" placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>">
                 <button type="submit" class="button action-button"><%= __('i18n.views.manage.continue') %></button>
             </form>
