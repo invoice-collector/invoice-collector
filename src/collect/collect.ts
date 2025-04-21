@@ -1,5 +1,5 @@
 import { CallbackHandler } from "../callback/callback";
-import { AbstractCollector, CompleteCollectResult, CompleteInvoice } from "../collectors/abstractCollector";
+import { AbstractCollector, CompleteInvoice } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { I18n } from "../i18n";
@@ -34,6 +34,8 @@ export class Collect {
 
         let credential: IcCredential|null = null;
         let user: User|null = null;
+        let secret: Secret|null = null;
+        let collector: AbstractCollector|null = null;
         let customer;
 
         try {
@@ -70,10 +72,10 @@ export class Collect {
             }
 
             // Get secret from secret_manager_id
-            const secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
+            secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
 
             // Get collector from collector_id
-            const collector = CollectorLoader.get(credential.collector_id);
+            collector = CollectorLoader.get(credential.collector_id);
 
             // Check if collector not found
             if(collector == null) {
@@ -95,21 +97,17 @@ export class Collect {
             const previousInvoices = credential.invoices.map((inv) => inv.id);
 
             // Collect invoices
-            const { invoices, cookies } = await this.collect_new_invoices(this.state, collector, secret, !first_collect, previousInvoices, user.location);
+            const newInvoices = await this.collect_new_invoices(this.state, collector, secret, !first_collect, previousInvoices, user.location);
 
-            // Save cookies in secret_manager
-            secret.cookies = cookies;
-            await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, `${user.customer_id}_${user.id}_${collector.config.id}`, secret);
-                    
             console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
             // If at least one new invoice has been downloaded
-            if(invoices.length > 0) {
+            if(newInvoices.length > 0) {
                 // Loop through invoices
-                for (const [index, invoice] of invoices.entries()) {
+                for (const [index, invoice] of newInvoices.entries()) {
                     // If not the first collect and invoice is more recent than the credential creation date
                     if (!first_collect && credential.create_timestamp < invoice.timestamp) {
-                        console.log(`Sending invoice ${index + 1}/${invoices.length} (${invoice.id}) to callback`);
+                        console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                         try {
                             // Send invoice to callback
@@ -221,6 +219,12 @@ export class Collect {
                 await credential.commit();
             }
 
+            // If secret, collector, credential and user exists
+            if (secret && collector && credential && user) {
+                // Get cookies from error
+                await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, `${user.customer_id}_${user.id}_${collector.config.id}`, secret);
+            }
+
             // Unregister collect in progress
             CollectPool.getInstance().unregisterCollect(this.credential_id);
         }
@@ -234,7 +238,7 @@ export class Collect {
             secret: Secret,
             download: boolean,
             previousInvoices: any[],
-            location: Location | null): Promise<CompleteCollectResult> {  
+            location: Location | null): Promise<CompleteInvoice[]> {  
 
         // Check if a mandatory field is missing
             for (const [key, value] of Object.entries(collector.config.params)) {
@@ -244,7 +248,7 @@ export class Collect {
             }
 
             try {
-                const { invoices, cookies } = await collector._collect(state, secret, location, this.twofa_promise);
+                const invoices = await collector._collect(state, secret, location, this.twofa_promise);
 
                 // Get new invoices
                 const newInvoices = invoices.filter((inv) => !previousInvoices.includes(inv.id));
@@ -293,10 +297,7 @@ export class Collect {
                 // Set progress step to done
                 state.update(State._7_DONE);
 
-                return {
-                    invoices: completeInvoices,
-                    cookies
-                }
+                return completeInvoices;
             }
             finally {
                 // Close the collector resources

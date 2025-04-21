@@ -72,10 +72,10 @@ import { I18n } from '../src/i18n';
             collect.twofa_promise.setCode(twofa_code);
         });
 
-        const { invoices, cookies } = await collect.collect_new_invoices(collect.state, collector, secret, true, [], {country: "FR", lat: '', lon: ''});
-        console.log(`${invoices.length} invoices downloaded`);
+        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], {country: "FR", lat: '', lon: ''});
+        console.log(`${newInvoices.length} invoices downloaded`);
 
-        for (const invoice of invoices) {
+        for (const invoice of newInvoices) {
             // If data is not null
             if (invoice.data) {
                 // Save data to file

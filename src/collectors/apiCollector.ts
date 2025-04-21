@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectResult } from "./abstractCollector";
+import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -41,7 +41,7 @@ export abstract class ApiCollector extends AbstractCollector {
         this.instance = null;
     }
 
-    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<CollectResult> {
+    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]> {
         console.log(`API Collector, do not use proxy`);
 
         // Initialise axios instance
@@ -62,10 +62,7 @@ export abstract class ApiCollector extends AbstractCollector {
                 throw new UnfinishedCollectorError(this);
             }
 
-            return {
-                invoices,
-                cookies: null
-            };
+            return invoices;
         } catch (error) {
             // Get url
             const url = this.instance?.defaults.baseURL || '';

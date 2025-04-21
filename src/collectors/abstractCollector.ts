@@ -41,16 +41,6 @@ export type CompleteInvoice = DownloadedInvoice & {
     mimetype: string | null
 }
 
-export type CompleteCollectResult = {
-    invoices: CompleteInvoice[],
-    cookies: any
-}
-
-export type CollectResult = {
-    invoices: Invoice[],
-    cookies: any
-}
-
 export abstract class AbstractCollector {
     config: Config;
 
@@ -73,7 +63,7 @@ export abstract class AbstractCollector {
 
     //NOT IMPLEMENTED
 
-    abstract _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<CollectResult>;
+    abstract _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]>;
 
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
 

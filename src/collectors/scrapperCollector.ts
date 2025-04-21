@@ -1,4 +1,4 @@
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectResult } from "./abstractCollector";
+import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
@@ -43,7 +43,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = null;
     }
 
-    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<CollectResult> {
+    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]> {
         // Get proxy
         const proxy = this.config.useProxy ? ProxyFactory.getProxy().get(location) : null;
 
@@ -108,6 +108,9 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 console.log("User is successfully logged in using cookies")
             }
 
+            // Update cookies
+            secret.cookies = await this.driver.browser?.cookies();
+
             // Set progress step to collecting
             state.update(State._5_COLLECTING);
 
@@ -124,10 +127,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 throw new NoInvoiceFoundError(this);
             }
 
-            return {
-                invoices,
-                cookies: await this.driver.browser?.cookies(),
-            };
+            return invoices;
         } catch (error) {
             // Get url, source code and screenshot
             const url = this.driver.url();
