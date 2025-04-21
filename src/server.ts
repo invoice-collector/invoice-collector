@@ -306,7 +306,7 @@ export class Server {
 
         // If no note, set it to collector description
         if(!note) {
-            I18n.get(collector.config.description, user.locale);
+            note = I18n.get(collector.config.description, user.locale);
         }
 
         if (user.location === null) {
