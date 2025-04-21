@@ -349,7 +349,10 @@ export class Server {
         // Start collect
         const collect = new Collect(credential.id)
         // Do not wait for promise to resolve
-        collect.start();
+        collect.start().catch((err) => {
+            console.error(`Collect for credential ${credential.id} has failed`);
+            console.error(err);
+        });
 
         // Return credential_id
         return {id: credential.id};
