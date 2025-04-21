@@ -39,12 +39,12 @@ export class Collect {
             if (!credential) {
                 throw new Error(`Credential with id "${this.credential_id}" not found.`);
             }
+            
+            // Set progress step to preparing
+            credential.state.update(State._1_PREPARING);
 
             // Set state from credential
             this.state = credential.state;
-            
-            // Set progress step to logging in
-            this.state.update(State._1_PREPARING);
 
             // Get user from credential
             user = await credential.getUser();
