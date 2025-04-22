@@ -1,11 +1,12 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import { expect, describe } from '@jest/globals';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { Server } from '../src/server';
 import { AuthenticationError } from '../src/error';
-import { ApiCollector } from '../src/collectors/apiCollector';
 import { ScrapperCollector } from '../src/collectors/scrapperCollector';
-import dotenv from 'dotenv';
-dotenv.config();
+import { Secret } from '../src/secret_manager/abstractSecretManager';
+import { Collect } from '../src/collect/collect';
 
 const ids = process.argv.slice(3);
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
@@ -29,20 +30,28 @@ for (const collector of CollectorLoader.getAll()) {
     if (collector instanceof ScrapperCollector) {
         describe(`${id} tests`, () => {
             it('Login with incorrect email format', async () => {
-                const params = {
-                    id: 'test',
-                    password: 'test'
-                }
-                await expect(collector.collect_new_invoices(params, true, [], Server.DEFAULT_LOCALE, null))
+                const secret: Secret = {
+                    params: {
+                        id: 'test',
+                        password: 'test'
+                    },
+                    cookies: null,
+                };
+                const collect = new Collect("")
+                await expect(collect.collect_new_invoices(collector, secret, true, [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
             it('Login with non-existing account', async () => {
-                const params = {
-                    id: 'fakeemail@test.ic',
-                    password: 'test'
-                }
-                await expect(collector.collect_new_invoices(params, true, [], Server.DEFAULT_LOCALE, null))
+                const secret: Secret = {
+                    params: {
+                        id: 'fakeemail@test.ic',
+                        password: 'test'
+                    },
+                    cookies: null,
+                };
+                const collect = new Collect("")
+                await expect(collect.collect_new_invoices(collector, secret, true, [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 

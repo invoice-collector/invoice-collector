@@ -2,7 +2,7 @@ import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
-import { IcCredential } from "../model/credential";
+import { IcCredential, State } from "../model/credential";
 import * as utils from "../utils";
 
 export class MongoDB extends AbstractDatabase {
@@ -120,6 +120,24 @@ export class MongoDB extends AbstractDatabase {
 
     // USER
 
+    async getUsers(customer_id: string ): Promise<User[]> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const documents = await this.db.collection(MongoDB.USER_COLLECTION).find({ customer_id: new ObjectId(customer_id) }).toArray();
+        return documents.map(document => {
+            let user = new User(
+                document.customer_id.toString(),
+                document.remote_id,
+                document.location,
+                document.locale,
+                document.termsConditions
+            );
+            user.id = document._id.toString();
+            return user;
+        });
+    }
+
     async getUser(user_id: string): Promise<User|null> {
         if (!this.db) {
             throw new Error("Database is not connected");
@@ -214,7 +232,7 @@ export class MongoDB extends AbstractDatabase {
                 $and: [
                     { $expr: { $lt: [ "$last_collect_timestamp", "$next_collect_timestamp" ] } },
                     { $expr: { $lt: [ "$next_collect_timestamp", Date.now() ] } },
-                    { state: { $ne: "ERROR" } }
+                    { "state.index": { $gte: 0 } }
                 ]
             }
             ]
@@ -241,8 +259,7 @@ export class MongoDB extends AbstractDatabase {
                 document.last_collect_timestamp,
                 document.next_collect_timestamp,
                 document.invoices,
-                document.state,
-                document.error
+                State.fromObject(document.state)
             );
             credential.id = document._id.toString();
             return credential;
@@ -268,8 +285,7 @@ export class MongoDB extends AbstractDatabase {
             document.last_collect_timestamp,
             document.next_collect_timestamp,
             document.invoices,
-            document.state,
-            document.error
+            State.fromObject(document.state)
         );
         credential.id = document._id.toString();
         return credential;
@@ -288,8 +304,7 @@ export class MongoDB extends AbstractDatabase {
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
             invoices: credential.invoices,
-            state: credential.state,
-            error: credential.error
+            state: credential.state
         });
         credential.id = document.insertedId.toString();
         return credential;
@@ -310,8 +325,7 @@ export class MongoDB extends AbstractDatabase {
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 invoices: credential.invoices,
-                state: credential.state,
-                error: credential.error
+                state: credential.state
             }}
         );
     }

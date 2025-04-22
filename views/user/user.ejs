@@ -18,14 +18,14 @@
         <!-- CREDENTIALS LIST -->
         <div id="credentials-list"></div>
         <!-- BUTTON -->
-        <button id="add-credential-button" class="button action-button"><%= __('i18n.views.manage.add-collectors') %></button>
+        <button class="button action-button" onclick="showCompanies()"><%= __('i18n.views.manage.add-collectors') %></button>
     </div>
 
     <!-- COMPANIES CONTAINER -->
 
     <div id="companies-container" class="container" hidden>
         <!-- BUTTON -->
-        <button id="return-to-credentials-button" class="button return-button"><%= __('i18n.views.manage.return') %></button>
+        <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
         <!-- TITLE -->
         <h1><%= __('i18n.views.manage.add-collectors') %></h1>
         <!-- COMPANIES LIST -->
@@ -37,7 +37,7 @@
         
     <div id="form-container" class="container" hidden>
         <!-- BUTTON -->
-        <button id="return-to-companies-button" class="button return-button"><%= __('i18n.views.manage.return') %></button>
+        <button class="button return-button" onclick="showCompanies()"><%= __('i18n.views.manage.return') %></button>
         <!-- TITLE -->
         <h1><%= __('i18n.views.manage.add-collectors') %></h1>
         <!-- FORM -->
@@ -62,6 +62,43 @@
         </div>
     </div>
 
+    <!-- PROGRESS CONTAINER -->
+
+    <div id="progress-container" class="container" >
+        <!-- TITLE -->
+        <h1><%= __('i18n.views.manage.adding-collector') %></h1>
+        <!-- PROGRESS BAR -->
+        <div id="progress-text">
+        </div>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <!-- 2FA FORM -->
+        <div id="send-2fa-container" >
+            <form id="send-2fa-form">
+                <label id="send-2fa-instructions"></label>
+                <input type="text" name="code" placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>">
+                <button type="submit" class="button action-button"><%= __('i18n.views.manage.continue') %></button>
+            </form>
+        </div>
+        <!-- RESPONSE -->
+        <div id="progress-response-success" class="progress-response" hidden>
+            <img src="/views/icons/success.png" alt="Success">
+            <p><%= __('i18n.views.manage.success') %></p>
+            <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
+        </div>
+        <div id="progress-response-unknown" class="progress-response" hidden>
+            <img src="/views/icons/pending.png" alt="Unknown">
+            <p><%= __('i18n.views.manage.unknown') %></p>
+            <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
+        </div>
+        <div id="progress-response-error" class="progress-response" hidden>
+            <img src="/views/icons/error.png" alt="Success">
+            <p id="progress-response-error-text"></p>
+            <button class="button delete-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
+        </div>
+    </div>
+
     <!-- FEEDBACK CONTAINER -->
 
     <div id="feedback-container" class="container" hidden>
@@ -77,6 +114,7 @@
             <input type="text" name="email" type="email" placeholder="<%= __('i18n.views.manage.feedback.email.placeholder') %>">
             <button type="submit" class="button action-button"><%= __('i18n.views.manage.send-feedback') %></button>
         </form>
+        <!-- RESPONSE -->
         <div id="feedback-response-success" class="feedback-response feedback-response-success" hidden>
             <p><%= __('i18n.views.manage.feedback.success') %></p>
         </div>

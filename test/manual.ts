@@ -6,6 +6,10 @@ import fs from 'fs';
 import { Server } from "../src/server";
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
+import { Secret } from '../src/secret_manager/abstractSecretManager';
+import { Collect } from '../src/collect/collect';
+import { State } from '../src/model/credential';
+import { I18n } from '../src/i18n';
 
 (async () => {
     let id;
@@ -30,13 +34,16 @@ import { LoggableError } from '../src/error';
             throw new Error(`No collector with id "${id}" found.`);
         }
 
-        let params = {}
+        let secret: Secret = {
+            params: {},
+            cookies: null,
+        }
         let argv_index = 3;
 
         // Loop throught each config
         for(const param_key of Object.keys(collector.config.params)) {
             if(process.argv[argv_index]) {
-                params[param_key] = process.argv[argv_index]
+                secret.params[param_key] = process.argv[argv_index]
                 if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
                     console.log(`${param_key}: <hidden>`)
                 }
@@ -46,20 +53,29 @@ import { LoggableError } from '../src/error';
             }
             else {
                 if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
-                    params[param_key] = prompt.hide(`${param_key}: `);
+                    secret.params[param_key] = prompt.hide(`${param_key}: `);
                 }
                 else {
-                    params[param_key] = prompt(`${param_key}: `);
+                    secret.params[param_key] = prompt(`${param_key}: `);
                 }
             }
             argv_index++;
         }
 
         // Collect invoices
-        const invoices = await collector.collect_new_invoices(params, true, [], Server.DEFAULT_LOCALE, {country: "FR", lat: '', lon: ''});
-        console.log(`${invoices.length} invoices downloaded`);
+        const collect = new Collect("")
+        collect.state = State.DEFAULT_STATE;
 
-        for (const invoice of invoices) {
+        // Define what to do on 2FA
+        collect.twofa_promise.instructions().then((twofa_instruction) => {
+            const twofa_code = prompt(`${twofa_instruction}: `);
+            collect.twofa_promise.setCode(twofa_code);
+        });
+
+        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], {country: "FR", lat: '', lon: ''});
+        console.log(`${newInvoices.length} invoices downloaded`);
+
+        for (const invoice of newInvoices) {
             // If data is not null
             if (invoice.data) {
                 // Save data to file
@@ -70,6 +86,9 @@ import { LoggableError } from '../src/error';
             }
         }
     } catch (error) {
+        if (error instanceof Error) {
+            error.message = I18n.get(error.message, Server.DEFAULT_LOCALE);
+        }
         console.error(error);
         if (error instanceof LoggableError) {
             // Save screenshot if exists

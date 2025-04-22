@@ -1,12 +1,11 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import fs from 'fs';
 import path from 'path';
 import { expect, describe, beforeAll, afterAll } from '@jest/globals';
-import dotenv from 'dotenv';
 import { OxylabProxy } from '../src/proxy/oxylabProxy';
 import { Driver } from '../src/driver/driver';
 import { LeroyMerlinCollector } from '../src/collectors/leroy_merlin/leroy_merlin';
-import * as utils from '../src/utils';
-dotenv.config();
 
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
 const RESULTS_FOLDER = path.join(__dirname, 'results', `antibots.${new Date().toISOString().replace(/[:.]/g, '-')}`);

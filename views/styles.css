@@ -177,6 +177,45 @@ input {
     margin: 0px;
 }
 
+/* PROGRESS */
+
+#progress-text {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#progress-text.fade {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+#progress-bar-container {
+    margin-bottom: 30px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+#progress-bar {
+    max-width: 100%;
+    min-width: 3.5%;
+    width: 0%;
+    height: 20px;
+    background-color: #007BFF;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: width 1s;
+}
+
+.progress-response {
+    text-align: center;
+}
+
+.progress-response img {
+    width: 10%;
+}
+
 /* FEEDBACK */
 
 #send-feedback-button {

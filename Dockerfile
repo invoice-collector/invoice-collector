@@ -32,6 +32,7 @@ RUN npm install
 COPY tsconfig.json ./tsconfig.json
 COPY src/ ./src/
 COPY views/ ./views/
+COPY data/ ./data/
 COPY test/ ./test/
 COPY locales/ ./locales/
 COPY jest.config.js ./jest.config.js

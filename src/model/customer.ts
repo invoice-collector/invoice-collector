@@ -1,6 +1,7 @@
 import { AuthenticationBearerError } from "../error";
 import { DatabaseFactory } from "../database/databaseFactory";
 import * as utils from "../utils";
+import { User } from "./user";
 
 export class Customer {
 
@@ -43,5 +44,9 @@ export class Customer {
 
     async getUserFromRemoteId(remote_id: string) {
         return await DatabaseFactory.getDatabase().getUserFromCustomerIdAndRemoteId(this.id, remote_id);
+    }
+
+    async getUsers(): Promise<User[]> {
+        return await DatabaseFactory.getDatabase().getUsers(this.id);
     }
 }

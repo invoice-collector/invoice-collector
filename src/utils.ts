@@ -1,7 +1,12 @@
+import os from 'os'
+import fs from 'fs';
+import path from 'path';
 import * as crypto from 'crypto';
 import date_fns from 'date-fns';
-import os from 'os'
 import { enUS, fr } from 'date-fns/locale';
+import { CompleteInvoice } from './collectors/abstractCollector';
+
+const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
 
 export function generate_bearer(size=128): string {
     return crypto.randomBytes(size).toString('base64');
@@ -63,6 +68,10 @@ export function generateVerificationCode(): string {
     return Math.floor(100000 + Math.random() * 900000).toString().padStart(6, '0');
 }
 
+export function trim(str: string): string {
+    return str.trim().replaceAll('\n', ' ').replace(/  +/g, ' ');
+}
+
 export function generateUserAgent()  {
     const chromeVersion = Math.floor(Math.random() * 20) + 60
     const webkitVersion = Math.floor(Math.random() * 700) + 500
@@ -85,4 +94,21 @@ export function getEnvVar(envVar: string, fallback: string | undefined = undefin
         return fallback
     }
     return value;
+}
+
+export function createFakeInvoice(): { collector_id: string, remote_id: string, invoice: CompleteInvoice } {
+    const data = fs.readFileSync(FAKE_INVOICE_FILE, {encoding: 'base64'});
+    const invoice = {
+        id: "INV-3337",
+        timestamp: Date.now(),
+        amount: "$93.50",
+        link: "https://slicedinvoices.com/pdf/wordpress-pdf-invoice-plugin-sample.pdf",
+        data: data,
+        mimetype: mimetypeFromBase64(data),
+    };
+    return {
+        collector_id: "sliced_invoices",
+        remote_id: "fake_remote_id",
+        invoice
+    }
 }

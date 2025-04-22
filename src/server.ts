@@ -1,6 +1,5 @@
-import path from 'path';
 import { DatabaseFactory } from './database/databaseFactory';
-import { AbstractSecretManager } from './secret_manager/abstractSecretManager';
+import { AbstractSecretManager, Secret } from './secret_manager/abstractSecretManager';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { AuthenticationBearerError, OauthError, MissingField, MissingParams, StatusError } from './error';
 import { generate_token } from './utils';
@@ -8,30 +7,25 @@ import { CollectorLoader } from './collectors/collectorLoader';
 import { User } from './model/user';
 import { Customer } from './model/customer';
 import { IcCredential, State } from './model/credential';
-import { CollectionTask } from './task/collectionTask';
-import { I18n } from 'i18n';
+import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
 import * as utils from './utils';
+import { CallbackHandler } from './callback/callback';
+import { CollectPool } from './collect/collectPool';
+import { Collect } from './collect/collect';
+import { I18n } from './i18n';
 
 export class Server {
 
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS"));
     static LOCALES = ['en', 'fr'];
     static DEFAULT_LOCALE = 'en';
-    static i18n = new I18n({
-        locales: Server.LOCALES,
-        directory: path.join(__dirname, '..', 'locales'),
-        defaultLocale: Server.DEFAULT_LOCALE,
-        retryInDefaultLocale: true,
-        updateFiles: false,
-        cookie: 'lang'
-    });
 
     tokens: object;
     secret_manager: AbstractSecretManager;
-    collection_task: CollectionTask;
+    collect_task: CollectTask;
 
     constructor() {
         this.tokens = {}
@@ -48,25 +42,13 @@ export class Server {
         // Check if registery server is reachable
         RegistryServer.getInstance().ping();
 
-        // Start collection task
-        this.collection_task = new CollectionTask(this.secret_manager);
+        // Start collect task
+        this.collect_task = new CollectTask();
 	}
+    // ---------- GENERAL ENDPOINTS ----------
 
-    // ---------- BEARER TOKEN NEEDED ----------
-
-    async get_customer(bearer: string | undefined): Promise<any> {
-        // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
-
-        // Check if customer exists
-        if(!customer) {
-            throw new AuthenticationBearerError();
-        }
-
-        return { name: customer.name, callback: customer.callback }
-    }
-
-    async post_authorize(bearer: string | undefined, remote_id: string | undefined, locale: string | undefined, email: string | undefined): Promise<{token: string}> {
+    // BEARER AUTHENTICATION
+    public async post_authorize(bearer: string | undefined, remote_id: string | undefined, locale: string | undefined, email: string | undefined): Promise<{token: string}> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -136,7 +118,92 @@ export class Server {
         return { token }
     }
 
-    async delete_user(bearer: string |  undefined, remote_id: string |  undefined) {
+    // TOKEN AUTHENTICATION
+    public async get_ui(token: any, verificationCode: any): Promise<{locale: string}> {
+        // Get user from token
+        const user = this.get_token_mapping(token);
+
+        // Check if verificationCode is valid
+        if (verificationCode && user.termsConditions.verificationCode === verificationCode) {
+            // Validate terms and conditions by setting validTimestamp to now
+            user.termsConditions.validTimestamp = Date.now();
+            // Commit changes
+            await user.commit();
+        }
+
+        // Check if terms and conditions have been accepted
+        user.checkTermsConditions();
+
+        return { locale: user.locale }
+    }
+
+    // BEARER AUTHENTICATION
+    public async get_test_callback(bearer: string | undefined): Promise<void> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        // Check if customer exists
+        if(!customer) {
+            throw new AuthenticationBearerError();
+        }
+
+        // Get users from customer
+        const users = await customer.getUsers();
+
+        // Get fake invoice datas
+        let {collector_id, remote_id, invoice} = utils.createFakeInvoice();
+
+        // Get remote_id from first user if exists
+        if(users.length > 0) {
+            remote_id = users[0].remote_id;
+        }
+
+        // Send invoice to callback
+        const callback = new CallbackHandler(customer);
+        await callback.sendInvoice(collector_id, remote_id, invoice);
+    }
+
+    // TOKEN AUTHENTICATION
+    public async post_feedback(token: any, feedback: string | undefined, email: string | undefined): Promise<void> {
+        //Check if feedback field is missing
+        if(!feedback) {
+            throw new MissingField("feedback");
+        }
+
+        // Get user from token
+        const user = this.get_token_mapping(token);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Check if customer exists
+        if(!customer) {
+            throw new StatusError(`Could not find customer for user with id "${user.id}".`, 400);
+        }
+
+        // Send feedback to registry server
+        await RegistryServer.getInstance().feedback(customer.bearer, feedback, email);
+    }
+
+    // ---------- CUSTOMER ENDPOINTS ----------
+
+    // BEARER AUTHENTICATION
+    public async get_customer(bearer: string | undefined): Promise<any> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        // Check if customer exists
+        if(!customer) {
+            throw new AuthenticationBearerError();
+        }
+
+        return { name: customer.name, callback: customer.callback }
+    }
+
+    // ---------- USER ENDPOINTS ----------
+
+    // BEARER AUTHENTICATION
+    public async delete_user(bearer: string | undefined, remote_id: string | undefined) {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -170,77 +237,18 @@ export class Server {
         }
     }
 
-    async post_collect(bearer: string |  undefined, id: string |  undefined) {
-        // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
+    // ---------- CREDENTIAL ENDPOINTS ----------
 
-        // Check if customer exists
-        if(!customer) {
-            throw new AuthenticationBearerError();
-        }
-
-        // Check if id field is missing
-        if(!id) {
-            throw new MissingField("id");
-        }
-
-        // Get credential from id
-        const credential = await IcCredential.fromId(id);
-
-        // Check if credential exists
-        if (!credential) {
-            throw new StatusError(`Credential with id "${id}" not found.`, 400);
-        }
-
-        // Get user from credential
-        const user = await credential.getUser();
-
-        // Check if user exists
-        if (!user) {
-            throw new StatusError(`Could not find user for credential with id "${credential.id}".`, 401);
-        }
-
-        // Check if user belongs to customer
-        if (user.customer_id != customer.id) {
-            throw new StatusError(`User with id "${user.id}" does not belong to customer with id "${customer.id}".`, 403);
-        }
-
-        // Schedule next collect now
-        credential.next_collect_timestamp = Date.now()
-
-        // Update credential in database
-        await credential.commit();
-    }
-
-    // ---------- OAUTH TOKEN NEEDED ----------
-
-    get_token_mapping(token: any): User {
-        // Check if token is missing or incorrect
-        if(!token || !this.tokens.hasOwnProperty(token) || typeof token !== 'string') {
-            throw new OauthError();
-        }
-        return this.tokens[token];
-    }
-
-    async get_user(token: any, verificationCode: any): Promise<{locale: string}> {
-        // Get user from token
-        const user = this.get_token_mapping(token);
-
-        // Check if verificationCode is valid
-        if (verificationCode && user.termsConditions.verificationCode === verificationCode) {
-            // Validate terms and conditions by setting validTimestamp to now
-            user.termsConditions.validTimestamp = Date.now();
-            // Commit changes
-            await user.commit();
-        }
-
-        // Check if terms and conditions have been accepted
-        user.checkTermsConditions();
-
-        return { locale: user.locale }
-    }
-
-    async get_credentials(token: any): Promise<{collector: Config, id: string, note: string, state: State, error: string}[]> {
+    // TOKEN AUTHENTICATION
+    public async get_credentials(token: any): Promise<{
+        id: string,
+        note: string,
+        create_timestamp: number,
+        last_collect_timestamp: number,
+        next_collect_timestamp: number,
+        state: State,
+        collector: Config
+    }[]> {
         // Get user from token
          const user = this.get_token_mapping(token);
 
@@ -254,31 +262,34 @@ export class Server {
         return credentials.map((credential) => {
             const collector = this.get_collector(credential.collector_id);
             return {
-                collector: collector.config,
-                note: credential.note,
                 id: credential.id,
+                note: credential.note,
+                create_timestamp: credential.create_timestamp,
+                last_collect_timestamp: credential.last_collect_timestamp,
+                next_collect_timestamp: credential.next_collect_timestamp,
                 state: credential.state,
-                error: credential.error
+                collector: collector.config,
             }
         });
     }
 
-    async post_credential(token: any, collector_id: string | undefined, params: any | undefined, ip: string | string[] | undefined): Promise<void> {
+    // TOKEN AUTHENTICATION
+    public async post_credential(token: any, collector_id: string | undefined, params: any | undefined, ip: string | string[] | undefined): Promise<{id: string}> {
         // Get user from token
          const user = this.get_token_mapping(token);
 
+         //Check if id field is missing
+         if(!collector_id) {
+             throw new MissingField("collector");
+         }
+ 
+         //Check if params field is missing
+         if(!params) {
+             throw new MissingField("params");
+         }
+
          // Check if terms and conditions have been accepted
         user.checkTermsConditions();
-
-        //Check if id field is missing
-        if(!collector_id) {
-            throw new MissingField("collector");
-        }
-
-        //Check if params field is missing
-        if(!params) {
-            throw new MissingField("params");
-        }
 
         // Get collector from id
         const collector = this.get_collector(collector_id);
@@ -295,7 +306,7 @@ export class Server {
 
         // If no note, set it to collector description
         if(!note) {
-            note = Server.i18n.__({ phrase: collector.config.description, locale: user.locale });
+            note = I18n.get(collector.config.description, user.locale);
         }
 
         if (user.location === null) {
@@ -315,7 +326,11 @@ export class Server {
         }
 
         // Add credential to Secure Storage
-        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector_id}`, params);
+        const secret: Secret = {
+            params,
+            cookies: null,
+        }
+        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector_id}`, secret);
 
         // Create credential
         let credential = new IcCredential(
@@ -330,9 +345,85 @@ export class Server {
 
         // Create credential in database
         await credential.commit();
+
+        // Start collect
+        const collect = new Collect(credential.id)
+
+        // Register collect in progress
+        CollectPool.getInstance().registerCollect(credential.id, collect);
+
+        // Do not wait for promise to resolve
+        collect.start().catch((err) => {
+            console.error(`Collect for credential ${credential.id} has failed`);
+            console.error(err);
+        })
+        .finally(() => {
+            // Unregister collect in progress
+            CollectPool.getInstance().unregisterCollect(credential.id);
+        });
+
+        // Return credential_id
+        return {id: credential.id};
     }
 
-    async delete_credential(token: any, id: string): Promise<void> {
+    // TOKEN AUTHENTICATION
+    public async get_credential(token: any, id: string): Promise<{
+        id: string,
+        note: string,
+        create_timestamp: number,
+        last_collect_timestamp: number,
+        next_collect_timestamp: number,
+        state: State,
+        collector: Config
+    }> {
+        // Get user from token
+         const user = this.get_token_mapping(token);
+
+         // Check if terms and conditions have been accepted
+        user.checkTermsConditions();
+
+        // Get credential from id
+        const credential = await user.getCredential(id);
+
+        // Check if credential exists
+        if (!credential) {
+            throw new StatusError(`Credential with id "${id}" not found.`, 400);
+        }
+
+        // Check if credential belongs to user
+        if (credential.user_id != user.id) {
+            throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
+        }
+
+        // Get current collect
+        const collect = CollectPool.getInstance().get(credential.id);
+
+        // If collect in progress
+        if (collect && collect.state) {
+            // Replace state with collect state
+            credential.state = collect.state;
+        }
+
+        // Get collector from id
+        const collector = this.get_collector(credential.collector_id);
+
+        // Translate the state title
+        credential.state.title = I18n.get(credential.state.title, user.locale);
+
+        // Return status
+        return {
+            id: credential.id,
+            note: credential.note,
+            create_timestamp: credential.create_timestamp,
+            last_collect_timestamp: credential.last_collect_timestamp,
+            next_collect_timestamp: credential.next_collect_timestamp,
+            state: credential.state,
+            collector: collector.config,
+        };
+    }
+
+    // TOKEN AUTHENTICATION
+    public async delete_credential(token: any, id: string): Promise<void> {
         // Get user from token
          const user = this.get_token_mapping(token);
 
@@ -359,29 +450,37 @@ export class Server {
         await credential.delete();
     }
 
-    public async post_feedback(token: any, feedback: string | undefined, email: string | undefined): Promise<void> {
-        //Check if feedback field is missing
-        if(!feedback) {
-            throw new MissingField("feedback");
-        }
-
+    // TOKEN AUTHENTICATION
+    public async post_credential_2fa(token: any, id: string, code: string | undefined): Promise<void> {
         // Get user from token
-        const user = this.get_token_mapping(token);
+         const user = this.get_token_mapping(token);
 
-        // Get customer from user
-        const customer = await user.getCustomer();
-
-        // Check if customer exists
-        if(!customer) {
-            throw new StatusError(`Could not find customer for user with id "${user.id}".`, 400);
+         // Check code id field is missing
+         if(!code) {
+            throw new MissingField("code");
         }
 
-        // Send feedback to registry server
-        await RegistryServer.getInstance().feedback(customer.bearer, feedback, email);
+         // Check if terms and conditions have been accepted
+        user.checkTermsConditions();
+
+        // Get collect from id
+        const collect = await CollectPool.getInstance().get(id);
+
+        // Check if collect exists
+        if (!collect) {
+            throw new StatusError(`No collect in progress for credential "${id}".`, 400);
+        }
+        
+        // Resolve collect promise and pass the code to the collector
+        collect.twofa_promise.setCode(code);
+
+        // Set progress step to 2FA proceeding
+        collect.state?.update(State._4_2FA_PROCEEDING);
     }
 
-    // ---------- NO OAUTH TOKEN NEEDED ----------
+    // ---------- COLLECTOR ENDPOINTS ----------
 
+    // NO AUTHENTICATION
     public get_collectors(locale: any): Config[] {
         //Check if locale field is missing
         if(!locale || typeof locale !== 'string') {
@@ -394,16 +493,15 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${Server.LOCALES.join(", ")}.`, 400);
         }
 
-        console.log(`Listing all collectors`);
         return CollectorLoader.getAll().map((collector): Config => {
-            const name: string = Server.i18n.__({ phrase: collector.config.name, locale });
-            const description: string = Server.i18n.__({ phrase: collector.config.description, locale });
-            const instructions: string = Server.i18n.__({ phrase: collector.config.instructions, locale });
+            const name: string = I18n.get(collector.config.name, locale);
+            const description: string = I18n.get(collector.config.description, locale);
+            const instructions: string = I18n.get(collector.config.instructions, locale);
             const params = Object.keys(collector.config.params).reduce((acc, key) => {
                 acc[key] = {
                     ...collector.config.params[key],
-                    name: Server.i18n.__({ phrase: collector.config.params[key].name, locale }),
-                    placeholder: Server.i18n.__({ phrase: collector.config.params[key].placeholder, locale })
+                    name: I18n.get(collector.config.params[key].name, locale),
+                    placeholder: I18n.get(collector.config.params[key].placeholder, locale)
                 };
                 return acc;
             }, {});
@@ -415,6 +513,16 @@ export class Server {
                 params
             };
         });
+    }
+
+    // ---------- PRIVATE METHODS ----------
+
+    private get_token_mapping(token: any): User {
+        // Check if token is missing or incorrect
+        if(!token || !this.tokens.hasOwnProperty(token) || typeof token !== 'string') {
+            throw new OauthError();
+        }
+        return this.tokens[token];
     }
 
     private get_collector(id: string): AbstractCollector {

@@ -1,9 +1,12 @@
 import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
 import { Driver } from '../driver/driver';
-import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError } from '../error';
+import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
+import { Secret } from "../secret_manager/abstractSecretManager";
+import { TwofaPromise } from "../collect/twofaPromise";
+import { State } from "../model/credential";
 
 export type ScrapperConfig = {
     name: string,
@@ -40,7 +43,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = null;
     }
 
-    async _collect(params: any, location: Location | null): Promise<Invoice[]> {
+    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]> {
         // Get proxy
         const proxy = this.config.useProxy ? ProxyFactory.getProxy().get(location) : null;
 
@@ -48,33 +51,80 @@ export abstract class ScrapperCollector extends AbstractCollector {
         this.driver = new Driver(this);
         await this.driver.open(proxy);
 
+        // Set cookies if any
+        if (secret.cookies) {
+            await this.driver.browser?.setCookie(...secret.cookies);
+        }
+
         // Open entry url
         await this.driver.goto(this.config.entryUrl);
 
         try {
-
             // Check if website is in maintenance
-            const is_in_maintenance = await this.is_in_maintenance(this.driver, params)
+            const is_in_maintenance = await this.is_in_maintenance(this.driver)
             if (is_in_maintenance) {
-                await this.driver.close()
                 throw new MaintenanceError(this);
             }
 
-            // Login
-            const login_error = await this.login(this.driver, params)
+            // Check if user is logged in
+            const is_logged_in = await this.is_logged_in(this.driver)
 
-            // Check if not authenticated
-            if (login_error) {
-                //await this.driver.close()
-                throw new AuthenticationError(login_error, this);
+            // If user is not logged in, try to login
+            if (!is_logged_in) {
+                // Set progress step to logging in
+                state.update(State._2_LOGGING_IN);
+
+                console.log("User is not logged in, logging in...")
+                const login_error = await this.login(this.driver, secret.params)
+
+                // Check if not authenticated
+                if (login_error) {
+                    throw new AuthenticationError(login_error, this);
+                }
+
+                // Check if 2fa is required
+                const is_2fa = await this.isTwofa(this.driver)
+
+                // If 2fa is required, 
+                if (is_2fa) {
+                    // Set progress step to 2fa waiting
+                    state.update(State._3_2FA_WAITING, is_2fa);
+
+                    // Set instructions for UI
+                    await twofa_promise.setInstructions(is_2fa);
+
+                    console.log("2FA is required, performing 2FA...")
+                    const twofa_error = await this.twofa(this.driver, secret.params, twofa_promise)
+
+                    // Check if 2fa error
+                    if (twofa_error) {
+                        throw new AuthenticationError(twofa_error, this);
+                    }
+                }
+
+                console.log("User is successfully logged in")
+            }
+            else {
+                console.log("User is successfully logged in using cookies")
             }
 
+            // Update cookies
+            secret.cookies = await this.driver.browser?.cookies();
+
+            // Set progress step to collecting
+            state.update(State._5_COLLECTING);
+
             // Collect invoices
-            const invoices = await this.collect(this.driver, params)
+            const invoices = await this.collect(this.driver, secret.params)
             
             // If invoices is undefined, collector is unfinished
             if (invoices === undefined) {
                 throw new UnfinishedCollectorError(this);
+            }
+
+            // If invoices is empty, collector may be broken
+            if (invoices.length === 0) {
+                throw new NoInvoiceFoundError(this);
             }
 
             return invoices;
@@ -160,16 +210,29 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
     //NOT IMPLEMENTED
 
+    async is_in_maintenance(driver: Driver): Promise<boolean>{
+        //Assume the website is not in maintenance
+        return false;
+    }
+
+    async is_logged_in(driver: Driver): Promise<boolean>{
+        // If user is logged in, the URL should be equal to the entry URL
+        return driver.url() === this.config.entryUrl;
+    }
+
     abstract login(driver: Driver, params: any): Promise<string | void>;
+
+    async isTwofa(driver: Driver): Promise<string | void>{
+        //Assume the collector does not implement 2FA
+    }
+
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+        //Assume the collector does not implement 2FA
+    }
 
     abstract collect(driver: Driver, params: any): Promise<Invoice[] | void>;
 
     abstract download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice | void>;
-
-    async is_in_maintenance(driver: Driver, params: any): Promise<boolean>{
-        //Assume the website is not in maintenance
-        return false;
-    }
 
     // DOWNLOAD METHODS
 

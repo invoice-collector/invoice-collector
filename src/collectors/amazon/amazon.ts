@@ -3,13 +3,14 @@ import { DownloadedInvoice, Invoice } from '../abstractCollector';
 import { ScrapperCollector } from '../scrapperCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../utils';
+import { TwofaPromise } from '../../collect/twofaPromise';
 
 export class AmazonCollector extends ScrapperCollector {
 
     static CONFIG = {
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "2",
+        version: "5",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -59,7 +60,6 @@ export class AmazonCollector extends ScrapperCollector {
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
-
         // Input email
         await driver.input_text(AmazonSelectors.FIELD_EMAIL, params.id);
         await driver.left_click(AmazonSelectors.BUTTON_CONTINUE);
@@ -81,10 +81,31 @@ export class AmazonCollector extends ScrapperCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<Invoice[]> {
-        // Go to order history
-        await driver.page?.goto("https://www.amazon.fr/gp/css/order-history");
+    async isTwofa(driver: Driver): Promise<string | void> {
+        // Check if 2FA is required
+        const twofa_instruction = await driver.wait_for_element(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, false, 2000);
+        if (twofa_instruction) {
+            return await twofa_instruction.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.instruction";
+        }
+    }
 
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+        // Wait for 2fa code from UI
+        const twofa_code = await twofa_promise.code();
+
+        // Input 2fa code
+        await driver.input_text(AmazonSelectors.FIELD_2FA_CODE, twofa_code);
+        await driver.left_click(AmazonSelectors.BUTTON_2FA_DO_NOT_ASK);
+        await driver.left_click(AmazonSelectors.BUTTON_2FA_SUBMIT);
+
+        // Check if 2fa code is incorrect
+        const twofa_alert = await driver.wait_for_element(AmazonSelectors.CONTAINER_2FA_ALERT, false, 1000);
+        if (twofa_alert) {
+            return await twofa_alert.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.error";
+        }
+    }
+
+    async collect(driver: Driver, params: any): Promise<Invoice[]> {
         // Get all order ids
         const orders = await driver.get_all_elements(AmazonSelectors.CONTAINER_ORDER, false, 5000);
 

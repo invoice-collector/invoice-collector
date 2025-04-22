@@ -1,5 +1,5 @@
 import { BitwardenClient, ClientSettings, DeviceType, LogLevel } from "@bitwarden/sdk-napi";
-import { AbstractSecretManager } from "./abstractSecretManager";
+import { AbstractSecretManager, Secret } from "./abstractSecretManager";
 import * as utils from "../utils";
 
 export class Bitwarden extends AbstractSecretManager {
@@ -38,22 +38,36 @@ export class Bitwarden extends AbstractSecretManager {
 
     // SECRETS
 
-    async addSecret(key: string, params: any): Promise<string> {
-        //JSON param before sending
-        const stringParams: string = JSON.stringify(params);
-        return (await this.client.secrets().create(this.organizationId, key, stringParams, "", [this.projectId])).id;
+    async addSecret(key: string, secret: Secret): Promise<string> {
+        try {
+            // JSON secret before sending
+            const stringSecret: string = JSON.stringify(secret);
+            return (await this.client.secrets().create(this.organizationId, key, stringSecret, "", [this.projectId])).id;
+        }
+        catch (err) {
+            throw new Error(`Failed to add secret ${key}`, { cause: err });
+        }
     }
 
-    async getSecret(id: string): Promise<any | null> {
+    async getSecret(id: string): Promise<any> {
         try {
             const secret = await this.client.secrets().get(id);
+            // Parse JSON secret before returning
             return JSON.parse(secret.value);
         }
         catch (err) {
-            if (err instanceof Error && err.message.includes("[404 Not Found]")) {
-                return null;
-            }
-            throw err;
+            throw new Error(`Failed to get secret ${id}`, { cause: err });
+        }
+    }
+
+    async updateSecret(id: string, key: string, secret: Secret): Promise<string> {
+        try {
+            // JSON secret before sending
+            const stringSecret: string = JSON.stringify(secret);
+            return (await this.client.secrets().update(this.organizationId, id, key, stringSecret, "", [this.projectId])).id;
+        }
+        catch (err) {
+            throw new Error(`Failed to update secret ${id}`, { cause: err });
         }
     }
 
@@ -66,9 +80,7 @@ export class Bitwarden extends AbstractSecretManager {
             await this.client.secrets().delete(ids);
         }
         catch (err) {
-            if (!(err instanceof Error && err.message.includes("[404 Not Found]"))) {
-                throw err;
-            }
+            throw new Error(`Failed to delete secrets ${ids}`, { cause: err });
         }
     }
 }

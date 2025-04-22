@@ -1,9 +1,53 @@
 import { DatabaseFactory } from "../database/databaseFactory";
+import * as utils from "../utils"; 
 
-export enum State {
-    PENDING = "PENDING",
-    SUCCESS = "SUCCESS",
-    ERROR = "ERROR"
+export class State {
+
+    static SUCCESS_LEVEL: number = 7;
+
+    static _1_ERROR: State = new State(-1, "i18n.class.state.1_error");
+    static _0_UNKNOWN: State = new State(0, "i18n.class.state.0_unknown");
+    static _1_PREPARING: State = new State(1, "i18n.class.state.1_preparing");
+    static _2_LOGGING_IN : State = new State(2, "i18n.class.state.2_logging_in");
+    static _3_2FA_WAITING : State = new State(3, "i18n.class.state.3_2fa_waiting");
+    static _4_2FA_PROCEEDING : State = new State(4, "i18n.class.state.4_2fa_proceeding");
+    static _5_COLLECTING : State = new State(5, "i18n.class.state.5_collecting");
+    static _6_DOWNLOADING : State = new State(6, "i18n.class.state.6_downloading");
+    static _7_DONE : State = new State(7, "i18n.class.state.7_done");
+
+    static DEFAULT_STATE: State = State._0_UNKNOWN;
+    static DEFAULT_MESSAGE: string = "";
+
+    static fromObject(obj: object): State {
+        let state = new State(obj["index"], obj["title"]);
+        state.max = obj["max"];
+        state.message = obj["message"];
+        return state;
+    }
+
+    index: number;
+    max: number;
+    title: string;
+    message: string;
+
+    constructor(index: number, title: string) {
+        this.index = index;
+        this.max = State.SUCCESS_LEVEL;
+        this.title = title;
+        this.message = State.DEFAULT_MESSAGE;
+    }
+
+    // Use update method to update the state values without creating a new instance
+    update(state: State, message: string = State.DEFAULT_MESSAGE) {
+        this.index = state.index;
+        this.max = state.max;
+        this.title = state.title;
+        this.message = utils.trim(message);
+    }
+
+    isError(): boolean {
+        return this.index < 0;
+    }
 }
 
 export class IcCredential {
@@ -31,7 +75,6 @@ export class IcCredential {
     next_collect_timestamp: number;
     invoices: any[];
     state: State;
-    error: string;
 
     constructor(
         user_id: string,
@@ -42,8 +85,7 @@ export class IcCredential {
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
         invoices: any[] = [],
-        state: State = State.PENDING,
-        error: string = ""
+        state: State = State.DEFAULT_STATE
     ) {
         this.id = "";
         this.user_id = user_id;
@@ -55,7 +97,6 @@ export class IcCredential {
         this.next_collect_timestamp = next_collect_timestamp;
         this.invoices = invoices;
         this.state = state;
-        this.error = error;
     }
 
     async getUser() {
@@ -79,7 +120,7 @@ export class IcCredential {
 
     computeNextCollect() {
         // If not in error
-        if (this.state != State.ERROR) {
+        if (!this.state.isError()) {
             // If last_collect_timestamp and next_collect_timestamp are NaN, the invoices has never been collected
             if (isNaN(this.last_collect_timestamp) && isNaN(this.next_collect_timestamp)) {
                 // Plan the next collection now

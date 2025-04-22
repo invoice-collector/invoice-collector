@@ -3,10 +3,7 @@ let companies = [];
 let ip = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    showCredentials(); 
-    document.getElementById('add-credential-button').addEventListener('click', showCompanies);
-    document.getElementById('return-to-credentials-button').addEventListener('click', showCredentials);
-    document.getElementById('return-to-companies-button').addEventListener('click', showCompanies);
+    showCredentials();
     document.getElementById('add-credential-form').addEventListener('submit', addCredential);
     document.getElementById('feedback-form').addEventListener('submit', sendFeedback);
 
@@ -37,15 +34,15 @@ async function getIp() {
 }
 
 function buildCredentialFooter(credential) {
-    if (credential.state == "ERROR") {
+    if (credential.state.index < 0) {
         return `
             <div class="credential-footer credential-error">
                 <img src="/views/icons/error.png" alt="Error"/>
-                <div>${credential.error}</div>
+                <div>${credential.state.message}</div>
             </div>
         `;
     }
-    else if (credential.state == "PENDING") {
+    else if (credential.state.index < credential.state.max) {
         return `
             <div class="credential-footer credential-warning">
                 <img src="/views/icons/pending.png" alt="Pending"/>
@@ -62,16 +59,22 @@ function buildCredentialFooter(credential) {
 }
 
 async function showCredentials() {
+    // Get the elements
+    const credentialsList = document.getElementById('credentials-list');
+
+    // Reset values
+    credentialsList.innerHTML = '';
+
+    // Hide other containers
     document.getElementById('credentials-container').hidden = false;
     document.getElementById('companies-container').hidden = true;
     document.getElementById('form-container').hidden = true;
+    document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = true;
 
+    // Get the credentials
     const response = await fetch(`credentials?token=${token}`);
     const credentials = await response.json();
-
-    const credentialsList = document.getElementById('credentials-list');
-    credentialsList.innerHTML = '';
 
     credentials.forEach(credential => {
         const credentialItem = document.createElement('div');
@@ -92,13 +95,18 @@ async function showCredentials() {
 }
 
 async function showCompanies() {
+    // Get elements
+    const companyList = document.getElementById('companies-list');
+
+    // Reset values
+    companyList.innerHTML = '';
+
+    // Hide other containers
     document.getElementById('credentials-container').hidden = true;
     document.getElementById('companies-container').hidden = false;
     document.getElementById('form-container').hidden = true;
+    document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = true;
-
-    const companyList = document.getElementById('companies-list');
-    companyList.innerHTML = '';
 
     companies.forEach(company => {
         const companyItem = document.createElement('li');
@@ -116,10 +124,8 @@ async function showCompanies() {
 }
 
 function showForm(company) {
-    document.getElementById('credentials-container').hidden = true;
-    document.getElementById('companies-container').hidden = true;
-    document.getElementById('form-container').hidden = false;
-    document.getElementById('feedback-container').hidden = true;
+    // Get elements
+    const form = document.getElementById('add-credential-form-params');
     
     // Update the form with the company's information
     document.getElementById('company-logo').src = company.logo;
@@ -129,9 +135,15 @@ function showForm(company) {
     document.querySelector('#add-credential-instructions p').innerHTML = company.instructions;
     document.getElementById('add-credential-form').dataset.collector = company.id;
 
-    // Add input fields
-    const form = document.getElementById('add-credential-form-params');
+    // Reset values
     form.innerHTML = ''; // Clear any existing fields
+
+    // Hide other containers
+    document.getElementById('credentials-container').hidden = true;
+    document.getElementById('companies-container').hidden = true;
+    document.getElementById('form-container').hidden = false;
+    document.getElementById('progress-container').hidden = true;
+    document.getElementById('feedback-container').hidden = true;
 
     Object.keys(company.params).forEach(key => {
         // Get the parameter
@@ -174,7 +186,7 @@ async function addCredential(event) {
         params[key] = value;
     });
 
-    await fetch(`credential?token=${token}`, {
+    const response = await fetch(`credential?token=${token}`, {
         method: 'POST',
         body: JSON.stringify({
             collector: event.target.dataset.collector,
@@ -186,8 +198,117 @@ async function addCredential(event) {
         }
     });
 
+    const content = await response.json();
     document.getElementById('add-credential-form').reset();
-    showCredentials();
+
+    if (!response.ok) {
+        console.error('Error adding credential:', content);
+        alert(`Error: ${content.message || 'An error occurred while adding the credential.'}`);
+        showCredentials();
+    }
+    else {
+        showProgress(content.id);
+    }
+}
+
+async function showProgress(credential_id) {
+    // Get the elements
+    const progressText = document.getElementById('progress-text');
+    const progressBar = document.getElementById('progress-bar');
+    const responseSuccess = document.getElementById('progress-response-success');
+    const responseUnknown = document.getElementById('progress-response-unknown');
+    const responseError = document.getElementById('progress-response-error');
+    const responseErrorText = document.getElementById('progress-response-error-text');
+    const container2FA = document.getElementById('send-2fa-container');
+    const form2fa = document.getElementById('send-2fa-form');
+    const form2faInstructions = document.getElementById('send-2fa-instructions');
+    
+
+    // Reset values
+    progressText.textContent = '';
+    progressText.classList.add('fade');
+    progressBar.style.width = `0%`;
+    responseSuccess.hidden = true;
+    responseUnknown.hidden = true;
+    responseError.hidden = true;
+    container2FA.hidden = true;
+    form2fa.reset();
+    form2faInstructions.textContent = '';
+
+    // Hide other containers
+    document.getElementById('credentials-container').hidden = true;
+    document.getElementById('companies-container').hidden = true;
+    document.getElementById('form-container').hidden = true;
+    document.getElementById('progress-container').hidden = false;
+    document.getElementById('feedback-container').hidden = true;
+
+    // Set the onsudmit event for the 2fa form
+    form2fa.addEventListener('submit', async (event) => {
+        container2FA.hidden = true;
+        event.preventDefault();
+        await post2FA(credential_id, event.target["code"].value);
+    });
+
+    let response;
+    let previous_state, current_state;
+    
+    do {
+        response = await fetch(`credential/${credential_id}?token=${token}`);
+        current_state = (await response.json()).state;
+
+        // Check if the response is ok
+        if (current_state.index > 0) {
+            if (previous_state && previous_state.index !== current_state.index) {
+                // Update progress bar and text
+                progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
+
+                // Update progress text with fade effect
+                progressText.classList.add('fade');
+                await new Promise(resolve => setTimeout(resolve, 500));
+                progressText.textContent = current_state.title;
+                progressText.classList.remove('fade');
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Display 2fa code if needed
+                if (current_state.index === 3) {
+                    container2FA.hidden = false;
+                    form2faInstructions.textContent = current_state.message;
+                }
+            }
+            else {
+                if (previous_state === undefined) {
+                    // Update progress bar and text
+                    progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
+
+                    // Update progress text with fade effect
+                    progressText.textContent = current_state.title;
+                    progressText.classList.remove('fade');
+                }
+                // Wait 1 second before polling again
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+        previous_state = current_state;
+    } while (0 < current_state.index && current_state.index < current_state.max);
+
+    // Display error or success message
+    container2FA.hidden = true;
+    responseErrorText.textContent = current_state.message;
+    responseSuccess.hidden = !(current_state.index >= current_state.max);
+    responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
+    responseError.hidden = !(current_state.index < 0);
+}
+
+async function post2FA(credential_id, code) {
+    await fetch(`credential/${credential_id}/2fa?token=${token}`, {
+        method: 'POST',
+        body: JSON.stringify({
+            code
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 }
 
 async function deleteCredential(id) {
@@ -202,6 +323,7 @@ async function showFeedback() {
     document.getElementById('credentials-container').hidden = true;
     document.getElementById('companies-container').hidden = true;
     document.getElementById('form-container').hidden = true;
+    document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = false;
     document.getElementById('feedback-response-success').hidden = true;
     document.getElementById('feedback-response-error').hidden = true;
