@@ -33,7 +33,9 @@ services:
     container_name: mongodb
     volumes:
       - ./mongodb/data:/data/db
-      - ./mongodb/config:/etc/mongo/
+      - ./mongodb/config:/etc/mongo/      
+      - ./media:/usr/app/media
+      - ./test:/usr/app/test
     ports:
       - 27017:27017
     command: --logpath /dev/null
