@@ -28,7 +28,7 @@ export class Infisical extends AbstractSecretManager {
                 clientId: this.clientId,
                 clientSecret: this.clientSecret
             });
-            console.log("Connected successfully to iNFISICAL");
+            console.log("Connected successfully to Infisical");
         }
         catch (err) {
             console.error("Connection to Bitwarden failed", err);
