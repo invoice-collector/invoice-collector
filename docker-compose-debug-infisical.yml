@@ -21,8 +21,6 @@ services:
       - DATABASE_URI=mongodb://mongodb:27017
       - DATABASE_MONGODB_NAME=dev
       - SECRET_MANAGER_TYPE=infisical # bitwarden or infisical
-      - SECRET_MANAGER_BITWARDEN_API_URI=https://vault.bitwarden.eu/api
-      - SECRET_MANAGER_BITWARDEN_IDENTITY_URI=https://vault.bitwarden.eu/identity  
       - SECRET_MANAGER_INFISICAL_API_URI=
       - SECRET_MANAGER_INFISICAL_PROJECT_ID=
       - SECRET_MANAGER_INFISICAL_CLIENT_ID=
