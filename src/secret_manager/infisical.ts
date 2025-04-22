@@ -10,29 +10,13 @@ export class Infisical extends AbstractSecretManager {
     env: string;
 
     constructor() {
-        if (!process.env.SECRET_MANAGER_INFISICAL_API_URI) {
-            throw new Error("SECRET_MANAGER_INFISICAL_API_URI environment variable is required");
-        }
-        if (!process.env.SECRET_MANAGER_INFISICAL_CLIENT_ID) {
-            throw new Error("SECRET_MANAGER_INFISICAL_CLIENT_ID environment variable is required");
-        }
-        if (!process.env.SECRET_MANAGER_INFISICAL_CLIENT_SECRET) {
-            throw new Error("SECRET_MANAGER_INFISICAL_CLIENT_SECRET environment variable is required");
-        }
-        if (!process.env.SECRET_MANAGER_INFISICAL_PROJECT_ID) {
-            throw new Error("SECRET_MANAGER_INFISICAL_PROJECT_ID environment variable is required");
-        }
-        if (!process.env.SECRET_MANAGER_INFISICAL_ENV) {
-            throw new Error("SECRET_MANAGER_INFISICAL_ENV environment variable is required");
-        }
-
         super();
-        this.clientId = process.env.SECRET_MANAGER_INFISICAL_CLIENT_ID || "";
-        this.clientSecret = process.env.SECRET_MANAGER_INFISICAL_CLIENT_SECRET || "";
-        this.projectId = process.env.SECRET_MANAGER_INFISICAL_PROJECT_ID || "";
-        this.env = process.env.SECRET_MANAGER_INFISICAL_ENV || "";
+        this.clientId = utils.getEnvVar("SECRET_MANAGER_INFISICAL_CLIENT_ID");
+        this.clientSecret = utils.getEnvVar("SECRET_MANAGER_INFISICAL_CLIENT_SECRET");
+        this.projectId = utils.getEnvVar("SECRET_MANAGER_INFISICAL_PROJECT_ID");
+        this.env = utils.getEnvVar("SECRET_MANAGER_INFISICAL_ENV");
         this.client = new InfisicalSDK({
-            siteUrl: process.env.SECRET_MANAGER_INFISICAL_API_URI
+            siteUrl: utils.getEnvVar("SECRET_MANAGER_INFISICAL_API_URI
           });
         this.connect();
     }
