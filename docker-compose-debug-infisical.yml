@@ -13,6 +13,8 @@ services:
       - ./src:/usr/app/src
       - ./locales:/usr/app/locales
       - ./views:/usr/app/views
+      - ./media:/usr/app/media
+      - ./test:/usr/app/test
     depends_on:
       - mongodb
     environment:
@@ -34,8 +36,6 @@ services:
     volumes:
       - ./mongodb/data:/data/db
       - ./mongodb/config:/etc/mongo/      
-      - ./media:/usr/app/media
-      - ./test:/usr/app/test
     ports:
       - 27017:27017
     command: --logpath /dev/null
