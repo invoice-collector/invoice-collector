@@ -139,6 +139,60 @@ input {
     background-color: none;
 }
 
+#credentials-table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table-column-10 {
+    width: 10%;
+}
+
+.table-column-20 {
+    width: 20%;
+}
+
+.credential-logo {
+    height: 50px;
+}
+
+
+.credential-status {
+    text-align: center;
+}
+
+.credential-status img {
+    width: 30px;
+    height: 30px;
+}
+
+.credential-status .popup {
+    visibility: hidden;
+    width: 120px;
+    background-color: lightcoral;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 4px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .credential-status:hover .popup {
+    visibility: visible;
+  }
+
+.credential-collect {
+    width: 100%;
+    text-align: center;
+}
+
+.credential-collect .delete-button {
+    margin-left: auto;
+}
+
 /* COMPANIES */
 
 #companies-list {
