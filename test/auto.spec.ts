@@ -2,11 +2,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 import { expect, describe } from '@jest/globals';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
-import { Server } from '../src/server';
 import { AuthenticationError } from '../src/error';
 import { ScrapperCollector } from '../src/collectors/scrapperCollector';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
+import { State } from '../src/model/credential';
 
 const ids = process.argv.slice(3);
 const ONE_MINUTE = 60 * 1000; // 1 minute in milliseconds
@@ -37,8 +37,11 @@ for (const collector of CollectorLoader.getAll()) {
                     },
                     cookies: null,
                 };
+
+                // Collect invoices
                 const collect = new Collect("")
-                await expect(collect.collect_new_invoices(collector, secret, true, [], null))
+                collect.state = State.DEFAULT_STATE;
+                await expect(collect.collect_new_invoices(collect.state, collector, secret, true, [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
@@ -50,8 +53,11 @@ for (const collector of CollectorLoader.getAll()) {
                     },
                     cookies: null,
                 };
+
+                // Collect invoices
                 const collect = new Collect("")
-                await expect(collect.collect_new_invoices(collector, secret, true, [], null))
+                collect.state = State.DEFAULT_STATE;
+                await expect(collect.collect_new_invoices(collect.state, collector, secret, true, [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
