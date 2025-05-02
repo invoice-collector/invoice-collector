@@ -3,7 +3,7 @@ import * as utils from "../utils";
 
 export class OxylabProxy extends AbstractProxy {
 
-    static RADIUS_ACCURACIES = [10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000]
+    static RADIUS_ACCURACY = 10; // in miles
 
     username: string;
     password: string;
@@ -25,7 +25,10 @@ export class OxylabProxy extends AbstractProxy {
             host: "pr.oxylabs.io",
             port: 7777,
             username: `customer-${this.username}-cc-${location.country}`,
-            password: this.password
+            password: this.password,
+            headers: {
+                "X-Oxylabs-Geolocation": `${location.lat}:${location.lon};${OxylabProxy.RADIUS_ACCURACY}`
+            }
         };
     }
 }

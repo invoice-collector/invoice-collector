@@ -3,7 +3,8 @@ export type Proxy = {
     host: string,
     port: number,
     username?: string,
-    password?: string
+    password?: string,
+    headers: any
 }
 
 export type Location = {

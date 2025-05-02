@@ -2,13 +2,7 @@ import { createCursor, GhostCursor } from 'ghost-cursor';
 import { Browser, Page } from "rebrowser-puppeteer-core";
 import { AbstractChrome } from "../chrome/abstractChrome";
 import { checkTurnstile } from './turnstile';
-import { ProxyOptions } from './browser';
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import { Proxy } from '../../proxy/abstractProxy';
 
 export interface PageWithCursor extends Page {
   realClick: GhostCursor["click"];
@@ -18,7 +12,7 @@ export interface PageWithCursor extends Page {
 export interface PageControllerOptions {
     browser: Browser,
     page: any,
-    proxy?: ProxyOptions,
+    proxy?: Proxy,
     turnstile: boolean,
     xvfbsession: any,
     killProcess: boolean,
@@ -60,7 +54,10 @@ export async function pageController({
 
     turnstileSolver()
 
-    if (proxy && proxy.username && proxy.password) await page.authenticate({ username: proxy.username, password: proxy.password });
+    if (proxy && proxy.username && proxy.password){
+        await page.setExtraHTTPHeaders(proxy.headers);
+        await page.authenticate({ username: proxy.username, password: proxy.password });
+    }
 
     await page.evaluateOnNewDocument(() => {
         Object.defineProperty(MouseEvent.prototype, 'screenX', {
