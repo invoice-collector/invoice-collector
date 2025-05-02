@@ -71,7 +71,7 @@ import { I18n } from '../src/i18n';
             collect.twofa_promise.setCode(twofa_code);
         });
 
-        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], {country: "FR", lat: '', lon: ''});
+        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], null);
         console.log(`${newInvoices.length} invoices downloaded`);
 
         for (const invoice of newInvoices) {
