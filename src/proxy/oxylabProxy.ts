@@ -8,7 +8,7 @@ export class OxylabProxy extends AbstractProxy {
     static OXYLAB_HOST = "pr.oxylabs.io";
     static OXYLAB_PORT = 7777;
 
-    static RADIUS_ACCURACIES = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 500, 1000, 2000]; // in miles
+    static RADIUS_ACCURACIES = [1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 500, 1000, 2000]; // in miles
     static LOCATION_URL = "https://ip.oxylabs.io/location";
 
     username: string;
