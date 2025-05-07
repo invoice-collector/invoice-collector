@@ -62,9 +62,6 @@ async function showCredentials() {
     // Get the elements
     const credentialsList = document.getElementById('credentials-list');
 
-    // Reset values
-    credentialsList.innerHTML = '';
-
     // Hide other containers
     document.getElementById('credentials-container').hidden = false;
     document.getElementById('companies-container').hidden = true;
@@ -75,6 +72,9 @@ async function showCredentials() {
     // Get the credentials
     const response = await fetch(`credentials?token=${token}`);
     const credentials = await response.json();
+
+    // Reset values
+    credentialsList.innerHTML = '';
 
     credentials.forEach(credential => {
         const credentialItem = document.createElement('div');
