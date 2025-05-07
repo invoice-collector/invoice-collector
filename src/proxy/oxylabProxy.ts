@@ -8,7 +8,7 @@ export class OxylabProxy extends AbstractProxy {
     static OXYLAB_HOST = "pr.oxylabs.io";
     static OXYLAB_PORT = 7777;
 
-    static RADIUS_ACCURACY = 5; // in miles
+    static RADIUS_ACCURACIES = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 500, 1000, 2000]; // in miles
     static LOCATION_URL = "https://ip.oxylabs.io/location";
 
     username: string;
@@ -46,17 +46,23 @@ export class OxylabProxy extends AbstractProxy {
      * @throws {Error} Throws an error with a cause if the proxy cannot be constrained to the specified coordinates.
      */
     async geoConstraint(proxy: Proxy, location: Location): Promise<void> {
-
-        try {
-            await axios.get(OxylabProxy.LOCATION_URL, {
-                httpsAgent: new HttpsProxyAgent(proxy.uri, {
-                    headers: {
-                        "X-Oxylabs-Geolocation": `${location.lat}:${location.lon};${OxylabProxy.RADIUS_ACCURACY}`
-                    }
-                })
-            });
-        } catch (error) {
-            throw new Error("Cannot constraint proxy to coordinates", { cause: error });
+        for (const radius of OxylabProxy.RADIUS_ACCURACIES) {
+            try {
+                const a = await axios.get(OxylabProxy.LOCATION_URL, {
+                    httpsAgent: new HttpsProxyAgent(proxy.uri, {
+                        headers: {
+                            "X-Oxylabs-Geolocation": `${location.lat}:${location.lon};${radius}`
+                        }
+                    })
+                });
+                console.log(a.data);
+                return;
+            } catch (error) {
+                // Nothing to do, just try the next radius
+                console.log(`Radius ${radius} failed`);
+            }
         }
+        // If we reach here, it means that all radius attempts failed
+         console.warn("Cannot geo-constrain proxy");
     }
 }
