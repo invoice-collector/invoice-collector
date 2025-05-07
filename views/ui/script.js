@@ -58,12 +58,30 @@ function buildCredentialFooter(credential) {
     }
 }
 
+function buildCredentialStatus(credential) {
+    let img, popup;
+    if (credential.state.index < 0) {
+        img = `<img src="/views/icons/error.png" alt="Error">`;
+        popup = `<div class="popup popup-error">${credential.state.message}</div>`;
+    }
+    else if (credential.state.index < credential.state.max) {
+        img = `<img src="/views/icons/pending.png" alt="Pending">`;
+        popup = `<div class="popup">Collecte planifiée</div>`;
+    }
+    else {
+        img = `<img src="/views/icons/success.png" alt="Success">`;
+        popup = `<div class="popup">Vos identifiants sont valides</div>`;
+    }
+    return `
+        <div class="credential-status">
+            ${img}
+            ${popup}
+        </div>`
+}
+
 async function showCredentials() {
     // Get the elements
-    const credentialsList = document.getElementById('credentials-list');
-
-    // Reset values
-    credentialsList.innerHTML = '';
+    const credentialsTable = document.querySelector('#credentials-table > tbody');
 
     // Hide other containers
     document.getElementById('credentials-container').hidden = false;
@@ -76,22 +94,39 @@ async function showCredentials() {
     const response = await fetch(`credentials?token=${token}`);
     const credentials = await response.json();
 
+    let credentialsTable_innerHTML = '';
     credentials.forEach(credential => {
-        const credentialItem = document.createElement('div');
-        credentialItem.className = 'credential-item company-item';
-        credentialItem.innerHTML = `
-            <img src="${credential.collector.logo}" alt="${credential.collector.name}">
-            <div>
-            <h3>${credential.collector.name}</h3>
-            <p>${credential.note}</p>
-            </div>
-            <button class="button delete-button" onclick="deleteCredential('${credential.id}')">
-                <img src="/views/icons/delete.png" alt="Delete"/>
-            </button>
-            ${buildCredentialFooter(credential)}
-        `;
-        credentialsList.appendChild(credentialItem);
+        const credentialItem = `
+            <tr class="credential">
+                <td class="table-column-center">
+                    <img class="credential-logo" src="${credential.collector.logo}" alt="${credential.collector.name}">
+                </td>
+                <td>
+                    ${credential.note}
+                </td>
+                <td>
+                    ${buildCredentialStatus(credential)}
+                </td>
+                <td>
+                    <div class="credential-collect">
+                        ${credential.last_collect_timestamp ? new Date(credential.last_collect_timestamp).toLocaleString() : '--'}
+                    </div>
+                </td>
+                <td>
+                    <div class="credential-collect">
+                        ${credential.next_collect_timestamp ? new Date(credential.next_collect_timestamp).toLocaleString() : '--'}
+                    </div>
+                </td>
+                <td class="table-column-center">
+                    <button class="button delete-button" onclick="deleteCredential('${credential.id}')">
+                        <img src="/views/icons/delete.png" alt="Delete">
+                    </button>
+                </td>
+            </tr>`;
+        
+        credentialsTable_innerHTML += credentialItem;
     });
+    credentialsTable.innerHTML = credentialsTable_innerHTML;
 }
 
 async function showCompanies() {

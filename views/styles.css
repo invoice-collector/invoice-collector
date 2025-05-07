@@ -6,7 +6,8 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 1000px;
+    min-width: 400px;
     margin: 50px auto 0px auto;
     padding: 20px;
     background-color: #fff;
@@ -86,76 +87,37 @@ input {
 
 /* CREDENTIALS */
 
-#credentials-list {
-    margin-bottom: 20px;
-}
-
-.credential-item {
-    border: 1px solid #ccc;
-    background-color: #fff;
-    display: flex;
-    position: relative;
-}
-
-.credential-item > button {
-    margin-left: auto;
-    align-self: flex-start;
-}
-
-.credential-footer {
-    position: absolute;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    bottom: 0;
-    left: 0;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-}
-
-.credential-footer > img {
-    margin-left: 2px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    height: 15px;
-    width: 15px;
-}
-
-.credential-footer > div {
-    margin-left: 2px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-}
-
-.credential-error {
-    background-color: lightcoral;
-}
-
-.credential-warning {
-    background-color: none;
-}
-
-.credential-success {
-    background-color: none;
-}
-
 #credentials-table {
+    margin-top: 50px;
+    margin-bottom: 50px;
     width: 100%;
-    table-layout: fixed;
+    border-collapse: collapse;
 }
 
-.table-column-10 {
-    width: 10%;
+#credentials-table th {
+    background-color: #f4f4f4;
+    padding: 10px;
 }
 
-.table-column-20 {
-    width: 20%;
+#credentials-table td {
+    padding: 10px;
+}
+
+.table-column-center {
+    text-align: center;
+}
+
+.table-column-logo {
+    width: 40px;
+}
+
+.table-column-120 {
+    width: 120px;
 }
 
 .credential-logo {
     height: 50px;
 }
-
 
 .credential-status {
     text-align: center;
@@ -166,10 +128,10 @@ input {
     height: 30px;
 }
 
-.credential-status .popup {
+.popup {
     visibility: hidden;
+    background-color: #f4f4f4;
     width: 120px;
-    background-color: lightcoral;
     text-align: center;
     padding: 5px 0;
     border-radius: 4px;
@@ -177,12 +139,16 @@ input {
     /* Position the tooltip text - see examples below! */
     position: absolute;
     z-index: 1;
-  }
+}
+
+.popup-error {
+    background-color: lightcoral;
+}
   
-  /* Show the tooltip text when you mouse over the tooltip container */
-  .credential-status:hover .popup {
+/* Show the tooltip text when you mouse over the tooltip container */
+.credential-status:hover .popup {
     visibility: visible;
-  }
+}
 
 .credential-collect {
     width: 100%;

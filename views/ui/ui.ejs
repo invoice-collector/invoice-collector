@@ -15,47 +15,19 @@
     <div id="credentials-container" class="container">
         <!-- TITLE -->
         <h1><%= __('i18n.views.manage.my-collectors') %></h1>
-        <!-- CREDENTIALS LIST -->
-        <div id="credentials-list"></div>
-
-        <!-- TABLE -->
+        <!-- CREDENTIALS TABLE -->
         <table id="credentials-table">
             <thead>
                 <tr>
-                    <th class="table-column-20"></th>
-                    <th class="table-column-10">Status</th>
-                    <th class="table-column-20">Previous collect</th>
-                    <th class="table-column-20">Next collect</th>
-                    <th class="table-column-10"></th>
+                    <th class="table-column-120"></th>
+                    <th class="table-column"></th>
+                    <th class="table-column-logo"></th>
+                    <th class="table-column-120">Previous collect</th>
+                    <th class="table-column-120">Next collect</th>
+                    <th class="table-column-logo"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr class="credential">
-                    <td>
-                        <img class="credential-logo" src="https://www.free.fr/assets/img/freebox/home/cards/logos/free-app-logo.svg" alt="Free">
-                    </td>
-                    <td>
-                        <div class="credential-status">
-                            <img src="/views/icons/error.png" alt="Error">
-                            <div class="popup">Identifiant ou mot de passe incorrect</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="credential-collect">
-                            --
-                        </div>
-                    </td>
-                    <td>
-                        <div class="credential-collect">
-                            --
-                        </div>
-                    </td>
-                    <td>
-                        <button class="button delete-button" onclick="deleteCredential('TODO')">
-                            <img src="/views/icons/delete.png" alt="Delete">
-                        </button>
-                    </td>
-                </tr>
             </tbody>
         </table>
 
