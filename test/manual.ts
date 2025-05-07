@@ -3,7 +3,6 @@ const prompt = promptSync({});
 import dotenv from 'dotenv';
 dotenv.config();
 import fs from 'fs';
-import { Server } from "../src/server";
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
@@ -72,7 +71,7 @@ import { I18n } from '../src/i18n';
             collect.twofa_promise.setCode(twofa_code);
         });
 
-        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], {country: "FR", lat: '', lon: ''});
+        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], null);
         console.log(`${newInvoices.length} invoices downloaded`);
 
         for (const invoice of newInvoices) {
@@ -87,7 +86,7 @@ import { I18n } from '../src/i18n';
         }
     } catch (error) {
         if (error instanceof Error) {
-            error.message = I18n.get(error.message, Server.DEFAULT_LOCALE);
+            error.message = I18n.get(error.message, I18n.DEFAULT_LOCALE);
         }
         console.error(error);
         if (error instanceof LoggableError) {
