@@ -34,7 +34,7 @@ export class OxylabProxy extends AbstractProxy {
             username: `customer-${this.username}-cc-${location.country}-sessid-${sessid}`,
             password: this.password
         };
-        await this.geoConstraint(proxy, location);
+        await this.geoConstrain(proxy, location);
         return proxy;
     }
 
@@ -45,7 +45,7 @@ export class OxylabProxy extends AbstractProxy {
      * @param proxy - The proxy configuration object containing the URI to be tested.
      * @throws {Error} Throws an error with a cause if the proxy cannot be constrained to the specified coordinates.
      */
-    async geoConstraint(proxy: Proxy, location: Location): Promise<void> {
+    async geoConstrain(proxy: Proxy, location: Location): Promise<void> {
         for (const radius of OxylabProxy.RADIUS_ACCURACIES) {
             try {
                 await axios.get(OxylabProxy.LOCATION_URL, {
