@@ -48,18 +48,16 @@ export class OxylabProxy extends AbstractProxy {
     async geoConstraint(proxy: Proxy, location: Location): Promise<void> {
         for (const radius of OxylabProxy.RADIUS_ACCURACIES) {
             try {
-                const a = await axios.get(OxylabProxy.LOCATION_URL, {
+                await axios.get(OxylabProxy.LOCATION_URL, {
                     httpsAgent: new HttpsProxyAgent(proxy.uri, {
                         headers: {
                             "X-Oxylabs-Geolocation": `${location.lat}:${location.lon};${radius}`
                         }
                     })
                 });
-                console.log(a.data);
                 return;
             } catch (error) {
                 // Nothing to do, just try the next radius
-                console.log(`Radius ${radius} failed`);
             }
         }
         // If we reach here, it means that all radius attempts failed
