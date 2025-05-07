@@ -54,9 +54,7 @@ export async function pageController({
 
     turnstileSolver()
 
-    if (proxy && proxy.username && proxy.password){
-        await page.authenticate({ username: proxy.username, password: proxy.password });
-    }
+    if (proxy && proxy.username && proxy.password) await page.authenticate({ username: proxy.username, password: proxy.password });
 
     await page.evaluateOnNewDocument(() => {
         Object.defineProperty(MouseEvent.prototype, 'screenX', {
