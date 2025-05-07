@@ -11,7 +11,7 @@ export interface PageWithCursor extends Page {
 
 export interface PageControllerOptions {
     browser: Browser,
-    page: any,
+    page: Page,
     proxy?: Proxy,
     turnstile: boolean,
     xvfbsession: any,
@@ -55,7 +55,6 @@ export async function pageController({
     turnstileSolver()
 
     if (proxy && proxy.username && proxy.password){
-        await page.setExtraHTTPHeaders(proxy.headers);
         await page.authenticate({ username: proxy.username, password: proxy.password });
     }
 
@@ -75,8 +74,8 @@ export async function pageController({
     });
 
     const cursor = createCursor(page);
-    page.realCursor = cursor;
-    page.realClick = cursor.click;
-
-    return page;
+    const pageWithCursor = page as PageWithCursor;
+    pageWithCursor.realCursor = cursor;
+    pageWithCursor.realClick = cursor.click;
+    return pageWithCursor;
 }

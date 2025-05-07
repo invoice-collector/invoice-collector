@@ -3,8 +3,7 @@ export type Proxy = {
     host: string,
     port: number,
     username?: string,
-    password?: string,
-    headers: any
+    password?: string
 }
 
 export type Location = {
@@ -21,7 +20,7 @@ export abstract class AbstractProxy {
         lon: '2.348993'
     }
 
-    abstract get(location: Location | null): Proxy | null;
+    abstract get(location: Location | null): Promise<Proxy | null>;
 
     async locate(ip: string | string[] | undefined): Promise<Location | null> {
         // Check if ip is an array
