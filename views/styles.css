@@ -124,6 +124,7 @@ input {
 
 .credential-logo {
     height: 50px;
+    max-width: 100px;
 }
 
 .credential-status {
