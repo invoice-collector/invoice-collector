@@ -81,8 +81,8 @@ function buildCredentialStatus(credential) {
 
 async function showCredentials() {
     // Get the elements
-    const credentialsEmpty = document.querySelector('#credentials-empty');
-    const credentialsList = document.querySelector('#credentials-list');
+    const credentialsEmpty = document.getElementById('credentials-empty');
+    const credentialsList = document.getElementById('credentials-list');
 
     // Hide other containers
     document.getElementById('credentials-container').hidden = false;
