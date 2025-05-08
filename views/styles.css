@@ -5,10 +5,13 @@ body {
     padding: 0;
 }
 
-.container {
+.main-container {
     max-width: 1000px;
-    min-width: 400px;
+    min-width: fit-content;
     margin: 50px auto 0px auto;
+}
+
+.container {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -238,15 +241,6 @@ input {
 
 /* FEEDBACK */
 
-#send-feedback-button {
-    color: #000;
-    font-style: italic;
-    font-size: small;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-}
-
 #feedback-form > textarea {
     resize: vertical;
     min-height: 200px;
@@ -269,4 +263,17 @@ input {
 .no-collector-button {
     width: 100%;
     margin-top: 50px;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    margin: 10px auto 0px auto;
+}
+
+#send-feedback-button {
+    color: #000;
+    font-style: italic;
+    font-size: small;
 }
