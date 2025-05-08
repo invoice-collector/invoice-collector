@@ -15,6 +15,10 @@
         <div id="credentials-container" class="container">
             <!-- TITLE -->
             <h1><%= __('i18n.views.manage.my-collectors') %></h1>
+            <!-- BUTTON -->
+            <div class="credentials-buttons">
+                <button class="button action-button" onclick="showCompanies()"><%= __('i18n.views.manage.add-collectors') %></button>
+            </div>
             <!-- CREDENTIALS TABLE -->
             <table id="credentials-table">
                 <thead>
@@ -30,9 +34,6 @@
                 <tbody>
                 </tbody>
             </table>
-
-            <!-- BUTTON -->
-            <button class="button action-button" onclick="showCompanies()"><%= __('i18n.views.manage.add-collectors') %></button>
         </div>
 
         <!-- COMPANIES CONTAINER -->

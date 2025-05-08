@@ -91,10 +91,14 @@ input {
 /* CREDENTIALS */
 
 #credentials-table {
-    margin-top: 50px;
+    margin-top: 10px;
     margin-bottom: 50px;
     width: 100%;
     border-collapse: collapse;
+}
+
+.credentials-buttons {
+    text-align: right;
 }
 
 #credentials-table th {
