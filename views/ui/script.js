@@ -81,7 +81,8 @@ function buildCredentialStatus(credential) {
 
 async function showCredentials() {
     // Get the elements
-    const credentialsTable = document.querySelector('#credentials-table > tbody');
+    const credentialsEmpty = document.querySelector('#credentials-empty');
+    const credentialsList = document.querySelector('#credentials-list');
 
     // Hide other containers
     document.getElementById('credentials-container').hidden = false;
@@ -94,39 +95,45 @@ async function showCredentials() {
     const response = await fetch(`credentials?token=${token}`);
     const credentials = await response.json();
 
-    let credentialsTable_innerHTML = '';
-    credentials.forEach(credential => {
-        const credentialItem = `
-            <tr class="credential">
-                <td class="table-column-center">
-                    <img class="credential-logo" src="${credential.collector.logo}" alt="${credential.collector.name}">
-                </td>
-                <td>
-                    ${credential.note}
-                </td>
-                <td>
-                    ${buildCredentialStatus(credential)}
-                </td>
-                <td>
-                    <div class="credential-collect">
-                        ${credential.last_collect_timestamp ? new Date(credential.last_collect_timestamp).toLocaleString() : '--'}
-                    </div>
-                </td>
-                <td>
-                    <div class="credential-collect">
-                        ${credential.next_collect_timestamp ? new Date(credential.next_collect_timestamp).toLocaleString() : '--'}
-                    </div>
-                </td>
-                <td class="table-column-center">
-                    <button class="button delete-button" onclick="deleteCredential('${credential.id}')">
-                        <img src="/views/icons/delete.png" alt="Delete">
-                    </button>
-                </td>
-            </tr>`;
-        
-        credentialsTable_innerHTML += credentialItem;
-    });
-    credentialsTable.innerHTML = credentialsTable_innerHTML;
+    let credentialsList_innerHTML = '';
+    if (credentials.length === 0) {
+        credentialsEmpty.hidden = false;
+    }
+    else {
+        credentialsEmpty.hidden = true;
+        credentials.forEach(credential => {
+            const credentialItem = `
+                <tr class="credential">
+                    <td class="table-column-center">
+                        <img class="credential-logo" src="${credential.collector.logo}" alt="${credential.collector.name}">
+                    </td>
+                    <td>
+                        ${credential.note}
+                    </td>
+                    <td>
+                        ${buildCredentialStatus(credential)}
+                    </td>
+                    <td>
+                        <div class="credential-collect">
+                            ${credential.last_collect_timestamp ? new Date(credential.last_collect_timestamp).toLocaleString() : '--'}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="credential-collect">
+                            ${credential.next_collect_timestamp ? new Date(credential.next_collect_timestamp).toLocaleString() : '--'}
+                        </div>
+                    </td>
+                    <td class="table-column-center">
+                        <button class="button delete-button" onclick="deleteCredential('${credential.id}')">
+                            <img src="/views/icons/delete.png" alt="Delete">
+                        </button>
+                    </td>
+                </tr>`;
+            
+                credentialsList_innerHTML += credentialItem;
+        });
+    }
+    credentialsList.innerHTML = credentialsList_innerHTML;
 }
 
 async function showCompanies() {
