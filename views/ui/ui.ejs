@@ -6,140 +6,141 @@
     <title>Invoice-Collector - <%= __('i18n.views.manage.my-collectors') %></title>
     <link rel="stylesheet" href="/views/styles.css">
     <link rel="icon" href="/views/icons/favicon.ico" type="image/x-icon">
+    <script src="/views/ui/script.js"></script>
 </head>
 <body>
-    <script src="/views/ui/script.js"></script>
+    <div class="main-container">
+        <!-- CREDENTIALS CONTAINER -->
 
-    <!-- CREDENTIALS CONTAINER -->
+        <div id="credentials-container" class="container">
+            <!-- TITLE -->
+            <h1><%= __('i18n.views.manage.my-collectors') %></h1>
+            <!-- CREDENTIALS TABLE -->
+            <table id="credentials-table">
+                <thead>
+                    <tr>
+                        <th class="table-column-120"></th>
+                        <th class="table-column"><%= __('i18n.views.credentials.note') %></th>
+                        <th class="table-column-40"><%= __('i18n.views.credentials.status') %></th>
+                        <th class="table-column-120"><%= __('i18n.views.credentials.last_collect') %></th>
+                        <th class="table-column-120"><%= __('i18n.views.credentials.next_collect') %></th>
+                        <th class="table-column-40"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
 
-    <div id="credentials-container" class="container">
-        <!-- TITLE -->
-        <h1><%= __('i18n.views.manage.my-collectors') %></h1>
-        <!-- CREDENTIALS TABLE -->
-        <table id="credentials-table">
-            <thead>
-                <tr>
-                    <th class="table-column-120"></th>
-                    <th class="table-column">Note</th>
-                    <th class="table-column-40">Status</th>
-                    <th class="table-column-120">Previous collect</th>
-                    <th class="table-column-120">Next collect</th>
-                    <th class="table-column-40"></th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
+            <!-- BUTTON -->
+            <button class="button action-button" onclick="showCompanies()"><%= __('i18n.views.manage.add-collectors') %></button>
+        </div>
 
-        <!-- BUTTON -->
-        <button class="button action-button" onclick="showCompanies()"><%= __('i18n.views.manage.add-collectors') %></button>
-    </div>
+        <!-- COMPANIES CONTAINER -->
 
-    <!-- COMPANIES CONTAINER -->
+        <div id="companies-container" class="container" hidden>
+            <!-- BUTTON -->
+            <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
+            <!-- TITLE -->
+            <h1><%= __('i18n.views.manage.add-collectors') %></h1>
+            <!-- COMPANIES LIST -->
+            <ul id="companies-list"></ul>
+            <button class="button delete-button no-collector-button" onclick="showFeedback()"><%= __('i18n.views.manage.no-collector') %></button>
+        </div>
 
-    <div id="companies-container" class="container" hidden>
-        <!-- BUTTON -->
-        <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
-        <!-- TITLE -->
-        <h1><%= __('i18n.views.manage.add-collectors') %></h1>
-        <!-- COMPANIES LIST -->
-        <ul id="companies-list"></ul>
-        <button class="button delete-button no-collector-button" onclick="showFeedback()"><%= __('i18n.views.manage.no-collector') %></button>
-    </div>
-
-    <!-- FORM CONTAINER -->
-        
-    <div id="form-container" class="container" hidden>
-        <!-- BUTTON -->
-        <button class="button return-button" onclick="showCompanies()"><%= __('i18n.views.manage.return') %></button>
-        <!-- TITLE -->
-        <h1><%= __('i18n.views.manage.add-collectors') %></h1>
-        <!-- FORM -->
-        <div id="add-credential-form-container">
-            <div class="company-item">
-                <img id="company-logo" src="" alt="Logo">
-                <div>
-                    <h3 id="company-name"></h3>
-                    <p id="company-description"></p>
+        <!-- FORM CONTAINER -->
+            
+        <div id="form-container" class="container" hidden>
+            <!-- BUTTON -->
+            <button class="button return-button" onclick="showCompanies()"><%= __('i18n.views.manage.return') %></button>
+            <!-- TITLE -->
+            <h1><%= __('i18n.views.manage.add-collectors') %></h1>
+            <!-- FORM -->
+            <div id="add-credential-form-container">
+                <div class="company-item">
+                    <img id="company-logo" src="" alt="Logo">
+                    <div>
+                        <h3 id="company-name"></h3>
+                        <p id="company-description"></p>
+                    </div>
                 </div>
+                <div class="container" id="add-credential-instructions">
+                    <strong><%= __('i18n.views.manage.instructions') %>:</strong>
+                    <p></p>
+                </div>
+                <form id="add-credential-form">
+                    <div id="add-credential-form-params"></div>
+                    <label><%= __('i18n.collectors.all.note') %></label>
+                    <input type="text" name="note" placeholder="<%= __('i18n.collectors.all.note.placeholder') %>">
+                    <button type="submit" class="button action-button"><%= __('i18n.views.manage.add-collectors') %></button>
+                </form>
             </div>
-            <div class="container" id="add-credential-instructions">
-                <strong><%= __('i18n.views.manage.instructions') %>:</strong>
-                <p></p>
+        </div>
+
+        <!-- PROGRESS CONTAINER -->
+
+        <div id="progress-container" class="container" hidden>
+            <!-- TITLE -->
+            <h1><%= __('i18n.views.manage.adding-collector') %></h1>
+            <!-- PROGRESS BAR -->
+            <div id="progress-text">
             </div>
-            <form id="add-credential-form">
-                <div id="add-credential-form-params"></div>
-                <label><%= __('i18n.collectors.all.note') %></label>
-                <input type="text" name="note" placeholder="<%= __('i18n.collectors.all.note.placeholder') %>">
-                <button type="submit" class="button action-button"><%= __('i18n.views.manage.add-collectors') %></button>
+            <div id="progress-bar-container">
+                <div id="progress-bar"></div>
+            </div>
+            <!-- 2FA FORM -->
+            <div id="send-2fa-container" >
+                <form id="send-2fa-form">
+                    <label id="send-2fa-instructions"></label>
+                    <input type="text" name="code" placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>">
+                    <button type="submit" class="button action-button"><%= __('i18n.views.manage.continue') %></button>
+                </form>
+            </div>
+            <!-- RESPONSE -->
+            <div id="progress-response-success" class="progress-response" hidden>
+                <img src="/views/icons/success.png" alt="Success">
+                <p><%= __('i18n.views.manage.success') %></p>
+                <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
+            </div>
+            <div id="progress-response-unknown" class="progress-response" hidden>
+                <img src="/views/icons/pending.png" alt="Unknown">
+                <p><%= __('i18n.views.manage.unknown') %></p>
+                <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
+            </div>
+            <div id="progress-response-error" class="progress-response" hidden>
+                <img src="/views/icons/error.png" alt="Success">
+                <p id="progress-response-error-text"></p>
+                <button class="button delete-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
+            </div>
+        </div>
+
+        <!-- FEEDBACK CONTAINER -->
+
+        <div id="feedback-container" class="container" hidden>
+            <!-- BUTTON -->
+            <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
+            <!-- TITLE -->
+            <h1><%= __('i18n.views.manage.send-feedback') %></h1>
+            <!-- FORM -->
+            <form id="feedback-form">
+                <label><%= __('i18n.views.manage.feedback') %><span style="color: red;"> *</span></label>
+                <textarea type="text" name="feedback" placeholder="<%= __('i18n.views.manage.feedback.placeholder') %>" required></textarea>
+                <label><%= __('i18n.collectors.all.email') %></label>
+                <input type="text" name="email" type="email" placeholder="<%= __('i18n.views.manage.feedback.email.placeholder') %>">
+                <button type="submit" class="button action-button"><%= __('i18n.views.manage.send-feedback') %></button>
             </form>
+            <!-- RESPONSE -->
+            <div id="feedback-response-success" class="feedback-response feedback-response-success" hidden>
+                <p><%= __('i18n.views.manage.feedback.success') %></p>
+            </div>
+            <div id="feedback-response-error" class="feedback-response feedback-response-error" hidden>
+                <p><%= __('i18n.views.manage.feedback.error') %></p>
+            </div>
         </div>
+
+        <!-- FOOTER -->
+
+        <a id="send-feedback-button" class="button" onclick="showFeedback()"><%= __('i18n.views.manage.send-feedback') %></a>
     </div>
-
-    <!-- PROGRESS CONTAINER -->
-
-    <div id="progress-container" class="container" hidden>
-        <!-- TITLE -->
-        <h1><%= __('i18n.views.manage.adding-collector') %></h1>
-        <!-- PROGRESS BAR -->
-        <div id="progress-text">
-        </div>
-        <div id="progress-bar-container">
-            <div id="progress-bar"></div>
-        </div>
-        <!-- 2FA FORM -->
-        <div id="send-2fa-container" >
-            <form id="send-2fa-form">
-                <label id="send-2fa-instructions"></label>
-                <input type="text" name="code" placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>">
-                <button type="submit" class="button action-button"><%= __('i18n.views.manage.continue') %></button>
-            </form>
-        </div>
-        <!-- RESPONSE -->
-        <div id="progress-response-success" class="progress-response" hidden>
-            <img src="/views/icons/success.png" alt="Success">
-            <p><%= __('i18n.views.manage.success') %></p>
-            <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
-        </div>
-        <div id="progress-response-unknown" class="progress-response" hidden>
-            <img src="/views/icons/pending.png" alt="Unknown">
-            <p><%= __('i18n.views.manage.unknown') %></p>
-            <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
-        </div>
-        <div id="progress-response-error" class="progress-response" hidden>
-            <img src="/views/icons/error.png" alt="Success">
-            <p id="progress-response-error-text"></p>
-            <button class="button delete-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
-        </div>
-    </div>
-
-    <!-- FEEDBACK CONTAINER -->
-
-    <div id="feedback-container" class="container" hidden>
-        <!-- BUTTON -->
-        <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
-        <!-- TITLE -->
-        <h1><%= __('i18n.views.manage.send-feedback') %></h1>
-        <!-- FORM -->
-        <form id="feedback-form">
-            <label><%= __('i18n.views.manage.feedback') %><span style="color: red;"> *</span></label>
-            <textarea type="text" name="feedback" placeholder="<%= __('i18n.views.manage.feedback.placeholder') %>" required></textarea>
-            <label><%= __('i18n.collectors.all.email') %></label>
-            <input type="text" name="email" type="email" placeholder="<%= __('i18n.views.manage.feedback.email.placeholder') %>">
-            <button type="submit" class="button action-button"><%= __('i18n.views.manage.send-feedback') %></button>
-        </form>
-        <!-- RESPONSE -->
-        <div id="feedback-response-success" class="feedback-response feedback-response-success" hidden>
-            <p><%= __('i18n.views.manage.feedback.success') %></p>
-        </div>
-        <div id="feedback-response-error" class="feedback-response feedback-response-error" hidden>
-            <p><%= __('i18n.views.manage.feedback.error') %></p>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-
-    <a id="send-feedback-button" class="button" onclick="showFeedback()"><%= __('i18n.views.manage.send-feedback') %></a>
 
     <!-- SCRIPT -->
 

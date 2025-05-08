@@ -21,6 +21,10 @@
 	"i18n.views.manage.feedback.email.placeholder": "If you want to be contacted after your feedback",
 	"i18n.views.manage.feedback.success": "Thank you for your feedback!",
 	"i18n.views.manage.feedback.error": "Error sending feedback",
+	"i18n.views.credentials.note": "Note",
+	"i18n.views.credentials.status": "Status",
+	"i18n.views.credentials.last_collect": "Last collect",
+	"i18n.views.credentials.next_collect": "Next collect",
 
 	"i18n.class.state.1_error": "Oops! Something went wrong...",
 	"i18n.class.state.0_unknown": "Oops! Something went wrong...",
