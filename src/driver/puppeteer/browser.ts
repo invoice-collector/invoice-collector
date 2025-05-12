@@ -2,6 +2,7 @@ import puppeteer, { Browser, ConnectOptions } from "rebrowser-puppeteer-core";
 import * as ChromeLauncher from 'chrome-launcher';
 import { pageController, PageWithCursor } from "./pageController";
 import { ChromeFactory } from "../chrome/chromeFactory";
+import { Proxy } from "../../proxy/abstractProxy";
 
 let Xvfb;
 try {
@@ -19,19 +20,12 @@ export interface Options {
   args?: string[];
   headless?: boolean;
   customConfig?: ChromeLauncher.Options;
-  proxy?: ProxyOptions;
+  proxy?: Proxy;
   turnstile?: boolean;
   connectOption?: ConnectOptions;
   disableXvfb?: boolean;
   ignoreAllFlags?: boolean;
   remoteChrome?: boolean;
-}
-
-export interface ProxyOptions {
-  host: string;
-  port: number;
-  username?: string;
-  password?: string;
 }
 
 export async function connect({

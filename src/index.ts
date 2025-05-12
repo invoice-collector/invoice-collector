@@ -75,9 +75,9 @@ app.get('/api/v1/ui', async (req, res) => {
         console.log(`GET ui`);
         const context = await server.get_ui(req.query.token, req.query.verificationCode);
 
-        // Render user.ejs
+        // Render ui.ejs
         req.setLocale(context.locale);
-        res.render('user/user', context);
+        res.render('ui/ui', context);
     } catch (e) {
         handle_error(e, req, res);
     }

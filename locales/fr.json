@@ -21,6 +21,11 @@
 	"i18n.views.manage.feedback.email.placeholder": "Si vous souhaitez être contacté suite à votre retour",
 	"i18n.views.manage.feedback.success": "Merci pour votre retour !",
 	"i18n.views.manage.feedback.error": "Erreur lors de l'envoi du retour",
+	"i18n.views.credentials.note": "Note",
+	"i18n.views.credentials.status": "Status",
+	"i18n.views.credentials.last_collect": "Précédente collecte",
+	"i18n.views.credentials.next_collect": "Prochaine collecte",
+	"i18n.views.credentials.empty": "Vous n'avez pas encore de collecteurs",
 
 	"i18n.class.state.1_error": "Oups ! Quelque chose s'est mal passé...",
 	"i18n.class.state.0_unknown": "Oups ! Quelque chose s'est mal passé...",
