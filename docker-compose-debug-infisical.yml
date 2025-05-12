@@ -1,4 +1,5 @@
 services:
+
   invoice-collector:
     image: invoice-collector:latest
     build:
@@ -13,6 +14,7 @@ services:
       - ./src:/usr/app/src
       - ./locales:/usr/app/locales
       - ./views:/usr/app/views
+      - ./env-output/.env.generated:/usr/app/.env.generated # Only for debug
     depends_on:
       - mongodb
     environment:
@@ -20,13 +22,14 @@ services:
       - REGISTRY_SERVER_ENDPOINT=https://registry.invoice-collector.com
       - DATABASE_URI=mongodb://mongodb:27017
       - DATABASE_MONGODB_NAME=dev
-      - SECRET_MANAGER_TYPE=infisical # bitwarden or infisical
-      - SECRET_MANAGER_INFISICAL_API_URI=
-      - SECRET_MANAGER_INFISICAL_PROJECT_ID=
-      - SECRET_MANAGER_INFISICAL_CLIENT_ID=
-      - SECRET_MANAGER_INFISICAL_CLIENT_SECRET=   
+      - SECRET_MANAGER_TYPE=infisical
+      - SECRET_MANAGER_INFISICAL_API_URI=http://infisical:8180
+      - SECRET_MANAGER_INFISICAL_PROJECT_ID=${SECRET_MANAGER_INFISICAL_PROJECT_ID}
+      - SECRET_MANAGER_INFISICAL_CLIENT_ID=${SECRET_MANAGER_INFISICAL_CLIENT_ID}
+      - SECRET_MANAGER_INFISICAL_CLIENT_SECRET=${SECRET_MANAGER_INFISICAL_CLIENT_SECRET}
       - ENV=dev
     command: npm run debug
+    entrypoint: ["/bin/sh", "-c", ". /usr/app/.env.generated && exec npm run debug"] # Only for debug
 
   mongodb:
     image : mongo:8.0.3
@@ -39,4 +42,3 @@ services:
     ports:
       - 27017:27017
     command: --logpath /dev/null
-    #command: --quiet --config /etc/mongo/mongod.conf # Quiet option not working
