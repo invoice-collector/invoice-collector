@@ -30,8 +30,8 @@ export class RegistryServer {
             console.log("Pong! Invoice-Collector server successfully reached");
         })
         .catch(error => {
-            console.error(`Could not reach Invoice-Collector server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}\n
-                You are still able to use the product but some features may not work as expected.`);
+            console.error(`Could not reach Invoice-Collector server at ${error.request.res?.responseUrl || error.request._currentUrl}. Status code: ${error.response?.status || error.code}
+You are still able to use the product but some features may not work as expected.`);
         });
     }
 

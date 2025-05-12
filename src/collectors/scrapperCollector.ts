@@ -45,7 +45,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
     async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]> {
         // Get proxy
-        const proxy = this.config.useProxy ? ProxyFactory.getProxy().get(location) : null;
+        const proxy = this.config.useProxy ? await ProxyFactory.getProxy().get(location) : null;
 
         // Start browser and page
         this.driver = new Driver(this);

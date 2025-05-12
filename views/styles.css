@@ -5,9 +5,13 @@ body {
     padding: 0;
 }
 
-.container {
-    max-width: 600px;
+.main-container {
+    max-width: 1000px;
+    min-width: fit-content;
     margin: 50px auto 0px auto;
+}
+
+.container {
     padding: 20px;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -86,57 +90,81 @@ input {
 
 /* CREDENTIALS */
 
-#credentials-list {
-    margin-bottom: 20px;
-}
-
-.credential-item {
-    border: 1px solid #ccc;
-    background-color: #fff;
-    display: flex;
-    position: relative;
-}
-
-.credential-item > button {
-    margin-left: auto;
-    align-self: flex-start;
-}
-
-.credential-footer {
-    position: absolute;
+#credentials-table {
+    margin-top: 10px;
+    margin-bottom: 50px;
     width: 100%;
-    display: flex;
-    align-items: center;
-    bottom: 0;
-    left: 0;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-collapse: collapse;
 }
 
-.credential-footer > img {
-    margin-left: 2px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    height: 15px;
-    width: 15px;
+.credentials-buttons {
+    text-align: right;
 }
 
-.credential-footer > div {
-    margin-left: 2px;
-    margin-top: 2px;
-    margin-bottom: 2px;
+#credentials-table th {
+    background-color: #f4f4f4;
+    padding: 10px;
 }
 
-.credential-error {
+#credentials-table td {
+    padding: 10px;
+}
+
+.table-column-center {
+    text-align: center;
+}
+
+.table-column-40 {
+    width: 40px;
+}
+
+.table-column-120 {
+    width: 120px;
+}
+
+.credential-logo {
+    height: 50px;
+    max-width: 100px;
+}
+
+.credential-status {
+    text-align: center;
+}
+
+.credential-status img {
+    width: 30px;
+    height: 30px;
+}
+
+.popup {
+    visibility: hidden;
+    background-color: #f4f4f4;
+    width: 120px;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 4px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+.popup-error {
     background-color: lightcoral;
 }
-
-.credential-warning {
-    background-color: none;
+  
+/* Show the tooltip text when you mouse over the tooltip container */
+.credential-status:hover .popup {
+    visibility: visible;
 }
 
-.credential-success {
-    background-color: none;
+.credential-collect {
+    width: 100%;
+    text-align: center;
+}
+
+.credential-collect .delete-button {
+    margin-left: auto;
 }
 
 /* COMPANIES */
@@ -218,15 +246,6 @@ input {
 
 /* FEEDBACK */
 
-#send-feedback-button {
-    color: #000;
-    font-style: italic;
-    font-size: small;
-    text-align: center;
-    display: block;
-    margin: 0 auto;
-}
-
 #feedback-form > textarea {
     resize: vertical;
     min-height: 200px;
@@ -249,4 +268,17 @@ input {
 .no-collector-button {
     width: 100%;
     margin-top: 50px;
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    margin: 10px auto 0px auto;
+}
+
+#send-feedback-button {
+    color: #000;
+    font-style: italic;
+    font-size: small;
 }

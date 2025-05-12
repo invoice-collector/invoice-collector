@@ -20,8 +20,6 @@ import { I18n } from './i18n';
 export class Server {
 
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS"));
-    static LOCALES = ['en', 'fr'];
-    static DEFAULT_LOCALE = 'en';
 
     tokens: object;
     secret_manager: AbstractSecretManager;
@@ -73,8 +71,8 @@ export class Server {
         }
 
         //Check if locale is supported
-        if(locale && !Server.LOCALES.includes(locale)) {
-            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${Server.LOCALES.join(", ")}.`, 400);
+        if(locale && !I18n.LOCALES.includes(locale)) {
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
         // Get user from remote_id
@@ -485,12 +483,12 @@ export class Server {
         //Check if locale field is missing
         if(!locale || typeof locale !== 'string') {
             //Set default locale
-            locale = Server.DEFAULT_LOCALE;
+            locale = I18n.DEFAULT_LOCALE;
         }
 
         //Check if locale is supported
-        if(locale && !Server.LOCALES.includes(locale)) {
-            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${Server.LOCALES.join(", ")}.`, 400);
+        if(locale && !I18n.LOCALES.includes(locale)) {
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
         return CollectorLoader.getAll().map((collector): Config => {

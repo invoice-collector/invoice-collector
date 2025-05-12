@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('terms-conditions-form').addEventListener('submit', function(event) {
         event.preventDefault();
         this.method = 'GET';
-        this.action = `/api/v1/user`;
+        this.action = `/api/v1/ui`;
         this.submit();
     });
 });
