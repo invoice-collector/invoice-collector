@@ -1,20 +1,22 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
+    background-color: #fff;
     padding: 0;
 }
 
 .main-container {
-    max-width: 1000px;
-    min-width: fit-content;
-    margin: 50px auto 0px auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2 {
@@ -274,7 +276,7 @@ input {
 
 .footer {
     text-align: center;
-    margin: 10px auto 0px auto;
+    margin: auto auto 5px auto;
 }
 
 #send-feedback-button {
