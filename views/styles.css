@@ -40,8 +40,8 @@ label {
     border-radius: var(--primary-border-radius);
     color: var(--primary-color-text);
     border: var(--primary-border);
-    padding-left: var(--primary-border-radius);
-    padding-right: var(--primary-border-radius);
+    padding-left: max(var(--primary-border-radius), 10px);
+    padding-right: max(var(--primary-border-radius), 10px);
 }
 
 .action-button:hover {
@@ -53,8 +53,8 @@ label {
     border-radius: var(--return-border-radius);
     color: var(--return-color-text);
     border: var(--return-border);
-    padding-left: var(--return-border-radius);
-    padding-right: var(--return-border-radius);
+    padding-left: max(var(--return-border-radius), 10px);
+    padding-right: max(var(--return-border-radius), 10px);
 }
 
 .return-button:hover {
