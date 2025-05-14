@@ -59,6 +59,8 @@ input {
     border-radius: var(--primary-border-radius);
     color: var(--primary-color-text);
     border: var(--primary-border);
+    padding-left: var(--primary-border-radius);
+    padding-right: var(--primary-border-radius);
 }
 
 .action-button:hover {
@@ -70,6 +72,8 @@ input {
     border-radius: var(--return-border-radius);
     color: var(--return-color-text);
     border: var(--return-border);
+    padding-left: var(--return-border-radius);
+    padding-right: var(--return-border-radius);
 }
 
 .return-button:hover {
