@@ -41,7 +41,7 @@
     --company-color-hover: #C4E2FF;
     --company-color-text: rgb(102, 102, 102);
     --company-color-text-hover: #319DF7;
-    --company-border: 0.5px solid rgb(102, 102, 102);
+    --company-border: 0.5px solid #fff;
     --company-border-hover: 0.5px solid #319DF7;
     --company-border-radius: 20px;
 
