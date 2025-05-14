@@ -154,10 +154,9 @@ async function showCompanies() {
         const companyItem = document.createElement('li');
         companyItem.className = 'company-item company-item-selectable';
         companyItem.innerHTML = `
-            <img src="${company.logo}" alt="${company.name}">
+            <img src="${company.logo}" alt="${company.name}" class="companies-logo">
             <div>
-                <h3>${company.name}</h3>
-                <p>${company.description}</p>
+                <bold>${company.name}</bold>
             </div>
         `;
         companyItem.addEventListener('click', () => showForm(company));
@@ -170,9 +169,9 @@ function showForm(company) {
     const form = document.getElementById('add-credential-form-params');
     
     // Update the form with the company's information
-    document.getElementById('company-logo').src = company.logo;
-    document.getElementById('company-name').textContent = company.name;
-    document.getElementById('company-description').textContent = company.description;
+    document.getElementById('form-logo').src = company.logo;
+    document.getElementById('form-name').textContent = company.name;
+    document.getElementById('form-description').textContent = company.description;
     document.querySelector('#add-credential-instructions').hidden = !company.instructions;
     document.querySelector('#add-credential-instructions p').innerHTML = company.instructions;
     document.getElementById('add-credential-form').dataset.collector = company.id;

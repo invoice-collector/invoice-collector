@@ -40,8 +40,10 @@
     --company-color: #fff;
     --company-color-hover: #eee;
     --company-color-text: #000;
-    --company-border: 0.5px solid #ccc;
-    --company-border-radius: 4px;
+    --company-color-text-hover: #000;
+    --company-border: none;
+    --company-border-hover: none;
+    --company-border-radius: 20px;
 
     --input-border: 1px solid #ccc;
     --input-border-radius: 4px;
