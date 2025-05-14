@@ -4,8 +4,8 @@ html, body {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fff;
+    font-family: var(--font);
+    background: var(--background-color);
     padding: 0;
 }
 
@@ -21,11 +21,13 @@ body {
 
 h1, h2 {
     text-align: center;
+    color: var(--title-text-color);
 }
 
 form {
     display: flex;
     flex-direction: column;
+    color: var(--company-color-text)
 }
 
 form > div {
@@ -41,48 +43,48 @@ input {
     padding: 10px;
     margin-top: 5px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
 }
 
 /* BUTTONS */
 
 .button {
     padding: 10px;
-    border-radius: 4px;
     cursor: pointer;
 }
 
 .action-button {
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
+    background: var(--primary-color);
+    border-radius: var(--primary-border-radius);
+    color: var(--primary-color-text);
+    border: var(--primary-border);
 }
 
 .action-button:hover {
-    background-color: #0056b3;
+    background: var(--primary-color-hover)
 }
 
 .return-button {
-    background-color: #fff;
-    border-color: #000;
-    color: #000;
-    border: 1px solid #ccc;
+    background: var(--return-color);
+    border-radius: var(--return-border-radius);
+    color: var(--return-color-text);
+    border: var(--return-border);
 }
 
 .return-button:hover {
-    background-color: #eee;
+    background: var(--return-color-hover);
 }
 
 .delete-button {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
+    background: var(--delete-color);
+    border-radius: var(--delete-border-radius);
+    color: var(--delete-color-text);
+    border: var(--delete-border);
 }
 
 .delete-button:hover {
-    background-color: #c82333;
-    color: #fff;
+    background: var(--delete-color-hover);
 }
 
 .delete-button > img {
@@ -97,6 +99,8 @@ input {
     margin-bottom: 50px;
     width: 100%;
     border-collapse: collapse;
+    border-radius: var(--table-border-radius);
+    overflow: hidden;
 }
 
 .credentials-buttons {
@@ -104,8 +108,8 @@ input {
 }
 
 #credentials-table th {
-    background-color: #f4f4f4;
-    padding: 10px;
+    background: var(--table-header-color);
+    color: var(--table-header-color-text)
 }
 
 #credentials-table td {
@@ -121,6 +125,8 @@ input {
 }
 
 .table-column-120 {
+    padding-top: 10px;
+    padding-bottom: 10px;
     width: 120px;
 }
 
@@ -140,11 +146,12 @@ input {
 
 .popup {
     visibility: hidden;
-    background-color: #f4f4f4;
+    background: var(--popup-color);
+    color: var(--popup-color-text);
     width: 120px;
     text-align: center;
-    padding: 5px 0;
-    border-radius: 4px;
+    padding: 5px;
+    border-radius: var(--popup-border-radius);
    
     /* Position the tooltip text - see examples below! */
     position: absolute;
@@ -152,7 +159,8 @@ input {
 }
 
 .popup-error {
-    background-color: lightcoral;
+    background: var(--popup-error-color);
+    color: var(--popup-error-color-text);
 }
   
 /* Show the tooltip text when you mouse over the tooltip container */
@@ -182,15 +190,17 @@ input {
     align-items: center;
     padding: 10px;
     margin-bottom: 10px;
-    border-radius: 4px;
+    border-radius: var(--company-border-radius);
+    color: var(--company-color-text);
 }
 
 .company-item-selectable {
-    border: 0.5px solid #ccc;
+    background: var(--company-color);
+    border: var(--company-border);
     cursor: pointer;
 }
 .company-item-selectable:hover {
-    background-color: #eee;
+    background: var(--company-color-hover)
 }
 
 .company-item > img {
@@ -223,8 +233,8 @@ input {
 
 #progress-bar-container {
     margin-bottom: 30px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
+    background: var(--progressbar-color);
+    border-radius: var(--progressbar-border-radius);
 }
 
 #progress-bar {
@@ -232,8 +242,8 @@ input {
     min-width: 3.5%;
     width: 0%;
     height: 20px;
-    background-color: #007BFF;
-    border-radius: 10px;
+    background: var(--primary-color);
+    border-radius: var(--progressbar-border-radius);
     overflow: hidden;
     transition: width 1s;
 }
@@ -280,7 +290,7 @@ input {
 }
 
 #send-feedback-button {
-    color: #000;
+    color: var(--return-color-text);
     font-style: italic;
     font-size: small;
 }

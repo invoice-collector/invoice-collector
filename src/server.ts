@@ -117,9 +117,12 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async get_ui(token: any, verificationCode: any): Promise<{locale: string}> {
+    public async get_ui(token: any, verificationCode: any): Promise<{locale: string, theme: string}> {
         // Get user from token
         const user = this.get_token_mapping(token);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
 
         // Check if verificationCode is valid
         if (verificationCode && user.termsConditions.verificationCode === verificationCode) {
@@ -130,9 +133,9 @@ export class Server {
         }
 
         // Check if terms and conditions have been accepted
-        user.checkTermsConditions();
+        await user.checkTermsConditions();
 
-        return { locale: user.locale }
+        return { locale: user.locale, theme: customer.theme };
     }
 
     // BEARER AUTHENTICATION
@@ -174,11 +177,6 @@ export class Server {
         // Get customer from user
         const customer = await user.getCustomer();
 
-        // Check if customer exists
-        if(!customer) {
-            throw new StatusError(`Could not find customer for user with id "${user.id}".`, 400);
-        }
-
         // Send feedback to registry server
         await RegistryServer.getInstance().feedback(customer.bearer, feedback, email);
     }
@@ -195,7 +193,7 @@ export class Server {
             throw new AuthenticationBearerError();
         }
 
-        return { name: customer.name, callback: customer.callback }
+        return { name: customer.name, callback: customer.callback, theme: customer.theme };
     }
 
     // ---------- USER ENDPOINTS ----------
@@ -250,8 +248,8 @@ export class Server {
         // Get user from token
          const user = this.get_token_mapping(token);
 
-         // Check if terms and conditions have been accepted
-        user.checkTermsConditions();
+        // Check if terms and conditions have been accepted
+        await user.checkTermsConditions();
 
         // Get credentials from user
         let credentials = await user.getCredentials();
@@ -286,8 +284,8 @@ export class Server {
              throw new MissingField("params");
          }
 
-         // Check if terms and conditions have been accepted
-        user.checkTermsConditions();
+        // Check if terms and conditions have been accepted
+        await user.checkTermsConditions();
 
         // Get collector from id
         const collector = this.get_collector(collector_id);
@@ -377,8 +375,8 @@ export class Server {
         // Get user from token
          const user = this.get_token_mapping(token);
 
-         // Check if terms and conditions have been accepted
-        user.checkTermsConditions();
+        // Check if terms and conditions have been accepted
+        await user.checkTermsConditions();
 
         // Get credential from id
         const credential = await user.getCredential(id);
@@ -425,8 +423,8 @@ export class Server {
         // Get user from token
          const user = this.get_token_mapping(token);
 
-         // Check if terms and conditions have been accepted
-        user.checkTermsConditions();
+        // Check if terms and conditions have been accepted
+        await user.checkTermsConditions();
 
         // Get credential from id
         const credential = await user.getCredential(id);
@@ -458,8 +456,8 @@ export class Server {
             throw new MissingField("code");
         }
 
-         // Check if terms and conditions have been accepted
-        user.checkTermsConditions();
+        // Check if terms and conditions have been accepted
+        await user.checkTermsConditions();
 
         // Get collect from id
         const collect = await CollectPool.getInstance().get(id);
