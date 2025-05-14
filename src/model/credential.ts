@@ -1,5 +1,7 @@
 import { DatabaseFactory } from "../database/databaseFactory";
+import { StatusError } from "../error";
 import * as utils from "../utils"; 
+import { User } from "./user";
 
 export class State {
 
@@ -99,8 +101,14 @@ export class IcCredential {
         this.state = state;
     }
 
-    async getUser() {
-        return await DatabaseFactory.getDatabase().getUser(this.user_id);
+    async getUser(): Promise<User> {
+        const user = await DatabaseFactory.getDatabase().getUser(this.user_id);
+    
+        // Check if user exists
+        if(!user) {
+            throw new StatusError(`Could not find user for credential with id "${this.id}".`, 400);
+        }
+        return user;
     }
 
     async delete() {

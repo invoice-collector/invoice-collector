@@ -35,7 +35,7 @@ function handle_error(e, req, res){
     else if (e instanceof TermsConditionsError) {
         console.error(e.message);
         req.setLocale(e.locale);
-        res.render('terms_conditions/terms_conditions', {token: req.query.token});
+        res.render('terms_conditions/terms_conditions', { token: req.query.token, theme: e.theme });
     }
     else {
         console.error(e);
