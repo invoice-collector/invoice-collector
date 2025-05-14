@@ -24,27 +24,8 @@ h1, h2 {
     color: var(--title-text-color);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    color: var(--company-color-text)
-}
-
-form > div {
-    display: flex;
-    flex-direction: column;
-}
-
 label {
     margin-top: 10px;
-}
-
-input {
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    border: var(--input-border);
-    border-radius: var(--input-border-radius);
 }
 
 /* BUTTONS */
@@ -59,8 +40,8 @@ input {
     border-radius: var(--primary-border-radius);
     color: var(--primary-color-text);
     border: var(--primary-border);
-    padding-left: var(--primary-border-radius);
-    padding-right: var(--primary-border-radius);
+    padding-left: max(var(--primary-border-radius), 10px);
+    padding-right: max(var(--primary-border-radius), 10px);
 }
 
 .action-button:hover {
@@ -72,8 +53,8 @@ input {
     border-radius: var(--return-border-radius);
     color: var(--return-color-text);
     border: var(--return-border);
-    padding-left: var(--return-border-radius);
-    padding-right: var(--return-border-radius);
+    padding-left: max(var(--return-border-radius), 10px);
+    padding-right: max(var(--return-border-radius), 10px);
 }
 
 .return-button:hover {
@@ -187,38 +168,68 @@ input {
     display: block;
     list-style-type: none;
     padding: 0;
+    text-align: center;
+}
+
+.companies-buttons {
+    margin-top: 50px;
+    text-align: center;
 }
 
 .company-item {
-    display: flex;
+    display: inline-flex;
+    background: var(--company-color);
+    border: var(--company-border);
+    cursor: pointer;
     align-items: center;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 10px var(--company-border-radius) 10px var(--company-border-radius);
+    margin: 5px;
     border-radius: var(--company-border-radius);
     color: var(--company-color-text);
 }
 
-.company-item-selectable {
-    background: var(--company-color);
-    border: var(--company-border);
-    cursor: pointer;
-}
-.company-item-selectable:hover {
-    background: var(--company-color-hover)
+.company-item:hover {
+    background: var(--company-color-hover);
+    color: var(--company-color-text-hover);
+    border: var(--company-border-hover);
 }
 
-.company-item > img {
-    width: 100px;
-    height: 100px;
+.companies-logo {
+    height: 20px;
+    margin-right: 5px;
+}
+
+/* FORM */
+
+form {
+    display: flex;
+    flex-direction: column;
+    color: var(--company-color-text)
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#form-logo {
+    max-width: 100px;
+    max-height: 100px;
     margin-right: 20px;
 }
 
-.company-item > div > h3 {
-    margin-top: 0px;
-}
-
-.company-item > div > p {
-    margin: 0px;
+input, textarea, select {
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: var(--input-border);
+    border-radius: var(--input-border-radius);
 }
 
 /* PROGRESS */
@@ -279,11 +290,6 @@ input {
 
 .feedback-response-success {
     color: green;
-}
-
-.no-collector-button {
-    width: 100%;
-    margin-top: 50px;
 }
 
 /* FOOTER */
