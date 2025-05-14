@@ -15,8 +15,8 @@
     --return-border: 1px solid #ccc;
     --return-border-radius: 4px;
 
-    --delete-color: #dc3545;
-    --delete-color-hover: #c82333;
+    --delete-color: #cf1f25;
+    --delete-color-hover: #a81e23;
     --delete-color-text: #fff;
     --delete-border: none;
     --delete-border-radius: 4px;
@@ -34,7 +34,7 @@
     --popup-border: none;
     --popup-border-radius: 4px;
 
-    --popup-error-color: #dc3545;
+    --popup-error-color: #cf1f25;
     --popup-error-color-text: #fff;
 
     --company-color: #fff;
