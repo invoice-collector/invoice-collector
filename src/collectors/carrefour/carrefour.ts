@@ -10,7 +10,7 @@ export class CarrefourCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "4",
+        version: "5",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         params: {
