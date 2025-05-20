@@ -96,10 +96,10 @@ export class CarrefourCollector extends ScrapperCollector {
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
         // Refuse cookies
-        await driver.left_click(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raise_exception: false, timeout: 5000});
+        await driver.left_click(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raise_exception: false, timeout: 10000});
 
         // Get invoices
-        const online_orders = await driver.get_all_elements(CarrefourSelectors.CONTAINER_ORDER, false, 5000);
+        const online_orders = await driver.get_all_elements(CarrefourSelectors.CONTAINER_ORDER, false, 10000);
         
         // Build return array
         return await Promise.all(online_orders.map(async invoice => {
