@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice-Collector - <%= __('i18n.views.manage.terms-conditions') %></title>
     <link rel="stylesheet" href="/views/styles.css">
+    <link rel="stylesheet" href="/views/themes/<%= theme %>.css">
     <link rel="icon" href="/views/icons/favicon.ico" type="image/x-icon">
+    <script src="/views/terms_conditions/script.js"></script>
 </head>
 <body>
-    <script src="/views/terms_conditions/script.js"></script>
-
     <!-- TERMS & CONDITIONS CONTAINER -->
 
     <div id="terms-conditions-container" class="container">
@@ -20,7 +20,7 @@
             <!-- TOKEN -->
             <input type="text" name="token" value="<%= token %>" required hidden>
             <!-- CHECBOX -->
-            <div style="flex-direction: row;">
+            <div style="display: inline;">
                 <input type="checkbox" name="acceptTerms" required>
                 <label for="accept-terms">
                     <%= __('i18n.views.manage.read-terms-conditions') %>  

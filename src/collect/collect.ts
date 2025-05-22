@@ -49,18 +49,8 @@ export class Collect {
             // Get user from credential
             user = await credential.getUser();
 
-            // Check if user exists
-            if (!user) {
-                throw new Error(`Could not find user for credential with id "${credential.id}".`);
-            }
-
             // Get customer from user
             customer = await user.getCustomer();
-
-            // Check if customer exists
-            if (!customer) {
-                throw new Error(`Could not find customer for user with id "${user.id}".`);
-            }
 
             // Get secret from secret_manager_id
             secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
