@@ -66,6 +66,10 @@
 
 	"i18n.collectors.amazon.description": "Amazon est un site de commerce en ligne.",
 
+	"i18n.collectors.amazon_business.description": "Amazon Business est un site de commerce en ligne pour les professionnels.",
+	"i18n.collectors.amazon_business.company": "Nom de l'entreprise",
+	"i18n.collectors.amazon_business.company.placeholder": "Nom de l'entreprise tel qu'affiché sur le site Amazon",
+
 	"i18n.collectors.leclerc.description": "Leclerc est une enseigne de grande distribution française.",
 
 	"i18n.collectors.leroy_merlin.description": "Leroy Merlin est une enseigne de bricolage française.",
