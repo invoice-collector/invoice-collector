@@ -61,10 +61,10 @@ export const AmazonSelectors = {
     },
     CONTAINER_AMOUNT: {
         selector: ".a-span2 div:last-of-type span",
-        info: "order date"
+        info: "order amount"
     },
     CONTAINER_ID: {
         selector: "div.yohtmlc-order-id > span.a-color-secondary:not([class*=' '])",
-        info: "download invoice button"
+        info: "order id"
     }
 }
