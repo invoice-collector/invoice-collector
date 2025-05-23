@@ -1,0 +1,24 @@
+meta {
+  name: authorize
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{url}}/api/v1/authorize
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer {{bearer}}
+  content-type: application/json
+}
+
+body:json {
+  {
+    "remote_id": "{{remote_id}}",
+    "locale": "fr",
+    "email": "{{email}}"
+  }
+}
