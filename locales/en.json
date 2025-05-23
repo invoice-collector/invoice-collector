@@ -66,6 +66,10 @@
 
 	"i18n.collectors.amazon.description": "Amazon is an online marketplace.",
 
+	"i18n.collectors.amazon_business.description": "Amazon Business is an online marketplace for professionals.",
+	"i18n.collectors.amazon_business.company": "Company name",
+	"i18n.collectors.amazon_business.company.placeholder": "Name of the company as displayed on the Amazon website",
+
 	"i18n.collectors.leclerc.description": "Leclerc is a French retail company.",
 
 	"i18n.collectors.leroy_merlin.description": "Leroy Merlin is a French DIY store.",

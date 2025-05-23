@@ -52,19 +52,23 @@ export const AmazonSelectors = {
     //INVOICES PAGE
 
     CONTAINER_ORDER: {
-        selector: ".order-card .order-header",
+        selector: "#yourOrderHistorySection #orderCard #orderCardHeader",
         info: "order container"
     },
     CONTAINER_DATE: {
-        selector: ".a-span4 div:last-of-type span",
+        selector: ".a-span2:first-of-type .a-size-base",
         info: "order date"
     },
     CONTAINER_AMOUNT: {
-        selector: ".a-span2 div:last-of-type span",
+        selector: ".a-column:nth-child(2) .a-size-base",
         info: "order amount"
     },
     CONTAINER_ID: {
-        selector: "div.yohtmlc-order-id > span.a-color-secondary:not([class*=' '])",
+        selector: "#orderIdField div",
         info: "order id"
+    },
+    CONTAINER_ID_LABEL: {
+        selector: "#orderIdField div span",
+        info: "order id label"
     }
 }
