@@ -53,6 +53,21 @@ Here is how to configure the project on your local machine.
 - Install Google Chrome
 - Create a `.env` file with [all the required variables](https://invoice-collector.com/docs/developers/environment-variables)
 
+**API Documentation**
+The API documentation is available at `/api-docs` when running the server. For example:
+```bash
+http://localhost:8080/api-docs
+```
+
+**Secret Management with Infisical**
+The project supports Infisical for secret management. To use it:
+1. Set `SECRET_MANAGER=infisical` in your `.env` file
+2. Configure your Infisical credentials:
+   - `INFISICAL_TOKEN`: Your Infisical token
+   - `INFISICAL_PROJECT_ID`: Your Infisical project ID
+   - `INFISICAL_ENVIRONMENT`: Your Infisical environment (e.g., 'dev', 'prod')
+   - `SECRET_MANAGER_INFISICAL_API_URI`: Your Infisical API URI (e.g., 'https://app.infisical.com/api')
+
 **Run a manual test**
 ```bash
 npm run test.manual
