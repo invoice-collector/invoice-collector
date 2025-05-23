@@ -1,10 +1,12 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
 import { StatusError, TermsConditionsError } from "./error"
 import { Server } from "./server"
 import * as utils from "./utils"
 import { I18n } from './i18n';
+import { swaggerSpec } from './swagger';
 dotenv.config();
 
 // Configure express
@@ -14,6 +16,10 @@ app.use(I18n.i18n.init);
 app.use('/views', express.static(path.join(__dirname, '..', 'views')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
+
+// Swagger UI
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 declare global {
     namespace Express {
         interface Request {
@@ -53,7 +59,51 @@ function handle_error(e, req, res){
 
 // ---------- GENERAL ENDPOINTS ----------
 
-// BEARER AUTHENTICATION
+/**
+ * @swagger
+ * /api/v1/authorize:
+ *   post:
+ *     summary: Authorize a user
+ *     security:
+ *       - bearerAuth: []
+ *     tags: [Authentication]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - remote_id
+ *               - locale
+ *               - email
+ *             properties:
+ *               remote_id:
+ *                 type: string
+ *                 description: User's remote ID
+ *               locale:
+ *                 type: string
+ *                 description: User's locale (e.g., 'fr', 'en')
+ *               email:
+ *                 type: string
+ *                 format: email
+ *                 description: User's email address
+ *     responses:
+ *       200:
+ *         description: Authorization successful
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 token:
+ *                   type: string
+ *                   description: OAuth token
+ *       401:
+ *         description: Invalid Bearer token
+ *       400:
+ *         description: Missing required fields
+ */
 app.post('/api/v1/authorize', async (req, res) => {
     try {
         // Perform authorization
@@ -68,7 +118,39 @@ app.post('/api/v1/authorize', async (req, res) => {
     }
 });
 
-// TOKEN AUTHENTICATION
+/**
+ * @swagger
+ * /api/v1/ui:
+ *   get:
+ *     summary: Get UI configuration
+ *     security:
+ *       - tokenAuth: []
+ *     tags: [UI]
+ *     parameters:
+ *       - in: query
+ *         name: token
+ *         required: true
+ *         schema:
+ *           type: string
+ *       - in: query
+ *         name: verificationCode
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: UI configuration
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 locale:
+ *                   type: string
+ *                 theme:
+ *                   type: string
+ *       401:
+ *         description: Invalid token
+ */
 app.get('/api/v1/ui', async (req, res) => {
     try {
         // Check user has accepted terms and conditions
@@ -220,7 +302,41 @@ app.post('/api/v1/credential/:id/2fa', async (req, res) => {
 
 // ---------- COLLECTOR ENDPOINTS ----------
 
-// NO AUTHENTICATION
+/**
+ * @swagger
+ * /api/v1/collectors:
+ *   get:
+ *     summary: List all available collectors
+ *     tags: [Collectors]
+ *     parameters:
+ *       - in: query
+ *         name: locale
+ *         schema:
+ *           type: string
+ *         description: Locale for collector descriptions
+ *     responses:
+ *       200:
+ *         description: List of collectors
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   name:
+ *                     type: string
+ *                   description:
+ *                     type: string
+ *                   version:
+ *                     type: string
+ *                   website:
+ *                     type: string
+ *                   logo:
+ *                     type: string
+ *                   params:
+ *                     type: object
+ */
 app.get('/api/v1/collectors', (req, res) => {
     try {
         // List all collectors
