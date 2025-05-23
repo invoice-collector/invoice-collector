@@ -91,6 +91,19 @@ export class MongoDB extends AbstractDatabase {
         return customer;
     }
 
+    async getCustomerFromName(name: string): Promise<Customer|null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ name });
+        if (!document) {
+            return null;
+        }
+        let customer = new Customer(document.name, document.callback, document.bearer, document.theme);
+        customer.id = document._id.toString();
+        return customer;
+    }
+
     async getCustomer(customer_id: string): Promise<Customer|null> {
         if (!this.db) {
             throw new Error("Database is not connected");
@@ -106,18 +119,11 @@ export class MongoDB extends AbstractDatabase {
         return customer;
     }
 
-    async updateCustomer(customer: Customer): Promise<void> {
+    async deleteAllCustomers(): Promise<void> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        await this.db.collection(MongoDB.CUSTOMER_COLLECTION).updateOne(
-            { _id: new ObjectId(customer.id) },
-            { $set: {
-                name: customer.name,
-                callback: customer.callback,
-                theme: customer.theme
-            }}
-        );
+        await this.db.collection(MongoDB.CUSTOMER_COLLECTION).deleteMany({});
     }
 
     // USER
