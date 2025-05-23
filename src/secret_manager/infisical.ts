@@ -1,5 +1,6 @@
 import { InfisicalSDK } from '@infisical/sdk'
-import { AbstractSecretManager } from "./abstractSecretManager";
+import { AbstractSecretManager, Secret } from "./abstractSecretManager";
+import * as utils from "../utils";
 
 export class Infisical extends AbstractSecretManager {
 
@@ -16,8 +17,8 @@ export class Infisical extends AbstractSecretManager {
         this.projectId = utils.getEnvVar("SECRET_MANAGER_INFISICAL_PROJECT_ID");
         this.env = utils.getEnvVar("SECRET_MANAGER_INFISICAL_ENV");
         this.client = new InfisicalSDK({
-            siteUrl: utils.getEnvVar("SECRET_MANAGER_INFISICAL_API_URI
-          });
+            siteUrl: utils.getEnvVar("SECRET_MANAGER_INFISICAL_API_URI")
+        });
         this.connect();
     }
 
@@ -91,5 +92,16 @@ export class Infisical extends AbstractSecretManager {
                 throw err;
             }
         }
+    }
+
+    async updateSecret(id: string, key: string, secret: Secret): Promise<string> {
+        const stringParams: string = JSON.stringify(secret);
+        const updatedSecret = await this.client.secrets().updateSecret(id, {
+            projectId: this.projectId,
+            secretValue: stringParams,
+            environment: this.env,
+            secretPath: "/"
+        });
+        return updatedSecret.approval.id;
     }
 }
