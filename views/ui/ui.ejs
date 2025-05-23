@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice-Collector - <%= __('i18n.views.manage.my-collectors') %></title>
     <link rel="stylesheet" href="/views/styles.css">
+    <link rel="stylesheet" href="/views/themes/<%= theme %>.css">
     <link rel="icon" href="/views/icons/favicon.ico" type="image/x-icon">
     <script src="/views/ui/script.js"></script>
 </head>
@@ -50,7 +51,10 @@
             <h1><%= __('i18n.views.manage.add-collectors') %></h1>
             <!-- COMPANIES LIST -->
             <ul id="companies-list"></ul>
-            <button class="button delete-button no-collector-button" onclick="showFeedback()"><%= __('i18n.views.manage.no-collector') %></button>
+            
+            <div class="companies-buttons">
+                <button class="button delete-button no-collector-button" onclick="showFeedback()"><%= __('i18n.views.manage.no-collector') %></button>
+            </div>
         </div>
 
         <!-- FORM CONTAINER -->
@@ -62,11 +66,11 @@
             <h1><%= __('i18n.views.manage.add-collectors') %></h1>
             <!-- FORM -->
             <div id="add-credential-form-container">
-                <div class="company-item">
-                    <img id="company-logo" src="" alt="Logo">
+                <div class="form-item">
+                    <img id="form-logo" src="" alt="Logo">
                     <div>
-                        <h3 id="company-name"></h3>
-                        <p id="company-description"></p>
+                        <h3 id="form-name"></h3>
+                        <p id="form-description"></p>
                     </div>
                 </div>
                 <div class="container" id="add-credential-instructions">

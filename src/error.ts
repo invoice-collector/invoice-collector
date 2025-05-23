@@ -1,6 +1,7 @@
 // API ERRORS
 
 import { AbstractCollector } from "./collectors/abstractCollector";
+import { Theme } from "./model/customer";
 
 export class StatusError extends Error {
     status_code: number;
@@ -152,10 +153,12 @@ export class DesynchronizationError extends AuthenticationError {
 
 export class TermsConditionsError extends Error {
     locale: string;
+    theme: Theme;
 
-    constructor(locale: string, opts = {}) {
+    constructor(locale: string, theme: Theme, opts = {}) {
         super("The user did not accept the terms and conditions.", opts);
         this.name = this.constructor.name;
         this.locale = locale;
+        this.theme = theme;
     }
 }

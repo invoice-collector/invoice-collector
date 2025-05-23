@@ -1,0 +1,53 @@
+:root {
+    --background-color: #fff;
+    --font: Arial, sans-serif;
+    --title-text-color: #000;
+
+    --primary-color: #007BFF;
+    --primary-color-hover: #0056b3;
+    --primary-color-text: #fff;
+    --primary-border: none;
+    --primary-border-radius: 4px;
+
+    --return-color: #fff;
+    --return-color-hover: #eee;
+    --return-color-text: #000;
+    --return-border: 1px solid #ccc;
+    --return-border-radius: 4px;
+
+    --delete-color: #cf1f25;
+    --delete-color-hover: #a81e23;
+    --delete-color-text: #fff;
+    --delete-border: none;
+    --delete-border-radius: 4px;
+
+    --table-header-color: #f4f4f4;
+    --table-header-color-text: #000;
+    --table-even-color: #fff;
+    --table-even-color-text: #000;
+    --table-odd-color: #fff;
+    --table-odd-color-text: #000;
+    --table-border-radius: 4px;
+
+    --popup-color: #f4f4f4;
+    --popup-color-text: #000;
+    --popup-border: none;
+    --popup-border-radius: 4px;
+
+    --popup-error-color: #cf1f25;
+    --popup-error-color-text: #fff;
+
+    --company-color: #fff;
+    --company-color-hover: #eee;
+    --company-color-text: #000;
+    --company-color-text-hover: #000;
+    --company-border: none;
+    --company-border-hover: none;
+    --company-border-radius: 20px;
+
+    --input-border: 1px solid #ccc;
+    --input-border-radius: 4px;
+
+    --progressbar-color: #f4f4f4;
+    --progressbar-border-radius: 10px;
+}

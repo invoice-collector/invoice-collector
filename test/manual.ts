@@ -9,6 +9,7 @@ import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
 import { State } from '../src/model/credential';
 import { I18n } from '../src/i18n';
+import assert from 'assert';
 
 (async () => {
     let id;
@@ -83,6 +84,8 @@ import { I18n } from '../src/i18n';
             else {
                 console.warn(`Invoice ${invoice.id} was not downloaded`);
             }
+
+            assert(invoice.timestamp > 0, `Timestamp ${invoice.timestamp} is not greater than 0`);
         }
     } catch (error) {
         if (error instanceof Error) {

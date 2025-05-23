@@ -1,8 +1,9 @@
 import { DatabaseFactory } from "../database/databaseFactory";
-import { TermsConditionsError } from "../error";
+import { StatusError, TermsConditionsError } from "../error";
 import { Location } from "../proxy/abstractProxy";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { IcCredential } from "./credential";
+import { Customer } from "./customer";
 
 export type TermsConditions = {
     verificationCode: string,
@@ -28,8 +29,14 @@ export class User {
         this.termsConditions = termsConditions;
     }
 
-    async getCustomer() {
-        return await DatabaseFactory.getDatabase().getCustomer(this.customer_id);
+    async getCustomer(): Promise<Customer> {
+        const customer = await DatabaseFactory.getDatabase().getCustomer(this.customer_id);
+            
+        // Check if customer exists
+        if(!customer) {
+            throw new StatusError(`Could not find customer for user with id "${this.id}".`, 400);
+        }
+        return customer;
     }
 
     async getCredential(credential_id: string) {
@@ -68,9 +75,10 @@ export class User {
         await DatabaseFactory.getDatabase().deleteUser(this.id);
     }
 
-    checkTermsConditions(): void {
+    async checkTermsConditions(): Promise<void> {
         if (this.termsConditions.validTimestamp == undefined) {
-            throw new TermsConditionsError(this.locale);
+            const customer = await this.getCustomer();
+            throw new TermsConditionsError(this.locale, customer.theme);
         }
     }
 }

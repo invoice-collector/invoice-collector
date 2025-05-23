@@ -3,6 +3,11 @@ import { DatabaseFactory } from "../database/databaseFactory";
 import * as utils from "../utils";
 import { User } from "./user";
 
+export enum Theme {
+    DEFAULT = 'default',
+    OCEAN = 'ocean'
+}
+
 export class Customer {
 
     static DEFAULT_NAME = "default";
@@ -34,12 +39,14 @@ export class Customer {
     name: string;
     callback: string;
     bearer: string;
+    theme: Theme;
 
-    constructor(name: string, callback: string, bearer: string) {
+    constructor(name: string, callback: string, bearer: string, theme: Theme = Theme.DEFAULT) {
         this.id = "";
         this.name = name;
         this.callback = callback;
         this.bearer = bearer;
+        this.theme = theme;
     }
 
     async getUserFromRemoteId(remote_id: string) {

@@ -10,7 +10,7 @@ export class CarrefourCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "4",
+        version: "6",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         params: {
@@ -96,10 +96,10 @@ export class CarrefourCollector extends ScrapperCollector {
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
         // Refuse cookies
-        await driver.left_click(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raise_exception: false, timeout: 5000});
+        await driver.left_click(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raise_exception: false, timeout: 10000});
 
         // Get invoices
-        const online_orders = await driver.get_all_elements(CarrefourSelectors.CONTAINER_ORDER, false, 5000);
+        const online_orders = await driver.get_all_elements(CarrefourSelectors.CONTAINER_ORDER, false, 20000);
         
         // Build return array
         return await Promise.all(online_orders.map(async invoice => {
@@ -112,7 +112,8 @@ export class CarrefourCollector extends ScrapperCollector {
                 throw new Error(`Cannot extract id from ${order_link}`);
             }
             const date_part = date.split('/');
-            const year = parseInt(date_part[2]);
+            let year = parseInt(date_part[2]);
+            year = year < 100 ? year + 2000 : year; // Convert to 4 digits
             const month = parseInt(date_part[1]) - 1;
             const day = parseInt(date_part[0]);
             const timestamp = Date.UTC(year, month, day);
