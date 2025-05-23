@@ -140,7 +140,8 @@ export class Collect {
             }
             // If error is LoggableError
             else if(err instanceof LoggableError) {
-                console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
+                console.error(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
+                console.error(err);
                 RegistryServer.getInstance().logError(customer.bearer, err);
 
                 // If credential exists
