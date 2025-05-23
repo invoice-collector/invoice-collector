@@ -34,8 +34,6 @@ export class AmazonBusinessCollector extends ScrapperCollector {
             }
         },
         entryUrl: "https://www.amazon.fr/gp/css/order-history"
-        // https://www.amazon.fr/your-orders/orders
-        // https://www.amazon.fr/gp/legacy/order-history
     }
 
     constructor() {
