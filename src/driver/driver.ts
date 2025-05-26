@@ -11,9 +11,10 @@ import { Options } from './puppeteer/browser';
 
 export class Driver {
 
-    static DEFAULT_TIMEOUT = 10000;
-    static DEFAULT_POLLING = 1000;
-    static DEFAULT_DELAY = 0;
+    static DEFAULT_DOWNLOAD_TIMEOUT = 20000;    // 20 seconds
+    static DEFAULT_TIMEOUT = 10000;             // 10 seconds
+    static DEFAULT_POLLING = 1000;              // 1 second
+    static DEFAULT_DELAY = 0; 
 
     static DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
     static PUPPETEER_CONFIG: Options = {
@@ -324,7 +325,8 @@ export class Driver {
             const files = fs.readdirSync(Driver.DOWNLOAD_PATH).filter(file => !file.endsWith('.crdownload'));
             return files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
-        raise_exception);
+        raise_exception,
+        Driver.DEFAULT_DOWNLOAD_TIMEOUT);
 
         // Check if no file found
         if (file === null) {
