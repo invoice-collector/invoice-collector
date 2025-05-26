@@ -145,7 +145,7 @@ export abstract class ScrapperCollector extends AbstractCollector {
 
             // For unexpected error happening during the collection, log the error
             let loggableError = new LoggableError(
-                "An error occured while downloading invoice from web",
+                "An error occured while collecting invoice from web",
                 this,
                 { cause: error }
             );
