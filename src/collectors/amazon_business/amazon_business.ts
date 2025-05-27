@@ -10,7 +10,7 @@ export class AmazonBusinessCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Amazon Business FR",
         description: "i18n.collectors.amazon_business.description",
-        version: "1",
+        version: "2",
         website: "https://www.amazon.fr",
         logo: "https://sellerengine.com/wp-content/uploads/2018/11/Amazon-businesss-sq.png",
         params: {
@@ -97,7 +97,7 @@ export class AmazonBusinessCollector extends ScrapperCollector {
             const id = pretty_id.replace(id_label.trim(), "").trim();
             const amount = await order.get_attribute(AmazonSelectors.CONTAINER_AMOUNT, "textContent");
             const date = await order.get_attribute(AmazonSelectors.CONTAINER_DATE, "textContent");
-            const link = `https://www.amazon.fr/gp/css/summary/print.html/?ie=UTF8&orderID=${id}`;
+            const link = `https://www.amazon.fr/gp/css/summary/print.html/ref=oh_aui_ajax_invoice?ie=UTF8&orderID=${id}`;
             const timestamp = timestampFromString(date, 'd MMMM yyyy', 'fr');
 
             return {
