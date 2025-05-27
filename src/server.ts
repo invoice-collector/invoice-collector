@@ -78,28 +78,42 @@ export class Server {
         // Get user from remote_id
         let user = await customer.getUserFromRemoteId(remote_id);
 
-        // If user does not exist, create it
-        if(!user) {
-            // Send terms and conditions email
-            const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
-            // Create user
-            user = new User(customer.id, remote_id, null, locale, termsConditions);
-        }
-        else {
-            // Update user locale
-            user.locale = locale;
-
-            // Check if user has accepted terms and conditions
-            if (!user.termsConditions.validTimestamp) {
+        // Si la vérification est désactivée, on crée l'utilisateur directement avec les conditions acceptées
+        if (utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false") === "true") {
+            if (!user) {
+                user = new User(customer.id, remote_id, null, locale, {
+                    verificationCode: "",
+                    sentTimestamp: Date.now(),
+                    validTimestamp: Date.now()
+                });
+            } else {
+                user.locale = locale;
+                user.termsConditions.validTimestamp = Date.now();
+            }
+        } else {
+            // If user does not exist, create it
+            if(!user) {
                 // Send terms and conditions email
                 const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
-                // Update terms and conditions
-                user.termsConditions = termsConditions;
+                // Create user
+                user = new User(customer.id, remote_id, null, locale, termsConditions);
+            }
+            else {
+                // Update user locale
+                user.locale = locale;
+
+                // Check if user has accepted terms and conditions
+                if (!user.termsConditions.validTimestamp) {
+                    // Send terms and conditions email
+                    const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
+                    // Update terms and conditions
+                    user.termsConditions = termsConditions;
+                }
             }
         }
 
         // Commit changes in database
-        user.commit();
+        await user.commit();
 
         // Generate oauth token
         const token = generate_token();

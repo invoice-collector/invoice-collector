@@ -23,7 +23,9 @@ export abstract class AbstractDatabase {
     
     abstract getCustomer(customer_id: string): Promise<Customer|null>;
 
-    abstract updateCustomer(customer: Customer): Promise<void>;
+    abstract getCustomerFromName(name: string): Promise<Customer|null>;
+
+    abstract deleteAllCustomers(): Promise<void>;
 
     // USER
     
