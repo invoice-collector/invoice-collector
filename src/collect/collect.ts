@@ -134,7 +134,7 @@ export class Collect {
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
 
-                    // Schedule next collect in 1 week
+                    // Schedule next collect in 1 day
                     credential.next_collect_timestamp = credential.last_collect_timestamp + IcCredential.ONE_DAY_MS;
                 }
             }
@@ -152,8 +152,8 @@ export class Collect {
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
 
-                    // Schedule next collect in 1 week
-                    credential.next_collect_timestamp = credential.last_collect_timestamp + IcCredential.ONE_WEEK_MS;
+                    // Schedule next collect in 1 day
+                    credential.next_collect_timestamp = credential.last_collect_timestamp + IcCredential.ONE_DAY_MS;
                 }
             }
             else if (err instanceof AuthenticationError) {

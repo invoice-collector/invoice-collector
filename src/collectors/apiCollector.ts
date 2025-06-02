@@ -76,7 +76,7 @@ export abstract class ApiCollector extends AbstractCollector {
 
             // For unexpected error happening during the collection, log the error
             let loggableError = new LoggableError(
-                "An error occured while collecting invoices from API",
+                "An error occured while collecting invoice from API",
                 this,
                 { cause: error }
             );
@@ -115,7 +115,7 @@ export abstract class ApiCollector extends AbstractCollector {
 
             // For unexpected error happening during the download, log the error
             let loggableError = new LoggableError(
-                "An error occured while downloading invoices from API",
+                "An error occured while downloading invoice from API",
                 this,
                 { cause: error }
             );
