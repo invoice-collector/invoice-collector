@@ -165,7 +165,7 @@ export class IcCredential {
                     }
 
                     // Plan the next collect in the average time between invoices
-                    this.next_collect_timestamp = Math.min(theoretical_next_collect_timestamp, max_next_collect_timestamp);
+                    this.next_collect_timestamp = isNaN(theoretical_next_collect_timestamp) ? max_next_collect_timestamp : Math.min(theoretical_next_collect_timestamp, max_next_collect_timestamp);
                 }
             }
         }
