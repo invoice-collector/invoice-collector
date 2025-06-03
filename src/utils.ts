@@ -40,7 +40,7 @@ export function timestampFromString(date: string, format: string, locale: string
     };
 
     const dateFnsLocale = fnsLocales[locale];
-    const parsedDate = date_fns.parse(date, format, new Date(Date.UTC(1970, 0, 1)), { locale: dateFnsLocale });
+    const parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: dateFnsLocale });
     return parsedDate.setUTCMilliseconds(0);
 }
 

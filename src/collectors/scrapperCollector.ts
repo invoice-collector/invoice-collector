@@ -127,7 +127,12 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 throw new NoInvoiceFoundError(this);
             }
 
-            return invoices;
+            return invoices.map(newInvoice => ({
+                id: newInvoice.id.trim(),
+                timestamp: newInvoice.timestamp,
+                amount: newInvoice.amount?.trim(),
+                link: newInvoice.link?.trim()
+            }));
         } catch (error) {
             // Get url, source code and screenshot
             const url = this.driver.url();
