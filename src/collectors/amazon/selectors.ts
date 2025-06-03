@@ -29,11 +29,11 @@ export const AmazonSelectors = {
     // 2FA PAGE
     
     CONTAINER_2FA_INSTRUCTIONS: {
-        selector: "#auth-mfa-form p",
+        selector: "#auth-mfa-form p, #channelDetailsForOtp span",
         info: "2fa instructions container"
     },
     FIELD_2FA_CODE: {
-        selector: "#auth-mfa-otpcode",
+        selector: "#auth-mfa-otpcode, #input-box-otp",
         info: "2fa code input field"
     },
     BUTTON_2FA_DO_NOT_ASK: {
@@ -41,11 +41,11 @@ export const AmazonSelectors = {
         info: "do not ask again button"
     },
     BUTTON_2FA_SUBMIT: {
-        selector: "#auth-signin-button",
+        selector: "#auth-signin-button, #cvf-submit-otp-button",
         info: "2fa submit button"
     },
     CONTAINER_2FA_ALERT: {
-        selector: "#auth-error-message-box > div > div",
+        selector: "#auth-error-message-box > div > div, #invalid-otp-code-message",
         info: "2fa alert container"
     },
 
