@@ -5,10 +5,6 @@ export const AmazonSelectors = {
         selector: "#ap_email",
         info: "login input field"
     },
-    BUTTON_CONTINUE: {
-        selector: "#continue",
-        info: "continue button field"
-    },
     FIELD_PASSWORD: {
         selector: "#ap_password",
         info: "password input field"
@@ -18,12 +14,15 @@ export const AmazonSelectors = {
         info: "submit form button"
     },
     CONTAINER_LOGIN_ALERT: {
-        selector: "div[id='auth-email-invalid-claim-alert'][style*='block'] div[class='a-alert-content'], div[id='auth-error-message-box'] div[class='a-alert-content']",
+        selector: "#auth-error-message-box div div",
         info: "login alert container"
     },
-    CONTAINER_CAPTCHA: {
-        selector: "img[alt='captcha'], #captcha-container",
-        info: "captcha container"
+
+    // COMPANY SELECTION PAGE
+
+    CONTAINER_COMPANY_SELECTION: {
+        selector: "div.cvf-account-switcher-check-mark-icon-v2:not(.cvf-hidden)",
+        info: "company selection container"
     },
 
     // 2FA PAGE

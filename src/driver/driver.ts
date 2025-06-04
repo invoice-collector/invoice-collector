@@ -235,7 +235,11 @@ export class Driver {
         }
     }
 
-    async input_text(selector, text, raise_exception = true, timeout = Driver.DEFAULT_TIMEOUT, delay = Driver.DEFAULT_DELAY) {
+    async input_text(selector, text, {
+        raise_exception = true,
+        timeout = Driver.DEFAULT_TIMEOUT,
+        delay = Driver.DEFAULT_DELAY
+    } = {}): Promise<void> {
         let element = await this.wait_for_element(selector, raise_exception, timeout);
         if(element != null) {
             await element.type(text);
@@ -243,7 +247,11 @@ export class Driver {
         }
     }
 
-    async select_dropdown_menu_option(selector, option, raise_exception = true, timeout = Driver.DEFAULT_TIMEOUT, delay = Driver.DEFAULT_DELAY) {
+    async select_dropdown_menu_option(selector, option, {
+        raise_exception = true,
+        timeout = Driver.DEFAULT_TIMEOUT,
+        delay = Driver.DEFAULT_DELAY
+    } = {}): Promise<void> {
         await this.wait_for_element(selector, raise_exception, timeout);
         //TODO
         throw new Error("Not implemented");
