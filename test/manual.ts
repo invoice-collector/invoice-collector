@@ -85,6 +85,7 @@ import assert from 'assert';
                 console.warn(`Invoice ${invoice.id} was not downloaded`);
             }
 
+            assert(invoice.id.length > 0, `Invoice id is empty`);
             assert(invoice.timestamp > 0, `Timestamp ${invoice.timestamp} is not greater than 0`);
         }
     } catch (error) {

@@ -10,7 +10,7 @@ export class AmazonCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "5",
+        version: "6",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -52,7 +52,7 @@ export class AmazonCollector extends ScrapperCollector {
                 }
             }*/
         },
-        entryUrl: "https://www.amazon.fr/gp/css/order-history"
+        entryUrl: "https://www.amazon.fr/your-orders/orders?timeFilter=months-3&ref_=ppx_yo2ov_dt_b_filter_all_m3"
     }
 
     constructor() {
@@ -95,7 +95,7 @@ export class AmazonCollector extends ScrapperCollector {
 
         // Input 2fa code
         await driver.input_text(AmazonSelectors.FIELD_2FA_CODE, twofa_code);
-        await driver.left_click(AmazonSelectors.BUTTON_2FA_DO_NOT_ASK);
+        await driver.left_click(AmazonSelectors.BUTTON_2FA_DO_NOT_ASK, {raise_exception: false, timeout: 100, navigation: false});
         await driver.left_click(AmazonSelectors.BUTTON_2FA_SUBMIT);
 
         // Check if 2fa code is incorrect

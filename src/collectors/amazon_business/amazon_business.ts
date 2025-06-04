@@ -10,7 +10,7 @@ export class AmazonBusinessCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Amazon Business FR",
         description: "i18n.collectors.amazon_business.description",
-        version: "2",
+        version: "3",
         website: "https://www.amazon.fr",
         logo: "https://sellerengine.com/wp-content/uploads/2018/11/Amazon-businesss-sq.png",
         params: {
@@ -33,7 +33,7 @@ export class AmazonBusinessCollector extends ScrapperCollector {
                 mandatory: false
             }
         },
-        entryUrl: "https://www.amazon.fr/gp/css/order-history"
+        entryUrl: "https://www.amazon.fr/gp/css/order-history#time/yoPast3months/pagination/1/"
     }
 
     constructor() {
@@ -76,7 +76,7 @@ export class AmazonBusinessCollector extends ScrapperCollector {
 
         // Input 2fa code
         await driver.input_text(AmazonSelectors.FIELD_2FA_CODE, twofa_code);
-        await driver.left_click(AmazonSelectors.BUTTON_2FA_DO_NOT_ASK);
+        await driver.left_click(AmazonSelectors.BUTTON_2FA_DO_NOT_ASK, {raise_exception: false, timeout: 100, navigation: false});
         await driver.left_click(AmazonSelectors.BUTTON_2FA_SUBMIT);
 
         // Check if 2fa code is incorrect
@@ -110,6 +110,6 @@ export class AmazonBusinessCollector extends ScrapperCollector {
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        return await this.download_webpage(driver, invoice);
+        return await this.download_link(driver, invoice);
     }
 }
