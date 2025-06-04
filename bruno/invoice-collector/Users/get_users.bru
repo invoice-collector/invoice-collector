@@ -1,0 +1,15 @@
+meta {
+  name: get_users
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/api/v1/users
+  auth: bearer
+}
+
+headers {
+  Authorization: Bearer {{bearer}}
+  content-type: application/json
+} 
