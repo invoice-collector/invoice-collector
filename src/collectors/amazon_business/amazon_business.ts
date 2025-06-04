@@ -10,7 +10,7 @@ export class AmazonBusinessCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Amazon Business FR",
         description: "i18n.collectors.amazon_business.description",
-        version: "3",
+        version: "4",
         website: "https://www.amazon.fr",
         logo: "https://sellerengine.com/wp-content/uploads/2018/11/Amazon-businesss-sq.png",
         params: {
@@ -41,25 +41,22 @@ export class AmazonBusinessCollector extends ScrapperCollector {
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
-        // Input email
+        // Navigate to the amazon business login page
+        await driver.goto("https://www.amazon.fr/business/register/welcome?ref_=ab_reg_signin");
+
+        // Input email and password
         await driver.input_text(AmazonSelectors.FIELD_EMAIL, params.id);
-        await driver.left_click(AmazonSelectors.BUTTON_CONTINUE);
-
-        // Check if email is incorrect
-        const email_alert = await driver.wait_for_element(AmazonSelectors.CONTAINER_LOGIN_ALERT, false, 2000);
-        if (email_alert) {
-            return await email_alert.evaluate(e => e.textContent) || "i18n.collectors.all.email.error";
-        }
-
-        // Input password
         await driver.input_text(AmazonSelectors.FIELD_PASSWORD, params.password);
         await driver.left_click(AmazonSelectors.BUTTON_SUBMIT);
 
-        // Check if password is incorrect
-        const password_alert = await driver.wait_for_element(AmazonSelectors.CONTAINER_CAPTCHA, false, 2000);
-        if (password_alert) {
-            return "i18n.collectors.all.password.error";
+        // Check if alert is displayed
+        const login_alert = await driver.wait_for_element(AmazonSelectors.CONTAINER_LOGIN_ALERT, false, 2000);
+        if (login_alert) {
+            return await login_alert.evaluate(e => e.textContent) || "i18n.collectors.all.identifier.error";
         }
+
+        // Select company if required
+        await driver.left_click(AmazonSelectors.CONTAINER_COMPANY_SELECTION, { raise_exception: false, timeout: 5000 });
     }
 
     async isTwofa(driver: Driver): Promise<string | void> {
@@ -84,9 +81,15 @@ export class AmazonBusinessCollector extends ScrapperCollector {
         if (twofa_alert) {
             return await twofa_alert.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.error";
         }
+
+        // Select company if required
+        await driver.left_click(AmazonSelectors.CONTAINER_COMPANY_SELECTION, { raise_exception: false, timeout: 5000 });
     }
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
+        // Navigate to the entryUrl
+        await driver.goto(this.config.entryUrl);
+
         // Get all order ids
         const orders = await driver.get_all_elements(AmazonSelectors.CONTAINER_ORDER, false, 5000);
 
@@ -110,6 +113,6 @@ export class AmazonBusinessCollector extends ScrapperCollector {
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        return await this.download_link(driver, invoice);
+        return await this.download_webpage(driver, invoice);
     }
 }
