@@ -36,7 +36,36 @@ curl https://raw.githubusercontent.com/invoice-collector/invoice-collector/refs/
 sudo docker compose up -d
 ```
 
-<!-- ## Usage -->
+## API Documentation
+
+The API documentation is available through Swagger UI. Once the application is running, you can access it at:
+
+```
+http://localhost:8000/api-docs
+```
+
+The documentation includes:
+- Detailed API endpoints description
+- Request/response schemas
+- Authentication requirements
+- Example requests and responses
+
+## API Testing
+
+We provide a [Bruno](https://github.com/usebruno/bruno) collection for testing the API endpoints. Bruno is an open-source API client that allows you to explore and test APIs. The collection is located in the `bruno/invoice-collector` directory and includes:
+
+- Authentication endpoints
+- Customer management
+- User management
+- Credentials management
+- Collectors information
+
+To use the Bruno collection:
+1. Install Bruno from their [official repository](https://github.com/usebruno/bruno)
+2. Open the `bruno/invoice-collector` directory in Bruno
+3. Configure your environment variables in the `environments/DEV.bru` file
+4. Start testing the API endpoints
+
 ## Contribution
 
 There are two ways you can contribute to Invoice-Collector:
@@ -80,6 +109,6 @@ npm run start
 docker-compose -f docker-compose-debug.yml up --build
 ```
 
-You can then use the postman collection (_available soon_) to query the dev environment.
+You can then use the Bruno collection to query the dev environment.
 
 <!-- ## FAQ -->

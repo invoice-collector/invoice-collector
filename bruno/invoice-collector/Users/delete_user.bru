@@ -1,0 +1,22 @@
+meta {
+  name: delete_user
+  type: http
+  seq: 2
+}
+
+delete {
+  url: {{url}}/api/v1/user
+  body: json
+  auth: bearer
+}
+
+headers {
+  Authorization: Bearer {{bearer}}
+  content-type: application/json
+}
+
+body:json {
+  {
+    "remote_id": "{{remote_id}}"
+  }
+} 

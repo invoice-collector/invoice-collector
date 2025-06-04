@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@bitwarden/sdk-napi": "^1.0.0",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.8",
     "axios": "^1.7.9",
     "chrome-launcher": "^1.1.2",
     "cron": "^3.5.0",
@@ -23,6 +25,8 @@
     "i18n": "^0.15.1",
     "mongodb": "^6.12.0",
     "rebrowser-puppeteer-core": "^23.10.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "typescript": "^5.7.3",
     "xvfb": "^0.4.0"
   },
