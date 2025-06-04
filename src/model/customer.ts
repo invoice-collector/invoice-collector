@@ -13,7 +13,7 @@ export class Customer {
     static DEFAULT_NAME = "default";
     static DEFAULT_CALLBACK = "https://path.to/callback";
 
-    static async fromBearer(bearer): Promise<Customer|null> {
+    static async fromBearer(bearer): Promise<Customer> {
         // Check if bearer is missing or does not start with "Bearer "
         if(!bearer || !bearer.startsWith("Bearer ")) {
             throw new AuthenticationBearerError()
@@ -23,7 +23,14 @@ export class Customer {
         const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
     
         // Get customer from bearer
-        return await DatabaseFactory.getDatabase().getCustomerFromBearer(hashed_bearer);
+        const customer = await DatabaseFactory.getDatabase().getCustomerFromBearer(hashed_bearer);
+
+        // Check if customer exists
+        if(!customer) {
+            throw new AuthenticationBearerError();
+        }
+
+        return customer;
     }
 
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
