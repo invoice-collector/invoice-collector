@@ -257,6 +257,16 @@ export class Server {
         // Build response 
         return credentials.map((credential) => {
             const collector = this.get_collector(credential.collector_id);
+
+            // Get current collect
+            const collect = CollectPool.getInstance().get(credential.id);
+            
+            // If collect in progress
+            if (collect && collect.state) {
+                // Replace state with collect state
+                credential.state = collect.state;
+            }
+
             return {
                 id: credential.id,
                 note: credential.note,
