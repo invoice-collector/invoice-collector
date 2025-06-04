@@ -1,7 +1,7 @@
 import { DatabaseFactory } from './database/databaseFactory';
 import { AbstractSecretManager, Secret } from './secret_manager/abstractSecretManager';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
-import { AuthenticationBearerError, OauthError, MissingField, MissingParams, StatusError } from './error';
+import { OauthError, MissingField, MissingParams, StatusError } from './error';
 import { generate_token } from './utils';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User } from './model/user';
@@ -49,11 +49,6 @@ export class Server {
     public async post_authorize(bearer: string | undefined, remote_id: string | undefined, locale: string | undefined, email: string | undefined): Promise<{token: string}> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
-
-        // Check if customer exists
-        if(!customer) {
-            throw new AuthenticationBearerError();
-        }
 
         //Check if remote_id field is missing
         if(!remote_id) {
@@ -143,11 +138,6 @@ export class Server {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
-        // Check if customer exists
-        if(!customer) {
-            throw new AuthenticationBearerError();
-        }
-
         // Get users from customer
         const users = await customer.getUsers();
 
@@ -188,25 +178,32 @@ export class Server {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
-        // Check if customer exists
-        if(!customer) {
-            throw new AuthenticationBearerError();
-        }
-
         return { name: customer.name, callback: customer.callback, theme: customer.theme };
     }
 
     // ---------- USER ENDPOINTS ----------
 
+    public async get_users(bearer: string | undefined): Promise<{id: string, remote_id: string, locale: string}[]> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        // Get users from customer
+        const users = await customer.getUsers();
+
+        // Return users
+        return users.map((user) => {
+            return {
+                id: user.id,
+                remote_id: user.remote_id,
+                locale: user.locale
+            };
+        });
+    }
+
     // BEARER AUTHENTICATION
     public async delete_user(bearer: string | undefined, remote_id: string | undefined) {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
-
-        // Check if customer exists
-        if(!customer) {
-            throw new AuthenticationBearerError();
-        }
 
         //Check if remote_id field is missing
         if(!remote_id) {
