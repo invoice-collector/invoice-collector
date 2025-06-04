@@ -131,6 +131,21 @@ app.get('/api/v1/customer', async (req, res) => {
 // ---------- USER ENDPOINTS ----------
 
 // BEARER AUTHENTICATION
+app.get('/api/v1/users', async (req, res) => {
+    try {
+        // List users
+        console.log(`GET users`);
+        const response = await server.get_users(req.headers.authorization);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// BEARER AUTHENTICATION
 app.delete('/api/v1/user', async (req, res) => {
     try {
         // Delete user

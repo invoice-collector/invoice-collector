@@ -198,6 +198,28 @@ export class Server {
 
     // ---------- USER ENDPOINTS ----------
 
+    public async get_users(bearer: string | undefined): Promise<{id: string, remote_id: string, locale: string}[]> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        // Check if customer exists
+        if(!customer) {
+            throw new AuthenticationBearerError();
+        }
+
+        // Get users from customer
+        const users = await customer.getUsers();
+
+        // Return users
+        return users.map((user) => {
+            return {
+                id: user.id,
+                remote_id: user.remote_id,
+                locale: user.locale
+            };
+        });
+    }
+
     // BEARER AUTHENTICATION
     public async delete_user(bearer: string | undefined, remote_id: string | undefined) {
         // Get customer from bearer
