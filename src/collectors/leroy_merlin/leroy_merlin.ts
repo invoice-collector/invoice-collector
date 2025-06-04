@@ -1,7 +1,6 @@
 import { ScrapperCollector } from '../scrapperCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver } from '../../driver/driver';
-import * as utils from '../../utils';
 import { Invoice, DownloadedInvoice } from '../abstractCollector';
 
 export class LeroyMerlinCollector extends ScrapperCollector {
@@ -9,7 +8,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "5",
+        version: "6",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leroy_Merlin.svg",
         params: {
@@ -56,8 +55,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
         }
 
         // Input password
-        await driver.input_text(LeroyMerlinSelectors.INPUT_PASSWORD, params.password);
-        await utils.delay(1000);
+        await driver.input_text(LeroyMerlinSelectors.INPUT_PASSWORD, params.password, { delay: 1000 });
         await driver.left_click(LeroyMerlinSelectors.BUTTON_PASSWORD_CONTINUE);
             
         // Check if password is incorrect

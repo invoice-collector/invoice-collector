@@ -3,14 +3,13 @@ import { CarrefourSelectors } from './selectors';
 import { Driver } from '../../driver/driver';
 import { DownloadedInvoice, Invoice } from '../abstractCollector';
 import { TwofaPromise } from '../../collect/twofaPromise';
-import * as utils from '../../utils';
 
 export class CarrefourCollector extends ScrapperCollector {
 
     static CONFIG = {
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "6",
+        version: "7",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         params: {
@@ -38,7 +37,7 @@ export class CarrefourCollector extends ScrapperCollector {
         await driver.waitForCloudflareTurnstile()
 
         // Input email and password
-        await driver.input_text(CarrefourSelectors.FIELD_EMAIL, params.id);
+        await driver.input_text(CarrefourSelectors.FIELD_EMAIL, params.id, { delay: 500 });
         await driver.input_text(CarrefourSelectors.FIELD_PASSWORD, params.password);
 
         // Click on submit button
@@ -75,17 +74,12 @@ export class CarrefourCollector extends ScrapperCollector {
         }
 
         // Input 2fa code slowly to avoid focus out
-        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_0, twofa_code[0]);
-        await utils.delay(200);
-        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_1, twofa_code[1]);
-        await utils.delay(200);
-        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_2, twofa_code[2]);
-        await utils.delay(200);
-        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_3, twofa_code[3]);
-        await utils.delay(200);
-        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_4, twofa_code[4]);
-        await utils.delay(200);
-        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_5, twofa_code[5]);
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_0, twofa_code[0], { delay: 200 });
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_1, twofa_code[1], { delay: 200 });
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_2, twofa_code[2], { delay: 200 });
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_3, twofa_code[3], { delay: 200 });
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_4, twofa_code[4], { delay: 200 });
+        await driver.input_text(CarrefourSelectors.FIELD_2FA_CODE_5, twofa_code[5], { delay: 200 });
 
         // Check if 2fa code is incorrect
         const twofa_alert = await driver.wait_for_element(CarrefourSelectors.CONTAINER_2FA_ALERT, false, 1000);
