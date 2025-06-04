@@ -14,16 +14,25 @@ export class Customer {
     static DEFAULT_CALLBACK = "https://path.to/callback";
 
     static async fromBearer(bearer): Promise<Customer|null> {
+        console.log('Received bearer:', bearer);
+        
         // Check if bearer is missing or does not start with "Bearer "
         if(!bearer || !bearer.startsWith("Bearer ")) {
+            console.log('Bearer validation failed: missing or wrong format');
             throw new AuthenticationBearerError()
         }
 
         // Get hash from bearer
-        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
+        const token = bearer.split(' ')[1];
+        console.log('Token part:', token);
+        const hashed_bearer = utils.hash_string(token);
+        console.log('Hashed bearer:', hashed_bearer);
     
         // Get customer from bearer
-        return await DatabaseFactory.getDatabase().getCustomerFromBearer(hashed_bearer);
+        const customer = await DatabaseFactory.getDatabase().getCustomerFromBearer(hashed_bearer);
+        console.log('Found customer:', customer ? 'yes' : 'no');
+        
+        return customer;
     }
 
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {

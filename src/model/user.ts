@@ -4,6 +4,7 @@ import { Location } from "../proxy/abstractProxy";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { IcCredential } from "./credential";
 import { Customer } from "./customer";
+import * as utils from "../utils";
 
 export type TermsConditions = {
     verificationCode: string,
@@ -54,7 +55,8 @@ export class User {
         }
         else {
             // Create user
-            await DatabaseFactory.getDatabase().createUser(this);
+            const user = await DatabaseFactory.getDatabase().createUser(this);
+            this.id = user.id;
         }
     }
 
@@ -76,6 +78,13 @@ export class User {
     }
 
     async checkTermsConditions(): Promise<void> {
+        // Si la vérification est désactivée, on considère que les conditions sont acceptées
+        if (utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false") === "true") {
+            this.termsConditions.validTimestamp = Date.now();
+            await this.commit();
+            return;
+        }
+
         if (this.termsConditions.validTimestamp == undefined) {
             const customer = await this.getCustomer();
             throw new TermsConditionsError(this.locale, customer.theme);

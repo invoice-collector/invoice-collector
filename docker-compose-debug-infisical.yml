@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+
+  invoice-collector:
+    image: invoice-collector:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+      - 9229:9229
+    volumes:
+      - ./src:/usr/app/src
+      - ./locales:/usr/app/locales
+      - ./views:/usr/app/views
+      - ./media:/usr/app/media
+      - ./test:/usr/app/test
+    depends_on:
+      - mongodb
+    environment:
+      - PORT=8080
+      - OAUTH_TOKEN_VALIDITY_DURATION_MS=3600000
+      - DISABLE_VERIFICATION_CODE=true
+      - REGISTRY_SERVER_ENDPOINT=https://registry.invoice-collector.com
+      - DATABASE_URI=mongodb://mongodb:27017
+      - DATABASE_MONGODB_NAME=dev
+      - SECRET_MANAGER_TYPE=infisical
+      - SECRET_MANAGER_INFISICAL_API_URI=${SECRET_MANAGER_INFISICAL_API_URI}
+      - SECRET_MANAGER_INFISICAL_PROJECT_ID=${SECRET_MANAGER_INFISICAL_PROJECT_ID}
+      - SECRET_MANAGER_INFISICAL_CLIENT_ID=${SECRET_MANAGER_INFISICAL_CLIENT_ID}
+      - SECRET_MANAGER_INFISICAL_CLIENT_SECRET=${SECRET_MANAGER_INFISICAL_CLIENT_SECRET}
+      - ENV=dev
+    command: npm run debug
+
+  # TODO: Uncomment this for executing manage-customer.ts
+  # for creating default user and obtaining an valid oauth token
+  # manage-customer:
+  #   image: invoice-collector:latest
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./src:/usr/app/src
+  #     - ./locales:/usr/app/locales
+  #     - ./views:/usr/app/views
+  #     - ./media:/usr/app/media
+  #     - ./test:/usr/app/test
+  #   depends_on:
+  #     - mongodb
+  #   environment:
+  #     - DATABASE_URI=mongodb://mongodb:27017
+  #     - DATABASE_MONGODB_NAME=dev
+  #     - SECRET_MANAGER_TYPE=infisical
+  #     - SECRET_MANAGER_INFISICAL_API_URI=${SECRET_MANAGER_INFISICAL_API_URI}
+  #     - SECRET_MANAGER_INFISICAL_PROJECT_ID=${SECRET_MANAGER_INFISICAL_PROJECT_ID}
+  #     - SECRET_MANAGER_INFISICAL_CLIENT_ID=${SECRET_MANAGER_INFISICAL_CLIENT_ID}
+  #     - SECRET_MANAGER_INFISICAL_CLIENT_SECRET=${SECRET_MANAGER_INFISICAL_CLIENT_SECRET}
+  #     - ENV=dev
+  #   command: npx ts-node test/manage-default-customer.ts
+
+  mongodb:
+    image : mongo:8.0.3
+    container_name: mongodb
+    volumes:
+      - ./mongodb/data:/data/db
+      - ./mongodb/config:/etc/mongo/      
+    ports:
+      - 27017:27017
+    command: --logpath /dev/null
+
+volumes:
+  mongodb_data:
