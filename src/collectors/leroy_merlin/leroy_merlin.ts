@@ -8,7 +8,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "6",
+        version: "7",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leroy_Merlin.svg",
         params: {
@@ -51,7 +51,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
         // Check if email is incorrect
         const email_error = await driver.wait_for_element(LeroyMerlinSelectors.CONTAINER_EMAIL_ERROR, false, 2000);
         if (email_error) {
-            return await email_error.evaluate(e => e.textContent) || "i18n.collectors.all.email.error";
+            return await email_error.textContent("i18n.collectors.all.email.error");
         }
 
         // Input password
@@ -61,7 +61,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
         // Check if password is incorrect
         const password_error = await driver.wait_for_element(LeroyMerlinSelectors.CONTAINER_PASSWORD_ERROR, false, 2000);
         if (password_error) {
-            return await password_error.evaluate(e => e.textContent) || "i18n.collectors.all.password.error";
+            return await password_error.textContent("i18n.collectors.all.password.error");
         }
     }
 

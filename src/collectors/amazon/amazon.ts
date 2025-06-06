@@ -10,7 +10,7 @@ export class AmazonCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "6",
+        version: "7",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -67,7 +67,7 @@ export class AmazonCollector extends ScrapperCollector {
         // Check if email is incorrect
         const email_alert = await driver.wait_for_element(AmazonSelectors.CONTAINER_LOGIN_ALERT, false, 2000);
         if (email_alert) {
-            return await email_alert.evaluate(e => e.textContent) || "i18n.collectors.all.email.error";
+            return await email_alert.textContent("i18n.collectors.all.email.error");
         }
 
         // Input password
@@ -85,7 +85,7 @@ export class AmazonCollector extends ScrapperCollector {
         // Check if 2FA is required
         const twofa_instruction = await driver.wait_for_element(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, false, 2000);
         if (twofa_instruction) {
-            return await twofa_instruction.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.instruction";
+            return await twofa_instruction.textContent("i18n.collectors.all.2fa.instruction");
         }
     }
 
@@ -101,7 +101,7 @@ export class AmazonCollector extends ScrapperCollector {
         // Check if 2fa code is incorrect
         const twofa_alert = await driver.wait_for_element(AmazonSelectors.CONTAINER_2FA_ALERT, false, 1000);
         if (twofa_alert) {
-            return await twofa_alert.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.error";
+            return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
         }
     }
 

@@ -14,7 +14,8 @@ export class Driver {
     static DEFAULT_DOWNLOAD_TIMEOUT = 20000;    // 20 seconds
     static DEFAULT_TIMEOUT = 10000;             // 10 seconds
     static DEFAULT_POLLING = 1000;              // 1 second
-    static DEFAULT_DELAY = 0; 
+    static DEFAULT_DELAY = 0;
+    static DEFAULT_DELAY_BETWEEN_KEYS = 100;    // 100 milliseconds
 
     static DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
     static PUPPETEER_CONFIG: Options = {
@@ -178,12 +179,13 @@ export class Driver {
         return null;
     }
 
-    async wait_for_element(selector, raise_exception = true, timeout = Driver.DEFAULT_TIMEOUT) {
+    async wait_for_element(selector, raise_exception = true, timeout = Driver.DEFAULT_TIMEOUT): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         try {
-            return await this.page.waitForSelector(selector.selector, {timeout});
+            const element = await this.page.waitForSelector(selector.selector, {timeout});
+            return element ? new Element(element) : null;
         }
         catch (err) {
             if (raise_exception) {
@@ -201,6 +203,23 @@ export class Driver {
         }
         await this.wait_for_element(selector, raise_exception, timeout);
         return (await this.page.$$(selector.selector)).map(element => new Element(element));
+    }
+
+    async getAttribute(selector, attributeName, {
+        raise_exception = true,
+        timeout = Driver.DEFAULT_TIMEOUT
+    } = {}): Promise<string> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        const element = await this.wait_for_element(selector, raise_exception, timeout);
+        if (element == null) {
+            if (raise_exception) {
+                throw new ElementNotFoundError(this.collector, selector);
+            }
+            return '';
+        }
+        return await element.element.evaluate((el, attr) => el[attr], attributeName);
     }
 
     async get_all_attributes(selector, attributeName, raise_exception = true, timeout = Driver.DEFAULT_TIMEOUT) {
@@ -383,9 +402,41 @@ export class Driver {
 }
 
 export class Element {
+
     element: ElementHandle;
+
     constructor(element: ElementHandle) {
         this.element = element;
+    }
+
+    /**
+     * Retrieves the text content of the associated element.
+     *
+     * @param _default - A default string value.
+     * @returns A promise that resolves to the text content of the element, or the default value if the element's text content is null.
+     */
+    async textContent(_default: string): Promise<string> {
+        return this.element.evaluate(el => el.textContent ?? _default);
+    }
+
+    async click(): Promise<void> {
+        await this.element.click();
+    }
+
+    async type(text: string, verify = true): Promise<void> {
+        if (verify) {
+            let currentValue = null;
+            let maxTry = 6;
+            while (currentValue !== text && maxTry > 0) {
+                await this.element.type(text);
+                currentValue = await this.element.evaluate((el: any) => el.value);
+                await utils.delay(Driver.DEFAULT_DELAY_BETWEEN_KEYS);
+                maxTry--;
+            }
+        }
+        else {
+            await this.element.type(text);
+        }
     }
 
     async get_attribute(selector, attribute: string): Promise<string> {
