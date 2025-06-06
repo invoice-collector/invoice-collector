@@ -8,7 +8,7 @@ export class TotalEnergiesCollector extends ScrapperCollector {
     static CONFIG = {
         name: "i18n.collectors.total_energies.name",
         description: "i18n.collectors.total_energies.description",
-        version: "1",
+        version: "2",
         website: "https://www.totalenergies.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/f/f7/Logo_TotalEnergies.svg",
         params: {
@@ -42,7 +42,7 @@ export class TotalEnergiesCollector extends ScrapperCollector {
         // Check if login alert
         const login_alert = await driver.wait_for_element(TotalEnergiesSelectors.CONTAINER_LOGIN_ALERT, false, 5000);
         if (login_alert) {
-            return await login_alert.evaluate(e => e.textContent) || "i18n.collectors.all.password.error";
+            return await login_alert.textContent("i18n.collectors.all.password.error");
         }
     }
 

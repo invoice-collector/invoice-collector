@@ -8,7 +8,7 @@ export class FreeCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "2",
+        version: "3",
         website: "https://www.free.fr",
         logo: "https://www.free.fr/assets/img/freebox/home/cards/logos/free-app-logo.svg",
         params: {
@@ -39,7 +39,7 @@ export class FreeCollector extends ScrapperCollector {
         // Check if login alert exists
         const login_alert = await driver.wait_for_element(FreeSelectors.CONTAINER_LOGIN_ALERT, false, 2000)
         if (login_alert) {
-            return await login_alert.evaluate(el => el.textContent || "i18n.collectors.all.identifier.error");
+            return await login_alert.textContent("i18n.collectors.all.identifier.error");
         }
     }
 

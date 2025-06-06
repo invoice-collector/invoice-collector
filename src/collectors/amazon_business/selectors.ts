@@ -50,6 +50,10 @@ export const AmazonSelectors = {
 
     //INVOICES PAGE
 
+    CONTAINER_LANGUAGE: {
+        selector: ".icp-nav-language",
+        info: "language container"
+    },
     CONTAINER_ORDER: {
         selector: "#yourOrderHistorySection #orderCard #orderCardHeader",
         info: "order container"

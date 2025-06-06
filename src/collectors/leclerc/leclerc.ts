@@ -8,7 +8,7 @@ export class LeclercCollector extends ScrapperCollector {
     static CONFIG = {
         name: "E.Leclerc",
         description: "i18n.collectors.leclerc.description",
-        version: "1",
+        version: "2",
         website: "https://www.e.leclerc/",
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_E.Leclerc_Sans_le_texte.svg",
         params: {
@@ -41,7 +41,7 @@ export class LeclercCollector extends ScrapperCollector {
             // Check if email is incorrect
             const email_error = await driver.wait_for_element(LeclercSelectors.CONTAINER_EMAIL_ERROR, false, 2000);
             if (email_error) {
-                return await email_error.evaluate(e => e.textContent) || "i18n.collectors.all.email.error";
+                return await email_error.textContent("i18n.collectors.all.email.error");
             }
 
             // Check if email is incorrect
@@ -57,7 +57,7 @@ export class LeclercCollector extends ScrapperCollector {
             // Check if password is incorrect
             const password_error = await driver.wait_for_element(LeclercSelectors.CONTAINER_PASSWORD_ERROR, false, 5000);
             if (password_error) {
-                return await password_error.evaluate(e => e.textContent) || "i18n.collectors.all.password.error";
+                return await password_error.textContent("i18n.collectors.all.password.error");
             }
     }
 

@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import * as crypto from 'crypto';
 import date_fns from 'date-fns';
-import { enUS, fr } from 'date-fns/locale';
+import { fr, enGB, enUS } from 'date-fns/locale';
 import { CompleteInvoice } from './collectors/abstractCollector';
 
 const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
@@ -35,11 +35,15 @@ export function randomDelay(min: number=200, max: number=400): Promise<void> {
 
 export function timestampFromString(date: string, format: string, locale: string): number {
     const fnsLocales = {
-        en: enUS,
         fr: fr,
+        uk: enGB,
+        en: enGB,
+        engb: enGB,
+        us: enUS,
+        enus: enUS,
     };
 
-    const dateFnsLocale = fnsLocales[locale];
+    const dateFnsLocale = fnsLocales[trim(locale).toLowerCase()];
     const parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: dateFnsLocale });
     return parsedDate.setUTCMilliseconds(0);
 }

@@ -9,7 +9,7 @@ export class CarrefourCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "7",
+        version: "8",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         params: {
@@ -46,7 +46,7 @@ export class CarrefourCollector extends ScrapperCollector {
         // Check if login alert exists
         const login_alert = await driver.wait_for_element(CarrefourSelectors.CONTAINER_LOGIN_ALERT, false, 2000)
         if (login_alert) {
-            return await login_alert.evaluate(el => el.textContent || "i18n.collectors.all.password.error");
+            return await login_alert.textContent("i18n.collectors.all.password.error");
         }
     }
 
@@ -54,7 +54,7 @@ export class CarrefourCollector extends ScrapperCollector {
         // Check if 2FA is required
         const two_factor_auth = await driver.wait_for_element(CarrefourSelectors.CONTAINER_2FA_INSTRUCTIONS, false, 2000);
         if (two_factor_auth) {
-            return await two_factor_auth.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.instruction";
+            return await two_factor_auth.textContent("i18n.collectors.all.2fa.instruction");
         }
     }
 
@@ -62,7 +62,7 @@ export class CarrefourCollector extends ScrapperCollector {
         // Check if too much attempts
         const twofa_too_much = await driver.wait_for_element(CarrefourSelectors.CONTAINER_2FA_ALERT, false, 1000);
         if (twofa_too_much) {
-            return await twofa_too_much.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.error";
+            return await twofa_too_much.textContent("i18n.collectors.all.2fa.error");
         }
 
         // Wait for 2fa code from UI
@@ -84,7 +84,7 @@ export class CarrefourCollector extends ScrapperCollector {
         // Check if 2fa code is incorrect
         const twofa_alert = await driver.wait_for_element(CarrefourSelectors.CONTAINER_2FA_ALERT, false, 1000);
         if (twofa_alert) {
-            return await twofa_alert.evaluate(e => e.textContent) || "i18n.collectors.all.2fa.error";
+            return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
         }
     }
 

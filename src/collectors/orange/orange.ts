@@ -8,7 +8,7 @@ export class OrangeCollector extends ScrapperCollector {
     static CONFIG = {
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "1",
+        version: "2",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         params: {
@@ -41,7 +41,7 @@ export class OrangeCollector extends ScrapperCollector {
         // Check if email is incorrect
         const email_alert = await driver.wait_for_element(OrangeSelectors.CONTAINER_LOGIN_ALERT, false, 2000);
         if (email_alert) {
-            return await email_alert.evaluate(e => e.textContent) || "i18n.collectors.all.email_or_number.error";
+            return await email_alert.textContent("i18n.collectors.all.email_or_number.error");
         }
     
         // Input password
@@ -51,7 +51,7 @@ export class OrangeCollector extends ScrapperCollector {
         // Check if password is incorrect
         const password_alert = await driver.wait_for_element(OrangeSelectors.CONTAINER_PASSWORD_ALERT, false, 2000);
         if (password_alert) {
-            return await password_alert.evaluate(e => e.textContent) || "i18n.collectors.all.password.error";
+            return await password_alert.textContent("i18n.collectors.all.password.error");
         }
     }
 

@@ -8,7 +8,7 @@ export class UCollector extends ScrapperCollector {
     static CONFIG = {
         name: "U Courses",
         description: "i18n.collectors.u.description",
-        version: "2",
+        version: "3",
         website: "https://www.coursesu.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
         params: {
@@ -48,7 +48,7 @@ export class UCollector extends ScrapperCollector {
         // Check if email alert
         const email_alert = await driver.wait_for_element(USelectors.CONTAINER_EMAIL_ALERT, false, 1000);
         if (email_alert) {
-            return await email_alert.evaluate(e => e.textContent) || "i18n.collectors.all.email.error";
+            return await email_alert.textContent("i18n.collectors.all.email.error");
         }
 
         // Submit
@@ -57,7 +57,7 @@ export class UCollector extends ScrapperCollector {
         // Check if password alert
         const password_alert = await driver.wait_for_element(USelectors.CONTAINER_PASSWORD_ALERT, false, 2000);
         if (password_alert) {
-            return await password_alert.evaluate(e => e.textContent) || "i18n.collectors.all.password.error";
+            return await password_alert.textContent("i18n.collectors.all.password.error");
         }
     }
 
