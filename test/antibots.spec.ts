@@ -30,14 +30,14 @@ describe(`Test antibots`, () => {
     let driver: Driver;
 
     beforeAll(async () => {
-        const proxy = new OxylabProxy().get(null);
+        const proxy = await new OxylabProxy().get(null);
         driver = new Driver(new LeroyMerlinCollector());
         await driver.open(proxy);
     });
 
     it('Datadome', async () => {
         await driver.goto("https://www.leroymerlin.fr/login.html");
-        const element = await driver.wait_for_element({selector: 'form#js-email-form input'}, false);
+        const element = await driver.getElement({selector: 'form#js-email-form input'}, { raise_exception: false });
 
         // Save pdf to file
         saveToFile(await driver.pdf(), 'leroymerlin.pdf');

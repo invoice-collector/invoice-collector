@@ -30,7 +30,7 @@ describe(`Test fingerprints`, () => {
     let driver: Driver;
 
     beforeAll(async () => {
-        const proxy = new OxylabProxy().get(null);
+        const proxy = await new OxylabProxy().get(null);
         driver = new Driver(new LeroyMerlinCollector());
         await driver.open(proxy);
     });
@@ -39,17 +39,17 @@ describe(`Test fingerprints`, () => {
     it('fingerprintjs', async () => {
         // Get score and fingerprint
         await driver.goto("https://fingerprintjs.github.io/fingerprintjs/");
-        const scoreElement = await driver.wait_for_element({selector: '.output pre:nth-child(6)'});
+        const scoreElement = await driver.getElement({selector: '.output pre:nth-child(6)'});
         expect(scoreElement).not.toBeNull();
-        const score = await scoreElement?.evaluate(el => Number(el.textContent));
-        const fingerprintELement = await driver.wait_for_element({selector: '.output pre:last-child'});
+        const score = Number(await scoreElement?.textContent('0'));
+        const fingerprintELement = await driver.getElement({selector: '.output pre:last-child'});
         expect(fingerprintELement).not.toBeNull();
-        const fingerprint = await fingerprintELement?.evaluate(el => el.textContent);
+        const fingerprint = await fingerprintELement?.textContent('');
         expect(fingerprint).not.toBeNull();
 
         // Set height to 15000px to avoid scrollbars
-        const outputElement = await driver.wait_for_element({selector: '.output'});
-        await outputElement?.evaluate(el => {
+        const outputElement = await driver.getElement({selector: '.output'});
+        await outputElement?.element.evaluate(el => {
             el.setAttribute('style', 'height:15000px');
         });
 
@@ -82,7 +82,7 @@ describe(`Test fingerprints`, () => {
     it('Bot sannysoft', async () => {
         // Get results
         await driver.goto("https://bot.sannysoft.com/");
-        const failedElements = await driver.get_all_elements({selector: '.result.failed'});
+        const failedElements = await driver.getElements({selector: '.result.failed'});
 
         // Save pdf to file
         saveToFile(await driver.pdf(), 'sannysoft.pdf');
@@ -108,7 +108,7 @@ describe(`Test fingerprints`, () => {
         saveToFile(await driver.pdf(), 'rebrowser.pdf');
 
         // Check if all tests passed
-        const testElements = await driver.get_all_attributes({selector: '#detections-table tr td:first-child'}, "textContent");
+        const testElements = await driver.getAttributes({selector: '#detections-table tr td:first-child'}, "textContent");
         const failedTests = testElements.filter((el) => el.includes('🔴'));
         expect(failedTests.length).toBe(0);
     }, ONE_MINUTE);
@@ -116,8 +116,8 @@ describe(`Test fingerprints`, () => {
     it('CreepJS', async () => {
         // Get score
         await driver.goto("https://abrahamjuliot.github.io/creepjs/");
-        const scoreElement = await driver.wait_for_element({selector: '.visitor-info .flex-grid.relative .col-six:first-of-type div:nth-child(2) .unblurred'});
-        const scoreString = await scoreElement?.evaluate(el => el.textContent);
+        const scoreElement = await driver.getElement({selector: '.visitor-info .flex-grid.relative .col-six:first-of-type div:nth-child(2) .unblurred'});
+        const scoreString = await scoreElement?.textContent('');
         expect(scoreString).not.toBeNull();
         const score = parseFloat(scoreString?.replace(/[^\d.]/g, '') || '0');
 
@@ -131,15 +131,15 @@ describe(`Test fingerprints`, () => {
     it('Am I unique', async () => {
         // Get result
         await driver.page?.goto("https://amiunique.org/fingerprint", {waitUntil: 'networkidle0', timeout: 60000})
-        const resultElement = await driver.wait_for_element({selector: '.pb-0'}, true, 30000);
-        const result = await resultElement?.evaluate(el => el.textContent);
+        const resultElement = await driver.getElement({selector: '.pb-0'}, { raiseException: true, timeout: 30000 });
+        const result = await resultElement?.textContent('');
 
         // Reject cookies
-        await driver.left_click({selector: 'body > div > div > div > div > div:last-child > div > div button:first-of-type'}, {raise_exception: false});
+        await driver.leftClick({selector: 'body > div > div > div > div > div:last-child > div > div button:first-of-type'}, {raiseException: false});
 
         // Download fingerprint
-        await driver.left_click({selector: 'main button'});
-        await driver.left_click({selector: 'body > div > div > div > div:nth-child(2) > div > div'});
+        await driver.leftClick({selector: 'main button'});
+        await driver.leftClick({selector: 'body > div > div > div > div:nth-child(2) > div > div'});
         let fingerprint = await driver.waitForFileToDownload(true) || "";
         if (fingerprint) {
             fingerprint = JSON.parse(Buffer.from(fingerprint, 'base64').toString('utf-8'));
@@ -158,8 +158,8 @@ describe(`Test fingerprints`, () => {
     it('Pixelscan', async () => {
         // Get result
         await driver.goto("https://pixelscan.net/");
-        const resultElement = await driver.wait_for_element({selector: '.consistent-box, .inconsistent-box'}, false);
-        const consistentElement = await resultElement?.evaluate(el => el.textContent);
+        const resultElement = await driver.getElement({selector: '.consistent-box, .inconsistent-box'}, { raiseException: false });
+        const consistentElement = await resultElement?.textContent('')
 
         // Save pdf to file
         saveToFile(await driver.pdf(), 'pixelscan.pdf');
