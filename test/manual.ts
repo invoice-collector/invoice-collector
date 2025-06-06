@@ -85,8 +85,18 @@ import assert from 'assert';
                 console.warn(`Invoice ${invoice.id} was not downloaded`);
             }
 
+            // Log invoice details
+            console.log({
+                id: invoice.id,
+                amount: invoice.amount,
+                link: invoice.link,
+                timestamp: invoice.timestamp,
+                url: invoice.mimetype
+            })
+
             assert(invoice.id.length > 0, `Invoice id is empty`);
             assert(invoice.timestamp > 0, `Timestamp ${invoice.timestamp} is not greater than 0`);
+            assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
         }
     } catch (error) {
         if (error instanceof Error) {
