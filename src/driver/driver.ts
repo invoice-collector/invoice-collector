@@ -113,6 +113,7 @@ export class Driver {
     }
 
     // GOTO
+
     async goto(url, network_request: string = ""): Promise<{requestBody: any, responseBody: any}> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
@@ -157,10 +158,10 @@ export class Driver {
 
     // WAIT
 
-    async waitFor(
+    private async waitFor(
         check_condition: Function,
         error_message: string,
-        raise_exception: boolean = true,
+        raiseException: boolean = true,
         timeout: number = Driver.DEFAULT_TIMEOUT,
         polling: number = Driver.DEFAULT_POLLING
     ): Promise<any> {
@@ -173,13 +174,18 @@ export class Driver {
             await utils.delay(polling);
         }
 
-        if (raise_exception) {
+        if (raiseException) {
             throw new LoggableError(error_message, this.collector);
         }
         return null;
     }
 
-    async wait_for_element(selector, raise_exception = true, timeout = Driver.DEFAULT_TIMEOUT): Promise<Element | null> {
+    // ACTIONS
+
+    async getElement(selector, {
+        raiseException = true,
+        timeout = Driver.DEFAULT_TIMEOUT
+    } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -188,33 +194,34 @@ export class Driver {
             return element ? new Element(element) : null;
         }
         catch (err) {
-            if (raise_exception) {
+            if (raiseException) {
                 throw new ElementNotFoundError(this.collector, selector, { cause: err })
             }
             return null;
         }
     }
 
-    // ACTIONS
-
-    async get_all_elements(selector, raise_exception = true, timeout = Driver.DEFAULT_TIMEOUT): Promise<Element[]> {
+    async getElements(selector, {
+        raiseException = true,
+        timeout = Driver.DEFAULT_TIMEOUT
+    } = {}): Promise<Element[]> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        await this.wait_for_element(selector, raise_exception, timeout);
+        await this.getElement(selector, { raiseException, timeout });
         return (await this.page.$$(selector.selector)).map(element => new Element(element));
     }
 
     async getAttribute(selector, attributeName, {
-        raise_exception = true,
+        raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT
     } = {}): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        const element = await this.wait_for_element(selector, raise_exception, timeout);
+        const element = await this.getElement(selector, { raiseException, timeout });
         if (element == null) {
-            if (raise_exception) {
+            if (raiseException) {
                 throw new ElementNotFoundError(this.collector, selector);
             }
             return '';
@@ -222,18 +229,21 @@ export class Driver {
         return await element.element.evaluate((el, attr) => el[attr], attributeName);
     }
 
-    async get_all_attributes(selector, attributeName, raise_exception = true, timeout = Driver.DEFAULT_TIMEOUT) {
+    async getAttributes(selector, attributeName, {
+        raiseException = true,
+        timeout = Driver.DEFAULT_TIMEOUT
+    } = {}) {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        await this.wait_for_element(selector, raise_exception, timeout);
+        await this.getElement(selector, { raiseException, timeout });
         return await this.page.$$eval(selector.selector, (elements, attr) => {
             return elements.map(element => element[attr]);
         }, attributeName);
     }
 
-    async left_click(selector, {
-        raise_exception = true,
+    async leftClick(selector, {
+        raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         navigation = true
@@ -241,7 +251,7 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        let element = await this.wait_for_element(selector, raise_exception, timeout);
+        let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
             await utils.delay(delay);
             await element.click();
@@ -254,24 +264,24 @@ export class Driver {
         }
     }
 
-    async input_text(selector, text, {
-        raise_exception = true,
+    async inputText(selector, text, {
+        raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY
     } = {}): Promise<void> {
-        let element = await this.wait_for_element(selector, raise_exception, timeout);
+        let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
             await element.type(text);
             await utils.delay(delay);
         }
     }
 
-    async select_dropdown_menu_option(selector, option, {
-        raise_exception = true,
+    async selectDropdown(selector, option, {
+        raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY
     } = {}): Promise<void> {
-        await this.wait_for_element(selector, raise_exception, timeout);
+        await this.getElement(selector, { raiseException, timeout });
         //TODO
         throw new Error("Not implemented");
     }
@@ -285,15 +295,6 @@ export class Driver {
 
     async type(text: string): Promise<void> {
         await this.page?.keyboard.type(text);
-    }
-
-    // CHECK
-
-    async check_element_exist(selector) {
-        if (this.page === null) {
-            throw new Error('Page is not initialized.');
-        }
-        return (await this.page.$$(selector.selector)).length > 0;
     }
 
     // PDF
@@ -346,13 +347,13 @@ export class Driver {
         return await this.waitForFileToDownload();
     }
 
-    async waitForFileToDownload(raise_exception: boolean = true): Promise<string | null> {
+    async waitForFileToDownload(raiseException: boolean = true): Promise<string | null> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
             const files = fs.readdirSync(Driver.DOWNLOAD_PATH).filter(file => !file.endsWith('.crdownload'));
             return files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
-        raise_exception,
+        raiseException,
         Driver.DEFAULT_DOWNLOAD_TIMEOUT);
 
         // Check if no file found
@@ -439,7 +440,7 @@ export class Element {
         }
     }
 
-    async get_attribute(selector, attribute: string): Promise<string> {
+    async getAttribute(selector, attribute: string): Promise<string> {
         return await this.element.$eval(selector.selector, (element, attr) => element[attr], attribute);
     }
 }

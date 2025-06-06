@@ -8,7 +8,7 @@ export class TotalEnergiesCollector extends ScrapperCollector {
     static CONFIG = {
         name: "i18n.collectors.total_energies.name",
         description: "i18n.collectors.total_energies.description",
-        version: "2",
+        version: "3",
         website: "https://www.totalenergies.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/f/f7/Logo_TotalEnergies.svg",
         params: {
@@ -32,15 +32,15 @@ export class TotalEnergiesCollector extends ScrapperCollector {
 
     async login(driver: Driver, params: any): Promise<string | void> {
         // Refuse cookies
-        await driver.left_click(TotalEnergiesSelectors.BUTTON_REFUSE_COOKIES, { raise_exception: false, timeout: 5000});
+        await driver.leftClick(TotalEnergiesSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 
         // Input email
-        await driver.input_text(TotalEnergiesSelectors.FIELD_EMAIL, params.id);
-        await driver.input_text(TotalEnergiesSelectors.FIELD_PASSWORD, params.password);
-        await driver.left_click(TotalEnergiesSelectors.BUTTON_SUBMIT);
+        await driver.inputText(TotalEnergiesSelectors.FIELD_EMAIL, params.id);
+        await driver.inputText(TotalEnergiesSelectors.FIELD_PASSWORD, params.password);
+        await driver.leftClick(TotalEnergiesSelectors.BUTTON_SUBMIT);
     
         // Check if login alert
-        const login_alert = await driver.wait_for_element(TotalEnergiesSelectors.CONTAINER_LOGIN_ALERT, false, 5000);
+        const login_alert = await driver.getElement(TotalEnergiesSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 5000});
         if (login_alert) {
             return await login_alert.textContent("i18n.collectors.all.password.error");
         }
