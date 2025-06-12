@@ -174,6 +174,10 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 throw new UnfinishedCollectorError(this);
             }
 
+            if (downloadedInvoice.data == null || downloadedInvoice.data == '') {
+                throw new LoggableError(`Downloaded invoice data is empty`, this);
+            }
+
             return {
                 ...downloadedInvoice,
                 mimetype: mimetypeFromBase64(downloadedInvoice.data)
