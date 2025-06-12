@@ -102,6 +102,7 @@ export class Collect {
                         }
                     }
                     else {
+                        console.log(`Adding invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to credential without sending to callback`);
                         // Add invoice to credential
                         credential.addInvoice(invoice);
                     }
@@ -249,6 +250,7 @@ export class Collect {
 
                             // If data is not null, the invoice is ready
                             if(completeInvoice.data != null && completeInvoice.data.length > 0) {
+                                console.log(`Invoice ${newInvoice.id} successfully downloaded`);
                                 completeInvoices.push(completeInvoice);
                             }
                         }
