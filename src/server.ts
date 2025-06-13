@@ -496,7 +496,7 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
-        return CollectorLoader.getAll().map((collector): Config => {
+        return Array.from(CollectorLoader.getAll().values()).map((collector): Config => {
             const name: string = I18n.get(collector.config.name, locale);
             const description: string = I18n.get(collector.config.description, locale);
             const instructions: string = I18n.get(collector.config.instructions, locale);

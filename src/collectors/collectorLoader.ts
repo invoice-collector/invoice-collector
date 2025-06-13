@@ -3,7 +3,7 @@ import path from 'path';
 import { AbstractCollector } from './abstractCollector';
 
 export class CollectorLoader {
-    private static collectors: AbstractCollector[] = [];
+    private static collectors: Map<string, AbstractCollector> = new Map();
 
     static load(filter: string | null = null) {
         this.loadFolders("core", filter)
@@ -55,17 +55,17 @@ export class CollectorLoader {
                     // Set the id of the collector to the folder name
                     collector.config.id = folder.name;
                     // Add it to the list
-                    CollectorLoader.collectors.push(collector);
+                    CollectorLoader.collectors.set(collector.config.id, collector);
                 }
             }
         }
 
-        console.log(`${CollectorLoader.collectors.length} collectors loaded: ${CollectorLoader.collectors.map(c => c.config.id).join(', ')}`);
+        console.log(`${CollectorLoader.collectors.size} collectors loaded: ${Array.from(CollectorLoader.collectors.keys()).join(', ')}`);
     }
 
-    public static getAll(): AbstractCollector[] {
+    public static getAll(): Map<string, AbstractCollector> {
         //Check if collectors are loaded
-        if (CollectorLoader.collectors.length == 0) {
+        if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();
         }
         // Return all collectors
@@ -74,15 +74,16 @@ export class CollectorLoader {
 
     public static get(id: string): AbstractCollector | null {
         //Check if collectors are loaded
-        if (CollectorLoader.collectors.length == 0) {
+        if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();
         }
         // Find the collector with the id
-        const matching_collectors = CollectorLoader.collectors.filter((collector) => collector.config.id.toLowerCase() == id.toLowerCase())
-        if(matching_collectors.length > 1) {
-            throw new Error(`Found ${matching_collectors.length} collectors with id "${id}".`);
+        const collector = CollectorLoader.collectors.get(id.toLowerCase())
+
+        if(collector === undefined) {
+            throw new Error(`No collector with id "${id}" found`);
         }
         // Return the collector, or null if not found
-        return matching_collectors.length == 0 ? null : matching_collectors[0]
+        return collector
     }
 }
