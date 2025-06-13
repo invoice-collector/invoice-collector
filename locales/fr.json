@@ -89,5 +89,7 @@
 
 	"i18n.collectors.u.description": "U est une enseigne de grande distribution française.",
 
-	"i18n.collectors.bureau_vallee.description": "Bureau Vallée est un fournisseur de mobilier de bureau pour professionnels et particuliers."
+	"i18n.collectors.bureau_vallee.description": "Bureau Vallée est un fournisseur de mobilier de bureau pour professionnels et particuliers.",
+
+	"i18n.collectors.laposte.description": "La Poste est un prestataire de services postaux français."
 }
