@@ -1,9 +1,9 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { WebCollector } from '../../webCollector';
 import { USelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { Invoice } from '../abstractCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice } from '../../abstractCollector';
 
-export class UCollector extends ScrapperCollector {
+export class UCollector extends WebCollector {
 
     static CONFIG = {
         name: "U Courses",

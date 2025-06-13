@@ -3,13 +3,27 @@ import path from 'path';
 import { AbstractCollector } from './abstractCollector';
 
 export class CollectorLoader {
-    private static collectors: AbstractCollector[] = [];
+    private static collectors: Map<string, AbstractCollector> = new Map();
 
     static load(filter: string | null = null) {
-        // Dynamically import all collectors
-        const folders = fs.readdirSync(__dirname, { withFileTypes: true });
+        this.loadFolders("community", filter)
+        this.loadFolders("core", filter)
+        this.loadFolders("premium", filter)
 
-        console.log(`Loading collectors from ${__dirname}`);
+        //Order collectors by id
+        CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()].sort((a, b) => a[0].localeCompare(b[0])));
+    }
+
+    private static loadFolders(folder: string, filter: string | null) {
+        let collectors: string[] = [];
+
+        // Compute path to folder
+        const fullPath = path.join(__dirname, folder)
+
+        // Dynamically import all collectors
+        const folders = fs.readdirSync(fullPath, { withFileTypes: true });
+
+        console.log(`Loading ${folder} collectors from ${fullPath}`);
         // List all folders in the directory
         for (const folder of folders) {
             // Skip if not a directory
@@ -29,7 +43,7 @@ export class CollectorLoader {
             }
 
             // Build the file path
-            const file = path.join(__dirname, folder.name, folder.name + ".ts");
+            const file = path.join(fullPath, folder.name, folder.name + ".ts");
 
             // Check if the file exists
             if (!fs.existsSync(file)) {
@@ -47,18 +61,20 @@ export class CollectorLoader {
                     let collector = new importedModule[classKey]();
                     // Set the id of the collector to the folder name
                     collector.config.id = folder.name;
+                    // Add it to the set
+                    CollectorLoader.collectors.set(collector.config.id, collector);
                     // Add it to the list
-                    CollectorLoader.collectors.push(collector);
+                    collectors.push(collector.config.id);
                 }
             }
         }
 
-        console.log(`${CollectorLoader.collectors.length} collectors loaded: ${CollectorLoader.collectors.map(c => c.config.id).join(', ')}`);
+        console.log(`${collectors.length} ${folder} collectors loaded: ${collectors.join(', ')}`);
     }
 
-    public static getAll(): AbstractCollector[] {
+    public static getAll(): Map<string, AbstractCollector> {
         //Check if collectors are loaded
-        if (CollectorLoader.collectors.length == 0) {
+        if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();
         }
         // Return all collectors
@@ -67,15 +83,16 @@ export class CollectorLoader {
 
     public static get(id: string): AbstractCollector | null {
         //Check if collectors are loaded
-        if (CollectorLoader.collectors.length == 0) {
+        if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();
         }
         // Find the collector with the id
-        const matching_collectors = CollectorLoader.collectors.filter((collector) => collector.config.id.toLowerCase() == id.toLowerCase())
-        if(matching_collectors.length > 1) {
-            throw new Error(`Found ${matching_collectors.length} collectors with id "${id}".`);
+        const collector = CollectorLoader.collectors.get(id.toLowerCase())
+
+        if(collector === undefined) {
+            throw new Error(`No collector with id "${id}" found`);
         }
         // Return the collector, or null if not found
-        return matching_collectors.length == 0 ? null : matching_collectors[0]
+        return collector
     }
 }

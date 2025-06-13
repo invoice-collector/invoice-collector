@@ -1,9 +1,9 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { WebCollector } from '../../webCollector';
 import { BureauValleeSelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { Invoice } from '../abstractCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice } from '../../abstractCollector';
 
-export class BureauValleeCollector extends ScrapperCollector {
+export class BureauValleeCollector extends WebCollector {
 
     static CONFIG = {
         name: "Bureau Vallee",

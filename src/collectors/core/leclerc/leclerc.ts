@@ -1,9 +1,9 @@
-import { Driver } from '../../driver/driver';
-import { Invoice } from '../abstractCollector';
-import { ScrapperCollector } from '../scrapperCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice } from '../../abstractCollector';
+import { WebCollector } from '../../webCollector';
 import { LeclercSelectors } from './selectors';
 
-export class LeclercCollector extends ScrapperCollector {
+export class LeclercCollector extends WebCollector {
 
     static CONFIG = {
         name: "E.Leclerc",

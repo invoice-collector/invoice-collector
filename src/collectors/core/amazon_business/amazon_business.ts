@@ -1,11 +1,11 @@
-import { Driver } from '../../driver/driver';
-import { DownloadedInvoice, Invoice } from '../abstractCollector';
-import { ScrapperCollector } from '../scrapperCollector';
+import { Driver } from '../../../driver/driver';
+import { DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { WebCollector } from '../../webCollector';
 import { AmazonSelectors } from './selectors';
-import { timestampFromString } from '../../utils';
-import { TwofaPromise } from '../../collect/twofaPromise';
+import { timestampFromString } from '../../../utils';
+import { TwofaPromise } from '../../../collect/twofaPromise';
 
-export class AmazonBusinessCollector extends ScrapperCollector {
+export class AmazonBusinessCollector extends WebCollector {
 
     static CONFIG = {
         name: "Amazon Business FR",

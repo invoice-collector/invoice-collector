@@ -1,9 +1,9 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { WebCollector } from '../../webCollector';
 import { TotalEnergiesSelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { Invoice } from '../abstractCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice } from '../../abstractCollector';
 
-export class TotalEnergiesCollector extends ScrapperCollector {
+export class TotalEnergiesCollector extends WebCollector {
 
     static CONFIG = {
         name: "i18n.collectors.total_energies.name",

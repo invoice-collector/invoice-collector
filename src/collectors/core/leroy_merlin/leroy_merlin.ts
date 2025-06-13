@@ -1,9 +1,9 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { Invoice, DownloadedInvoice } from '../abstractCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice, DownloadedInvoice } from '../../abstractCollector';
 
-export class LeroyMerlinCollector extends ScrapperCollector {
+export class LeroyMerlinCollector extends WebCollector {
 
     static CONFIG = {
         name: "Leroy Merlin",
