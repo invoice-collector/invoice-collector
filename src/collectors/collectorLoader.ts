@@ -9,6 +9,9 @@ export class CollectorLoader {
         this.loadFolders("community", filter)
         this.loadFolders("core", filter)
         this.loadFolders("premium", filter)
+
+        //Order collectors by id
+        CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()].sort((a, b) => a[0].localeCompare(b[0])));
     }
 
     private static loadFolders(folder: string, filter: string | null) {
