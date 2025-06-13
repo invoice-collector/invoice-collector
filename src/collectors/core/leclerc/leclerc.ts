@@ -1,6 +1,6 @@
-import { Driver } from '../../driver/driver';
-import { Invoice } from '../abstractCollector';
-import { ScrapperCollector } from '../scrapperCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice } from '../../abstractCollector';
+import { ScrapperCollector } from '../../scrapperCollector';
 import { LeclercSelectors } from './selectors';
 
 export class LeclercCollector extends ScrapperCollector {

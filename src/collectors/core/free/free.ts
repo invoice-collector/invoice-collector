@@ -1,7 +1,7 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { ScrapperCollector } from '../../scrapperCollector';
 import { FreeSelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { DownloadedInvoice, Invoice } from '../abstractCollector';
+import { Driver } from '../../../driver/driver';
+import { DownloadedInvoice, Invoice } from '../../abstractCollector';
 
 export class FreeCollector extends ScrapperCollector {
 

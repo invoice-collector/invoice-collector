@@ -1,7 +1,7 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { ScrapperCollector } from '../../scrapperCollector';
 import { OrangeSelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { Invoice } from '../abstractCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice } from '../../abstractCollector';
 
 export class OrangeCollector extends ScrapperCollector {
 

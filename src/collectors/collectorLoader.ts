@@ -6,10 +6,17 @@ export class CollectorLoader {
     private static collectors: AbstractCollector[] = [];
 
     static load(filter: string | null = null) {
-        // Dynamically import all collectors
-        const folders = fs.readdirSync(__dirname, { withFileTypes: true });
+        this.loadFolders("core", filter)
+    }
 
-        console.log(`Loading collectors from ${__dirname}`);
+    private static loadFolders(folder: string, filter: string | null) {
+        // Compute path to folder
+        const fullPath = path.join(__dirname, folder)
+
+        // Dynamically import all collectors
+        const folders = fs.readdirSync(fullPath, { withFileTypes: true });
+
+        console.log(`Loading ${folder} collectors from ${fullPath}`);
         // List all folders in the directory
         for (const folder of folders) {
             // Skip if not a directory
@@ -29,7 +36,7 @@ export class CollectorLoader {
             }
 
             // Build the file path
-            const file = path.join(__dirname, folder.name, folder.name + ".ts");
+            const file = path.join(fullPath, folder.name, folder.name + ".ts");
 
             // Check if the file exists
             if (!fs.existsSync(file)) {

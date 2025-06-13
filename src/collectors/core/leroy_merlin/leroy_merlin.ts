@@ -1,7 +1,7 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { ScrapperCollector } from '../../scrapperCollector';
 import { LeroyMerlinSelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { Invoice, DownloadedInvoice } from '../abstractCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice, DownloadedInvoice } from '../../abstractCollector';
 
 export class LeroyMerlinCollector extends ScrapperCollector {
 

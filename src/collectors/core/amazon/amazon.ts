@@ -1,9 +1,9 @@
-import { Driver } from '../../driver/driver';
-import { DownloadedInvoice, Invoice } from '../abstractCollector';
-import { ScrapperCollector } from '../scrapperCollector';
+import { Driver } from '../../../driver/driver';
+import { DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { ScrapperCollector } from '../../scrapperCollector';
 import { AmazonSelectors } from './selectors';
-import { timestampFromString } from '../../utils';
-import { TwofaPromise } from '../../collect/twofaPromise';
+import { timestampFromString } from '../../../utils';
+import { TwofaPromise } from '../../../collect/twofaPromise';
 
 export class AmazonCollector extends ScrapperCollector {
 

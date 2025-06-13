@@ -1,8 +1,8 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { ScrapperCollector } from '../../scrapperCollector';
 import { CarrefourSelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { DownloadedInvoice, Invoice } from '../abstractCollector';
-import { TwofaPromise } from '../../collect/twofaPromise';
+import { Driver } from '../../../driver/driver';
+import { DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { TwofaPromise } from '../../../collect/twofaPromise';
 
 export class CarrefourCollector extends ScrapperCollector {
 
