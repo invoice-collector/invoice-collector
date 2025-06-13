@@ -13,6 +13,7 @@ on:
 env:
   TAG: master
   IMAGE_NAME: ghcr.io/invoice-collector/invoice-collector
+  IMAGE_NAME_PREMIUM: ghcr.io/invoice-collector/invoice-collector-premium
   DEPLOYMENT_NAME_DEMO: invoice-collector-demo
   DEPLOYMENT_NAME_PROD: invoice-collector-prod
 
@@ -22,6 +23,38 @@ permissions:
 
 jobs:
   publish-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        lfs: true
+
+    - name: Login to GitHub Container Registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup QEMU
+      uses: docker/setup-qemu-action@v3
+
+    - name: Setup Docker Buildx
+      uses: docker/setup-buildx-action@v3
+
+    - name: Build and push
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        platforms: linux/amd64
+        push: true
+        provenance: false
+        tags: |
+            ${{ env.IMAGE_NAME }}:${{ env.TAG }}
+
+  publish-image-premium:
     runs-on: ubuntu-latest
 
     steps:
@@ -52,17 +85,18 @@ jobs:
         push: true
         provenance: false
         tags: |
-            ${{ env.IMAGE_NAME }}:${{ env.TAG }}
+            ${{ env.IMAGE_NAME_PREMIUM }}:${{ env.TAG }}
 
   push-to-kubernetes:
     runs-on: ubuntu-latest
-    needs: publish-image
+    needs: publish-image-premium
 
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
         lfs: true
+        submodules: recursive
 
     - name: Reload Demo Deployement
       uses: actions-hub/kubectl@master
