@@ -248,11 +248,8 @@ export class Collect {
                         for(let newInvoice of newInvoices) {
                             const completeInvoice = await collector._download(newInvoice);
 
-                            // If data is not null, the invoice is ready
-                            if(completeInvoice.data != null && completeInvoice.data.length > 0) {
-                                console.log(`Invoice ${newInvoice.id} successfully downloaded`);
-                                completeInvoices.push(completeInvoice);
-                            }
+                            console.log(`Invoice ${newInvoice.id} successfully downloaded`);
+                            completeInvoices.push(completeInvoice);
                         }
 
                         // Order invoices by timestamp

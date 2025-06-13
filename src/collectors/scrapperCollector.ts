@@ -174,7 +174,8 @@ export abstract class ScrapperCollector extends AbstractCollector {
                 throw new UnfinishedCollectorError(this);
             }
 
-            if (downloadedInvoice.data == null || downloadedInvoice.data == '') {
+            // If data field is missing, collector is broken
+            if (downloadedInvoice.data == null || downloadedInvoice.data.length === 0) {
                 throw new LoggableError(`Downloaded invoice data is empty`, this);
             }
 
