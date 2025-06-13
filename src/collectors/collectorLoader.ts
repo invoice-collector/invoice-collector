@@ -6,10 +6,14 @@ export class CollectorLoader {
     private static collectors: Map<string, AbstractCollector> = new Map();
 
     static load(filter: string | null = null) {
+        this.loadFolders("community", filter)
         this.loadFolders("core", filter)
+        this.loadFolders("premium", filter)
     }
 
     private static loadFolders(folder: string, filter: string | null) {
+        let collectors: string[] = [];
+
         // Compute path to folder
         const fullPath = path.join(__dirname, folder)
 
@@ -54,13 +58,15 @@ export class CollectorLoader {
                     let collector = new importedModule[classKey]();
                     // Set the id of the collector to the folder name
                     collector.config.id = folder.name;
-                    // Add it to the list
+                    // Add it to the set
                     CollectorLoader.collectors.set(collector.config.id, collector);
+                    // Add it to the list
+                    collectors.push(collector.config.id);
                 }
             }
         }
 
-        console.log(`${CollectorLoader.collectors.size} collectors loaded: ${Array.from(CollectorLoader.collectors.keys()).join(', ')}`);
+        console.log(`${collectors.length} ${folder} collectors loaded: ${collectors.join(', ')}`);
     }
 
     public static getAll(): Map<string, AbstractCollector> {

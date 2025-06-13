@@ -1,0 +1,3 @@
+[submodule "src/collectors/premium"]
+	path = src/collectors/premium
+	url = https://github.com/invoice-collector/premium-collectors.git
