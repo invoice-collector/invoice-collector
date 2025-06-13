@@ -132,7 +132,7 @@ export class Driver {
                 });
 
                 this.page.on('response', async (response) => {
-                    if (response.url().includes(network_request) && response.status() === 200) {
+                    if (response.url().includes(network_request) && response.ok()) {
                         const requestBody = JSON.parse(response.request().postData() || '{}');
                         const responseBody = await response.json();
                         resolve({requestBody, responseBody});
@@ -154,6 +154,26 @@ export class Driver {
             await this.page.goto(url, {waitUntil: 'networkidle0'});
             return {requestBody: null, responseBody: null};
         }
+    }
+
+    /**
+     * Navigates to the given URL and returns the parsed JSON from the body element.
+     * @param url The URL to navigate to.
+     * @returns The parsed JSON object from the body.
+     */
+    async goToJson(url: string): Promise<any> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        await this.page.goto(url, { waitUntil: 'networkidle0' });
+        const data = await this.page.$eval("body", (element) => {
+            try {
+                return JSON.parse(element.innerText);
+            } catch {
+                return null;
+            }
+        });
+        return data;
     }
 
     // WAIT
