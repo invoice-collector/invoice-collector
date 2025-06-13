@@ -3,7 +3,7 @@ dotenv.config();
 import { expect, describe } from '@jest/globals';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { AuthenticationError } from '../src/error';
-import { ScrapperCollector } from '../src/collectors/scrapperCollector';
+import { WebCollector } from '../src/collectors/webCollector';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
 import { State } from '../src/model/credential';
@@ -23,11 +23,11 @@ else {
     }
 }
 
-for (const collector of CollectorLoader.getAll()) {
+for (const collector of CollectorLoader.getAll().values()) {
     const id: string = collector.config.id;
-    
+
     // Check if collector not found
-    if (collector instanceof ScrapperCollector) {
+    if (collector instanceof WebCollector) {
         describe(`${id} tests`, () => {
             it('Login with incorrect email format', async () => {
                 const secret: Secret = {

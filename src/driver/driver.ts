@@ -6,7 +6,7 @@ import { Browser, DownloadPolicy, ElementHandle, KeyInput } from "rebrowser-pupp
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
-import { ScrapperCollector } from '../collectors/scrapperCollector';
+import { WebCollector } from '../collectors/webCollector';
 import { Options } from './puppeteer/browser';
 
 export class Driver {
@@ -45,11 +45,11 @@ export class Driver {
         }
     };
 
-    collector: ScrapperCollector;
+    collector: WebCollector;
     browser: Browser | null;
     page: PageWithCursor | null;
 
-    constructor(collector: ScrapperCollector) {
+    constructor(collector: WebCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;

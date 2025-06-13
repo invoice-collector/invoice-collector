@@ -1,9 +1,9 @@
-import { ScrapperCollector } from '../../scrapperCollector';
+import { WebCollector } from '../../webCollector';
 import { FreeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
 import { DownloadedInvoice, Invoice } from '../../abstractCollector';
 
-export class FreeCollector extends ScrapperCollector {
+export class FreeCollector extends WebCollector {
 
     static CONFIG = {
         name: "Free",

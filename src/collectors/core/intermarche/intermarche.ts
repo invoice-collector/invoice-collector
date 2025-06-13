@@ -1,9 +1,9 @@
-import { ScrapperCollector } from '../../scrapperCollector';
+import { WebCollector } from '../../webCollector';
 import { IntermarcheSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
 import { Invoice } from '../../abstractCollector';
 
-export class IntermarcheCollector extends ScrapperCollector {
+export class IntermarcheCollector extends WebCollector {
 
     static CONFIG = {
         name: "Intermarché",

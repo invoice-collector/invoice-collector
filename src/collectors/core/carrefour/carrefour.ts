@@ -1,10 +1,10 @@
-import { ScrapperCollector } from '../../scrapperCollector';
+import { WebCollector } from '../../webCollector';
 import { CarrefourSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
 import { DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 
-export class CarrefourCollector extends ScrapperCollector {
+export class CarrefourCollector extends WebCollector {
 
     static CONFIG = {
         name: "Carrefour",
