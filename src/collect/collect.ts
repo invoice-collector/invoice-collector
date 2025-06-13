@@ -235,7 +235,7 @@ export class Collect {
                 let completeInvoices: CompleteInvoice[] = [];
 
                 if(newInvoices.length > 0) {
-                    console.log(`Found ${invoices.length} invoices but only ${newInvoices.length} are new`);
+                    console.log(`Found ${invoices.length} invoices and ${newInvoices.length} are new`);
 
                     // Download new invoices if needed
                     if(download) {
