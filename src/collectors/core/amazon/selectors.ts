@@ -56,15 +56,15 @@ export const AmazonSelectors = {
         info: "order container"
     },
     CONTAINER_DATE: {
-        selector: ".a-span4 div:last-of-type span",
+        selector: ".a-col-left div.a-column:nth-child(1) div:last-of-type span",
         info: "order date"
     },
     CONTAINER_AMOUNT: {
-        selector: ".a-span2 div:last-of-type span",
+        selector: ".a-col-left div.a-column:nth-child(2) div:last-of-type span",
         info: "order amount"
     },
     CONTAINER_ID: {
-        selector: "div.yohtmlc-order-id > span.a-color-secondary:not([class*=' '])",
+        selector: ".a-col-right div.yohtmlc-order-id span:last-child",
         info: "order id"
     }
 }
