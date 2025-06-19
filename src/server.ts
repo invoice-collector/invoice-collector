@@ -125,7 +125,7 @@ export class Server {
         // Map token with user
         this.tokens[token] = user;
 
-        // Schedule token delete after 1 hour
+        // Schedule token delete after validity duration
         setTimeout(() => {
             delete this.tokens[token];
             console.log(`Token ${token} deleted`);
