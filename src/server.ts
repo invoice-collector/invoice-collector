@@ -20,6 +20,7 @@ import { I18n } from './i18n';
 export class Server {
 
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS"));
+    static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
 
     tokens: object;
     secret_manager: AbstractSecretManager;
@@ -60,11 +61,6 @@ export class Server {
             throw new MissingField("locale");
         }
 
-        //Check if email field is missing
-        if(!email) {
-            throw new MissingField("email");
-        }
-
         //Check if locale is supported
         if(locale && !I18n.LOCALES.includes(locale)) {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
@@ -75,8 +71,23 @@ export class Server {
 
         // If user does not exist, create it
         if(!user) {
-            // Send terms and conditions email
-            const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
+            let termsConditions;
+            // If terms and conditions are required, send email
+            if (!Server.DISABLE_VERIFICATION_CODE) {
+                //Check if email field is missing
+                if(!email) {
+                    throw new MissingField("email");
+                }
+                // Send terms and conditions email
+                termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
+            } else {
+                // If terms and conditions are not required, set validTimestamp to now
+                termsConditions = {
+                    verificationCode: null,
+                    sentTimestamp: Date.now(),
+                    validTimestamp: Date.now()
+                };
+            }
             // Create user
             user = new User(customer.id, remote_id, null, locale, termsConditions);
         }
@@ -86,15 +97,27 @@ export class Server {
 
             // Check if user has accepted terms and conditions
             if (!user.termsConditions.validTimestamp) {
-                // Send terms and conditions email
-                const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
-                // Update terms and conditions
-                user.termsConditions = termsConditions;
+                // If terms and conditions are required, send email
+                if (!Server.DISABLE_VERIFICATION_CODE) {
+                    //Check if email field is missing
+                    if(!email) {
+                        throw new MissingField("email");
+                    }
+                    // Send terms and conditions email
+                    const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
+                    // Update terms and conditions
+                    user.termsConditions = termsConditions;
+                }
+                else {
+                    // This case can happend the DISABLE_VERIFICATION_CODE environment variable is changed after the user has been created.
+                    // If terms and conditions are not required, set validTimestamp to now
+                    user.termsConditions.validTimestamp = Date.now();
+                }
             }
         }
 
         // Commit changes in database
-        user.commit();
+        await user.commit();
 
         // Generate oauth token
         const token = generate_token();
@@ -102,7 +125,7 @@ export class Server {
         // Map token with user
         this.tokens[token] = user;
 
-        // Schedule token delete after 1 hour
+        // Schedule token delete after validity duration
         setTimeout(() => {
             delete this.tokens[token];
             console.log(`Token ${token} deleted`);
