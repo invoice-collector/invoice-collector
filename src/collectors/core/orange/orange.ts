@@ -8,7 +8,7 @@ export class OrangeCollector extends WebCollector {
     static CONFIG = {
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "3",
+        version: "4",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         params: {
@@ -23,7 +23,8 @@ export class OrangeCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures"
+        entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
+        useProxy: false // TODO: Proxy is not compatible with Orange
     }
 
     constructor() {
@@ -53,6 +54,9 @@ export class OrangeCollector extends WebCollector {
         if (password_alert) {
             return await password_alert.textContent("i18n.collectors.all.password.error");
         }
+
+        // Skip 2FA proposal if displayed
+        await driver.leftClick(OrangeSelectors.BUTTON_SKIP_2FA, { raiseException: false, timeout: 2000 });
     }
 
     async collect(driver: Driver, params: any): Promise<void> {

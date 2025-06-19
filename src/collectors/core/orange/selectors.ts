@@ -25,7 +25,7 @@ export const OrangeSelectors = {
         info: "login alert container"
     },
     FIELD_PASSWORD: {
-        selector: "#password-label",
+        selector: "#password",
         info: "password input"
     },
     BUTTON_SUBMIT: {
@@ -35,5 +35,9 @@ export const OrangeSelectors = {
     CONTAINER_PASSWORD_ALERT: {
         selector: "#password-invalid-feedback",
         info: "password alert container"
+    },
+    BUTTON_SKIP_2FA: {
+        selector: "button[data-testid='link-aba-later']",
+        info: "skip 2FA button"
     },
 }
