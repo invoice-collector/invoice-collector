@@ -8,7 +8,7 @@ export class TotalEnergiesCollector extends WebCollector {
     static CONFIG = {
         name: "i18n.collectors.total_energies.name",
         description: "i18n.collectors.total_energies.description",
-        version: "3",
+        version: "4",
         website: "https://www.totalenergies.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/f/f7/Logo_TotalEnergies.svg",
         params: {
@@ -23,7 +23,7 @@ export class TotalEnergiesCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.totalenergies.fr/clients/connexion"
+        entryUrl: "https://www.totalenergies.fr/clients/mes-factures/"
     }
 
     constructor() {
@@ -37,6 +37,7 @@ export class TotalEnergiesCollector extends WebCollector {
         // Input email
         await driver.inputText(TotalEnergiesSelectors.FIELD_EMAIL, params.id);
         await driver.inputText(TotalEnergiesSelectors.FIELD_PASSWORD, params.password);
+        await driver.leftClick(TotalEnergiesSelectors.CHECKBOX_STAY_CONNECTED, { navigation: false });
         await driver.leftClick(TotalEnergiesSelectors.BUTTON_SUBMIT);
     
         // Check if login alert

@@ -20,6 +20,10 @@ export const TotalEnergiesSelectors = {
         selector: "#formz-authentification-form-password",
         info: "password input"
     },
+    CHECKBOX_STAY_CONNECTED: {
+        selector: "label[for='formz-authentification-form-reste-connecte']",
+        type: "stay connected checkbox"
+    },
     BUTTON_SUBMIT: {
         selector: "#js--btn-validation",
         info: "submit button"
