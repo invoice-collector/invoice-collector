@@ -8,7 +8,7 @@ import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/credential";
 
-export type ScrapperConfig = {
+export type WebConfig = {
     name: string,
     description: string,
     instructions?: string,
@@ -27,17 +27,17 @@ export type ScrapperConfig = {
     captcha?: "datadome" | "cloudflare"
 }
 
-export abstract class ScrapperCollector extends AbstractCollector {
+export abstract class WebCollector extends AbstractCollector {
 
     static TYPE: "web" = 'web';
 
     driver: Driver | null;
 
-    constructor(config: ScrapperConfig) {
+    constructor(config: WebConfig) {
         super({
             ...config,
             id: '',
-            type: ScrapperCollector.TYPE,
+            type: WebCollector.TYPE,
             useProxy: config.useProxy === undefined ? true : config.useProxy,
         });
         this.driver = null;
@@ -172,6 +172,11 @@ export abstract class ScrapperCollector extends AbstractCollector {
             // If downloadedInvoice is undefined, collector is unfinished
             if (!downloadedInvoice) {
                 throw new UnfinishedCollectorError(this);
+            }
+
+            // If data field is missing, collector is broken
+            if (downloadedInvoice.data == null || downloadedInvoice.data.length === 0) {
+                throw new LoggableError(`Downloaded invoice data is empty`, this);
             }
 
             return {

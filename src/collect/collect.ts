@@ -102,6 +102,7 @@ export class Collect {
                         }
                     }
                     else {
+                        console.log(`Adding invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to credential without sending to callback`);
                         // Add invoice to credential
                         credential.addInvoice(invoice);
                     }
@@ -234,7 +235,7 @@ export class Collect {
                 let completeInvoices: CompleteInvoice[] = [];
 
                 if(newInvoices.length > 0) {
-                    console.log(`Found ${invoices.length} invoices but only ${newInvoices.length} are new`);
+                    console.log(`Found ${invoices.length} invoices and ${newInvoices.length} are new`);
 
                     // Download new invoices if needed
                     if(download) {
@@ -247,10 +248,8 @@ export class Collect {
                         for(let newInvoice of newInvoices) {
                             const completeInvoice = await collector._download(newInvoice);
 
-                            // If data is not null, the invoice is ready
-                            if(completeInvoice.data != null && completeInvoice.data.length > 0) {
-                                completeInvoices.push(completeInvoice);
-                            }
+                            console.log(`Invoice ${newInvoice.id} successfully downloaded`);
+                            completeInvoices.push(completeInvoice);
                         }
 
                         // Order invoices by timestamp

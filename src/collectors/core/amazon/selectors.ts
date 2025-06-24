@@ -5,6 +5,10 @@ export const AmazonSelectors = {
         selector: "#ap_email",
         info: "login input field"
     },
+    BUTTON_CONTINUE: {
+        selector: "#continue",
+        info: "continue button field"
+    },
     FIELD_PASSWORD: {
         selector: "#ap_password",
         info: "password input field"
@@ -14,15 +18,12 @@ export const AmazonSelectors = {
         info: "submit form button"
     },
     CONTAINER_LOGIN_ALERT: {
-        selector: "#auth-error-message-box div div",
+        selector: "div[id='auth-email-invalid-claim-alert'][style*='block'] div[class='a-alert-content'], div[id='auth-error-message-box'] div[class='a-alert-content']",
         info: "login alert container"
     },
-
-    // COMPANY SELECTION PAGE
-
-    CONTAINER_COMPANY_SELECTION: {
-        selector: "div.cvf-account-switcher-check-mark-icon-v2:not(.cvf-hidden)",
-        info: "company selection container"
+    CONTAINER_CAPTCHA: {
+        selector: "img[alt='captcha'], #captcha-container",
+        info: "captcha container"
     },
 
     // 2FA PAGE
@@ -51,23 +52,19 @@ export const AmazonSelectors = {
     //INVOICES PAGE
 
     CONTAINER_ORDER: {
-        selector: "#yourOrderHistorySection #orderCard #orderCardHeader",
+        selector: ".order-card .order-header",
         info: "order container"
     },
     CONTAINER_DATE: {
-        selector: ".a-span2:first-of-type .a-size-base",
+        selector: ".a-col-left div.a-column:nth-child(1) div:last-of-type span",
         info: "order date"
     },
     CONTAINER_AMOUNT: {
-        selector: ".a-column:nth-child(2) .a-size-base",
+        selector: ".a-col-left div.a-column:nth-child(2) div:last-of-type span",
         info: "order amount"
     },
     CONTAINER_ID: {
-        selector: "#orderIdField div",
+        selector: ".a-col-right div.yohtmlc-order-id span:last-child",
         info: "order id"
-    },
-    CONTAINER_ID_LABEL: {
-        selector: "#orderIdField div span",
-        info: "order id label"
     }
 }

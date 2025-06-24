@@ -1,14 +1,14 @@
-import { ScrapperCollector } from '../scrapperCollector';
+import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
-import { Driver } from '../../driver/driver';
-import { Invoice, DownloadedInvoice } from '../abstractCollector';
+import { Driver } from '../../../driver/driver';
+import { Invoice, DownloadedInvoice } from '../../abstractCollector';
 
-export class LeroyMerlinCollector extends ScrapperCollector {
+export class LeroyMerlinCollector extends WebCollector {
 
     static CONFIG = {
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "6",
+        version: "8",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leroy_Merlin.svg",
         params: {
@@ -36,32 +36,32 @@ export class LeroyMerlinCollector extends ScrapperCollector {
         await driver.waitForDatadomeCaptcha();
 
         // Refuse cookies
-        await driver.left_click(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raise_exception: false, delay: 1000, navigation: false });
+        await driver.leftClick(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, delay: 1000, navigation: false });
 
         // Close shop chooser
-        await driver.left_click(LeroyMerlinSelectors.BUTTON_CLOSE_SHOP_CHOOSER, { raise_exception: false, delay: 1000, navigation: false });
+        await driver.leftClick(LeroyMerlinSelectors.BUTTON_CLOSE_SHOP_CHOOSER, { raiseException: false, delay: 1000, navigation: false });
 
         // Open login page
-        await driver.left_click(LeroyMerlinSelectors.BUTTON_LOGIN_PAGE);
+        await driver.leftClick(LeroyMerlinSelectors.BUTTON_LOGIN_PAGE);
 
         // Input email
-        await driver.input_text(LeroyMerlinSelectors.INPUT_EMAIL, params.id);
+        await driver.inputText(LeroyMerlinSelectors.INPUT_EMAIL, params.id);
         await driver.press('Enter');
 
         // Check if email is incorrect
-        const email_error = await driver.wait_for_element(LeroyMerlinSelectors.CONTAINER_EMAIL_ERROR, false, 2000);
+        const email_error = await driver.getElement(LeroyMerlinSelectors.CONTAINER_EMAIL_ERROR, { raiseException: false, timeout: 2000});
         if (email_error) {
-            return await email_error.evaluate(e => e.textContent) || "i18n.collectors.all.email.error";
+            return await email_error.textContent("i18n.collectors.all.email.error");
         }
 
         // Input password
-        await driver.input_text(LeroyMerlinSelectors.INPUT_PASSWORD, params.password, { delay: 1000 });
-        await driver.left_click(LeroyMerlinSelectors.BUTTON_PASSWORD_CONTINUE);
+        await driver.inputText(LeroyMerlinSelectors.INPUT_PASSWORD, params.password, { delay: 1000 });
+        await driver.leftClick(LeroyMerlinSelectors.BUTTON_PASSWORD_CONTINUE);
             
         // Check if password is incorrect
-        const password_error = await driver.wait_for_element(LeroyMerlinSelectors.CONTAINER_PASSWORD_ERROR, false, 2000);
+        const password_error = await driver.getElement(LeroyMerlinSelectors.CONTAINER_PASSWORD_ERROR, { raiseException: false, timeout: 2000});
         if (password_error) {
-            return await password_error.evaluate(e => e.textContent) || "i18n.collectors.all.password.error";
+            return await password_error.textContent("i18n.collectors.all.password.error");
         }
     }
 
@@ -84,7 +84,7 @@ export class LeroyMerlinCollector extends ScrapperCollector {
         // If the order is from a third party provider, clicking on the button will ask leroy merlin to request the invoice from the provider.
         // It can take few hours for the invoice to be available.
         // Next time the button will be clicked, the invoice will be effectively downloaded.
-        await driver.left_click(LeroyMerlinSelectors.BUTTON_DOWNLOAD);
+        await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD);
         return await this.download_from_file(driver, invoice);
     }
 }

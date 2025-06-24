@@ -1,8 +1,8 @@
 import * as crypto from 'crypto';
 import { AxiosInstance } from "axios";
-import { ApiCollector } from '../apiCollector';
-import { DownloadedInvoice } from '../abstractCollector';
-import { AuthenticationError } from '../../error';
+import { ApiCollector } from '../../apiCollector';
+import { DownloadedInvoice } from '../../abstractCollector';
+import { AuthenticationError } from '../../../error';
 
 export class OvhCollector extends ApiCollector {
 
