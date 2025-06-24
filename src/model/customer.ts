@@ -1,4 +1,4 @@
-import { AuthenticationBearerError } from "../error";
+import { StatusError, AuthenticationBearerError } from "../error";
 import { DatabaseFactory } from "../database/databaseFactory";
 import * as utils from "../utils";
 import { User } from "./user";
@@ -62,5 +62,25 @@ export class Customer {
 
     async getUsers(): Promise<User[]> {
         return await DatabaseFactory.getDatabase().getUsers(this.id);
+    }
+
+    setTheme(theme: string) {
+        //Check if theme is supported
+        if(!Object.values(Theme).includes(theme as Theme)) {
+            throw new StatusError(`Theme "${theme}" not supported. Available locales are: ${Object.values(Theme).join(", ")}.`, 400);
+        }
+
+        this.theme = theme as Theme;
+    }
+
+    async commit() {
+        if (this.id) {
+            // Update existing customer
+            await DatabaseFactory.getDatabase().updateCustomer(this);
+        }
+        else {
+            // Create customer
+            await DatabaseFactory.getDatabase().createCustomer(this);
+        }
     }
 }

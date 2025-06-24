@@ -204,6 +204,36 @@ export class Server {
         return { name: customer.name, callback: customer.callback, theme: customer.theme };
     }
 
+    // BEARER AUTHENTICATION
+    public async post_customer(bearer: string | undefined, name: string | undefined, callback: string | undefined, theme: string | undefined): Promise<any> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        //Check if name field is missing
+        if(!name) {
+            throw new MissingField("name");
+        }
+
+        //Check if callback field is missing
+        if(!callback) {
+            throw new MissingField("callback");
+        }
+
+        //Check if theme field is missing
+        if(!theme) {
+            throw new MissingField("theme");
+        }
+
+        customer.name = name;
+        customer.callback = callback;
+        customer.setTheme(theme);
+
+        // Commit changes in database
+        await customer.commit();
+
+        return { name: customer.name, callback: customer.callback, theme: customer.theme };
+    }
+
     // ---------- USER ENDPOINTS ----------
 
     public async get_users(bearer: string | undefined): Promise<{id: string, remote_id: string, locale: string}[]> {
