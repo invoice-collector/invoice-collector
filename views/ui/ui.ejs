@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice-Collector - <%= __('i18n.views.manage.my-collectors') %></title>
+    <title>Invoice-Collector - <%= __('i18n.views.manage.my_collectors') %></title>
     <link rel="stylesheet" href="/views/styles.css">
     <link rel="stylesheet" href="/views/themes/<%= theme %>.css">
     <link rel="icon" href="/views/icons/favicon.ico" type="image/x-icon">
@@ -15,10 +15,10 @@
 
         <div id="credentials-container" class="container">
             <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.my-collectors') %></h1>
+            <h1><%= __('i18n.views.manage.my_collectors') %></h1>
             <!-- BUTTON -->
             <div class="credentials-buttons">
-                <button class="button action-button" onclick="showCompanies()"><%= __('i18n.views.manage.add-collectors') %></button>
+                <button class="button action-button" onclick="showCompanies()"><%= __('i18n.views.manage.add_collectors') %></button>
             </div>
             <!-- CREDENTIALS TABLE -->
             <table id="credentials-table">
@@ -48,12 +48,12 @@
             <!-- BUTTON -->
             <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
             <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.add-collectors') %></h1>
+            <h1><%= __('i18n.views.manage.add_collectors') %></h1>
             <!-- COMPANIES LIST -->
             <ul id="companies-list"></ul>
             
             <div class="companies-buttons">
-                <button class="button delete-button no-collector-button" onclick="showFeedback()"><%= __('i18n.views.manage.no-collector') %></button>
+                <button class="button delete-button no-collector-button" onclick="showFeedback()"><%= __('i18n.views.manage.no_collector') %></button>
             </div>
         </div>
 
@@ -63,7 +63,7 @@
             <!-- BUTTON -->
             <button class="button return-button" onclick="showCompanies()"><%= __('i18n.views.manage.return') %></button>
             <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.add-collectors') %></h1>
+            <h1><%= __('i18n.views.manage.add_collectors') %></h1>
             <!-- FORM -->
             <div id="add-credential-form-container">
                 <div class="form-item">
@@ -81,7 +81,7 @@
                     <div id="add-credential-form-params"></div>
                     <label><%= __('i18n.collectors.all.note') %></label>
                     <input type="text" name="note" placeholder="<%= __('i18n.collectors.all.note.placeholder') %>">
-                    <button type="submit" class="button action-button"><%= __('i18n.views.manage.add-collectors') %></button>
+                    <button type="submit" class="button action-button"><%= __('i18n.views.manage.add_collectors') %></button>
                 </form>
             </div>
         </div>
@@ -90,7 +90,7 @@
 
         <div id="progress-container" class="container" hidden>
             <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.adding-collector') %></h1>
+            <h1><%= __('i18n.views.manage.adding_collector') %></h1>
             <!-- PROGRESS BAR -->
             <div id="progress-text">
             </div>
@@ -129,14 +129,14 @@
             <!-- BUTTON -->
             <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
             <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.send-feedback') %></h1>
+            <h1><%= __('i18n.views.manage.send_feedback') %></h1>
             <!-- FORM -->
             <form id="feedback-form">
                 <label><%= __('i18n.views.manage.feedback') %><span style="color: red;"> *</span></label>
                 <textarea type="text" name="feedback" placeholder="<%= __('i18n.views.manage.feedback.placeholder') %>" required></textarea>
                 <label><%= __('i18n.collectors.all.email') %></label>
                 <input type="text" name="email" type="email" placeholder="<%= __('i18n.views.manage.feedback.email.placeholder') %>">
-                <button type="submit" class="button action-button"><%= __('i18n.views.manage.send-feedback') %></button>
+                <button type="submit" class="button action-button"><%= __('i18n.views.manage.send_feedback') %></button>
             </form>
             <!-- RESPONSE -->
             <div id="feedback-response-success" class="feedback-response feedback-response-success" hidden>
@@ -150,7 +150,7 @@
         <!-- FOOTER -->
 
         <div class="footer">
-            <a id="send-feedback-button" class="button" onclick="showFeedback()"><%= __('i18n.views.manage.send-feedback') %></a>
+            <a id="send-feedback-button" class="button" onclick="showFeedback()"><%= __('i18n.views.manage.send_feedback') %></a>
         </div>
     </div>
 
