@@ -93,12 +93,12 @@ describe('Check third locales vs default locale', () => {
             let errors: string[] = [];
             thirdLocalesValues.forEach(key => {
                 if (!defaultLocaleValues.includes(key)) {
-                    errors.push(`${key} exists in locale ${locale} but is missing in default locale ${DEFAULT_LOCALE}`);
+                    errors.push(`${key} exists in locale "${locale}" but is missing in default locale "${DEFAULT_LOCALE}"`);
                 }
             });
             defaultLocaleValues.forEach(key => {
                 if (!thirdLocalesValues.includes(key)) {
-                    errors.push(`${key} exists in default locale ${DEFAULT_LOCALE} but is missing in locale ${locale}`);
+                    errors.push(`${key} exists in default locale "${DEFAULT_LOCALE}" but is missing in locale "${locale}"`);
                 }
             });
             if (errors.length > 0) {
@@ -117,15 +117,32 @@ it('Check locales in code vs default locale', () => {
     let errors: string[] = [];
     codeI18n.forEach(key => {
         if (!defaultLocaleValues.includes(key)) {
-            errors.push(`${key} exists in code but is missing in default locale ${DEFAULT_LOCALE}`);
+            errors.push(`${key} exists in code but is missing in default locale "${DEFAULT_LOCALE}"`);
         }
     });
     defaultLocaleValues.forEach(key => {
         if (!codeI18n.includes(key)) {
-            errors.push(`${key} exists in default locale ${DEFAULT_LOCALE} but is missing in code`);
+            errors.push(`${key} exists in default locale "${DEFAULT_LOCALE}" but is missing in code`);
         }
     });
     if (errors.length > 0) {
         throw new Error(`Errors in code i18n:\n${errors.join('\n')}`);
     }
+});
+
+describe('Check locale keys are in alphabetical order', () => {
+    const locales = getI18nFromLocales();
+    Object.entries(locales).forEach(([locale, keys]) => {
+        it(locale, () => {
+            let errors: string[] = [];
+            const sortedKeys = [...keys].sort();
+
+            if (JSON.stringify(keys) !== JSON.stringify(sortedKeys)) {
+                errors.push(`Locale "${locale}" keys are not in alphabetical order. Use the devscript "order_locales.js" to fix this.`);
+            }
+            if (errors.length > 0) {
+                throw new Error(`Errors in code i18n:\n${errors.join('\n')}`);
+            }
+        });
+    });
 });
