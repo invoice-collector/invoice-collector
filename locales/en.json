@@ -1,6 +1,5 @@
 {
     "i18n.views.manage.my_collectors": "My collectors",
-    "i18n.views.manage.select_collectors": "Select collectors",
     "i18n.views.manage.add_collectors": "Add collector",
 	"i18n.views.manage.adding_collector": "Adding collector",
 	"i18n.views.manage.instructions" : "Instructions",
@@ -37,18 +36,11 @@
 	"i18n.class.state.6_downloading": "Grabbing the loot...",
 	"i18n.class.state.7_done": "Mission accomplished!",
 
-	"i18n.collectors.all.username": "Username",
-	"i18n.collectors.all.username.placeholder": "Username of the account",
-	"i18n.collectors.all.username.error": "Incorrect username",
 	"i18n.collectors.all.identifier": "Identifier",
-	"i18n.collectors.all.identifier.placeholder": "Identifier of the account",
 	"i18n.collectors.all.identifier.error": "Incorrect identifier",
 	"i18n.collectors.all.email": "Email",
 	"i18n.collectors.all.email.placeholder": "Email of the account",
 	"i18n.collectors.all.email.error": "Incorrect email",
-	"i18n.collectors.all.number": "Phone number",
-	"i18n.collectors.all.number.placeholder": "Phone number of the account",
-	"i18n.collectors.all.number.error": "Incorrect phone number",
 	"i18n.collectors.all.email_or_number": "Email or phone number",
 	"i18n.collectors.all.email_or_number.placeholder": "Email or phone number of the account",
 	"i18n.collectors.all.email_or_number.error": "Incorrect email or phone number",
@@ -60,6 +52,7 @@
 	"i18n.collectors.all.signup.error": "No account found with these identifier",
 	"i18n.collectors.all.2fa.error": "2FA code is incorrect",
 	"i18n.collectors.all.2fa.timeout": "No 2FA code provided within the alloteted time. Please try again.",
+	"i18n.collectors.all.2fa.instruction": "Enter the 2FA code sent by email or SMS",
 
     "i18n.collectors.free.description": "Free is a French telecommunications company.",
     "i18n.collectors.free.identifier.placeholder": "Identifier of the account (ex: fbx12345670)",
@@ -83,6 +76,7 @@
 	"i18n.collectors.ovh.description": "OVH is a French web hosting company.",
 	"i18n.collectors.ovh.instructions": "Get you credentials by clicking on <a href='https://www.ovh.com/auth/api/createToken?GET=/me/bill&GET=/me/bill/*' target='_blank'>this link</a>.<ul><li>Enter the name and the description of your choice</li><li>Select an unilimited validity</li><li>The rights must be \"GET /me/bill\"</li><li>Click on the button \"Create\"</li><li>Copy the Application key, Application secret and Consumer key in the form bellow</li></ul>",
     "i18n.collectors.ovh.authentication_error": "Authentication error. One of your credentials is incorrect.",
+	"i18n.collectors.ovh.server": "Server",
 
 	"i18n.collectors.total_energies.name": "Total Energies (Electricity & Gas)",
 	"i18n.collectors.total_energies.description": "Total Energies is an electricity and gas supplier.",

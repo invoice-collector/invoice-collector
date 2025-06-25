@@ -32,9 +32,9 @@ export class OvhCollector extends ApiCollector {
                 placeholder: "",
                 mandatory: true,
             },
-            /*endpoint: {
+            /*server: {
                 type: "enum",
-                name: "i18n.collectors.ovh.endpoint",
+                name: "i18n.collectors.ovh.server",
                 default: "ovh-eu",
                 mandatory: true,
                 enum : {
@@ -89,7 +89,7 @@ export class OvhCollector extends ApiCollector {
             validateStatus: () => true
         });
         if (response.status != 200) {
-            throw new AuthenticationError(`i18n.collectors.ovh.authentication_error`, this);
+            throw new AuthenticationError('i18n.collectors.ovh.authentication_error', this);
         }
         return response.data;
     }

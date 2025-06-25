@@ -1,6 +1,5 @@
 {
 	"i18n.views.manage.my_collectors": "Mes collecteurs",
-	"i18n.views.manage.select_collectors": "Sélectionner des collecteurs",
 	"i18n.views.manage.add_collectors": "Ajouter un collecteur",
 	"i18n.views.manage.adding_collector": "Ajout du collecteur",
 	"i18n.views.manage.instructions" : "Instructions",
@@ -37,18 +36,11 @@
 	"i18n.class.state.6_downloading": "Récupération du butin...",
 	"i18n.class.state.7_done": "Mission accomplie !",
 
-	"i18n.collectors.all.username": "Utilisateur",
-	"i18n.collectors.all.username.placeholder": "Utilisateur du compte",
-	"i18n.collectors.all.username.error": "Utilisateur incorrect",
 	"i18n.collectors.all.identifier": "Identifiant",
-	"i18n.collectors.all.identifier.placeholder": "Identifiant du compte",
 	"i18n.collectors.all.identifier.error": "Identifiant incorrect",
 	"i18n.collectors.all.email": "Email",
 	"i18n.collectors.all.email.placeholder": "Email du compte",
 	"i18n.collectors.all.email.error": "Email incorrect",
-	"i18n.collectors.all.number": "Numéro de téléphone",
-	"i18n.collectors.all.number.placeholder": "Numéro de téléphone du compte",
-	"i18n.collectors.all.number.error": "Numéro de téléphone incorrect",
 	"i18n.collectors.all.email_or_number": "Email ou numéro de téléphone",
 	"i18n.collectors.all.email_or_number.placeholder": "Email ou numéro de téléphone du compte",
 	"i18n.collectors.all.email_or_number.error": "Email ou numéro de téléphone incorrect",
@@ -60,6 +52,7 @@
 	"i18n.collectors.all.signup.error": "Aucun compte trouvé avec cet identifiant",
 	"i18n.collectors.all.2fa.error": "Erreur d'authentification 2FA",
 	"i18n.collectors.all.2fa.timeout": "Aucun code 2FA fourni dans le temps imparti. Veuillez réessayer.",
+	"i18n.collectors.all.2fa.instruction": "Entrez le code 2FA envoyé par email ou SMS",
 
     "i18n.collectors.free.description": "Free est un opérateur de télécommunications français.",
     "i18n.collectors.free.identifier.placeholder": "Identifiant du compte (ex: fbx12345670)",
@@ -83,6 +76,7 @@
 	"i18n.collectors.ovh.description": "OVH est un hébergeur web français.",
 	"i18n.collectors.ovh.instructions": "Obtenez vos identifiants en cliquant sur <a href='https://www.ovh.com/auth/api/createToken?GET=/me/bill&GET=/me/bill/*' target='_blank'>ce lien</a>.<ul><li>Entrez le nom et la description de votre choix</li><li>Sélectionnez une validité illimitée (Unlimited)</li><li>Les droits doivent être \"GET /me/bill\"</li><li>Cliquez sur le bouton \"Create\"</li><li>Copiez l'Application key, l'Application secret et la Consumer key dans le formulaire ci-dessous</li></ul>",
     "i18n.collectors.ovh.authentication_error": "Erreur d'authentification. L'un de vos identifiants est incorrect.",
+	"i18n.collectors.ovh.server": "Serveur",
 
 	"i18n.collectors.total_energies.name": "Total Energies (Electricité & Gaz)",
 	"i18n.collectors.total_energies.description": "Total Energies est un fournisseur d'électricité et de gaz.",
