@@ -92,13 +92,11 @@ describe('Check third locales vs default locale', () => {
         it(locale, () => {
             let errors: string[] = [];
             thirdLocalesValues.forEach(key => {
-                //console.log(`1 key: ${key}`);
                 if (!defaultLocaleValues.includes(key)) {
                     errors.push(`${key} exists in locale ${locale} but is missing in default locale ${DEFAULT_LOCALE}`);
                 }
             });
             defaultLocaleValues.forEach(key => {
-                //console.log(`2 key: ${key}`);
                 if (!thirdLocalesValues.includes(key)) {
                     errors.push(`${key} exists in default locale ${DEFAULT_LOCALE} but is missing in locale ${locale}`);
                 }
@@ -115,11 +113,6 @@ it('Check locales in code vs default locale', () => {
     const codeI18n = getI18nFromCode();
     const locales = getI18nFromLocales();
     const defaultLocaleValues = locales[DEFAULT_LOCALE];
-
-    console.log(codeI18n)
-    console.log(defaultLocaleValues)
-    console.log(`Found ${defaultLocaleValues.length} i18n keys in default locale ${DEFAULT_LOCALE}`);
-    console.log(`Found ${codeI18n.length} i18n keys in code`);
 
     let errors: string[] = [];
     codeI18n.forEach(key => {
