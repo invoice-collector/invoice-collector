@@ -49,10 +49,18 @@ export class Driver {
     browser: Browser | null;
     page: PageWithCursor | null;
 
+    interceptionEnabled: boolean;
+    interceptionFilter: string;
+    interceptions: Array<{url: string, requestBody: any, responseBody: any}>;
+
     constructor(collector: WebCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;
+
+        this.interceptionEnabled = false;
+        this.interceptionFilter = "";
+        this.interceptions = [];
     }
 
     async open(proxy: Proxy | null = null) {
@@ -90,6 +98,29 @@ export class Driver {
             });
         }
 
+        // Interceptions
+        this.page.on('response', async (response) => {
+            const url = response.url();
+            if (url.includes(this.interceptionFilter) && response.ok() && this.interceptionEnabled) {
+                // Get request body
+                let requestBody = {};
+                try {
+                    requestBody = JSON.parse(response.request().postData() || '{}');
+                } catch {}
+                // Get response body
+                let responseBody = {};
+                try {
+                    responseBody = await response.json();
+                } catch {}
+                // Add interception to the list
+                this.interceptions.push({
+                    url,
+                    requestBody,
+                    responseBody
+                });
+            }
+        });
+
         // Create download folder if not exists
         if (!fs.existsSync(Driver.DOWNLOAD_PATH)) {
             fs.mkdirSync(Driver.DOWNLOAD_PATH);
@@ -101,6 +132,26 @@ export class Driver {
 
     async close() {
         await this.browser?.close();
+    }
+
+    // INTERCEPTIONS
+
+    async startInterceptions(filter: string = ""): Promise<void> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        this.interceptionFilter = filter;
+        this.interceptions = [];
+        this.interceptionEnabled = true;
+        await this.page.setRequestInterception(true);
+    }
+
+    async stopInterceptions(): Promise<Array<{url: string, requestBody: any, responseBody: any}>> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        this.interceptionEnabled = false;
+        return this.interceptions;
     }
 
     // URL
@@ -267,7 +318,7 @@ export class Driver {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         navigation = true
-    } = {}) {
+    } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -281,7 +332,9 @@ export class Driver {
                 }
                 catch {}
             }
+            return element;
         }
+        return null;
     }
 
     async inputText(selector, text, {
