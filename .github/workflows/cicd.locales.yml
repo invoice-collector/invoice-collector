@@ -2,6 +2,10 @@ name: Check locales i18n
 
 on:
   pull_request:
+    paths:
+      - 'locales/**'
+      - 'src/**'
+      - 'views/**'
 
 jobs:
   test-locales-i18n:
