@@ -287,11 +287,12 @@ export class Driver {
     async inputText(selector, text, {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY
+        delay = Driver.DEFAULT_DELAY,
+        tries = 5
     } = {}): Promise<void> {
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.type(text);
+            await element.inputText(text, { tries });
             await utils.delay(delay);
         }
     }
@@ -444,19 +445,22 @@ export class Element {
         await this.element.click();
     }
 
-    async type(text: string, verify = true): Promise<void> {
-        if (verify) {
+    async inputText(text: string, {
+        tries = 5
+    } = {}): Promise<void> {
+        if (tries > 0) {
             let currentValue = null;
-            let maxTry = 6;
-            while (currentValue !== text && maxTry > 0) {
-                await this.element.type(text);
-                currentValue = await this.element.evaluate((el: any) => el.value);
+            while (currentValue !== text && tries > 0) {
+                await this.element.click({ clickCount: 3 });    // Select all text
+                await this.element.type(text);                  // Replace
                 await utils.delay(Driver.DEFAULT_DELAY_BETWEEN_KEYS);
-                maxTry--;
+                currentValue = await this.element.evaluate((el: any) => el.value);
+                tries--;
             }
         }
         else {
-            await this.element.type(text);
+            await this.element.click({ clickCount: 3 });    // Select all text
+            await this.element.type(text);                  // Replace
         }
     }
 
