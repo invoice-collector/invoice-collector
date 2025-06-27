@@ -141,7 +141,7 @@ export class Driver {
             });
 
             // Navigate to the page
-            await this.page.goto(url, {waitUntil: 'networkidle0'});
+            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
 
             // Wait for the network request
             const response = await urlPromise;
@@ -151,7 +151,7 @@ export class Driver {
         }
         else {
             // Navigate to the page
-            await this.page.goto(url, {waitUntil: 'networkidle0'});
+            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
             return {requestBody: null, responseBody: null};
         }
     }
