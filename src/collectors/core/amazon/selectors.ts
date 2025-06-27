@@ -21,6 +21,10 @@ export const AmazonSelectors = {
         selector: "div[id='auth-email-invalid-claim-alert'][style*='block'] div[class='a-alert-content'], div[id='auth-error-message-box'] div[class='a-alert-content']",
         info: "login alert container"
     },
+    CONTAINER_PASSWORD_ALERT: {
+        selector: "#auth-error-message-box .a-alert-content",
+        info: "password alert container"
+    },
     CONTAINER_CAPTCHA: {
         selector: "img[alt='captcha'], #captcha-container",
         info: "captcha container"
