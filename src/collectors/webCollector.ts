@@ -56,10 +56,10 @@ export abstract class WebCollector extends AbstractCollector {
             await this.driver.browser?.setCookie(...secret.cookies);
         }
 
-        // Open entry url
-        await this.driver.goto(this.config.entryUrl);
-
         try {
+            // Open entry url
+            await this.driver.goto(this.config.entryUrl);
+            
             // Check if website is in maintenance
             const is_in_maintenance = await this.is_in_maintenance(this.driver)
             if (is_in_maintenance) {
