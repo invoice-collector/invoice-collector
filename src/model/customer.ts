@@ -67,7 +67,7 @@ export class Customer {
     setTheme(theme: string) {
         //Check if theme is supported
         if(!Object.values(Theme).includes(theme as Theme)) {
-            throw new StatusError(`Theme "${theme}" not supported. Available locales are: ${Object.values(Theme).join(", ")}.`, 400);
+            throw new StatusError(`Theme "${theme}" not supported. Available themes are: ${Object.values(Theme).join(", ")}.`, 400);
         }
 
         this.theme = theme as Theme;

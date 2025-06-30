@@ -209,24 +209,20 @@ export class Server {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
-        //Check if name field is missing
-        if(!name) {
-            throw new MissingField("name");
+        //Check if name field is present
+        if(name) {
+            customer.name = name;
         }
 
-        //Check if callback field is missing
-        if(!callback) {
-            throw new MissingField("callback");
+        //Check if callback field is present
+        if(callback) {
+            customer.callback = callback;
         }
 
-        //Check if theme field is missing
-        if(!theme) {
-            throw new MissingField("theme");
+        //Check if theme field is present
+        if(theme) {
+            customer.setTheme(theme);
         }
-
-        customer.name = name;
-        customer.callback = callback;
-        customer.setTheme(theme);
 
         // Commit changes in database
         await customer.commit();
