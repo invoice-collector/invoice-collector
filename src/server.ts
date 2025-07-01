@@ -204,6 +204,32 @@ export class Server {
         return { name: customer.name, callback: customer.callback, theme: customer.theme };
     }
 
+    // BEARER AUTHENTICATION
+    public async post_customer(bearer: string | undefined, name: string | undefined, callback: string | undefined, theme: string | undefined): Promise<any> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        //Check if name field is present
+        if(name) {
+            customer.name = name;
+        }
+
+        //Check if callback field is present
+        if(callback) {
+            customer.callback = callback;
+        }
+
+        //Check if theme field is present
+        if(theme) {
+            customer.setTheme(theme);
+        }
+
+        // Commit changes in database
+        await customer.commit();
+
+        return { name: customer.name, callback: customer.callback, theme: customer.theme };
+    }
+
     // ---------- USER ENDPOINTS ----------
 
     public async get_users(bearer: string | undefined): Promise<{id: string, remote_id: string, locale: string}[]> {
