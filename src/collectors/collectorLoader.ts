@@ -3,7 +3,7 @@ import path from 'path';
 import { AbstractCollector } from './abstractCollector';
 
 export class CollectorLoader {
-    private static collectors: Map<string, AbstractCollector> = new Map();
+    private static collectors: Map<string, any> = new Map();
 
     static load(filter: string | null = null) {
         this.loadFolders("community", filter)
@@ -58,13 +58,13 @@ export class CollectorLoader {
                 // Check if the class is a collector
                 if (typeof importedModule[classKey] === 'function' && classKey.endsWith('Collector')) {
                     // Instanciate the collector
-                    let collector = new importedModule[classKey]();
+                    let collector = importedModule[classKey];
                     // Set the id of the collector to the folder name
-                    collector.config.id = folder.name;
+                    collector.CONFIG.id = folder.name;
                     // Add it to the set
-                    CollectorLoader.collectors.set(collector.config.id, collector);
+                    CollectorLoader.collectors.set(collector.CONFIG.id, collector);
                     // Add it to the list
-                    collectors.push(collector.config.id);
+                    collectors.push(collector.CONFIG.id);
                 }
             }
         }
@@ -72,7 +72,7 @@ export class CollectorLoader {
         console.log(`${collectors.length} ${folder} collectors loaded: ${collectors.join(', ')}`);
     }
 
-    public static getAll(): Map<string, AbstractCollector> {
+    public static getAll(): Map<string, any> {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();
@@ -93,6 +93,6 @@ export class CollectorLoader {
             throw new Error(`No collector with id "${id}" found`);
         }
         // Return the collector, or null if not found
-        return collector
+        return new collector()
     }
 }
