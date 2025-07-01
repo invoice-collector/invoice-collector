@@ -6,6 +6,7 @@ import { Invoice } from '../../abstractCollector';
 export class UCollector extends WebCollector {
 
     static CONFIG = {
+        id: "u",
         name: "U Courses",
         description: "i18n.collectors.u.description",
         version: "4",

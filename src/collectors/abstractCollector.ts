@@ -4,9 +4,20 @@ import { Secret } from '../secret_manager/abstractSecretManager';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/credential';
 
+export enum CollectorType {
+    WEB = 'web',
+    API = 'api',
+    EMAIL = 'email'
+}
+
+export enum CollectorCaptcha {
+    DATADOME = 'datadome',
+    CLOUDFLARE = 'cloudflare',
+}
+
 export type Config = {
     id: string,
-    type: "web" | "api",
+    type: CollectorType,
     name: string,
     description: string,
     instructions?: string,
@@ -23,7 +34,7 @@ export type Config = {
     },
     entryUrl?: string,
     baseUrl?: string,
-    captcha?: "datadome" | "cloudflare"
+    captcha?: CollectorCaptcha
 }
 
 export type Invoice = {

@@ -8,6 +8,7 @@ import { TwofaPromise } from '../../../collect/twofaPromise';
 export class AmazonCollector extends WebCollector {
 
     static CONFIG = {
+        id: "amazon",
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
         version: "10",

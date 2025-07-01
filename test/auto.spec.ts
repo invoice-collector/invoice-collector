@@ -23,7 +23,7 @@ else {
     }
 }
 
-for (const collector of CollectorLoader.getAll().values()) {
+for (const collector of CollectorLoader.getAll()) {
     const id: string = collector.config.id;
 
     // Check if collector not found

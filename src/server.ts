@@ -302,7 +302,7 @@ export class Server {
 
         // Build response 
         return credentials.map((credential) => {
-            const collector = this.get_collector(credential.collector_id);
+            const collector = CollectorLoader.get(credential.collector_id);
 
             // Get current collect
             const collect = CollectPool.getInstance().get(credential.id);
@@ -344,7 +344,7 @@ export class Server {
         await user.checkTermsConditions();
 
         // Get collector from id
-        const collector = this.get_collector(collector_id);
+        const collector = CollectorLoader.get(collector_id);
 
         // Get credential note
         let note = params.note;
@@ -457,7 +457,7 @@ export class Server {
         }
 
         // Get collector from id
-        const collector = this.get_collector(credential.collector_id);
+        const collector = CollectorLoader.get(credential.collector_id);
 
         // Translate the state title
         credential.state.title = I18n.get(credential.state.title, user.locale);
@@ -545,20 +545,20 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
-        return Array.from(CollectorLoader.getAll().values()).map((collector): Config => {
-            const name: string = I18n.get(collector.CONFIG.name, locale);
-            const description: string = I18n.get(collector.CONFIG.description, locale);
-            const instructions: string = I18n.get(collector.CONFIG.instructions, locale);
-            const params = Object.keys(collector.CONFIG.params).reduce((acc, key) => {
+        return CollectorLoader.getAll().map((collector: AbstractCollector): Config => {
+            const name: string = I18n.get(collector.config.name, locale);
+            const description: string = I18n.get(collector.config.description, locale);
+            const instructions: string = I18n.get(collector.config.instructions, locale);
+            const params = Object.keys(collector.config.params).reduce((acc, key) => {
                 acc[key] = {
-                    ...collector.CONFIG.params[key],
-                    name: I18n.get(collector.CONFIG.params[key].name, locale),
-                    placeholder: I18n.get(collector.CONFIG.params[key].placeholder, locale)
+                    ...collector.config.params[key],
+                    name: I18n.get(collector.config.params[key].name, locale),
+                    placeholder: I18n.get(collector.config.params[key].placeholder, locale)
                 };
                 return acc;
             }, {});
             return {
-                ...collector.CONFIG,
+                ...collector.config,
                 name,
                 description,
                 instructions,
@@ -575,13 +575,5 @@ export class Server {
             throw new OauthError();
         }
         return this.tokens[token];
-    }
-
-    private get_collector(id: string): AbstractCollector {
-        const collector = CollectorLoader.get(id);
-        if(collector == null) {
-            throw new StatusError(`No collector with id "${id}" found.`, 400);
-        }
-        return collector;
     }
 }

@@ -6,6 +6,7 @@ import { Invoice } from '../../abstractCollector';
 export class BureauValleeCollector extends WebCollector {
 
     static CONFIG = {
+        id: "bureau_vallee",
         name: "Bureau Vallee",
         description: "i18n.collectors.bureau_vallee.description",
         version: "3",

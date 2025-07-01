@@ -6,6 +6,7 @@ import { DownloadedInvoice, Invoice } from '../../abstractCollector';
 export class FreeCollector extends WebCollector {
 
     static CONFIG = {
+        id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
         version: "4",

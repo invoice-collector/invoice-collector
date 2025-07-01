@@ -6,6 +6,7 @@ import { LeclercSelectors } from './selectors';
 export class LeclercCollector extends WebCollector {
 
     static CONFIG = {
+        id: "leclerc",
         name: "E.Leclerc",
         description: "i18n.collectors.leclerc.description",
         version: "3",
