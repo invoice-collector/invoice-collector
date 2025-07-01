@@ -8,6 +8,7 @@ import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { WebCollector } from '../collectors/webCollector';
 import { Options } from './puppeteer/browser';
+import { CollectorCaptcha } from '../collectors/abstractCollector';
 
 export class Driver {
 
@@ -69,7 +70,7 @@ export class Driver {
         }
 
         // Define if remote or local chrome must be used
-        puppeteerConfig.remoteChrome = (this.collector.config.captcha == "datadome");
+        puppeteerConfig.remoteChrome = (this.collector.config.captcha == CollectorCaptcha.DATADOME);
 
         // Open browser and page
         const connectResult = await connect(puppeteerConfig);
@@ -77,7 +78,7 @@ export class Driver {
         this.page = connectResult.page;
 
         // Block images if collector does not implement cloudflare captcha
-        if (this.collector.config.captcha !== "cloudflare") {
+        if (this.collector.config.captcha !== CollectorCaptcha.CLOUDFLARE) {
             await this.page.setRequestInterception(true);
             this.page.on("request", (request) => {
                 if (!request.isInterceptResolutionHandled()) {

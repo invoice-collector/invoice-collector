@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice, DownloadedInvoice } from '../../abstractCollector';
+import { Invoice, DownloadedInvoice, CollectorCaptcha } from '../../abstractCollector';
 
 export class LeroyMerlinCollector extends WebCollector {
 
@@ -25,7 +25,7 @@ export class LeroyMerlinCollector extends WebCollector {
             }
         },
         entryUrl: "https://www.leroymerlin.fr",
-        captcha: "datadome" as "datadome"
+        captcha: CollectorCaptcha.DATADOME
     }
 
     constructor() {

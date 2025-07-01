@@ -10,6 +10,11 @@ export enum CollectorType {
     EMAIL = 'email'
 }
 
+export enum CollectorCaptcha {
+    DATADOME = 'datadome',
+    CLOUDFLARE = 'cloudflare',
+}
+
 export type Config = {
     id: string,
     type: CollectorType,
@@ -29,7 +34,7 @@ export type Config = {
     },
     entryUrl?: string,
     baseUrl?: string,
-    captcha?: "datadome" | "cloudflare"
+    captcha?: CollectorCaptcha
 }
 
 export type Invoice = {

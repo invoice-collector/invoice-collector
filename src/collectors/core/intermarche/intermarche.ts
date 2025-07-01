@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { IntermarcheSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, Invoice } from '../../abstractCollector';
 
 export class IntermarcheCollector extends WebCollector {
 
@@ -25,7 +25,7 @@ export class IntermarcheCollector extends WebCollector {
             }
         },
         entryUrl: "https://www.intermarche.com/",
-        captcha: "datadome" as "datadome"
+        captcha: CollectorCaptcha.DATADOME
     }
 
     constructor() {

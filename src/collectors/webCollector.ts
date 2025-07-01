@@ -1,4 +1,4 @@
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType } from "./abstractCollector";
+import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha } from "./abstractCollector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
@@ -7,6 +7,8 @@ import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/credential";
+
+
 
 export type WebConfig = {
     id: string,
@@ -25,7 +27,7 @@ export type WebConfig = {
     },
     entryUrl: string,
     useProxy?: boolean,
-    captcha?: "datadome" | "cloudflare"
+    captcha?: CollectorCaptcha
 }
 
 export abstract class WebCollector extends AbstractCollector {
