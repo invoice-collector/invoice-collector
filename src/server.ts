@@ -530,6 +530,44 @@ export class Server {
         collect.state?.update(State._4_2FA_PROCEEDING);
     }
 
+    // BEARER AUTHENTICATION
+    public async post_credential_collect(token: any, id: string): Promise<void> {
+        // Get user from token
+         const user = this.get_token_mapping(token);
+
+        // Check if terms and conditions have been accepted
+        await user.checkTermsConditions();
+
+        // Get credential from id
+        const credential = await user.getCredential(id)
+
+        // Check if credential exists
+        if (!credential) {
+            throw new StatusError(`Credential with id "${id}" not found.`, 400);
+        }
+
+        // Check if credential belongs to user
+        if (credential.user_id != user.id) {
+            throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
+        }
+
+        // Start collect
+        const collect = new Collect(credential.id)
+
+        // Register collect in progress
+        CollectPool.getInstance().registerCollect(credential.id, collect);
+
+        // Do not wait for promise to resolve
+        collect.start().catch((err) => {
+            console.error(`Collect for credential ${credential.id} has failed`);
+            console.error(err);
+        })
+        .finally(() => {
+            // Unregister collect in progress
+            CollectPool.getInstance().unregisterCollect(credential.id);
+        });
+    }
+
     // ---------- COLLECTOR ENDPOINTS ----------
 
     // NO AUTHENTICATION

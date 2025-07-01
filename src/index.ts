@@ -248,6 +248,20 @@ app.post('/api/v1/credential/:id/2fa', async (req, res) => {
     }
 });
 
+// BEARER AUTHENTICATION
+app.post('/api/v1/credential/:id/collect', async (req, res) => {
+    try {
+        // Post collect
+        console.log(`POST collect ${req.params.id}`);
+        await server.post_credential_collect(req.query.token, req.params.id);
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // ---------- COLLECTOR ENDPOINTS ----------
 
 // NO AUTHENTICATION
