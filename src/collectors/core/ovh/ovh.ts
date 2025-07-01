@@ -7,6 +7,7 @@ import { AuthenticationError } from '../../../error';
 export class OvhCollector extends ApiCollector {
 
     static CONFIG = {
+        id: "ovh",
         name: "OVH",
         description: "i18n.collectors.ovh.description",
         instructions: "i18n.collectors.ovh.instructions",

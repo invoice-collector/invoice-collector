@@ -6,6 +6,7 @@ import { Invoice } from '../../abstractCollector';
 export class IntermarcheCollector extends WebCollector {
 
     static CONFIG = {
+        id: "intermarche",
         name: "Intermarché",
         description: "i18n.collectors.intermarche.description",
         version: "5",

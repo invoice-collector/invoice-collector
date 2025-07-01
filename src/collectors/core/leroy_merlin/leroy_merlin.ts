@@ -6,6 +6,7 @@ import { Invoice, DownloadedInvoice } from '../../abstractCollector';
 export class LeroyMerlinCollector extends WebCollector {
 
     static CONFIG = {
+        id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
         version: "8",

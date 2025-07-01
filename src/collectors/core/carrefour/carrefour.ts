@@ -7,6 +7,7 @@ import { TwofaPromise } from '../../../collect/twofaPromise';
 export class CarrefourCollector extends WebCollector {
 
     static CONFIG = {
+        id: "carrefour",
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
         version: "9",
