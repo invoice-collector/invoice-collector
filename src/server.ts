@@ -520,19 +520,19 @@ export class Server {
         }
 
         return Array.from(CollectorLoader.getAll().values()).map((collector): Config => {
-            const name: string = I18n.get(collector.config.name, locale);
-            const description: string = I18n.get(collector.config.description, locale);
-            const instructions: string = I18n.get(collector.config.instructions, locale);
-            const params = Object.keys(collector.config.params).reduce((acc, key) => {
+            const name: string = I18n.get(collector.CONFIG.name, locale);
+            const description: string = I18n.get(collector.CONFIG.description, locale);
+            const instructions: string = I18n.get(collector.CONFIG.instructions, locale);
+            const params = Object.keys(collector.CONFIG.params).reduce((acc, key) => {
                 acc[key] = {
-                    ...collector.config.params[key],
-                    name: I18n.get(collector.config.params[key].name, locale),
-                    placeholder: I18n.get(collector.config.params[key].placeholder, locale)
+                    ...collector.CONFIG.params[key],
+                    name: I18n.get(collector.CONFIG.params[key].name, locale),
+                    placeholder: I18n.get(collector.CONFIG.params[key].placeholder, locale)
                 };
                 return acc;
             }, {});
             return {
-                ...collector.config,
+                ...collector.CONFIG,
                 name,
                 description,
                 instructions,
