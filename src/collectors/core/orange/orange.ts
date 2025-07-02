@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { OrangeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice } from '../../abstractCollector';
+import { CollectorState, Invoice } from '../../abstractCollector';
 
 export class OrangeCollector extends WebCollector {
 
@@ -25,7 +25,8 @@ export class OrangeCollector extends WebCollector {
             }
         },
         entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
-        useProxy: false // TODO: Proxy is not compatible with Orange
+        useProxy: false, // TODO: Proxy is not compatible with Orange
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

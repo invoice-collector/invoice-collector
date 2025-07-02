@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { USelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice } from '../../abstractCollector';
+import { CollectorState, Invoice } from '../../abstractCollector';
 
 export class UCollector extends WebCollector {
 
@@ -24,7 +24,8 @@ export class UCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.magasins-u.com/"
+        entryUrl: "https://www.magasins-u.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
