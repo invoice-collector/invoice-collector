@@ -4,6 +4,12 @@ import { Secret } from '../secret_manager/abstractSecretManager';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/credential';
 
+export enum CollectorState {
+    DEVELOPMENT = 'development',
+    ACTIVE = 'active',
+    MAINTENANCE = 'maintenance'
+}
+
 export enum CollectorType {
     WEB = 'web',
     API = 'api',
@@ -32,6 +38,7 @@ export type Config = {
             mandatory: boolean
         }
     },
+    state: CollectorState
     entryUrl?: string,
     baseUrl?: string,
     captcha?: CollectorCaptcha

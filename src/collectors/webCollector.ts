@@ -1,4 +1,4 @@
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha } from "./abstractCollector";
+import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
@@ -25,6 +25,7 @@ export type WebConfig = {
             mandatory: boolean
         }
     },
+    state?: CollectorState,
     entryUrl: string,
     useProxy?: boolean,
     captcha?: CollectorCaptcha
@@ -39,6 +40,7 @@ export abstract class WebCollector extends AbstractCollector {
             ...config,
             type: CollectorType.WEB,
             useProxy: config.useProxy === undefined ? true : config.useProxy,
+            state: config.state || CollectorState.ACTIVE
         });
         this.driver = null;
     }

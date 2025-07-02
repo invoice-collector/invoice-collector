@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice } from '../../abstractCollector';
+import { CollectorState, Invoice } from '../../abstractCollector';
 
 export class BureauValleeCollector extends WebCollector {
 
@@ -24,7 +24,8 @@ export class BureauValleeCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.bureau-vallee.fr/invoice/invoice/"
+        entryUrl: "https://www.bureau-vallee.fr/invoice/invoice/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

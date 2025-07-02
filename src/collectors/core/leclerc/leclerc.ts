@@ -1,5 +1,5 @@
 import { Driver } from '../../../driver/driver';
-import { Invoice } from '../../abstractCollector';
+import { CollectorState, Invoice } from '../../abstractCollector';
 import { WebCollector } from '../../webCollector';
 import { LeclercSelectors } from './selectors';
 
@@ -24,7 +24,8 @@ export class LeclercCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.e.leclerc/auth"
+        entryUrl: "https://www.e.leclerc/auth",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
