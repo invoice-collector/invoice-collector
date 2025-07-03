@@ -204,6 +204,32 @@ export class Server {
         return { name: customer.name, callback: customer.callback, theme: customer.theme };
     }
 
+    // BEARER AUTHENTICATION
+    public async post_customer(bearer: string | undefined, name: string | undefined, callback: string | undefined, theme: string | undefined): Promise<any> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        //Check if name field is present
+        if(name) {
+            customer.name = name;
+        }
+
+        //Check if callback field is present
+        if(callback) {
+            customer.callback = callback;
+        }
+
+        //Check if theme field is present
+        if(theme) {
+            customer.setTheme(theme);
+        }
+
+        // Commit changes in database
+        await customer.commit();
+
+        return { name: customer.name, callback: customer.callback, theme: customer.theme };
+    }
+
     // ---------- USER ENDPOINTS ----------
 
     public async get_users(bearer: string | undefined): Promise<{id: string, remote_id: string, locale: string}[]> {
@@ -276,7 +302,7 @@ export class Server {
 
         // Build response 
         return credentials.map((credential) => {
-            const collector = this.get_collector(credential.collector_id);
+            const collector = CollectorLoader.get(credential.collector_id);
 
             // Get current collect
             const collect = CollectPool.getInstance().get(credential.id);
@@ -318,7 +344,7 @@ export class Server {
         await user.checkTermsConditions();
 
         // Get collector from id
-        const collector = this.get_collector(collector_id);
+        const collector = CollectorLoader.get(collector_id);
 
         // Get credential note
         let note = params.note;
@@ -431,7 +457,7 @@ export class Server {
         }
 
         // Get collector from id
-        const collector = this.get_collector(credential.collector_id);
+        const collector = CollectorLoader.get(credential.collector_id);
 
         // Translate the state title
         credential.state.title = I18n.get(credential.state.title, user.locale);
@@ -504,6 +530,44 @@ export class Server {
         collect.state?.update(State._4_2FA_PROCEEDING);
     }
 
+    // BEARER AUTHENTICATION
+    public async post_credential_collect(token: any, id: string): Promise<void> {
+        // Get user from token
+         const user = this.get_token_mapping(token);
+
+        // Check if terms and conditions have been accepted
+        await user.checkTermsConditions();
+
+        // Get credential from id
+        const credential = await user.getCredential(id)
+
+        // Check if credential exists
+        if (!credential) {
+            throw new StatusError(`Credential with id "${id}" not found.`, 400);
+        }
+
+        // Check if credential belongs to user
+        if (credential.user_id != user.id) {
+            throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
+        }
+
+        // Start collect
+        const collect = new Collect(credential.id)
+
+        // Register collect in progress
+        CollectPool.getInstance().registerCollect(credential.id, collect);
+
+        // Do not wait for promise to resolve
+        collect.start().catch((err) => {
+            console.error(`Collect for credential ${credential.id} has failed`);
+            console.error(err);
+        })
+        .finally(() => {
+            // Unregister collect in progress
+            CollectPool.getInstance().unregisterCollect(credential.id);
+        });
+    }
+
     // ---------- COLLECTOR ENDPOINTS ----------
 
     // NO AUTHENTICATION
@@ -519,7 +583,7 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
-        return Array.from(CollectorLoader.getAll().values()).map((collector): Config => {
+        return CollectorLoader.getAll().map((collector: AbstractCollector): Config => {
             const name: string = I18n.get(collector.config.name, locale);
             const description: string = I18n.get(collector.config.description, locale);
             const instructions: string = I18n.get(collector.config.instructions, locale);
@@ -549,13 +613,5 @@ export class Server {
             throw new OauthError();
         }
         return this.tokens[token];
-    }
-
-    private get_collector(id: string): AbstractCollector {
-        const collector = CollectorLoader.get(id);
-        if(collector == null) {
-            throw new StatusError(`No collector with id "${id}" found.`, 400);
-        }
-        return collector;
     }
 }

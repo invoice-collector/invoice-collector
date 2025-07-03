@@ -1,4 +1,4 @@
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
+import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
@@ -8,7 +8,10 @@ import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/credential";
 
+
+
 export type WebConfig = {
+    id: string,
     name: string,
     description: string,
     instructions?: string,
@@ -22,23 +25,22 @@ export type WebConfig = {
             mandatory: boolean
         }
     },
+    state?: CollectorState,
     entryUrl: string,
     useProxy?: boolean,
-    captcha?: "datadome" | "cloudflare"
+    captcha?: CollectorCaptcha
 }
 
 export abstract class WebCollector extends AbstractCollector {
-
-    static TYPE: "web" = 'web';
 
     driver: Driver | null;
 
     constructor(config: WebConfig) {
         super({
             ...config,
-            id: '',
-            type: WebCollector.TYPE,
+            type: CollectorType.WEB,
             useProxy: config.useProxy === undefined ? true : config.useProxy,
+            state: config.state || CollectorState.ACTIVE
         });
         this.driver = null;
     }
@@ -56,10 +58,10 @@ export abstract class WebCollector extends AbstractCollector {
             await this.driver.browser?.setCookie(...secret.cookies);
         }
 
-        // Open entry url
-        await this.driver.goto(this.config.entryUrl);
-
         try {
+            // Open entry url
+            await this.driver.goto(this.config.entryUrl);
+            
             // Check if website is in maintenance
             const is_in_maintenance = await this.is_in_maintenance(this.driver)
             if (is_in_maintenance) {

@@ -134,6 +134,21 @@ app.get('/api/v1/customer', async (req, res) => {
     }
 });
 
+// BEARER AUTHENTICATION
+app.post('/api/v1/customer', async (req, res) => {
+    try {
+        // Save customer
+        console.log(`POST customer`);
+        const response = await server.post_customer(req.headers.authorization, req.body.name, req.body.callback, req.body.theme);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // ---------- USER ENDPOINTS ----------
 
 // BEARER AUTHENTICATION
@@ -231,6 +246,20 @@ app.post('/api/v1/credential/:id/2fa', async (req, res) => {
         // Post 2fa
         console.log(`POST 2fa ${req.params.id}`);
         await server.post_credential_2fa(req.query.token, req.params.id, req.body.code);
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// BEARER AUTHENTICATION
+app.post('/api/v1/credential/:id/collect', async (req, res) => {
+    try {
+        // Post collect
+        console.log(`POST collect ${req.params.id}`);
+        await server.post_credential_collect(req.query.token, req.params.id);
 
         // Build response
         res.end()

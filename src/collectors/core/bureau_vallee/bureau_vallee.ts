@@ -1,11 +1,12 @@
 import { WebCollector } from '../../webCollector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice } from '../../abstractCollector';
+import { CollectorState, Invoice } from '../../abstractCollector';
 
 export class BureauValleeCollector extends WebCollector {
 
     static CONFIG = {
+        id: "bureau_vallee",
         name: "Bureau Vallee",
         description: "i18n.collectors.bureau_vallee.description",
         version: "3",
@@ -23,7 +24,8 @@ export class BureauValleeCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.bureau-vallee.fr/invoice/invoice/"
+        entryUrl: "https://www.bureau-vallee.fr/invoice/invoice/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

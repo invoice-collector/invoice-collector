@@ -1,11 +1,12 @@
 import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice, DownloadedInvoice } from '../../abstractCollector';
+import { Invoice, DownloadedInvoice, CollectorCaptcha } from '../../abstractCollector';
 
 export class LeroyMerlinCollector extends WebCollector {
 
     static CONFIG = {
+        id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
         version: "8",
@@ -24,7 +25,7 @@ export class LeroyMerlinCollector extends WebCollector {
             }
         },
         entryUrl: "https://www.leroymerlin.fr",
-        captcha: "datadome" as "datadome"
+        captcha: CollectorCaptcha.DATADOME
     }
 
     constructor() {

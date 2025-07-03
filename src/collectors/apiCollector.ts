@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice } from "./abstractCollector";
+import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState } from "./abstractCollector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -8,6 +8,7 @@ import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/credential";
 
 export type ApiConfig = {
+    id: string,
     name: string,
     description: string,
     instructions?: string,
@@ -21,22 +22,21 @@ export type ApiConfig = {
             mandatory: boolean
         }
     },
+    state?: CollectorState,
     baseUrl: string,
     useProxy?: boolean,
 }
 
 export abstract class ApiCollector extends AbstractCollector {
 
-    static TYPE: "api" = 'api';
-
     instance: AxiosInstance | null;
 
     constructor(config: ApiConfig) {
         super({
             ...config,
-            id: '',
-            type: ApiCollector.TYPE,
+            type: CollectorType.API,
             useProxy: config.useProxy === undefined ? false : config.useProxy,
+            state: config.state || CollectorState.ACTIVE
     });
         this.instance = null;
     }

@@ -1,11 +1,12 @@
 import { WebCollector } from '../../webCollector';
 import { IntermarcheSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, Invoice } from '../../abstractCollector';
 
 export class IntermarcheCollector extends WebCollector {
 
     static CONFIG = {
+        id: "intermarche",
         name: "Intermarché",
         description: "i18n.collectors.intermarche.description",
         version: "5",
@@ -24,7 +25,8 @@ export class IntermarcheCollector extends WebCollector {
             }
         },
         entryUrl: "https://www.intermarche.com/",
-        captcha: "datadome" as "datadome"
+        captcha: CollectorCaptcha.DATADOME,
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

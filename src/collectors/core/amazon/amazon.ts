@@ -8,9 +8,10 @@ import { TwofaPromise } from '../../../collect/twofaPromise';
 export class AmazonCollector extends WebCollector {
 
     static CONFIG = {
+        id: "amazon",
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "9",
+        version: "10",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -75,8 +76,14 @@ export class AmazonCollector extends WebCollector {
         await driver.leftClick(AmazonSelectors.BUTTON_SUBMIT);
 
         // Check if password is incorrect
-        const password_alert = await driver.getElement(AmazonSelectors.CONTAINER_CAPTCHA, { raiseException: false, timeout: 2000 });
+        const password_alert = await driver.getElement(AmazonSelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
         if (password_alert) {
+            return await password_alert.textContent("i18n.collectors.all.password.error");
+        }
+
+        // Check if captcha is required
+        const captcha_element = await driver.getElement(AmazonSelectors.CONTAINER_CAPTCHA, { raiseException: false, timeout: 2000 });
+        if (captcha_element) {
             return "i18n.collectors.all.password.error";
         }
     }

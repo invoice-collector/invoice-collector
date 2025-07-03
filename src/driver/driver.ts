@@ -8,6 +8,7 @@ import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { WebCollector } from '../collectors/webCollector';
 import { Options } from './puppeteer/browser';
+import { CollectorCaptcha } from '../collectors/abstractCollector';
 
 export class Driver {
 
@@ -69,7 +70,7 @@ export class Driver {
         }
 
         // Define if remote or local chrome must be used
-        puppeteerConfig.remoteChrome = (this.collector.config.captcha == "datadome");
+        puppeteerConfig.remoteChrome = (this.collector.config.captcha == CollectorCaptcha.DATADOME);
 
         // Open browser and page
         const connectResult = await connect(puppeteerConfig);
@@ -77,7 +78,7 @@ export class Driver {
         this.page = connectResult.page;
 
         // Block images if collector does not implement cloudflare captcha
-        if (this.collector.config.captcha !== "cloudflare") {
+        if (this.collector.config.captcha !== CollectorCaptcha.CLOUDFLARE) {
             await this.page.setRequestInterception(true);
             this.page.on("request", (request) => {
                 if (!request.isInterceptResolutionHandled()) {
@@ -141,7 +142,7 @@ export class Driver {
             });
 
             // Navigate to the page
-            await this.page.goto(url, {waitUntil: 'networkidle0'});
+            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
 
             // Wait for the network request
             const response = await urlPromise;
@@ -151,7 +152,7 @@ export class Driver {
         }
         else {
             // Navigate to the page
-            await this.page.goto(url, {waitUntil: 'networkidle0'});
+            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
             return {requestBody: null, responseBody: null};
         }
     }
@@ -287,11 +288,12 @@ export class Driver {
     async inputText(selector, text, {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
-        delay = Driver.DEFAULT_DELAY
+        delay = Driver.DEFAULT_DELAY,
+        tries = 5
     } = {}): Promise<void> {
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.type(text);
+            await element.inputText(text, { tries });
             await utils.delay(delay);
         }
     }
@@ -444,19 +446,22 @@ export class Element {
         await this.element.click();
     }
 
-    async type(text: string, verify = true): Promise<void> {
-        if (verify) {
+    async inputText(text: string, {
+        tries = 5
+    } = {}): Promise<void> {
+        if (tries > 0) {
             let currentValue = null;
-            let maxTry = 6;
-            while (currentValue !== text && maxTry > 0) {
-                await this.element.type(text);
-                currentValue = await this.element.evaluate((el: any) => el.value);
+            while (currentValue !== text && tries > 0) {
+                await this.element.click({ clickCount: 3 });    // Select all text
+                await this.element.type(text);                  // Replace
                 await utils.delay(Driver.DEFAULT_DELAY_BETWEEN_KEYS);
-                maxTry--;
+                currentValue = await this.element.evaluate((el: any) => el.value);
+                tries--;
             }
         }
         else {
-            await this.element.type(text);
+            await this.element.click({ clickCount: 3 });    // Select all text
+            await this.element.type(text);                  // Replace
         }
     }
 

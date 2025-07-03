@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { AbstractCollector } from './abstractCollector';
+import { StatusError } from '../error';
 
 export class CollectorLoader {
-    private static collectors: Map<string, AbstractCollector> = new Map();
+    private static collectors: Map<string, any> = new Map();
 
     static load(filter: string | null = null) {
         this.loadFolders("community", filter)
@@ -58,13 +59,13 @@ export class CollectorLoader {
                 // Check if the class is a collector
                 if (typeof importedModule[classKey] === 'function' && classKey.endsWith('Collector')) {
                     // Instanciate the collector
-                    let collector = new importedModule[classKey]();
+                    let collector = importedModule[classKey];
                     // Set the id of the collector to the folder name
-                    collector.config.id = folder.name;
+                    const collectorInstance = new collector();
                     // Add it to the set
-                    CollectorLoader.collectors.set(collector.config.id, collector);
+                    CollectorLoader.collectors.set(collectorInstance.config.id, collector);
                     // Add it to the list
-                    collectors.push(collector.config.id);
+                    collectors.push(collectorInstance.config.id);
                 }
             }
         }
@@ -72,16 +73,16 @@ export class CollectorLoader {
         console.log(`${collectors.length} ${folder} collectors loaded: ${collectors.join(', ')}`);
     }
 
-    public static getAll(): Map<string, AbstractCollector> {
+    public static getAll(): AbstractCollector[] {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();
         }
         // Return all collectors
-        return CollectorLoader.collectors;
+        return Array.from(CollectorLoader.collectors.values()).map((collector: any) => new collector());
     }
 
-    public static get(id: string): AbstractCollector | null {
+    public static get(id: string): AbstractCollector {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();
@@ -90,9 +91,9 @@ export class CollectorLoader {
         const collector = CollectorLoader.collectors.get(id.toLowerCase())
 
         if(collector === undefined) {
-            throw new Error(`No collector with id "${id}" found`);
+            throw new StatusError(`No collector with id "${id}" found.`, 400);
         }
         // Return the collector, or null if not found
-        return collector
+        return new collector()
     }
 }

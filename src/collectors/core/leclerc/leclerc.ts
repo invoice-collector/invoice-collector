@@ -1,11 +1,12 @@
 import { Driver } from '../../../driver/driver';
-import { Invoice } from '../../abstractCollector';
+import { CollectorState, Invoice } from '../../abstractCollector';
 import { WebCollector } from '../../webCollector';
 import { LeclercSelectors } from './selectors';
 
 export class LeclercCollector extends WebCollector {
 
     static CONFIG = {
+        id: "leclerc",
         name: "E.Leclerc",
         description: "i18n.collectors.leclerc.description",
         version: "3",
@@ -23,7 +24,8 @@ export class LeclercCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.e.leclerc/auth"
+        entryUrl: "https://www.e.leclerc/auth",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
