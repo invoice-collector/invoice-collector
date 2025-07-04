@@ -360,7 +360,7 @@ async function deleteCredential(id) {
     showCredentials();
 }
 
-async function showFeedback() {
+async function showFeedback(type) {
     document.getElementById('credentials-container').hidden = true;
     document.getElementById('companies-container').hidden = true;
     document.getElementById('form-container').hidden = true;
@@ -368,6 +368,7 @@ async function showFeedback() {
     document.getElementById('feedback-container').hidden = false;
     document.getElementById('feedback-response-success').hidden = true;
     document.getElementById('feedback-response-error').hidden = true;
+    document.querySelector('#feedback-form input[name="type"]').value = type;
 }
 
 async function sendFeedback(event) {
@@ -382,10 +383,7 @@ async function sendFeedback(event) {
 
     const response = await fetch(`feedback?token=${token}`, {
         method: 'POST',
-        body: JSON.stringify({
-            ...params,
-            type: 'custom'
-        }),
+        body: JSON.stringify({...params}),
         headers: {
             'Content-Type': 'application/json'
         }
