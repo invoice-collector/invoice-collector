@@ -382,7 +382,10 @@ async function sendFeedback(event) {
 
     const response = await fetch(`feedback?token=${token}`, {
         method: 'POST',
-        body: JSON.stringify({...params}),
+        body: JSON.stringify({
+            ...params,
+            type: 'custom'
+        }),
         headers: {
             'Content-Type': 'application/json'
         }

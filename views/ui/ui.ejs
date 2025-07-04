@@ -133,9 +133,9 @@
             <!-- FORM -->
             <form id="feedback-form">
                 <label><%= __('i18n.views.manage.feedback') %><span style="color: red;"> *</span></label>
-                <textarea type="text" name="feedback" placeholder="<%= __('i18n.views.manage.feedback.placeholder') %>" required></textarea>
+                <textarea type="text" name="message" placeholder="<%= __('i18n.views.manage.feedback.placeholder') %>" required></textarea>
                 <label><%= __('i18n.collectors.all.email') %></label>
-                <input type="text" name="email" type="email" placeholder="<%= __('i18n.views.manage.feedback.email.placeholder') %>">
+                <input type="email" name="email" type="email" placeholder="<%= __('i18n.views.manage.feedback.email.placeholder') %>">
                 <button type="submit" class="button action-button"><%= __('i18n.views.manage.send_feedback') %></button>
             </form>
             <!-- RESPONSE -->

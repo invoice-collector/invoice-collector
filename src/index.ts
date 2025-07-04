@@ -102,7 +102,7 @@ app.post('/api/v1/feedback', async (req, res) => {
     try {
         // Send feedback
         console.log('POST feedback');
-        await server.post_feedback(req.query.token, req.body.feedback, req.body.email);
+        await server.post_feedback(req.query.token, req.body.type, req.body.message, req.body.email);
 
         // Build response
         res.end()
