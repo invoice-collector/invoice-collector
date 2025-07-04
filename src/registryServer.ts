@@ -96,9 +96,10 @@ You are still able to use the product but some features may not work as expected
         };
     }
 
-    async feedback(bearer: string, feedback: string, email: string | undefined) {
+    async feedback(bearer: string, type: string, message: string, email: string | undefined) {
         const response = await this.client.post("/feedback", {
-            feedback,
+            type,
+            message,
             email
         },
         {

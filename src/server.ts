@@ -178,10 +178,15 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async post_feedback(token: any, feedback: string | undefined, email: string | undefined): Promise<void> {
-        //Check if feedback field is missing
-        if(!feedback) {
-            throw new MissingField("feedback");
+    public async post_feedback(token: any, type: string | undefined, message: string | undefined, email: string | undefined): Promise<void> {
+        //Check if type field is missing
+        if(!type) {
+            throw new MissingField("type");
+        }
+
+        //Check if message field is missing
+        if(!message) {
+            throw new MissingField("message");
         }
 
         // Get user from token
@@ -191,7 +196,7 @@ export class Server {
         const customer = await user.getCustomer();
 
         // Send feedback to registry server
-        await RegistryServer.getInstance().feedback(customer.bearer, feedback, email);
+        await RegistryServer.getInstance().feedback(customer.bearer, type, message, email);
     }
 
     // ---------- CUSTOMER ENDPOINTS ----------
