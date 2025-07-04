@@ -98,6 +98,7 @@ You are still able to use the product but some features may not work as expected
 
     async feedback(bearer: string, type: string, message: string, email: string | undefined) {
         const response = await this.client.post("/feedback", {
+            from: "app",
             type,
             message,
             email
