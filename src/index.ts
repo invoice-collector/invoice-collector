@@ -1,6 +1,8 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSpec } from './swagger';
 import { StatusError, TermsConditionsError } from "./error"
 import { Server } from "./server"
 import * as utils from "./utils"
@@ -14,6 +16,10 @@ app.use(I18n.i18n.init);
 app.use('/views', express.static(path.join(__dirname, '..', 'views')));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '..', 'views'));
+
+// Swagger documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 declare global {
     namespace Express {
         interface Request {
