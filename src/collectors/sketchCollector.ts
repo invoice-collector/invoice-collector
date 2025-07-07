@@ -1,7 +1,5 @@
-import axios, { AxiosInstance } from "axios";
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState } from "./abstractCollector";
-import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
-import { mimetypeFromBase64 } from '../utils';
+import { AbstractCollector, Invoice, CompleteInvoice, CollectorType, CollectorState } from "./abstractCollector";
+import { CollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
