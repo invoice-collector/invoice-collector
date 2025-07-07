@@ -133,7 +133,7 @@ app.post('/api/v1/customer', async (req, res) => {
     try {
         // Save customer
         console.log(`POST customer`);
-        const response = await server.post_customer(req.headers.authorization, req.body.name, req.body.callback, req.body.theme);
+        const response = await server.post_customer(req.headers.authorization, req.body.name, req.body.callback, req.body.theme, req.body.collectors);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -264,12 +264,12 @@ app.post('/api/v1/credential/:id/collect', async (req, res) => {
 
 // ---------- COLLECTOR ENDPOINTS ----------
 
-// NO AUTHENTICATION
-app.get('/api/v1/collectors', (req, res) => {
+// BEARER AUTHENTICATION
+app.get('/api/v1/collectors', async (req, res) => {
     try {
         // List all collectors
         console.log(`GET collectors`);
-        const response = server.get_collectors(req.query.locale);
+        const response = await server.get_collectors(req.query.token, req.query.locale);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');

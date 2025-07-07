@@ -72,7 +72,8 @@ export class MongoDB extends AbstractDatabase {
             name: customer.name,
             callback: customer.callback,
             bearer: customer.bearer,
-            theme: customer.theme
+            theme: customer.theme,
+            collectors: customer.collectors
         });
         customer.id = document.insertedId.toString();
         return customer;
@@ -86,7 +87,7 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let customer = new Customer(document.name, document.callback, document.bearer, document.theme);
+        let customer = new Customer(document.name, document.callback, document.bearer, document.theme, document.collectors);
         customer.id = document._id.toString();
         return customer;
     }
@@ -101,7 +102,7 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let customer = new Customer(document.name, document.callback, document.bearer, document.theme);
+        let customer = new Customer(document.name, document.callback, document.bearer, document.theme, document.collectors);
         customer.id = document._id.toString();
         return customer;
     }
@@ -115,7 +116,8 @@ export class MongoDB extends AbstractDatabase {
             { $set: {
                 name: customer.name,
                 callback: customer.callback,
-                theme: customer.theme
+                theme: customer.theme,
+                collectors: customer.collectors
             }}
         );
     }

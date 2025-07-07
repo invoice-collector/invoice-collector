@@ -2,6 +2,7 @@ import { StatusError, AuthenticationBearerError } from "../error";
 import { DatabaseFactory } from "../database/databaseFactory";
 import * as utils from "../utils";
 import { User } from "./user";
+import { CollectorLoader } from "../collectors/collectorLoader";
 
 export enum Theme {
     DEFAULT = 'default',
@@ -47,13 +48,15 @@ export class Customer {
     callback: string;
     bearer: string;
     theme: Theme;
+    collectors: string[];
 
-    constructor(name: string, callback: string, bearer: string, theme: Theme = Theme.DEFAULT) {
+    constructor(name: string, callback: string, bearer: string, theme: Theme = Theme.DEFAULT, collectors: string[] = []) {
         this.id = "";
         this.name = name;
         this.callback = callback;
         this.bearer = bearer;
         this.theme = theme;
+        this.collectors = collectors;
     }
 
     async getUserFromRemoteId(remote_id: string) {
@@ -71,6 +74,26 @@ export class Customer {
         }
 
         this.theme = theme as Theme;
+    }
+
+    setCollectors(collectors: string[]) {
+        // Check if collectors is an array
+        if (!Array.isArray(collectors)) {
+            throw new StatusError(`Collectors must be an array.`, 400);
+        }
+
+        // Get existing collectors
+        const valid_collectors = CollectorLoader.getAll().map((collector) => collector.config.id);
+
+        // For each collector, check if it exists
+        for (const collector of collectors) {
+            if (!valid_collectors.includes(collector)) {
+                throw new StatusError(`Collector "${collector}" does not exist.`, 400);
+            }
+        }
+
+        // Set collectors
+        this.collectors = collectors;
     }
 
     async commit() {

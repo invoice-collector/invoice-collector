@@ -210,7 +210,7 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
-    public async post_customer(bearer: string | undefined, name: string | undefined, callback: string | undefined, theme: string | undefined): Promise<any> {
+    public async post_customer(bearer: string | undefined, name: string | undefined, callback: string | undefined, theme: string | undefined, collectors: string[] | undefined): Promise<any> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -227,6 +227,10 @@ export class Server {
         //Check if theme field is present
         if(theme) {
             customer.setTheme(theme);
+        }
+
+        if (collectors) {
+            customer.setCollectors(collectors);
         }
 
         // Commit changes in database
@@ -350,6 +354,14 @@ export class Server {
 
         // Get collector from id
         const collector = CollectorLoader.get(collector_id);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Check if customer has subscribed to the collector
+        if (!customer.collectors.includes(collector_id)) {
+            throw new StatusError(`Customer has not subscribed to collector "${collector_id}". Available collectors are: ${customer.collectors.join(", ")}.`, 400);
+        }
 
         // Get credential note
         let note = params.note;
@@ -575,8 +587,18 @@ export class Server {
 
     // ---------- COLLECTOR ENDPOINTS ----------
 
-    // NO AUTHENTICATION
-    public get_collectors(locale: any): Config[] {
+    // BEARER AUTHENTICATION
+    public async get_collectors(token: any, locale: any): Promise<Config[]> {
+        // Check if token is missing or incorrect
+        let subscribedCollectors: string[] | null = null;
+        if(token && this.tokens.hasOwnProperty(token) && typeof token == 'string') {
+            // Get user from token
+            const user = this.tokens[token];
+            // Get customer from user
+            const customer = await user.getCustomer();
+            subscribedCollectors = customer.collectors;
+        }
+
         //Check if locale field is missing
         if(!locale || typeof locale !== 'string') {
             //Set default locale
@@ -588,26 +610,28 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
-        return CollectorLoader.getAll().map((collector: AbstractCollector): Config => {
-            const name: string = I18n.get(collector.config.name, locale);
-            const description: string = I18n.get(collector.config.description, locale);
-            const instructions: string = I18n.get(collector.config.instructions, locale);
-            const params = Object.keys(collector.config.params).reduce((acc, key) => {
-                acc[key] = {
-                    ...collector.config.params[key],
-                    name: I18n.get(collector.config.params[key].name, locale),
-                    placeholder: I18n.get(collector.config.params[key].placeholder, locale)
+        return CollectorLoader.getAll()
+            .filter((collector: AbstractCollector) => subscribedCollectors === null || subscribedCollectors.includes(collector.config.id))
+            .map((collector: AbstractCollector): Config => {
+                const name: string = I18n.get(collector.config.name, locale);
+                const description: string = I18n.get(collector.config.description, locale);
+                const instructions: string = I18n.get(collector.config.instructions, locale);
+                const params = Object.keys(collector.config.params).reduce((acc, key) => {
+                    acc[key] = {
+                        ...collector.config.params[key],
+                        name: I18n.get(collector.config.params[key].name, locale),
+                        placeholder: I18n.get(collector.config.params[key].placeholder, locale)
+                    };
+                    return acc;
+                }, {});
+                return {
+                    ...collector.config,
+                    name,
+                    description,
+                    instructions,
+                    params
                 };
-                return acc;
-            }, {});
-            return {
-                ...collector.config,
-                name,
-                description,
-                instructions,
-                params
-            };
-        });
+            });
     }
 
     // ---------- PRIVATE METHODS ----------

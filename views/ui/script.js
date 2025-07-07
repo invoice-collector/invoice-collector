@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function getCollectors() {
-    const response = await fetch(`collectors?locale=${locale}`);
+    const response = await fetch(`collectors?locale=${locale}&token=${token}`);
     return await response.json();
 }
 
