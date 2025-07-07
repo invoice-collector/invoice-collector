@@ -52,7 +52,7 @@
             <!-- COMPANIES LIST -->
             <ul id="companies-list"></ul>
             
-            <div class="companies-buttons">
+            <div class="center-button">
                 <button class="button delete-button no-collector-button" onclick="showFeedback('new_collector')"><%= __('i18n.views.manage.no_collector') %></button>
             </div>
         </div>
@@ -83,6 +83,13 @@
                     <input type="text" name="note" placeholder="<%= __('i18n.collectors.all.note.placeholder') %>">
                     <button type="submit" class="button action-button"><%= __('i18n.views.manage.add_collectors') %></button>
                 </form>
+
+                <div class="center-button">
+                    <button id="hit-sktech-button" class="button delete-button"><%= __('i18n.views.manage.sketch.hit') %></button>
+                </div>
+                <div id="hit-sktech-success" class="feedback-response feedback-response-success" hidden>
+                    <p><%= __('i18n.views.manage.sketch.hit.done') %></p>
+                </div>
             </div>
         </div>
 

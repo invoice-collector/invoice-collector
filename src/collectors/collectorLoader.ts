@@ -7,6 +7,7 @@ export class CollectorLoader {
     private static collectors: Map<string, any> = new Map();
 
     static load(filter: string | null = null) {
+        this.loadFolders("sketch", filter)
         this.loadFolders("community", filter)
         this.loadFolders("core", filter)
         this.loadFolders("premium", filter)

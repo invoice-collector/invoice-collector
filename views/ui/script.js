@@ -1,6 +1,7 @@
 const token = new URLSearchParams(window.location.search).get('token');
 let companies = [];
 let ip = null;
+let hit = []
 
 document.addEventListener('DOMContentLoaded', async () => {
     showCredentials();
@@ -166,7 +167,9 @@ async function showCompanies() {
 
 function showForm(company) {
     // Get elements
-    const form = document.getElementById('add-credential-form-params');
+    const formParams = document.getElementById('add-credential-form-params');
+    const form = document.getElementById('add-credential-form');
+    const hitSKetchButton = document.getElementById('hit-sktech-button');
     
     // Update the form with the company's information
     document.getElementById('form-logo').src = company.logo;
@@ -174,10 +177,10 @@ function showForm(company) {
     document.getElementById('form-description').textContent = company.description;
     document.querySelector('#add-credential-instructions').hidden = !company.instructions;
     document.querySelector('#add-credential-instructions p').innerHTML = company.instructions;
-    document.getElementById('add-credential-form').dataset.collector = company.id;
 
     // Reset values
-    form.innerHTML = ''; // Clear any existing fields
+    formParams.innerHTML = ''; // Clear any existing fields
+    form.dataset.collector = company.id;
 
     // Hide other containers
     document.getElementById('credentials-container').hidden = true;
@@ -186,35 +189,61 @@ function showForm(company) {
     document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = true;
 
-    Object.keys(company.params).forEach(key => {
-        // Get the parameter
-        const param = company.params[key];
+    console.log(company);
+    // If the collector is not a sketch, show form
+    if(company.type != "sketch") {
+        // Show form, hide sketch button
+        form.style.removeProperty("display");
+        hitSKetchButton.hidden = true;
 
-        // Add label
-        const label = document.createElement('label');
-        label.textContent = param.name;
+        Object.keys(company.params).forEach(key => {
+            // Get the parameter
+            const param = company.params[key];
 
-        if (param.mandatory) {
-            const required = document.createElement('span');
-            required.textContent = ' *';
-            required.style.color = 'red';
-            label.appendChild(required);
+            // Add label
+            const label = document.createElement('label');
+            label.textContent = param.name;
+
+            if (param.mandatory) {
+                const required = document.createElement('span');
+                required.textContent = ' *';
+                required.style.color = 'red';
+                label.appendChild(required);
+            }
+
+            // Add input
+            const input = document.createElement('input');
+            if (key === 'password' || key === 'token') {
+                input.setAttribute('type', 'password');
+            } else {
+                input.setAttribute('type', 'text');
+            }
+            input.setAttribute('name', key);
+            input.placeholder = param.placeholder;
+            input.required = param.mandatory;
+
+            formParams.appendChild(label);
+            formParams.appendChild(input);
+        });
+    }
+    else {
+        // Show sketch button, hide form
+        form.style.display="none"
+        hitSKetchButton.hidden = false;
+        document.getElementById('hit-sktech-success').hidden = true;
+
+        // Set the onclick event for the sketch button
+        hitSKetchButton.onclick = async() => {
+            document.getElementById('hit-sktech-success').hidden = false;
+            if (!hit.includes(company.id)) {
+                await post_send_feedback({
+                    type: 'sketch',
+                    message: company.id,
+                });
+                hit.push(company.id);
+            }
         }
-
-        // Add input
-        const input = document.createElement('input');
-        if (key === 'password' || key === 'token') {
-            input.setAttribute('type', 'password');
-        } else {
-            input.setAttribute('type', 'text');
-        }
-        input.setAttribute('name', key);
-        input.placeholder = param.placeholder;
-        input.required = param.mandatory;
-
-        form.appendChild(label);
-        form.appendChild(input);
-    });
+    }
 }
 
 async function addCredential(event) {
@@ -381,13 +410,7 @@ async function sendFeedback(event) {
         params[key] = value;
     });
 
-    const response = await fetch(`feedback?token=${token}`, {
-        method: 'POST',
-        body: JSON.stringify({...params}),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    const response = await post_send_feedback({...params});
 
     document.getElementById('feedback-form').reset();
 
@@ -398,4 +421,14 @@ async function sendFeedback(event) {
     else {
         document.getElementById('feedback-response-success').hidden = false;
     }
+}
+
+async function post_send_feedback(body) {
+    return await fetch(`feedback?token=${token}`, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 }
