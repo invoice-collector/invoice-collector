@@ -381,7 +381,7 @@ export class Server {
         const customer = await user.getCustomer();
 
         // Check if customer has subscribed to the collector
-        if (!customer.subscribedCollectors.includes(collector_id)) {
+        if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector_id)) {
             throw new StatusError(`Customer has not subscribed to collector "${collector_id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
         }
 
