@@ -48,15 +48,15 @@ export class Customer {
     callback: string;
     bearer: string;
     theme: Theme;
-    collectors: string[];
+    subscribedCollectors: string[];
 
-    constructor(name: string, callback: string, bearer: string, theme: Theme = Theme.DEFAULT, collectors: string[] = []) {
+    constructor(name: string, callback: string, bearer: string, theme: Theme = Theme.DEFAULT, subscribedCollectors: string[] = []) {
         this.id = "";
         this.name = name;
         this.callback = callback;
         this.bearer = bearer;
         this.theme = theme;
-        this.collectors = collectors;
+        this.subscribedCollectors = subscribedCollectors;
     }
 
     async getUserFromRemoteId(remote_id: string) {
@@ -76,7 +76,7 @@ export class Customer {
         this.theme = theme as Theme;
     }
 
-    setCollectors(collectors: string[]) {
+    setSubscribedCollectors(collectors: string[]) {
         // Check if collectors is an array
         if (!Array.isArray(collectors)) {
             throw new StatusError(`Collectors must be an array.`, 400);
@@ -93,7 +93,7 @@ export class Customer {
         }
 
         // Set collectors
-        this.collectors = collectors;
+        this.subscribedCollectors = collectors;
     }
 
     async commit() {

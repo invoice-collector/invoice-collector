@@ -210,7 +210,7 @@ export class Server {
             name: customer.name,
             callback: customer.callback,
             theme: customer.theme,
-            collectors: customer.collectors
+            subscribedCollectors: customer.subscribedCollectors
         };
     }
 
@@ -235,7 +235,7 @@ export class Server {
         }
 
         if (collectors) {
-            customer.setCollectors(collectors);
+            customer.setSubscribedCollectors(collectors);
         }
 
         // Commit changes in database
@@ -364,8 +364,8 @@ export class Server {
         const customer = await user.getCustomer();
 
         // Check if customer has subscribed to the collector
-        if (!customer.collectors.includes(collector_id)) {
-            throw new StatusError(`Customer has not subscribed to collector "${collector_id}". Available collectors are: ${customer.collectors.join(", ")}.`, 400);
+        if (!customer.subscribedCollectors.includes(collector_id)) {
+            throw new StatusError(`Customer has not subscribed to collector "${collector_id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
         }
 
         // Get credential note
