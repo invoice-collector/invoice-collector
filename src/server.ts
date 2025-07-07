@@ -206,7 +206,12 @@ export class Server {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
-        return { name: customer.name, callback: customer.callback, theme: customer.theme };
+        return {
+            name: customer.name,
+            callback: customer.callback,
+            theme: customer.theme,
+            collectors: customer.collectors
+        };
     }
 
     // BEARER AUTHENTICATION
