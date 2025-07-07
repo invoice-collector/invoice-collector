@@ -24,8 +24,7 @@ export abstract class SketchCollector extends AbstractCollector {
             params: {},
             type: CollectorType.SKETCH,
             useProxy: false,
-            state: CollectorState.DEVELOPMENT,
-            instructions: "i18n.views.manage.sketch",
+            state: CollectorState.DEVELOPMENT
         });
     }
 

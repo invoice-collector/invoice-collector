@@ -84,11 +84,14 @@
                     <button type="submit" class="button action-button"><%= __('i18n.views.manage.add_collectors') %></button>
                 </form>
 
-                <div class="center-button">
-                    <button id="hit-sktech-button" class="button delete-button"><%= __('i18n.views.manage.sketch.hit') %></button>
-                </div>
-                <div id="hit-sktech-success" class="feedback-response feedback-response-success" hidden>
-                    <p><%= __('i18n.views.manage.sketch.hit.done') %></p>
+                <div id="hit-sketch">
+                    <label><%= __('i18n.views.manage.sketch') %></label>
+                    <div class="center-button">
+                        <button id="hit-sketch-button" class="button delete-button"><%= __('i18n.views.manage.sketch.hit') %></button>
+                    </div>
+                    <div id="hit-sketch-success" class="feedback-response feedback-response-success" hidden>
+                        <p><%= __('i18n.views.manage.sketch.hit.done') %></p>
+                    </div>
                 </div>
             </div>
         </div>

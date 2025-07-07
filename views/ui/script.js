@@ -169,7 +169,8 @@ function showForm(company) {
     // Get elements
     const formParams = document.getElementById('add-credential-form-params');
     const form = document.getElementById('add-credential-form');
-    const hitSKetchButton = document.getElementById('hit-sktech-button');
+    const hitSketch = document.getElementById('hit-sketch');
+    const hitSketchButton = document.getElementById('hit-sketch-button');
     
     // Update the form with the company's information
     document.getElementById('form-logo').src = company.logo;
@@ -194,7 +195,7 @@ function showForm(company) {
     if(company.type != "sketch") {
         // Show form, hide sketch button
         form.style.removeProperty("display");
-        hitSKetchButton.hidden = true;
+        hitSketch.hidden = true;
 
         Object.keys(company.params).forEach(key => {
             // Get the parameter
@@ -229,12 +230,12 @@ function showForm(company) {
     else {
         // Show sketch button, hide form
         form.style.display="none"
-        hitSKetchButton.hidden = false;
-        document.getElementById('hit-sktech-success').hidden = true;
+        hitSketch.hidden = false;
+        document.getElementById('hit-sketch-success').hidden = true;
 
         // Set the onclick event for the sketch button
-        hitSKetchButton.onclick = async() => {
-            document.getElementById('hit-sktech-success').hidden = false;
+        hitSketchButton.onclick = async() => {
+            document.getElementById('hit-sketch-success').hidden = false;
             if (!hit.includes(company.id)) {
                 await post_send_feedback({
                     type: 'sketch',
