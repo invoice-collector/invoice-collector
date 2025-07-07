@@ -210,12 +210,19 @@ export class Server {
             name: customer.name,
             callback: customer.callback,
             theme: customer.theme,
-            subscribedCollectors: customer.subscribedCollectors
+            subscribedCollectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll
         };
     }
 
     // BEARER AUTHENTICATION
-    public async post_customer(bearer: string | undefined, name: string | undefined, callback: string | undefined, theme: string | undefined, collectors: string[] | undefined): Promise<any> {
+    public async post_customer(
+        bearer: string | undefined,
+        name: string | undefined,
+        callback: string | undefined,
+        theme: string | undefined,
+        subscribedCollectors: string[] | undefined,
+        isSubscribedToAll?: boolean): Promise<any> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -234,14 +241,24 @@ export class Server {
             customer.setTheme(theme);
         }
 
-        if (collectors) {
-            customer.setSubscribedCollectors(collectors);
+        if (subscribedCollectors) {
+            customer.setSubscribedCollectors(subscribedCollectors);
+        }
+
+        if (typeof isSubscribedToAll === 'boolean') {
+            customer.isSubscribedToAll = isSubscribedToAll;
         }
 
         // Commit changes in database
         await customer.commit();
 
-        return { name: customer.name, callback: customer.callback, theme: customer.theme };
+        return {
+            name: customer.name,
+            callback: customer.callback,
+            theme: customer.theme,
+            subscribedCollectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll
+        };
     }
 
     // ---------- USER ENDPOINTS ----------

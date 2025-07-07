@@ -73,7 +73,8 @@ export class MongoDB extends AbstractDatabase {
             callback: customer.callback,
             bearer: customer.bearer,
             theme: customer.theme,
-            subscribedCollectors: customer.subscribedCollectors
+            collectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll
         });
         customer.id = document.insertedId.toString();
         return customer;
@@ -87,7 +88,14 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let customer = new Customer(document.name, document.callback, document.bearer, document.theme, document.collectors);
+        let customer = new Customer(
+            document.name,
+            document.callback,
+            document.bearer,
+            document.theme,
+            document.subscribedCollectors,
+            document.isSubscribedToAll
+        );
         customer.id = document._id.toString();
         return customer;
     }
@@ -102,7 +110,14 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let customer = new Customer(document.name, document.callback, document.bearer, document.theme, document.collectors);
+        let customer = new Customer(
+            document.name,
+            document.callback,
+            document.bearer,
+            document.theme,
+            document.subscribedCollectors,
+            document.isSubscribedToAll
+        );
         customer.id = document._id.toString();
         return customer;
     }
@@ -117,7 +132,8 @@ export class MongoDB extends AbstractDatabase {
                 name: customer.name,
                 callback: customer.callback,
                 theme: customer.theme,
-                subscribedCollectors: customer.subscribedCollectors
+                subscribedCollectors: customer.subscribedCollectors,
+                isSubscribedToAll: customer.isSubscribedToAll
             }}
         );
     }

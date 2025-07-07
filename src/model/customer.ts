@@ -49,14 +49,23 @@ export class Customer {
     bearer: string;
     theme: Theme;
     subscribedCollectors: string[];
+    isSubscribedToAll: boolean;
 
-    constructor(name: string, callback: string, bearer: string, theme: Theme = Theme.DEFAULT, subscribedCollectors: string[] = []) {
+    constructor(
+        name: string,
+        callback: string,
+        bearer: string,
+        theme: Theme = Theme.DEFAULT,
+        subscribedCollectors: string[] = [],
+        isSubscribedToAll: boolean = true
+    ) {
         this.id = "";
         this.name = name;
         this.callback = callback;
         this.bearer = bearer;
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;
+        this.isSubscribedToAll = isSubscribedToAll;
     }
 
     async getUserFromRemoteId(remote_id: string) {
