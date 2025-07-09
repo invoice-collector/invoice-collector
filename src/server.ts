@@ -614,9 +614,9 @@ export class Server {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] | null = null;
         let isSubscribedToAll: boolean = true;
-        if(token && this.tokens.hasOwnProperty(token) && typeof token == 'string') {
+        if(token) {
             // Get user from token
-            const user = this.tokens[token];
+            const user = this.get_token_mapping(token);
             // Get customer from user
             const customer = await user.getCustomer();
             subscribedCollectors = customer.subscribedCollectors;
