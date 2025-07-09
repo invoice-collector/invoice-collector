@@ -13,7 +13,8 @@ export enum CollectorState {
 export enum CollectorType {
     WEB = 'web',
     API = 'api',
-    EMAIL = 'email'
+    EMAIL = 'email',
+    SKETCH = 'sketch'
 }
 
 export enum CollectorCaptcha {

@@ -52,8 +52,8 @@
             <!-- COMPANIES LIST -->
             <ul id="companies-list"></ul>
             
-            <div class="companies-buttons">
-                <button class="button delete-button no-collector-button" onclick="showFeedback()"><%= __('i18n.views.manage.no_collector') %></button>
+            <div class="center-button">
+                <button class="button delete-button no-collector-button" onclick="showFeedback('new_collector')"><%= __('i18n.views.manage.no_collector') %></button>
             </div>
         </div>
 
@@ -83,6 +83,16 @@
                     <input type="text" name="note" placeholder="<%= __('i18n.collectors.all.note.placeholder') %>">
                     <button type="submit" class="button action-button"><%= __('i18n.views.manage.add_collectors') %></button>
                 </form>
+
+                <div id="hit-sketch">
+                    <label><%= __('i18n.views.manage.sketch') %></label>
+                    <div class="center-button">
+                        <button id="hit-sketch-button" class="button delete-button"><%= __('i18n.views.manage.sketch.hit') %></button>
+                    </div>
+                    <div id="hit-sketch-success" class="feedback-response feedback-response-success" hidden>
+                        <p><%= __('i18n.views.manage.sketch.hit.done') %></p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -132,6 +142,7 @@
             <h1><%= __('i18n.views.manage.send_feedback') %></h1>
             <!-- FORM -->
             <form id="feedback-form">
+                <input type="text" name="type" required hidden>
                 <label><%= __('i18n.views.manage.feedback') %><span style="color: red;"> *</span></label>
                 <textarea type="text" name="message" placeholder="<%= __('i18n.views.manage.feedback.placeholder') %>" required></textarea>
                 <label><%= __('i18n.collectors.all.email') %></label>
@@ -150,7 +161,7 @@
         <!-- FOOTER -->
 
         <div class="footer">
-            <a id="send-feedback-button" class="button" onclick="showFeedback()"><%= __('i18n.views.manage.send_feedback') %></a>
+            <a id="send-feedback-button" class="button" onclick="showFeedback('custom')"><%= __('i18n.views.manage.send_feedback') %></a>
         </div>
     </div>
 

@@ -206,11 +206,23 @@ export class Server {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
-        return { name: customer.name, callback: customer.callback, theme: customer.theme };
+        return {
+            name: customer.name,
+            callback: customer.callback,
+            theme: customer.theme,
+            subscribedCollectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll
+        };
     }
 
     // BEARER AUTHENTICATION
-    public async post_customer(bearer: string | undefined, name: string | undefined, callback: string | undefined, theme: string | undefined): Promise<any> {
+    public async post_customer(
+        bearer: string | undefined,
+        name: string | undefined,
+        callback: string | undefined,
+        theme: string | undefined,
+        subscribedCollectors: string[] | undefined,
+        isSubscribedToAll?: boolean): Promise<any> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -229,10 +241,24 @@ export class Server {
             customer.setTheme(theme);
         }
 
+        if (subscribedCollectors) {
+            customer.setSubscribedCollectors(subscribedCollectors);
+        }
+
+        if (typeof isSubscribedToAll === 'boolean') {
+            customer.isSubscribedToAll = isSubscribedToAll;
+        }
+
         // Commit changes in database
         await customer.commit();
 
-        return { name: customer.name, callback: customer.callback, theme: customer.theme };
+        return {
+            name: customer.name,
+            callback: customer.callback,
+            theme: customer.theme,
+            subscribedCollectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll
+        };
     }
 
     // ---------- USER ENDPOINTS ----------
@@ -350,6 +376,14 @@ export class Server {
 
         // Get collector from id
         const collector = CollectorLoader.get(collector_id);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Check if customer has subscribed to the collector
+        if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector_id)) {
+            throw new StatusError(`Customer has not subscribed to collector "${collector_id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
+        }
 
         // Get credential note
         let note = params.note;
@@ -575,8 +609,20 @@ export class Server {
 
     // ---------- COLLECTOR ENDPOINTS ----------
 
-    // NO AUTHENTICATION
-    public get_collectors(locale: any): Config[] {
+    // BEARER AUTHENTICATION
+    public async get_collectors(token: any, locale: any): Promise<Config[]> {
+        // Check if token is missing or incorrect
+        let subscribedCollectors: string[] | null = null;
+        let isSubscribedToAll: boolean = true;
+        if(token) {
+            // Get user from token
+            const user = this.get_token_mapping(token);
+            // Get customer from user
+            const customer = await user.getCustomer();
+            subscribedCollectors = customer.subscribedCollectors;
+            isSubscribedToAll = customer.isSubscribedToAll;
+        }
+
         //Check if locale field is missing
         if(!locale || typeof locale !== 'string') {
             //Set default locale
@@ -588,26 +634,28 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
-        return CollectorLoader.getAll().map((collector: AbstractCollector): Config => {
-            const name: string = I18n.get(collector.config.name, locale);
-            const description: string = I18n.get(collector.config.description, locale);
-            const instructions: string = I18n.get(collector.config.instructions, locale);
-            const params = Object.keys(collector.config.params).reduce((acc, key) => {
-                acc[key] = {
-                    ...collector.config.params[key],
-                    name: I18n.get(collector.config.params[key].name, locale),
-                    placeholder: I18n.get(collector.config.params[key].placeholder, locale)
+        return CollectorLoader.getAll()
+            .filter((collector: AbstractCollector) => isSubscribedToAll || (subscribedCollectors === null || subscribedCollectors.includes(collector.config.id)))
+            .map((collector: AbstractCollector): Config => {
+                const name: string = I18n.get(collector.config.name, locale);
+                const description: string = I18n.get(collector.config.description, locale);
+                const instructions: string = I18n.get(collector.config.instructions, locale);
+                const params = Object.keys(collector.config.params).reduce((acc, key) => {
+                    acc[key] = {
+                        ...collector.config.params[key],
+                        name: I18n.get(collector.config.params[key].name, locale),
+                        placeholder: I18n.get(collector.config.params[key].placeholder, locale)
+                    };
+                    return acc;
+                }, {});
+                return {
+                    ...collector.config,
+                    name,
+                    description,
+                    instructions,
+                    params
                 };
-                return acc;
-            }, {});
-            return {
-                ...collector.config,
-                name,
-                description,
-                instructions,
-                params
-            };
-        });
+            });
     }
 
     // ---------- PRIVATE METHODS ----------

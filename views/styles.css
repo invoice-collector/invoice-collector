@@ -77,6 +77,11 @@ label {
     width: 15px;
 }
 
+.center-button {
+    margin-top: 50px;
+    text-align: center;
+}
+
 /* CREDENTIALS */
 
 #credentials-table {
@@ -168,11 +173,6 @@ label {
     display: block;
     list-style-type: none;
     padding: 0;
-    text-align: center;
-}
-
-.companies-buttons {
-    margin-top: 50px;
     text-align: center;
 }
 
