@@ -32,6 +32,7 @@
   "i18n.collectors.amazon_business.description": "Amazon Business is an online marketplace for professionals.",
   "i18n.collectors.bureau_vallee.description": "Bureau Vallée is an office furniture supplier for professionals and individuals.",
   "i18n.collectors.carrefour.description": "Carrefour is a French retail company.",
+  "i18n.collectors.edf.description": "EDF is a French electricity supplier.",
   "i18n.collectors.free.description": "Free is a French telecommunications company.",
   "i18n.collectors.free.identifier.placeholder": "Identifier of the account (ex: fbx12345670)",
   "i18n.collectors.intermarche.description": "Intermarché is a French retail company.",
