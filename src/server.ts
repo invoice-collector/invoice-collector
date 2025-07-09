@@ -613,12 +613,14 @@ export class Server {
     public async get_collectors(token: any, locale: any): Promise<Config[]> {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] | null = null;
+        let isSubscribedToAll: boolean = true;
         if(token && this.tokens.hasOwnProperty(token) && typeof token == 'string') {
             // Get user from token
             const user = this.tokens[token];
             // Get customer from user
             const customer = await user.getCustomer();
-            subscribedCollectors = customer.collectors;
+            subscribedCollectors = customer.subscribedCollectors;
+            isSubscribedToAll = customer.isSubscribedToAll;
         }
 
         //Check if locale field is missing
@@ -633,7 +635,7 @@ export class Server {
         }
 
         return CollectorLoader.getAll()
-            .filter((collector: AbstractCollector) => subscribedCollectors === null || subscribedCollectors.includes(collector.config.id))
+            .filter((collector: AbstractCollector) => isSubscribedToAll || (subscribedCollectors === null || subscribedCollectors.includes(collector.config.id)))
             .map((collector: AbstractCollector): Config => {
                 const name: string = I18n.get(collector.config.name, locale);
                 const description: string = I18n.get(collector.config.description, locale);
