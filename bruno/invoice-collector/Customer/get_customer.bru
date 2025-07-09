@@ -1,0 +1,15 @@
+meta {
+  name: get_customer
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/api/v1/customer
+  auth: bearer
+}
+
+headers {
+  Authorization: Bearer {{bearer}}
+  content-type: application/json
+} 

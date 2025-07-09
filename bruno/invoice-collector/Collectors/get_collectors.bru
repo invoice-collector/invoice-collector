@@ -1,0 +1,14 @@
+meta {
+  name: get_collectors
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{url}}/api/v1/collectors?locale={{locale}}
+  auth: none
+}
+
+headers {
+  content-type: application/json
+} 
