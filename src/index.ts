@@ -133,18 +133,18 @@ app.post('/api/v1/customer', async (req, res) => {
     try {
         // Save customer
         console.log(`POST customer`);
-        const response = await server.post_customer(
+        await server.post_customer(
             req.headers.authorization,
             req.body.name,
             req.body.callback,
             req.body.theme,
             req.body.subscribedCollectors,
-            req.body.isSubscribedToAll
+            req.body.isSubscribedToAll,
+            req.body.displaySketchCollectors
         );
 
         // Build response
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
+        res.end();
     } catch (e) {
         handle_error(e, req, res);
     }
