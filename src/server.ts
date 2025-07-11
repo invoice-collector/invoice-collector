@@ -47,7 +47,12 @@ export class Server {
     // ---------- GENERAL ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
-    public async post_authorize(bearer: string | undefined, remote_id: string | undefined, locale: string | undefined, email: string | undefined): Promise<{token: string}> {
+    public async post_authorize(
+        bearer: string | undefined,
+        remote_id: string | undefined,
+        locale: string | undefined,
+        email: string | undefined
+    ): Promise<{token: string}> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -202,11 +207,19 @@ export class Server {
     // ---------- CUSTOMER ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
-    public async get_customer(bearer: string | undefined): Promise<any> {
+    public async get_customer(bearer: string | undefined): Promise<{
+        id: string,
+        name: string,
+        callback: string,
+        theme: string,
+        subscribedCollectors: string[],
+        isSubscribedToAll: boolean
+    }> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
         return {
+            id: customer.id,
             name: customer.name,
             callback: customer.callback,
             theme: customer.theme,
@@ -263,7 +276,12 @@ export class Server {
 
     // ---------- USER ENDPOINTS ----------
 
-    public async get_users(bearer: string | undefined): Promise<{id: string, remote_id: string, locale: string}[]> {
+    public async get_users(bearer: string | undefined): Promise<{
+        id: string,
+        customer_id: string,
+        remote_id: string,
+        locale: string
+    }[]> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -274,6 +292,7 @@ export class Server {
         return users.map((user) => {
             return {
                 id: user.id,
+                customer_id: user.customer_id,
                 remote_id: user.remote_id,
                 locale: user.locale
             };
