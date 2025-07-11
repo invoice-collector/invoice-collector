@@ -116,6 +116,11 @@ async function showCredentials() {
                     </td>
                     <td>
                         <div class="credential-collect">
+                            ${credential.invoices.length}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="credential-collect">
                             ${credential.last_collect_timestamp ? new Date(credential.last_collect_timestamp).toLocaleString() : '--'}
                         </div>
                     </td>
