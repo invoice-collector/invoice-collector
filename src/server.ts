@@ -418,11 +418,6 @@ export class Server {
             throw new MissingParams(missing_params);
         }
 
-        // If no note, set it to collector description
-        if(!note) {
-            note = I18n.get(collector.config.description, user.locale);
-        }
-
         if (user.location === null) {
             console.log(`User location not found, trying to locate it`);
 
