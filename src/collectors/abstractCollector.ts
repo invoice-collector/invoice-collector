@@ -57,7 +57,8 @@ export type DownloadedInvoice = Invoice & {
 }
 
 export type CompleteInvoice = DownloadedInvoice & {
-    mimetype: string | null
+    mimetype: string | null,
+    collected_timestamp: number | null
 }
 
 export abstract class AbstractCollector {

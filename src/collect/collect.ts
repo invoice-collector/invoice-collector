@@ -263,7 +263,8 @@ export class Collect {
                             completeInvoices.push({
                                 ...newInvoice,
                                 data: null,
-                                mimetype: null
+                                mimetype: null,
+                                collected_timestamp: null
                             });
                         }
                     }

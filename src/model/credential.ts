@@ -1,3 +1,4 @@
+import { CompleteInvoice } from "../collectors/abstractCollector";
 import { DatabaseFactory } from "../database/databaseFactory";
 import { StatusError } from "../error";
 import * as utils from "../utils"; 
@@ -78,7 +79,7 @@ export class IcCredential {
     create_timestamp: number;
     last_collect_timestamp: number;
     next_collect_timestamp: number;
-    invoices: { id: string; timestamp: number }[];
+    invoices: { id: string; timestamp: number, collected_timestamp: number | null }[];
     state: State;
 
     constructor(
@@ -175,10 +176,11 @@ export class IcCredential {
         }
     }
 
-    addInvoice(invoice: any) {
+    addInvoice(invoice: CompleteInvoice) {
         this.invoices.push({
             id: invoice.id,
-            timestamp: invoice.timestamp
+            timestamp: invoice.timestamp,
+            collected_timestamp: invoice.collected_timestamp
         });
     }
 
