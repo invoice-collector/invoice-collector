@@ -109,10 +109,15 @@ async function showCredentials() {
                         <img class="credential-logo" src="${credential.collector.logo}" alt="${credential.collector.name}">
                     </td>
                     <td>
-                        ${credential.note}
+                        ${credential.note ? credential.note : '--'}
                     </td>
                     <td>
                         ${buildCredentialStatus(credential)}
+                    </td>
+                    <td>
+                        <div class="credential-collect">
+                            ${credential.invoices.length}
+                        </div>
                     </td>
                     <td>
                         <div class="credential-collect">

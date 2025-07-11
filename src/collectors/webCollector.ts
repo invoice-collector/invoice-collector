@@ -183,7 +183,8 @@ export abstract class WebCollector extends AbstractCollector {
 
             return {
                 ...downloadedInvoice,
-                mimetype: mimetypeFromBase64(downloadedInvoice.data)
+                mimetype: mimetypeFromBase64(downloadedInvoice.data),
+                collected_timestamp: Date.now()
             };
         } catch (error) {
             // Get url, source code and screenshot

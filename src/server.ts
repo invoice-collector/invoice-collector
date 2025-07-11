@@ -47,7 +47,12 @@ export class Server {
     // ---------- GENERAL ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
-    public async post_authorize(bearer: string | undefined, remote_id: string | undefined, locale: string | undefined, email: string | undefined): Promise<{token: string}> {
+    public async post_authorize(
+        bearer: string | undefined,
+        remote_id: string | undefined,
+        locale: string | undefined,
+        email: string | undefined
+    ): Promise<{token: string}> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -202,11 +207,19 @@ export class Server {
     // ---------- CUSTOMER ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
-    public async get_customer(bearer: string | undefined): Promise<any> {
+    public async get_customer(bearer: string | undefined): Promise<{
+        id: string,
+        name: string,
+        callback: string,
+        theme: string,
+        subscribedCollectors: string[],
+        isSubscribedToAll: boolean
+    }> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
         return {
+            id: customer.id,
             name: customer.name,
             callback: customer.callback,
             theme: customer.theme,
@@ -263,7 +276,12 @@ export class Server {
 
     // ---------- USER ENDPOINTS ----------
 
-    public async get_users(bearer: string | undefined): Promise<{id: string, remote_id: string, locale: string}[]> {
+    public async get_users(bearer: string | undefined): Promise<{
+        id: string,
+        customer_id: string,
+        remote_id: string,
+        locale: string
+    }[]> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -274,6 +292,7 @@ export class Server {
         return users.map((user) => {
             return {
                 id: user.id,
+                customer_id: user.customer_id,
                 remote_id: user.remote_id,
                 locale: user.locale
             };
@@ -315,10 +334,12 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credentials(token: any): Promise<{
         id: string,
+        user_id: string,
         note: string,
         create_timestamp: number,
         last_collect_timestamp: number,
         next_collect_timestamp: number,
+        invoices: any[],
         state: State,
         collector: Config
     }[]> {
@@ -346,11 +367,13 @@ export class Server {
 
             return {
                 id: credential.id,
+                user_id: credential.user_id,
                 note: credential.note,
                 create_timestamp: credential.create_timestamp,
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 state: credential.state,
+                invoices: credential.invoices,
                 collector: collector.config,
             }
         });
@@ -393,11 +416,6 @@ export class Server {
         const missing_params = Object.keys(collector.config.params).filter((param) => collector.config.params[param].mandatory && !params.hasOwnProperty(param));
         if(missing_params.length > 0) {
             throw new MissingParams(missing_params);
-        }
-
-        // If no note, set it to collector description
-        if(!note) {
-            note = I18n.get(collector.config.description, user.locale);
         }
 
         if (user.location === null) {
@@ -460,15 +478,17 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credential(token: any, id: string): Promise<{
         id: string,
+        user_id: string,
         note: string,
         create_timestamp: number,
         last_collect_timestamp: number,
         next_collect_timestamp: number,
+        invoices: any[],
         state: State,
         collector: Config
     }> {
         // Get user from token
-         const user = this.get_token_mapping(token);
+        const user = this.get_token_mapping(token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -504,10 +524,12 @@ export class Server {
         // Return status
         return {
             id: credential.id,
+            user_id: credential.user_id,
             note: credential.note,
             create_timestamp: credential.create_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
+            invoices: credential.invoices,
             state: credential.state,
             collector: collector.config,
         };
