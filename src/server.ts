@@ -9,7 +9,7 @@ import { Customer } from './model/customer';
 import { IcCredential, State } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
-import { AbstractCollector, Config } from './collectors/abstractCollector';
+import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
 import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
@@ -213,7 +213,8 @@ export class Server {
         callback: string,
         theme: string,
         subscribedCollectors: string[],
-        isSubscribedToAll: boolean
+        isSubscribedToAll: boolean,
+        displaySketchCollectors: boolean
     }> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
@@ -224,7 +225,8 @@ export class Server {
             callback: customer.callback,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
-            isSubscribedToAll: customer.isSubscribedToAll
+            isSubscribedToAll: customer.isSubscribedToAll,
+            displaySketchCollectors: customer.displaySketchCollectors
         };
     }
 
@@ -235,7 +237,9 @@ export class Server {
         callback: string | undefined,
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
-        isSubscribedToAll?: boolean): Promise<any> {
+        isSubscribedToAll: boolean | undefined,
+        displaySketchCollectors: boolean | undefined
+    ): Promise<void> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -262,16 +266,12 @@ export class Server {
             customer.isSubscribedToAll = isSubscribedToAll;
         }
 
+        if (typeof displaySketchCollectors === 'boolean') {
+            customer.displaySketchCollectors = displaySketchCollectors;
+        }
+
         // Commit changes in database
         await customer.commit();
-
-        return {
-            name: customer.name,
-            callback: customer.callback,
-            theme: customer.theme,
-            subscribedCollectors: customer.subscribedCollectors,
-            isSubscribedToAll: customer.isSubscribedToAll
-        };
     }
 
     // ---------- USER ENDPOINTS ----------
@@ -399,6 +399,11 @@ export class Server {
 
         // Get collector from id
         const collector = CollectorLoader.get(collector_id);
+
+        // Check if collector is sketch
+        if(collector.config.type == CollectorType.SKETCH) {
+            throw new StatusError(`Collector "${collector_id}" is a sketch collector and cannot be used to create credentials.`, 400);
+        }
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -636,6 +641,7 @@ export class Server {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] | null = null;
         let isSubscribedToAll: boolean = true;
+        let displaySketchCollectors: boolean = false;
         if(token) {
             // Get user from token
             const user = this.get_token_mapping(token);
@@ -643,6 +649,7 @@ export class Server {
             const customer = await user.getCustomer();
             subscribedCollectors = customer.subscribedCollectors;
             isSubscribedToAll = customer.isSubscribedToAll;
+            displaySketchCollectors = customer.displaySketchCollectors;
         }
 
         //Check if locale field is missing
@@ -658,6 +665,7 @@ export class Server {
 
         return CollectorLoader.getAll()
             .filter((collector: AbstractCollector) => isSubscribedToAll || (subscribedCollectors === null || subscribedCollectors.includes(collector.config.id)))
+            .filter((collector: AbstractCollector) => collector.config.type !== CollectorType.SKETCH || displaySketchCollectors)
             .map((collector: AbstractCollector): Config => {
                 const name: string = I18n.get(collector.config.name, locale);
                 const description: string = I18n.get(collector.config.description, locale);

@@ -50,6 +50,7 @@ export class Customer {
     theme: Theme;
     subscribedCollectors: string[];
     isSubscribedToAll: boolean;
+    displaySketchCollectors: boolean;
 
     constructor(
         name: string,
@@ -57,7 +58,8 @@ export class Customer {
         bearer: string,
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = [],
-        isSubscribedToAll: boolean = true
+        isSubscribedToAll: boolean = true,
+        displaySketchCollectors: boolean = false
     ) {
         this.id = "";
         this.name = name;
@@ -66,6 +68,7 @@ export class Customer {
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;
         this.isSubscribedToAll = isSubscribedToAll;
+        this.displaySketchCollectors = displaySketchCollectors;
     }
 
     async getUserFromRemoteId(remote_id: string) {
