@@ -78,7 +78,7 @@ export class IcCredential {
     create_timestamp: number;
     last_collect_timestamp: number;
     next_collect_timestamp: number;
-    invoices: any[];
+    invoices: { id: string; timestamp: number }[];
     state: State;
 
     constructor(

@@ -315,10 +315,12 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credentials(token: any): Promise<{
         id: string,
+        user_id: string,
         note: string,
         create_timestamp: number,
         last_collect_timestamp: number,
         next_collect_timestamp: number,
+        invoices: any[],
         state: State,
         collector: Config
     }[]> {
@@ -346,11 +348,13 @@ export class Server {
 
             return {
                 id: credential.id,
+                user_id: credential.user_id,
                 note: credential.note,
                 create_timestamp: credential.create_timestamp,
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 state: credential.state,
+                invoices: credential.invoices,
                 collector: collector.config,
             }
         });
@@ -460,15 +464,17 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_credential(token: any, id: string): Promise<{
         id: string,
+        user_id: string,
         note: string,
         create_timestamp: number,
         last_collect_timestamp: number,
         next_collect_timestamp: number,
+        invoices: any[],
         state: State,
         collector: Config
     }> {
         // Get user from token
-         const user = this.get_token_mapping(token);
+        const user = this.get_token_mapping(token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -504,10 +510,12 @@ export class Server {
         // Return status
         return {
             id: credential.id,
+            user_id: credential.user_id,
             note: credential.note,
             create_timestamp: credential.create_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
+            invoices: credential.invoices,
             state: credential.state,
             collector: collector.config,
         };
