@@ -4,6 +4,7 @@ import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { I18n } from "../i18n";
 import { IcCredential, State } from "../model/credential";
+import { Customer } from "../model/customer";
 import { User } from "../model/user";
 import { Location } from "../proxy/abstractProxy";
 import { RegistryServer } from "../registryServer";
@@ -27,7 +28,7 @@ export class Collect {
         let user: User|null = null;
         let secret: Secret|null = null;
         let collector: AbstractCollector|null = null;
-        let customer;
+        let customer: Customer|null = null;
 
         try {
             // Get credential from credential_id
@@ -119,13 +120,13 @@ export class Collect {
             credential.last_collect_timestamp = Date.now();
 
             // Compute next collect
-            credential.computeNextCollect();
+            credential.computeNextCollect(customer.maxDelayBetweenCollect);
         }
         catch (err) {
             // If error is NoInvoiceFoundError
             if (err instanceof NoInvoiceFoundError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} succeed BUT no invoice found, collector may be broken`);
-                RegistryServer.getInstance().logError(customer.bearer, err);
+                RegistryServer.getInstance().logError(customer ? customer.bearer : "", err);
 
                 // If credential exists
                 if (credential) {
@@ -143,7 +144,7 @@ export class Collect {
             else if(err instanceof LoggableError) {
                 console.error(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 console.error(err);
-                RegistryServer.getInstance().logError(customer.bearer, err);
+                RegistryServer.getInstance().logError(customer ? customer.bearer : "", err);
 
                 // If credential exists
                 if (credential) {

@@ -214,7 +214,8 @@ export class Server {
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
-        displaySketchCollectors: boolean
+        displaySketchCollectors: boolean,
+        maxDelayBetweenCollect: number
     }> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
@@ -226,7 +227,8 @@ export class Server {
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
-            displaySketchCollectors: customer.displaySketchCollectors
+            displaySketchCollectors: customer.displaySketchCollectors,
+            maxDelayBetweenCollect: customer.maxDelayBetweenCollect
         };
     }
 
@@ -455,7 +457,7 @@ export class Server {
         );
 
         // Compute next collect
-        credential.computeNextCollect();
+        credential.computeNextCollect(customer.maxDelayBetweenCollect);
 
         // Create credential in database
         await credential.commit();

@@ -51,6 +51,7 @@ export class Customer {
     subscribedCollectors: string[];
     isSubscribedToAll: boolean;
     displaySketchCollectors: boolean;
+    maxDelayBetweenCollect: number;
 
     constructor(
         name: string,
@@ -59,7 +60,8 @@ export class Customer {
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = [],
         isSubscribedToAll: boolean = true,
-        displaySketchCollectors: boolean = false
+        displaySketchCollectors: boolean = false,
+        maxDelayBetweenCollect: number = 2592000000
     ) {
         this.id = "";
         this.name = name;
@@ -69,6 +71,7 @@ export class Customer {
         this.subscribedCollectors = subscribedCollectors;
         this.isSubscribedToAll = isSubscribedToAll;
         this.displaySketchCollectors = displaySketchCollectors;
+        this.maxDelayBetweenCollect = maxDelayBetweenCollect;
     }
 
     async getUserFromRemoteId(remote_id: string) {
