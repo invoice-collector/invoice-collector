@@ -94,7 +94,7 @@ export class Collect {
                         try {
                             // Send invoice to callback
                             const callback = new CallbackHandler(customer);
-                            callback.sendInvoice(credential.collector_id, user.remote_id, invoice);
+                            await callback.sendInvoice(credential.collector_id, user.remote_id, invoice);
 
                             // Add invoice to credential only if callback successfully reached
                             credential.addInvoice(invoice);
