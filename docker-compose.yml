@@ -1,9 +1,6 @@
 services:
   invoice-collector:
-    image: invoice-collector:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/invoice-collector/invoice-collector:master
     ports:
       - 8080:8080
     depends_on:

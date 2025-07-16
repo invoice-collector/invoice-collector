@@ -32,7 +32,6 @@ curl https://raw.githubusercontent.com/invoice-collector/invoice-collector/refs/
 3. Build and run the container
 
 ```bash
-# Run the container
 sudo docker compose up -d
 ```
 
