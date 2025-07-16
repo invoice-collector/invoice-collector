@@ -60,7 +60,6 @@ export class IcCredential {
 
     static ONE_DAY_MS: number = 86400000;
     static ONE_WEEK_MS: number = 604800000;
-    static MAX_DELAY_MS = Number(utils.getEnvVar("COLLECT_MAX_DELAY_MS", "2592000000")); //30 days
 
     static async fromId(id: string): Promise<IcCredential|null> {    
         // Get customer from bearer
@@ -130,7 +129,7 @@ export class IcCredential {
         }
     }
 
-    computeNextCollect() {
+    computeNextCollect(maxDelayBetweenCollect: number) {
         // If not in error
         if (!this.state.isError()) {
             // If last_collect_timestamp and next_collect_timestamp are NaN, the invoices has never been collected
@@ -155,7 +154,7 @@ export class IcCredential {
                     let avg = sum / (invoices.length - 1);
 
                     // Compute maximum next collect timestamp from now
-                    let max_next_collect_timestamp = this.last_collect_timestamp + IcCredential.MAX_DELAY_MS;
+                    let max_next_collect_timestamp = this.last_collect_timestamp + maxDelayBetweenCollect;
 
                     // Compute theoretical next collect timestamp
                     let theoretical_next_collect_timestamp = invoices[invoices.length - 1].timestamp + avg;
