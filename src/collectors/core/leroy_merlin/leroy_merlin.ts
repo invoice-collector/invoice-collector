@@ -2,6 +2,7 @@ import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
 import { Invoice, DownloadedInvoice, CollectorCaptcha } from '../../abstractCollector';
+import * as utils from '../../../utils';
 
 export class LeroyMerlinCollector extends WebCollector {
 
@@ -69,18 +70,11 @@ export class LeroyMerlinCollector extends WebCollector {
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {    
         const data = await driver.goToJson('https://www.leroymerlin.fr/order-followup/backend/v2/orders?customerNumber=null');
-
         return data.map(order => {
-
-            const year = parseInt(order.parentOrder.createdAt.slice(0, 4));
-            const month = parseInt(order.parentOrder.createdAt.slice(5, 7)) - 1; // Months in JavaScript are indexed from 0 to 11
-            const day = parseInt(order.parentOrder.createdAt.slice(8, 10));
-            const timestamp = Date.UTC(year, month, day);
-
             return {
                 id: order.orderPartNumber,
                 amount: `${order.price.totalAmount}${order.currencyCode}`,
-                timestamp,
+                timestamp: utils.timestampFromString(order.parentOrder.createdAt, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", 'fr'),
                 link: `https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?orderId=${order.orderPartNumber}&storeNumber=${order.storeCode}&customerNumber=${order.customer.id}`
             }
         });
