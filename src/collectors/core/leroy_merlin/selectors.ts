@@ -3,11 +3,11 @@ export const LeroyMerlinSelectors = {
     // MAIN PAGE
 
     BUTTON_REFUSE_COOKIES: {
-        selector: "div.is-open button.alt-modal__close",
+        selector: "#onetrust-reject-all-handler",
         info: "refuse cookies button"
     },
     BUTTON_ACCEPT_COOKIES: {
-        selector: "div.is-open button.js-modal-privacy-button-accept",
+        selector: "#onetrust-accept-btn-handler",
         info: "accept cookies button"
     },
     BUTTON_CLOSE_SHOP_CHOOSER: {
