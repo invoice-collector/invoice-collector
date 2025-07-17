@@ -2,6 +2,7 @@ import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
 import { Invoice, DownloadedInvoice, CollectorCaptcha } from '../../abstractCollector';
+import * as utils from '../../../utils';
 
 export class LeroyMerlinCollector extends WebCollector {
 
@@ -9,7 +10,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "8",
+        version: "9",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leroy_Merlin.svg",
         params: {
@@ -24,7 +25,7 @@ export class LeroyMerlinCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.leroymerlin.fr",
+        entryUrl: "https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?auth-mode=login",
         captcha: CollectorCaptcha.DATADOME
     }
 
@@ -32,18 +33,19 @@ export class LeroyMerlinCollector extends WebCollector {
         super(LeroyMerlinCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async is_logged_in(driver: Driver): Promise<boolean>{
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
+        // If user is logged in, the URL should be equal to the entry URL
+        return driver.url() === this.config.entryUrl;
+    }
 
+    async login(driver: Driver, params: any): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, delay: 1000, navigation: false });
 
         // Close shop chooser
         await driver.leftClick(LeroyMerlinSelectors.BUTTON_CLOSE_SHOP_CHOOSER, { raiseException: false, delay: 1000, navigation: false });
-
-        // Open login page
-        await driver.leftClick(LeroyMerlinSelectors.BUTTON_LOGIN_PAGE);
 
         // Input email
         await driver.inputText(LeroyMerlinSelectors.INPUT_EMAIL, params.id);
@@ -67,13 +69,12 @@ export class LeroyMerlinCollector extends WebCollector {
     }
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {    
-        const data = await driver.goto('https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html', 'https://www.leroymerlin.fr/order-followup/backend/v2/orders?');
-
-        return data.responseBody.map(order => { 
+        const data = await driver.goToJson('https://www.leroymerlin.fr/order-followup/backend/v2/orders?customerNumber=null');
+        return data.map(order => {
             return {
                 id: order.orderPartNumber,
-                amount: order.price.totalAmount,
-                timestamp: order.parentOrder.createdAt || null,
+                amount: `${order.price.totalAmount}${order.currencyCode}`,
+                timestamp: utils.timestampFromString(order.parentOrder.createdAt, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", 'fr'),
                 link: `https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?orderId=${order.orderPartNumber}&storeNumber=${order.storeCode}&customerNumber=${order.customer.id}`
             }
         });
