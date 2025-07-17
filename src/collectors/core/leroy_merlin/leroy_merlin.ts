@@ -68,9 +68,9 @@ export class LeroyMerlinCollector extends WebCollector {
     }
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {    
-        const data = await driver.goto('https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html', 'https://www.leroymerlin.fr/order-followup/backend/v2/orders?');
+        const data = await driver.goToJson('https://www.leroymerlin.fr/order-followup/backend/v2/orders?customerNumber=null');
 
-        return data.responseBody.map(order => {
+        return data.map(order => {
 
             const year = parseInt(order.parentOrder.createdAt.slice(0, 4));
             const month = parseInt(order.parentOrder.createdAt.slice(5, 7)) - 1; // Months in JavaScript are indexed from 0 to 11
