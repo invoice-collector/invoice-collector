@@ -183,7 +183,13 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async post_feedback(token: any, type: string | undefined, message: string | undefined, email: string | undefined): Promise<void> {
+    public async post_feedback(
+        bearer: string | undefined,
+        token: any,
+        type: string | undefined,
+        message: string | undefined,
+        email: string | undefined
+    ): Promise<void> {
         //Check if type field is missing
         if(!type) {
             throw new MissingField("type");
@@ -194,11 +200,8 @@ export class Server {
             throw new MissingField("message");
         }
 
-        // Get user from token
-        const user = this.get_token_mapping(token);
-
-        // Get customer from user
-        const customer = await user.getCustomer();
+        // Get customer from bearer or token
+        const customer = await this.getCustomerFromBearerOrToken(bearer, token);
 
         // Send feedback to registry server
         await RegistryServer.getInstance().feedback(customer.bearer, type, message, email);
@@ -334,7 +337,11 @@ export class Server {
     // ---------- CREDENTIAL ENDPOINTS ----------
 
     // TOKEN AUTHENTICATION
-    public async get_credentials(token: any): Promise<{
+    public async get_credentials(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any
+    ): Promise<{
         id: string,
         user_id: string,
         note: string,
@@ -345,8 +352,8 @@ export class Server {
         state: State,
         collector: Config
     }[]> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+        // Get user from bearer or token
+         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -382,9 +389,16 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async post_credential(token: any, collector_id: string | undefined, params: any | undefined, ip: string | string[] | undefined): Promise<{id: string}> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+    public async post_credential(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        collector_id: string | undefined,
+        params: any | undefined,
+        ip: string | string[] | undefined
+    ): Promise<{id: string}> {
+        // Get user from bearer or token
+         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
          //Check if id field is missing
          if(!collector_id) {
@@ -483,7 +497,12 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async get_credential(token: any, id: string): Promise<{
+    public async get_credential(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        id: string
+    ): Promise<{
         id: string,
         user_id: string,
         note: string,
@@ -494,8 +513,8 @@ export class Server {
         state: State,
         collector: Config
     }> {
-        // Get user from token
-        const user = this.get_token_mapping(token);
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -543,9 +562,14 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async delete_credential(token: any, id: string): Promise<void> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+    public async delete_credential(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        id: string
+    ): Promise<void> {
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -571,24 +595,43 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async post_credential_2fa(token: any, id: string, code: string | undefined): Promise<void> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+    public async post_credential_2fa(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        credential_id: string,
+        code: string | undefined
+    ): Promise<void> {
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
          // Check code id field is missing
          if(!code) {
             throw new MissingField("code");
         }
 
+        // Get credential from id
+        const credential = await user.getCredential(credential_id)
+
+        // Check if credential exists
+        if (!credential) {
+            throw new StatusError(`Credential with id "${credential_id}" not found.`, 400);
+        }
+
+        // Check if credential belongs to user
+        if (credential.user_id != user.id) {
+            throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
+        }
+
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
 
         // Get collect from id
-        const collect = await CollectPool.getInstance().get(id);
+        const collect = await CollectPool.getInstance().get(credential.id);
 
         // Check if collect exists
         if (!collect) {
-            throw new StatusError(`No collect in progress for credential "${id}".`, 400);
+            throw new StatusError(`No collect in progress for credential "${credential.id}".`, 400);
         }
         
         // Resolve collect promise and pass the code to the collector
@@ -599,24 +642,29 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
-    public async post_credential_collect(token: any, id: string): Promise<void> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+    public async post_credential_collect(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        credential_id: string
+    ): Promise<void> {
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
 
         // Get credential from id
-        const credential = await user.getCredential(id)
+        const credential = await user.getCredential(credential_id)
 
         // Check if credential exists
         if (!credential) {
-            throw new StatusError(`Credential with id "${id}" not found.`, 400);
+            throw new StatusError(`Credential with id "${credential_id}" not found.`, 400);
         }
 
         // Check if credential belongs to user
         if (credential.user_id != user.id) {
-            throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
+            throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
         // Start collect
@@ -639,16 +687,18 @@ export class Server {
     // ---------- COLLECTOR ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
-    public async get_collectors(token: any, locale: any): Promise<Config[]> {
+    public async get_collectors(
+        bearer: string | undefined,
+        token: any,
+        locale: any
+    ): Promise<Config[]> {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] | null = null;
         let isSubscribedToAll: boolean = true;
         let displaySketchCollectors: boolean = false;
-        if(token) {
-            // Get user from token
-            const user = this.get_token_mapping(token);
-            // Get customer from user
-            const customer = await user.getCustomer();
+        if(token || bearer) {
+            // Get customer from bearer or token
+            const customer = await this.getCustomerFromBearerOrToken(bearer, token);
             subscribedCollectors = customer.subscribedCollectors;
             isSubscribedToAll = customer.isSubscribedToAll;
             displaySketchCollectors = customer.displaySketchCollectors;
@@ -698,5 +748,48 @@ export class Server {
             throw new OauthError();
         }
         return this.tokens[token];
+    }
+
+    private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
+        if (token) {
+            // Get user from token
+            const user = this.get_token_mapping(token);
+            // Get customer from user
+            return await user.getCustomer();
+        }
+        else if (bearer) {
+            // Get customer from bearer
+            return await Customer.fromBearer(bearer);
+        }
+        else {
+            throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
+        }
+    }
+
+    private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string | undefined, token: any): Promise<User> {
+        if (token) {
+            // Get user from token
+            return this.get_token_mapping(token);
+        }
+        else if (bearer) {
+            // Check if user_id is provided
+            if (!user_id) {
+                throw new MissingField("user_id");
+            }
+            // Get customer from bearer
+            const customer = await Customer.fromBearer(bearer);
+            // Get user from customer
+            const user = await customer.getUser(user_id);
+
+            // Check if user exists
+            if (!user) {
+                throw new StatusError(`User with id "${user_id}" not found.`, 400);
+            }
+
+            return user;
+        }
+        else {
+            throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
+        }
     }
 }

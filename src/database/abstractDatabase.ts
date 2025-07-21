@@ -32,7 +32,9 @@ export abstract class AbstractDatabase {
     abstract getUser(user_id: string): Promise<User|null>;
 
     abstract getUserFromCustomerIdAndRemoteId(customer_id: string, remote_id: string): Promise<User|null>;
-    
+
+    abstract getUserBellongingToCustomer(user_id: string, customer_id: string): Promise<User|null>;
+
     abstract createUser(user: User): Promise<User>;
 
     abstract updateUser(user: User): Promise<void>;
