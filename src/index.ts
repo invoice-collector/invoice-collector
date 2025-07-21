@@ -168,11 +168,26 @@ app.get('/api/v1/users', async (req, res) => {
 });
 
 // BEARER AUTHENTICATION
-app.delete('/api/v1/user', async (req, res) => {
+app.post('/api/v1/user', async (req, res) => {
+    try {
+        // Perform authorization
+        console.log('POST user');
+        const response = await server.post_authorize(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// BEARER AUTHENTICATION
+app.delete('/api/v1/user/:user_id', async (req, res) => {
     try {
         // Delete user
         console.log('DELETE user');
-        await server.delete_user(req.headers.authorization, req.body.remote_id);
+        await server.delete_user(req.headers.authorization, req.params.user_id);
 
         // Build response
         res.end()

@@ -52,7 +52,10 @@ export class Server {
         remote_id: string | undefined,
         locale: string | undefined,
         email: string | undefined
-    ): Promise<{token: string}> {
+    ): Promise<{
+        token: string,
+        id: string
+    }> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -136,7 +139,10 @@ export class Server {
             console.log(`Token ${token} deleted`);
         }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
 
-        return { token }
+        return {
+            token,
+            id: user.id
+        }
     }
 
     // TOKEN AUTHENTICATION
@@ -305,21 +311,21 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
-    public async delete_user(bearer: string | undefined, remote_id: string | undefined) {
+    public async delete_user(bearer: string | undefined, user_id: string) {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
-        //Check if remote_id field is missing
-        if(!remote_id) {
-            throw new MissingField("remote_id");
+        //Check if user_id field is missing
+        if(!user_id) {
+            throw new MissingField("user_id");
         }
 
-        // Get user from remote_id
-        const user = await customer.getUserFromRemoteId(remote_id);
+        // Get user from user_id
+        const user = await customer.getUser(user_id);
 
         // Check if user exists
         if (!user) {
-            throw new StatusError(`User with remote_id "${remote_id}" not found.`, 400);
+            throw new StatusError(`User with id "${user_id}" not found.`, 400);
         }
 
         // Delete user and all its credentials
