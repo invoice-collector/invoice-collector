@@ -58,7 +58,7 @@ app.post('/api/v1/authorize', async (req, res) => {
     try {
         // Perform authorization
         console.log('POST authorize');
-        const response = await server.post_authorize(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email);
+        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -172,7 +172,7 @@ app.post('/api/v1/user', async (req, res) => {
     try {
         // Perform authorization
         console.log('POST user');
-        const response = await server.post_authorize(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email);
+        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');

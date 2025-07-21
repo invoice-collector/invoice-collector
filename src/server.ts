@@ -46,105 +46,6 @@ export class Server {
 	}
     // ---------- GENERAL ENDPOINTS ----------
 
-    // BEARER AUTHENTICATION
-    public async post_authorize(
-        bearer: string | undefined,
-        remote_id: string | undefined,
-        locale: string | undefined,
-        email: string | undefined
-    ): Promise<{
-        token: string,
-        id: string
-    }> {
-        // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
-
-        //Check if remote_id field is missing
-        if(!remote_id) {
-            throw new MissingField("remote_id");
-        }
-
-        //Check if locale field is missing
-        if(!locale) {
-            throw new MissingField("locale");
-        }
-
-        //Check if locale is supported
-        if(locale && !I18n.LOCALES.includes(locale)) {
-            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
-        }
-
-        // Get user from remote_id
-        let user = await customer.getUserFromRemoteId(remote_id);
-
-        // If user does not exist, create it
-        if(!user) {
-            let termsConditions;
-            // If terms and conditions are required, send email
-            if (!Server.DISABLE_VERIFICATION_CODE) {
-                //Check if email field is missing
-                if(!email) {
-                    throw new MissingField("email");
-                }
-                // Send terms and conditions email
-                termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
-            } else {
-                // If terms and conditions are not required, set validTimestamp to now
-                termsConditions = {
-                    verificationCode: null,
-                    sentTimestamp: Date.now(),
-                    validTimestamp: Date.now()
-                };
-            }
-            // Create user
-            user = new User(customer.id, remote_id, null, locale, termsConditions);
-        }
-        else {
-            // Update user locale
-            user.locale = locale;
-
-            // Check if user has accepted terms and conditions
-            if (!user.termsConditions.validTimestamp) {
-                // If terms and conditions are required, send email
-                if (!Server.DISABLE_VERIFICATION_CODE) {
-                    //Check if email field is missing
-                    if(!email) {
-                        throw new MissingField("email");
-                    }
-                    // Send terms and conditions email
-                    const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
-                    // Update terms and conditions
-                    user.termsConditions = termsConditions;
-                }
-                else {
-                    // This case can happend the DISABLE_VERIFICATION_CODE environment variable is changed after the user has been created.
-                    // If terms and conditions are not required, set validTimestamp to now
-                    user.termsConditions.validTimestamp = Date.now();
-                }
-            }
-        }
-
-        // Commit changes in database
-        await user.commit();
-
-        // Generate oauth token
-        const token = generate_token();
-
-        // Map token with user
-        this.tokens[token] = user;
-
-        // Schedule token delete after validity duration
-        setTimeout(() => {
-            delete this.tokens[token];
-            console.log(`Token ${token} deleted`);
-        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
-
-        return {
-            token,
-            id: user.id
-        }
-    }
-
     // TOKEN AUTHENTICATION
     public async get_ui(token: any, verificationCode: any): Promise<{locale: string, theme: string}> {
         // Get user from token
@@ -287,6 +188,7 @@ export class Server {
 
     // ---------- USER ENDPOINTS ----------
 
+    // BEARER AUTHENTICATION
     public async get_users(bearer: string | undefined): Promise<{
         id: string,
         customer_id: string,
@@ -308,6 +210,105 @@ export class Server {
                 locale: user.locale
             };
         });
+    }
+
+    // BEARER AUTHENTICATION
+    public async post_user(
+        bearer: string | undefined,
+        remote_id: string | undefined,
+        locale: string | undefined,
+        email: string | undefined
+    ): Promise<{
+        token: string,
+        id: string
+    }> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        //Check if remote_id field is missing
+        if(!remote_id) {
+            throw new MissingField("remote_id");
+        }
+
+        //Check if locale field is missing
+        if(!locale) {
+            throw new MissingField("locale");
+        }
+
+        //Check if locale is supported
+        if(locale && !I18n.LOCALES.includes(locale)) {
+            throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
+        }
+
+        // Get user from remote_id
+        let user = await customer.getUserFromRemoteId(remote_id);
+
+        // If user does not exist, create it
+        if(!user) {
+            let termsConditions;
+            // If terms and conditions are required, send email
+            if (!Server.DISABLE_VERIFICATION_CODE) {
+                //Check if email field is missing
+                if(!email) {
+                    throw new MissingField("email");
+                }
+                // Send terms and conditions email
+                termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
+            } else {
+                // If terms and conditions are not required, set validTimestamp to now
+                termsConditions = {
+                    verificationCode: null,
+                    sentTimestamp: Date.now(),
+                    validTimestamp: Date.now()
+                };
+            }
+            // Create user
+            user = new User(customer.id, remote_id, null, locale, termsConditions);
+        }
+        else {
+            // Update user locale
+            user.locale = locale;
+
+            // Check if user has accepted terms and conditions
+            if (!user.termsConditions.validTimestamp) {
+                // If terms and conditions are required, send email
+                if (!Server.DISABLE_VERIFICATION_CODE) {
+                    //Check if email field is missing
+                    if(!email) {
+                        throw new MissingField("email");
+                    }
+                    // Send terms and conditions email
+                    const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
+                    // Update terms and conditions
+                    user.termsConditions = termsConditions;
+                }
+                else {
+                    // This case can happend the DISABLE_VERIFICATION_CODE environment variable is changed after the user has been created.
+                    // If terms and conditions are not required, set validTimestamp to now
+                    user.termsConditions.validTimestamp = Date.now();
+                }
+            }
+        }
+
+        // Commit changes in database
+        await user.commit();
+
+        // Generate oauth token
+        const token = generate_token();
+
+        // Map token with user
+        this.tokens[token] = user;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.tokens[token];
+            console.log(`Token ${token} deleted`);
+        }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
+
+        return {
+            token,
+            id: user.id
+        }
     }
 
     // BEARER AUTHENTICATION
