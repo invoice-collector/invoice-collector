@@ -82,6 +82,10 @@ export class Customer {
         return await DatabaseFactory.getDatabase().getUsers(this.id);
     }
 
+    async getUser(user_id: string) {
+        return await DatabaseFactory.getDatabase().getUserBellongingToCustomer(user_id, this.id);
+    }
+
     setTheme(theme: string) {
         //Check if theme is supported
         if(!Object.values(Theme).includes(theme as Theme)) {

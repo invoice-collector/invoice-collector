@@ -46,13 +46,185 @@ export class Server {
 	}
     // ---------- GENERAL ENDPOINTS ----------
 
+    // TOKEN AUTHENTICATION
+    public async get_ui(token: any, verificationCode: any): Promise<{locale: string, theme: string}> {
+        // Get user from token
+        const user = this.get_token_mapping(token);
+
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Check if verificationCode is valid
+        if (verificationCode && user.termsConditions.verificationCode === verificationCode) {
+            // Validate terms and conditions by setting validTimestamp to now
+            user.termsConditions.validTimestamp = Date.now();
+            // Commit changes
+            await user.commit();
+        }
+
+        // Check if terms and conditions have been accepted
+        await user.checkTermsConditions();
+
+        return { locale: user.locale, theme: customer.theme };
+    }
+
     // BEARER AUTHENTICATION
-    public async post_authorize(
+    public async get_test_callback(bearer: string | undefined): Promise<void> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        // Get users from customer
+        const users = await customer.getUsers();
+
+        // Get fake invoice datas
+        let {collector_id, remote_id, invoice} = utils.createFakeInvoice();
+
+        // Get remote_id from first user if exists
+        if(users.length > 0) {
+            remote_id = users[0].remote_id;
+        }
+
+        // Send invoice to callback
+        const callback = new CallbackHandler(customer);
+        await callback.sendInvoice(collector_id, remote_id, invoice);
+    }
+
+    // TOKEN AUTHENTICATION
+    public async post_feedback(
+        bearer: string | undefined,
+        token: any,
+        type: string | undefined,
+        message: string | undefined,
+        email: string | undefined
+    ): Promise<void> {
+        //Check if type field is missing
+        if(!type) {
+            throw new MissingField("type");
+        }
+
+        //Check if message field is missing
+        if(!message) {
+            throw new MissingField("message");
+        }
+
+        // Get customer from bearer or token
+        const customer = await this.getCustomerFromBearerOrToken(bearer, token);
+
+        // Send feedback to registry server
+        await RegistryServer.getInstance().feedback(customer.bearer, type, message, email);
+    }
+
+    // ---------- CUSTOMER ENDPOINTS ----------
+
+    // BEARER AUTHENTICATION
+    public async get_customer(bearer: string | undefined): Promise<{
+        id: string,
+        name: string,
+        callback: string,
+        theme: string,
+        subscribedCollectors: string[],
+        isSubscribedToAll: boolean,
+        displaySketchCollectors: boolean,
+        maxDelayBetweenCollect: number
+    }> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        return {
+            id: customer.id,
+            name: customer.name,
+            callback: customer.callback,
+            theme: customer.theme,
+            subscribedCollectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll,
+            displaySketchCollectors: customer.displaySketchCollectors,
+            maxDelayBetweenCollect: customer.maxDelayBetweenCollect
+        };
+    }
+
+    // BEARER AUTHENTICATION
+    public async post_customer(
+        bearer: string | undefined,
+        name: string | undefined,
+        callback: string | undefined,
+        theme: string | undefined,
+        subscribedCollectors: string[] | undefined,
+        isSubscribedToAll: boolean | undefined,
+        displaySketchCollectors: boolean | undefined
+    ): Promise<void> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        //Check if name field is present
+        if(name) {
+            customer.name = name;
+        }
+
+        //Check if callback field is present
+        if(callback) {
+            customer.callback = callback;
+        }
+
+        //Check if theme field is present
+        if(theme) {
+            customer.setTheme(theme);
+        }
+
+        if (subscribedCollectors) {
+            customer.setSubscribedCollectors(subscribedCollectors);
+        }
+
+        if (typeof isSubscribedToAll === 'boolean') {
+            customer.isSubscribedToAll = isSubscribedToAll;
+        }
+
+        if (typeof displaySketchCollectors === 'boolean') {
+            customer.displaySketchCollectors = displaySketchCollectors;
+        }
+
+        // Commit changes in database
+        await customer.commit();
+    }
+
+    // ---------- USER ENDPOINTS ----------
+
+    // BEARER AUTHENTICATION
+    public async get_users(bearer: string | undefined): Promise<{
+        id: string,
+        customer_id: string,
+        remote_id: string,
+        locale: string
+    }[]> {
+        // Get customer from bearer
+        const customer = await Customer.fromBearer(bearer);
+
+        // Get users from customer
+        const users = await customer.getUsers();
+
+        // Return users
+        return users.map((user) => {
+            return {
+                id: user.id,
+                customer_id: user.customer_id,
+                remote_id: user.remote_id,
+                locale: user.locale
+            };
+        });
+    }
+
+    // BEARER AUTHENTICATION
+    public async post_user(
         bearer: string | undefined,
         remote_id: string | undefined,
         locale: string | undefined,
         email: string | undefined
-    ): Promise<{token: string}> {
+    ): Promise<{
+        id: string,
+        customer_id: string,
+        remote_id: string,
+        locale: string,
+        token: string
+    }> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
@@ -136,187 +308,31 @@ export class Server {
             console.log(`Token ${token} deleted`);
         }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
 
-        return { token }
-    }
-
-    // TOKEN AUTHENTICATION
-    public async get_ui(token: any, verificationCode: any): Promise<{locale: string, theme: string}> {
-        // Get user from token
-        const user = this.get_token_mapping(token);
-
-        // Get customer from user
-        const customer = await user.getCustomer();
-
-        // Check if verificationCode is valid
-        if (verificationCode && user.termsConditions.verificationCode === verificationCode) {
-            // Validate terms and conditions by setting validTimestamp to now
-            user.termsConditions.validTimestamp = Date.now();
-            // Commit changes
-            await user.commit();
-        }
-
-        // Check if terms and conditions have been accepted
-        await user.checkTermsConditions();
-
-        return { locale: user.locale, theme: customer.theme };
-    }
-
-    // BEARER AUTHENTICATION
-    public async get_test_callback(bearer: string | undefined): Promise<void> {
-        // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
-
-        // Get users from customer
-        const users = await customer.getUsers();
-
-        // Get fake invoice datas
-        let {collector_id, remote_id, invoice} = utils.createFakeInvoice();
-
-        // Get remote_id from first user if exists
-        if(users.length > 0) {
-            remote_id = users[0].remote_id;
-        }
-
-        // Send invoice to callback
-        const callback = new CallbackHandler(customer);
-        await callback.sendInvoice(collector_id, remote_id, invoice);
-    }
-
-    // TOKEN AUTHENTICATION
-    public async post_feedback(token: any, type: string | undefined, message: string | undefined, email: string | undefined): Promise<void> {
-        //Check if type field is missing
-        if(!type) {
-            throw new MissingField("type");
-        }
-
-        //Check if message field is missing
-        if(!message) {
-            throw new MissingField("message");
-        }
-
-        // Get user from token
-        const user = this.get_token_mapping(token);
-
-        // Get customer from user
-        const customer = await user.getCustomer();
-
-        // Send feedback to registry server
-        await RegistryServer.getInstance().feedback(customer.bearer, type, message, email);
-    }
-
-    // ---------- CUSTOMER ENDPOINTS ----------
-
-    // BEARER AUTHENTICATION
-    public async get_customer(bearer: string | undefined): Promise<{
-        id: string,
-        name: string,
-        callback: string,
-        theme: string,
-        subscribedCollectors: string[],
-        isSubscribedToAll: boolean,
-        displaySketchCollectors: boolean,
-        maxDelayBetweenCollect: number
-    }> {
-        // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
-
         return {
-            id: customer.id,
-            name: customer.name,
-            callback: customer.callback,
-            theme: customer.theme,
-            subscribedCollectors: customer.subscribedCollectors,
-            isSubscribedToAll: customer.isSubscribedToAll,
-            displaySketchCollectors: customer.displaySketchCollectors,
-            maxDelayBetweenCollect: customer.maxDelayBetweenCollect
-        };
+            id: user.id,
+            customer_id: user.customer_id,
+            remote_id: user.remote_id,
+            locale: user.locale,
+            token,
+        }
     }
 
     // BEARER AUTHENTICATION
-    public async post_customer(
-        bearer: string | undefined,
-        name: string | undefined,
-        callback: string | undefined,
-        theme: string | undefined,
-        subscribedCollectors: string[] | undefined,
-        isSubscribedToAll: boolean | undefined,
-        displaySketchCollectors: boolean | undefined
-    ): Promise<void> {
+    public async delete_user(bearer: string | undefined, user_id: string) {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
 
-        //Check if name field is present
-        if(name) {
-            customer.name = name;
+        //Check if user_id field is missing
+        if(!user_id) {
+            throw new MissingField("user_id");
         }
 
-        //Check if callback field is present
-        if(callback) {
-            customer.callback = callback;
-        }
-
-        //Check if theme field is present
-        if(theme) {
-            customer.setTheme(theme);
-        }
-
-        if (subscribedCollectors) {
-            customer.setSubscribedCollectors(subscribedCollectors);
-        }
-
-        if (typeof isSubscribedToAll === 'boolean') {
-            customer.isSubscribedToAll = isSubscribedToAll;
-        }
-
-        if (typeof displaySketchCollectors === 'boolean') {
-            customer.displaySketchCollectors = displaySketchCollectors;
-        }
-
-        // Commit changes in database
-        await customer.commit();
-    }
-
-    // ---------- USER ENDPOINTS ----------
-
-    public async get_users(bearer: string | undefined): Promise<{
-        id: string,
-        customer_id: string,
-        remote_id: string,
-        locale: string
-    }[]> {
-        // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
-
-        // Get users from customer
-        const users = await customer.getUsers();
-
-        // Return users
-        return users.map((user) => {
-            return {
-                id: user.id,
-                customer_id: user.customer_id,
-                remote_id: user.remote_id,
-                locale: user.locale
-            };
-        });
-    }
-
-    // BEARER AUTHENTICATION
-    public async delete_user(bearer: string | undefined, remote_id: string | undefined) {
-        // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
-
-        //Check if remote_id field is missing
-        if(!remote_id) {
-            throw new MissingField("remote_id");
-        }
-
-        // Get user from remote_id
-        const user = await customer.getUserFromRemoteId(remote_id);
+        // Get user from user_id
+        const user = await customer.getUser(user_id);
 
         // Check if user exists
         if (!user) {
-            throw new StatusError(`User with remote_id "${remote_id}" not found.`, 400);
+            throw new StatusError(`User with id "${user_id}" not found.`, 400);
         }
 
         // Delete user and all its credentials
@@ -334,7 +350,11 @@ export class Server {
     // ---------- CREDENTIAL ENDPOINTS ----------
 
     // TOKEN AUTHENTICATION
-    public async get_credentials(token: any): Promise<{
+    public async get_credentials(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any
+    ): Promise<{
         id: string,
         user_id: string,
         note: string,
@@ -345,8 +365,8 @@ export class Server {
         state: State,
         collector: Config
     }[]> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+        // Get user from bearer or token
+         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -382,9 +402,26 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async post_credential(token: any, collector_id: string | undefined, params: any | undefined, ip: string | string[] | undefined): Promise<{id: string}> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+    public async post_credential(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        collector_id: string | undefined,
+        params: any | undefined,
+        ip: string | string[] | undefined
+    ): Promise<{
+        id: string,
+        user_id: string,
+        note: string,
+        create_timestamp: number,
+        last_collect_timestamp: number,
+        next_collect_timestamp: number,
+        invoices: any[],
+        state: State,
+        collector: Config
+    }> {
+        // Get user from bearer or token
+         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
          //Check if id field is missing
          if(!collector_id) {
@@ -404,15 +441,15 @@ export class Server {
 
         // Check if collector is sketch
         if(collector.config.type == CollectorType.SKETCH) {
-            throw new StatusError(`Collector "${collector_id}" is a sketch collector and cannot be used to create credentials.`, 400);
+            throw new StatusError(`Collector "${collector.config.id}" is a sketch collector and cannot be used to create credentials.`, 400);
         }
 
         // Get customer from user
         const customer = await user.getCustomer();
 
         // Check if customer has subscribed to the collector
-        if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector_id)) {
-            throw new StatusError(`Customer has not subscribed to collector "${collector_id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
+        if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
+            throw new StatusError(`Customer has not subscribed to collector "${collector.config.id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
         }
 
         // Get credential note
@@ -446,12 +483,12 @@ export class Server {
             params,
             cookies: null,
         }
-        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector_id}`, secret);
+        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector.config.id}`, secret);
 
         // Create credential
         let credential = new IcCredential(
             user.id,
-            collector_id,
+            collector.config.id,
             note,
             secret_manager_id
         );
@@ -478,12 +515,27 @@ export class Server {
             CollectPool.getInstance().unregisterCollect(credential.id);
         });
 
-        // Return credential_id
-        return {id: credential.id};
+        // Return credential
+        return {
+            id: credential.id,
+            user_id: credential.user_id,
+            note: credential.note,
+            create_timestamp: credential.create_timestamp,
+            last_collect_timestamp: credential.last_collect_timestamp,
+            next_collect_timestamp: credential.next_collect_timestamp,
+            invoices: credential.invoices,
+            state: credential.state,
+            collector: collector.config,
+        };
     }
 
     // TOKEN AUTHENTICATION
-    public async get_credential(token: any, id: string): Promise<{
+    public async get_credential(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        id: string
+    ): Promise<{
         id: string,
         user_id: string,
         note: string,
@@ -494,8 +546,8 @@ export class Server {
         state: State,
         collector: Config
     }> {
-        // Get user from token
-        const user = this.get_token_mapping(token);
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -528,7 +580,7 @@ export class Server {
         // Translate the state title
         credential.state.title = I18n.get(credential.state.title, user.locale);
 
-        // Return status
+        // Return credential
         return {
             id: credential.id,
             user_id: credential.user_id,
@@ -543,9 +595,14 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async delete_credential(token: any, id: string): Promise<void> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+    public async delete_credential(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        id: string
+    ): Promise<void> {
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -571,24 +628,43 @@ export class Server {
     }
 
     // TOKEN AUTHENTICATION
-    public async post_credential_2fa(token: any, id: string, code: string | undefined): Promise<void> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+    public async post_credential_2fa(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        credential_id: string,
+        code: string | undefined
+    ): Promise<void> {
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
          // Check code id field is missing
          if(!code) {
             throw new MissingField("code");
         }
 
+        // Get credential from id
+        const credential = await user.getCredential(credential_id)
+
+        // Check if credential exists
+        if (!credential) {
+            throw new StatusError(`Credential with id "${credential_id}" not found.`, 400);
+        }
+
+        // Check if credential belongs to user
+        if (credential.user_id != user.id) {
+            throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
+        }
+
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
 
         // Get collect from id
-        const collect = await CollectPool.getInstance().get(id);
+        const collect = await CollectPool.getInstance().get(credential.id);
 
         // Check if collect exists
         if (!collect) {
-            throw new StatusError(`No collect in progress for credential "${id}".`, 400);
+            throw new StatusError(`No collect in progress for credential "${credential.id}".`, 400);
         }
         
         // Resolve collect promise and pass the code to the collector
@@ -599,24 +675,29 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
-    public async post_credential_collect(token: any, id: string): Promise<void> {
-        // Get user from token
-         const user = this.get_token_mapping(token);
+    public async post_credential_collect(
+        bearer: string | undefined,
+        user_id: string | undefined,
+        token: any,
+        credential_id: string
+    ): Promise<void> {
+        // Get user from bearer or token
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
 
         // Get credential from id
-        const credential = await user.getCredential(id)
+        const credential = await user.getCredential(credential_id)
 
         // Check if credential exists
         if (!credential) {
-            throw new StatusError(`Credential with id "${id}" not found.`, 400);
+            throw new StatusError(`Credential with id "${credential_id}" not found.`, 400);
         }
 
         // Check if credential belongs to user
         if (credential.user_id != user.id) {
-            throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
+            throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
         // Start collect
@@ -639,16 +720,18 @@ export class Server {
     // ---------- COLLECTOR ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
-    public async get_collectors(token: any, locale: any): Promise<Config[]> {
+    public async get_collectors(
+        bearer: string | undefined,
+        token: any,
+        locale: any
+    ): Promise<Config[]> {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] | null = null;
         let isSubscribedToAll: boolean = true;
         let displaySketchCollectors: boolean = false;
-        if(token) {
-            // Get user from token
-            const user = this.get_token_mapping(token);
-            // Get customer from user
-            const customer = await user.getCustomer();
+        if(token || bearer) {
+            // Get customer from bearer or token
+            const customer = await this.getCustomerFromBearerOrToken(bearer, token);
             subscribedCollectors = customer.subscribedCollectors;
             isSubscribedToAll = customer.isSubscribedToAll;
             displaySketchCollectors = customer.displaySketchCollectors;
@@ -698,5 +781,48 @@ export class Server {
             throw new OauthError();
         }
         return this.tokens[token];
+    }
+
+    private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
+        if (token) {
+            // Get user from token
+            const user = this.get_token_mapping(token);
+            // Get customer from user
+            return await user.getCustomer();
+        }
+        else if (bearer) {
+            // Get customer from bearer
+            return await Customer.fromBearer(bearer);
+        }
+        else {
+            throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
+        }
+    }
+
+    private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string | undefined, token: any): Promise<User> {
+        if (token) {
+            // Get user from token
+            return this.get_token_mapping(token);
+        }
+        else if (bearer) {
+            // Check if user_id is provided
+            if (!user_id) {
+                throw new MissingField("user_id");
+            }
+            // Get customer from bearer
+            const customer = await Customer.fromBearer(bearer);
+            // Get user from customer
+            const user = await customer.getUser(user_id);
+
+            // Check if user exists
+            if (!user) {
+                throw new StatusError(`User with id "${user_id}" not found.`, 400);
+            }
+
+            return user;
+        }
+        else {
+            throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
+        }
     }
 }
