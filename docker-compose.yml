@@ -8,6 +8,7 @@ services:
     environment:
       - PORT=8080
       - OAUTH_TOKEN_VALIDITY_DURATION_MS=600000
+      - RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS=600000
       - DISABLE_VERIFICATION_CODE=false
       - REGISTRY_SERVER_ENDPOINT=https://registry.invoice-collector.com
       - DATABASE_URI=mongodb://mongodb:27017
@@ -18,6 +19,7 @@ services:
       - SECRET_MANAGER_BITWARDEN_ACCESS_TOKEN=
       - SECRET_MANAGER_BITWARDEN_ORGANIZATION_ID=
       - SECRET_MANAGER_BITWARDEN_PROJECT_ID=
+      - FRONTEND=http://localhost:8080
     command: npm run start
 
   mongodb:

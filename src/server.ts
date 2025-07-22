@@ -20,14 +20,17 @@ import { I18n } from './i18n';
 export class Server {
 
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS"));
+    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS"));
     static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
 
     tokens: object;
+    resetTokens: { [key: string]: Customer };
     secret_manager: AbstractSecretManager;
     collect_task: CollectTask;
 
     constructor() {
         this.tokens = {}
+        this.resetTokens = {}
 
         // Load all collectors
         CollectorLoader.load();
@@ -114,7 +117,7 @@ export class Server {
         await RegistryServer.getInstance().feedback(customer.bearer, type, message, email);
     }
 
-    // ---------- CUSTOMER ENDPOINTS ----------
+    // ---------- LOGIN/SIGNUP/RESET ENDPOINTS ----------
 
     // NO AUTHENTICATION
     public async post_signup(
@@ -126,16 +129,16 @@ export class Server {
             throw new MissingField("email");
         }
 
-        //Check if name field is missing
-        if(!name) {
-            throw new MissingField("name");
-        }
-
         // Check if customer already exists
         let customer = await Customer.fromEmail(email);
 
         // If customer does not exist, create it
         if(!customer) {
+            //Check if name field is missing
+            if(!name) {
+                throw new MissingField("name");
+            }
+
             // Create new customer
             customer = new Customer(email, "", name, "", "");
 
@@ -146,9 +149,23 @@ export class Server {
             await RegistryServer.getInstance().sendWelcomeEmail(email, "en");
         }
 
-        // Reset password
-        //TODO: Call post_reset method
+        // Generate reset token
+        const resetToken = utils.generate_token();
+
+        // Map reset token with customer
+        this.resetTokens[resetToken] = customer;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.resetTokens[resetToken];
+            console.log(`Reset token ${resetToken} deleted`);
+        }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
+
+        // Send reset password email
+        await RegistryServer.getInstance().sendResetPasswordEmail(email, resetToken);
     }
+
+    // ---------- CUSTOMER ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
     public async get_customer(bearer: string | undefined): Promise<{
@@ -815,6 +832,14 @@ export class Server {
             throw new OauthError();
         }
         return this.tokens[token];
+    }
+
+    private getResetToken(resetToken: string): Customer {
+        // Check if reset token is missing or incorrect
+        if(!resetToken || !this.resetTokens.hasOwnProperty(resetToken) || typeof resetToken !== 'string') {
+            throw new StatusError(`Reset token "${resetToken}" not found.`, 400);
+        }
+        return this.resetTokens[resetToken];
     }
 
     private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {

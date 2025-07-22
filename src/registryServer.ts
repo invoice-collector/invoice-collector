@@ -2,11 +2,13 @@ import axios, { AxiosInstance } from 'axios';
 import { LoggableError } from './error'
 import * as utils from './utils'
 import { TermsConditions } from './model/user';
+import { Server } from './server';
 
 export class RegistryServer {
 
     static instance: RegistryServer;
     static VERSION = "v1"
+    static FRONTEND = utils.getEnvVar("FRONTEND");
 
     static getInstance(): RegistryServer {
         if (!RegistryServer.instance) {
@@ -104,7 +106,7 @@ You are still able to use the product but some features may not work as expected
             [email],
             "Welcome to Invoice-Collector",
             [
-                { text: `We are excited to have you on board. You can start using the app right away.`, bold: false, center: false, italic: false },
+                { text: `We are excited to have you on board. You can start using the app after defining your password.`, bold: false, center: false, italic: false },
                 { text: "You will receive a second email to define your password.", bold: false, center: false, italic: false },
                 { text: null, bold: false, center: false, italic: false },
                 { text: "You are not the requestor? Kindly ignore this message.", bold: false, center: false, italic: true }
@@ -135,6 +137,23 @@ You are still able to use the product but some features may not work as expected
             verificationCode,
             sentTimestamp: Date.now(),
         };
+    }
+
+    public async sendResetPasswordEmail(email: string, resetToken: string): Promise<void> {
+        // Send email
+        console.log("Sending reset password email to", email);
+        await this.sendEmail(
+            [email],
+            "Define your password",
+            [
+                { text: `Hello`, bold: false, center: false, italic: false },
+                { text: `You requested to change your password. Please use the following link:`, bold: false, center: false, italic: false },
+                { text: `<a href="${RegistryServer.FRONTEND}/account/reset?token=${resetToken}" rel="nofollow noopener noreferrer">Define a new password</a>`, bold: true, center: true, italic: false },
+                { text: `This link is valid for ${Math.round(Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS / 60000)} minutes.`, bold: false, center: false, italic: false },
+                { text: null, bold: false, center: false, italic: false },
+                { text: "You are not the requestor? Kindly ignore this message.", bold: false, center: false, italic: true }
+            ]
+        );
     }
 
     private async sendEmail(

@@ -112,7 +112,7 @@ app.post('/api/v1/feedback', async (req, res) => {
     }
 });
 
-// ---------- CUSTOMER ENDPOINTS ----------
+// ---------- LOGIN/SIGNUP/RESET ENDPOINTS ----------
 
 // NO AUTHENTICATION
 app.post('/api/v1/signup', async (req, res) => {
@@ -127,6 +127,8 @@ app.post('/api/v1/signup', async (req, res) => {
         handle_error(e, req, res);
     }
 });
+
+// ---------- CUSTOMER ENDPOINTS ----------
 
 // BEARER AUTHENTICATION
 app.get('/api/v1/customer', async (req, res) => {
