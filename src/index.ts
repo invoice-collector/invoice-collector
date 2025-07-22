@@ -54,10 +54,11 @@ function handle_error(e, req, res){
 // ---------- GENERAL ENDPOINTS ----------
 
 // BEARER AUTHENTICATION
+//TODO DEPRECATED : REMOVE
 app.post('/api/v1/authorize', async (req, res) => {
     try {
         // Perform authorization
-        console.log('POST authorize');
+        console.warn('POST authorize (DEPRECATED)');
         const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email);
 
         // Build response
