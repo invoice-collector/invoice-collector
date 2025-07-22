@@ -36,7 +36,7 @@ export class Customer {
 
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
         const bearer = utils.generate_bearer();
-        const customer = new Customer(Customer.DEFAULT_NAME, Customer.DEFAULT_CALLBACK, utils.hash_string(bearer));
+        const customer = new Customer("", "", Customer.DEFAULT_NAME, Customer.DEFAULT_CALLBACK, utils.hash_string(bearer));
         return {
             bearer,
             customer: await DatabaseFactory.getDatabase().createCustomer(customer)
@@ -44,6 +44,8 @@ export class Customer {
     }
 
     id: string;
+    email: string;
+    password: string;
     name: string;
     callback: string;
     bearer: string;
@@ -54,6 +56,8 @@ export class Customer {
     maxDelayBetweenCollect: number;
 
     constructor(
+        email: string,
+        password: string,
         name: string,
         callback: string,
         bearer: string,
@@ -64,6 +68,8 @@ export class Customer {
         maxDelayBetweenCollect: number = 2592000000
     ) {
         this.id = "";
+        this.email = email;
+        this.password = password;
         this.name = name;
         this.callback = callback;
         this.bearer = bearer;

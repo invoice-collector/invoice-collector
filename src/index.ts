@@ -114,6 +114,20 @@ app.post('/api/v1/feedback', async (req, res) => {
 
 // ---------- CUSTOMER ENDPOINTS ----------
 
+// NO AUTHENTICATION
+app.post('/api/v1/signup', async (req, res) => {
+    try {
+        // Perform signup
+        console.log('POST signup');
+        await server.post_signup(req.body.email, req.body.name);
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // BEARER AUTHENTICATION
 app.get('/api/v1/customer', async (req, res) => {
     try {

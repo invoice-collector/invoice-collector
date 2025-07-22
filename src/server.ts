@@ -116,6 +116,34 @@ export class Server {
 
     // ---------- CUSTOMER ENDPOINTS ----------
 
+    // NO AUTHENTICATION
+    public async post_signup(
+        email: string | undefined,
+        name: string | undefined
+    ): Promise<void> {
+        //Check if email field is missing
+        if(!email) {
+            throw new MissingField("email");
+        }
+
+        //Check if name field is missing
+        if(!name) {
+            throw new MissingField("name");
+        }
+
+        // Create new customer
+        const customer = new Customer(email, "", name, "", "");
+
+        // Commit changes in database
+        await customer.commit();
+
+        // Send welcome email
+        await RegistryServer.getInstance().sendWelcomeEmail(email, "en");
+
+        // Reset password
+        //TODO: Call post_reset method
+    }
+
     // BEARER AUTHENTICATION
     public async get_customer(bearer: string | undefined): Promise<{
         id: string,
@@ -256,7 +284,7 @@ export class Server {
                     throw new MissingField("email");
                 }
                 // Send terms and conditions email
-                termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
+                termsConditions = await RegistryServer.getInstance().sendVerificationCodeEmail(email, locale);
             } else {
                 // If terms and conditions are not required, set validTimestamp to now
                 termsConditions = {
@@ -281,7 +309,7 @@ export class Server {
                         throw new MissingField("email");
                     }
                     // Send terms and conditions email
-                    const termsConditions = await RegistryServer.getInstance().sendTermsConditionsEmail(customer.bearer, email, locale);
+                    const termsConditions = await RegistryServer.getInstance().sendVerificationCodeEmail(email, locale);
                     // Update terms and conditions
                     user.termsConditions = termsConditions;
                 }
