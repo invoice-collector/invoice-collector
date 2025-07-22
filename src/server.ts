@@ -131,14 +131,20 @@ export class Server {
             throw new MissingField("name");
         }
 
-        // Create new customer
-        const customer = new Customer(email, "", name, "", "");
+        // Check if customer already exists
+        let customer = await Customer.fromEmail(email);
 
-        // Commit changes in database
-        await customer.commit();
+        // If customer does not exist, create it
+        if(!customer) {
+            // Create new customer
+            customer = new Customer(email, "", name, "", "");
 
-        // Send welcome email
-        await RegistryServer.getInstance().sendWelcomeEmail(email, "en");
+            // Commit changes in database
+            await customer.commit();
+
+            // Send welcome email
+            await RegistryServer.getInstance().sendWelcomeEmail(email, "en");
+        }
 
         // Reset password
         //TODO: Call post_reset method

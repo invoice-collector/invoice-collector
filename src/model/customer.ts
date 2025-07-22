@@ -34,6 +34,11 @@ export class Customer {
         return customer;
     }
 
+    static async fromEmail(email: string): Promise<Customer|null> {
+        // Get customer from email
+        return await DatabaseFactory.getDatabase().getCustomerFromEmail(email);
+    }
+
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
         const bearer = utils.generate_bearer();
         const customer = new Customer("", "", Customer.DEFAULT_NAME, Customer.DEFAULT_CALLBACK, utils.hash_string(bearer));

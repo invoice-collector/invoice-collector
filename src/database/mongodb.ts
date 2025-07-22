@@ -108,6 +108,30 @@ export class MongoDB extends AbstractDatabase {
         return customer;
     }
 
+    async getCustomerFromEmail(email: string): Promise<Customer|null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ email });
+        if (!document) {
+            return null;
+        }
+        let customer = new Customer(
+            document.email,
+            document.password,
+            document.name,
+            document.callback,
+            document.bearer,
+            document.theme,
+            document.subscribedCollectors,
+            document.isSubscribedToAll,
+            document.displaySketchCollectors,
+            document.maxDelayBetweenCollect
+        );
+        customer.id = document._id.toString();
+        return customer;
+    }
+
     async getCustomer(customer_id: string): Promise<Customer|null> {
         if (!this.db) {
             throw new Error("Database is not connected");

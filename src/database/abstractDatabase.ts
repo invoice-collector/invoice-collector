@@ -21,6 +21,8 @@ export abstract class AbstractDatabase {
     
     abstract getCustomerFromBearer(bearer: string): Promise<Customer|null>;
     
+    abstract getCustomerFromEmail(email: string): Promise<Customer|null>;
+    
     abstract getCustomer(customer_id: string): Promise<Customer|null>;
 
     abstract updateCustomer(customer: Customer): Promise<void>;
