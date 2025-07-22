@@ -219,8 +219,11 @@ export class Server {
         locale: string | undefined,
         email: string | undefined
     ): Promise<{
-        token: string,
-        id: string
+        id: string,
+        customer_id: string,
+        remote_id: string,
+        locale: string,
+        token: string
     }> {
         // Get customer from bearer
         const customer = await Customer.fromBearer(bearer);
@@ -306,8 +309,11 @@ export class Server {
         }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
 
         return {
+            id: user.id,
+            customer_id: user.customer_id,
+            remote_id: user.remote_id,
+            locale: user.locale,
             token,
-            id: user.id
         }
     }
 
@@ -403,7 +409,17 @@ export class Server {
         collector_id: string | undefined,
         params: any | undefined,
         ip: string | string[] | undefined
-    ): Promise<{id: string}> {
+    ): Promise<{
+        id: string,
+        user_id: string,
+        note: string,
+        create_timestamp: number,
+        last_collect_timestamp: number,
+        next_collect_timestamp: number,
+        invoices: any[],
+        state: State,
+        collector: Config
+    }> {
         // Get user from bearer or token
          const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
@@ -425,15 +441,15 @@ export class Server {
 
         // Check if collector is sketch
         if(collector.config.type == CollectorType.SKETCH) {
-            throw new StatusError(`Collector "${collector_id}" is a sketch collector and cannot be used to create credentials.`, 400);
+            throw new StatusError(`Collector "${collector.config.id}" is a sketch collector and cannot be used to create credentials.`, 400);
         }
 
         // Get customer from user
         const customer = await user.getCustomer();
 
         // Check if customer has subscribed to the collector
-        if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector_id)) {
-            throw new StatusError(`Customer has not subscribed to collector "${collector_id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
+        if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
+            throw new StatusError(`Customer has not subscribed to collector "${collector.config.id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
         }
 
         // Get credential note
@@ -467,12 +483,12 @@ export class Server {
             params,
             cookies: null,
         }
-        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector_id}`, secret);
+        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector.config.id}`, secret);
 
         // Create credential
         let credential = new IcCredential(
             user.id,
-            collector_id,
+            collector.config.id,
             note,
             secret_manager_id
         );
@@ -499,8 +515,18 @@ export class Server {
             CollectPool.getInstance().unregisterCollect(credential.id);
         });
 
-        // Return credential_id
-        return {id: credential.id};
+        // Return credential
+        return {
+            id: credential.id,
+            user_id: credential.user_id,
+            note: credential.note,
+            create_timestamp: credential.create_timestamp,
+            last_collect_timestamp: credential.last_collect_timestamp,
+            next_collect_timestamp: credential.next_collect_timestamp,
+            invoices: credential.invoices,
+            state: credential.state,
+            collector: collector.config,
+        };
     }
 
     // TOKEN AUTHENTICATION
@@ -554,7 +580,7 @@ export class Server {
         // Translate the state title
         credential.state.title = I18n.get(credential.state.title, user.locale);
 
-        // Return status
+        // Return credential
         return {
             id: credential.id,
             user_id: credential.user_id,
