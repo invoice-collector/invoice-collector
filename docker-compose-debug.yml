@@ -19,9 +19,6 @@ services:
       - mongodb
     environment:
       - PORT=8080
-      - OAUTH_TOKEN_VALIDITY_DURATION_MS=600000
-      - RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS=600000
-      - UI_BEARER_VALIDITY_DURATION_MS=3600000
       - DISABLE_VERIFICATION_CODE=false
       - REGISTRY_SERVER_ENDPOINT=https://registry.invoice-collector.com
       - DATABASE_URI=mongodb://mongodb:27017
