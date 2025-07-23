@@ -112,6 +112,51 @@ app.post('/api/v1/feedback', async (req, res) => {
     }
 });
 
+// ---------- LOGIN/SIGNUP/RESET ENDPOINTS ----------
+
+// NO AUTHENTICATION
+app.post('/api/v1/login', async (req, res) => {
+    try {
+        // Perform login
+        console.log('POST login');
+        const response = await server.post_login(req.body.email, req.body.password);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// NO AUTHENTICATION
+app.post('/api/v1/signup', async (req, res) => {
+    try {
+        // Perform signup
+        console.log('POST signup');
+        await server.post_signup(req.body.email, req.body.name);
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// NO AUTHENTICATION
+app.post('/api/v1/reset', async (req, res) => {
+    try {
+        // Perform reset password
+        console.log('POST reset');
+        await server.post_reset(req.query.token, req.body.password);
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // ---------- CUSTOMER ENDPOINTS ----------
 
 // BEARER AUTHENTICATION
@@ -147,6 +192,21 @@ app.post('/api/v1/customer', async (req, res) => {
         // Build response
         res.end();
     } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+app.post('/api/v1/customer/bearer', async (req, res) => {
+    try {
+        // Generate customer bearer
+        console.log(`POST customer bearer`);
+        const response = await server.post_customer_bearer(req.headers.authorization);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    }
+    catch (e) {
         handle_error(e, req, res);
     }
 });

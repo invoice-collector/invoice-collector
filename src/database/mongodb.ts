@@ -70,6 +70,8 @@ export class MongoDB extends AbstractDatabase {
         }
         const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).insertOne({
             name: customer.name,
+            email: customer.email,
+            password: customer.password,
             callback: customer.callback,
             bearer: customer.bearer,
             theme: customer.theme,
@@ -91,6 +93,56 @@ export class MongoDB extends AbstractDatabase {
             return null;
         }
         let customer = new Customer(
+            document.email,
+            document.password,
+            document.name,
+            document.callback,
+            document.bearer,
+            document.theme,
+            document.subscribedCollectors,
+            document.isSubscribedToAll,
+            document.displaySketchCollectors,
+            document.maxDelayBetweenCollect
+        );
+        customer.id = document._id.toString();
+        return customer;
+    }
+
+    async getCustomerFromEmail(email: string): Promise<Customer|null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ email });
+        if (!document) {
+            return null;
+        }
+        let customer = new Customer(
+            document.email,
+            document.password,
+            document.name,
+            document.callback,
+            document.bearer,
+            document.theme,
+            document.subscribedCollectors,
+            document.isSubscribedToAll,
+            document.displaySketchCollectors,
+            document.maxDelayBetweenCollect
+        );
+        customer.id = document._id.toString();
+        return customer;
+    }
+
+    async getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ email, password });
+        if (!document) {
+            return null;
+        }
+        let customer = new Customer(
+            document.email,
+            document.password,
             document.name,
             document.callback,
             document.bearer,
@@ -115,6 +167,8 @@ export class MongoDB extends AbstractDatabase {
             return null;
         }
         let customer = new Customer(
+            document.email,
+            document.password,
             document.name,
             document.callback,
             document.bearer,
@@ -135,8 +189,11 @@ export class MongoDB extends AbstractDatabase {
         await this.db.collection(MongoDB.CUSTOMER_COLLECTION).updateOne(
             { _id: new ObjectId(customer.id) },
             { $set: {
+                email: customer.email,
+                password: customer.password,
                 name: customer.name,
                 callback: customer.callback,
+                bearer: customer.bearer,
                 theme: customer.theme,
                 subscribedCollectors: customer.subscribedCollectors,
                 isSubscribedToAll: customer.isSubscribedToAll,

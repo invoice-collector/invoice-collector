@@ -14,15 +14,7 @@ export class Customer {
     static DEFAULT_NAME = "default";
     static DEFAULT_CALLBACK = "https://path.to/callback";
 
-    static async fromBearer(bearer): Promise<Customer> {
-        // Check if bearer is missing or does not start with "Bearer "
-        if(!bearer || !bearer.startsWith("Bearer ")) {
-            throw new AuthenticationBearerError()
-        }
-
-        // Get hash from bearer
-        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
-    
+    static async fromBearer(hashed_bearer: string): Promise<Customer> {
         // Get customer from bearer
         const customer = await DatabaseFactory.getDatabase().getCustomerFromBearer(hashed_bearer);
 
@@ -34,9 +26,19 @@ export class Customer {
         return customer;
     }
 
+    static async fromEmail(email: string): Promise<Customer|null> {
+        // Get customer from email
+        return await DatabaseFactory.getDatabase().getCustomerFromEmail(email);
+    }
+
+    static async fromEmailAndPassword(email: string, password: string): Promise<Customer|null> {
+        // Get customer from email and password
+        return await DatabaseFactory.getDatabase().getCustomerFromEmailAndPassword(email, password);
+    }
+
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
         const bearer = utils.generate_bearer();
-        const customer = new Customer(Customer.DEFAULT_NAME, Customer.DEFAULT_CALLBACK, utils.hash_string(bearer));
+        const customer = new Customer("", "", Customer.DEFAULT_NAME, Customer.DEFAULT_CALLBACK, utils.hash_string(bearer));
         return {
             bearer,
             customer: await DatabaseFactory.getDatabase().createCustomer(customer)
@@ -44,6 +46,8 @@ export class Customer {
     }
 
     id: string;
+    email: string;
+    password: string;
     name: string;
     callback: string;
     bearer: string;
@@ -54,6 +58,8 @@ export class Customer {
     maxDelayBetweenCollect: number;
 
     constructor(
+        email: string,
+        password: string,
         name: string,
         callback: string,
         bearer: string,
@@ -64,6 +70,8 @@ export class Customer {
         maxDelayBetweenCollect: number = 2592000000
     ) {
         this.id = "";
+        this.email = email;
+        this.password = password;
         this.name = name;
         this.callback = callback;
         this.bearer = bearer;
