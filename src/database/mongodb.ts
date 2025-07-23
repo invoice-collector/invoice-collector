@@ -193,6 +193,7 @@ export class MongoDB extends AbstractDatabase {
                 password: customer.password,
                 name: customer.name,
                 callback: customer.callback,
+                bearer: customer.bearer,
                 theme: customer.theme,
                 subscribedCollectors: customer.subscribedCollectors,
                 isSubscribedToAll: customer.isSubscribedToAll,

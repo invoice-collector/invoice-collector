@@ -309,6 +309,30 @@ export class Server {
         await customer.commit();
     }
 
+    // BEARER AUTHENTICATION
+    public async post_customer_bearer(bearer: string | undefined): Promise<{
+        bearer: string
+    }> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Generate new bearer token
+        const newBearer = utils.generate_bearer();
+
+        // Compute hashed bearer
+        const hashedBearer = utils.hash_string(newBearer);
+
+        // Update customer bearer
+        customer.bearer = hashedBearer;
+
+        // Commit changes in database
+        await customer.commit();
+
+        // Return new bearer token
+        return { bearer: newBearer };
+    }
+
+
     // ---------- USER ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
