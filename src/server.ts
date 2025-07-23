@@ -24,14 +24,14 @@ export class Server {
     static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS"));
     static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
 
-    tokens: object;
+    uiTokens: object;
     resetTokens: { [key: string]: string };
     uiBearers: { [key: string]: string };
     secret_manager: AbstractSecretManager;
     collect_task: CollectTask;
 
     constructor() {
-        this.tokens = {};
+        this.uiTokens = {};
         this.resetTokens = {};
         this.uiBearers = {};
 
@@ -55,7 +55,7 @@ export class Server {
     // TOKEN AUTHENTICATION
     public async get_ui(token: any, verificationCode: any): Promise<{locale: string, theme: string}> {
         // Get user from token
-        const user = this.get_token_mapping(token);
+        const user = this.getUserFromUiToken(token);
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -225,7 +225,7 @@ export class Server {
         }
 
         // Get customer from reset token
-        const customer = await this.getResetToken(resetToken);
+        const customer = await this.getCustomerFromResetToken(resetToken);
 
         // Set new password
         customer.password = utils.hash_string(password);
@@ -420,15 +420,15 @@ export class Server {
         await user.commit();
 
         // Generate oauth token
-        const token = generate_token();
+        const uiToken = generate_token();
 
         // Map token with user
-        this.tokens[token] = user;
+        this.uiTokens[uiToken] = user;
 
         // Schedule token delete after validity duration
         setTimeout(() => {
-            delete this.tokens[token];
-            console.log(`Token ${token} deleted`);
+            delete this.uiTokens[uiToken];
+            console.log(`Token ${uiToken} deleted`);
         }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
 
         return {
@@ -436,7 +436,7 @@ export class Server {
             customer_id: user.customer_id,
             remote_id: user.remote_id,
             locale: user.locale,
-            token,
+            token: uiToken,
         }
     }
 
@@ -461,11 +461,11 @@ export class Server {
         // Delete user and all its credentials
         await user.delete();
 
-        // Delete user from token mapping
-        for (let token in this.tokens) {
-            if (this.tokens[token].id === user.id) {
-                delete this.tokens[token];
-                console.log(`Token ${token} deleted`);
+        // Delete user from ui token mapping
+        for (let uiToken in this.uiTokens) {
+            if (this.uiTokens[uiToken].id === user.id) {
+                delete this.uiTokens[uiToken];
+                console.log(`Token ${uiToken} deleted`);
             }
         }
     }
@@ -898,15 +898,15 @@ export class Server {
 
     // ---------- PRIVATE METHODS ----------
 
-    private get_token_mapping(token: any): User {
+    private getUserFromUiToken(uiToken: any): User {
         // Check if token is missing or incorrect
-        if(!token || !this.tokens.hasOwnProperty(token) || typeof token !== 'string') {
+        if(!uiToken || !this.uiTokens.hasOwnProperty(uiToken) || typeof uiToken !== 'string') {
             throw new OauthError();
         }
-        return this.tokens[token];
+        return this.uiTokens[uiToken];
     }
 
-    private async getResetToken(resetToken: string): Promise<Customer> {
+    private async getCustomerFromResetToken(resetToken: string): Promise<Customer> {
         // Check if reset token is missing or incorrect
         if(!resetToken || !this.resetTokens.hasOwnProperty(resetToken) || typeof resetToken !== 'string') {
             throw new StatusError("Invalid reset token", 401);
@@ -926,13 +926,13 @@ export class Server {
     private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
         if (token) {
             // Get user from token
-            const user = this.get_token_mapping(token);
+            const user = this.getUserFromUiToken(token);
             // Get customer from user
             return await user.getCustomer();
         }
         else if (bearer) {
             // Get customer from bearer
-            return await Customer.fromBearer(bearer);
+            return await this.getCustomerFromBearer(bearer);
         }
         else {
             throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
@@ -942,7 +942,7 @@ export class Server {
     private async getUserFromBearerOrToken(bearer: string | undefined, user_id: string | undefined, token: any): Promise<User> {
         if (token) {
             // Get user from token
-            return this.get_token_mapping(token);
+            return this.getUserFromUiToken(token);
         }
         else if (bearer) {
             // Check if user_id is provided
