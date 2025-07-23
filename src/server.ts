@@ -165,6 +165,34 @@ export class Server {
         await RegistryServer.getInstance().sendResetPasswordEmail(email, resetToken);
     }
 
+    // RESET TOKEN AUTHENTICATION
+    public async post_reset(
+        resetToken: any,
+        password: string | undefined
+    ): Promise<void> {
+        // Check if resetToken field is missing
+        if(!resetToken) {
+            throw new MissingField("resetToken");
+        }
+
+        // Check if password field is missing
+        if(!password) {
+            throw new MissingField("password");
+        }
+
+        // Get customer from reset token
+        const customer = this.getResetToken(resetToken);
+
+        // Set new password
+        customer.password = utils.hash_string(password);
+
+        // Commit changes in database
+        await customer.commit();
+
+        // Delete reset token
+        delete this.resetTokens[resetToken];
+    }
+
     // ---------- CUSTOMER ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
@@ -837,7 +865,7 @@ export class Server {
     private getResetToken(resetToken: string): Customer {
         // Check if reset token is missing or incorrect
         if(!resetToken || !this.resetTokens.hasOwnProperty(resetToken) || typeof resetToken !== 'string') {
-            throw new StatusError(`Reset token "${resetToken}" not found.`, 400);
+            throw new StatusError("Invalid reset token", 401);
         }
         return this.resetTokens[resetToken];
     }

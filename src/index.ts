@@ -128,6 +128,20 @@ app.post('/api/v1/signup', async (req, res) => {
     }
 });
 
+// NO AUTHENTICATION
+app.post('/api/v1/reset', async (req, res) => {
+    try {
+        // Perform reset password
+        console.log('POST reset');
+        await server.post_reset(req.query.token, req.body.password);
+
+        // Build response
+        res.end()
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // ---------- CUSTOMER ENDPOINTS ----------
 
 // BEARER AUTHENTICATION
