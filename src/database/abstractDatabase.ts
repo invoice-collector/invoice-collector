@@ -18,17 +18,19 @@ export abstract class AbstractDatabase {
     abstract countCustomers(): Promise<number>;
 
     abstract createCustomer(customer: Customer): Promise<Customer>;
-    
+
     abstract getCustomerFromBearer(bearer: string): Promise<Customer|null>;
     
     abstract getCustomerFromEmail(email: string): Promise<Customer|null>;
-    
+
+    abstract getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null>;
+
     abstract getCustomer(customer_id: string): Promise<Customer|null>;
 
     abstract updateCustomer(customer: Customer): Promise<void>;
 
     // USER
-    
+
     abstract getUsers(customer_id: string): Promise<User[]>;
 
     abstract getUser(user_id: string): Promise<User|null>;

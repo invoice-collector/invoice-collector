@@ -115,6 +115,21 @@ app.post('/api/v1/feedback', async (req, res) => {
 // ---------- LOGIN/SIGNUP/RESET ENDPOINTS ----------
 
 // NO AUTHENTICATION
+app.post('/api/v1/login', async (req, res) => {
+    try {
+        // Perform login
+        console.log('POST login');
+        const response = await server.post_login(req.body.email, req.body.password);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// NO AUTHENTICATION
 app.post('/api/v1/signup', async (req, res) => {
     try {
         // Perform signup

@@ -1,7 +1,7 @@
 import { DatabaseFactory } from './database/databaseFactory';
 import { AbstractSecretManager, Secret } from './secret_manager/abstractSecretManager';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
-import { OauthError, MissingField, MissingParams, StatusError } from './error';
+import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
 import { generate_token } from './utils';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User } from './model/user';
@@ -21,16 +21,19 @@ export class Server {
 
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS"));
     static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS"));
+    static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS"));
     static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
 
     tokens: object;
-    resetTokens: { [key: string]: Customer };
+    resetTokens: { [key: string]: string };
+    uiBearers: { [key: string]: string };
     secret_manager: AbstractSecretManager;
     collect_task: CollectTask;
 
     constructor() {
-        this.tokens = {}
-        this.resetTokens = {}
+        this.tokens = {};
+        this.resetTokens = {};
+        this.uiBearers = {};
 
         // Load all collectors
         CollectorLoader.load();
@@ -74,7 +77,7 @@ export class Server {
     // BEARER AUTHENTICATION
     public async get_test_callback(bearer: string | undefined): Promise<void> {
         // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
+        const customer = await this.getCustomerFromBearer(bearer);
 
         // Get users from customer
         const users = await customer.getUsers();
@@ -120,6 +123,47 @@ export class Server {
     // ---------- LOGIN/SIGNUP/RESET ENDPOINTS ----------
 
     // NO AUTHENTICATION
+    public async post_login(
+        email: string | undefined,
+        password: string | undefined
+    ): Promise<{bearer: string}> {
+        //Check if email field is missing
+        if(!email) {
+            throw new MissingField("email");
+        }
+
+        //Check if password field is missing
+        if(!password) {
+            throw new MissingField("password");
+        }
+
+        // Get customer from email
+        const customer = await Customer.fromEmailAndPassword(email, utils.hash_string(password));
+
+        // Check if customer exists
+        if(!customer) {
+            throw new StatusError("Invalid email or password.", 400);
+        }
+
+        // Generate ui bearer token
+        const uiBearer = utils.generate_bearer();
+
+        // Compute hashed bearer
+        const hashed_bearer = utils.hash_string(uiBearer);
+
+        // Map bearer token with customer
+        this.uiBearers[hashed_bearer] = customer.id;
+
+        // Schedule token delete after validity duration
+        setTimeout(() => {
+            delete this.uiBearers[hashed_bearer];
+            console.log(`Ui bearer ${hashed_bearer} deleted`);
+        }, Server.UI_BEARER_VALIDITY_DURATION_MS);
+
+        return {bearer: uiBearer};
+    }
+
+    // NO AUTHENTICATION
     public async post_signup(
         email: string | undefined,
         name: string | undefined
@@ -153,7 +197,7 @@ export class Server {
         const resetToken = utils.generate_token();
 
         // Map reset token with customer
-        this.resetTokens[resetToken] = customer;
+        this.resetTokens[resetToken] = customer.id;
 
         // Schedule token delete after validity duration
         setTimeout(() => {
@@ -181,7 +225,7 @@ export class Server {
         }
 
         // Get customer from reset token
-        const customer = this.getResetToken(resetToken);
+        const customer = await this.getResetToken(resetToken);
 
         // Set new password
         customer.password = utils.hash_string(password);
@@ -207,7 +251,7 @@ export class Server {
         maxDelayBetweenCollect: number
     }> {
         // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
+        const customer = await this.getCustomerFromBearer(bearer);
 
         return {
             id: customer.id,
@@ -232,7 +276,7 @@ export class Server {
         displaySketchCollectors: boolean | undefined
     ): Promise<void> {
         // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
+        const customer = await this.getCustomerFromBearer(bearer);
 
         //Check if name field is present
         if(name) {
@@ -275,7 +319,7 @@ export class Server {
         locale: string
     }[]> {
         // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
+        const customer = await this.getCustomerFromBearer(bearer);
 
         // Get users from customer
         const users = await customer.getUsers();
@@ -305,7 +349,7 @@ export class Server {
         token: string
     }> {
         // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
+        const customer = await this.getCustomerFromBearer(bearer);
 
         //Check if remote_id field is missing
         if(!remote_id) {
@@ -399,7 +443,7 @@ export class Server {
     // BEARER AUTHENTICATION
     public async delete_user(bearer: string | undefined, user_id: string) {
         // Get customer from bearer
-        const customer = await Customer.fromBearer(bearer);
+        const customer = await this.getCustomerFromBearer(bearer);
 
         //Check if user_id field is missing
         if(!user_id) {
@@ -862,12 +906,21 @@ export class Server {
         return this.tokens[token];
     }
 
-    private getResetToken(resetToken: string): Customer {
+    private async getResetToken(resetToken: string): Promise<Customer> {
         // Check if reset token is missing or incorrect
         if(!resetToken || !this.resetTokens.hasOwnProperty(resetToken) || typeof resetToken !== 'string') {
             throw new StatusError("Invalid reset token", 401);
         }
-        return this.resetTokens[resetToken];
+
+        // Get customer from id
+        const customer = await DatabaseFactory.getDatabase().getCustomer(this.resetTokens[resetToken]);
+
+        // Check if customer exists
+        if(!customer) {
+            throw new StatusError(`Customer with id "${this.resetTokens[resetToken]}" not found.`, 400);
+        }
+
+        return customer;
     }
 
     private async getCustomerFromBearerOrToken(bearer: string | undefined, token: any): Promise<Customer> {
@@ -897,7 +950,7 @@ export class Server {
                 throw new MissingField("user_id");
             }
             // Get customer from bearer
-            const customer = await Customer.fromBearer(bearer);
+            const customer = await this.getCustomerFromBearer(bearer);
             // Get user from customer
             const user = await customer.getUser(user_id);
 
@@ -911,5 +964,36 @@ export class Server {
         else {
             throw new StatusError(`Provide a Bearer token or a "token" field in the query.`, 400);
         }
+    }
+
+    private async getCustomerFromBearer(bearer: string | undefined): Promise<Customer> {
+        // Check if bearer is missing
+        if (!bearer || !bearer.startsWith("Bearer ")) {
+            throw new AuthenticationBearerError()
+        }
+
+        // Get hashed bearer
+        const hashed_bearer = utils.hash_string(bearer.split(' ')[1]);
+
+        let customer: Customer | null;
+        // Check if uiBearers contains the hashed bearer
+        if (this.uiBearers.hasOwnProperty(hashed_bearer)) {
+            // Get customer id from uiBearers
+            const customer_id = this.uiBearers[hashed_bearer];
+
+            // Get customer from id
+            customer = await DatabaseFactory.getDatabase().getCustomer(customer_id);
+        }
+        else {
+            // Get customer from bearer
+            customer = await Customer.fromBearer(hashed_bearer);
+        }
+
+        // Check if customer exists
+        if (!customer) {
+            throw new AuthenticationBearerError();
+        }
+
+        return customer;
     }
 }
