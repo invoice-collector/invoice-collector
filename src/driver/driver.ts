@@ -152,7 +152,11 @@ export class Driver {
         }
         else {
             // Navigate to the page
-            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
+            const response = await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
+            // Check if response is 404
+            if (response && response.status() == 404) {
+                throw new LoggableError(`Failed to navigate to ${url}, page not found 404`, this.collector);
+            }
             return {requestBody: null, responseBody: null};
         }
     }
