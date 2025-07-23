@@ -142,7 +142,7 @@ export class Server {
 
         // Check if customer exists
         if(!customer) {
-            throw new StatusError("Invalid email or password.", 400);
+            throw new StatusError("Invalid credentials", 401);
         }
 
         // Generate ui bearer token
