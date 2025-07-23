@@ -24,7 +24,7 @@ export class Server {
     static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS"));
     static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
 
-    uiTokens: object;
+    uiTokens: { [key: string]: User };
     resetTokens: { [key: string]: string };
     uiBearers: { [key: string]: string };
     secret_manager: AbstractSecretManager;
