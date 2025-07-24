@@ -126,7 +126,18 @@ export class Server {
     public async post_login(
         email: string | undefined,
         password: string | undefined
-    ): Promise<{bearer: string}> {
+    ): Promise<{
+        id: string,
+        email: string,
+        name: string,
+        callback: string,
+        theme: string,
+        subscribedCollectors: string[],
+        isSubscribedToAll: boolean,
+        displaySketchCollectors: boolean,
+        maxDelayBetweenCollect: number,
+        bearer: string
+    }> {
         //Check if email field is missing
         if(!email) {
             throw new MissingField("email");
@@ -160,7 +171,18 @@ export class Server {
             console.log(`Ui bearer ${hashed_bearer} deleted`);
         }, Server.UI_BEARER_VALIDITY_DURATION_MS);
 
-        return {bearer: uiBearer};
+        return {
+            id: customer.id,
+            email: customer.email,
+            name: customer.name,
+            callback: customer.callback,
+            theme: customer.theme,
+            subscribedCollectors: customer.subscribedCollectors,
+            isSubscribedToAll: customer.isSubscribedToAll,
+            displaySketchCollectors: customer.displaySketchCollectors,
+            maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
+            bearer: uiBearer
+        };
     }
 
     // NO AUTHENTICATION
@@ -242,6 +264,7 @@ export class Server {
     // BEARER AUTHENTICATION
     public async get_customer(bearer: string | undefined): Promise<{
         id: string,
+        email: string,
         name: string,
         callback: string,
         theme: string,
@@ -255,6 +278,7 @@ export class Server {
 
         return {
             id: customer.id,
+            email: customer.email,
             name: customer.name,
             callback: customer.callback,
             theme: customer.theme,
