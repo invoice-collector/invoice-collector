@@ -14,11 +14,13 @@ export class UCollector extends WebCollector {
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
         params: {
             id: {
+                type: "string",
                 name: "i18n.collectors.all.email",
                 placeholder: "i18n.collectors.all.email.placeholder",
                 mandatory: true
             },
             password: {
+                type: "password",
                 name: "i18n.collectors.all.password",
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true,

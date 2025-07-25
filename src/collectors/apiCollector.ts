@@ -17,6 +17,7 @@ export type ApiConfig = {
     logo: string,
     params: {
         [key: string]: {
+            type: string,
             name: string,
             placeholder: string,
             mandatory: boolean
