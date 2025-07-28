@@ -131,6 +131,7 @@ export class Server {
         email: string,
         name: string,
         callback: string,
+        remoteId: string,
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
@@ -176,6 +177,7 @@ export class Server {
             email: customer.email,
             name: customer.name,
             callback: customer.callback,
+            remoteId: customer.remoteId,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
@@ -206,7 +208,7 @@ export class Server {
             }
 
             // Create new customer
-            customer = new Customer(email, "", name, "", "");
+            customer = new Customer(email, "", name, "", "", "");
 
             // Commit changes in database
             await customer.commit();
@@ -267,6 +269,7 @@ export class Server {
         email: string,
         name: string,
         callback: string,
+        remoteId: string,
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
@@ -281,6 +284,7 @@ export class Server {
             email: customer.email,
             name: customer.name,
             callback: customer.callback,
+            remoteId: customer.remoteId,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
@@ -294,6 +298,7 @@ export class Server {
         bearer: string | undefined,
         name: string | undefined,
         callback: string | undefined,
+        remoteId: string | undefined,
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
@@ -310,6 +315,11 @@ export class Server {
         //Check if callback field is present
         if(callback) {
             customer.callback = callback;
+        }
+
+        //Check if remoteId field is present
+        if(remoteId) {
+            customer.remoteId = remoteId;
         }
 
         //Check if theme field is present

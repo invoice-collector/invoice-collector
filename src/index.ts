@@ -183,6 +183,7 @@ app.post('/api/v1/customer', async (req, res) => {
             req.headers.authorization,
             req.body.name,
             req.body.callback,
+            req.body.remoteId,
             req.body.theme,
             req.body.subscribedCollectors,
             req.body.isSubscribedToAll,
