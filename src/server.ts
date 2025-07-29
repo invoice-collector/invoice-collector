@@ -127,16 +127,6 @@ export class Server {
         email: string | undefined,
         password: string | undefined
     ): Promise<{
-        id: string,
-        email: string,
-        name: string,
-        callback: string,
-        remoteId: string,
-        theme: string,
-        subscribedCollectors: string[],
-        isSubscribedToAll: boolean,
-        displaySketchCollectors: boolean,
-        maxDelayBetweenCollect: number,
         bearer: string
     }> {
         //Check if email field is missing
@@ -172,19 +162,7 @@ export class Server {
             console.log(`Ui bearer ${hashed_bearer} deleted`);
         }, Server.UI_BEARER_VALIDITY_DURATION_MS);
 
-        return {
-            id: customer.id,
-            email: customer.email,
-            name: customer.name,
-            callback: customer.callback,
-            remoteId: customer.remoteId,
-            theme: customer.theme,
-            subscribedCollectors: customer.subscribedCollectors,
-            isSubscribedToAll: customer.isSubscribedToAll,
-            displaySketchCollectors: customer.displaySketchCollectors,
-            maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
-            bearer: uiBearer
-        };
+        return { bearer: uiBearer };
     }
 
     // NO AUTHENTICATION
