@@ -138,9 +138,15 @@ export class IcCredential {
                 this.next_collect_timestamp = this.create_timestamp;
             }
             else if (this.next_collect_timestamp < this.last_collect_timestamp) { // If next_collect_timestamp is before last_collect_timestamp
-                if (this.invoices.length < 2) { // If has less than 2 invoices
+                let theoretical_next_collect_timestamp;
+
+                // Compute maximum next collect timestamp from now
+                let max_next_collect_timestamp = this.last_collect_timestamp + maxDelayBetweenCollect;
+
+                // If has less than 2 invoices, average time between invoices cannot be computed
+                if (this.invoices.length < 2) {
                     // Plan the next collect in one week
-                    this.next_collect_timestamp = this.last_collect_timestamp + IcCredential.ONE_WEEK_MS;
+                    theoretical_next_collect_timestamp = this.last_collect_timestamp + IcCredential.ONE_WEEK_MS;
                 }
                 else { // If has more than 2 invoices
                     // Take the last 10 invoices
@@ -153,20 +159,17 @@ export class IcCredential {
                     }
                     let avg = sum / (invoices.length - 1);
 
-                    // Compute maximum next collect timestamp from now
-                    let max_next_collect_timestamp = this.last_collect_timestamp + maxDelayBetweenCollect;
-
                     // Compute theoretical next collect timestamp
-                    let theoretical_next_collect_timestamp = invoices[invoices.length - 1].timestamp + avg;
+                    theoretical_next_collect_timestamp = invoices[invoices.length - 1].timestamp + avg;
 
                     // If theoretical next collect timestamp is before last collect timestamp, plan the next collect in one week
                     if (theoretical_next_collect_timestamp < this.last_collect_timestamp) {
                         theoretical_next_collect_timestamp = this.last_collect_timestamp + IcCredential.ONE_WEEK_MS;
                     }
-
-                    // Plan the next collect in the average time between invoices
-                    this.next_collect_timestamp = isNaN(theoretical_next_collect_timestamp) ? max_next_collect_timestamp : Math.min(theoretical_next_collect_timestamp, max_next_collect_timestamp);
                 }
+
+                // Plan the next collect in the average time between invoices
+                this.next_collect_timestamp = isNaN(theoretical_next_collect_timestamp) ? max_next_collect_timestamp : Math.min(theoretical_next_collect_timestamp, max_next_collect_timestamp);
             }
         }
         else {
