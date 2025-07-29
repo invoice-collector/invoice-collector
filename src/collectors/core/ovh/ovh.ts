@@ -22,7 +22,7 @@ export class OvhCollector extends ApiCollector {
                 mandatory: true
             },
             app_secret: {
-                type: "string",
+                type: "password",
                 name: "Application secret",
                 placeholder: "",
                 mandatory: true,

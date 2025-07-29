@@ -14,11 +14,13 @@ export class FreeCollector extends WebCollector {
         logo: "https://www.free.fr/assets/img/freebox/home/cards/logos/free-app-logo.svg",
         params: {
             id: {
+                type: "string",
                 name: "i18n.collectors.all.identifier",
                 placeholder: "i18n.collectors.free.identifier.placeholder",
                 mandatory: true
             },
             password: {
+                type: "password",
                 name: "i18n.collectors.all.password",
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true,

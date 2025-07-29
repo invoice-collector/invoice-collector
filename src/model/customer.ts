@@ -38,7 +38,7 @@ export class Customer {
 
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
         const bearer = utils.generate_bearer();
-        const customer = new Customer("", "", Customer.DEFAULT_NAME, Customer.DEFAULT_CALLBACK, utils.hash_string(bearer));
+        const customer = new Customer("", "", Customer.DEFAULT_NAME, Customer.DEFAULT_CALLBACK, "", utils.hash_string(bearer));
         return {
             bearer,
             customer: await DatabaseFactory.getDatabase().createCustomer(customer)
@@ -50,6 +50,7 @@ export class Customer {
     password: string;
     name: string;
     callback: string;
+    remoteId: string;
     bearer: string;
     theme: Theme;
     subscribedCollectors: string[];
@@ -62,6 +63,7 @@ export class Customer {
         password: string,
         name: string,
         callback: string,
+        remoteId: string,
         bearer: string,
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = [],
@@ -74,6 +76,7 @@ export class Customer {
         this.password = password;
         this.name = name;
         this.callback = callback;
+        this.remoteId = remoteId;
         this.bearer = bearer;
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;

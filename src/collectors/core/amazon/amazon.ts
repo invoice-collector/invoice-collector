@@ -22,7 +22,7 @@ export class AmazonCollector extends WebCollector {
                 mandatory: true
             },
             password: {
-                type: "string",
+                type: "password",
                 name: "i18n.collectors.all.password",
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true,

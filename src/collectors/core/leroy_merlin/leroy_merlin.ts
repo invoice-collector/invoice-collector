@@ -15,11 +15,13 @@ export class LeroyMerlinCollector extends WebCollector {
         logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leroy_Merlin.svg",
         params: {
             id: {
+                type: "string",
                 name: "i18n.collectors.all.email",
                 placeholder: "i18n.collectors.all.email.placeholder",
                 mandatory: true
             },
             password: {
+                type: "password",
                 name: "i18n.collectors.all.password",
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true,

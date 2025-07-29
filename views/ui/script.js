@@ -219,7 +219,7 @@ function showForm(company) {
 
             // Add input
             const input = document.createElement('input');
-            if (key === 'password' || key === 'token') {
+            if (param.type === 'password') {
                 input.setAttribute('type', 'password');
             } else {
                 input.setAttribute('type', 'text');

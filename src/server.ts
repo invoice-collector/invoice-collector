@@ -127,15 +127,6 @@ export class Server {
         email: string | undefined,
         password: string | undefined
     ): Promise<{
-        id: string,
-        email: string,
-        name: string,
-        callback: string,
-        theme: string,
-        subscribedCollectors: string[],
-        isSubscribedToAll: boolean,
-        displaySketchCollectors: boolean,
-        maxDelayBetweenCollect: number,
         bearer: string
     }> {
         //Check if email field is missing
@@ -171,18 +162,7 @@ export class Server {
             console.log(`Ui bearer ${hashed_bearer} deleted`);
         }, Server.UI_BEARER_VALIDITY_DURATION_MS);
 
-        return {
-            id: customer.id,
-            email: customer.email,
-            name: customer.name,
-            callback: customer.callback,
-            theme: customer.theme,
-            subscribedCollectors: customer.subscribedCollectors,
-            isSubscribedToAll: customer.isSubscribedToAll,
-            displaySketchCollectors: customer.displaySketchCollectors,
-            maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
-            bearer: uiBearer
-        };
+        return { bearer: uiBearer };
     }
 
     // NO AUTHENTICATION
@@ -206,7 +186,7 @@ export class Server {
             }
 
             // Create new customer
-            customer = new Customer(email, "", name, "", "");
+            customer = new Customer(email, "", name, "", "", "");
 
             // Commit changes in database
             await customer.commit();
@@ -259,6 +239,31 @@ export class Server {
         delete this.resetTokens[resetToken];
     }
 
+    // BEARER AUTHENTICATION
+    public async post_bearer(
+        bearer: string | undefined
+    ): Promise<{
+        bearer: string
+    }> {
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Generate new bearer token
+        const newBearer = utils.generate_bearer();
+
+        // Compute hashed bearer
+        const hashedBearer = utils.hash_string(newBearer);
+
+        // Update customer bearer
+        customer.bearer = hashedBearer;
+
+        // Commit changes in database
+        await customer.commit();
+
+        // Return new bearer token
+        return { bearer: newBearer };
+    }
+
     // ---------- CUSTOMER ENDPOINTS ----------
 
     // BEARER AUTHENTICATION
@@ -267,6 +272,7 @@ export class Server {
         email: string,
         name: string,
         callback: string,
+        remoteId: string,
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
@@ -281,6 +287,7 @@ export class Server {
             email: customer.email,
             name: customer.name,
             callback: customer.callback,
+            remoteId: customer.remoteId,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
@@ -294,6 +301,7 @@ export class Server {
         bearer: string | undefined,
         name: string | undefined,
         callback: string | undefined,
+        remoteId: string | undefined,
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
@@ -310,6 +318,11 @@ export class Server {
         //Check if callback field is present
         if(callback) {
             customer.callback = callback;
+        }
+
+        //Check if remoteId field is present
+        if(remoteId) {
+            customer.remoteId = remoteId;
         }
 
         //Check if theme field is present

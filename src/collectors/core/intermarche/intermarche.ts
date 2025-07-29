@@ -14,11 +14,13 @@ export class IntermarcheCollector extends WebCollector {
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg",
         params: {
             id: {
+                type: "string",
                 name: "i18n.collectors.all.email",
                 placeholder: "i18n.collectors.all.email.placeholder",
                 mandatory: true
             },
             password: {
+                type: "password",
                 name: "i18n.collectors.all.password",
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true,

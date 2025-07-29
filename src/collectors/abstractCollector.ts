@@ -34,6 +34,7 @@ export type Config = {
     useProxy: boolean,
     params: {
         [key: string]: {
+            type: string,
             name: string,
             placeholder: string,
             mandatory: boolean

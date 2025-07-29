@@ -14,11 +14,13 @@ export class OrangeCollector extends WebCollector {
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         params: {
             id: {
+                type: "string",
                 name: "i18n.collectors.all.email_or_number",
                 placeholder: "i18n.collectors.all.email_or_number.placeholder",
                 mandatory: true
             },
             password: {
+                type: "password",
                 name: "i18n.collectors.all.password",
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true,
