@@ -157,6 +157,21 @@ app.post('/api/v1/reset', async (req, res) => {
     }
 });
 
+//BEARER AUTHENTICATION
+app.post('/api/v1/bearer', async (req, res) => {
+    try {
+        // Generate bearer
+        console.log('POST bearer');
+        const response = await server.post_bearer(req.headers.authorization);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
 // ---------- CUSTOMER ENDPOINTS ----------
 
 // BEARER AUTHENTICATION
