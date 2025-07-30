@@ -560,6 +560,7 @@ export class Server {
 
         // Build response 
         return credentials.map((credential) => {
+            // Get collector from id
             const collector = CollectorLoader.get(credential.collector_id);
 
             // Get current collect
@@ -570,6 +571,10 @@ export class Server {
                 // Replace state with collect state
                 credential.state = collect.state;
             }
+
+            // Translate the state title and message
+            credential.state.title = I18n.get(credential.state.title, user.locale);
+            credential.state.message = I18n.get(credential.state.message, user.locale);
 
             return {
                 id: credential.id,
@@ -749,6 +754,9 @@ export class Server {
             throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
         }
 
+        // Get collector from id
+        const collector = CollectorLoader.get(credential.collector_id);
+
         // Get current collect
         const collect = CollectPool.getInstance().get(credential.id);
 
@@ -758,11 +766,9 @@ export class Server {
             credential.state = collect.state;
         }
 
-        // Get collector from id
-        const collector = CollectorLoader.get(credential.collector_id);
-
-        // Translate the state title
+        // Translate the state title and message
         credential.state.title = I18n.get(credential.state.title, user.locale);
+        credential.state.message = I18n.get(credential.state.message, user.locale);
 
         // Return credential
         return {
