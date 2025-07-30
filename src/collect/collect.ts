@@ -168,7 +168,7 @@ export class Collect {
                         const callback = new CallbackHandler(customer);
                         await callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
                         // Update credential to disconnected
-                        credential.state.update(State._2_DISCONNECTED, "i18n.class.state.2_disconnected.message");
+                        credential.state.update(State._2_DISCONNECTED);
                     }
                     else {
                         // Update credential to error
