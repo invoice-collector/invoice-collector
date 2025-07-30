@@ -75,24 +75,35 @@ export class Server {
     }
 
     // BEARER AUTHENTICATION
-    public async get_test_callback(bearer: string | undefined): Promise<void> {
+    public async get_test_callback(bearer: string | undefined, type: string): Promise<void> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
-        // Get users from customer
-        const users = await customer.getUsers();
-
-        // Get fake invoice datas
-        let {collector_id, remote_id, invoice} = utils.createFakeInvoice();
-
-        // Get remote_id from first user if exists
-        if(users.length > 0) {
-            remote_id = users[0].remote_id;
+        // Check if type field is missing
+        if(!type) {
+            throw new MissingField("type");
         }
 
-        // Send invoice to callback
+        // Create callback handler
         const callback = new CallbackHandler(customer);
-        await callback.sendInvoice(collector_id, remote_id, invoice);
+
+        // If type is "invoice", send a fake invoice
+        if(type === "invoice") {
+            // Get fake invoice datas
+            let {collector_id, remote_id, invoice} = utils.createFakeInvoice();
+
+            // Send fake invoice to callback
+            await callback.sendInvoice(collector_id, remote_id, invoice);
+        }
+        else if(type === "notification_disconnected") {
+            // Get fake notification disconnected
+            let {collector_id, credential_id, user_id, remote_id } = utils.createFakeNotificationDisconnected();
+            // Send notification disconnected
+            await callback.sendNotificationDisconnected(collector_id, credential_id, user_id, remote_id);
+        }
+        else {
+            throw new StatusError(`Type "${type}" not supported.`, 400);
+        }
     }
 
     // TOKEN AUTHENTICATION
@@ -237,31 +248,6 @@ export class Server {
 
         // Delete reset token
         delete this.resetTokens[resetToken];
-    }
-
-    // BEARER AUTHENTICATION
-    public async post_bearer(
-        bearer: string | undefined
-    ): Promise<{
-        bearer: string
-    }> {
-        // Get customer from bearer
-        const customer = await this.getCustomerFromBearer(bearer);
-
-        // Generate new bearer token
-        const newBearer = utils.generate_bearer();
-
-        // Compute hashed bearer
-        const hashedBearer = utils.hash_string(newBearer);
-
-        // Update customer bearer
-        customer.bearer = hashedBearer;
-
-        // Commit changes in database
-        await customer.commit();
-
-        // Return new bearer token
-        return { bearer: newBearer };
     }
 
     // ---------- CUSTOMER ENDPOINTS ----------

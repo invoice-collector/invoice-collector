@@ -113,7 +113,21 @@ export function createFakeInvoice(): { collector_id: string, remote_id: string, 
     };
     return {
         collector_id: "sliced_invoices",
-        remote_id: "fake_remote_id",
+        remote_id: "R121439",
         invoice
     }
+}
+
+export function createFakeNotificationDisconnected(): {
+        collector_id: string,
+        credential_id: string,
+        user_id: string,
+        remote_id: string
+    } {
+    return {
+        collector_id: "sliced_invoices",
+        credential_id: "6776b5258821de266afbc3f6",
+        user_id: "687108e5dce5050bc8ca53c1",
+        remote_id: "R121439",
+    };
 }

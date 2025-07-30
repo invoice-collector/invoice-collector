@@ -85,11 +85,11 @@ app.get('/api/v1/ui', async (req, res) => {
 });
 
 // BEARER AUTHENTICATION
-app.get('/api/v1/test_callback', async (req, res) => {
+app.get('/api/v1/test/callback/:type', async (req, res) => {
     try {
         // Test callback
         console.log('GET test_callback');
-        await server.get_test_callback(req.headers.authorization);
+        await server.get_test_callback(req.headers.authorization, req.params.type);
 
         // Build response
         res.end()
@@ -157,21 +157,6 @@ app.post('/api/v1/reset', async (req, res) => {
     }
 });
 
-//BEARER AUTHENTICATION
-app.post('/api/v1/bearer', async (req, res) => {
-    try {
-        // Generate bearer
-        console.log('POST bearer');
-        const response = await server.post_bearer(req.headers.authorization);
-
-        // Build response
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
-    } catch (e) {
-        handle_error(e, req, res);
-    }
-});
-
 // ---------- CUSTOMER ENDPOINTS ----------
 
 // BEARER AUTHENTICATION
@@ -214,7 +199,7 @@ app.post('/api/v1/customer', async (req, res) => {
 
 app.post('/api/v1/customer/bearer', async (req, res) => {
     try {
-        // Generate customer bearer
+        // Generate a new bearer for customer
         console.log(`POST customer bearer`);
         const response = await server.post_customer_bearer(req.headers.authorization);
 
