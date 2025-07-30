@@ -86,11 +86,84 @@ export class MongoDB extends AbstractDatabase {
         return customer;
     }
 
-    async getCustomerFromBearer(bearer: string): Promise<Customer|null> {
+    private async getCustomerFromMatcher(matcher: object): Promise<Customer|null> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ bearer });
+        const now = new Date();
+        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
+        const pipeline = [
+            { $match: matcher },
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "_id",
+                    foreignField: "customer_id",
+                    as: "users"
+                }
+            },
+            { $unwind: { path: "$users", preserveNullAndEmptyArrays: true } },
+            {
+                $lookup: {
+                    from: "credentials",
+                    localField: "users._id",
+                    foreignField: "user_id",
+                    as: "credentials"
+                }
+            },
+            { $unwind: { path: "$credentials", preserveNullAndEmptyArrays: true } },
+            {
+            $addFields: {
+                invoicesThisMonth: {
+                    $cond: [
+                        { $isArray: "$credentials.invoices" },
+                        {
+                            $size: {
+                                $filter: {
+                                input: "$credentials.invoices",
+                                as: "invoice",
+                                cond: { $gte: ["$$invoice.timestamp", startOfMonth] }
+                                }
+                            }
+                        },
+                        0
+                    ]
+                }
+            }
+            },
+            {
+                $group: {
+                    _id: "$_id",
+                    email: { $first: "$email" },
+                    password: { $first: "$password" },
+                    name: { $first: "$name" },
+                    callback: { $first: "$callback" },
+                    remoteId: { $first: "$remoteId" },
+                    bearer: { $first: "$bearer" },
+                    theme: { $first: "$theme" },
+                    subscribedCollectors: { $first: "$subscribedCollectors" },
+                    isSubscribedToAll: { $first: "$isSubscribedToAll" },
+                    displaySketchCollectors: { $first: "$displaySketchCollectors" },
+                    maxDelayBetweenCollect: { $first: "$maxDelayBetweenCollect" },
+                    plan: { $first: "$plan" },
+                    usersSet: { $addToSet: "$users._id" },
+                    credentialsSet: { $addToSet: "$credentials._id" },
+                    invoicesCount: { $sum: "$invoicesThisMonth" }
+                }
+            },
+            {
+                $addFields: {
+                    stats: {
+                        users: { $size: "$usersSet" },
+                        credentials: { $size: "$credentialsSet" },
+                        invoicesThisMonth: "$invoicesCount"
+                    }
+                }
+            }
+        ];
+        const documents = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).aggregate(pipeline).toArray();
+        const document = documents[0];
+        console.log(documents);
         if (!document) {
             return null;
         }
@@ -106,90 +179,27 @@ export class MongoDB extends AbstractDatabase {
             document.isSubscribedToAll,
             document.displaySketchCollectors,
             document.maxDelayBetweenCollect,
-            document.plan
+            document.plan,
+            document.stats
         );
         customer.id = document._id.toString();
         return customer;
+    }
+
+    async getCustomerFromBearer(bearer: string): Promise<Customer|null> {
+        return await this.getCustomerFromMatcher({ bearer });
     }
 
     async getCustomerFromEmail(email: string): Promise<Customer|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ email });
-        if (!document) {
-            return null;
-        }
-        let customer = new Customer(
-            document.email,
-            document.password,
-            document.name,
-            document.callback,
-            document.remoteId,
-            document.bearer,
-            document.theme,
-            document.subscribedCollectors,
-            document.isSubscribedToAll,
-            document.displaySketchCollectors,
-            document.maxDelayBetweenCollect,
-            document.plan
-        );
-        customer.id = document._id.toString();
-        return customer;
+        return await this.getCustomerFromMatcher({ email });
     }
 
     async getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ email, password });
-        if (!document) {
-            return null;
-        }
-        let customer = new Customer(
-            document.email,
-            document.password,
-            document.name,
-            document.callback,
-            document.remoteId,
-            document.bearer,
-            document.theme,
-            document.subscribedCollectors,
-            document.isSubscribedToAll,
-            document.displaySketchCollectors,
-            document.maxDelayBetweenCollect,
-            document.plan
-        );
-        customer.id = document._id.toString();
-        return customer;
+        return await this.getCustomerFromMatcher({ email, password });
     }
 
     async getCustomer(customer_id: string): Promise<Customer|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({
-            _id: new ObjectId(customer_id)
-        });
-        if (!document) {
-            return null;
-        }
-        let customer = new Customer(
-            document.email,
-            document.password,
-            document.name,
-            document.callback,
-            document.remoteId,
-            document.bearer,
-            document.theme,
-            document.subscribedCollectors,
-            document.isSubscribedToAll,
-            document.displaySketchCollectors,
-            document.maxDelayBetweenCollect,
-            document.plan
-        );
-        customer.id = document._id.toString();
-        return customer;
+        return await this.getCustomerFromMatcher({ _id: new ObjectId(customer_id) });
     }
 
     async updateCustomer(customer: Customer): Promise<void> {

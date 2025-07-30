@@ -5,7 +5,7 @@ import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBea
 import { generate_token } from './utils';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User } from './model/user';
-import { Customer } from './model/customer';
+import { Customer, Stats } from './model/customer';
 import { IcCredential, State } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
@@ -16,6 +16,7 @@ import { CallbackHandler } from './callback/callback';
 import { CollectPool } from './collect/collectPool';
 import { Collect } from './collect/collect';
 import { I18n } from './i18n';
+import { Plan } from './model/plan';
 
 export class Server {
 
@@ -264,7 +265,9 @@ export class Server {
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
         displaySketchCollectors: boolean,
-        maxDelayBetweenCollect: number
+        maxDelayBetweenCollect: number,
+        plan: Plan,
+        stats: Stats
     }> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
@@ -279,7 +282,9 @@ export class Server {
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
             displaySketchCollectors: customer.displaySketchCollectors,
-            maxDelayBetweenCollect: customer.maxDelayBetweenCollect
+            maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
+            plan: customer.plan,
+            stats: customer.stats
         };
     }
 

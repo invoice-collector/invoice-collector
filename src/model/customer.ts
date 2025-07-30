@@ -11,6 +11,11 @@ export enum Theme {
     OCEAN = 'ocean'
 }
 
+export interface Stats {
+    users: number;
+    credentials: number;
+    invoicesThisMonth: number;
+}
 export class Customer {
 
     static DEFAULT_NAME = "default";
@@ -60,6 +65,7 @@ export class Customer {
     displaySketchCollectors: boolean;
     maxDelayBetweenCollect: number;
     plan: Plan;
+    stats: Stats;
 
     constructor(
         email: string,
@@ -73,7 +79,8 @@ export class Customer {
         isSubscribedToAll: boolean = true,
         displaySketchCollectors: boolean = false,
         maxDelayBetweenCollect: number = 2592000000,
-        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL
+        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
+        stats: Stats = { users: 0, credentials: 0, invoicesThisMonth: 0 }
     ) {
         this.id = "";
         this.email = email;
@@ -88,6 +95,7 @@ export class Customer {
         this.displaySketchCollectors = displaySketchCollectors;
         this.maxDelayBetweenCollect = maxDelayBetweenCollect;
         this.plan = plan;
+        this.stats = stats;
     }
 
     async getUserFromRemoteId(remote_id: string) {
