@@ -85,7 +85,7 @@ app.get('/api/v1/ui', async (req, res) => {
 });
 
 // BEARER AUTHENTICATION
-app.get('/api/v1/test_callback/:type', async (req, res) => {
+app.get('/api/v1/test/callback/:type', async (req, res) => {
     try {
         // Test callback
         console.log('GET test_callback');
