@@ -39,7 +39,7 @@ export class CallbackHandler {
     async sendNotificationDisconnected(collector_id: string, credential_id: string,  user_id: string, remote_id: string): Promise<void> {
         console.log(`Sending disconnected notification to callback ${this.callback} for credential ${credential_id}`);
         await this.sendRequest({
-            type: "disconnected",
+            type: "notification_disconnected",
             collector: collector_id,
             credential_id: credential_id,
             user_id: user_id,
