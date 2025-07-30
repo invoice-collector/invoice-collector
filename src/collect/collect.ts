@@ -168,11 +168,11 @@ export class Collect {
                         const callback = new CallbackHandler(customer);
                         await callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
                         // Update credential to disconnected
-                        credential.state.update(State._2_DISCONNECTED, I18n.get("i18n.class.state.2_disconnected.message", user.locale));
+                        credential.state.update(State._2_DISCONNECTED, "i18n.class.state.2_disconnected.message");
                     }
                     else {
                         // Update credential to error
-                        credential.state.update(State._1_ERROR, I18n.get(err.message, user.locale));
+                        credential.state.update(State._1_ERROR, err.message);
                     }
 
                     // Update last collect
