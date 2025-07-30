@@ -79,7 +79,8 @@ export class MongoDB extends AbstractDatabase {
             collectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
             displaySketchCollectors: customer.displaySketchCollectors,
-            maxDelayBetweenCollect: customer.maxDelayBetweenCollect
+            maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
+            plan: customer.plan
         });
         customer.id = document.insertedId.toString();
         return customer;
@@ -104,7 +105,8 @@ export class MongoDB extends AbstractDatabase {
             document.subscribedCollectors,
             document.isSubscribedToAll,
             document.displaySketchCollectors,
-            document.maxDelayBetweenCollect
+            document.maxDelayBetweenCollect,
+            document.plan
         );
         customer.id = document._id.toString();
         return customer;
@@ -129,7 +131,8 @@ export class MongoDB extends AbstractDatabase {
             document.subscribedCollectors,
             document.isSubscribedToAll,
             document.displaySketchCollectors,
-            document.maxDelayBetweenCollect
+            document.maxDelayBetweenCollect,
+            document.plan
         );
         customer.id = document._id.toString();
         return customer;
@@ -154,7 +157,8 @@ export class MongoDB extends AbstractDatabase {
             document.subscribedCollectors,
             document.isSubscribedToAll,
             document.displaySketchCollectors,
-            document.maxDelayBetweenCollect
+            document.maxDelayBetweenCollect,
+            document.plan
         );
         customer.id = document._id.toString();
         return customer;
@@ -181,7 +185,8 @@ export class MongoDB extends AbstractDatabase {
             document.subscribedCollectors,
             document.isSubscribedToAll,
             document.displaySketchCollectors,
-            document.maxDelayBetweenCollect
+            document.maxDelayBetweenCollect,
+            document.plan
         );
         customer.id = document._id.toString();
         return customer;
@@ -204,7 +209,8 @@ export class MongoDB extends AbstractDatabase {
                 subscribedCollectors: customer.subscribedCollectors,
                 isSubscribedToAll: customer.isSubscribedToAll,
                 displaySketchCollectors: customer.displaySketchCollectors,
-                maxDelayBetweenCollect: customer.maxDelayBetweenCollect
+                maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
+                plan: customer.plan
             }}
         );
     }

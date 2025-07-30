@@ -23,6 +23,7 @@ export class Server {
     static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "600000"));
     static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));
     static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
+    static IS_SELF_HOSTED: boolean = utils.getEnvVar("IS_SELF_HOSTED", "true").toLowerCase() === "true";
 
     uiTokens: { [key: string]: User };
     resetTokens: { [key: string]: string };
@@ -418,6 +419,14 @@ export class Server {
 
         // If user does not exist, create it
         if(!user) {
+            // Check if customer can add more users
+            const canAddUser = await customer.canAddUser();
+
+            // If customer cannot add more users, throw an error
+            if (!canAddUser) {
+                throw new StatusError(`Customer has reached the maximum number of users for the ${customer.plan.id} plan.`, 403);
+            }
+
             let termsConditions;
             // If terms and conditions are required, send email
             if (!Server.DISABLE_VERIFICATION_CODE) {
@@ -596,17 +605,17 @@ export class Server {
         collector: Config
     }> {
         // Get user from bearer or token
-         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
+        const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
-         //Check if id field is missing
-         if(!collector_id) {
-             throw new MissingField("collector");
-         }
+        // Check if id field is missing
+        if(!collector_id) {
+            throw new MissingField("collector");
+        }
  
-         //Check if params field is missing
-         if(!params) {
-             throw new MissingField("params");
-         }
+        //Check if params field is missing
+        if(!params) {
+            throw new MissingField("params");
+        }
 
         // Check if terms and conditions have been accepted
         await user.checkTermsConditions();
@@ -621,6 +630,14 @@ export class Server {
 
         // Get customer from user
         const customer = await user.getCustomer();
+
+        // Check if customer can add more users
+        const canAddUser = await customer.canAddUser();
+
+        // If customer cannot add more users, throw an error
+        if (!canAddUser) {
+            throw new StatusError(`Customer has reached the maximum number of users for the ${customer.plan.id} plan.`, 403);
+        }
 
         // Check if customer has subscribed to the collector
         if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
