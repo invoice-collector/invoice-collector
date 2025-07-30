@@ -161,9 +161,19 @@ export class Collect {
             else if (err instanceof AuthenticationError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 // If credential exists
-                if (credential && user) {
-                    // Update credential
-                    credential.state.update(State._1_ERROR, I18n.get(err.message, user.locale));
+                if (credential && user && customer) {
+                    // If error occurs and previous collect was successful, update state to disconnected
+                    if (credential.state.index >= credential.state.max) {
+                        // Send disconnected notification to callback
+                        const callback = new CallbackHandler(customer);
+                        await callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
+                        // Update credential to disconnected
+                        credential.state.update(State._2_DISCONNECTED, I18n.get("i18n.class.state.2_disconnected.message", user.locale));
+                    }
+                    else {
+                        // Update credential to error
+                        credential.state.update(State._1_ERROR, I18n.get(err.message, user.locale));
+                    }
 
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();

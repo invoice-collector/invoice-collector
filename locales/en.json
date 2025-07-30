@@ -2,6 +2,8 @@
   "i18n.class.state.0_unknown": "Oops! Something went wrong...",
   "i18n.class.state.1_error": "Oops! Something went wrong...",
   "i18n.class.state.1_preparing": "Getting ready for the adventure...",
+  "i18n.class.state.2_disconnected": "Oops! You have been disconnected.",
+  "i18n.class.state.2_disconnected.message": "Your account has been disconnected. Please reconnect it to continue receiving your invoices automatically.",
   "i18n.class.state.2_logging_in": "Sneaking into the system...",
   "i18n.class.state.3_2fa_waiting": "Waiting for the magic code...",
   "i18n.class.state.4_2fa_proceeding": "Unlocking the secrets...",

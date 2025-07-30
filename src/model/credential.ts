@@ -8,6 +8,7 @@ export class State {
 
     static SUCCESS_LEVEL: number = 7;
 
+    static _2_DISCONNECTED: State = new State(-2, "i18n.class.state.2_disconnected");
     static _1_ERROR: State = new State(-1, "i18n.class.state.1_error");
     static _0_UNKNOWN: State = new State(0, "i18n.class.state.0_unknown");
     static _1_PREPARING: State = new State(1, "i18n.class.state.1_preparing");

@@ -2,6 +2,8 @@
   "i18n.class.state.0_unknown": "Oups ! Quelque chose s'est mal passé...",
   "i18n.class.state.1_error": "Oups ! Quelque chose s'est mal passé...",
   "i18n.class.state.1_preparing": "Préparation de l'aventure...",
+  "i18n.class.state.2_disconnected": "Oups ! Vous avez été déconnecté.",
+  "i18n.class.state.2_disconnected.message": "Votre compte à été déconnecté. Reconnectez le pour continuer à recevoir vos factures automatiquement.",
   "i18n.class.state.2_logging_in": "Entrée dans la matrice...",
   "i18n.class.state.3_2fa_waiting": "En attente du code magique...",
   "i18n.class.state.4_2fa_proceeding": "Déverrouillage des secrets...",
