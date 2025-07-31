@@ -33,7 +33,7 @@ export const buildCustomerStatsPipeline = (matcher: object): Document[] => {
                             $filter: {
                             input: "$credentials.invoices",
                             as: "invoice",
-                            cond: { $gte: ["$$invoice.timestamp", startOfMonth] }
+                            cond: { $gte: ["$$invoice.collected_timestamp", startOfMonth] }
                             }
                         }
                     },
