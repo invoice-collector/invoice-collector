@@ -170,7 +170,9 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const documents = await this.db.collection(MongoDB.USER_COLLECTION).find({ customer_id: new ObjectId(customer_id) }).toArray();
+        const documents = await this.db.collection(MongoDB.USER_COLLECTION).find({
+            customer_id: new ObjectId(customer_id)
+        }).toArray();
         return documents.map(document => {
             let user = new User(
                 document.customer_id.toString(),
@@ -284,7 +286,9 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        await this.db.collection(MongoDB.USER_COLLECTION).deleteOne({ _id: new ObjectId(user_id) });
+        await this.db.collection(MongoDB.USER_COLLECTION).deleteOne({
+            _id: new ObjectId(user_id)
+        });
     }
 
     // CREDENTIAL
@@ -316,7 +320,9 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const documents = await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).find({ user_id: new ObjectId(user_id) }).toArray();
+        const documents = await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).find({
+            user_id: new ObjectId(user_id)
+        }).toArray();
         return documents.map(document => {
             let credential = new IcCredential(
                 document.user_id.toString(),
@@ -402,13 +408,18 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteOne({ _id: new ObjectId(credential_id), user_id: new ObjectId(user_id) });
+        await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteOne({
+            _id: new ObjectId(credential_id),
+            user_id: new ObjectId(user_id)
+        });
     }
 
     async deleteCredentials(user_id: string): Promise<void> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteMany({ user_id: new ObjectId(user_id) });
+        await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteMany({
+            user_id: new ObjectId(user_id)
+        });
     }
 }
