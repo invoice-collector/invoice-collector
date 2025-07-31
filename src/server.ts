@@ -266,8 +266,7 @@ export class Server {
         isSubscribedToAll: boolean,
         displaySketchCollectors: boolean,
         maxDelayBetweenCollect: number,
-        plan: Plan,
-        stats: Stats
+        plan: Plan
     }> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
@@ -283,8 +282,7 @@ export class Server {
             isSubscribedToAll: customer.isSubscribedToAll,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
-            plan: customer.plan,
-            stats: customer.stats
+            plan: customer.plan
         };
     }
 
@@ -359,6 +357,21 @@ export class Server {
 
         // Return new bearer token
         return { bearer: newBearer };
+    }
+
+    public async getCustomerStats(bearer: string | undefined): Promise<Stats>{
+        // Get customer from bearer
+        const customer = await this.getCustomerFromBearer(bearer);
+
+        // Get customer stats
+        const stats = await customer.getStats();
+
+        // Check if stats are null
+        if (!stats) {
+            throw new StatusError("Unable to compute customer stats", 500);
+        }
+
+        return stats;
     }
 
 

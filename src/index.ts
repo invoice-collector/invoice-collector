@@ -197,6 +197,7 @@ app.post('/api/v1/customer', async (req, res) => {
     }
 });
 
+// BEARER AUTHENTICATION
 app.post('/api/v1/customer/bearer', async (req, res) => {
     try {
         // Generate a new bearer for customer
@@ -208,6 +209,21 @@ app.post('/api/v1/customer/bearer', async (req, res) => {
         res.end(JSON.stringify(response));
     }
     catch (e) {
+        handle_error(e, req, res);
+    }
+});
+
+// BEARER AUTHENTICATION
+app.get('/api/v1/customer/stats', async (req, res) => {
+    try {
+        // Get customer stats
+        console.log(`GET customer stats`);
+        const response = await server.getCustomerStats(req.headers.authorization);
+
+        // Build response
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
+    } catch (e) {
         handle_error(e, req, res);
     }
 });

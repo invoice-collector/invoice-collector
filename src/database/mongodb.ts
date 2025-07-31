@@ -1,9 +1,10 @@
 import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
-import { Customer } from "../model/customer";
+import { Customer, Stats } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential, State } from "../model/credential";
 import * as utils from "../utils";
+import { buildCustomerStatsPipeline } from "./mongodbConstants";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -90,80 +91,7 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const now = new Date();
-        const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1).getTime();
-        const pipeline = [
-            { $match: matcher },
-            {
-                $lookup: {
-                    from: "users",
-                    localField: "_id",
-                    foreignField: "customer_id",
-                    as: "users"
-                }
-            },
-            { $unwind: { path: "$users", preserveNullAndEmptyArrays: true } },
-            {
-                $lookup: {
-                    from: "credentials",
-                    localField: "users._id",
-                    foreignField: "user_id",
-                    as: "credentials"
-                }
-            },
-            { $unwind: { path: "$credentials", preserveNullAndEmptyArrays: true } },
-            {
-            $addFields: {
-                invoicesThisMonth: {
-                    $cond: [
-                        { $isArray: "$credentials.invoices" },
-                        {
-                            $size: {
-                                $filter: {
-                                input: "$credentials.invoices",
-                                as: "invoice",
-                                cond: { $gte: ["$$invoice.timestamp", startOfMonth] }
-                                }
-                            }
-                        },
-                        0
-                    ]
-                }
-            }
-            },
-            {
-                $group: {
-                    _id: "$_id",
-                    email: { $first: "$email" },
-                    password: { $first: "$password" },
-                    name: { $first: "$name" },
-                    callback: { $first: "$callback" },
-                    remoteId: { $first: "$remoteId" },
-                    bearer: { $first: "$bearer" },
-                    theme: { $first: "$theme" },
-                    subscribedCollectors: { $first: "$subscribedCollectors" },
-                    isSubscribedToAll: { $first: "$isSubscribedToAll" },
-                    displaySketchCollectors: { $first: "$displaySketchCollectors" },
-                    maxDelayBetweenCollect: { $first: "$maxDelayBetweenCollect" },
-                    plan: { $first: "$plan" },
-                    usersSet: { $addToSet: "$users._id" },
-                    credentialsSet: { $addToSet: "$credentials._id" },
-                    invoicesCount: { $sum: "$invoicesThisMonth" }
-                }
-            },
-            {
-                $addFields: {
-                    stats: {
-                        users: { $size: "$usersSet" },
-                        credentials: { $size: "$credentialsSet" },
-                        invoicesThisMonth: "$invoicesCount"
-                    }
-                }
-            }
-        ];
-        const documents = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).aggregate(pipeline).toArray();
-        const document = documents[0];
-        console.log(documents);
+        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne(matcher);
         if (!document) {
             return null;
         }
@@ -179,8 +107,7 @@ export class MongoDB extends AbstractDatabase {
             document.isSubscribedToAll,
             document.displaySketchCollectors,
             document.maxDelayBetweenCollect,
-            document.plan,
-            document.stats
+            document.plan
         );
         customer.id = document._id.toString();
         return customer;
@@ -223,6 +150,18 @@ export class MongoDB extends AbstractDatabase {
                 plan: customer.plan
             }}
         );
+    }
+
+    async getCustomerStats(customer_id: string): Promise<Stats | null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const pipeline = buildCustomerStatsPipeline({ _id: new ObjectId(customer_id) });
+        const documents = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).aggregate(pipeline).toArray();
+        if (documents.length === 0) {
+            return null;
+        }
+        return documents[0].stats as Stats;
     }
 
     // USER

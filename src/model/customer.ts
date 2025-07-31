@@ -65,7 +65,6 @@ export class Customer {
     displaySketchCollectors: boolean;
     maxDelayBetweenCollect: number;
     plan: Plan;
-    stats: Stats;
 
     constructor(
         email: string,
@@ -79,8 +78,7 @@ export class Customer {
         isSubscribedToAll: boolean = true,
         displaySketchCollectors: boolean = false,
         maxDelayBetweenCollect: number = 2592000000,
-        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL,
-        stats: Stats = { users: 0, credentials: 0, invoicesThisMonth: 0 }
+        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL
     ) {
         this.id = "";
         this.email = email;
@@ -95,7 +93,6 @@ export class Customer {
         this.displaySketchCollectors = displaySketchCollectors;
         this.maxDelayBetweenCollect = maxDelayBetweenCollect;
         this.plan = plan;
-        this.stats = stats;
     }
 
     async getUserFromRemoteId(remote_id: string) {
@@ -108,6 +105,10 @@ export class Customer {
 
     async getUser(user_id: string) {
         return await DatabaseFactory.getDatabase().getUserBellongingToCustomer(user_id, this.id);
+    }
+
+    async getStats(): Promise<Stats|null> {
+        return await DatabaseFactory.getDatabase().getCustomerStats(this.id);
     }
 
     setTheme(theme: string) {
