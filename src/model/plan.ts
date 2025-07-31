@@ -1,14 +1,21 @@
 export class Plan {
 
-    static TRIAL = new Plan('trial', "Trial", 1, 1, undefined, undefined, 0, 0, 0, 0, []);
-    static FREE = new Plan('free', "Free", undefined, undefined, undefined, undefined, 0, 0, 0, 0, []);
+    static TRIAL = new Plan('trial', "Trial", 1, 1, -1, -1, 0, 0, 0, 0, [
+        'Unlimited invoices per month'
+    ]);
+    static FREE = new Plan('free', "Free", -1, -1, -1, -1, 0, 0, 0, 0, [
+        'Unlimited users',
+        'Unlimited credentials',
+        'Unlimited invoices per month',
+        'Unlimited collectors'
+    ]);
 
     id: string;
-    name: string | undefined;
-    maxUsers: number | undefined;
-    maxCredentials: number | undefined;
-    maxInvoicesPerMonth: number | undefined;
-    maxCollectors: number | undefined;
+    name: string;
+    maxUsers: number;
+    maxCredentials: number;
+    maxInvoicesPerMonth: number;
+    maxCollectors: number;
     pricePerUser: number;
     pricePerCredential: number;
     pricePerInvoice: number;
@@ -18,10 +25,10 @@ export class Plan {
     constructor(
         id: string,
         name: string,
-        maxUsers: number | undefined,
-        maxCredentials: number | undefined,
-        maxInvoicesPerMonth: number | undefined,
-        maxCollectors: number | undefined,
+        maxUsers: number,
+        maxCredentials: number,
+        maxInvoicesPerMonth: number,
+        maxCollectors: number,
         pricePerUser: number,
         pricePerCredential: number,
         pricePerInvoice: number,
