@@ -88,7 +88,7 @@ export class IcCredential {
         create_timestamp: number = Date.now(),
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
-        invoices: any[] = [],
+        invoices: { id: string; timestamp: number, collected_timestamp: number | null }[] = [],
         state: State = State.DEFAULT_STATE
     ) {
         this.id = "";
