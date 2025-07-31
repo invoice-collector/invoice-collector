@@ -1,6 +1,6 @@
 export class Plan {
 
-    static TRIAL = new Plan('trial', 0, 0, 0, 0, 0, 0, 0, 0);
+    static TRIAL = new Plan('trial', 1, 1, undefined, undefined, 0, 0, 0, 0);
     static FREE = new Plan('free', undefined, undefined, undefined, undefined, 0, 0, 0, 0);
 
     id: string;
