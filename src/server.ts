@@ -364,14 +364,7 @@ export class Server {
         const customer = await this.getCustomerFromBearer(bearer);
 
         // Get customer stats
-        const stats = await customer.getStats();
-
-        // Check if stats are null
-        if (!stats) {
-            throw new StatusError("Unable to compute customer stats", 500);
-        }
-
-        return stats;
+        return await customer.getStats();
     }
 
 
@@ -442,7 +435,7 @@ export class Server {
 
             // If customer cannot add more users, throw an error
             if (!canAddUser) {
-                throw new StatusError(`Customer has reached the maximum number of users for the ${customer.plan.id} plan.`, 403);
+                throw new StatusError(`User limit reached. Max users: ${customer.plan.maxUsers}`, 403);
             }
 
             let termsConditions;
@@ -649,12 +642,12 @@ export class Server {
         // Get customer from user
         const customer = await user.getCustomer();
 
-        // Check if customer can add more users
-        const canAddUser = await customer.canAddUser();
+        // Check if customer can add more credentials
+        const canAddCredential = await customer.canAddCredential();
 
-        // If customer cannot add more users, throw an error
-        if (!canAddUser) {
-            throw new StatusError(`Customer has reached the maximum number of users for the ${customer.plan.id} plan.`, 403);
+        // If customer cannot add more credentials, throw an error
+        if (!canAddCredential) {
+            throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
         }
 
         // Check if customer has subscribed to the collector

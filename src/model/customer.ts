@@ -107,8 +107,15 @@ export class Customer {
         return await DatabaseFactory.getDatabase().getUserBellongingToCustomer(user_id, this.id);
     }
 
-    async getStats(): Promise<Stats|null> {
-        return await DatabaseFactory.getDatabase().getCustomerStats(this.id);
+    async getStats(): Promise<Stats> {
+        const stats = await DatabaseFactory.getDatabase().getCustomerStats(this.id);
+
+        // Check if stats are null
+        if (!stats) {
+            throw new StatusError("Unable to compute customer stats", 500);
+        }
+
+        return stats;
     }
 
     setTheme(theme: string) {
@@ -152,12 +159,16 @@ export class Customer {
     }
 
     async canAddUser(): Promise<boolean> {
-        // TODO: Compare stats with plan
-        return true;
+        // Get stats
+        const stats = await this.getStats();
+        // Check if user limit is reached
+        return this.plan.maxUsers == undefined || stats.users < this.plan.maxUsers
     }
 
     async canAddCredential(): Promise<boolean> {
-        // TODO: Compare stats with plan
-        return true;
+        // Get stats
+        const stats = await this.getStats();
+        // Check if credential limit is reached
+        return this.plan.maxCredentials == undefined || stats.credentials < this.plan.maxCredentials;
     }
 }
