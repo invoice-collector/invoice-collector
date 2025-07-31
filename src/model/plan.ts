@@ -6,7 +6,7 @@ export class Plan {
     id: string;
     maxUsers: number | undefined;
     maxCredentials: number | undefined;
-    maxInvoices: number | undefined;
+    maxInvoicesPerMonth: number | undefined;
     maxCollectors: number | undefined;
     pricePerUser: number;
     pricePerCredential: number;
@@ -17,7 +17,7 @@ export class Plan {
         id: string,
         maxUsers: number | undefined,
         maxCredentials: number | undefined,
-        maxInvoices: number | undefined,
+        maxInvoicesPerMonth: number | undefined,
         maxCollectors: number | undefined,
         pricePerUser: number,
         pricePerCredential: number,
@@ -27,7 +27,7 @@ export class Plan {
         this.id = id;
         this.maxUsers = maxUsers;
         this.maxCredentials = maxCredentials;
-        this.maxInvoices = maxInvoices;
+        this.maxInvoicesPerMonth = maxInvoicesPerMonth;
         this.maxCollectors = maxCollectors;
         this.pricePerUser = pricePerUser;
         this.pricePerCredential = pricePerCredential;
