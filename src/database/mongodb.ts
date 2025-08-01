@@ -1,9 +1,10 @@
 import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
-import { Customer } from "../model/customer";
+import { Customer, Stats } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential, State } from "../model/credential";
 import * as utils from "../utils";
+import { buildCustomerStatsPipeline } from "./mongodbConstants";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -79,17 +80,18 @@ export class MongoDB extends AbstractDatabase {
             collectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
             displaySketchCollectors: customer.displaySketchCollectors,
-            maxDelayBetweenCollect: customer.maxDelayBetweenCollect
+            maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
+            plan: customer.plan
         });
         customer.id = document.insertedId.toString();
         return customer;
     }
 
-    async getCustomerFromBearer(bearer: string): Promise<Customer|null> {
+    private async getCustomerFromMatcher(matcher: object): Promise<Customer|null> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ bearer });
+        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne(matcher);
         if (!document) {
             return null;
         }
@@ -104,87 +106,27 @@ export class MongoDB extends AbstractDatabase {
             document.subscribedCollectors,
             document.isSubscribedToAll,
             document.displaySketchCollectors,
-            document.maxDelayBetweenCollect
+            document.maxDelayBetweenCollect,
+            document.plan
         );
         customer.id = document._id.toString();
         return customer;
+    }
+
+    async getCustomerFromBearer(bearer: string): Promise<Customer|null> {
+        return await this.getCustomerFromMatcher({ bearer });
     }
 
     async getCustomerFromEmail(email: string): Promise<Customer|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ email });
-        if (!document) {
-            return null;
-        }
-        let customer = new Customer(
-            document.email,
-            document.password,
-            document.name,
-            document.callback,
-            document.remoteId,
-            document.bearer,
-            document.theme,
-            document.subscribedCollectors,
-            document.isSubscribedToAll,
-            document.displaySketchCollectors,
-            document.maxDelayBetweenCollect
-        );
-        customer.id = document._id.toString();
-        return customer;
+        return await this.getCustomerFromMatcher({ email });
     }
 
     async getCustomerFromEmailAndPassword(email: string, password: string): Promise<Customer|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({ email, password });
-        if (!document) {
-            return null;
-        }
-        let customer = new Customer(
-            document.email,
-            document.password,
-            document.name,
-            document.callback,
-            document.remoteId,
-            document.bearer,
-            document.theme,
-            document.subscribedCollectors,
-            document.isSubscribedToAll,
-            document.displaySketchCollectors,
-            document.maxDelayBetweenCollect
-        );
-        customer.id = document._id.toString();
-        return customer;
+        return await this.getCustomerFromMatcher({ email, password });
     }
 
     async getCustomer(customer_id: string): Promise<Customer|null> {
-        if (!this.db) {
-            throw new Error("Database is not connected");
-        }
-        const document = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).findOne({
-            _id: new ObjectId(customer_id)
-        });
-        if (!document) {
-            return null;
-        }
-        let customer = new Customer(
-            document.email,
-            document.password,
-            document.name,
-            document.callback,
-            document.remoteId,
-            document.bearer,
-            document.theme,
-            document.subscribedCollectors,
-            document.isSubscribedToAll,
-            document.displaySketchCollectors,
-            document.maxDelayBetweenCollect
-        );
-        customer.id = document._id.toString();
-        return customer;
+        return await this.getCustomerFromMatcher({ _id: new ObjectId(customer_id) });
     }
 
     async updateCustomer(customer: Customer): Promise<void> {
@@ -204,9 +146,22 @@ export class MongoDB extends AbstractDatabase {
                 subscribedCollectors: customer.subscribedCollectors,
                 isSubscribedToAll: customer.isSubscribedToAll,
                 displaySketchCollectors: customer.displaySketchCollectors,
-                maxDelayBetweenCollect: customer.maxDelayBetweenCollect
+                maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
+                plan: customer.plan
             }}
         );
+    }
+
+    async getCustomerStats(customer_id: string): Promise<Stats | null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const pipeline = buildCustomerStatsPipeline({ _id: new ObjectId(customer_id) });
+        const documents = await this.db.collection(MongoDB.CUSTOMER_COLLECTION).aggregate(pipeline).toArray();
+        if (documents.length === 0) {
+            return null;
+        }
+        return documents[0].stats as Stats;
     }
 
     // USER
@@ -215,7 +170,9 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const documents = await this.db.collection(MongoDB.USER_COLLECTION).find({ customer_id: new ObjectId(customer_id) }).toArray();
+        const documents = await this.db.collection(MongoDB.USER_COLLECTION).find({
+            customer_id: new ObjectId(customer_id)
+        }).toArray();
         return documents.map(document => {
             let user = new User(
                 document.customer_id.toString(),
@@ -329,7 +286,9 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        await this.db.collection(MongoDB.USER_COLLECTION).deleteOne({ _id: new ObjectId(user_id) });
+        await this.db.collection(MongoDB.USER_COLLECTION).deleteOne({
+            _id: new ObjectId(user_id)
+        });
     }
 
     // CREDENTIAL
@@ -361,7 +320,9 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const documents = await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).find({ user_id: new ObjectId(user_id) }).toArray();
+        const documents = await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).find({
+            user_id: new ObjectId(user_id)
+        }).toArray();
         return documents.map(document => {
             let credential = new IcCredential(
                 document.user_id.toString(),
@@ -447,13 +408,18 @@ export class MongoDB extends AbstractDatabase {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteOne({ _id: new ObjectId(credential_id), user_id: new ObjectId(user_id) });
+        await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteOne({
+            _id: new ObjectId(credential_id),
+            user_id: new ObjectId(user_id)
+        });
     }
 
     async deleteCredentials(user_id: string): Promise<void> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteMany({ user_id: new ObjectId(user_id) });
+        await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteMany({
+            user_id: new ObjectId(user_id)
+        });
     }
 }

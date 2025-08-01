@@ -3,12 +3,19 @@ import { DatabaseFactory } from "../database/databaseFactory";
 import * as utils from "../utils";
 import { User } from "./user";
 import { CollectorLoader } from "../collectors/collectorLoader";
+import { Server } from "../server";
+import { Plan } from "./plan";
 
 export enum Theme {
     DEFAULT = 'default',
     OCEAN = 'ocean'
 }
 
+export interface Stats {
+    users: number;
+    credentials: number;
+    invoicesThisMonth: number;
+}
 export class Customer {
 
     static DEFAULT_NAME = "default";
@@ -57,6 +64,7 @@ export class Customer {
     isSubscribedToAll: boolean;
     displaySketchCollectors: boolean;
     maxDelayBetweenCollect: number;
+    plan: Plan;
 
     constructor(
         email: string,
@@ -69,7 +77,8 @@ export class Customer {
         subscribedCollectors: string[] = [],
         isSubscribedToAll: boolean = true,
         displaySketchCollectors: boolean = false,
-        maxDelayBetweenCollect: number = 2592000000
+        maxDelayBetweenCollect: number = 2592000000,
+        plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL
     ) {
         this.id = "";
         this.email = email;
@@ -83,6 +92,7 @@ export class Customer {
         this.isSubscribedToAll = isSubscribedToAll;
         this.displaySketchCollectors = displaySketchCollectors;
         this.maxDelayBetweenCollect = maxDelayBetweenCollect;
+        this.plan = plan;
     }
 
     async getUserFromRemoteId(remote_id: string) {
@@ -95,6 +105,17 @@ export class Customer {
 
     async getUser(user_id: string) {
         return await DatabaseFactory.getDatabase().getUserBellongingToCustomer(user_id, this.id);
+    }
+
+    async getStats(): Promise<Stats> {
+        const stats = await DatabaseFactory.getDatabase().getCustomerStats(this.id);
+
+        // Check if stats are null
+        if (!stats) {
+            throw new StatusError("Unable to compute customer stats", 500);
+        }
+
+        return stats;
     }
 
     setTheme(theme: string) {
@@ -135,5 +156,19 @@ export class Customer {
             // Create customer
             await DatabaseFactory.getDatabase().createCustomer(this);
         }
+    }
+
+    async canAddUser(): Promise<boolean> {
+        // Get stats
+        const stats = await this.getStats();
+        // Check if user limit is reached
+        return this.plan.maxUsers == undefined || stats.users < this.plan.maxUsers
+    }
+
+    async canAddCredential(): Promise<boolean> {
+        // Get stats
+        const stats = await this.getStats();
+        // Check if credential limit is reached
+        return this.plan.maxCredentials == undefined || stats.credentials < this.plan.maxCredentials;
     }
 }
