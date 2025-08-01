@@ -162,13 +162,13 @@ export class Customer {
         // Get stats
         const stats = await this.getStats();
         // Check if user limit is reached
-        return this.plan.maxUsers == undefined || stats.users < this.plan.maxUsers
+        return this.plan.maxUsers === -1 || stats.users < this.plan.maxUsers
     }
 
     async canAddCredential(): Promise<boolean> {
         // Get stats
         const stats = await this.getStats();
         // Check if credential limit is reached
-        return this.plan.maxCredentials == undefined || stats.credentials < this.plan.maxCredentials;
+        return this.plan.maxCredentials === -1 || stats.credentials < this.plan.maxCredentials;
     }
 }
