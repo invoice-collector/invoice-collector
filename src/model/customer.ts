@@ -18,8 +18,15 @@ export interface Stats {
 }
 export class Customer {
 
+    static DEFAULT_EMAIL = "";
+    static DEFAULT_PASSWORD = "";
     static DEFAULT_NAME = "default";
     static DEFAULT_CALLBACK = "https://path.to/callback";
+    static DEFAULT_REMOTE_ID = "";
+    static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
+    static DEFAULT_IS_SUBSCRIBED_TO_ALL = true;
+    static DEFAULT_DISPLAY_SKETCH_COLLECTORS = true;
+    static DEFAULT_MAX_DELAY_BETWEEN_COLLECT = 2592000000; // 30 days in milliseconds
 
     static async fromBearer(hashed_bearer: string): Promise<Customer> {
         // Get customer from bearer
@@ -45,7 +52,14 @@ export class Customer {
 
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
         const bearer = utils.generate_bearer();
-        const customer = new Customer("", "", Customer.DEFAULT_NAME, Customer.DEFAULT_CALLBACK, "", utils.hash_string(bearer));
+        const customer = new Customer(
+            Customer.DEFAULT_EMAIL,
+            Customer.DEFAULT_PASSWORD,
+            Customer.DEFAULT_NAME,
+            Customer.DEFAULT_CALLBACK,
+            Customer.DEFAULT_REMOTE_ID,
+            utils.hash_string(bearer)
+        );
         return {
             bearer,
             customer: await DatabaseFactory.getDatabase().createCustomer(customer)
@@ -74,10 +88,10 @@ export class Customer {
         remoteId: string,
         bearer: string,
         theme: Theme = Theme.DEFAULT,
-        subscribedCollectors: string[] = [],
-        isSubscribedToAll: boolean = true,
-        displaySketchCollectors: boolean = false,
-        maxDelayBetweenCollect: number = 2592000000,
+        subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS,
+        isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL,
+        displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS,
+        maxDelayBetweenCollect: number = Customer.DEFAULT_MAX_DELAY_BETWEEN_COLLECT,
         plan: Plan = Server.IS_SELF_HOSTED ? Plan.FREE : Plan.TRIAL
     ) {
         this.id = "";
