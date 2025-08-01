@@ -21,7 +21,7 @@ import { Plan } from './model/plan';
 export class Server {
 
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "600000"));
-    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "600000"));
+    static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "3600000"));
     static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));
     static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
     static IS_SELF_HOSTED: boolean = utils.getEnvVar("IS_SELF_HOSTED", "true").toLowerCase() === "true";
@@ -226,12 +226,12 @@ export class Server {
 
     // RESET TOKEN AUTHENTICATION
     public async post_reset(
-        resetToken: any,
+        token: any,
         password: string | undefined
     ): Promise<void> {
-        // Check if resetToken field is missing
-        if(!resetToken) {
-            throw new MissingField("resetToken");
+        // Check if token field is missing
+        if(!token) {
+            throw new MissingField("token");
         }
 
         // Check if password field is missing
@@ -240,7 +240,7 @@ export class Server {
         }
 
         // Get customer from reset token
-        const customer = await this.getCustomerFromResetToken(resetToken);
+        const customer = await this.getCustomerFromResetToken(token);
 
         // Set new password
         customer.password = utils.hash_string(password);
@@ -249,7 +249,7 @@ export class Server {
         await customer.commit();
 
         // Delete reset token
-        delete this.resetTokens[resetToken];
+        delete this.resetTokens[token];
     }
 
     // ---------- CUSTOMER ENDPOINTS ----------
@@ -990,7 +990,7 @@ export class Server {
     private async getCustomerFromResetToken(resetToken: string): Promise<Customer> {
         // Check if reset token is missing or incorrect
         if(!resetToken || !this.resetTokens.hasOwnProperty(resetToken) || typeof resetToken !== 'string') {
-            throw new StatusError("Invalid reset token", 401);
+            throw new StatusError("Invalid reset token. Your reset link probably expired.", 401);
         }
 
         // Get customer from id
