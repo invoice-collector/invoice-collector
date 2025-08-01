@@ -7,7 +7,7 @@ services:
       - mongodb
     environment:
       - PORT=8080
-      - DISABLE_VERIFICATION_CODE=false
+      - DISABLE_VERIFICATION_CODE=true
       - REGISTRY_SERVER_ENDPOINT=https://registry.invoice-collector.com
       - DATABASE_URI=mongodb://mongodb:27017
       - DATABASE_MONGODB_NAME=prod
