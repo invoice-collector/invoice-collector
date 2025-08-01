@@ -930,9 +930,9 @@ export class Server {
         locale: any
     ): Promise<Config[]> {
         // Check if token is missing or incorrect
-        let subscribedCollectors: string[] | null = null;
-        let isSubscribedToAll: boolean = true;
-        let displaySketchCollectors: boolean = false;
+        let subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS;
+        let isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL;
+        let displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS;
         if(token || bearer) {
             // Get customer from bearer or token
             const customer = await this.getCustomerFromBearerOrToken(bearer, token);
@@ -953,7 +953,7 @@ export class Server {
         }
 
         return CollectorLoader.getAll()
-            .filter((collector: AbstractCollector) => isSubscribedToAll || (subscribedCollectors === null || subscribedCollectors.includes(collector.config.id)))
+            .filter((collector: AbstractCollector) => isSubscribedToAll || subscribedCollectors.includes(collector.config.id))
             .filter((collector: AbstractCollector) => collector.config.type !== CollectorType.SKETCH || displaySketchCollectors)
             .map((collector: AbstractCollector): Config => {
                 const name: string = I18n.get(collector.config.name, locale);
