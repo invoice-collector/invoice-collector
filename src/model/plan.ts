@@ -1,13 +1,14 @@
 export class Plan {
 
     static TRIAL = new Plan('trial', "Trial", 1, 1, -1, -1, 0, 0, 0, 0, [
+        '1 user',
+        '1 collector',
         'Unlimited invoices per month'
     ]);
     static FREE = new Plan('free', "Free", -1, -1, -1, -1, 0, 0, 0, 0, [
         'Unlimited users',
-        'Unlimited credentials',
-        'Unlimited invoices per month',
-        'Unlimited collectors'
+        'Unlimited collectors',
+        'Unlimited invoices per month'
     ]);
 
     id: string;
