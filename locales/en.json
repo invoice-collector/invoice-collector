@@ -40,6 +40,7 @@
   "i18n.collectors.laposte.description": "La Poste is a French postal service provider.",
   "i18n.collectors.leclerc.description": "Leclerc is a French retail company.",
   "i18n.collectors.leroy_merlin.description": "Leroy Merlin is a French DIY store.",
+  "i18n.collectors.mailbox.org.description": "A secure and privacy-focused email and productivity service based in Germany.",
   "i18n.collectors.openai.description": "OpenAI is a research organization and company that develops artificial intelligence technologies.",
   "i18n.collectors.orange.description": "Orange is a French telecommunications company.",
   "i18n.collectors.ovh.authentication_error": "Authentication error. One of your credentials is incorrect.",
