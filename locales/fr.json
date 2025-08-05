@@ -39,6 +39,7 @@
   "i18n.collectors.free.identifier.placeholder": "Identifiant du compte (ex: fbx12345670)",
   "i18n.collectors.hetzner.description": "Hetzner est une entreprise allemande d'hébergement web proposant des serveurs dédiés, de l'hébergement cloud et des services de domaine.",
   "i18n.collectors.intermarche.description": "Intermarché est une enseigne de grande distribution française.",
+  "i18n.collectors.inwx.description": "INWX est un fournisseur de services d'enregistrement de domaines et d'hébergement.",
   "i18n.collectors.laposte.description": "La Poste est un prestataire de services postaux français.",
   "i18n.collectors.leclerc.description": "Leclerc est une enseigne de grande distribution française.",
   "i18n.collectors.leroy_merlin.description": "Leroy Merlin est une enseigne de bricolage française.",
