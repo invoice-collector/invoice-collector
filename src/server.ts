@@ -639,21 +639,8 @@ export class Server {
         // Get collector from id
         const collector = CollectorLoader.get(collector_id);
 
-        // Check if collector is sketch
-        if(collector.config.type == CollectorType.SKETCH) {
-            throw new StatusError(`Collector "${collector.config.id}" is a sketch collector and cannot be used to create credentials.`, 400);
-        }
-
         // Get customer from user
         const customer = await user.getCustomer();
-
-        // Check if customer can add more credentials
-        const canAddCredential = await customer.canAddCredential();
-
-        // If customer cannot add more credentials, throw an error
-        if (!canAddCredential) {
-            throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
-        }
 
         // Check if customer has subscribed to the collector
         if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
@@ -668,6 +655,25 @@ export class Server {
         const missing_params = Object.keys(collector.config.params).filter((param) => collector.config.params[param].mandatory && !params.hasOwnProperty(param));
         if(missing_params.length > 0) {
             throw new MissingParams(missing_params);
+        }
+
+        // Check if collector is sketch
+        if(collector.config.type == CollectorType.SKETCH) {
+            await RegistryServer.getInstance().feedback(
+                customer.bearer,
+                "sketch",
+                `User ${user.remote_id} from customer ${customer.id} need collector ${collector.config.id} to be implemented.`,
+                customer.email.replace("@", `+${user.remote_id}@`)
+            );
+            throw new StatusError(`The collector ${collector.config.id} is not implemented yet. We have been notified of your request and will try to implement it as soon as possible.`, 400);
+        }
+
+        // Check if customer can add more credentials
+        const canAddCredential = await customer.canAddCredential();
+
+        // If customer cannot add more credentials, throw an error
+        if (!canAddCredential) {
+            throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
         }
 
         if (user.location === null) {
