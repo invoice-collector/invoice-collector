@@ -4,7 +4,7 @@ export class HetznerCollector extends SketchCollector {
 
     static CONFIG = {
         id: "hetzner",
-        name: "Hetzner Online GmbH",
+        name: "Hetzner",
         description: "i18n.collectors.hetzner.description",
         version: "0",
         website: "https://hetzner.de",
