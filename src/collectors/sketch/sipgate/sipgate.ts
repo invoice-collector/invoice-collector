@@ -4,7 +4,7 @@ export class SipgateCollector extends SketchCollector {
 
     static CONFIG = {
         id: "sipgate",
-        name: "sipgate",
+        name: "Sipgate",
         description: "i18n.collectors.sipgate.description",
         version: "0",
         website: "https://sipgate.de",
