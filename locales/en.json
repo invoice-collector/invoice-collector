@@ -10,7 +10,6 @@
   "i18n.class.state.5_collecting": "Hunting for invoices...",
   "i18n.class.state.6_downloading": "Grabbing the loot...",
   "i18n.class.state.7_done": "Mission accomplished!",
-
   "i18n.collectors.all.2fa.error": "2FA code is incorrect",
   "i18n.collectors.all.2fa.instruction": "Enter the 2FA code sent by email or SMS",
   "i18n.collectors.all.2fa.timeout": "No 2FA code provided within the alloteted time. Please try again.",
@@ -41,6 +40,7 @@
   "i18n.collectors.laposte.description": "La Poste is a French postal service provider.",
   "i18n.collectors.leclerc.description": "Leclerc is a French retail company.",
   "i18n.collectors.leroy_merlin.description": "Leroy Merlin is a French DIY store.",
+  "i18n.collectors.openai.description": "OpenAI is a research organization and company that develops advanced artificial intelligence technologies.",
   "i18n.collectors.orange.description": "Orange is a French telecommunications company.",
   "i18n.collectors.ovh.authentication_error": "Authentication error. One of your credentials is incorrect.",
   "i18n.collectors.ovh.description": "OVH is a French web hosting company.",
@@ -49,7 +49,6 @@
   "i18n.collectors.total_energies.description": "Total Energies is an electricity and gas supplier.",
   "i18n.collectors.total_energies.name": "Total Energies (Electricity & Gas)",
   "i18n.collectors.u.description": "U is a French retail company.",
-
   "i18n.views.credentials.documents": "Documents collected",
   "i18n.views.credentials.empty": "You do not have any collectors yet",
   "i18n.views.credentials.last_collect": "Last collect",
