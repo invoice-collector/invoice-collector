@@ -10,7 +10,6 @@
   "i18n.class.state.5_collecting": "Chasse aux factures...",
   "i18n.class.state.6_downloading": "Récupération du butin...",
   "i18n.class.state.7_done": "Mission accomplie !",
-
   "i18n.collectors.all.2fa.error": "Erreur d'authentification 2FA",
   "i18n.collectors.all.2fa.instruction": "Entrez le code 2FA envoyé par email ou SMS",
   "i18n.collectors.all.2fa.timeout": "Aucun code 2FA fourni dans le temps imparti. Veuillez réessayer.",
@@ -41,6 +40,7 @@
   "i18n.collectors.laposte.description": "La Poste est un prestataire de services postaux français.",
   "i18n.collectors.leclerc.description": "Leclerc est une enseigne de grande distribution française.",
   "i18n.collectors.leroy_merlin.description": "Leroy Merlin est une enseigne de bricolage française.",
+  "i18n.collectors.openai.description": "OpenAI is a research organization and company that develops advanced artificial intelligence technologies.",
   "i18n.collectors.orange.description": "Orange est un opérateur de télécommunications français.",
   "i18n.collectors.ovh.authentication_error": "Erreur d'authentification. L'un de vos identifiants est incorrect.",
   "i18n.collectors.ovh.description": "OVH est un hébergeur web français.",
@@ -49,7 +49,6 @@
   "i18n.collectors.total_energies.description": "Total Energies est un fournisseur d'électricité et de gaz.",
   "i18n.collectors.total_energies.name": "Total Energies (Electricité & Gaz)",
   "i18n.collectors.u.description": "U est une enseigne de grande distribution française.",
-
   "i18n.views.credentials.documents": "Documents collectés",
   "i18n.views.credentials.empty": "Vous n'avez pas encore de collecteurs",
   "i18n.views.credentials.last_collect": "Précédente collecte",
