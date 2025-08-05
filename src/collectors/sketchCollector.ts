@@ -11,7 +11,15 @@ export type SketchConfig = {
     description: string,
     version: string,
     website: string,
-    logo: string
+    logo: string,
+    params: {
+        [key: string]: {
+            type: string,
+            name: string,
+            placeholder: string,
+            mandatory: boolean
+        }
+    }
 }
 
 export abstract class SketchCollector extends AbstractCollector {
@@ -19,10 +27,9 @@ export abstract class SketchCollector extends AbstractCollector {
     constructor(config: SketchConfig) {
         super({
             ...config,
-            params: {},
             type: CollectorType.SKETCH,
             useProxy: false,
-            state: CollectorState.DEVELOPMENT
+            state: CollectorState.DEVELOPMENT,
         });
     }
 
