@@ -116,12 +116,12 @@ export class Server {
         message: string | undefined,
         email: string | undefined
     ): Promise<void> {
-        //Check if type field is missing
+        // Check if type field is missing
         if(!type) {
             throw new MissingField("type");
         }
 
-        //Check if message field is missing
+        // Check if message field is missing
         if(!message) {
             throw new MissingField("message");
         }
@@ -142,12 +142,12 @@ export class Server {
     ): Promise<{
         bearer: string
     }> {
-        //Check if email field is missing
+        // Check if email field is missing
         if(!email) {
             throw new MissingField("email");
         }
 
-        //Check if password field is missing
+        // Check if password field is missing
         if(!password) {
             throw new MissingField("password");
         }
@@ -183,7 +183,7 @@ export class Server {
         email: string | undefined,
         name: string | undefined
     ): Promise<void> {
-        //Check if email field is missing
+        // Check if email field is missing
         if(!email) {
             throw new MissingField("email");
         }
@@ -193,7 +193,7 @@ export class Server {
 
         // If customer does not exist, create it
         if(!customer) {
-            //Check if name field is missing
+            // Check if name field is missing
             if(!name) {
                 throw new MissingField("name");
             }
@@ -300,22 +300,22 @@ export class Server {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
-        //Check if name field is present
+        // Check if name field is present
         if(name) {
             customer.name = name;
         }
 
-        //Check if callback field is present
+        // Check if callback field is present
         if(callback) {
             customer.callback = callback;
         }
 
-        //Check if remoteId field is present
+        // Check if remoteId field is present
         if(remoteId) {
             customer.remoteId = remoteId;
         }
 
-        //Check if theme field is present
+        // Check if theme field is present
         if(theme) {
             customer.setTheme(theme);
         }
@@ -410,17 +410,22 @@ export class Server {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
-        //Check if remote_id field is missing
+        // Check if remote_id field is missing
         if(!remote_id) {
             throw new MissingField("remote_id");
         }
 
-        //Check if locale field is missing
+        // Check if locale field is missing
         if(!locale) {
             throw new MissingField("locale");
         }
 
-        //Check if locale is supported
+        // Check if remote_id contains space
+        if(remote_id.includes(" ")) {
+            throw new StatusError(`Remote ID "${remote_id}" cannot contain spaces.`, 400);
+        }
+
+        // Check if locale is supported
         if(locale && !I18n.LOCALES.includes(locale)) {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
@@ -441,7 +446,7 @@ export class Server {
             let termsConditions;
             // If terms and conditions are required, send email
             if (!Server.DISABLE_VERIFICATION_CODE) {
-                //Check if email field is missing
+                // Check if email field is missing
                 if(!email) {
                     throw new MissingField("email");
                 }
@@ -466,7 +471,7 @@ export class Server {
             if (!user.termsConditions.validTimestamp) {
                 // If terms and conditions are required, send email
                 if (!Server.DISABLE_VERIFICATION_CODE) {
-                    //Check if email field is missing
+                    // Check if email field is missing
                     if(!email) {
                         throw new MissingField("email");
                     }
@@ -512,7 +517,7 @@ export class Server {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
-        //Check if user_id field is missing
+        // Check if user_id field is missing
         if(!user_id) {
             throw new MissingField("user_id");
         }
@@ -623,7 +628,7 @@ export class Server {
             throw new MissingField("collector");
         }
  
-        //Check if params field is missing
+        // Check if params field is missing
         if(!params) {
             throw new MissingField("params");
         }
@@ -941,13 +946,13 @@ export class Server {
             displaySketchCollectors = customer.displaySketchCollectors;
         }
 
-        //Check if locale field is missing
+        // Check if locale field is missing
         if(!locale || typeof locale !== 'string') {
-            //Set default locale
+            // Set default locale
             locale = I18n.DEFAULT_LOCALE;
         }
 
-        //Check if locale is supported
+        // Check if locale is supported
         if(locale && !I18n.LOCALES.includes(locale)) {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
