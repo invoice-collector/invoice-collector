@@ -26,6 +26,6 @@ export class OpenaiCollector extends SketchCollector {
     }
 
     constructor() {
-        super(Openai.CONFIG);
+        super(OpenaiCollector.CONFIG);
     }
 }
