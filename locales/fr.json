@@ -40,6 +40,7 @@
   "i18n.collectors.laposte.description": "La Poste est un prestataire de services postaux français.",
   "i18n.collectors.leclerc.description": "Leclerc est une enseigne de grande distribution française.",
   "i18n.collectors.leroy_merlin.description": "Leroy Merlin est une enseigne de bricolage française.",
+  "i18n.collectors.mailbox.org.description": "Un service d'email et de productivité sécurisé et axé sur la confidentialité basé en Allemagne.",
   "i18n.collectors.openai.description": "OpenAI est une organisation de recherche et une entreprise qui développe des technologies d'intelligence artificielle.",
   "i18n.collectors.orange.description": "Orange est un opérateur de télécommunications français.",
   "i18n.collectors.ovh.authentication_error": "Erreur d'authentification. L'un de vos identifiants est incorrect.",
