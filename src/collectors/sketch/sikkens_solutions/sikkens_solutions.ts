@@ -3,9 +3,9 @@ import { SketchCollector } from '../../sketchCollector';
 export class SikkensSolutionsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "sikkens-solutions",
+        id: "sikkens_solutions",
         name: "Sikkens solutions",
-        description: "i18n.collectors.sikkens-solutions.description",
+        description: "i18n.collectors.sikkens_solutions.description",
         version: "0",
         website: "https://sikkens-solutions.fr",
         logo: "https://www.sikkens-solutions.fr/content/files/fr/LOGO/SikkensSolutionsVertical.png",
