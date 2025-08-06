@@ -1,14 +1,14 @@
 import { SketchCollector } from '../../sketchCollector';
 
-export class MailboxOrgCollector extends SketchCollector {
+export class EngieCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mailbox.org",
-        name: "Mailbox.org",
-        description: "i18n.collectors.mailbox.org.description",
+        id: "engie_be",
+        name: "Engie BE",
+        description: "i18n.collectors.engie.description",
         version: "0",
-        website: "https://mailbox.org",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Mailbox.org_logo.svg",
+        website: "https://engie.be",
+        logo: "https://upload.wikimedia.org/wikipedia/fr/5/5c/Engie_logo.svg",
         params: {
             email: {
                 type: "email",
@@ -26,6 +26,6 @@ export class MailboxOrgCollector extends SketchCollector {
     }
 
     constructor() {
-        super(MailboxOrgCollector.CONFIG);
+        super(EngieCollector.CONFIG);
     }
 }
