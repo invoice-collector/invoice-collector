@@ -2594,6 +2594,8 @@
   "i18n.collectors.enormail.description": "A temporary and disposable email service for secure and anonymous communication.",
   "i18n.collectors.enovos.description": "A Luxembourg-based energy supplier offering electricity, gas, and renewable solutions for households and businesses.",
   "i18n.collectors.enpc_ediser.description": "ENPC EDISER provides online educational resources and training programs for engineering and sustainable development.",
+  "i18n.collectors.ensap.description": "ENSAP is the secure digital space for french public officials.",
+  "i18n.collectors.ensap.identifier.placeholder": "15-digit social security number",
   "i18n.collectors.enso_datendienste.description": "A German online service providing data and digital solutions for energy and infrastructure management.",
   "i18n.collectors.entega_medianet.description": "A German internet service provider offering high-speed broadband and digital TV solutions.",
   "i18n.collectors.entega_privatkunden.description": "Entega is a German energy provider offering electricity, gas, and related services for private customers.",
