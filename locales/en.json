@@ -76,6 +76,7 @@
   "i18n.collectors.total_energies.description": "Total Energies is an electricity and gas supplier.",
   "i18n.collectors.total_energies.name": "Total Energies (Electricity & Gas)",
   "i18n.collectors.u.description": "U is a French retail company.",
+  "i18n.collectors.vivaqua.description": "Vivaqua is a Belgian company providing water supply and management services.",
   "i18n.views.credentials.documents": "Documents collected",
   "i18n.views.credentials.empty": "You do not have any collectors yet",
   "i18n.views.credentials.last_collect": "Last collect",
