@@ -3,13 +3,14 @@ FROM node:22
 RUN npm config set registry https://registry.npmjs.org/
 RUN npm cache clean --force
 
-# Install necessary dependencies for running Chrome
+# Install necessary dependencies for running Chrome and Whisper
 RUN apt-get update && apt-get install -y \
     wget \
     gnupg \
     ca-certificates \
     apt-transport-https \
     xvfb \
+    cmake \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
