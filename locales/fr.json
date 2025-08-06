@@ -64,7 +64,7 @@
   "i18n.collectors.total_energies.description": "Total Energies est un fournisseur d'électricité et de gaz.",
   "i18n.collectors.total_energies.name": "Total Energies (Electricité & Gaz)",
   "i18n.collectors.u.description": "U est une enseigne de grande distribution française.",
-  "i18n.collectors.villegennevilliers.description": "Site officiel de la ville de Gennevilliers proposant des services locaux et des informations.",
+  "i18n.collectors.gennevilliers_energies.description": "Gennevilliers Energies est le fournisseur d'énergie local de la ville de Gennevilliers, proposant des services d'électricité et de gaz.",
   "i18n.views.credentials.documents": "Documents collectés",
   "i18n.views.credentials.empty": "Vous n'avez pas encore de collecteurs",
   "i18n.views.credentials.last_collect": "Précédente collecte",
