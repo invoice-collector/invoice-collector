@@ -70,6 +70,7 @@
   "i18n.collectors.ovh.server": "Serveur",
   "i18n.collectors.paypal.description": "PayPal est un système de paiement en ligne qui permet aux utilisateurs d'effectuer et de recevoir des paiements sur Internet de manière sécurisée.",
   "i18n.collectors.picotygaz.description": "Un service offrant des informations et des ressources liées à l'approvisionnement en gaz en France.",
+  "i18n.collectors.red_by_sfr.description": "Un fournisseur de services mobiles et internet proposant des forfaits abordables en France.",
   "i18n.collectors.schindler.description": "Schindler propose des solutions innovantes de mobilité urbaine, y compris des ascenseurs et des escalators.",
   "i18n.collectors.seop.description": "SEOP est un service en ligne proposant des outils et solutions SEO.",
   "i18n.collectors.sipgate.description": "Sipgate est un fournisseur allemand de VoIP proposant des services de téléphonie pour les entreprises et les particuliers.",
