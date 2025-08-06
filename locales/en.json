@@ -45,6 +45,7 @@
   "i18n.collectors.facebook.description": "A social media platform for connecting and sharing with people online.",
   "i18n.collectors.free.description": "A French internet service provider offering various online services.",
   "i18n.collectors.free.identifier.placeholder": "Identifier of the account (ex: fbx12345670)",
+  "i18n.collectors.gazdebordeaux.description": "A local service provider for gas-related services in Bordeaux.",
   "i18n.collectors.hetzner.description": "Hetzner is a German web hosting company offering dedicated servers, cloud hosting, and domain services.",
   "i18n.collectors.intermarche.description": "Intermarché is a French retail company.",
   "i18n.collectors.inwx.description": "INWX is a domain registration and hosting service provider.",
