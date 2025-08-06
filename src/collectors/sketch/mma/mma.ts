@@ -4,7 +4,7 @@ export class MmaCollector extends SketchCollector {
 
     static CONFIG = {
         id: "mma",
-        name: "Mma",
+        name: "MMA",
         description: "i18n.collectors.mma.description",
         version: "0",
         website: "https://mma.fr",

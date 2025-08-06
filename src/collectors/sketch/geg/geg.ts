@@ -4,7 +4,7 @@ export class GegCollector extends SketchCollector {
 
     static CONFIG = {
         id: "geg",
-        name: "Geg",
+        name: "Gaz Électricité de Grenoble (GEG)",
         description: "i18n.collectors.geg.description",
         version: "0",
         website: "https://geg.fr",

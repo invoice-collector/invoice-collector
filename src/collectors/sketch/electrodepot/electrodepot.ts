@@ -4,7 +4,7 @@ export class ElectroDepotCollector extends SketchCollector {
 
     static CONFIG = {
         id: "electrodepot",
-        name: "Electro depot",
+        name: "Électro Dépôt",
         description: "i18n.collectors.electrodepot.description",
         version: "0",
         website: "https://electrodepot.fr",
