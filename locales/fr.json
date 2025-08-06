@@ -32,6 +32,7 @@
   "i18n.collectors.amazon_business.company": "Nom de l'entreprise",
   "i18n.collectors.amazon_business.company.placeholder": "Nom de l'entreprise tel qu'affiché sur le site Amazon",
   "i18n.collectors.amazon_business.description": "Amazon Business est un site de commerce en ligne pour les professionnels.",
+  "i18n.collectors.antargaz.description": "Antargaz est un fournisseur français de gaz propane et butane pour un usage domestique et professionnel.",
   "i18n.collectors.bureau_vallee.description": "Bureau Vallée est un fournisseur de mobilier de bureau pour professionnels et particuliers.",
   "i18n.collectors.carrefour.description": "Carrefour est une enseigne de grande distribution française.",
   "i18n.collectors.edf.description": "EDF est un fournisseur d'électricité français.",
