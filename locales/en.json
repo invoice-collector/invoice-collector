@@ -51,6 +51,8 @@
   "i18n.collectors.endesa.description": "Endesa is a leading energy company providing electricity and gas services in France.",
   "i18n.collectors.engie.description": "Engie is a global energy company offering sustainable solutions and services.",
   "i18n.collectors.eni.description": "Eni is an Italian multinational energy company operating in the oil and gas industry.",
+  "i18n.collectors.ensap.description": "ENSAP is the secure digital space for french public officials.",
+  "i18n.collectors.ensap.identifier.placeholder": "15-digit social security number",
   "i18n.collectors.entrepotdubricolage.description": "A French online store specializing in DIY and home improvement products.",
   "i18n.collectors.facebook.description": "A social media platform for connecting and sharing with people online.",
   "i18n.collectors.free.description": "A French internet service provider offering various online services.",
