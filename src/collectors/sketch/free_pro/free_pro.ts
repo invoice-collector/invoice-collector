@@ -1,10 +1,10 @@
 import { SketchCollector } from '../../sketchCollector';
 
-export class FreeCollector extends SketchCollector {
+export class FreeProCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "free",
-        name: "Free",
+        id: "free_pro",
+        name: "Free Pro",
         description: "i18n.collectors.free.description",
         version: "0",
         website: "https://pro.free.fr",
@@ -26,6 +26,6 @@ export class FreeCollector extends SketchCollector {
     }
 
     constructor() {
-        super(FreeCollector.CONFIG);
+        super(FreeProCollector.CONFIG);
     }
 }
