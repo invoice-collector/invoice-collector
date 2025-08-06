@@ -3,11 +3,11 @@ import { SketchCollector } from '../../sketchCollector';
 export class EngieCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "engie",
-        name: "Engie",
+        id: "engie.be",
+        name: "Engie BE",
         description: "i18n.collectors.engie.description",
         version: "0",
-        website: "https://engie.fr",
+        website: "https://engie.be",
         logo: "https://upload.wikimedia.org/wikipedia/fr/5/5c/Engie_logo.svg",
         params: {
             email: {
