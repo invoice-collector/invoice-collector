@@ -1,14 +1,14 @@
 import { SketchCollector } from '../../sketchCollector';
 
-export class MailboxOrgCollector extends SketchCollector {
+export class EauDeParisCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "mailbox.org",
-        name: "Mailbox.org",
-        description: "i18n.collectors.mailbox.org.description",
+        id: "eaudeparis",
+        name: "Eau de Paris",
+        description: "i18n.collectors.eaudeparis.description",
         version: "0",
-        website: "https://mailbox.org",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Mailbox.org_logo.svg",
+        website: "https://eaudeparis.fr",
+        logo: "https://upload.wikimedia.org/wikipedia/fr/0/0b/Eau_de_Paris_bleu.svg",
         params: {
             email: {
                 type: "email",
@@ -26,6 +26,6 @@ export class MailboxOrgCollector extends SketchCollector {
     }
 
     constructor() {
-        super(MailboxOrgCollector.CONFIG);
+        super(EauDeParisCollector.CONFIG);
     }
 }
