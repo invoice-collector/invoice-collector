@@ -76,6 +76,7 @@
   "i18n.collectors.total_energies.description": "Total Energies est un fournisseur d'électricité et de gaz.",
   "i18n.collectors.total_energies.name": "Total Energies (Electricité & Gaz)",
   "i18n.collectors.u.description": "U est une enseigne de grande distribution française.",
+  "i18n.collectors.vivaqua.description": "Vivaqua est une entreprise belge fournissant des services d'alimentation et de gestion de l'eau.",
   "i18n.views.credentials.documents": "Documents collectés",
   "i18n.views.credentials.empty": "Vous n'avez pas encore de collecteurs",
   "i18n.views.credentials.last_collect": "Précédente collecte",
