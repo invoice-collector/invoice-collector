@@ -1,11 +1,11 @@
 import { SketchCollector } from '../../sketchCollector';
 
-export class GazPicotyCollector extends SketchCollector {
+export class PicotyGazCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "gazpicoty",
-        name: "Gaz picoty",
-        description: "i18n.collectors.gazpicoty.description",
+        id: "picotygaz",
+        name: "Picoty Gaz",
+        description: "i18n.collectors.picotygaz.description",
         version: "0",
         website: "https://gaz.picoty.fr",
         logo: "https://gaz.picoty.fr/wp-content/uploads/2020/03/logo-1.png",
@@ -26,6 +26,6 @@ export class GazPicotyCollector extends SketchCollector {
     }
 
     constructor() {
-        super(GazPicotyCollector.CONFIG);
+        super(PicotyGazCollector.CONFIG);
     }
 }
