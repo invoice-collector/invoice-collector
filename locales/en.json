@@ -69,6 +69,7 @@
   "i18n.collectors.paypal.description": "PayPal is an online payment system that allows users to make and receive payments over the Internet securely.",
   "i18n.collectors.picotygaz.description": "A service providing information and resources related to gas supply in France.",
   "i18n.collectors.schindler.description": "Schindler provides innovative urban mobility solutions, including elevators and escalators.",
+  "i18n.collectors.seop.description": "SEOP is an online service offering SEO tools and solutions.",
   "i18n.collectors.sipgate.description": "Sipgate is a German VoIP provider offering telephony services for businesses and individuals.",
   "i18n.collectors.total_energies.description": "Total Energies is an electricity and gas supplier.",
   "i18n.collectors.total_energies.name": "Total Energies (Electricity & Gas)",
