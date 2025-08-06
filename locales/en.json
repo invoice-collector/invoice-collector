@@ -41,6 +41,7 @@
   "i18n.collectors.edf.description": "EDF is a French electricity supplier.",
   "i18n.collectors.endesa.description": "Endesa is a leading energy company providing electricity and gas services in France.",
   "i18n.collectors.engie.description": "Engie is a global energy company offering sustainable solutions and services.",
+  "i18n.collectors.eni.description": "Eni is an Italian multinational energy company operating in the oil and gas industry.",
   "i18n.collectors.facebook.description": "A social media platform for connecting and sharing with people online.",
   "i18n.collectors.free.description": "Free is a French telecommunications company.",
   "i18n.collectors.free.identifier.placeholder": "Identifier of the account (ex: fbx12345670)",
