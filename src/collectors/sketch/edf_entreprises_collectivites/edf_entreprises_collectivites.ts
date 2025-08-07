@@ -1,10 +1,10 @@
 import { SketchCollector } from '../../sketchCollector';
 
-export class EdfCollector extends SketchCollector {
+export class EdfEntreprisesCollectivitesCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "edf",
-        name: "Électricité de France (EDF)",
+        id: "edf_entreprises_collectivites",
+        name: "Électricité de France (EDF) - Entreprises & Collectivités",
         description: "i18n.collectors.edf.description",
         version: "1",
         website: "https://www.edf.fr",
@@ -26,6 +26,6 @@ export class EdfCollector extends SketchCollector {
     }
 
     constructor() {
-        super(EdfCollector.CONFIG);
+        super(EdfEntreprisesCollectivitesCollector.CONFIG);
     }
 }
