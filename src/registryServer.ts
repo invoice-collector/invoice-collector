@@ -170,11 +170,6 @@ You are still able to use the product but some features may not work as expected
             to,
             subject,
             content,
-        },
-        {
-            headers: {
-                'Authorization': `Bearer TODO`
-            }
         });
 
         // Check response status
