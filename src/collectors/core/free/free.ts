@@ -11,7 +11,7 @@ export class FreeCollector extends WebCollector {
         description: "i18n.collectors.free.description",
         version: "4",
         website: "https://www.free.fr",
-        logo: "https://www.free.fr/assets/img/freebox/home/cards/logos/free-app-logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         params: {
             id: {
                 type: "string",

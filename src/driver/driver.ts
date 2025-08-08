@@ -272,7 +272,7 @@ export class Driver {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         navigation = true
-    } = {}) {
+    } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -286,7 +286,9 @@ export class Driver {
                 }
                 catch {}
             }
+            return element;
         }
+        return null;
     }
 
     async inputText(selector, text, {
@@ -302,14 +304,16 @@ export class Driver {
         }
     }
 
-    async selectDropdown(selector, option, {
+    async dropdownSelect(selector, value: string, {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY
     } = {}): Promise<void> {
-        await this.getElement(selector, { raiseException, timeout });
-        //TODO
-        throw new Error("Not implemented");
+        const element = await this.getElement(selector, { raiseException, timeout });
+        if (element) {
+            await element.dropdownSelect(value);
+            await utils.delay(delay);
+        }
     }
 
     async press(key: KeyInput, occurence: number = 1): Promise<void> {
@@ -471,5 +475,9 @@ export class Element {
 
     async getAttribute(selector, attribute: string): Promise<string> {
         return await this.element.$eval(selector.selector, (element, attr) => element[attr], attribute);
+    }
+
+    async dropdownSelect(value: string): Promise<void> {
+        await this.element.select(value);
     }
 }
