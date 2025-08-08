@@ -135,8 +135,11 @@ export class Driver {
                 this.page.on('response', async (response) => {
                     if (response.url().includes(network_request) && response.ok()) {
                         const requestBody = JSON.parse(response.request().postData() || '{}');
-                        const responseBody = await response.json();
-                        resolve({requestBody, responseBody});
+                        try {
+                            const responseBody = await response.json();
+                            resolve({requestBody, responseBody});
+                        }
+                        catch (error) {}
                     }
                 });
             });
