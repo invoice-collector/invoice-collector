@@ -4,7 +4,7 @@ export class EdfEntreprisesCollectivitesCollector extends SketchCollector {
 
     static CONFIG = {
         id: "edf_entreprises_collectivites",
-        name: "Électricité de France (EDF) - Entreprises & Collectivités",
+        name: "EDF Entreprises & Collectivités",
         description: "i18n.collectors.edf.description",
         version: "1",
         website: "https://www.edf.fr",
