@@ -272,7 +272,7 @@ export class Driver {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         navigation = true
-    } = {}) {
+    } = {}): Promise<Element | null> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -286,7 +286,9 @@ export class Driver {
                 }
                 catch {}
             }
+            return element;
         }
+        return null;
     }
 
     async inputText(selector, text, {
