@@ -91,7 +91,7 @@ import assert from 'assert';
                 amount: invoice.amount,
                 link: invoice.link,
                 timestamp: invoice.timestamp,
-                url: invoice.mimetype
+                mimetype: invoice.mimetype
             })
 
             assert(invoice.id.length > 0, `Invoice id is empty`);
