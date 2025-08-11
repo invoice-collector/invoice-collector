@@ -37,6 +37,7 @@ import assert from 'assert';
         let secret: Secret = {
             params: {},
             cookies: null,
+            localStorage: null
         }
         let argv_index = 3;
 

@@ -696,6 +696,7 @@ export class Server {
         const secret: Secret = {
             params,
             cookies: null,
+            localStorage: null
         }
         const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector.config.id}`, secret);
 

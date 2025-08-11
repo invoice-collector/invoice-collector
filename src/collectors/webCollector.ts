@@ -59,6 +59,15 @@ export abstract class WebCollector extends AbstractCollector {
             await this.driver.browser?.setCookie(...secret.cookies);
         }
 
+        // Set localStorage if any
+        if (secret.localStorage) {
+            await this.driver.page?.evaluateOnNewDocument((localStorage) => {
+                for (const [key, value] of Object.entries(localStorage)) {
+                    window.localStorage.setItem(key, String(value));
+                }
+            }, secret.localStorage);
+        }
+
         try {
             // Open entry url
             await this.driver.goto(this.config.entryUrl);
@@ -111,8 +120,17 @@ export abstract class WebCollector extends AbstractCollector {
                 console.log("User is successfully logged in using cookies")
             }
 
-            // Update cookies
+            // Update secret.cookies
             secret.cookies = await this.driver.browser?.cookies();
+
+            // Update secret.localStorage
+            secret.localStorage = await this.driver.page?.evaluate(() => {
+                const localStorage: { [key: string]: string } = {};
+                for (const [key, value] of Object.entries(window.localStorage)) {
+                    localStorage[key] = value;
+                }
+                return localStorage;
+            });
 
             // Set progress step to collecting
             state.update(State._5_COLLECTING);

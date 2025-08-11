@@ -41,6 +41,7 @@ for (const collector of CollectorLoader.getAll()) {
                         password: 'fake_password'
                     },
                     cookies: null,
+                    localStorage: null
                 };
 
                 // Collect invoices
@@ -57,6 +58,7 @@ for (const collector of CollectorLoader.getAll()) {
                         password: 'fake_password'
                     },
                     cookies: null,
+                    localStorage: null
                 };
 
                 // Collect invoices
@@ -73,6 +75,7 @@ for (const collector of CollectorLoader.getAll()) {
                         password: 'fake_password'
                     },
                     cookies: null,
+                    localStorage: null
                 };
 
                 // Collect invoices
@@ -82,7 +85,7 @@ for (const collector of CollectorLoader.getAll()) {
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
-            let cookies;
+            let testSecret;
 
             it('Login with correct credentials, no cookies', async () => {
                 const secret: Secret = {
@@ -91,6 +94,7 @@ for (const collector of CollectorLoader.getAll()) {
                         password: 'real_password'
                     },
                     cookies: null,
+                    localStorage: null
                 };
 
                 // Collect invoices
@@ -108,30 +112,22 @@ for (const collector of CollectorLoader.getAll()) {
                 // Assert cookies are not null
                 expect(secret.cookies).not.toBeNull();
 
-                // Save cookies if collect is successful
-                cookies = secret.cookies;
+                // Save secret if collect is successful
+                testSecret = secret;
             }, TWO_MINUTES);
 
             // Skip test if cookies are not available = if previous test failed
-            if (cookies) {
-                it('Login with correct credentials and with cookies', async () => {
-                    const secret: Secret = {
-                        params: {
-                            email: 'real@email.com',
-                            password: 'real_password'
-                        },
-                        cookies: cookies
-                    };
-
+            it('Login with correct credentials and with cookies', async () => {
+                if (testSecret != undefined) {
                     // Collect invoices
                     const collect = new Collect("")
                     collect.state = State.DEFAULT_STATE;
-                    await collect.collect_new_invoices(collect.state, collector, secret, false, [], null);
-                }, TWO_MINUTES);
-            }
-            else {
-                console.info(`Skipping last test for ${id} as cookies are not available.`);
-            }
+                    await collect.collect_new_invoices(collect.state, collector, testSecret, false, [], null);
+                }
+                else {
+                    console.info(`Skipping test as previous test failed.`);
+                }
+            }, TWO_MINUTES);
         });
     }
     else {
