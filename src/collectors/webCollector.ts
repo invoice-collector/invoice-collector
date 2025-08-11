@@ -54,19 +54,11 @@ export abstract class WebCollector extends AbstractCollector {
         this.driver = new Driver(this);
         await this.driver.open(proxy);
 
-        // Set cookies if any
-        if (secret.cookies) {
-            await this.driver.browser?.setCookie(...secret.cookies);
-        }
+        // Set cookies
+        await this.driver.setCookies(secret.cookies);
 
-        // Set localStorage if any
-        if (secret.localStorage) {
-            await this.driver.page?.evaluateOnNewDocument((localStorage) => {
-                for (const [key, value] of Object.entries(localStorage)) {
-                    window.localStorage.setItem(key, String(value));
-                }
-            }, secret.localStorage);
-        }
+        // Set localStorage
+        await this.driver.setLocalStorage(secret.localStorage);
 
         try {
             // Open entry url
@@ -121,16 +113,10 @@ export abstract class WebCollector extends AbstractCollector {
             }
 
             // Update secret.cookies
-            secret.cookies = await this.driver.browser?.cookies();
+            secret.cookies = await this.driver.getCookies();
 
             // Update secret.localStorage
-            secret.localStorage = await this.driver.page?.evaluate(() => {
-                const localStorage: { [key: string]: string } = {};
-                for (const [key, value] of Object.entries(window.localStorage)) {
-                    localStorage[key] = value;
-                }
-                return localStorage;
-            });
+            secret.localStorage = await this.driver.getLocalStorage();
 
             // Set progress step to collecting
             state.update(State._5_COLLECTING);

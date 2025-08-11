@@ -443,6 +443,41 @@ export class Driver {
         },
         "Datadome captcha did not succeed");
     }
+
+    // COOKIES
+
+    async getCookies(): Promise<any> {
+        return this.browser?.cookies();
+    }
+
+    async setCookies(cookies: any): Promise<void> {
+        if (cookies) {
+            await this.browser?.setCookie(...cookies);
+        }
+    }
+
+    // LOCAL STORAGE
+
+    async getLocalStorage(): Promise<any> {
+        return await this.page?.evaluate(() => {
+            const localStorage: { [key: string]: string } = {};
+            for (const [key, value] of Object.entries(window.localStorage)) {
+                localStorage[key] = value;
+            }
+            return localStorage;
+        });
+    }
+
+    async setLocalStorage(data: any): Promise<void> {
+        if (data) {
+            await this.page?.evaluateOnNewDocument((data) => {
+                for (const [key, value] of Object.entries(data)) {
+                    window.localStorage.setItem(key, String(value));
+                }
+            }, data);
+        }
+    }
+
 }
 
 export class Element {
