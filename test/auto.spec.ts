@@ -10,25 +10,28 @@ import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
 import { State } from '../src/model/credential';
 
-const ids = process.argv.slice(3);
+const id = process.argv[4] || null;
 const ONE_MINUTE = 60 * 1000;       // 1 minute in milliseconds
 const TWO_MINUTES = 2 * ONE_MINUTE; // 2 minutes in milliseconds
 
-// Check if ids are provided
-if (ids.length === 0) {
-    console.info('No ids provided. Loading all the collectors.');
+// Check if id is provided
+if (!id) {
+    console.info('No id provided. Loading all the collectors.');
     CollectorLoader.load();
 }
 else {
-    for (const id of ids) {
-        // Load collector
-        CollectorLoader.load(id);
+    console.info(`Loading collector with id: ${id}`);
+    const loadedCollectors = CollectorLoader.load(id);
+    if (loadedCollectors.size === 0) {
+        throw new Error(`No collectors found with id: ${id}`);
     }
 }
+
+// For each collector
 for (const collector of CollectorLoader.getAll()) {
     const id: string = collector.config.id;
 
-    // Check if collector not found
+    // If collector is WebCollector
     if (collector instanceof WebCollector) {
         describe(`${id} tests`, () => {
             it('Login with incorrect email format', async () => {
