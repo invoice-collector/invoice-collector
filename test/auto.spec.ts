@@ -121,15 +121,14 @@ for (const collector of CollectorLoader.getAll()) {
 
             // Skip test if cookies are not available = if previous test failed
             it('Login with correct credentials and with cookies', async () => {
-                if (testSecret != undefined) {
-                    // Collect invoices
-                    const collect = new Collect("")
-                    collect.state = State.DEFAULT_STATE;
-                    await collect.collect_new_invoices(collect.state, collector, testSecret, false, [], null);
+                if (testSecret == undefined) {
+                    throw new Error(`Skipping test as previous test failed.`);
                 }
-                else {
-                    console.info(`Skipping test as previous test failed.`);
-                }
+
+                // Collect invoices
+                const collect = new Collect("")
+                collect.state = State.DEFAULT_STATE;
+                await collect.collect_new_invoices(collect.state, collector, testSecret, false, [], null);
             }, TWO_MINUTES);
         });
     }
