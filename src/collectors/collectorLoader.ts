@@ -6,14 +6,18 @@ import { StatusError } from '../error';
 export class CollectorLoader {
     private static collectors: Map<string, any> = new Map();
 
-    static load(filter: string | null = null) {
+    static load(filter: string | null = null): Map<string, any> {
         this.loadFolders("sketch", filter)
         this.loadFolders("community", filter)
         this.loadFolders("core", filter)
         this.loadFolders("premium", filter)
 
         //Order collectors by id
-        CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()].sort((a, b) => a[0].localeCompare(b[0])));
+        CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
+            .sort((a, b) => a[0].localeCompare(b[0])));
+
+        // Return loaded collectors
+        return CollectorLoader.collectors
     }
 
     private static loadFolders(folder: string, filter: string | null) {
