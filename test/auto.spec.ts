@@ -112,6 +112,9 @@ for (const collector of CollectorLoader.getAll()) {
                 // Assert cookies are not null
                 expect(secret.cookies).not.toBeNull();
 
+                // Assert localStorage are not null
+                expect(secret.localStorage).not.toBeNull();
+
                 // Save secret if collect is successful
                 testSecret = secret;
             }, TWO_MINUTES);
