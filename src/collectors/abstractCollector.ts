@@ -43,7 +43,11 @@ export type Config = {
     state: CollectorState
     entryUrl?: string,
     baseUrl?: string,
-    captcha?: CollectorCaptcha
+    captcha?: CollectorCaptcha,
+    autoLogin: {
+        cookieNames?: string[],
+        localStorageKeys?: string[]
+    }
 }
 
 export type Invoice = {

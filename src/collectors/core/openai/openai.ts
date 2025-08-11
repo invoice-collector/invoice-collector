@@ -27,7 +27,10 @@ export class OpenaiCollector extends WebCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://platform.openai.com/settings/organization/billing/history"
+        entryUrl: "https://platform.openai.com/settings/organization/billing/history",
+        autoLogin: {
+            localStorageKeys: ['@@auth0spajs@@']
+        }
     }
 
     constructor() {

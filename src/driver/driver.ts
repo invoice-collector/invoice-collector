@@ -446,8 +446,19 @@ export class Driver {
 
     // COOKIES
 
-    async getCookies(): Promise<any> {
-        return this.browser?.cookies();
+    async getCookies(namesToGet: string[] | undefined): Promise<any> {
+        // If namesToGet is undefined, return empty object
+        if (namesToGet === undefined) {
+            return [];
+        }
+
+        // If browser is undefined
+        if (!this.browser) {
+            return [];
+        }
+
+        return (await this.browser?.cookies())
+            .filter(cookie => namesToGet.length === 0 || namesToGet.some(name => cookie.name.includes(name)));
     }
 
     async setCookies(cookies: any): Promise<void> {
@@ -458,14 +469,31 @@ export class Driver {
 
     // LOCAL STORAGE
 
-    async getLocalStorage(): Promise<any> {
-        return await this.page?.evaluate(() => {
+    async getLocalStorage(keysToGet: string[] | undefined): Promise<any> {
+        // If keysToGet is undefined, return empty object
+        if (keysToGet === undefined) {
+            return {};
+        }
+
+        return await this.page?.evaluate((keysToGet: string[]) => {
             const localStorage: { [key: string]: string } = {};
             for (const [key, value] of Object.entries(window.localStorage)) {
-                localStorage[key] = value;
+                // If keysToGet is empty, return all localStorage
+                if (keysToGet.length === 0) {
+                    localStorage[key] = value;
+                }
+                // If only specific keys are needed
+                else {
+                    for (const keyToGet of keysToGet) {
+                        // Get only specific key
+                        if (key.includes(keyToGet)) {
+                            localStorage[key] = value;
+                        }
+                    }
+                }
             }
             return localStorage;
-        });
+        }, keysToGet);
     }
 
     async setLocalStorage(data: any): Promise<void> {

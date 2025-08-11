@@ -1,4 +1,4 @@
-import { AbstractCollector, Invoice, CompleteInvoice, CollectorType, CollectorState } from "./abstractCollector";
+import { AbstractCollector, Invoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
 import { CollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
@@ -30,6 +30,8 @@ export abstract class SketchCollector extends AbstractCollector {
             type: CollectorType.SKETCH,
             useProxy: false,
             state: CollectorState.DEVELOPMENT,
+            captcha: CollectorCaptcha.NONE,
+            autoLogin: {}   // No auto login by default
         });
     }
 

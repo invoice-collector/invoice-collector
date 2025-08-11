@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState } from "./abstractCollector";
+import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -37,7 +37,8 @@ export abstract class ApiCollector extends AbstractCollector {
             ...config,
             type: CollectorType.API,
             useProxy: config.useProxy === undefined ? false : config.useProxy,
-            state: config.state || CollectorState.ACTIVE
+            state: config.state || CollectorState.ACTIVE,
+            autoLogin: {}   // No auto login by default
     });
         this.instance = null;
     }

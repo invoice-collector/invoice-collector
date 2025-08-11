@@ -29,7 +29,11 @@ export type WebConfig = {
     state?: CollectorState,
     entryUrl: string,
     useProxy?: boolean,
-    captcha?: CollectorCaptcha
+    captcha?: CollectorCaptcha,
+    autoLogin?: {
+        cookieNames?: string[],
+        localStorageKeys?: string[]
+    }
 }
 
 export abstract class WebCollector extends AbstractCollector {
@@ -41,7 +45,11 @@ export abstract class WebCollector extends AbstractCollector {
             ...config,
             type: CollectorType.WEB,
             useProxy: config.useProxy === undefined ? true : config.useProxy,
-            state: config.state || CollectorState.ACTIVE
+            state: config.state || CollectorState.ACTIVE,
+            autoLogin: config.autoLogin || {
+                cookieNames: [],                // Take all cookies by default
+                localStorageKeys: undefined     // Take no localStorage by default
+            }
         });
         this.driver = null;
     }
@@ -109,14 +117,14 @@ export abstract class WebCollector extends AbstractCollector {
                 console.log("User is successfully logged in")
             }
             else {
-                console.log("User is successfully logged in using cookies")
+                console.log("User is successfully logged in using cookies and localStorage")
             }
 
             // Update secret.cookies
-            secret.cookies = await this.driver.getCookies();
+            secret.cookies = await this.driver.getCookies(this.config.autoLogin.cookieNames);
 
             // Update secret.localStorage
-            secret.localStorage = await this.driver.getLocalStorage();
+            secret.localStorage = await this.driver.getLocalStorage(this.config.autoLogin.localStorageKeys);
 
             // Set progress step to collecting
             state.update(State._5_COLLECTING);
