@@ -37,7 +37,7 @@ for (const collector of CollectorLoader.getAll()) {
             it('Login with incorrect email format', async () => {
                 const secret: Secret = {
                     params: {
-                        email: 'incorrect_email_format',
+                        email: 'incorrect_format_email',
                         password: 'fake_password'
                     },
                     cookies: null,
@@ -69,7 +69,7 @@ for (const collector of CollectorLoader.getAll()) {
             it('Login with wrong password', async () => {
                 const secret: Secret = {
                     params: {
-                        email: 'my@email.com',
+                        email: 'real@email.com',
                         password: 'fake_password'
                     },
                     cookies: null,
@@ -87,7 +87,7 @@ for (const collector of CollectorLoader.getAll()) {
             it('Login with correct credentials, no cookies', async () => {
                 const secret: Secret = {
                     params: {
-                        email: 'my@email.com',
+                        email: 'real@email.com',
                         password: 'real_password'
                     },
                     cookies: null,
@@ -117,7 +117,7 @@ for (const collector of CollectorLoader.getAll()) {
                 it('Login with correct credentials and with cookies', async () => {
                     const secret: Secret = {
                         params: {
-                            email: 'my@email.com',
+                            email: 'real@email.com',
                             password: 'real_password'
                         },
                         cookies: cookies
