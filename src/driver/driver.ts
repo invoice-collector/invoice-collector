@@ -72,6 +72,7 @@ export class Driver {
     async open(proxy: Proxy | null = null) {
         // If proxy is provided
         if (proxy != null) {
+            // Set proxy
             this.puppeteerConfig["proxy"] = proxy;
             console.log(`Using proxy: ${proxy.host}`);
         } else {
