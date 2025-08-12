@@ -119,8 +119,8 @@ for (const collector of CollectorLoader.getAll()) {
                 testSecret = secret;
             }, TWO_MINUTES);
 
-            // Skip test if cookies are not available = if previous test failed
-            it('Login with correct credentials and with cookies', async () => {
+            // Skip test if testSecret is not available = if previous test failed
+            it('Login with correct credentials and with cookies and localStorage', async () => {
                 if (testSecret == undefined) {
                     throw new Error(`Skipping test as previous test failed.`);
                 }
