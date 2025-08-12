@@ -261,6 +261,7 @@ export class Server {
         name: string,
         callback: string,
         remoteId: string,
+        createdAt: number,
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
@@ -277,6 +278,7 @@ export class Server {
             name: customer.name,
             callback: customer.callback,
             remoteId: customer.remoteId,
+            createdAt: customer.createdAt,
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
@@ -375,7 +377,8 @@ export class Server {
         id: string,
         customer_id: string,
         remote_id: string,
-        locale: string
+        locale: string,
+        createdAt: number
     }[]> {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
@@ -389,7 +392,8 @@ export class Server {
                 id: user.id,
                 customer_id: user.customer_id,
                 remote_id: user.remote_id,
-                locale: user.locale
+                locale: user.locale,
+                createdAt: user.createdAt
             };
         });
     }
@@ -405,6 +409,7 @@ export class Server {
         customer_id: string,
         remote_id: string,
         locale: string,
+        createdAt: number,
         token: string
     }> {
         // Get customer from bearer
@@ -508,6 +513,7 @@ export class Server {
             customer_id: user.customer_id,
             remote_id: user.remote_id,
             locale: user.locale,
+            createdAt: user.createdAt,
             token: uiToken,
         }
     }

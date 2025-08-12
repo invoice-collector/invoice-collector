@@ -73,6 +73,7 @@ export class Customer {
     callback: string;
     remoteId: string;
     bearer: string;
+    createdAt: number;
     theme: Theme;
     subscribedCollectors: string[];
     isSubscribedToAll: boolean;
@@ -87,6 +88,7 @@ export class Customer {
         callback: string,
         remoteId: string,
         bearer: string,
+        createdAt: number = Date.now(),
         theme: Theme = Theme.DEFAULT,
         subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS,
         isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL,
@@ -101,6 +103,7 @@ export class Customer {
         this.callback = callback;
         this.remoteId = remoteId;
         this.bearer = bearer;
+        this.createdAt = createdAt;
         this.theme = theme;
         this.subscribedCollectors = subscribedCollectors;
         this.isSubscribedToAll = isSubscribedToAll;
