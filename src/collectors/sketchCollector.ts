@@ -30,7 +30,6 @@ export abstract class SketchCollector extends AbstractCollector {
             type: CollectorType.SKETCH,
             useProxy: false,
             state: CollectorState.DEVELOPMENT,
-            captcha: CollectorCaptcha.NONE,
             autoLogin: {}   // No auto login by default
         });
     }
