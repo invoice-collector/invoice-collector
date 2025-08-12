@@ -19,14 +19,23 @@ export class User {
     location: Location | null;
     locale: string;
     termsConditions: TermsConditions;
+    createdAt: number;
 
-    constructor(customer_id: string, remote_id: string, location: Location | null, locale: string, termsConditions: TermsConditions) {
+    constructor(
+        customer_id: string,
+        remote_id: string,
+        location: Location | null,
+        locale: string,
+        termsConditions: TermsConditions,
+        createdAt: number = Date.now(),
+    ) {
         this.id = "";
         this.customer_id = customer_id;
         this.remote_id = remote_id;
         this.location = location;
         this.locale = locale;
         this.termsConditions = termsConditions;
+        this.createdAt = createdAt;
     }
 
     async getCustomer(): Promise<Customer> {
