@@ -4,6 +4,9 @@ import { Collect } from './collect';
 import { CollectPool } from './collectPool';
 
 export class CollectTask {
+    static DEFAULT_CRON_TIME = '* * * * *';
+    static DEFAULT_TIMEZONE = 'Europe/Paris';
+
     private job: CronJob;
 
     constructor() {
@@ -41,7 +44,13 @@ export class CollectTask {
             }
         }
 
-        this.job = new CronJob('* * * * *', onTick, null, false, 'Europe/Paris');
+        this.job = CronJob.from({
+            cronTime: CollectTask.DEFAULT_CRON_TIME,
+            onTick: onTick,
+            start: false,
+            waitForCompletion: true,
+            timeZone: CollectTask.DEFAULT_TIMEZONE
+        });
         this.start();
     }
 
