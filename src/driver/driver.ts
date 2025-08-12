@@ -17,31 +17,40 @@ export class Driver {
     static DEFAULT_POLLING = 1000;              // 1 second
     static DEFAULT_DELAY = 0;
     static DEFAULT_DELAY_BETWEEN_KEYS = 100;    // 100 milliseconds
+    static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
 
-    static DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
-    static PUPPETEER_CONFIG: Options = {
-        args: ["--start-maximized"],
-        turnstile: true,
-        headless: false,
-        customConfig: {
-            prefs: {
-                download: {
-                    open_pdf_in_system_reader: false,
-                    prompt_for_download: false
-                },
-                plugins: {
-                    always_open_pdf_externally: true
+    private static instanceCounter = 0;
+
+    private static getDownloadPath(): string {
+        Driver.instanceCounter += 1;
+        return path.resolve(__dirname, Driver.PARENT_DOWNLOAD_PATH, String(Driver.instanceCounter));
+    }
+
+    private static getPuppeteerConfig(downloadPath: string): Options {
+        return {
+            args: ["--start-maximized"],
+            turnstile: true,
+            headless: false,
+            customConfig: {
+                prefs: {
+                    download: {
+                        open_pdf_in_system_reader: false,
+                        prompt_for_download: false
+                    },
+                    plugins: {
+                        always_open_pdf_externally: true
+                    }
                 }
-            }
-        },
-        connectOption: {
-            downloadBehavior: {
-                policy: 'allow' as DownloadPolicy,
-                downloadPath: Driver.DOWNLOAD_PATH
             },
-            defaultViewport: {
-                width: 1920,
-                height: 1080,
+            connectOption: {
+                downloadBehavior: {
+                    policy: 'allow' as DownloadPolicy,
+                    downloadPath,
+                },
+                defaultViewport: {
+                    width: 1920,
+                    height: 1080,
+                }
             }
         }
     };
@@ -49,31 +58,31 @@ export class Driver {
     collector: WebCollector;
     browser: Browser | null;
     page: PageWithCursor | null;
+    downloadPath: string;
+    puppeteerConfig: Options;
 
     constructor(collector: WebCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;
+        this.downloadPath = Driver.getDownloadPath();
+        this.puppeteerConfig = Driver.getPuppeteerConfig(this.downloadPath);
     }
 
     async open(proxy: Proxy | null = null) {
-        // Clone config static object
-        let puppeteerConfig: Options = { ...Driver.PUPPETEER_CONFIG };
         // If proxy is provided
         if (proxy != null) {
             // Set proxy
-            puppeteerConfig["proxy"] = proxy;
+            this.puppeteerConfig["proxy"] = proxy;
             console.log(`Using proxy: ${proxy.host}`);
-        }
-        else {
+        } else {
             console.log(`Do not use proxy`);
         }
 
-        // Define if remote or local chrome must be used
-        puppeteerConfig.remoteChrome = (this.collector.config.captcha == CollectorCaptcha.DATADOME);
+        this.puppeteerConfig.remoteChrome = (this.collector.config.captcha == CollectorCaptcha.DATADOME);
 
         // Open browser and page
-        const connectResult = await connect(puppeteerConfig);
+        const connectResult = await connect(this.puppeteerConfig);
         this.browser = connectResult.browser;
         this.page = connectResult.page;
 
@@ -92,8 +101,8 @@ export class Driver {
         }
 
         // Create download folder if not exists
-        if (!fs.existsSync(Driver.DOWNLOAD_PATH)) {
-            fs.mkdirSync(Driver.DOWNLOAD_PATH);
+        if (!fs.existsSync(this.downloadPath)) {
+            fs.mkdirSync(this.downloadPath, { recursive: true });
         }
 
         // Clear download folder
@@ -135,8 +144,11 @@ export class Driver {
                 this.page.on('response', async (response) => {
                     if (response.url().includes(network_request) && response.ok()) {
                         const requestBody = JSON.parse(response.request().postData() || '{}');
-                        const responseBody = await response.json();
-                        resolve({requestBody, responseBody});
+                        try {
+                            const responseBody = await response.json();
+                            resolve({requestBody, responseBody});
+                        }
+                        catch (error) {}
                     }
                 });
             });
@@ -380,7 +392,7 @@ export class Driver {
     async waitForFileToDownload(raiseException: boolean = true): Promise<string | null> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
-            const files = fs.readdirSync(Driver.DOWNLOAD_PATH).filter(file => !file.endsWith('.crdownload'));
+            const files = fs.readdirSync(this.downloadPath).filter(file => !file.endsWith('.crdownload'));
             return files.length > 0 ? files[0] : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
         raiseException,
@@ -392,7 +404,7 @@ export class Driver {
         }
 
         // Read the file
-        const data = fs.readFileSync(path.join(Driver.DOWNLOAD_PATH, file), {encoding: 'base64'});
+        const data = fs.readFileSync(path.join(this.downloadPath, file), {encoding: 'base64'});
 
         // Clear download folder
         this.clearDownloadFolder();
@@ -402,9 +414,11 @@ export class Driver {
 
     clearDownloadFolder(): void {
         // Remove all files in the download folder
-        fs.readdirSync(Driver.DOWNLOAD_PATH).forEach(file => {
-            fs.unlinkSync(path.join(Driver.DOWNLOAD_PATH, file));
-        });
+        if (fs.existsSync(this.downloadPath)) {
+            fs.readdirSync(this.downloadPath).forEach(file => {
+                fs.unlinkSync(path.join(this.downloadPath, file));
+            });
+        }
     }
 
     // CAPTCHAS
@@ -430,6 +444,69 @@ export class Driver {
         },
         "Datadome captcha did not succeed");
     }
+
+    // COOKIES
+
+    async getCookies(namesToGet: string[] | undefined): Promise<any> {
+        // If namesToGet is undefined, return empty object
+        if (namesToGet === undefined) {
+            return [];
+        }
+
+        // If browser is undefined
+        if (!this.browser) {
+            return [];
+        }
+
+        return (await this.browser?.cookies())
+            .filter(cookie => namesToGet.length === 0 || namesToGet.some(name => cookie.name.includes(name)));
+    }
+
+    async setCookies(cookies: any): Promise<void> {
+        if (cookies) {
+            await this.browser?.setCookie(...cookies);
+        }
+    }
+
+    // LOCAL STORAGE
+
+    async getLocalStorage(keysToGet: string[] | undefined): Promise<any> {
+        // If keysToGet is undefined, return empty object
+        if (keysToGet === undefined) {
+            return {};
+        }
+
+        return await this.page?.evaluate((keysToGet: string[]) => {
+            const localStorage: { [key: string]: string } = {};
+            for (const [key, value] of Object.entries(window.localStorage)) {
+                // If keysToGet is empty, return all localStorage
+                if (keysToGet.length === 0) {
+                    localStorage[key] = value;
+                }
+                // If only specific keys are needed
+                else {
+                    for (const keyToGet of keysToGet) {
+                        // Get only specific key
+                        if (key.includes(keyToGet)) {
+                            localStorage[key] = value;
+                        }
+                    }
+                }
+            }
+            return localStorage;
+        }, keysToGet);
+    }
+
+    async setLocalStorage(data: any): Promise<void> {
+        if (data) {
+            await this.page?.evaluateOnNewDocument((data) => {
+                for (const [key, value] of Object.entries(data)) {
+                    window.localStorage.setItem(key, String(value));
+                }
+            }, data);
+        }
+    }
+
 }
 
 export class Element {

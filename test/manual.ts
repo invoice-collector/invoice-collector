@@ -37,6 +37,7 @@ import assert from 'assert';
         let secret: Secret = {
             params: {},
             cookies: null,
+            localStorage: null
         }
         let argv_index = 3;
 
@@ -91,7 +92,7 @@ import assert from 'assert';
                 amount: invoice.amount,
                 link: invoice.link,
                 timestamp: invoice.timestamp,
-                url: invoice.mimetype
+                mimetype: invoice.mimetype
             })
 
             assert(invoice.id.length > 0, `Invoice id is empty`);

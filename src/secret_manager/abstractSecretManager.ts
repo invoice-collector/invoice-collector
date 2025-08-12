@@ -1,6 +1,7 @@
 export type Secret = {
     params: any,
     cookies: any,
+    localStorage: any
 }
 
 export abstract class AbstractSecretManager {

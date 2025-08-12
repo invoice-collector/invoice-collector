@@ -2,7 +2,6 @@ import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, CompleteInvoice } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
-import { I18n } from "../i18n";
 import { IcCredential, State } from "../model/credential";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
