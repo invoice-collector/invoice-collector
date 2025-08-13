@@ -113,8 +113,7 @@ export class Server {
         bearer: string | undefined,
         token: any,
         type: string | undefined,
-        message: string | undefined,
-        email: string | undefined
+        message: string | undefined
     ): Promise<void> {
         // Check if type field is missing
         if(!type) {
@@ -130,7 +129,12 @@ export class Server {
         const customer = await this.getCustomerFromBearerOrToken(bearer, token);
 
         // Send feedback to registry server
-        await RegistryServer.getInstance().feedback(customer.bearer, type, message, email);
+        await RegistryServer.getInstance().feedback(
+            type,
+            message,
+            customer.email,
+            ""
+        );
     }
 
     // ---------- LOGIN/SIGNUP/RESET ENDPOINTS ----------
@@ -662,10 +666,10 @@ export class Server {
         // Check if collector is sketch
         if(collector.config.type == CollectorType.SKETCH) {
             await RegistryServer.getInstance().feedback(
-                customer.bearer,
                 "sketch",
-                `User ${user.remote_id} from customer ${customer.id} need collector ${collector.config.id} to be implemented.`,
-                customer.email.replace("@", `+${user.remote_id}@`)
+                `User ${user.id} from customer ${customer.id} (${customer.name}) needs collector ${collector.config.id} to be implemented.`,
+                customer.email,
+                user.id
             );
             throw new StatusError(`The collector ${collector.config.id} is not implemented yet. We have been notified of your request and will try to implement it as soon as possible.`, 400);
         }
