@@ -172,7 +172,6 @@ export class Server {
         // Schedule token delete after validity duration
         setTimeout(() => {
             delete this.uiBearers[hashed_bearer];
-            console.log(`Ui bearer ${hashed_bearer} deleted`);
         }, Server.UI_BEARER_VALIDITY_DURATION_MS);
 
         return { bearer: uiBearer };
@@ -217,7 +216,6 @@ export class Server {
         // Schedule token delete after validity duration
         setTimeout(() => {
             delete this.resetTokens[resetToken];
-            console.log(`Reset token ${resetToken} deleted`);
         }, Server.RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS);
 
         // Send reset password email
@@ -505,7 +503,6 @@ export class Server {
         // Schedule token delete after validity duration
         setTimeout(() => {
             delete this.uiTokens[uiToken];
-            console.log(`Token ${uiToken} deleted`);
         }, Server.OAUTH_TOKEN_VALIDITY_DURATION_MS);
 
         return {
@@ -543,7 +540,6 @@ export class Server {
         for (let uiToken in this.uiTokens) {
             if (this.uiTokens[uiToken].id === user.id) {
                 delete this.uiTokens[uiToken];
-                console.log(`Token ${uiToken} deleted`);
             }
         }
     }
