@@ -189,14 +189,24 @@ export abstract class WebCollector extends AbstractCollector {
                 throw new UnfinishedCollectorError(this);
             }
 
-            // If data field is missing, collector is broken
-            if (downloadedInvoice.data == null || downloadedInvoice.data.length === 0) {
-                throw new LoggableError(`Downloaded invoice data is empty`, this);
+            // If documents field is empty
+            if (downloadedInvoice.documents.length === 0) {
+                throw new LoggableError(`No documents downloaded`, this);
+            }
+
+            let data;
+            // If one document downloaded
+            if (downloadedInvoice.documents.length === 1) {
+                data = downloadedInvoice.documents[0];
+            }
+            else {
+                throw new Error("Not implemented")
             }
 
             return {
                 ...downloadedInvoice,
-                mimetype: mimetypeFromBase64(downloadedInvoice.data),
+                data,
+                mimetype: mimetypeFromBase64(data),
                 collected_timestamp: Date.now()
             };
         } catch (error) {
@@ -262,28 +272,16 @@ export abstract class WebCollector extends AbstractCollector {
 
     // DOWNLOAD METHODS
 
-    async download_link(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        if (!invoice.link) {
-            throw new Error('Field `link` is missing in the invoice object.');
-        }
-        return {
-            ...invoice,
-            data: await driver.downloadFile(invoice.link)
-        }
+    async download_link(driver: Driver, link: string): Promise<string> {
+        return await driver.downloadFile(link);
     }
 
-    async download_webpage(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        await driver.goto(invoice.link);
-        return {
-            ...invoice,
-            data: await driver.pdf()
-        }
+    async download_webpage(driver: Driver, link: string): Promise<string> {
+        await driver.goto(link);
+        return await driver.pdf();
     }
 
-    async download_from_file(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        return {
-            ...invoice,
-            data: await driver.waitForFileToDownload(false)
-        }
+    async download_from_file(driver: Driver): Promise<string> {
+        return await driver.waitForFileToDownload(false);
     }
 }

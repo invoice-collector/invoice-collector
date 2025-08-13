@@ -372,7 +372,7 @@ export class Driver {
         return await this.page.screenshot({encoding: 'base64'});
     }
 
-    async downloadFile(url: string): Promise<string | null> {
+    async downloadFile(url: string): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -389,7 +389,7 @@ export class Driver {
         return await this.waitForFileToDownload();
     }
 
-    async waitForFileToDownload(raiseException: boolean = true): Promise<string | null> {
+    async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
             const files = fs.readdirSync(this.downloadPath).filter(file => !file.endsWith('.crdownload'));
@@ -400,7 +400,7 @@ export class Driver {
 
         // Check if no file found
         if (file === null) {
-            return null;
+            throw new LoggableError(`No file downloaded after ${Driver.DEFAULT_DOWNLOAD_TIMEOUT}ms`, this.collector);
         }
 
         // Read the file

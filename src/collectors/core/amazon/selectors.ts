@@ -1,3 +1,5 @@
+import { info } from "console";
+
 export const AmazonSelectors = {
     //LOGIN PAGE
 
@@ -53,22 +55,37 @@ export const AmazonSelectors = {
         info: "2fa alert container"
     },
 
-    //INVOICES PAGE
+    // ORDER PAGE
 
     CONTAINER_ORDER: {
         selector: ".order-card .order-header",
         info: "order container"
     },
-    CONTAINER_DATE: {
+    CONTAINER_ORDER_DATE: {
         selector: ".a-col-left div.a-column:nth-child(1) div:last-of-type span",
         info: "order date"
     },
-    CONTAINER_AMOUNT: {
+    CONTAINER_ORDER_AMOUNT: {
         selector: ".a-col-left div.a-column:nth-child(2) div:last-of-type span",
         info: "order amount"
     },
-    CONTAINER_ID: {
+    CONTAINER_ORDER_ID: {
         selector: ".a-col-right div.yohtmlc-order-id span:last-child",
         info: "order id"
+    },
+    CONTAINER_DOCUMENTS_LINK: {
+        selector: ".a-col-right li.yohtmlc-order-level-connections span a",
+        info: "order link"
+    },
+
+    // DOCUMENTS PAGE
+
+    CONTAINER_ORDER_LINK: {
+        selector: "a[href^='/gp/css/summary']",
+        info: "order link"
+    },
+    CONTAINER_INVOICES: {
+        selector: "a[href^='/documents/download']",
+        info: "invoices link"
     }
 }

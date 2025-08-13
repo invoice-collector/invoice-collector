@@ -118,10 +118,11 @@ export class AmazonCollector extends WebCollector {
 
         // Return orders
         return Promise.all(orders.map(async (order) => {
-            const id = await order.getAttribute(AmazonSelectors.CONTAINER_ID, "textContent");
-            const amount = await order.getAttribute(AmazonSelectors.CONTAINER_AMOUNT, "textContent");
-            const date = await order.getAttribute(AmazonSelectors.CONTAINER_DATE, "textContent");
+            const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
+            const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+            const date = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
             const link = `https://www.amazon.fr/gp/css/summary/print.html/?ie=UTF8&orderID=${id}`;
+            //const link = await order.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
             const timestamp = timestampFromString(date, 'd MMMM yyyy', 'fr');
 
             return {
@@ -134,6 +135,37 @@ export class AmazonCollector extends WebCollector {
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        return await this.download_webpage(driver, invoice);
+        return {
+            ...invoice,
+            documents: [
+                await this.download_webpage(driver, invoice.link)
+            ]
+        };
+        /*// Go to invoice link
+        await driver.goto(invoice.link);
+
+        // Get order link
+        const orderLink = await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
+
+        // Get invoices link
+        const invoicesLink = await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
+
+        console.log("----------")
+        console.log("orderLink", orderLink)
+        console.log("invoicesLink", invoicesLink)
+        console.log("----------")
+
+        let documents: string[] = [
+            await this.download_webpage(driver, orderLink)
+        ];
+
+        for (const invoiceLink of invoicesLink) {
+            documents.push(await this.download_link(driver, invoiceLink));
+        }
+
+        return {
+            ...invoice,
+            documents
+        };*/
     }
 }
