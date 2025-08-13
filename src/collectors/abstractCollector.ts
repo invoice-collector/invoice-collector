@@ -54,14 +54,15 @@ export type Invoice = {
     id: string,
     timestamp: number,
     amount?: string,
-    link?: string
+    link: string
 }
 
 export type DownloadedInvoice = Invoice & {
-    data: string | null
+    documents: string[]
 }
 
-export type CompleteInvoice = DownloadedInvoice & {
+export type CompleteInvoice = Invoice & {
+    data: string | null,
     mimetype: string | null,
     collected_timestamp: number | null
 }
@@ -73,17 +74,14 @@ export abstract class AbstractCollector {
         this.config = config;
     }
 
-    async download_direct_link(invoice: Invoice): Promise<DownloadedInvoice> {
+    async download_direct_link(invoice: Invoice): Promise<string> {
         if (!invoice.link) {
             throw new Error('Field `link` is missing in the invoice object.');
         }
         const response = await axios.get(invoice.link, {
             responseType: 'arraybuffer',
         });
-        return {
-            ...invoice,
-            data: response.data.toString("base64")
-        };
+        return response.data.toString("base64");
     }
 
     //NOT IMPLEMENTED

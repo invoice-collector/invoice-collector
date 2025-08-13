@@ -60,6 +60,7 @@ export class Driver {
     page: PageWithCursor | null;
     downloadPath: string;
     puppeteerConfig: Options;
+    mustBlockImages: boolean;
 
     constructor(collector: WebCollector) {
         this.collector = collector;
@@ -67,6 +68,8 @@ export class Driver {
         this.page = null;
         this.downloadPath = Driver.getDownloadPath();
         this.puppeteerConfig = Driver.getPuppeteerConfig(this.downloadPath);
+        // Block images if collector does not implement cloudflare captcha
+        this.mustBlockImages = collector.config.captcha !== CollectorCaptcha.CLOUDFLARE
     }
 
     async open(proxy: Proxy | null = null) {
@@ -86,12 +89,12 @@ export class Driver {
         this.browser = connectResult.browser;
         this.page = connectResult.page;
 
-        // Block images if collector does not implement cloudflare captcha
-        if (this.collector.config.captcha !== CollectorCaptcha.CLOUDFLARE) {
+        // If must block images
+        if (this.mustBlockImages) {
             await this.page.setRequestInterception(true);
             this.page.on("request", (request) => {
                 if (!request.isInterceptResolutionHandled()) {
-                    if (request.resourceType() === "image") {
+                    if (request.resourceType() === "image" && this.mustBlockImages) {
                         request.abort();
                     } else {
                         request.continue();
@@ -372,7 +375,7 @@ export class Driver {
         return await this.page.screenshot({encoding: 'base64'});
     }
 
-    async downloadFile(url: string): Promise<string | null> {
+    async downloadFile(url: string): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
@@ -389,7 +392,7 @@ export class Driver {
         return await this.waitForFileToDownload();
     }
 
-    async waitForFileToDownload(raiseException: boolean = true): Promise<string | null> {
+    async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
         // Wait for file to download
         const file = await this.waitFor(async (driver) => {
             const files = fs.readdirSync(this.downloadPath).filter(file => !file.endsWith('.crdownload'));
@@ -400,7 +403,7 @@ export class Driver {
 
         // Check if no file found
         if (file === null) {
-            return null;
+            throw new LoggableError(`No file downloaded after ${Driver.DEFAULT_DOWNLOAD_TIMEOUT}ms`, this.collector);
         }
 
         // Read the file

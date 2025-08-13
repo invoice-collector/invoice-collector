@@ -31,7 +31,15 @@ export class CallbackHandler {
             type: "invoice",
             collector: collector_id,
             remote_id: remote_id,
-            invoice
+            invoice: {
+                id: invoice.id,
+                timestamp: invoice.timestamp,
+                link: invoice.link,
+                collected_timestamp: invoice.collected_timestamp,
+                amount: invoice.amount,
+                mimetype: invoice.mimetype,
+                data: invoice.data
+            }
         });
         console.log(`Callback ${this.callback} successfully reached, invoice sent`);
     }

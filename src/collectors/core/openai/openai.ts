@@ -105,6 +105,11 @@ export class OpenaiCollector extends WebCollector {
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        return await this.download_link(driver, invoice);
+        return {
+            ...invoice,
+            documents: [
+                await this.download_link(driver, invoice.link)
+            ]
+        };
     }
 }

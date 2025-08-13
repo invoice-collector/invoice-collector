@@ -74,7 +74,12 @@ export class OvhCollector extends ApiCollector {
     
     // Define custom method to download invoice
     async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
-        return await this.download_direct_link(invoice);
+        return {
+            ...invoice,
+            document: [
+                await this.download_direct_link(invoice)
+            ]
+        }
     }
 
     // Make request to OVH API

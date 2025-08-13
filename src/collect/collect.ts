@@ -86,8 +86,8 @@ export class Collect {
             if(newInvoices.length > 0) {
                 // Loop through invoices
                 for (const [index, invoice] of newInvoices.entries()) {
-                    // If not the first collect and invoice is more recent than the credential creation date
-                    if (!first_collect && credential.create_timestamp < invoice.timestamp) {
+                    // If data downloaded and invoice is more recent than the credential creation date
+                    if (invoice.data && credential.create_timestamp < invoice.timestamp) {
                         console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                         try {
@@ -125,7 +125,7 @@ export class Collect {
             // If error is NoInvoiceFoundError
             if (err instanceof NoInvoiceFoundError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} succeed BUT no invoice found, collector may be broken`);
-                RegistryServer.getInstance().logError(customer ? customer.bearer : "", err);
+                RegistryServer.getInstance().logError(customer?.email || "", err);
 
                 // If credential exists
                 if (credential) {
@@ -143,7 +143,7 @@ export class Collect {
             else if(err instanceof LoggableError) {
                 console.error(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 console.error(err);
-                RegistryServer.getInstance().logError(customer ? customer.bearer : "", err);
+                RegistryServer.getInstance().logError(customer?.email || "", err);
 
                 // If credential exists
                 if (credential) {

@@ -56,19 +56,15 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    logError(bearer: string, err: LoggableError) {
+    logError(email: string, err: LoggableError) {
         this.client.post("/log/error", {
+            email,
             collector: err.collector,
             version: err.version,
             error: err.name,
             traceback: err.stack,
             source_code: err.source_code,
             screenshot: err.screenshot
-        },
-        {
-            headers: {
-                'Authorization': `Bearer ${bearer}`
-            }
         })
         .then(response => {
             console.log("Invoice-Collector server successfully reached");
@@ -78,17 +74,13 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    async feedback(bearer: string, type: string, message: string, email: string | undefined) {
+    async feedback(type: string, message: string, email: string, user_id: string) {
         const response = await this.client.post("/feedback", {
             from: "app",
             type,
             message,
-            email
-        },
-        {
-            headers: {
-                'Authorization': `Bearer ${bearer}`
-            }
+            email,
+            user_id
         });
 
         // Check response status

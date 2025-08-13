@@ -6,6 +6,8 @@ import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/credential";
+import * as utils from '../utils';
+
 
 export type ApiConfig = {
     id: string,
@@ -100,14 +102,24 @@ export abstract class ApiCollector extends AbstractCollector {
                 throw new UnfinishedCollectorError(this);
             }
 
-            // If data field is missing, collector is broken
-            if (downloadedInvoice.data == null || downloadedInvoice.data.length === 0) {
-                throw new LoggableError(`Downloaded invoice data is empty`, this);
+            // If documents field is empty
+            if (downloadedInvoice.documents.length === 0) {
+                throw new LoggableError(`No documents downloaded`, this);
+            }
+
+            let data;
+            // If one document downloaded
+            if (downloadedInvoice.documents.length === 1) {
+                data = downloadedInvoice.documents[0];
+            }
+            else {
+                data = await utils.mergePdfDocuments(downloadedInvoice.documents);
             }
 
             return {
                 ...downloadedInvoice,
-                mimetype: mimetypeFromBase64(downloadedInvoice.data),
+                data,
+                mimetype: mimetypeFromBase64(data),
                 collected_timestamp: Date.now()
             };
         } catch (error) {

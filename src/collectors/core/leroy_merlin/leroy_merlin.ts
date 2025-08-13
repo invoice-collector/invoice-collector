@@ -89,6 +89,11 @@ export class LeroyMerlinCollector extends WebCollector {
         // It can take few hours for the invoice to be available.
         // Next time the button will be clicked, the invoice will be effectively downloaded.
         await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD);
-        return await this.download_from_file(driver, invoice);
+        return {
+            ...invoice,
+            documents: [
+                await this.download_from_file(driver)
+            ]
+        };
     }
 }
