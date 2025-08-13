@@ -277,8 +277,17 @@ export abstract class WebCollector extends AbstractCollector {
     }
 
     async download_webpage(driver: Driver, link: string): Promise<string> {
+        // Get current value
+        const mustBlockImagesPreviousValue = driver.mustBlockImages;
+        // Enable image download
+        driver.mustBlockImages = false;
+        // Go to webpage
         await driver.goto(link);
-        return await driver.pdf();
+        // Download as PDF
+        const data = await driver.pdf();
+        // Restore previous value
+        driver.mustBlockImages = mustBlockImagesPreviousValue;
+        return data;
     }
 
     async download_from_file(driver: Driver): Promise<string> {

@@ -130,7 +130,9 @@ export class AmazonCollector extends WebCollector {
                 amount,
                 link
             };
-        }));
+        })
+        .filter((invoice: any) => invoice.timestamp + 48 * 60 * 60 * 1000 < Date.now())
+    );
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
@@ -142,11 +144,6 @@ export class AmazonCollector extends WebCollector {
 
         // Get invoices link
         const invoicesLink = await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
-
-        console.log("----------")
-        console.log("orderLink", orderLink)
-        console.log("invoicesLink", invoicesLink)
-        console.log("----------")
 
         let documents: string[] = [
             await this.download_webpage(driver, orderLink)
