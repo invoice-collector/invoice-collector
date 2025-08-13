@@ -56,19 +56,15 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    logError(bearer: string, err: LoggableError) {
+    logError(email: string, err: LoggableError) {
         this.client.post("/log/error", {
+            email,
             collector: err.collector,
             version: err.version,
             error: err.name,
             traceback: err.stack,
             source_code: err.source_code,
             screenshot: err.screenshot
-        },
-        {
-            headers: {
-                'Authorization': `Bearer ${bearer}`
-            }
         })
         .then(response => {
             console.log("Invoice-Collector server successfully reached");
