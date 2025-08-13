@@ -6,6 +6,8 @@ import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/credential";
+import * as utils from '../utils';
+
 
 export type ApiConfig = {
     id: string,
@@ -111,7 +113,7 @@ export abstract class ApiCollector extends AbstractCollector {
                 data = downloadedInvoice.documents[0];
             }
             else {
-                throw new Error("Not implemented")
+                data = await utils.mergePdfDocuments(downloadedInvoice.documents);
             }
 
             return {

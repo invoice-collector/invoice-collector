@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import * as crypto from 'crypto';
 import date_fns from 'date-fns';
+import { PDFDocument } from 'pdf-lib';
 import { fr, enGB, enUS } from 'date-fns/locale';
 import { CompleteInvoice } from './collectors/abstractCollector';
 
@@ -66,6 +67,55 @@ export function mimetypeFromBase64(base64: string | null): string {
     }
     console.warn(`Unknown mimetype for base64 string starting with ${base64.slice(0, 10)}`);
     return 'application/octet-stream';
+}
+
+export async function mergePdfDocuments(documents: string[]): Promise<string> {
+    // Initialize document
+    const pdfDoc = await PDFDocument.create();
+
+    // For each document
+    for (const document of documents) {
+        // Get mimetype
+        const mimetype = mimetypeFromBase64(document);
+
+        // If mimetype is pdf
+        if(mimetype == "application/pdf") {
+            // Load PDF document and add each page to final pdf
+            const documentPdf = await PDFDocument.load(document);
+            const pages = await pdfDoc.copyPages(documentPdf, documentPdf.getPageIndices());
+            pages.forEach(page => pdfDoc.addPage(page));
+        }
+        else if (mimetype.startsWith("image/")) {
+            // Attach image to pdf
+            let image;
+            if (mimetype === "image/png") {
+                image = await pdfDoc.embedPng(document);
+            }
+            else if (mimetype === "image/jpg" || mimetype === "image/jpeg") {
+                image = await pdfDoc.embedJpg(document);
+            }
+            else {
+                throw new Error(`Cannot merge unsupported mimetype ${mimetype}`);
+            }
+
+            // Get image dimensions
+            const imageDims = image.scale(0.75);
+            // Add a blank page to the document
+            const page = pdfDoc.addPage()
+            // Draw the image in the center of the page
+            page.drawImage(image, {
+                x: page.getWidth() / 2 - imageDims.width / 2,
+                y: page.getHeight() / 2 - imageDims.height / 2,
+                width: imageDims.width,
+                height: imageDims.height,
+            });
+        }
+        else {
+            throw new Error(`Cannot merge unsupported mimetype ${mimetype}`);
+        }
+    }
+
+    return await pdfDoc.saveAsBase64();
 }
 
 export function generateVerificationCode(): string {
