@@ -141,10 +141,10 @@ export class AmazonCollector extends WebCollector {
         await driver.goto(invoice.link);
 
         // Get order link
-        const orderLink = await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
+        const orderLink = driver.origin() + await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
 
         // Get invoices link
-        const invoicesLink = await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
+        const invoicesLink = driver.origin() + await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
 
         let documents: string[] = [
             await this.download_webpage(driver, orderLink)
