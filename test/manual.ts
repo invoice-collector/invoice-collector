@@ -7,61 +7,141 @@ import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
-import { State } from '../src/model/credential';
+import { IcCredential, State } from '../src/model/credential';
 import { I18n } from '../src/i18n';
 import assert from 'assert';
+import * as crypto from 'crypto';
+import { DatabaseFactory } from '../src/database/databaseFactory';
+import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
+import { AbstractCollector } from '../src/collectors/abstractCollector';
+
+async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
+    await DatabaseFactory.getDatabase().connect();
+    const credential = await DatabaseFactory.getDatabase().getCredential(credential_id);
+    if(credential == null) {
+        throw new Error(`No credential with id "${credential_id}" found.`);
+    }
+    return credential;
+}
+
+async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
+    await SecretManagerFactory.getSecretManager().connect();
+    const secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
+    if(secret == null) {
+        throw new Error(`No secret with id "${credential.secret_manager_id}" found.`);
+    }
+    return secret;
+}
+
+async function updateSecret(credential: IcCredential | null, secret: Secret | null, secretHash: string | null): Promise<void> {
+    // If credential and secret and secretHash exists
+    if (credential && secret && secretHash) {
+        // Get new secret hash
+        const newSecretHash = getHashFromSecret(secret);
+        // If old hash and new hash are different, it means the secret has changed, it means login succeeded
+        if (secretHash != newSecretHash) {
+            // Update secret in secret manager
+            console.log(`Updating secret for credential ${credential.id}`);
+            await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, "test.override", secret);
+        }
+    }
+}
+
+function getHashFromSecret(secret: Secret): string {
+    return crypto.createHash('sha256').update(JSON.stringify(secret)).digest('hex');
+}
 
 (async () => {
     let id;
+    let credential: IcCredential | null = null;
+    let secret: Secret | null = null;
+    let secretHash: string | null = null;
+
+    let exited = false;
+    process.on('SIGINT', async function() {
+        console.log("Caught interrupt signal");
+        if(!exited) {
+            await updateSecret(credential, secret, secretHash);
+            exited = true;
+        }
+        process.exit();
+    });
+
     try {
+        // ---------- PART 1 : ASK COLLECTOR ID OR CREDENTIAL ID ----------
+
         // Get collector
         if(process.argv[2]) {
             id = process.argv[2]
-            console.log(`collector: ${id}`)
+            console.log(`collector id / credential id: ${id}`)
         }
         else {
-            id = prompt('collector: ');
+            id = prompt('collector id / credential id: ');
         }
+
+        // ---------- PART 2 : GET COLLECTOR AND SECRET ----------
 
         // Load collectors
-        CollectorLoader.load(id);
+        const loadedCollectors = CollectorLoader.load(id);
 
-        // Get collector
-        const collector = CollectorLoader.get(id);
+        // If collector loaded, it means it is a credential
+        let collector: AbstractCollector;
+        if(loadedCollectors.size == 0) {
+            console.log(`No collector found with id "${id}", trying to find credential...`);
+            // Get credential
+            credential = await getCredentialFromId(id);
+            // Get secret
+            secret = await getSecretFromCredential(credential);
+            // Load collectors
+            CollectorLoader.load(credential.collector_id);
+            // Get collector
+            collector = CollectorLoader.get(credential.collector_id);
 
-        // Check if collector not found
-        if(collector == null) {
-            throw new Error(`No collector with id "${id}" found.`);
+            // Mock the collector so that if login method is triggered, it raise an error
+            (collector as any).login = async () => {
+                throw new Error("Login method is not allowed");
+            };
         }
+        // If collector is found, build the secret
+        else {
+            // Get collector
+            collector = CollectorLoader.get(id);
 
-        let secret: Secret = {
-            params: {},
-            cookies: null,
-            localStorage: null
-        }
-        let argv_index = 3;
+            // Build secret
+            secret = {
+                params: {},
+                cookies: null,
+                localStorage: null
+            }
+            let argv_index = 3;
 
-        // Loop throught each config
-        for(const param_key of Object.keys(collector.config.params)) {
-            if(process.argv[argv_index]) {
-                secret.params[param_key] = process.argv[argv_index]
-                if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
-                    console.log(`${param_key}: <hidden>`)
+            // Loop throught each config
+            for(const param_key of Object.keys(collector.config.params)) {
+                if(process.argv[argv_index]) {
+                    secret.params[param_key] = process.argv[argv_index]
+                    if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
+                        console.log(`${param_key}: <hidden>`)
+                    }
+                    else {
+                        console.log(`${param_key}: ${process.argv[argv_index]}`)
+                    }
                 }
                 else {
-                    console.log(`${param_key}: ${process.argv[argv_index]}`)
+                    if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
+                        secret.params[param_key] = prompt.hide(`${param_key}: `);
+                    }
+                    else {
+                        secret.params[param_key] = prompt(`${param_key}: `);
+                    }
                 }
+                argv_index++;
             }
-            else {
-                if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
-                    secret.params[param_key] = prompt.hide(`${param_key}: `);
-                }
-                else {
-                    secret.params[param_key] = prompt(`${param_key}: `);
-                }
-            }
-            argv_index++;
         }
+
+        // Compute secret hash
+        secretHash = await getHashFromSecret(secret);
+
+        // ---------- PART 3 : PERFORM COLLECT ----------
 
         // Collect invoices
         const collect = new Collect("")
@@ -75,6 +155,8 @@ import assert from 'assert';
 
         const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], null);
         console.log(`${newInvoices.length} invoices downloaded`);
+
+        // ---------- PART 4 : SAVE AND CHECK INVOICES ----------
 
         for (const invoice of newInvoices) {
             // If data is not null
@@ -115,5 +197,8 @@ import assert from 'assert';
                 fs.writeFileSync(`./media/${id}_source_code.html`, Buffer.from(error.source_code, 'base64'));
             }
         }
+    }
+    finally {
+        await updateSecret(credential, secret, secretHash);
     }
 })();

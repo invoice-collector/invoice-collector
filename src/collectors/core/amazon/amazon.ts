@@ -122,7 +122,7 @@ export class AmazonCollector extends WebCollector {
                 const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
                 const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
                 const date = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
-                const link = await order.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
+                const link = driver.origin() + await order.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
                 const timestamp = timestampFromString(date, 'd MMMM yyyy', 'fr');
 
                 return {

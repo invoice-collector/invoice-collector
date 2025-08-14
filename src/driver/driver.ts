@@ -125,6 +125,13 @@ export class Driver {
         return this.page.url();
     }
 
+    origin(): string {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        return new URL(this.page.url()).origin;
+    }
+
     // GOTO
 
     async goto(url, network_request: string = ""): Promise<{requestBody: any, responseBody: any}> {
@@ -266,7 +273,7 @@ export class Driver {
             }
             return '';
         }
-        return await element.element.evaluate((el, attr) => el[attr], attributeName);
+        return await element.element.evaluate((el, attr) => el.getAttribute(attr) ?? el[attr], attributeName);
     }
 
     async getAttributes(selector, attributeName, {
@@ -278,7 +285,7 @@ export class Driver {
         }
         await this.getElement(selector, { raiseException, timeout });
         return await this.page.$$eval(selector.selector, (elements, attr) => {
-            return elements.map(element => element[attr]);
+            return elements.map(element => element.getAttribute(attr) ?? element[attr]);
         }, attributeName);
     }
 
@@ -554,7 +561,7 @@ export class Element {
     }
 
     async getAttribute(selector, attribute: string): Promise<string> {
-        return await this.element.$eval(selector.selector, (element, attr) => element[attr], attribute);
+        return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
     }
 
     async dropdownSelect(value: string): Promise<void> {
