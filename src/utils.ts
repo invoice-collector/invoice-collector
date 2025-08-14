@@ -45,7 +45,19 @@ export function timestampFromString(date: string, format: string, locale: string
     };
 
     const dateFnsLocale = fnsLocales[trim(locale).toLowerCase()];
-    const parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: dateFnsLocale });
+    let parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: dateFnsLocale });
+
+    // Check if parsing failed
+    if (isNaN(parsedDate.getTime())) {
+        // Try to do it with default locale
+        parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: enUS });
+    
+        // Check if parsing failed again
+        if (isNaN(parsedDate.getTime())) {
+            throw new Error(`Unable to parse date: ${date} with format: ${format} and locale: ${locale}`);
+        }
+    }
+
     return parsedDate.setUTCMilliseconds(0);
 }
 
