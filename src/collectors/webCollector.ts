@@ -30,6 +30,7 @@ export type WebConfig = {
     entryUrl: string,
     useProxy?: boolean,
     captcha?: CollectorCaptcha,
+    loadImages?: boolean,
     autoLogin?: {
         cookieNames?: string[],
         localStorageKeys?: string[]
@@ -46,6 +47,7 @@ export abstract class WebCollector extends AbstractCollector {
             type: CollectorType.WEB,
             useProxy: config.useProxy === undefined ? true : config.useProxy,
             state: config.state || CollectorState.ACTIVE,
+            loadImages: config.loadImages === undefined ? config.captcha == CollectorCaptcha.CLOUDFLARE : config.loadImages,
             autoLogin: config.autoLogin || {
                 cookieNames: [],                // Take all cookies by default
                 localStorageKeys: undefined     // Take no localStorage by default
@@ -278,15 +280,15 @@ export abstract class WebCollector extends AbstractCollector {
 
     async download_webpage(driver: Driver, link: string): Promise<string> {
         // Get current value
-        const mustBlockImagesPreviousValue = driver.mustBlockImages;
-        // Enable image download
-        driver.mustBlockImages = false;
+        const loadImagesPreviousValue = driver.collector.config.loadImages;
+        // Allow loading images so that the invoice is fully rendered
+        driver.collector.config.loadImages = true;
         // Go to webpage
         await driver.goto(link);
         // Download as PDF
         const data = await driver.pdf();
         // Restore previous value
-        driver.mustBlockImages = mustBlockImagesPreviousValue;
+        driver.collector.config.loadImages = loadImagesPreviousValue;
         return data;
     }
 

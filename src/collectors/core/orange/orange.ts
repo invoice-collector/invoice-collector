@@ -9,7 +9,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "4",
+        version: "5",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         params: {
@@ -28,11 +28,16 @@ export class OrangeCollector extends WebCollector {
         },
         entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
         useProxy: false, // TODO: Proxy is not compatible with Orange
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.DEVELOPMENT,
+        loadImages: true
     }
 
     constructor() {
         super(OrangeCollector.CONFIG);
+    }
+
+    async is_logged_in (driver: Driver): Promise<boolean> {
+        return !driver.url().includes("login.orange");
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
@@ -63,8 +68,25 @@ export class OrangeCollector extends WebCollector {
         await driver.leftClick(OrangeSelectors.BUTTON_SKIP_2FA, { raiseException: false, timeout: 2000 });
     }
 
-    async collect(driver: Driver, params: any): Promise<void> {
-        // TODO : Implement the rest of the collector
+    async collect(driver: Driver, params: any): Promise<Invoice[] |void> {
+
+        const isPro = driver.url().includes("espaceclientpro.orange.fr");
+
+        // If isPro, go to pro contracts
+        if (isPro) {
+            const contractSelected = driver.url().includes("/contracts/");
+
+            // If contract is not selected
+            if (!contractSelected) {
+                return; // Return void to trigger UnfinishedCollectorError
+            }
+
+            // If contract is selected, go to bills
+            await driver.goto(`${driver.url()}/bills`);
+            return; // Return void to trigger UnfinishedCollectorError
+        }
+
+        return; // Return void to trigger UnfinishedCollectorError
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<void> {

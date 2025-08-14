@@ -60,7 +60,6 @@ export class Driver {
     page: PageWithCursor | null;
     downloadPath: string;
     puppeteerConfig: Options;
-    mustBlockImages: boolean;
 
     constructor(collector: WebCollector) {
         this.collector = collector;
@@ -68,8 +67,6 @@ export class Driver {
         this.page = null;
         this.downloadPath = Driver.getDownloadPath();
         this.puppeteerConfig = Driver.getPuppeteerConfig(this.downloadPath);
-        // Block images if collector does not implement cloudflare captcha
-        this.mustBlockImages = collector.config.captcha !== CollectorCaptcha.CLOUDFLARE
     }
 
     async open(proxy: Proxy | null = null) {
@@ -90,11 +87,11 @@ export class Driver {
         this.page = connectResult.page;
 
         // If must block images
-        if (this.mustBlockImages) {
+        if (this.collector.config.loadImages === false) {
             await this.page.setRequestInterception(true);
             this.page.on("request", (request) => {
                 if (!request.isInterceptResolutionHandled()) {
-                    if (request.resourceType() === "image" && this.mustBlockImages) {
+                    if (request.resourceType() === "image" && this.collector.config.loadImages === false) {
                         request.abort();
                     } else {
                         request.continue();
@@ -164,7 +161,7 @@ export class Driver {
             });
 
             // Navigate to the page
-            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
+            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 60000});
 
             // Wait for the network request
             const response = await urlPromise;
@@ -174,7 +171,7 @@ export class Driver {
         }
         else {
             // Navigate to the page
-            const response = await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 0});
+            const response = await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 30000});
             // Check if response is 404
             if (response && response.status() == 404) {
                 throw new LoggableError(`Failed to navigate to ${url}, page not found 404`, this.collector);
