@@ -156,7 +156,7 @@ function getHashFromSecret(secret: Secret): string {
         const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], null);
         console.log(`${newInvoices.length} invoices downloaded`);
 
-        // ---------- PART 4 : SAVE AND CHECK INVOICES ----------
+        // ---------- PART 4 : SAVE INVOICES ----------
 
         for (const invoice of newInvoices) {
             // If data is not null
@@ -176,7 +176,11 @@ function getHashFromSecret(secret: Secret): string {
                 timestamp: invoice.timestamp,
                 mimetype: invoice.mimetype
             })
+        }
 
+        // ---------- PART 5 : CHECK INVOICES ----------
+
+        for (const invoice of newInvoices) {
             assert(invoice.id.length > 0, `Invoice id is empty`);
             assert(invoice.timestamp > 0, `Timestamp ${invoice.timestamp} is not greater than 0`);
             assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
