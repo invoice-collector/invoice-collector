@@ -266,7 +266,7 @@ export class Driver {
             }
             return '';
         }
-        return await element.element.evaluate((el, attr) => el[attr], attributeName);
+        return await element.element.evaluate((el, attr) => el.getAttribute(attr) ?? el[attr], attributeName);
     }
 
     async getAttributes(selector, attributeName, {
@@ -278,7 +278,7 @@ export class Driver {
         }
         await this.getElement(selector, { raiseException, timeout });
         return await this.page.$$eval(selector.selector, (elements, attr) => {
-            return elements.map(element => element[attr]);
+            return elements.map(element => element.getAttribute(attr) ?? element[attr]);
         }, attributeName);
     }
 
@@ -554,7 +554,7 @@ export class Element {
     }
 
     async getAttribute(selector, attribute: string): Promise<string> {
-        return await this.element.$eval(selector.selector, (element, attr) => element[attr], attribute);
+        return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
     }
 
     async dropdownSelect(value: string): Promise<void> {
