@@ -81,7 +81,7 @@ export const AmazonSelectors = {
     // DOCUMENTS PAGE
 
     CONTAINER_ORDER_LINK: {
-        selector: "a[href^='/gp/css/summary']",
+        selector: "a[href*='summary']",
         info: "order link"
     },
     CONTAINER_INVOICES: {
