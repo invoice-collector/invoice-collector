@@ -125,6 +125,13 @@ export class Driver {
         return this.page.url();
     }
 
+    origin(): string {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        return new URL(this.page.url()).origin;
+    }
+
     // GOTO
 
     async goto(url, network_request: string = ""): Promise<{requestBody: any, responseBody: any}> {
