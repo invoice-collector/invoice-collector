@@ -40,4 +40,23 @@ export const OrangeSelectors = {
         selector: "button[data-testid='link-aba-later']",
         info: "skip 2FA button"
     },
+
+    // INVOICE PAGE
+
+    CONTAINER_INVOICE: {
+        selector: "#bill-archive > ul > li",
+        info: "invoice container"
+    },
+    BUTTON_DOWNLOAD: {
+        selector: "li .item-list-button-label",
+        info: "download button"
+    },
+    CONTAINER_DATE: {
+        selector: "li .item-list-button-label",
+        info: "invoice date container"
+    },
+    CONTAINER_AMOUNT: {
+        selector: "mikado-bill-amount span[data-test='amount']",
+        info: "invoice amount container"
+    }
 }

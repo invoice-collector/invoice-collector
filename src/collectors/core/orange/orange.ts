@@ -36,6 +36,10 @@ export class OrangeCollector extends WebCollector {
         super(OrangeCollector.CONFIG);
     }
 
+    async is_logged_in (driver: Driver): Promise<boolean> {
+        return !driver.url().includes("login.orange");
+    }
+
     async login(driver: Driver, params: any): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(OrangeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
@@ -64,8 +68,25 @@ export class OrangeCollector extends WebCollector {
         await driver.leftClick(OrangeSelectors.BUTTON_SKIP_2FA, { raiseException: false, timeout: 2000 });
     }
 
-    async collect(driver: Driver, params: any): Promise<void> {
-        // TODO : Implement the rest of the collector
+    async collect(driver: Driver, params: any): Promise<Invoice[] |void> {
+
+        const isPro = driver.url().includes("espaceclientpro.orange.fr");
+
+        // If isPro, go to pro contracts
+        if (isPro) {
+            const contractSelected = driver.url().includes("/contracts/");
+
+            // If contract is not selected
+            if (!contractSelected) {
+                return; // Return void to trigger UnfinishedCollectorError
+            }
+
+            // If contract is selected, go to bills
+            await driver.goto(`${driver.url()}/bills`);
+            return; // Return void to trigger UnfinishedCollectorError
+        }
+
+        return; // Return void to trigger UnfinishedCollectorError
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<void> {
