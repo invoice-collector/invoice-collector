@@ -16,6 +16,7 @@ import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory
 import { AbstractCollector } from '../src/collectors/abstractCollector';
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
+    await DatabaseFactory.getDatabase().connect();
     const credential = await DatabaseFactory.getDatabase().getCredential(credential_id);
     if(credential == null) {
         throw new Error(`No credential with id "${credential_id}" found.`);
@@ -24,6 +25,7 @@ async function getCredentialFromId(credential_id: string): Promise<IcCredential>
 }
 
 async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
+    await SecretManagerFactory.getSecretManager().connect();
     const secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
     if(secret == null) {
         throw new Error(`No secret with id "${credential.secret_manager_id}" found.`);
@@ -31,11 +33,21 @@ async function getSecretFromCredential(credential: IcCredential): Promise<Secret
     return secret;
 }
 
-async function updateSecret(credential: IcCredential, secret: Secret): Promise<void> {
-    await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, "test.override", secret);
+async function updateSecret(credential: IcCredential | null, secret: Secret | null, secretHash: string | null): Promise<void> {
+    // If credential and secret and secretHash exists
+    if (credential && secret && secretHash) {
+        // Get new secret hash
+        const newSecretHash = getHashFromSecret(secret);
+        // If old hash and new hash are different, it means the secret has changed, it means login succeeded
+        if (secretHash != newSecretHash) {
+            // Update secret in secret manager
+            console.log(`Updating secret for credential ${credential.id}`);
+            await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, "test.override", secret);
+        }
+    }
 }
 
-async function getHashFromSecret(secret: Secret): Promise<string> {
+function getHashFromSecret(secret: Secret): string {
     return crypto.createHash('sha256').update(JSON.stringify(secret)).digest('hex');
 }
 
@@ -44,6 +56,16 @@ async function getHashFromSecret(secret: Secret): Promise<string> {
     let credential: IcCredential | null = null;
     let secret: Secret | null = null;
     let secretHash: string | null = null;
+
+    let exited = false;
+    process.on('SIGINT', async function() {
+        console.log("Caught interrupt signal");
+        if(!exited) {
+            await updateSecret(credential, secret, secretHash);
+            exited = true;
+        }
+        process.exit();
+    });
 
     try {
         // ---------- PART 1 : ASK COLLECTOR ID OR CREDENTIAL ID ----------
@@ -74,6 +96,11 @@ async function getHashFromSecret(secret: Secret): Promise<string> {
             CollectorLoader.load(credential.collector_id);
             // Get collector
             collector = CollectorLoader.get(credential.collector_id);
+
+            // Mock the collector so that if login method is triggered, it raise an error
+            (collector as any).login = async () => {
+                throw new Error("Login method is not allowed");
+            };
         }
         // If collector is found, build the secret
         else {
@@ -172,19 +199,6 @@ async function getHashFromSecret(secret: Secret): Promise<string> {
         }
     }
     finally {
-        // If secret and credential exists
-        if (secret && credential && secretHash) {
-            // Get new secret hash
-            const newSecretHash = await getHashFromSecret(secret);
-            // If old hash and new hash are different, it means the secret has changed, it means login succeeded
-            if (secretHash != newSecretHash) {
-                // Update secret in secret manager
-                await updateSecret(credential, secret);
-                console.log(`Secret updated for credential ${credential.id}`);
-            }
-            else {
-                console.log(`Secret has not changed for credential ${credential.id}`);
-            }
-        }
+        await updateSecret(credential, secret, secretHash);
     }
 })();
