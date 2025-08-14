@@ -137,11 +137,13 @@ export class AmazonCollector extends WebCollector {
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
+        const origin = driver.origin();
+
         // Go to invoice link
         await driver.goto(invoice.link);
 
         // Get order link
-        const orderLink = await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
+        const orderLink = origin + await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
 
         // Get invoices link
         const invoicesLink = await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
@@ -151,7 +153,7 @@ export class AmazonCollector extends WebCollector {
         ];
 
         for (const invoiceLink of invoicesLink) {
-            documents.push(await this.download_link(driver, invoiceLink));
+            documents.push(await this.download_link(driver, origin + invoiceLink));
         }
 
         return {
