@@ -40,6 +40,7 @@ export abstract class ApiCollector extends AbstractCollector {
             type: CollectorType.API,
             useProxy: config.useProxy === undefined ? false : config.useProxy,
             state: config.state || CollectorState.ACTIVE,
+            loadImages: false, // API collectors do not need to load images
             autoLogin: {}   // No auto login by default
     });
         this.instance = null;

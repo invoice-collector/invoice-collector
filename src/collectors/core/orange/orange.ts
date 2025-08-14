@@ -28,7 +28,8 @@ export class OrangeCollector extends WebCollector {
         },
         entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
         useProxy: false, // TODO: Proxy is not compatible with Orange
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.DEVELOPMENT,
+        loadImages: true
     }
 
     constructor() {

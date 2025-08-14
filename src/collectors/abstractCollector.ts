@@ -44,6 +44,7 @@ export type Config = {
     entryUrl?: string,
     baseUrl?: string,
     captcha?: CollectorCaptcha,
+    loadImages: boolean,
     autoLogin: {
         cookieNames?: string[],
         localStorageKeys?: string[]
