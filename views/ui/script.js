@@ -15,23 +15,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }).catch(error => {
             console.error('Error getting the companies:', error);
         });
-
-    getIp()
-        .then(i => {
-            ip = i;
-        }).catch(error => {
-            console.error('Error getting the IP address:', error);
-        });
 });
 
 async function getCollectors() {
     const response = await fetch(`collectors?locale=${locale}&token=${token}`);
     return await response.json();
-}
-
-async function getIp() {
-    const response = await fetch("https://api.ipify.org?format=json")
-    return (await response.json()).ip;
 }
 
 function buildCredentialFooter(credential) {
@@ -269,8 +257,7 @@ async function addCredential(event) {
             params
         }),
         headers: {
-            'Content-Type': 'application/json',
-            'X-User-Ip': ip
+            'Content-Type': 'application/json'
         }
     });
 

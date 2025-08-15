@@ -405,7 +405,8 @@ export class Server {
         bearer: string | undefined,
         remote_id: string | undefined,
         locale: string | undefined,
-        email: string | undefined
+        email: string | undefined,
+        ip: string | undefined
     ): Promise<{
         id: string,
         customer_id: string,
@@ -467,8 +468,10 @@ export class Server {
                     validTimestamp: Date.now()
                 };
             }
+            // Get user location
+            const location = await ProxyFactory.getProxy().locate(ip);
             // Create user
-            user = new User(customer.id, remote_id, null, locale, termsConditions);
+            user = new User(customer.id, remote_id, location, locale, termsConditions);
         }
         else {
             // Update user locale
@@ -491,6 +494,15 @@ export class Server {
                     // This case can happend the DISABLE_VERIFICATION_CODE environment variable is changed after the user has been created.
                     // If terms and conditions are not required, set validTimestamp to now
                     user.termsConditions.validTimestamp = Date.now();
+                }
+            }
+            
+            // If user location is unknown
+            if (user.location === null) {
+                // Update user with location
+                user.location = await ProxyFactory.getProxy().locate(ip);
+                if (user.location != null) {
+                    await user.commit();
                 }
             }
         }
@@ -613,8 +625,7 @@ export class Server {
         user_id: string | undefined,
         token: any,
         collector_id: string | undefined,
-        params: any | undefined,
-        ip: string | string[] | undefined
+        params: any | undefined
     ): Promise<{
         id: string,
         user_id: string,
@@ -680,22 +691,6 @@ export class Server {
         // If customer cannot add more credentials, throw an error
         if (!canAddCredential) {
             throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
-        }
-
-        if (user.location === null) {
-            console.log(`User location not found, trying to locate it`);
-
-            // Update user with location
-            user.location = await ProxyFactory.getProxy().locate(ip);
-
-            if (user.location != null) {
-                console.log('User location found');
-                // Commit user
-                await user.commit();
-            }
-            else {
-                console.log('Could not find user location');
-            }
         }
 
         // Add credential to Secure Storage

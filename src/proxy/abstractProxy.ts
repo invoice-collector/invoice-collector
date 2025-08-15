@@ -22,17 +22,9 @@ export abstract class AbstractProxy {
 
     abstract get(location: Location | null): Promise<Proxy | null>;
 
-    async locate(ip: string | string[] | undefined): Promise<Location | null> {
-        // Check if ip is an array
-        if (Array.isArray(ip)) {
-            for (const i of ip) {
-                const location = await this._locate(i);
-                if (location) {
-                    return location;
-                }
-            }
-        }
-        else if (typeof ip === 'string') {
+    async locate(ip: string | undefined): Promise<Location | null> {
+        // Check if exists
+        if (ip) {
             return this._locate(ip);
         }
         return null;
