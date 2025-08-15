@@ -76,7 +76,7 @@ export class OvhCollector extends ApiCollector {
     async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
         return {
             ...invoice,
-            document: [
+            documents: [
                 await this.download_direct_link(invoice)
             ]
         }
