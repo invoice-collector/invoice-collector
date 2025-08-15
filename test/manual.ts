@@ -62,8 +62,12 @@ function getHashFromSecret(secret: Secret): string {
     process.on('SIGINT', async function() {
         console.log("Caught interrupt signal");
         if(!exited) {
-            await updateSecret(credential, secret, secretHash);
             exited = true;
+            await updateSecret(credential, secret, secretHash);
+
+            // Try to disconnect from the database
+            try{ DatabaseFactory.getDatabase().disconnect() }
+            catch {}
         }
         DatabaseFactory.getDatabase().disconnect();
         process.exit();
@@ -206,6 +210,9 @@ function getHashFromSecret(secret: Secret): string {
     }
     finally {
         await updateSecret(credential, secret, secretHash);
-        DatabaseFactory.getDatabase().disconnect();
+
+        // Try to disconnect from the database
+        try{ DatabaseFactory.getDatabase().disconnect() }
+        catch {}
     }
 })();
