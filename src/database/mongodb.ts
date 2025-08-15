@@ -78,7 +78,7 @@ export class MongoDB extends AbstractDatabase {
             bearer: customer.bearer,
             createdAt: customer.createdAt,
             theme: customer.theme,
-            collectors: customer.subscribedCollectors,
+            subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
