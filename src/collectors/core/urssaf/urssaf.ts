@@ -8,7 +8,7 @@ export class UrssafCollector extends WebCollector {
 
     static CONFIG = {
         id: "urssaf",
-        name: "URSAFF",
+        name: "URSSAF",
         description: "i18n.collectors.urssaf.description",
         version: "1",
         website: "https://urssaf.fr",
