@@ -171,6 +171,7 @@ export function createFakeInvoice(): { collector_id: string, remote_id: string, 
         link: "https://slicedinvoices.com/pdf/wordpress-pdf-invoice-plugin-sample.pdf",
         data: data,
         mimetype: mimetypeFromBase64(data),
+        metadata: { contract: "CON-1234" },
         collected_timestamp: Date.now()
     };
     return {

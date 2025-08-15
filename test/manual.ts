@@ -43,6 +43,7 @@ async function updateSecret(credential: IcCredential | null, secret: Secret | nu
             // Update secret in secret manager
             console.log(`Updating secret for credential ${credential.id}`);
             await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, "test.override", secret);
+            console.log(`Secret updated!`);
         }
     }
 }
@@ -64,6 +65,7 @@ function getHashFromSecret(secret: Secret): string {
             await updateSecret(credential, secret, secretHash);
             exited = true;
         }
+        DatabaseFactory.getDatabase().disconnect();
         process.exit();
     });
 
@@ -204,5 +206,6 @@ function getHashFromSecret(secret: Secret): string {
     }
     finally {
         await updateSecret(credential, secret, secretHash);
+        DatabaseFactory.getDatabase().disconnect();
     }
 })();

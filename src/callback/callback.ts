@@ -38,6 +38,7 @@ export class CallbackHandler {
                 collected_timestamp: invoice.collected_timestamp,
                 amount: invoice.amount,
                 mimetype: invoice.mimetype,
+                metadata: invoice.metadata,
                 data: invoice.data
             }
         });
