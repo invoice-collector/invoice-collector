@@ -55,17 +55,22 @@ export type Invoice = {
     id: string,
     timestamp: number,
     amount?: string,
-    link: string
+    link: string,
+    metadata?: Record<string, any>,
+    downloadData?: Record<string, any>
+
 }
 
 export type DownloadedInvoice = Invoice & {
-    documents: string[]
+    documents: string[],
+    metadata?: Record<string, any>,
 }
 
 export type CompleteInvoice = Invoice & {
     data: string | null,
     mimetype: string | null,
-    collected_timestamp: number | null
+    collected_timestamp: number | null,
+    metadata: Record<string, any>,
 }
 
 export abstract class AbstractCollector {

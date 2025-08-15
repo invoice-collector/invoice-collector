@@ -148,7 +148,9 @@ export abstract class WebCollector extends AbstractCollector {
                 id: newInvoice.id.trim(),
                 timestamp: newInvoice.timestamp,
                 amount: newInvoice.amount?.trim(),
-                link: newInvoice.link?.trim()
+                link: newInvoice.link?.trim(),
+                metadata: newInvoice.metadata || {},
+                downloadData: newInvoice.downloadData || {}
             }));
         } catch (error) {
             // Get url, source code and screenshot
@@ -209,7 +211,8 @@ export abstract class WebCollector extends AbstractCollector {
                 ...downloadedInvoice,
                 data,
                 mimetype: mimetypeFromBase64(data),
-                collected_timestamp: Date.now()
+                collected_timestamp: Date.now(),
+                metadata: downloadedInvoice.metadata || {}
             };
         } catch (error) {
             // Get url, source code and screenshot

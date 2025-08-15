@@ -274,7 +274,8 @@ export class Collect {
                                 ...newInvoice,
                                 data: null,
                                 mimetype: null,
-                                collected_timestamp: null
+                                collected_timestamp: null,
+                                metadata: {}
                             });
                         }
                     }

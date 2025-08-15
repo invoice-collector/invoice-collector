@@ -121,7 +121,8 @@ export abstract class ApiCollector extends AbstractCollector {
                 ...downloadedInvoice,
                 data,
                 mimetype: mimetypeFromBase64(data),
-                collected_timestamp: Date.now()
+                collected_timestamp: Date.now(),
+                metadata: downloadedInvoice.metadata || {}
             };
         } catch (error) {
             // Get url
