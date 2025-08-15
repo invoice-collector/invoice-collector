@@ -59,7 +59,7 @@ app.post('/api/v1/authorize', async (req, res) => {
     try {
         // Perform authorization
         console.warn('POST authorize (DEPRECATED)');
-        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email);
+        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email, req.body.ip);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -250,7 +250,7 @@ app.post('/api/v1/user', async (req, res) => {
     try {
         // Perform authorization
         console.log('POST user');
-        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email);
+        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email, req.body.ip);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -311,7 +311,7 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
     try {
         // Save credential
         console.log(`POST credential`);
-        const response = await server.post_credential(req.headers.authorization, req.params.user_id, undefined, req.body.collector, req.body.params, req.headers['x-user-ip']);
+        const response = await server.post_credential(req.headers.authorization, req.params.user_id, undefined, req.body.collector, req.body.params);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -326,7 +326,7 @@ app.post('/api/v1/credential', async (req, res) => {
     try {
         // Save credential
         console.log(`POST credential`);
-        const response = await server.post_credential(undefined, undefined, req.query.token, req.body.collector, req.body.params, req.headers['x-user-ip']);
+        const response = await server.post_credential(undefined, undefined, req.query.token, req.body.collector, req.body.params);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
