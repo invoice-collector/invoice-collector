@@ -11,7 +11,7 @@ export class OvhCollector extends ApiCollector {
         name: "OVH",
         description: "i18n.collectors.ovh.description",
         instructions: "i18n.collectors.ovh.instructions",
-        version: "1",
+        version: "2",
         website: "https://www.ovh.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_OVH.svg",
         params: {
@@ -76,7 +76,7 @@ export class OvhCollector extends ApiCollector {
     async download(instance: AxiosInstance, invoice: any): Promise<DownloadedInvoice> {
         return {
             ...invoice,
-            document: [
+            documents: [
                 await this.download_direct_link(invoice)
             ]
         }
