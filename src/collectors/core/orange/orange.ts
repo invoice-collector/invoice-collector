@@ -1,7 +1,8 @@
 import { WebCollector } from '../../webCollector';
 import { OrangeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { CollectorState, Invoice } from '../../abstractCollector';
+import { CollectorState, DownloadedInvoice, Invoice } from '../../abstractCollector';
+import * as utils from '../../../utils';
 
 export class OrangeCollector extends WebCollector {
 
@@ -9,7 +10,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "5",
+        version: "6",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         params: {
@@ -28,7 +29,6 @@ export class OrangeCollector extends WebCollector {
         },
         entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
         useProxy: false, // TODO: Proxy is not compatible with Orange
-        state: CollectorState.DEVELOPMENT,
         loadImages: true
     }
 
@@ -69,27 +69,67 @@ export class OrangeCollector extends WebCollector {
     }
 
     async collect(driver: Driver, params: any): Promise<Invoice[] |void> {
-
+        // Check if user is pro
         const isPro = driver.url().includes("espaceclientpro.orange.fr");
 
-        // If isPro, go to pro contracts
+        // If is pro
         if (isPro) {
             const contractSelected = driver.url().includes("/contracts/");
 
-            // If contract is not selected
+            // If contract is not selected, user has probably multiple contracts
             if (!contractSelected) {
+                console.warn("Orange Pro collector: multiple contracts detected, please select a contract to continue.");
                 return; // Return void to trigger UnfinishedCollectorError
             }
 
             // If contract is selected, go to bills
             await driver.goto(`${driver.url()}/bills`);
+
+            // Get current year invoices
+            return await this.getInvoices(driver);
+        }
+        else {
+            console.warn("User is not pro");
             return; // Return void to trigger UnfinishedCollectorError
         }
-
-        return; // Return void to trigger UnfinishedCollectorError
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<void> {
-        // TODO : Implement the downloader
+    async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
+        // Click on element
+        await invoice.downloadData?.element.click();
+
+        return {
+            ...invoice,
+            documents: [
+                await this.download_from_file(driver)
+            ]
+        };
+    }
+
+    // PRIVATE METHODS
+
+    private async getInvoices(driver: Driver): Promise<Invoice[]> {
+        // Get url before map
+        const link = driver.url();
+
+        // Get invoices elements 
+        const invoices = await driver.getElements(OrangeSelectors.CONTAINER_INVOICE, { raiseException: false, timeout: 5000 });
+
+        // Build return array
+        return await Promise.all(invoices.map(async invoice => {
+            const stringDate = await invoice.getAttribute(OrangeSelectors.CONTAINER_DATE, "textContent");
+            const amount = await invoice.getAttribute(OrangeSelectors.CONTAINER_AMOUNT, "textContent");
+            const timestamp = utils.timestampFromString(stringDate, 'MMMM yyyy', 'fr');
+            const date = new Date(timestamp);
+            const id = `${date.getFullYear()}-${date.getMonth() + 1}`;
+
+            return {
+                id,
+                timestamp,
+                link: link,
+                amount,
+                downloadData: {element: invoice}
+            };
+        }));
     }
 }

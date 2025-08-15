@@ -44,19 +44,15 @@ export const OrangeSelectors = {
     // INVOICE PAGE
 
     CONTAINER_INVOICE: {
-        selector: "#bill-archive > ul > li",
+        selector: "#bill-archive > ul > li, .latest-bill-container > ul > li",
         info: "invoice container"
     },
-    BUTTON_DOWNLOAD: {
-        selector: "li .item-list-button-label",
-        info: "download button"
-    },
     CONTAINER_DATE: {
-        selector: "li .item-list-button-label",
+        selector: ".item-container > div > span",
         info: "invoice date container"
     },
     CONTAINER_AMOUNT: {
-        selector: "mikado-bill-amount span[data-test='amount']",
+        selector: "span[data-test='amount'], div.fw-bold",
         info: "invoice amount container"
     }
 }
