@@ -1,3 +1,4 @@
+import { Temporal} from '@js-temporal/polyfill';
 import axios from 'axios';
 import { Customer } from '../model/customer';
 import { CompleteInvoice } from '../collectors/abstractCollector';
@@ -33,7 +34,8 @@ export class CallbackHandler {
             remote_id: remote_id,
             invoice: {
                 id: invoice.id,
-                timestamp: invoice.timestamp,
+                timestamp: Temporal.Instant.from(invoice.datetime).epochMilliseconds, // for backward compatibility
+                datetime: invoice.datetime,
                 link: invoice.link,
                 collected_timestamp: invoice.collected_timestamp,
                 amount: invoice.amount,

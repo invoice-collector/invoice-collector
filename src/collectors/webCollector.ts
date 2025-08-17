@@ -1,3 +1,4 @@
+import { Temporal} from '@js-temporal/polyfill';
 import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
@@ -38,6 +39,7 @@ export type WebConfig = {
 }
 
 export abstract class WebCollector extends AbstractCollector {
+    static DEFAULT_TIMEZONE = 'Europe/Paris';
 
     driver: Driver | null;
 
@@ -146,7 +148,7 @@ export abstract class WebCollector extends AbstractCollector {
 
             return invoices.map(newInvoice => ({
                 id: newInvoice.id.trim(),
-                timestamp: newInvoice.timestamp,
+                datetime: newInvoice.datetime || Temporal.Instant.fromEpochMilliseconds(newInvoice.timestamp || 0).toString({timeZone: WebCollector.DEFAULT_TIMEZONE}),
                 amount: newInvoice.amount?.trim(),
                 link: newInvoice.link?.trim(),
                 metadata: newInvoice.metadata || {},
@@ -209,6 +211,7 @@ export abstract class WebCollector extends AbstractCollector {
 
             return {
                 ...downloadedInvoice,
+                datetime: downloadedInvoice.datetime || "",
                 data,
                 mimetype: mimetypeFromBase64(data),
                 collected_timestamp: Date.now(),

@@ -3,6 +3,7 @@ const prompt = promptSync({});
 import dotenv from 'dotenv';
 dotenv.config();
 import fs from 'fs';
+import { Temporal} from '@js-temporal/polyfill';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
@@ -179,7 +180,7 @@ function getHashFromSecret(secret: Secret): string {
                 id: invoice.id,
                 amount: invoice.amount,
                 link: invoice.link,
-                timestamp: invoice.timestamp,
+                datetime: invoice.datetime,
                 mimetype: invoice.mimetype
             })
         }
@@ -188,8 +189,7 @@ function getHashFromSecret(secret: Secret): string {
 
         for (const invoice of newInvoices) {
             assert(invoice.id.length > 0, `Invoice id is empty`);
-            assert(invoice.timestamp > 0, `Timestamp ${invoice.timestamp} is not greater than 0`);
-            assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
+            assert.doesNotThrow(() => {Temporal.Instant.from(invoice.datetime);});
         }
     } catch (error) {
         if (error instanceof Error) {

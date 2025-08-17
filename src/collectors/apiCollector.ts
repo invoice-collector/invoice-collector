@@ -1,3 +1,4 @@
+import { Temporal} from '@js-temporal/polyfill';
 import axios, { AxiosInstance } from "axios";
 import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
@@ -31,6 +32,7 @@ export type ApiConfig = {
 }
 
 export abstract class ApiCollector extends AbstractCollector {
+    static DEFAULT_TIMEZONE = 'Europe/Paris';
 
     instance: AxiosInstance | null;
 
@@ -67,7 +69,14 @@ export abstract class ApiCollector extends AbstractCollector {
                 throw new UnfinishedCollectorError(this);
             }
 
-            return invoices;
+            return invoices.map(newInvoice => ({
+                id: newInvoice.id.trim(),
+                datetime: newInvoice.datetime || Temporal.Instant.fromEpochMilliseconds(newInvoice.timestamp || 0).toString({timeZone: ApiCollector.DEFAULT_TIMEZONE}),
+                amount: newInvoice.amount?.trim(),
+                link: newInvoice.link?.trim(),
+                metadata: newInvoice.metadata || {},
+                downloadData: newInvoice.downloadData || {}
+            }));
         } catch (error) {
             // Get url
             const url = this.instance?.defaults.baseURL || '';
@@ -119,6 +128,7 @@ export abstract class ApiCollector extends AbstractCollector {
 
             return {
                 ...downloadedInvoice,
+                datetime: downloadedInvoice.datetime || "",
                 data,
                 mimetype: mimetypeFromBase64(data),
                 collected_timestamp: Date.now(),
