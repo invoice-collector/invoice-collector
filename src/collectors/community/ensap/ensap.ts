@@ -116,13 +116,10 @@ export class EnsapCollector extends WebCollector {
 
         // Build return array
         return await Promise.all(responseBody.map(async document => {
-            const timestamp = new Date(document.dateDocument).getTime();
-            const link = "https://ensap.gouv.fr/prive/telechargerremunerationpaie/v1?documentUuid=" + document.documentUuid;
-
             return {
                 id: document.documentUuid,
-                timestamp,
-                link,
+                datetime: document.dateDocument,
+                link: `https://ensap.gouv.fr/prive/telechargerremunerationpaie/v1?documentUuid=${document.documentUuid}`,
                 amount: document.libelle3
             };
         }));
