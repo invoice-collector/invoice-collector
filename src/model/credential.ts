@@ -1,3 +1,4 @@
+import { Temporal} from '@js-temporal/polyfill';
 import { CompleteInvoice } from "../collectors/abstractCollector";
 import { DatabaseFactory } from "../database/databaseFactory";
 import { StatusError } from "../error";
@@ -77,7 +78,7 @@ export class IcCredential {
     create_timestamp: number;
     last_collect_timestamp: number;
     next_collect_timestamp: number;
-    invoices: { id: string; timestamp: number, collected_timestamp: number | null }[];
+    invoices: { id: string; datetime: string, collected_timestamp: number | null }[];
     state: State;
 
     constructor(
@@ -88,7 +89,7 @@ export class IcCredential {
         create_timestamp: number = Date.now(),
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
-        invoices: { id: string; timestamp: number, collected_timestamp: number | null }[] = [],
+        invoices: { id: string; datetime: string, collected_timestamp: number | null }[] = [],
         state: State = State.DEFAULT_STATE
     ) {
         this.id = "";
@@ -154,12 +155,12 @@ export class IcCredential {
                     // Compute the average time between invoices
                     let sum = 0;
                     for (let i = 1; i < invoices.length; i++) {
-                        sum += invoices[i].timestamp - invoices[i-1].timestamp;
+                        sum += Temporal.Instant.from(invoices[i].datetime).since(Temporal.Instant.from(invoices[i-1].datetime)).total("milliseconds");
                     }
                     let avg = sum / (invoices.length - 1);
 
                     // Compute theoretical next collect timestamp
-                    theoretical_next_collect_timestamp = invoices[invoices.length - 1].timestamp + avg;
+                    theoretical_next_collect_timestamp = Temporal.Instant.from(invoices[invoices.length - 1].datetime).add({milliseconds: avg}).epochMilliseconds;
 
                     // If theoretical next collect timestamp is before last collect timestamp, plan the next collect in one week
                     if (theoretical_next_collect_timestamp < this.last_collect_timestamp) {
@@ -180,13 +181,13 @@ export class IcCredential {
     addInvoice(invoice: CompleteInvoice) {
         this.invoices.push({
             id: invoice.id,
-            timestamp: invoice.timestamp,
+            datetime: invoice.datetime,
             collected_timestamp: invoice.collected_timestamp
         });
     }
 
     sortInvoices() {
-        // Order invoices by timestamp
-        this.invoices.sort((a, b) => a.timestamp - b.timestamp);
+        // Order invoices by datetime
+        this.invoices.sort((a, b) => Temporal.Instant.compare(Temporal.Instant.from(a.datetime), Temporal.Instant.from(b.datetime)));
     }
 }

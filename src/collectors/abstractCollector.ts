@@ -53,7 +53,8 @@ export type Config = {
 
 export type Invoice = {
     id: string,
-    timestamp: number,
+    timestamp?: number, // UTC timestamp in milliseconds elapsed since the UNIX epoch (DEPRECATED)
+    datetime?: string,  // datetime as an ISO-8601 string in the collector's local time zone with time offset
     amount?: string,
     link: string,
     metadata?: Record<string, any>,
@@ -63,10 +64,10 @@ export type Invoice = {
 
 export type DownloadedInvoice = Invoice & {
     documents: string[],
-    metadata?: Record<string, any>,
 }
 
 export type CompleteInvoice = Invoice & {
+    datetime: string,
     data: string | null,
     mimetype: string | null,
     collected_timestamp: number | null,

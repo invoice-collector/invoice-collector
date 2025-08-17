@@ -1,3 +1,4 @@
+import { Temporal} from '@js-temporal/polyfill';
 import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, CompleteInvoice } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
@@ -87,7 +88,7 @@ export class Collect {
                 // Loop through invoices
                 for (const [index, invoice] of newInvoices.entries()) {
                     // If data downloaded and invoice is more recent than the credential creation date
-                    if (invoice.data && credential.create_timestamp < invoice.timestamp) {
+                    if (invoice.data && credential.create_timestamp < Temporal.Instant.from(invoice.datetime).epochMilliseconds) {
                         console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                         try {
@@ -263,7 +264,7 @@ export class Collect {
                         }
 
                         // Order invoices by timestamp
-                        completeInvoices.sort((a, b) => a.timestamp - b.timestamp);
+                        completeInvoices.sort((a, b) => Temporal.Instant.compare(Temporal.Instant.from(a.datetime), Temporal.Instant.from(b.datetime)));
                     }
                     else {
                         console.log(`This is the first collect, do not download invoices`);
@@ -271,11 +272,15 @@ export class Collect {
                         // Add not downloaded invoice to the list
                         for(let newInvoice of newInvoices) {
                             completeInvoices.push({
-                                ...newInvoice,
+                                id: newInvoice.id,
+                                datetime: newInvoice.datetime || "",
+                                amount: newInvoice.amount,
+                                link: newInvoice.link,
+                                metadata: newInvoice.metadata || {},
+                                downloadData: newInvoice.metadata,
                                 data: null,
                                 mimetype: null,
-                                collected_timestamp: null,
-                                metadata: {}
+                                collected_timestamp: null
                             });
                         }
                     }
