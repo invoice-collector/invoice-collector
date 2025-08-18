@@ -311,7 +311,14 @@ app.post('/api/v1/user/:user_id/credential', async (req, res) => {
     try {
         // Save credential
         console.log(`POST credential`);
-        const response = await server.post_credential(req.headers.authorization, req.params.user_id, undefined, req.body.collector, req.body.params);
+        const response = await server.post_credential(
+            req.headers.authorization,
+            req.params.user_id,
+            undefined,
+            req.body.collector,
+            req.body.params,
+            req.body.download_from_timestamp
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');
@@ -326,7 +333,14 @@ app.post('/api/v1/credential', async (req, res) => {
     try {
         // Save credential
         console.log(`POST credential`);
-        const response = await server.post_credential(undefined, undefined, req.query.token, req.body.collector, req.body.params);
+        const response = await server.post_credential(
+            undefined,
+            undefined,
+            req.query.token,
+            req.body.collector,
+            req.body.params,
+            req.body.download_from_timestamp
+        );
 
         // Build response
         res.setHeader('Content-Type', 'application/json');

@@ -7,7 +7,8 @@ import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
-import { IcCredential, State } from '../src/model/credential';
+import { IcCredential } from '../src/model/credential';
+import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
 import assert from 'assert';
 import * as crypto from 'crypto';
@@ -159,7 +160,7 @@ function getHashFromSecret(secret: Secret): string {
             collect.twofa_promise.setCode(twofa_code);
         });
 
-        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, true, [], null);
+        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, Date.UTC(2000, 0, 1), [], null);
         console.log(`${newInvoices.length} invoices downloaded`);
 
         // ---------- PART 4 : SAVE INVOICES ----------
