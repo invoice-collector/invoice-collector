@@ -2,9 +2,10 @@ import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
 import { Customer, Stats } from "../model/customer";
 import { User } from "../model/user";
-import { IcCredential, State } from "../model/credential";
+import { IcCredential } from "../model/credential";
 import * as utils from "../utils";
 import { buildCustomerStatsPipeline } from "./mongodbConstants";
+import { State } from "../model/state";
 
 export class MongoDB extends AbstractDatabase {
 

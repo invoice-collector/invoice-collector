@@ -3,7 +3,7 @@ import { UnfinishedCollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
-import { State } from "../model/credential";
+import { State } from "../model/state";
 
 export type SketchConfig = {
     id: string,

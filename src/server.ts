@@ -6,7 +6,7 @@ import { generate_token } from './utils';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User } from './model/user';
 import { Customer, Stats } from './model/customer';
-import { IcCredential, State } from './model/credential';
+import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
@@ -17,6 +17,7 @@ import { CollectPool } from './collect/collectPool';
 import { Collect } from './collect/collect';
 import { I18n } from './i18n';
 import { Plan } from './model/plan';
+import { State } from './model/state';
 
 export class Server {
 
