@@ -1,5 +1,5 @@
 import { AbstractCollector, Invoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
-import { CollectorError } from '../error';
+import { UnfinishedCollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
@@ -36,10 +36,10 @@ export abstract class SketchCollector extends AbstractCollector {
     }
 
     async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]> {
-        return [];
+        throw new UnfinishedCollectorError(this);
     }
 
     async _download(invoice: Invoice): Promise<CompleteInvoice> {
-        throw new CollectorError("SketchCollector does not support downloading invoices", this);
+        throw new UnfinishedCollectorError(this);
     }
 }

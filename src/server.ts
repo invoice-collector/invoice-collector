@@ -682,7 +682,6 @@ export class Server {
                 customer.email,
                 user.id
             );
-            throw new StatusError(`The collector ${collector.config.id} is not implemented yet. We have been notified of your request and will try to implement it as soon as possible.`, 400);
         }
 
         // Check if customer can add more credentials
