@@ -2,7 +2,8 @@ import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, CompleteInvoice } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
-import { IcCredential, State } from "../model/credential";
+import { IcCredential } from "../model/credential";
+import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
 import { Location } from "../proxy/abstractProxy";
@@ -71,14 +72,11 @@ export class Collect {
                 throw new DesynchronizationError(credential.id, collector);
             }
 
-            // Compute if this is the first collect
-            const first_collect = !credential.last_collect_timestamp;
-
             // Get previous invoices
             const previousInvoices = credential.invoices.map((inv) => inv.id);
 
             // Collect invoices
-            const newInvoices = await this.collect_new_invoices(this.state, collector, secret, !first_collect, previousInvoices, user.location);
+            const newInvoices = await this.collect_new_invoices(this.state, collector, secret, credential.download_from_timestamp, previousInvoices, user.location);
 
             console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
@@ -87,7 +85,7 @@ export class Collect {
                 // Loop through invoices
                 for (const [index, invoice] of newInvoices.entries()) {
                     // If data downloaded and invoice is more recent than the credential creation date
-                    if (invoice.data && credential.create_timestamp < invoice.timestamp) {
+                    if (invoice.data && credential.download_from_timestamp <= invoice.timestamp) {
                         console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                         try {
@@ -226,7 +224,7 @@ export class Collect {
             state: State,
             collector: AbstractCollector,
             secret: Secret,
-            download: boolean,
+            download_from_timestamp: number,
             previousInvoices: any[],
             location: Location | null): Promise<CompleteInvoice[]> {  
 
@@ -245,31 +243,23 @@ export class Collect {
                 let completeInvoices: CompleteInvoice[] = [];
 
                 if(newInvoices.length > 0) {
-                    console.log(`Found ${invoices.length} invoices and ${newInvoices.length} are new`);
+                    console.log(`Found ${invoices.length} invoices, ${newInvoices.length} are new`);
+                    console.log(`Downloading invoices since ${new Date(download_from_timestamp).toISOString()}`);
 
-                    // Download new invoices if needed
-                    if(download) {
-                        console.log(`Downloading ${newInvoices.length} invoices`);
+                    // Set progress step to downloading
+                    state.update(State._6_DOWNLOADING);
 
-                        // Set progress step to downloading
-                        state.update(State._6_DOWNLOADING);
-
-                        // For each invoice
-                        for(let newInvoice of newInvoices) {
+                    // For each new invoice
+                    for(let newInvoice of newInvoices) {
+                        // If invoice is more recent than the download_from_timestamp
+                        if (download_from_timestamp <= newInvoice.timestamp) {
                             const completeInvoice = await collector._download(newInvoice);
 
                             console.log(`Invoice ${newInvoice.id} successfully downloaded`);
                             completeInvoices.push(completeInvoice);
                         }
-
-                        // Order invoices by timestamp
-                        completeInvoices.sort((a, b) => a.timestamp - b.timestamp);
-                    }
-                    else {
-                        console.log(`This is the first collect, do not download invoices`);
-
-                        // Add not downloaded invoice to the list
-                        for(let newInvoice of newInvoices) {
+                        else {
+                            // Add invoice without downloading it
                             completeInvoices.push({
                                 ...newInvoice,
                                 data: null,
@@ -279,6 +269,9 @@ export class Collect {
                             });
                         }
                     }
+
+                    // Order invoices by timestamp
+                    completeInvoices.sort((a, b) => a.timestamp - b.timestamp);
                 }
                 else {
                     console.log(`Found ${invoices.length} invoices but none are new`);

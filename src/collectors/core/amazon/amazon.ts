@@ -113,6 +113,22 @@ export class AmazonCollector extends WebCollector {
     }
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
+        const currentYear = new Date().getFullYear();
+
+        // Collect invoices from last year
+        let invoices: Invoice[] = await this.collectYear(driver, currentYear);
+
+        // Add invoices from last year
+        invoices = invoices.concat(await this.collectYear(driver, currentYear - 1));
+
+        // Return all collected invoices
+        return invoices;
+    }
+
+    private async collectYear(driver: Driver, year: number): Promise<Invoice[]> {
+        // Go to the orders page for the specified year
+        await driver.goto(`https://www.amazon.fr/your-orders/orders?timeFilter=year-${year}`);
+
         // Get all order ids
         const orders = await driver.getElements(AmazonSelectors.CONTAINER_ORDER, { raiseException: false, timeout: 5000 });
 

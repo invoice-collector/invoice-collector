@@ -6,7 +6,7 @@ import { generate_token } from './utils';
 import { CollectorLoader } from './collectors/collectorLoader';
 import { User } from './model/user';
 import { Customer, Stats } from './model/customer';
-import { IcCredential, State } from './model/credential';
+import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
 import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
@@ -17,6 +17,7 @@ import { CollectPool } from './collect/collectPool';
 import { Collect } from './collect/collect';
 import { I18n } from './i18n';
 import { Plan } from './model/plan';
+import { State } from './model/state';
 
 export class Server {
 
@@ -625,12 +626,14 @@ export class Server {
         user_id: string | undefined,
         token: any,
         collector_id: string | undefined,
-        params: any | undefined
+        params: any | undefined,
+        download_from_timestamp: number | undefined
     ): Promise<{
         id: string,
         user_id: string,
         note: string,
         create_timestamp: number,
+        download_from_timestamp: number,
         last_collect_timestamp: number,
         next_collect_timestamp: number,
         invoices: any[],
@@ -648,6 +651,11 @@ export class Server {
         // Check if params field is missing
         if(!params) {
             throw new MissingField("params");
+        }
+
+        // Check if download_from_timestamp is valid
+        if(download_from_timestamp != undefined && (typeof download_from_timestamp !== "number" || download_from_timestamp < 0)) {
+            throw new StatusError(`The field "download_from_timestamp" must be a positive number.`, 400);
         }
 
         // Check if terms and conditions have been accepted
@@ -701,11 +709,14 @@ export class Server {
         const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector.config.id}`, secret);
 
         // Create credential
+        const now = Date.now();
         let credential = new IcCredential(
             user.id,
             collector.config.id,
             note,
-            secret_manager_id
+            secret_manager_id,
+            now,
+            download_from_timestamp ?? now
         );
 
         // Compute next collect
@@ -736,6 +747,7 @@ export class Server {
             user_id: credential.user_id,
             note: credential.note,
             create_timestamp: credential.create_timestamp,
+            download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
             invoices: credential.invoices,

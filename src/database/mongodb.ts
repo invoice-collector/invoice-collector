@@ -2,9 +2,10 @@ import { MongoClient, Db, ObjectId } from "mongodb";
 import { AbstractDatabase } from "./abstractDatabase";
 import { Customer, Stats } from "../model/customer";
 import { User } from "../model/user";
-import { IcCredential, State } from "../model/credential";
+import { IcCredential } from "../model/credential";
 import * as utils from "../utils";
 import { buildCustomerStatsPipeline } from "./mongodbConstants";
+import { State } from "../model/state";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -337,6 +338,7 @@ export class MongoDB extends AbstractDatabase {
                 document.note,
                 document.secret_manager_id,
                 document.create_timestamp,
+                document.download_from_timestamp,
                 document.last_collect_timestamp,
                 document.next_collect_timestamp,
                 document.invoices,
@@ -363,6 +365,7 @@ export class MongoDB extends AbstractDatabase {
             document.note,
             document.secret_manager_id,
             document.create_timestamp,
+            document.download_from_timestamp,
             document.last_collect_timestamp,
             document.next_collect_timestamp,
             document.invoices,
@@ -382,6 +385,7 @@ export class MongoDB extends AbstractDatabase {
             note: credential.note,
             secret_manager_id: credential.secret_manager_id,
             create_timestamp: credential.create_timestamp,
+            download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
             invoices: credential.invoices,
