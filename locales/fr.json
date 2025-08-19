@@ -28,6 +28,7 @@
   "i18n.collectors.all.password.error": "Mot de passe incorrect",
   "i18n.collectors.all.password.placeholder": "Mot de passe du compte",
   "i18n.collectors.all.signup.error": "Aucun compte trouvé avec cet identifiant",
+  "i18n.collectors.all.authentication_error": "Erreur d'authentification. L'un de vos identifiants est incorrect.",
   "i18n.collectors.amazon.description": "Amazon est un site de commerce en ligne.",
   "i18n.collectors.amazon_business.company": "Nom de l'entreprise",
   "i18n.collectors.amazon_business.company.placeholder": "Nom de l'entreprise tel qu'affiché sur le site Amazon",

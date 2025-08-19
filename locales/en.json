@@ -28,6 +28,7 @@
   "i18n.collectors.all.password.error": "Incorrect password",
   "i18n.collectors.all.password.placeholder": "Password of the account",
   "i18n.collectors.all.signup.error": "No account found with these identifier",
+  "i18n.collectors.all.authentication_error": "Authentication error. One of your credentials is incorrect.",
   "i18n.collectors.amazon.description": "Amazon is an online marketplace.",
   "i18n.collectors.amazon_business.company": "Company name",
   "i18n.collectors.amazon_business.company.placeholder": "Name of the company as displayed on the Amazon website",
