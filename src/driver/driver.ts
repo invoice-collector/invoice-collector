@@ -525,6 +525,16 @@ export class Element {
     }
 
     /**
+     * Retrieves the associated element.
+     *
+     * @returns A promise that resolves to the ElementHandle of the associated element, or null if the element is not found.
+     */
+    async getElement(selector: any): Promise<Element | null> {
+        const elementHandle = await this.element.$(selector.selector);
+        return elementHandle ? new Element(elementHandle) : null;
+    }
+
+    /**
      * Retrieves the text content of the associated element.
      *
      * @param _default - A default string value.
