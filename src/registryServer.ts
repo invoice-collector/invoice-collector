@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from 'axios';
-import { LoggableError } from './error'
+import { fullStackTrace, LoggableError } from './error'
 import * as utils from './utils'
 import { TermsConditions } from './model/user';
 import { Server } from './server';
@@ -62,7 +62,7 @@ You are still able to use the product but some features may not work as expected
             collector: err.collector,
             version: err.version,
             error: err.name,
-            traceback: err.stack,
+            traceback: fullStackTrace(err),
             source_code: err.source_code,
             screenshot: err.screenshot
         })
