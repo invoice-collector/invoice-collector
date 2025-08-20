@@ -11,7 +11,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "14",
+        version: "15",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -144,7 +144,7 @@ export class AmazonCollector extends WebCollector {
         // For each other page
         for (const page of pages) {
             // Go to the page
-            await driver.goto(page);
+            await driver.goto(driver.origin() + page);
             // Collect invoices on the current page
             invoices = invoices.concat(await this.collectInvoicesOnScreen(driver));
         }
