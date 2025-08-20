@@ -170,11 +170,15 @@ export class Driver {
             return response;
         }
         else {
-            // Navigate to the page
-            const response = await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 60000});
-            // Check if response is 404
-            if (response && response.status() == 404) {
-                throw new LoggableError(`Failed to navigate to ${url}, page not found 404`, this.collector);
+            try {
+                // Navigate to the page
+                const response = await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 30000});
+                // Check if response is 404
+                if (response && response.status() == 404) {
+                    throw new LoggableError(`Failed to navigate to ${url}, page not found 404`, this.collector);
+                }
+            } catch (error) {
+                console.warn(`Failed to navigate to ${url}, navigation timeout`);
             }
             return {requestBody: null, responseBody: null};
         }
