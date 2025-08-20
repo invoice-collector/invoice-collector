@@ -11,7 +11,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "11",
+        version: "12",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
