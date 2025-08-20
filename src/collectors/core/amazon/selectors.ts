@@ -72,7 +72,7 @@ export const AmazonSelectors = {
         info: "other page button"
     },
     CONTAINER_ORDER: {
-        selector: ".order-card .order-header",
+        selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a)",
         info: "order container"
     },
     CONTAINER_ORDER_DATE: {
