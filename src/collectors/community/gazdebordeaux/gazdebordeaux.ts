@@ -66,62 +66,19 @@ export class GazDeBordeauxCollector extends ApiCollector {
             // Get invoices
             for (let invoice of documents.invoices) {
                 invoices.push({
-                    id: invoice.id,
+                    id: invoice.code,
                     timestamp: timestampFromString(invoice.date, "dd/MM/yyyy", 'fr'),
                     amount: `${invoice.amount} €`,
                     link: `https://espaceclient.gazdebordeaux.fr/api/document/download?contractId=${contract.id}&documentId=${invoice.id}&documentType=${invoice.type}`,
                     metadata: {
-                        name: invoice.type == "elec" ? `Facture d'électricité n°${invoice.code}` : (invoice.type == "gaz" ? `Facture de gaz n°${invoice.code}` : undefined),
+                        name: `Facture n°${invoice.code}`,
                         contractId: contract.id,
-                        pdl: contract.pdc || undefined,
-                        documentType: "invoice",
+                        pdl: contract.pdc,
                         type: invoice.type,
-                        invoiceCode: invoice.code
+                        documentId: invoice.id
                     }
                 })
             }
-
-            // Get contacts	
-            for (let contact of documents.contacts) {
-                invoices.push({
-                    id: crypto.createHash('sha256').update(contact.link).digest('hex'),
-                    timestamp: timestampFromString(contact.date, "dd/MM/yyyy", 'fr'),
-                    link: contact.link,
-                    metadata: {
-                        name: contact.name,
-                        contractId: contract.id,
-                        pdl: contract.pdc || undefined,
-                        documentType: "contact",
-                    }
-                })
-            }
-
-            // Get contractDocuments.termsAndCondition
-            invoices.push({
-                id: crypto.createHash('sha256').update(documents.contractDocuments.termsAndCondition.link).digest('hex'),
-                timestamp: timestampFromString(documents.contractDocuments.termsAndCondition.date, "dd/MM/yyyy", 'fr'),
-                link: documents.contractDocuments.termsAndCondition.link,
-                metadata: {
-                    name: documents.contractDocuments.termsAndCondition.name,
-                    contractId: contract.id,
-                    pdl: contract.pdc || undefined,
-                    documentType: "cgv",
-                }
-            })
-
-            // Get contractDocuments.pricingSheet
-            invoices.push({
-                id: documents.contractDocuments.pricingSheet.id,
-                timestamp: timestampFromString(documents.contractDocuments.pricingSheet.date, "dd/MM/yyyy", 'fr'),
-                link: `https://espaceclient.gazdebordeaux.fr/api/document/download?contractId=${contract.id}&documentId=${documents.contractDocuments.pricingSheet.id}&documentType=${documents.contractDocuments.pricingSheet.type}`,
-                metadata: {
-                    name: "Votre fiche tarifaire",
-                    contractId: contract.id,
-                    pdl: contract.pdc || undefined,
-                    documentType: "pricingSheet",
-                    type: documents.contractDocuments.pricingSheet.type
-                }
-            });
         }
 
         return invoices;
@@ -129,21 +86,13 @@ export class GazDeBordeauxCollector extends ApiCollector {
 
     // Define custom method to download invoice
     async download(instance: AxiosInstance, invoice: Invoice): Promise<DownloadedInvoice> {
-        let response;
-
-        if (invoice.link.includes("api/document/download")) {
-            response = await instance.post("/document/download", {
-                documentId: invoice.id,
-                documentType: invoice.metadata?.type,
-                contractId:invoice.metadata?.contractId
-            },{
-                responseType: 'arraybuffer',
-            });
-        } else {
-            response = await instance.get(invoice.link, {
-                responseType: 'arraybuffer',
-            });
-        }
+        let response = await instance.post("/document/download", {
+            documentId: invoice.metadata?.documentId,
+            documentType: invoice.metadata?.type,
+            contractId:invoice.metadata?.contractId
+        },{
+            responseType: 'arraybuffer',
+        });
 
         return {
             ...invoice,
