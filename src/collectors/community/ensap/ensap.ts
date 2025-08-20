@@ -32,7 +32,7 @@ export class EnsapCollector extends WebCollector {
             }
         },
         loginUrl: "https://ensap.gouv.fr/web/accueilnonconnecte",
-        entryUrl: "https://ensap.gouv.fr/web/remunerationpaie"
+        entryUrl: "https://ensap.gouv.fr/web/accueilconnecte"
     }
 
     constructor() {
@@ -98,7 +98,7 @@ export class EnsapCollector extends WebCollector {
                 return await login_alert.textContent("i18n.collectors.all.password.error");
             }
 
-            is_logged_in = (driver.url() === "https://ensap.gouv.fr/web/accueilconnecte");
+            is_logged_in = await this.is_logged_in(driver);
             count++;
         }
 
@@ -114,7 +114,7 @@ export class EnsapCollector extends WebCollector {
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
         // Get documents
-        const {requestBody, responseBody} = await driver.goto(EnsapCollector.CONFIG.entryUrl, "prive/remunerationpaie/v1");
+        const {requestBody, responseBody} = await driver.goto("https://ensap.gouv.fr/web/remunerationpaie", "prive/remunerationpaie/v1");
 
         // Build return array
         return await Promise.all(responseBody.map(async document => {
