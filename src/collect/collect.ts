@@ -236,14 +236,24 @@ export class Collect {
             }
 
             try {
-                const invoices = await collector._collect(state, secret, location, this.twofa_promise);
+                // Get invoices
+                const invoices = (await collector._collect(state, secret, location, this.twofa_promise))
 
-                // Get new invoices
-                const newInvoices = invoices.filter((inv) => !previousInvoices.includes(inv.id));
+                // Remove duplicates
+                const uniqueInvoices = invoices.filter((inv, index, self) =>
+                    index === self.findIndex((i) => i.id === inv.id)
+                );
+
+                // Get new invoices only
+                const newInvoices = uniqueInvoices.filter((inv) => !previousInvoices.includes(inv.id));
+
+                // Count number of invoices to download only
+                const invoicesToDownload = uniqueInvoices.filter((inv) => inv.timestamp >= download_from_timestamp).length;
+
                 let completeInvoices: CompleteInvoice[] = [];
 
                 if(newInvoices.length > 0) {
-                    console.log(`Found ${invoices.length} invoices, ${newInvoices.length} are new`);
+                    console.log(`Found ${uniqueInvoices.length} invoices, ${newInvoices.length} are new, ${invoicesToDownload} are to download`);
                     console.log(`Downloading invoices since ${new Date(download_from_timestamp).toISOString()}`);
 
                     // Set progress step to downloading
@@ -274,7 +284,7 @@ export class Collect {
                     completeInvoices.sort((a, b) => a.timestamp - b.timestamp);
                 }
                 else {
-                    console.log(`Found ${invoices.length} invoices but none are new`);
+                    console.log(`Found ${uniqueInvoices.length} invoices but none are new`);
                 }
 
                 // Set progress step to done
