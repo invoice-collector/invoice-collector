@@ -3,7 +3,7 @@ import { AuthenticationError } from "../error";
 import * as utils from "../utils";
 
 export class TwofaPromise{
-    static TWOFA_TIMEOUT_MS = 1000 * 60 * 2; // 2 minutes
+    static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
 
     private instrcutionsPromise: Promise<string>;
     private instructionsResolve: (value: string) => void;
