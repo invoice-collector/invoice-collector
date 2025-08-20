@@ -1,7 +1,18 @@
-// API ERRORS
-
 import { AbstractCollector } from "./collectors/abstractCollector";
 import { Theme } from "./model/customer";
+
+export function fullStackTrace(error: Error): string {
+    let output = error.stack || "";
+    if (error.cause instanceof Error) {
+        output += "\nCaused by: " + (fullStackTrace(error.cause) || error.cause.toString());
+        if ((error.cause as any).cause) {
+            output += "\n" + (error.cause as any).fullStackTrace;
+        }
+    }
+    return output;
+}
+
+// API ERRORS
 
 export class StatusError extends Error {
     status_code: number;
