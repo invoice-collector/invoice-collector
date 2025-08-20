@@ -68,7 +68,7 @@ export const AmazonSelectors = {
         info: "language container"
     },
     BUTTON_PAGE: {
-        selector: ".a-pagination li.a-normal",
+        selector: ".a-pagination li.a-normal a",
         info: "other page button"
     },
     CONTAINER_ORDER: {
