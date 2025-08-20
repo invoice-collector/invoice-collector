@@ -11,7 +11,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "12",
+        version: "13",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -162,7 +162,6 @@ export class AmazonCollector extends WebCollector {
         // Return orders
         return Promise.all(
             orders
-                .filter(async (order) => (await order.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK)) != null) // Ignore canceled orders
                 .map(async (order) => {
                     const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
                     const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
