@@ -11,7 +11,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "10",
+        version: "11",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -61,18 +61,24 @@ export class AmazonCollector extends WebCollector {
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
-        // Input email
-        await driver.inputText(AmazonSelectors.FIELD_EMAIL, params.id);
-        await driver.leftClick(AmazonSelectors.BUTTON_CONTINUE);
+        const useOtherAccountButton = await driver.getElement(AmazonSelectors.BUTTON_USE_OTHER_ACCOUNT, { raiseException: false, timeout: 2000 });
 
-        // Check if email is incorrect
-        const email_alert = await driver.getElement(AmazonSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
-        if (email_alert) {
-            return await email_alert.textContent("i18n.collectors.all.email.error");
+        // If use other account button no visible
+        if (!useOtherAccountButton) {
+            // Input email
+            await driver.inputText(AmazonSelectors.FIELD_EMAIL, params.id);
+            await driver.leftClick(AmazonSelectors.BUTTON_CONTINUE);
+
+            // Check if email is incorrect
+            const email_alert = await driver.getElement(AmazonSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
+            if (email_alert) {
+                return await email_alert.textContent("i18n.collectors.all.email.error");
+            }
         }
 
         // Input password
         await driver.inputText(AmazonSelectors.FIELD_PASSWORD, params.password);
+        await driver.leftClick(AmazonSelectors.CHECKBOX_REMEMBER_ME, { raiseException: false, timeout: 100, navigation: false });
         await driver.leftClick(AmazonSelectors.BUTTON_SUBMIT);
 
         // Check if password is incorrect
