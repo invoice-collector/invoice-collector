@@ -134,26 +134,50 @@ export class AmazonCollector extends WebCollector {
     private async collectYear(driver: Driver, year: number): Promise<Invoice[]> {
         // Go to the orders page for the specified year
         await driver.goto(`https://www.amazon.fr/your-orders/orders?timeFilter=year-${year}`);
+    
+        // Collect invoices on the current page
+        let invoices: Invoice[] = await this.collectInvoicesOnScreen(driver);
+
+        // Get other pages links
+        const pages = await driver.getAttributes(AmazonSelectors.BUTTON_PAGE, "href", { raiseException: false, timeout: 100 }) ?? [];
+
+        // For each other page
+        for (const page of pages) {
+            // Go to the page
+            await driver.goto(page);
+            // Collect invoices on the current page
+            invoices = invoices.concat(await this.collectInvoicesOnScreen(driver));
+        }
+
+        return invoices;
+    }
+
+    private async collectInvoicesOnScreen(driver: Driver): Promise<Invoice[]> {
+        // Get UI language
+        const language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
 
         // Get all order ids
         const orders = await driver.getElements(AmazonSelectors.CONTAINER_ORDER, { raiseException: false, timeout: 5000 });
 
         // Return orders
         return Promise.all(
-            orders.map(async (order) => {
-                const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
-                const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
-                const date = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
-                const link = driver.origin() + await order.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
-                const timestamp = timestampFromString(date, 'd MMMM yyyy', 'fr');
+            orders
+                .filter(async (order) => (await order.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK)) != null) // Ignore canceled orders
+                .map(async (order) => {
+                    const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
+                    const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+                    const date = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
+                    const link = driver.origin() + await order.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
+                    const timestamp = timestampFromString(date, 'd MMMM yyyy', language);
 
-                return {
-                    id,
-                    timestamp,
-                    amount,
-                    link
-                };
-            })
+                    return {
+                        id,
+                        timestamp,
+                        amount,
+                        link
+                    };
+                }
+            )
             //.filter((invoice: any) => invoice.timestamp + 48 * 60 * 60 * 1000 < Date.now())
         );
     }

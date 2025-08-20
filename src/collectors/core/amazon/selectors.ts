@@ -63,6 +63,14 @@ export const AmazonSelectors = {
 
     // ORDER PAGE
 
+    CONTAINER_LANGUAGE: {
+        selector: "#icp-nav-flyout div",
+        info: "language container"
+    },
+    BUTTON_PAGE: {
+        selector: ".a-pagination li.a-normal",
+        info: "other page button"
+    },
     CONTAINER_ORDER: {
         selector: ".order-card .order-header",
         info: "order container"
