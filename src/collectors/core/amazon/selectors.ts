@@ -1,8 +1,10 @@
-import { info } from "console";
-
 export const AmazonSelectors = {
     //LOGIN PAGE
 
+    BUTTON_USE_OTHER_ACCOUNT: {
+        selector: "#ap_switch_account_link",
+        info: "use other account button"
+    },
     FIELD_EMAIL: {
         selector: "#ap_email",
         info: "login input field"
@@ -14,6 +16,10 @@ export const AmazonSelectors = {
     FIELD_PASSWORD: {
         selector: "#ap_password",
         info: "password input field"
+    },
+    CHECKBOX_REMEMBER_ME: {
+        selector: "input[name='rememberMe']",
+        info: "remember me checkbox"
     },
     BUTTON_SUBMIT: {
         selector: "#signInSubmit",
