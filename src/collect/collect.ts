@@ -111,7 +111,7 @@ export class Collect {
             }
 
             // Log success
-            RegistryServer.getInstance().logSuccess(collector.config.id);
+            RegistryServer.getInstance().logSuccess(collector);
 
             // Update last collect
             credential.last_collect_timestamp = Date.now();
