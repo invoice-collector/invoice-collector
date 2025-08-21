@@ -3,6 +3,7 @@ import { fullStackTrace, LoggableError } from './error'
 import * as utils from './utils'
 import { TermsConditions } from './model/user';
 import { Server } from './server';
+import { AbstractCollector } from './collectors/abstractCollector';
 
 export class RegistryServer {
 
@@ -44,9 +45,10 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    logSuccess(collector: string) {
+    logSuccess(collector: AbstractCollector) {
         this.client.post("/log/success", {
-            collector
+            collector: collector.config.id,
+            version: collector.config.version,
         })
         .then(response => {
             console.log("Invoice-Collector server successfully reached");
