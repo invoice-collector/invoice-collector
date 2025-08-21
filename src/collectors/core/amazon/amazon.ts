@@ -163,22 +163,20 @@ export class AmazonCollector extends WebCollector {
 
         // Get orders
         const orders = await Promise.all(
-            orderElements
-                .map(async (order) => {
-                    const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
-                    const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
-                    const date = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
-                    const link = driver.origin() + await order.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
-                    const timestamp = timestampFromString(date, 'd MMMM yyyy', language);
+            orderElements.map(async (order) => {
+                const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
+                const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+                const date = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
+                const link = driver.origin() + await order.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
+                const timestamp = timestampFromString(date, 'd MMMM yyyy', language);
 
-                    return {
-                        id,
-                        timestamp,
-                        amount,
-                        link
-                    };
-                }
-            )
+                return {
+                    id,
+                    timestamp,
+                    amount,
+                    link
+                };
+            })
         );
 
         // Return orders older than 2 days
