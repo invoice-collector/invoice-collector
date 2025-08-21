@@ -7,11 +7,13 @@ import { TwofaPromise } from '../../../collect/twofaPromise';
 
 export class AmazonCollector extends WebCollector {
 
+    static TWO_DAYS_IN_MS = 2 * 24 * 60 * 60 * 1000;
+
     static CONFIG = {
         id: "amazon",
         name: "Amazon FR",
         description: "i18n.collectors.amazon.description",
-        version: "15",
+        version: "16",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
@@ -156,12 +158,12 @@ export class AmazonCollector extends WebCollector {
         // Get UI language
         const language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
 
-        // Get all order ids
-        const orders = await driver.getElements(AmazonSelectors.CONTAINER_ORDER, { raiseException: false, timeout: 5000 });
+        // Get order elements
+        const orderElements = await driver.getElements(AmazonSelectors.CONTAINER_ORDER, { raiseException: false, timeout: 5000 });
 
-        // Return orders
-        return Promise.all(
-            orders
+        // Get orders
+        const orders = await Promise.all(
+            orderElements
                 .map(async (order) => {
                     const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
                     const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
@@ -177,8 +179,10 @@ export class AmazonCollector extends WebCollector {
                     };
                 }
             )
-            //.filter((invoice: any) => invoice.timestamp + 48 * 60 * 60 * 1000 < Date.now())
         );
+
+        // Return orders older than 2 days
+        return orders.filter(order => order.timestamp < Date.now() - AmazonCollector.TWO_DAYS_IN_MS);
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
