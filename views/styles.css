@@ -61,6 +61,22 @@ label {
     background: var(--return-color-hover);
 }
 
+.collect-button {
+    background: var(--collect-color);
+    border-radius: var(--collect-border-radius);
+    color: var(--collect-color-text);
+    border: var(--collect-border);
+}
+
+.collect-button:hover {
+    background: var(--collect-color-hover);
+}
+
+.collect-button > img {
+    height: 15px;
+    width: 15px;
+}
+
 .delete-button {
     background: var(--delete-color);
     border-radius: var(--delete-border-radius);

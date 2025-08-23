@@ -15,6 +15,12 @@
     --return-border: 1px solid rgb(102, 102, 102);
     --return-border-radius: 20px;
 
+    --collect-color: linear-gradient(70deg, #2D95F8, #40BCF5);
+    --collect-color-hover: linear-gradient(70deg, #54a8f7, #57c3f5);
+    --collect-color-text: #fff;
+    --collect-border: none;
+    --collect-border-radius: 5px;
+
     --delete-color: #cf1f25;
     --delete-color-hover: #a81e23;
     --delete-color-text: #fff;

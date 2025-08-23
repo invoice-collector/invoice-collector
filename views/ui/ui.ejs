@@ -31,6 +31,7 @@
                         <th class="table-column-120"><%= __('i18n.views.credentials.last_collect') %></th>
                         <th class="table-column-120"><%= __('i18n.views.credentials.next_collect') %></th>
                         <th class="table-column-40"></th>
+                        <th class="table-column-40"></th>
                     </tr>
                 </thead>
                 <tbody id="credentials-empty">
@@ -120,6 +121,11 @@
             <div id="progress-response-success" class="progress-response" hidden>
                 <img src="/views/icons/success.png" alt="Success">
                 <p><%= __('i18n.views.manage.success') %></p>
+                <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
+            </div>
+             <div id="progress-response-collected" class="progress-response" hidden>
+                <img src="/views/icons/success.png" alt="Success">
+                <p><%= __('i18n.views.manage.collected') %></p>
                 <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
             </div>
             <div id="progress-response-unknown" class="progress-response" hidden>
