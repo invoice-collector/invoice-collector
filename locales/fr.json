@@ -126,6 +126,7 @@
   "i18n.views.manage.sketch.hit": "J'ai besoin que ce collecteur soit développé !",
   "i18n.views.manage.sketch.hit.done": "Merci pour votre signalement ! Nous avons été informés et nous allons essayer de l'ajouter dès que possible.",
   "i18n.views.manage.success": "Identifiants ajoutés avec succès ! Les nouvelles factures seront envoyées à votre adresse email.",
+  "i18n.views.manage.collected": "Une nouvelle collecte a été réalisée avec succès.",
   "i18n.views.manage.terms_conditions": "Conditions générales d'utilisation",
   "i18n.views.manage.terms_conditions.read": "Je reconnais avoir pris connaissance et accepter les",
   "i18n.views.manage.unknown": "Oups ! Quelque chose s'est mal passé... Nous allons réessayer plus tard.",
