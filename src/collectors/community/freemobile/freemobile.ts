@@ -54,10 +54,10 @@ export class FreeMobileCollector extends WebCollector {
 
     async isTwofa(driver: Driver): Promise<string | void> {
         // Check if 2FA is required
-        const two_factor_auth = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
-        if (two_factor_auth) {
-            return await two_factor_auth.textContent("i18n.collectors.all.2fa.instruction");
-        }
+        if (driver.url() === this.config.entryUrl) return;
+
+        const two_factor_auth = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_INSTRUCTIONS, { timeout: 2000 });
+        return await two_factor_auth?.textContent("i18n.collectors.all.2fa.instruction") || "i18n.collectors.all.2fa.instruction";
     }
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
