@@ -26,6 +26,11 @@ export class GazDeBordeauxCollector extends ApiCollector {
                 name: "i18n.collectors.all.password",
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
+            },
+            collectAllDocuments: {
+                type: "boolean",
+                name: "i18n.collectors.gazdebordeaux.collect_all_documents",
+                mandatory: false
             }
         },
         baseUrl: "https://espaceclient.gazdebordeaux.fr/api",
@@ -68,16 +73,62 @@ export class GazDeBordeauxCollector extends ApiCollector {
                 invoices.push({
                     id: invoice.code,
                     timestamp: timestampFromString(invoice.date, "dd/MM/yyyy", 'fr'),
-                    amount: `${invoice.amount} €`,
+                    amount: `${invoice.amount.toString().replace('.',',')} €`,
                     link: `https://espaceclient.gazdebordeaux.fr/api/document/download?contractId=${contract.id}&documentId=${invoice.id}&documentType=${invoice.type}`,
                     metadata: {
                         name: `Facture n°${invoice.code}`,
                         contractId: contract.id,
-                        pdl: contract.pdc,
+                        [contract.type === "elec" ? "pdl" : "pce"]: contract.pdc,
                         type: invoice.type,
-                        documentId: invoice.id
+                        documentId: invoice.id,
+                        documentType: 'invoice'
                     }
                 })
+            }
+
+            if ("collectAllDocuments" in params && params.collectAllDocuments) {
+                // Get contacts	
+                for (let contact of documents.contacts) {
+                    invoices.push({
+                        id: crypto.createHash('sha256').update(contact.link).digest('hex'),
+                        timestamp: timestampFromString(contact.date, "dd/MM/yyyy", 'fr'),
+                        link: contact.link,
+                        metadata: {
+                            name: contact.name,
+                            contractId: contract.id,
+                            [contract.type === "elec" ? "pdl" : "pce"]: contract.pdc,
+                            documentType: "contact",
+                        }
+                    })
+                }
+
+                // Get contractDocuments.termsAndCondition
+                invoices.push({
+                    id: crypto.createHash('sha256').update(documents.contractDocuments.termsAndCondition.link).digest('hex'),
+                    timestamp: timestampFromString(documents.contractDocuments.termsAndCondition.date, "dd/MM/yyyy", 'fr'),
+                    link: documents.contractDocuments.termsAndCondition.link,
+                    metadata: {
+                        name: documents.contractDocuments.termsAndCondition.name,
+                        contractId: contract.id,
+                        [contract.type === "elec" ? "pdl" : "pce"]: contract.pdc,
+                        documentType: "cgv"
+                    }
+                })
+
+                // Get contractDocuments.pricingSheet
+                invoices.push({
+                    id: crypto.createHash('sha256').update(documents.contractDocuments.termsAndCondition.code + documents.contractDocuments.pricingSheet.date).digest('hex'),
+                    timestamp: timestampFromString(documents.contractDocuments.pricingSheet.date, "dd/MM/yyyy", 'fr'),
+                    link: `https://espaceclient.gazdebordeaux.fr/api/document/download?contractId=${contract.id}&documentId=${documents.contractDocuments.pricingSheet.id}&documentType=${documents.contractDocuments.pricingSheet.type}`,
+                    metadata: {
+                        name: documents.contractDocuments.pricingSheet.name,
+                        contractId: contract.id,
+                        [contract.type === "elec" ? "pdl" : "pce"]: contract.pdc || undefined,
+                        type: documents.contractDocuments.pricingSheet.type,
+                        documentId: documents.contractDocuments.pricingSheet.id,
+                        documentType: "pricingSheet"
+                    }
+                });
             }
         }
 
@@ -86,13 +137,21 @@ export class GazDeBordeauxCollector extends ApiCollector {
 
     // Define custom method to download invoice
     async download(instance: AxiosInstance, invoice: Invoice): Promise<DownloadedInvoice> {
-        let response = await instance.post("/document/download", {
-            documentId: invoice.metadata?.documentId,
-            documentType: invoice.metadata?.type,
-            contractId:invoice.metadata?.contractId
-        },{
-            responseType: 'arraybuffer',
-        });
+        let response;
+
+        if (invoice.link.includes("api/document/download")) {
+            response = await instance.post("/document/download", {
+                documentId: invoice.metadata?.documentId,
+                documentType: invoice.metadata?.type,
+                contractId:invoice.metadata?.contractId
+            },{
+                responseType: 'arraybuffer',
+            });
+        } else {
+            response = await instance.get(invoice.link, {
+                responseType: 'arraybuffer',
+            });
+        }
 
         return {
             ...invoice,

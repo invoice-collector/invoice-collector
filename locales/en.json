@@ -57,6 +57,7 @@
   "i18n.collectors.free.description": "A French internet service provider offering various online services.",
   "i18n.collectors.free.identifier.placeholder": "Identifier of the account (ex: fbx12345670)",
   "i18n.collectors.gazdebordeaux.description": "A local service provider for gas-related services in Bordeaux.",
+  "i18n.collectors.gazdebordeaux.collect_all_documents": "Collect all documents (contacts, pricing sheets, terms and condition…)",
   "i18n.collectors.geg.description": "Geg is a French online service offering a variety of digital solutions.",
   "i18n.collectors.gennevilliers_energies.description": "Gennevilliers Energies is the local energy supplier for the city of Gennevilliers, providing electricity and gas services.",
   "i18n.collectors.gifi.description": "Gifi is a French retail chain offering home decor, furniture, and household items.",
