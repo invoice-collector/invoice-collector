@@ -114,20 +114,37 @@ export class EnsapCollector extends WebCollector {
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
         // Get documents
-        const {requestBody, responseBody} = await driver.goto("https://ensap.gouv.fr/web/remunerationpaie", "prive/remunerationpaie/v1");
+        const {requestBody, responseBody} = await driver.goto("https://ensap.gouv.fr/web/remunerationpaie", "prive/listeranneeremunerationpaie/v1");
 
-        // Build return array
-        return await Promise.all(responseBody.map(async document => {
-            const timestamp = new Date(document.dateDocument).getTime();
-            const link = `https://ensap.gouv.fr/prive/telechargerremunerationpaie/v1?documentUuid=${document.documentUuid}`;
+        let invoices: Invoice[] = [];
+        
+        for (let year of responseBody.listeAnnee) {
 
-            return {
-                id: document.documentUuid,
-                timestamp,
-                link,
-                amount: document.libelle3
-            };
-        }));
+            const data = await driver.goToJson(`https://ensap.gouv.fr/prive/remunerationpaie/v1?annee=${year}`);
+
+            for (let document of data) {
+                const timestamp = new Date(document.dateDocument).getTime();
+                const link = `https://ensap.gouv.fr/prive/telechargerremunerationpaie/v1?documentUuid=${document.documentUuid}`;
+
+                let result = {
+                    id: document.documentUuid,
+                    timestamp,
+                    link,
+                    metadata: {
+                        name: document.libelle1,
+                        codeSousThemeGed: parseInt(document.codeSousThemeGed)
+                    }
+                };
+
+                if (document.libelle3 != "") {
+                    result['amount'] = document.libelle3;
+                }
+
+                invoices.push(result);
+            }
+        }
+
+        return invoices;
     }
 
     async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
