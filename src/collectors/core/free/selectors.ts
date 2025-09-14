@@ -27,6 +27,10 @@ export const FreeSelectors = {
 
     //INVOICES PAGE
     
+    CONTAINER_TRANSFERED_ACCOUNT: {
+        selector: ".impayes p",
+        info: "transfered account alert"
+    },
     CONTAINER_INVOICE: {
         selector: ".accordion li",
         info: "invoice container"

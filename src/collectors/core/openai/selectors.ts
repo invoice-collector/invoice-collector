@@ -1,8 +1,8 @@
 export const OpenaiSelectors = {
     //LOGIN PAGE
 
-    BUTTON_LOGIN: {
-        selector: "main button[data-color='primary'][data-variant='soft']",
+    BUTTON_LOGIN_OR_OUPS: {
+        selector: "button[data-color='primary'][data-variant='soft'], .onb-homepage-link",
         info: "login button"
     },
     FIELD_EMAIL: {

@@ -9,7 +9,7 @@ export class FreeCollector extends WebCollector {
         id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "4",
+        version: "5",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         params: {
@@ -40,9 +40,15 @@ export class FreeCollector extends WebCollector {
         await driver.leftClick(FreeSelectors.BUTTON_SUBMIT);
 
         // Check if login alert exists
-        const login_alert = await driver.getElement(FreeSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 })
-        if (login_alert) {
-            return await login_alert.textContent("i18n.collectors.all.identifier.error");
+        const loginAlert = await driver.getElement(FreeSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 })
+        if (loginAlert) {
+            return await loginAlert.textContent("i18n.collectors.all.identifier.error");
+        }
+
+        // If account transfered
+        const transferedAccount = await driver.getElement(FreeSelectors.CONTAINER_TRANSFERED_ACCOUNT, { raiseException: false, timeout: 100 });
+        if (transferedAccount) {
+            return await transferedAccount.textContent("i18n.collectors.all.identifier.error")
         }
     }
 

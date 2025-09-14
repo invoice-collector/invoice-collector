@@ -26,7 +26,7 @@ export const LeroyMerlinSelectors = {
         info: "login input"
     },
     BUTTON_LOGIN_CONTINUE: {
-        selector: "form#js-email-form button",
+        selector: "form#js-email-form button span",
         info: "continue button"
     },
     CONTAINER_EMAIL_ERROR: {
@@ -44,6 +44,18 @@ export const LeroyMerlinSelectors = {
     CONTAINER_PASSWORD_ERROR: {
         selector: "form#js-password-form span.js-form-error",
         info: "password error container"
+    },
+    CONTAINER_2FA_INSTRUCTIONS: {
+        selector: "#page_mfa_rba p.explanation-code",
+        info: "2fa authentication instructions container"
+    },
+    INPUT_2FA: {
+        selector: "#verification-code-digits input:nth-child(1)",
+        info: "2fa authentication input"
+    },
+    CONTAINER_2FA_ERROR: {
+        selector: ".error-message",
+        info: "2fa authentication error container"
     },
 
     // ORDER PAGE
