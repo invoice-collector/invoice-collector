@@ -11,54 +11,59 @@ export class CallbackHandler {
     }
 
     private async sendRequest(data: object): Promise<void> {
-        if (this.callback) {
-            try {
-                const response = await axios.post(this.callback, data);
-                
-                // Check if response is successful
-                if (response.status !== 200) {
-                    throw new StatusError(`Callback request failed with status code ${response.status}`, 500);
-                }
-            } catch (error) {
-                if (axios.isAxiosError(error)) {
-                    throw new StatusError(`Callback request failed with status code ${error.status}`, 500, { cause: error });
-                }
-                throw new StatusError(`Callback request failed: ${error}`, 500, { cause: error });
+        try {
+            const response = await axios.post(this.callback, data);
+            
+            // Check if response is successful
+            if (response.status !== 200) {
+                throw new StatusError(`Callback request failed with status code ${response.status}`, 500);
             }
-        }
-        else {
-            console.warn("Callback URL not defined by customer, skipping callback request.");
+        } catch (error) {
+            if (axios.isAxiosError(error)) {
+                throw new StatusError(`Callback request failed with status code ${error.status}`, 500, { cause: error });
+            }
+            throw new StatusError(`Callback request failed: ${error}`, 500, { cause: error });
         }
     }
 
     async sendInvoice(collector_id: string, remote_id: string, invoice: CompleteInvoice): Promise<void> {
-        await this.sendRequest({
-            type: "invoice",
-            collector: collector_id,
-            remote_id: remote_id,
-            invoice: {
-                id: invoice.id,
-                timestamp: invoice.timestamp,
-                link: invoice.link,
-                collected_timestamp: invoice.collected_timestamp,
-                amount: invoice.amount,
-                mimetype: invoice.mimetype,
-                metadata: invoice.metadata,
-                data: invoice.data
-            }
-        });
-        console.log(`Callback ${this.callback} successfully reached, invoice sent`);
+        if (this.callback) {
+            await this.sendRequest({
+                type: "invoice",
+                collector: collector_id,
+                remote_id: remote_id,
+                invoice: {
+                    id: invoice.id,
+                    timestamp: invoice.timestamp,
+                    link: invoice.link,
+                    collected_timestamp: invoice.collected_timestamp,
+                    amount: invoice.amount,
+                    mimetype: invoice.mimetype,
+                    metadata: invoice.metadata,
+                    data: invoice.data
+                }
+            });
+            console.log(`Callback ${this.callback} successfully reached, invoice sent`);
+        }
+        else {
+            console.warn("Callback URL not defined by customer, skipping invoice request");
+        }
     }
 
     async sendNotificationDisconnected(collector_id: string, credential_id: string,  user_id: string, remote_id: string): Promise<void> {
         console.log(`Sending disconnected notification to callback ${this.callback} for credential ${credential_id}`);
-        await this.sendRequest({
-            type: "notification_disconnected",
-            collector: collector_id,
-            credential_id: credential_id,
-            user_id: user_id,
-            remote_id: remote_id
-        });
-        console.log(`Callback ${this.callback} successfully reached, disconnected notification sent`);
+        if (this.callback) {
+            await this.sendRequest({
+                type: "notification_disconnected",
+                collector: collector_id,
+                credential_id: credential_id,
+                user_id: user_id,
+                remote_id: remote_id
+            });
+            console.log(`Callback ${this.callback} successfully reached, disconnected notification sent`);
+        }
+        else {
+            console.warn("Callback URL not defined by customer, skipping disconnected notification request");
+        }
     }
 }
