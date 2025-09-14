@@ -303,8 +303,8 @@ export class Driver {
         }
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await utils.delay(delay);
             await element.click();
+            await utils.delay(delay);
             if(navigation === true) {
                 try {
                     await this.page.waitForNavigation({timeout});
@@ -348,8 +348,11 @@ export class Driver {
         }
     }
 
-    async type(text: string): Promise<void> {
+    async type(text: string, {
+        delay = Driver.DEFAULT_DELAY
+    } = {}): Promise<void> {
         await this.page?.keyboard.type(text);
+        await utils.delay(delay);
     }
 
     // PDF
@@ -455,7 +458,7 @@ export class Driver {
             const iframe = await driver.page.$("iframe[title='DataDome Device Check']").catch(() => null);
             return iframe ? null : "Navigation succeeded";
         },
-        "Datadome captcha did not succeed");
+        "Datadome captcha did not succeed", true, 15000);
     }
 
     // COOKIES
