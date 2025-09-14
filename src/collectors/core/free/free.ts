@@ -2,6 +2,7 @@ import { WebCollector } from '../../webCollector';
 import { FreeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
 import { DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { AuthenticationError } from '../../../error';
 
 export class FreeCollector extends WebCollector {
 
@@ -9,7 +10,7 @@ export class FreeCollector extends WebCollector {
         id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "4",
+        version: "5",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         params: {
@@ -49,6 +50,13 @@ export class FreeCollector extends WebCollector {
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
         // Go to invoices
         await driver.leftClick(FreeSelectors.BUTTON_INVOICES);
+
+        // If account transfered
+        const transferedAccount = await driver.getElement(FreeSelectors.CONTAINER_TRANSFERED_ACCOUNT, { raiseException: false, timeout: 2000 });
+        if (transferedAccount) {
+            const errorMessage = await transferedAccount.textContent("i18n.collectors.all.identifier.error")
+            throw new AuthenticationError(errorMessage, this);
+        }
 
         // Get invoices
         const invoices = await driver.getElements(FreeSelectors.CONTAINER_INVOICE, { raiseException: false, timeout: 5000 });
