@@ -164,7 +164,12 @@ export class Driver {
             await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 60000});
 
             // Wait for the network request
-            const response = await urlPromise;
+            const response = await Promise.race([
+                urlPromise,
+                new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error(`Request ${network_request} not intercepted while loading page ${url}`)), 30000)
+                )
+            ]);
 
             // Return the response
             return response;
