@@ -2,7 +2,6 @@ import { WebCollector } from '../../webCollector';
 import { FreeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
 import { DownloadedInvoice, Invoice } from '../../abstractCollector';
-import { AuthenticationError } from '../../../error';
 
 export class FreeCollector extends WebCollector {
 
@@ -41,22 +40,21 @@ export class FreeCollector extends WebCollector {
         await driver.leftClick(FreeSelectors.BUTTON_SUBMIT);
 
         // Check if login alert exists
-        const login_alert = await driver.getElement(FreeSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 })
-        if (login_alert) {
-            return await login_alert.textContent("i18n.collectors.all.identifier.error");
+        const loginAlert = await driver.getElement(FreeSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 })
+        if (loginAlert) {
+            return await loginAlert.textContent("i18n.collectors.all.identifier.error");
+        }
+
+        // If account transfered
+        const transferedAccount = await driver.getElement(FreeSelectors.CONTAINER_TRANSFERED_ACCOUNT, { raiseException: false, timeout: 100 });
+        if (transferedAccount) {
+            return await transferedAccount.textContent("i18n.collectors.all.identifier.error")
         }
     }
 
     async collect(driver: Driver, params: any): Promise<Invoice[]> {
         // Go to invoices
         await driver.leftClick(FreeSelectors.BUTTON_INVOICES);
-
-        // If account transfered
-        const transferedAccount = await driver.getElement(FreeSelectors.CONTAINER_TRANSFERED_ACCOUNT, { raiseException: false, timeout: 2000 });
-        if (transferedAccount) {
-            const errorMessage = await transferedAccount.textContent("i18n.collectors.all.identifier.error")
-            throw new AuthenticationError(errorMessage, this);
-        }
 
         // Get invoices
         const invoices = await driver.getElements(FreeSelectors.CONTAINER_INVOICE, { raiseException: false, timeout: 5000 });
