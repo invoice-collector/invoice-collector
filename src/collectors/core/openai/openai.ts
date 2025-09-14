@@ -10,7 +10,7 @@ export class OpenaiCollector extends WebCollector {
         id: "openai",
         name: "OpenAI",
         description: "i18n.collectors.openai.description",
-        version: "0",
+        version: "1",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         params: {
@@ -38,11 +38,14 @@ export class OpenaiCollector extends WebCollector {
     }
 
     async is_logged_in(driver: Driver): Promise<boolean> {
-        const loginButton = await driver.leftClick(OpenaiSelectors.BUTTON_LOGIN, { raiseException: false, timeout: 10000 });
-        return loginButton == null;
+        const loginOrOups = await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 10000 });
+        return loginOrOups == null;
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
+        // Go to login page
+        await driver.goto("https://platform.openai.com/login");
+
         // Input email
         await driver.inputText(OpenaiSelectors.FIELD_EMAIL, params.email);
         await driver.leftClick(OpenaiSelectors.BUTTON_EMAIL_CONTINUE, { navigation: false });
