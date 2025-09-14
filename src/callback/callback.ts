@@ -11,18 +11,23 @@ export class CallbackHandler {
     }
 
     private async sendRequest(data: object): Promise<void> {
-        try {
-            const response = await axios.post(this.callback, data);
-            
-            // Check if response is successful
-            if (response.status !== 200) {
-                throw new StatusError(`Callback request failed with status code ${response.status}`, 500);
+        if (this.callback) {
+            try {
+                const response = await axios.post(this.callback, data);
+                
+                // Check if response is successful
+                if (response.status !== 200) {
+                    throw new StatusError(`Callback request failed with status code ${response.status}`, 500);
+                }
+            } catch (error) {
+                if (axios.isAxiosError(error)) {
+                    throw new StatusError(`Callback request failed with status code ${error.status}`, 500, { cause: error });
+                }
+                throw new StatusError(`Callback request failed: ${error}`, 500, { cause: error });
             }
-        } catch (error) {
-            if (axios.isAxiosError(error)) {
-                throw new StatusError(`Callback request failed with status code ${error.status}`, 500, { cause: error });
-            }
-            throw new StatusError(`Callback request failed: ${error}`, 500, { cause: error });
+        }
+        else {
+            console.warn("Callback URL not defined by customer, skipping callback request.");
         }
     }
 
