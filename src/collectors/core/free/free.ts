@@ -9,7 +9,7 @@ export class FreeCollector extends WebCollector {
         id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "5",
+        version: "6",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         params: {
@@ -65,13 +65,13 @@ export class FreeCollector extends WebCollector {
             const amount = await invoice.getAttribute(FreeSelectors.CONTAINER_AMOUNT, "textContent");
 
             let search_params = new URLSearchParams(link);
-            const no_facture = search_params.get("no_facture");
+            const id = search_params.get("no_facture");
             const date_string = search_params.get("mois");
-            if (!no_facture) {
+            if (!id) {
                 throw new Error(`Field 'no_facture' is missing in the link ${link}`);
             }
             if (!date_string) {
-                throw new Error(`Field 'no_facture' is missing in the link ${link}`);
+                throw new Error(`Field 'mois' is missing in the link ${link}`);
             }
 
             const year = parseInt(date_string.slice(0, 4));
@@ -79,7 +79,7 @@ export class FreeCollector extends WebCollector {
             const timestamp = Date.UTC(year, month);
 
             return {
-                id: no_facture,
+                id: id,
                 timestamp,
                 link,
                 amount
