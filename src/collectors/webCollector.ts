@@ -145,7 +145,7 @@ export abstract class WebCollector extends AbstractCollector {
             }
 
             return invoices.map(newInvoice => ({
-                id: newInvoice.id.trim(),
+                id: newInvoice.id.trim().replace(/[/\\?%*:|"<>]/g, '-'),
                 timestamp: newInvoice.timestamp,
                 amount: newInvoice.amount?.trim(),
                 link: newInvoice.link?.trim(),
