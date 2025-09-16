@@ -95,32 +95,32 @@ export abstract class WebCollector extends AbstractCollector {
                 if (login_error) {
                     throw new AuthenticationError(login_error, this);
                 }
-
-                // Check if 2fa is required
-                const is_2fa = await this.isTwofa(this.driver)
-
-                // If 2fa is required, 
-                if (is_2fa) {
-                    // Set progress step to 2fa waiting
-                    state.update(State._3_2FA_WAITING, is_2fa);
-
-                    // Set instructions for UI
-                    await twofa_promise.setInstructions(is_2fa);
-
-                    console.log("2FA is required, performing 2FA...")
-                    const twofa_error = await this.twofa(this.driver, secret.params, twofa_promise)
-
-                    // Check if 2fa error
-                    if (twofa_error) {
-                        throw new AuthenticationError(twofa_error, this);
-                    }
-                }
-
-                console.log("User is successfully logged in")
             }
             else {
-                console.log("User is successfully logged in using cookies and localStorage")
+                console.log("Successfully used cookies and local storage")
             }
+
+            // Check if 2fa is required
+            const is_2fa = await this.isTwofa(this.driver)
+
+            // If 2fa is required
+            if (is_2fa) {
+                // Set progress step to 2fa waiting
+                state.update(State._3_2FA_WAITING, is_2fa);
+
+                // Set instructions for UI
+                await twofa_promise.setInstructions(is_2fa);
+
+                console.log("2FA is required, performing 2FA...")
+                const twofa_error = await this.twofa(this.driver, secret.params, twofa_promise)
+
+                // Check if 2fa error
+                if (twofa_error) {
+                    throw new AuthenticationError(twofa_error, this);
+                }
+            }
+
+            console.log("User is successfully logged in")
 
             // Update secret.cookies
             secret.cookies = await this.driver.getCookies(this.config.autoLogin.cookieNames);
