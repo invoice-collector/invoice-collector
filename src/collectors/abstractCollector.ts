@@ -92,9 +92,14 @@ export abstract class AbstractCollector {
 
     //NOT IMPLEMENTED
 
-    abstract _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]>;
-
-    abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
+    abstract collect_new_invoices(
+        state: State,
+        twofa_promise: TwofaPromise,
+        secret: Secret,
+        download_from_timestamp: number,
+        previousInvoices: any[],
+        location: Location | null
+    ): Promise<CompleteInvoice[]>;
 
     async close(): Promise<void> {
         // Assume the collector does not need to close anything
