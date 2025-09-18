@@ -53,22 +53,6 @@ function handle_error(e, req, res){
 
 // ---------- GENERAL ENDPOINTS ----------
 
-// BEARER AUTHENTICATION
-//TODO DEPRECATED : REMOVE
-app.post('/api/v1/authorize', async (req, res) => {
-    try {
-        // Perform authorization
-        console.warn('POST authorize (DEPRECATED)');
-        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email, req.body.ip);
-
-        // Build response
-        res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(response));
-    } catch (e) {
-        handle_error(e, req, res);
-    }
-});
-
 // TOKEN AUTHENTICATION
 app.get('/api/v1/ui', async (req, res) => {
     try {
