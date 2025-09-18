@@ -1,6 +1,6 @@
-import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
+import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
 import { Driver, Element } from '../driver/driver';
-import { AuthenticationError, CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
+import { AuthenticationError, CollectorError, LoggableError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -43,6 +43,7 @@ export abstract class WebCollector extends V2Collector {
 
         // Start browser and page
         const driver = new Driver(this);
+        this.driver = driver;
         await driver.open(proxy);
 
         // Set cookies
@@ -117,6 +118,7 @@ export abstract class WebCollector extends V2Collector {
 
             // For each page
             let invoices: CompleteInvoice[] = [];
+            let firstDownload = true;
             await this.forEachPage(driver, secret.params, async () => {
                 // For each invoice on the page
                 await this.forEachInvoice(driver, secret.params, async (element: Element) => {
@@ -133,35 +135,55 @@ export abstract class WebCollector extends V2Collector {
                         downloadData: invoice.downloadData || {}
                     }
 
-                    // If invoice is more recent than the download_from_timestamp and invoice is new
-                    if (download_from_timestamp <= invoice.timestamp && !previousInvoices.includes(invoice.id)) {
-                        // Download invoice
-                        const downloadedInvoice = await this.download(driver, secret.params, element, invoice);
-                        console.log(`Invoice ${invoice.id} successfully downloaded`);
+                    // If invoice is new
+                    if (!previousInvoices.includes(invoice.id)) {
+                        // If invoice is more recent than the download_from_timestamp and invoice is new
+                        if (download_from_timestamp <= invoice.timestamp && !previousInvoices.includes(invoice.id)) {
+                            // If this is the first invoice to download, set progress step to downloading
+                            if (firstDownload) {
+                                // Set progress step to downloading
+                                state.update(State._6_DOWNLOADING);
+                                firstDownload = false;
+                            }
 
-                        let data;
-                        // If one document downloaded
-                        if (downloadedInvoice.documents.length === 1) {
-                            data = downloadedInvoice.documents[0];
+                            // Download invoice
+                            const documents = await this.download(driver, secret.params, element, invoice);
+                            console.log(`Invoice ${invoice.id} successfully downloaded`);
+
+                            let data;
+                            // If one document downloaded
+                            if (documents.length === 1) {
+                                data = documents[0];
+                            }
+                            else {
+                                data = await utils.mergePdfDocuments(documents);
+                            }
+                
+                            invoices.push({
+                                ...invoice,
+                                data,
+                                mimetype: mimetypeFromBase64(data),
+                                collected_timestamp: Date.now(),
+                                metadata: invoice.metadata || {}
+                            });
                         }
                         else {
-                            data = await utils.mergePdfDocuments(downloadedInvoice.documents);
+                            // Add invoice without downloading it
+                            invoices.push({
+                                ...invoice,
+                                data: null,
+                                mimetype: null,
+                                collected_timestamp: null,
+                                metadata: {},
+                                downloadData: {}
+                            });
                         }
-            
-                        invoices.push({
-                            id: downloadedInvoice.id.trim().replace(/[/\\?%*:|"<>]/g, '-'),
-                            timestamp: downloadedInvoice.timestamp,
-                            amount: downloadedInvoice.amount?.trim(),
-                            link: downloadedInvoice.link?.trim(),
-                            metadata: downloadedInvoice.metadata || {},
-                            downloadData: downloadedInvoice.downloadData || {},
-                            data,
-                            mimetype: mimetypeFromBase64(data),
-                            collected_timestamp: Date.now(),
-                        });
                     }
                 });
             });
+
+            // Set progress step to done
+            state.update(State._7_DONE);
 
             return invoices;
         } catch (error) {
@@ -192,7 +214,7 @@ export abstract class WebCollector extends V2Collector {
         }
     }
 
-    async close() {
+    async _close(): Promise<void> {
         if (this.driver != null) {
             // Close the browser
             await this.driver.close();
@@ -234,7 +256,7 @@ export abstract class WebCollector extends V2Collector {
 
     abstract data(driver: Driver, params: any, element: Element): Promise<Invoice>;
 
-    abstract download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<DownloadedInvoice>;
+    abstract download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]>;
 
     // DOWNLOAD METHODS
 

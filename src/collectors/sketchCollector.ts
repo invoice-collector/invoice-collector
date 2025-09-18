@@ -43,4 +43,8 @@ export abstract class SketchCollector extends V1Collector {
     async _download(invoice: Invoice): Promise<CompleteInvoice> {
         throw new UnfinishedCollectorError(this);
     }
+
+    async _close(): Promise<void> {
+        // Assume the collector does not need to close anything
+    }
 }

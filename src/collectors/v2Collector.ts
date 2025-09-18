@@ -31,7 +31,7 @@ export abstract class V2Collector extends AbstractCollector {
         }
         finally {
             // Close the collector resources
-            await this.close();
+            await this._close();
         }
     }
 
@@ -44,5 +44,7 @@ export abstract class V2Collector extends AbstractCollector {
         download_from_timestamp: number,
         previousInvoices: any[],
         location: Location | null
-    ): Promise<CompleteInvoice[]> ;
+    ): Promise<CompleteInvoice[]>;
+
+    abstract _close(): Promise<void>;
 }

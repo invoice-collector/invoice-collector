@@ -146,6 +146,10 @@ export abstract class ApiCollector extends V1Collector {
             throw loggableError;
         }
     }
+
+    async _close(): Promise<void> {
+        // Assume the collector does not need to close anything
+    }
     
     //NOT IMPLEMENTED
     abstract collect(instance: AxiosInstance, params: any): Promise<Invoice[] | void>;

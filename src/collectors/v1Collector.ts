@@ -84,7 +84,7 @@ export abstract class V1Collector extends AbstractCollector {
         }
         finally {
             // Close the collector resources
-            await this.close();
+            await this._close();
         }
     }
 
@@ -93,4 +93,6 @@ export abstract class V1Collector extends AbstractCollector {
     abstract _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]>;
 
     abstract _download(invoice: Invoice): Promise<CompleteInvoice>;
+
+    abstract _close(): Promise<void>;
 }

@@ -243,9 +243,10 @@ export abstract class WebCollector extends V1Collector {
         }
     }
 
-    async close() {
+    async _close(): Promise<void> {
         if (this.driver != null) {
             // Close the browser
+            console.log("--------------web1----------------");
             await this.driver.close();
         }
     }

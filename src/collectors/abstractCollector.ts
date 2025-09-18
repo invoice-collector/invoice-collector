@@ -100,8 +100,4 @@ export abstract class AbstractCollector {
         previousInvoices: any[],
         location: Location | null
     ): Promise<CompleteInvoice[]>;
-
-    async close(): Promise<void> {
-        // Assume the collector does not need to close anything
-    }
 }
