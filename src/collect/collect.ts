@@ -1,12 +1,11 @@
 import { CallbackHandler } from "../callback/callback";
-import { AbstractCollector, CompleteInvoice } from "../collectors/abstractCollector";
+import { AbstractCollector } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
-import { Location } from "../proxy/abstractProxy";
 import { RegistryServer } from "../registryServer";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
@@ -62,7 +61,7 @@ export class Collect {
             if(collector == null) {
                 throw new Error(`No collector with id "${credential.collector_id}" found.`);
             }
-            console.log(`Using collector ${collector.config.name} version ${collector.config.version}`);
+            console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
 
             // Set collector for twofa promise
             this.twofa_promise.collector = collector;
@@ -76,7 +75,7 @@ export class Collect {
             const previousInvoices = credential.invoices.map((inv) => inv.id);
 
             // Collect invoices
-            const newInvoices = await this.collect_new_invoices(this.state, collector, secret, credential.download_from_timestamp, previousInvoices, user.location);
+            const newInvoices = await collector.collect_new_invoices(this.state, this.twofa_promise, secret, credential.download_from_timestamp, previousInvoices, user.location);
 
             console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
@@ -216,85 +215,5 @@ export class Collect {
                 await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, `${user.customer_id}_${user.id}_${collector.config.id}`, secret);
             }
         }
-    }
-
-    
-
-    async collect_new_invoices(
-            state: State,
-            collector: AbstractCollector,
-            secret: Secret,
-            download_from_timestamp: number,
-            previousInvoices: any[],
-            location: Location | null): Promise<CompleteInvoice[]> {  
-
-        // Check if a mandatory field is missing
-            for (const [key, value] of Object.entries(collector.config.params)) {
-                if (value.mandatory && !secret.params[key]) {
-                    throw new Error(`Field "${key}" is missing.`);
-                }
-            }
-
-            try {
-                // Get invoices
-                const invoices = (await collector._collect(state, secret, location, this.twofa_promise))
-
-                // Remove duplicates
-                const uniqueInvoices = invoices.filter((inv, index, self) =>
-                    index === self.findIndex((i) => i.id === inv.id)
-                );
-
-                // Get new invoices only
-                const newInvoices = uniqueInvoices.filter((inv) => !previousInvoices.includes(inv.id));
-
-                // Count number of invoices to download only
-                const invoicesToDownload = uniqueInvoices.filter((inv) => inv.timestamp >= download_from_timestamp).length;
-
-                let completeInvoices: CompleteInvoice[] = [];
-
-                if(newInvoices.length > 0) {
-                    console.log(`Found ${uniqueInvoices.length} invoices, ${newInvoices.length} are new, ${invoicesToDownload} are to download`);
-                    console.log(`Downloading invoices since ${new Date(download_from_timestamp).toISOString()}`);
-
-                    // Set progress step to downloading
-                    state.update(State._6_DOWNLOADING);
-
-                    // For each new invoice
-                    for(let newInvoice of newInvoices) {
-                        // If invoice is more recent than the download_from_timestamp
-                        if (download_from_timestamp <= newInvoice.timestamp) {
-                            const completeInvoice = await collector._download(newInvoice);
-
-                            console.log(`Invoice ${newInvoice.id} successfully downloaded`);
-                            completeInvoices.push(completeInvoice);
-                        }
-                        else {
-                            // Add invoice without downloading it
-                            completeInvoices.push({
-                                ...newInvoice,
-                                data: null,
-                                mimetype: null,
-                                collected_timestamp: null,
-                                metadata: {}
-                            });
-                        }
-                    }
-
-                    // Order invoices by timestamp
-                    completeInvoices.sort((a, b) => a.timestamp - b.timestamp);
-                }
-                else {
-                    console.log(`Found ${uniqueInvoices.length} invoices but none are new`);
-                }
-
-                // Set progress step to done
-                state.update(State._7_DONE);
-
-                return completeInvoices;
-            }
-            finally {
-                // Close the collector resources
-                collector.close();
-            }
     }
 }

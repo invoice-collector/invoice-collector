@@ -6,9 +6,8 @@ import { Browser, DownloadPolicy, ElementHandle, KeyInput } from "rebrowser-pupp
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
-import { WebCollector } from '../collectors/webCollector';
 import { Options } from './puppeteer/browser';
-import { CollectorCaptcha } from '../collectors/abstractCollector';
+import { AbstractCollector, CollectorCaptcha } from '../collectors/abstractCollector';
 
 export class Driver {
 
@@ -55,13 +54,13 @@ export class Driver {
         }
     };
 
-    collector: WebCollector;
+    collector: AbstractCollector;
     browser: Browser | null;
     page: PageWithCursor | null;
     downloadPath: string;
     puppeteerConfig: Options;
 
-    constructor(collector: WebCollector) {
+    constructor(collector: AbstractCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;
@@ -256,6 +255,21 @@ export class Driver {
         }
     }
 
+    async getElementCoordinates(x: number, y: number): Promise<Element | null> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        const element = await this.page.evaluateHandle((x, y) => {
+            return document.elementFromPoint(x, y);
+        }, x, y);
+
+        // Only return if element is an ElementHandle
+        if (element && element.constructor.name === 'ElementHandle') {
+            return new Element(element as ElementHandle);
+        }
+        return null;
+    }
+
     async getElements(selector, {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT
@@ -376,12 +390,12 @@ export class Driver {
 
     // SOURCE CODE
 
-    async sourceCode() {
+    async sourceCode(base64: boolean = true): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         const source_code = await this.page.content();
-        return Buffer.from(source_code).toString('base64')
+        return base64 ? Buffer.from(source_code).toString('base64') : source_code;
     }
 
     // SCREENSHOT

@@ -1,4 +1,5 @@
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
+import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
+import { V1Collector } from "./v1Collector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
@@ -37,7 +38,7 @@ export type WebConfig = {
     }
 }
 
-export abstract class WebCollector extends AbstractCollector {
+export abstract class WebCollector extends V1Collector {
 
     driver: Driver | null;
 
@@ -242,7 +243,7 @@ export abstract class WebCollector extends AbstractCollector {
         }
     }
 
-    async close() {
+    async _close(): Promise<void> {
         if (this.driver != null) {
             // Close the browser
             await this.driver.close();

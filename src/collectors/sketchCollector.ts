@@ -1,4 +1,5 @@
-import { AbstractCollector, Invoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
+import { Invoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
+import { V1Collector } from "./v1Collector";
 import { UnfinishedCollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
@@ -22,7 +23,7 @@ export type SketchConfig = {
     }
 }
 
-export abstract class SketchCollector extends AbstractCollector {
+export abstract class SketchCollector extends V1Collector {
 
     constructor(config: SketchConfig) {
         super({
@@ -41,5 +42,9 @@ export abstract class SketchCollector extends AbstractCollector {
 
     async _download(invoice: Invoice): Promise<CompleteInvoice> {
         throw new UnfinishedCollectorError(this);
+    }
+
+    async _close(): Promise<void> {
+        // Assume the collector does not need to close anything
     }
 }

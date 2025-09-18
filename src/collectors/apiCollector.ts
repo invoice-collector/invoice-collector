@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
-import { AbstractCollector, Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
+import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
+import { V1Collector } from "./v1Collector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -30,7 +31,7 @@ export type ApiConfig = {
     useProxy?: boolean,
 }
 
-export abstract class ApiCollector extends AbstractCollector {
+export abstract class ApiCollector extends V1Collector {
 
     instance: AxiosInstance | null;
 
@@ -144,6 +145,10 @@ export abstract class ApiCollector extends AbstractCollector {
             loggableError.url = url;
             throw loggableError;
         }
+    }
+
+    async _close(): Promise<void> {
+        // Assume the collector does not need to close anything
     }
     
     //NOT IMPLEMENTED

@@ -160,7 +160,7 @@ function getHashFromSecret(secret: Secret): string {
             collect.twofa_promise.setCode(twofa_code);
         });
 
-        const newInvoices = await collect.collect_new_invoices(collect.state, collector, secret, Date.UTC(2000, 0, 1), [], null);
+        const newInvoices = await collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null);
         console.log(`${newInvoices.length} invoices downloaded`);
 
         // ---------- PART 4 : SAVE INVOICES ----------
