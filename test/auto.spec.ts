@@ -47,7 +47,7 @@ for (const collector of CollectorLoader.getAll()) {
                 // Collect invoices
                 const collect = new Collect("")
                 collect.state = State.DEFAULT_STATE;
-                await expect(collect.collect_new_invoices(collect.state, collector, secret, Date.UTC(2000, 0, 1), [], null))
+                await expect(collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
@@ -64,7 +64,7 @@ for (const collector of CollectorLoader.getAll()) {
                 // Collect invoices
                 const collect = new Collect("")
                 collect.state = State.DEFAULT_STATE;
-                await expect(collect.collect_new_invoices(collect.state, collector, secret, Date.UTC(2000, 0, 1), [], null))
+                await expect(collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
@@ -81,11 +81,11 @@ for (const collector of CollectorLoader.getAll()) {
                 // Collect invoices
                 const collect = new Collect("")
                 collect.state = State.DEFAULT_STATE;
-                await expect(collect.collect_new_invoices(collect.state, collector, secret, Date.UTC(2000, 0, 1), [], null))
+                await expect(collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
-            let testSecret;
+            let testSecret : Secret | undefined = undefined;
 
             it('Login with correct credentials, no cookies', async () => {
                 const secret: Secret = {
@@ -107,7 +107,7 @@ for (const collector of CollectorLoader.getAll()) {
                     collect.twofa_promise.setCode(twofa_code);
                 });
 
-                await collect.collect_new_invoices(collect.state, collector, secret, Date.UTC(2000, 0, 1), [], null);
+                await collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null);
 
                 // Assert cookies are not null
                 expect(secret.cookies).not.toBeNull();
@@ -128,7 +128,7 @@ for (const collector of CollectorLoader.getAll()) {
                 // Collect invoices
                 const collect = new Collect("")
                 collect.state = State.DEFAULT_STATE;
-                await collect.collect_new_invoices(collect.state, collector, testSecret, Date.UTC(2000, 0, 1), [], null);
+                await collector.collect_new_invoices(collect.state, collect.twofa_promise, testSecret, Date.UTC(2000, 0, 1), [], null);
             }, TWO_MINUTES);
         });
     }
