@@ -51,6 +51,8 @@
   "i18n.collectors.endesa.description": "Endesa est une entreprise énergétique de premier plan fournissant des services d'électricité et de gaz en France.",
   "i18n.collectors.engie.description": "Engie est une entreprise mondiale d'énergie proposant des solutions et services durables.",
   "i18n.collectors.eni.description": "Eni est une entreprise multinationale italienne d'énergie opérant dans le secteur du pétrole et du gaz.",
+  "i18n.collectors.ensap.description": "ENSAP est l’Espace Numérique Sécurisé de l’Agent Public.",
+  "i18n.collectors.ensap.identifier.placeholder": "Numéro de sécurité sociale sur 15 caractères",
   "i18n.collectors.entrepotdubricolage.description": "Un magasin en ligne français spécialisé dans les produits de bricolage et d'amélioration de l'habitat.",
   "i18n.collectors.facebook.description": "Une plateforme de médias sociaux pour se connecter et partager avec des personnes en ligne.",
   "i18n.collectors.free.description": "Un fournisseur d'accès internet français proposant divers services en ligne.",
