@@ -61,7 +61,7 @@ export class Collect {
             if(collector == null) {
                 throw new Error(`No collector with id "${credential.collector_id}" found.`);
             }
-            console.log(`Using collector ${collector.config.name} version ${collector.config.version}`);
+            console.log(`Using collector ${collector.config.id} version ${collector.config.version}`);
 
             // Set collector for twofa promise
             this.twofa_promise.collector = collector;
