@@ -84,7 +84,7 @@ export abstract class V1Collector extends AbstractCollector {
         }
         finally {
             // Close the collector resources
-            this.close();
+            await this.close();
         }
     }
 
