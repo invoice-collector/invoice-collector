@@ -62,14 +62,16 @@ export class MissingParams extends StatusError {
 // COLLECTOR ERRORS
 
 export class CollectorError extends Error {
-    collector: string;
-    version: string;
+    collector_id: string;
+    collector_name: string;
+    collector_version: string;
 
     constructor(message: string, collector: AbstractCollector, opts = {}) {
         super(message, opts);
         this.name = this.constructor.name;
-        this.collector = collector.config.id;
-        this.version = collector.config.version;
+        this.collector_id = collector.config.id;
+        this.collector_name = collector.config.name;
+        this.collector_version = collector.config.version;
     }
 }
 
