@@ -1,15 +1,15 @@
 
 import { SketchCollector } from '../../sketchCollector';
 
-export class OrangeEnterprisesCollector extends SketchCollector {
+export class LeyroyMerlinSpainCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "orange_enterprises",
-        name: "Orange Enterprises",
-        description: "i18n.collectors.orange_enterprises.description",
+        id: "leroy_merlin_spain",
+        name: "Leroy Merlin Spain",
+        description: "i18n.collectors.leroy_merlin_spain.description",
         version: "0",
-        website: "http://www.orange-business.com/ece",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/238947.jpg",
+        website: "https://www.leroymerlin.es/mi-cuenta/mis-compras/historial",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4368011.jpg",
         params: {
             email: {
                 type: "email",
@@ -24,10 +24,10 @@ export class OrangeEnterprisesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.orange-business.com/ece",
+        entryUrl: "https://www.leroymerlin.es/mi-cuenta/mis-compras/historial",
     }
 
     constructor() {
-        super(OrangeEnterprisesCollector.CONFIG);
+        super(LeyroyMerlinSpainCollector.CONFIG);
     }
 }
