@@ -22,7 +22,8 @@ export class GrenkeCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://customerportal.grenke.net/en_uk/login",
     }
 
     constructor() {

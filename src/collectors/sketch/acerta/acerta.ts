@@ -22,7 +22,8 @@ export class AcertaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://signin.acerta.be/am/XUI/?realm=/alpha&locale=en#/",
     }
 
     constructor() {

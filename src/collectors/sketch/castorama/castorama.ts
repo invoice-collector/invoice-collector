@@ -22,7 +22,8 @@ export class CastoramaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.castorama.fr/customer/signin"
     }
 
     constructor() {

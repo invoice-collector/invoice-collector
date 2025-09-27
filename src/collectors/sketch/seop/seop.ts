@@ -22,7 +22,8 @@ export class SeopCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.seop.fr/mon-compte-en-ligne/je-me-connecte",
     }
 
     constructor() {

@@ -22,7 +22,8 @@ export class AntargazCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://espace-clients.antargaz.fr/connexion",
     }
 
     constructor() {

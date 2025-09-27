@@ -22,7 +22,8 @@ export class KoneCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://secure2.anachron.com/kone/login",
     }
 
     constructor() {

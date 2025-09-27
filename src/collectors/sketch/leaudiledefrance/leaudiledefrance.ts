@@ -1,15 +1,15 @@
 
 import { SketchCollector } from '../../sketchCollector';
 
-export class LEauDIleDeFranceCollector extends SketchCollector {
+export class LeauDileDeFranceCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "l_eau_d_ile_de_france",
-        name: "L\'eau d\'Ile de France",
-        description: "i18n.collectors.l_eau_d_ile_de_france.description",
+        id: "leaudiledefrance",
+        name: "L'eau d'Île-de-France",
+        description: "i18n.collectors.leaudiledefrance.description",
         version: "0",
-        website: "https://connexion.leaudiledefrance.fr/espace-bailleurs-syndics",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4220149.jpg",
+        website: "https://www.leaudiledefrance.fr/",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6asmbkt0q9fF-5f1yZmyK_EOb-CIesBnHA&s",
         params: {
             email: {
                 type: "email",
@@ -24,10 +24,10 @@ export class LEauDIleDeFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connexion.leaudiledefrance.fr/espace-bailleurs-syndics",
+        entryUrl: "https://connexion.leaudiledefrance.fr/s/login/",
     }
 
     constructor() {
-        super(LEauDIleDeFranceCollector.CONFIG);
+        super(LeauDileDeFranceCollector.CONFIG);
     }
 }

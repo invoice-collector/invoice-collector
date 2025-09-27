@@ -22,7 +22,8 @@ export class BuroPlusCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.buroplus.com/connexion.html",
     }
 
     constructor() {

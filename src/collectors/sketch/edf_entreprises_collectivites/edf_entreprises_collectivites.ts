@@ -22,7 +22,8 @@ export class EdfEntreprisesCollectivitesCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://entreprises-collectivites.edf.fr/",
     }
 
     constructor() {

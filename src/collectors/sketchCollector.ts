@@ -20,7 +20,8 @@ export type SketchConfig = {
             placeholder: string,
             mandatory: boolean
         }
-    }
+    },
+    entryUrl: string,
 }
 
 export abstract class SketchCollector extends V1Collector {

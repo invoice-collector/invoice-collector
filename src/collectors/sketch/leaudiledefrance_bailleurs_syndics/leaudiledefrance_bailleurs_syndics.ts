@@ -1,14 +1,14 @@
 import { SketchCollector } from '../../sketchCollector';
 
-export class VeoliaCollector extends SketchCollector {
+export class LeauDileDeFranceBailleursSyndicsCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "veolia",
-        name: "Veolia",
-        description: "i18n.collectors.veolia.description",
+        id: "leaudiledefrance_bailleurs_syndics",
+        name: "L'eau d'Île-de-France (Bailleurs/Syndics)",
+        description: "i18n.collectors.leaudiledefrance.description",
         version: "0",
-        website: "https://veolia.com",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/4/48/Veolia_logo.svg",
+        website: "https://www.leaudiledefrance.fr/",
+        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6asmbkt0q9fF-5f1yZmyK_EOb-CIesBnHA&s",
         params: {
             email: {
                 type: "email",
@@ -22,10 +22,11 @@ export class VeoliaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://connexion.leaudiledefrance.fr/espace-bailleurs-syndics/s/",
     }
 
     constructor() {
-        super(VeoliaCollector.CONFIG);
+        super(LeauDileDeFranceBailleursSyndicsCollector.CONFIG);
     }
 }

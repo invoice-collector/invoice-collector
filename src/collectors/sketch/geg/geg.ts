@@ -22,7 +22,8 @@ export class GegCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://monagence.geg.fr/aelPROD/jsp/arc/habilitation/login.jsp",
     }
 
     constructor() {

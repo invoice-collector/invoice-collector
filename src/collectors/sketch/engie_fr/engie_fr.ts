@@ -22,7 +22,8 @@ export class EngieFrCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://particuliers.engie.fr/login-page/authentification.html",
     }
 
     constructor() {

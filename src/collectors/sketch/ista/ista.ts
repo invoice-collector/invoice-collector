@@ -22,7 +22,8 @@ export class IstaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://portal.ista.com/",
     }
 
     constructor() {
