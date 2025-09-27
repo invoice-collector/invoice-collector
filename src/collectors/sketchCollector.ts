@@ -1,4 +1,4 @@
-import { Invoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
+import { Invoice, CompleteInvoice, CollectorType, CollectorState } from "./abstractCollector";
 import { V1Collector } from "./v1Collector";
 import { UnfinishedCollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
