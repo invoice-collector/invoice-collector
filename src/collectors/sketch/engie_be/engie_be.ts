@@ -1,6 +1,6 @@
 import { SketchCollector } from '../../sketchCollector';
 
-export class EngieCollector extends SketchCollector {
+export class EngieBeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "engie_be",
