@@ -1,1 +1,1 @@
-export let collectors: any[] = []
+export let collectors: any[] = [];
