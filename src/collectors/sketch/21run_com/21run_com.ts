@@ -4,9 +4,9 @@ import { SketchCollector } from '../../sketchCollector';
 export class _21runCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "21run",
-        name: "21Run",
-        description: "i18n.collectors.21run.description",
+        id: "21run_com",
+        name: "21Run (.com)",
+        description: "i18n.collectors.21run_com.description",
         version: "0",
         website: "https://www.21run.com/fr/customer/account/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115837.jpg",
