@@ -1,18 +1,25 @@
-import fs from 'fs';
-import path from 'path';
 import { AbstractCollector } from './abstractCollector';
 import { StatusError } from '../error';
+import { collectors as sketchCollectors } from './sketch/loader';
+import { collectors as communityCollectors } from './community/loader';
+import { collectors as coreCollectors } from './core/loader';
+let premiumCollectors: any[] = [];
+try {
+    premiumCollectors = require('./premifum/loader').collectors;
+} catch (e) {
+    // No premium collectors
+}
 
 export class CollectorLoader {
     private static collectors: Map<string, any> = new Map();
 
-    static load(filter: string | null = null): Map<string, any> {
-        this.loadFolders("sketch", filter)
-        this.loadFolders("community", filter)
-        this.loadFolders("core", filter)
-        this.loadFolders("premium", filter)
+    static load(): Map<string, any> {
+        this.loadFolders("sketch", sketchCollectors)
+        this.loadFolders("community", communityCollectors)
+        this.loadFolders("core", coreCollectors)
+        this.loadFolders("premium", premiumCollectors)
 
-        //Order collectors by id
+        // Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
             .sort((a, b) => a[0].localeCompare(b[0])));
 
@@ -20,62 +27,21 @@ export class CollectorLoader {
         return CollectorLoader.collectors
     }
 
-    private static loadFolders(folder: string, filter: string | null) {
+    private static loadFolders(name: string, collectorsClass: any[]) {
         let collectors: string[] = [];
+    
+        console.log(`Loading ${name} collectors...`);
 
-        // Compute path to folder
-        const fullPath = path.join(__dirname, folder)
-
-        // Dynamically import all collectors
-        const folders = fs.readdirSync(fullPath, { withFileTypes: true });
-
-        console.log(`Loading ${folder} collectors from ${fullPath}`);
-        // List all folders in the directory
-        for (const folder of folders) {
-            // Skip if not a directory
-            if (!folder.isDirectory()) {
-                continue;
-            }
-
-            // Log a warning if the folder name contains spaces or hyphens
-            if (folder.name.includes(' ') || folder.name.includes('-')) {
-                console.warn(`Folder name "${folder.name}" contains spaces or hyphens. Please rename the folder and use underscrores instead`);
-                continue;
-            }
-
-            // Skip if a filter is provided and the folder name does not match the filter
-            if (filter && folder.name !== filter) {
-                continue;
-            }
-
-            // Build the file path
-            const file = path.join(fullPath, folder.name, folder.name + ".ts");
-
-            // Check if the file exists
-            if (!fs.existsSync(file)) {
-                console.warn(`File "${file}" does not exist`);
-                continue;
-            }
-
-            // Load file
-            const importedModule = require(file);
-            // For each class in the file
-            for (const classKey of Object.keys(importedModule)) {
-                // Check if the class is a collector
-                if (typeof importedModule[classKey] === 'function' && classKey.endsWith('Collector')) {
-                    // Instanciate the collector
-                    let collector = importedModule[classKey];
-                    // Set the id of the collector to the folder name
-                    const collectorInstance = new collector();
-                    // Add it to the set
-                    CollectorLoader.collectors.set(collectorInstance.config.id, collector);
-                    // Add it to the list
-                    collectors.push(collectorInstance.config.id);
-                }
-            }
+        // For each collector class
+        for (const collectorClass of collectorsClass) {
+            const collectorInstance = new collectorClass();
+            // Add it to the set
+            CollectorLoader.collectors.set(collectorInstance.config.id, collectorClass);
+            // Add it to the list
+            collectors.push(collectorInstance.config.id);
         }
 
-        console.log(`${collectors.length} ${folder} collectors loaded: ${collectors.join(', ')}`);
+        console.log(`${collectors.length} ${name} collectors loaded: ${collectors.join(', ')}`);
     }
 
     public static getAll(): AbstractCollector[] {
