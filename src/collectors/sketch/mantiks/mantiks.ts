@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class MantiksCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "mantiks",
+        name: "MANTIKS",
+        description: "i18n.collectors.mantiks.description",
+        version: "0",
+        website: "https://app.mantiks.io/accounts/login/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3314776.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.mantiks.io/accounts/login/",
+    }
+
+    constructor() {
+        super(MantiksCollector.CONFIG);
+    }
+}

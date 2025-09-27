@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class AttioCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "attio",
+        name: "Attio",
+        description: "i18n.collectors.attio.description",
+        version: "0",
+        website: "https://app.attio.com/world-views/settings/billing",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445829.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.attio.com/world-views/settings/billing",
+    }
+
+    constructor() {
+        super(AttioCollector.CONFIG);
+    }
+}

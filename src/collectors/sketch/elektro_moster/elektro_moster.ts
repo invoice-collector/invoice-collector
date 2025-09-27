@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class ElektroMosterCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "elektro_moster",
+        name: "Elektro Moster",
+        description: "i18n.collectors.elektro_moster.description",
+        version: "0",
+        website: "https://moster.elektro-online.de/shop/myorders/get.html",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1421279.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://moster.elektro-online.de/shop/myorders/get.html",
+    }
+
+    constructor() {
+        super(ElektroMosterCollector.CONFIG);
+    }
+}

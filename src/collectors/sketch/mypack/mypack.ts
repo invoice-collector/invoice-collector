@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class MypackCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "mypack",
+        name: "MyPack",
+        description: "i18n.collectors.mypack.description",
+        version: "0",
+        website: "https://www.mypack.de/account/orders",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/56991.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.mypack.de/account/orders",
+    }
+
+    constructor() {
+        super(MypackCollector.CONFIG);
+    }
+}

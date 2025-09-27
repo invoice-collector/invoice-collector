@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class RuttlCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "ruttl",
+        name: "Ruttl",
+        description: "i18n.collectors.ruttl.description",
+        version: "0",
+        website: "https://web.ruttl.com/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4396019.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://web.ruttl.com/",
+    }
+
+    constructor() {
+        super(RuttlCollector.CONFIG);
+    }
+}

@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class WpZincCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "wp_zinc",
+        name: "WP Zinc",
+        description: "i18n.collectors.wp_zinc.description",
+        version: "0",
+        website: "https://www.wpzinc.com/account/?action=payments",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/187230.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.wpzinc.com/account/?action=payments",
+    }
+
+    constructor() {
+        super(WpZincCollector.CONFIG);
+    }
+}

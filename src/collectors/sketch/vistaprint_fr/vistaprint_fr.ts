@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class VistaprintFrCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "vistaprint_fr",
+        name: "Vistaprint FR",
+        description: "i18n.collectors.vistaprint_fr.description",
+        version: "0",
+        website: "https://www.vistaprint.fr/oh/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4436578.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.vistaprint.fr/oh/",
+    }
+
+    constructor() {
+        super(VistaprintFrCollector.CONFIG);
+    }
+}

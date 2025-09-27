@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class SensorTowerCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "sensor_tower",
+        name: "Sensor Tower",
+        description: "i18n.collectors.sensor_tower.description",
+        version: "0",
+        website: "http://www.sensortower.com",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/54066.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "http://www.sensortower.com",
+    }
+
+    constructor() {
+        super(SensorTowerCollector.CONFIG);
+    }
+}

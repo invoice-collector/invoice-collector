@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class PerplexityAiCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "perplexity_ai",
+        name: "Perplexity.ai",
+        description: "i18n.collectors.perplexity_ai.description",
+        version: "0",
+        website: "https://stripe.perplexity.ai/p/session/live_YWNjdF8xTjlZcUJHWndqcVBmeGtaLF9RM2R6MkhmTndyWTA4R2pQUHpFQ1gyb1BJVGcwaEZl01001FQMwif6",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2767739.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://stripe.perplexity.ai/p/session/live_YWNjdF8xTjlZcUJHWndqcVBmeGtaLF9RM2R6MkhmTndyWTA4R2pQUHpFQ1gyb1BJVGcwaEZl01001FQMwif6",
+    }
+
+    constructor() {
+        super(PerplexityAiCollector.CONFIG);
+    }
+}

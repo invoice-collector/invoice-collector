@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class PromocashBordeauxCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "promocash_bordeaux",
+        name: "Promocash Bordeaux",
+        description: "i18n.collectors.promocash_bordeaux.description",
+        version: "0",
+        website: "https://bordeaux.promocash.com/index.php",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2718578.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://bordeaux.promocash.com/index.php",
+    }
+
+    constructor() {
+        super(PromocashBordeauxCollector.CONFIG);
+    }
+}

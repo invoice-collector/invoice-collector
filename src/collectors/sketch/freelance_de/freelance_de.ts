@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class FreelanceDeCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "freelance_de",
+        name: "freelance.de",
+        description: "i18n.collectors.freelance_de.description",
+        version: "0",
+        website: "https://www.freelance.de/account/edit_payment_data.php",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7097.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.freelance.de/account/edit_payment_data.php",
+    }
+
+    constructor() {
+        super(FreelanceDeCollector.CONFIG);
+    }
+}

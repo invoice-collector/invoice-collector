@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class CaneiProtectControlCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "canei_protect_control",
+        name: "CANEI protect/control",
+        description: "i18n.collectors.canei_protect_control.description",
+        version: "0",
+        website: "https://app.quick.prod.canei.io/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2449948.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.quick.prod.canei.io/",
+    }
+
+    constructor() {
+        super(CaneiProtectControlCollector.CONFIG);
+    }
+}

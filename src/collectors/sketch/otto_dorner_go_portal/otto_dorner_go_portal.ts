@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class OttoDornerGoPortalCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "otto_dorner_go_portal",
+        name: "Otto Dorner GO Portal",
+        description: "i18n.collectors.otto_dorner_go_portal.description",
+        version: "0",
+        website: "https://go.doerner.de",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/772665.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://go.doerner.de",
+    }
+
+    constructor() {
+        super(OttoDornerGoPortalCollector.CONFIG);
+    }
+}

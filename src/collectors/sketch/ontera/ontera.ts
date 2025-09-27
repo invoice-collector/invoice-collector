@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class OnteraCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "ontera",
+        name: "Ontera",
+        description: "i18n.collectors.ontera.description",
+        version: "0",
+        website: "http://www.ontera.ca",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9031.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "http://www.ontera.ca",
+    }
+
+    constructor() {
+        super(OnteraCollector.CONFIG);
+    }
+}

@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class CirculyCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "circuly",
+        name: "Circuly",
+        description: "i18n.collectors.circuly.description",
+        version: "0",
+        website: "https://app.circuly.io/cms/invoices?page=1&per_page=10&sort=created_at",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1428794.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.circuly.io/cms/invoices?page=1&per_page=10&sort=created_at",
+    }
+
+    constructor() {
+        super(CirculyCollector.CONFIG);
+    }
+}

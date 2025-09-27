@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class EventimLightCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "eventim_light",
+        name: "EVENTIM.Light",
+        description: "i18n.collectors.eventim_light.description",
+        version: "0",
+        website: "https://www.eventim-light.com/de/events/past",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/210961.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.eventim-light.com/de/events/past",
+    }
+
+    constructor() {
+        super(EventimLightCollector.CONFIG);
+    }
+}

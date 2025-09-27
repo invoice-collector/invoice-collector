@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class WecandooCommissionsCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "wecandoo_commissions",
+        name: "Wecandoo Commissions",
+        description: "i18n.collectors.wecandoo_commissions.description",
+        version: "0",
+        website: "https://wecandoo.fr/espace-artisan/facturation/commissions",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2007427.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://wecandoo.fr/espace-artisan/facturation/commissions",
+    }
+
+    constructor() {
+        super(WecandooCommissionsCollector.CONFIG);
+    }
+}

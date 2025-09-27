@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class AvidCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "avid",
+        name: "Avid",
+        description: "i18n.collectors.avid.description",
+        version: "0",
+        website: "https://my.avid.com/account/orientation?websource=avid",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10759.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://my.avid.com/account/orientation?websource=avid",
+    }
+
+    constructor() {
+        super(AvidCollector.CONFIG);
+    }
+}

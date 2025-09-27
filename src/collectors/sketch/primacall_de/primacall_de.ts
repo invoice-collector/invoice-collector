@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class PrimacallDeCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "primacall_de",
+        name: "Primacall.de",
+        description: "i18n.collectors.primacall_de.description",
+        version: "0",
+        website: "http://www.primacall.de/mein-primacall.html",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9236.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "http://www.primacall.de/mein-primacall.html",
+    }
+
+    constructor() {
+        super(PrimacallDeCollector.CONFIG);
+    }
+}

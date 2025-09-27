@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class ConteaAiCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "contea_ai",
+        name: "contea.ai",
+        description: "i18n.collectors.contea_ai.description",
+        version: "0",
+        website: "https://app.contea.ai/user/plan",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2555359.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.contea.ai/user/plan",
+    }
+
+    constructor() {
+        super(ConteaAiCollector.CONFIG);
+    }
+}

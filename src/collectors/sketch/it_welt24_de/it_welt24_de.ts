@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class ItWelt24DeCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "it_welt24_de",
+        name: "IT-Welt24.de",
+        description: "i18n.collectors.it_welt24_de.description",
+        version: "0",
+        website: "https://www.it-welt24.de/backoffice",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/671967.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.it-welt24.de/backoffice",
+    }
+
+    constructor() {
+        super(ItWelt24DeCollector.CONFIG);
+    }
+}

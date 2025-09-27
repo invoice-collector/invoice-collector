@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class ClecoCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "cleco",
+        name: "CLECO",
+        description: "i18n.collectors.cleco.description",
+        version: "0",
+        website: "http://www.cleco.com",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8966.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "http://www.cleco.com",
+    }
+
+    constructor() {
+        super(ClecoCollector.CONFIG);
+    }
+}

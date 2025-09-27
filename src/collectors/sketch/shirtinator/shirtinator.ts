@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class ShirtinatorCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "shirtinator",
+        name: "shirtinator",
+        description: "i18n.collectors.shirtinator.description",
+        version: "0",
+        website: "https://www.shirtinator.de/einloggen/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7785.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.shirtinator.de/einloggen/",
+    }
+
+    constructor() {
+        super(ShirtinatorCollector.CONFIG);
+    }
+}

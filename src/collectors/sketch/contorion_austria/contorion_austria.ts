@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class ContorionAustriaCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "contorion_austria",
+        name: "Contorion - Austria",
+        description: "i18n.collectors.contorion_austria.description",
+        version: "0",
+        website: "https://www.contorion.at/login",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/211823.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.contorion.at/login",
+    }
+
+    constructor() {
+        super(ContorionAustriaCollector.CONFIG);
+    }
+}

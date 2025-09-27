@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class Dirs21Collector extends SketchCollector {
+
+    static CONFIG = {
+        id: "dirs21",
+        name: "DIRS21",
+        description: "i18n.collectors.dirs21.description",
+        version: "0",
+        website: "https://office.dirs21.de/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/406787.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://office.dirs21.de/",
+    }
+
+    constructor() {
+        super(Dirs21Collector.CONFIG);
+    }
+}

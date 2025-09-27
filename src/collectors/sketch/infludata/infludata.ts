@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class InfludataCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "infludata",
+        name: "Infludata",
+        description: "i18n.collectors.infludata.description",
+        version: "0",
+        website: "https://app.infludata.com/search",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/541213.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.infludata.com/search",
+    }
+
+    constructor() {
+        super(InfludataCollector.CONFIG);
+    }
+}

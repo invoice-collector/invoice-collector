@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class WildBeautyCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "wild_beauty",
+        name: "Wild Beauty",
+        description: "i18n.collectors.wild_beauty.description",
+        version: "0",
+        website: "https://www.wild-beauty.de/kundenbereich/salon/383EA001-0011-1021-89-83-0000DC01010A",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1359610.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.wild-beauty.de/kundenbereich/salon/383EA001-0011-1021-89-83-0000DC01010A",
+    }
+
+    constructor() {
+        super(WildBeautyCollector.CONFIG);
+    }
+}

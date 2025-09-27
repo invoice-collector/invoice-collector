@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class BacklinksellerCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "backlinkseller",
+        name: "backlinkseller",
+        description: "i18n.collectors.backlinkseller.description",
+        version: "0",
+        website: "https://www.backlinkseller.de/login_area/invoices/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/865447.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.backlinkseller.de/login_area/invoices/",
+    }
+
+    constructor() {
+        super(BacklinksellerCollector.CONFIG);
+    }
+}

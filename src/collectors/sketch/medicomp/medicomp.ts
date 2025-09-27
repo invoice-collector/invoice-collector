@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class MedicompCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "medicomp",
+        name: "medicomp",
+        description: "i18n.collectors.medicomp.description",
+        version: "0",
+        website: "https://www.mip-ekv.de/mip.php",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/167040.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.mip-ekv.de/mip.php",
+    }
+
+    constructor() {
+        super(MedicompCollector.CONFIG);
+    }
+}
