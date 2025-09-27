@@ -13,11 +13,11 @@ try {
 export class CollectorLoader {
     private static collectors: Map<string, any> = new Map();
 
-    static load(): Map<string, any> {
-        this.loadFolders("sketch", sketchCollectors)
-        this.loadFolders("community", communityCollectors)
-        this.loadFolders("core", coreCollectors)
-        this.loadFolders("premium", premiumCollectors)
+    static load(filter: string | null = null): Map<string, any> {
+        this.loadFolders("sketch", sketchCollectors, filter)
+        this.loadFolders("community", communityCollectors, filter)
+        this.loadFolders("core", coreCollectors, filter)
+        this.loadFolders("premium", premiumCollectors, filter)
 
         // Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
@@ -27,7 +27,7 @@ export class CollectorLoader {
         return CollectorLoader.collectors
     }
 
-    private static loadFolders(name: string, collectorsClass: any[]) {
+    private static loadFolders(name: string, collectorsClass: any[], filter: string | null) {
         let collectors: string[] = [];
     
         console.log(`Loading ${name} collectors...`);
@@ -35,13 +35,24 @@ export class CollectorLoader {
         // For each collector class
         for (const collectorClass of collectorsClass) {
             const collectorInstance = new collectorClass();
+
+            // If a filter is set, skip collectors that don't match
+            if (filter && collectorInstance.config.id.toLowerCase() !== filter.toLowerCase()) {
+                continue;
+            }
+
             // Add it to the set
             CollectorLoader.collectors.set(collectorInstance.config.id, collectorClass);
             // Add it to the list
             collectors.push(collectorInstance.config.id);
         }
 
-        console.log(`${collectors.length} ${name} collectors loaded: ${collectors.join(', ')}`);
+        if(collectors.length > 100) {
+            console.log(`${collectors.length} ${name} collectors loaded.`);
+        }
+        else {
+            console.log(`${collectors.length} ${name} collectors loaded: ${collectors.join(', ')}`);
+        }
     }
 
     public static getAll(): AbstractCollector[] {

@@ -89,7 +89,7 @@ function getHashFromSecret(secret: Secret): string {
         // ---------- PART 2 : GET COLLECTOR AND SECRET ----------
 
         // Load collectors
-        const loadedCollectors = CollectorLoader.load();
+        const loadedCollectors = CollectorLoader.load(id);
 
         // If collector loaded, it means it is a credential
         let collector: AbstractCollector;
@@ -100,7 +100,7 @@ function getHashFromSecret(secret: Secret): string {
             // Get secret
             secret = await getSecretFromCredential(credential);
             // Load collectors
-            CollectorLoader.load();
+            CollectorLoader.load(credential.collector_id);
             // Get collector
             collector = CollectorLoader.get(credential.collector_id);
 
