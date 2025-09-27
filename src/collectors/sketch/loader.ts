@@ -20,8 +20,8 @@ import { _1click2DslCollector } from './1click2_dsl/1click2_dsl'; collectors.pus
 import { _1euroComCollector } from './1euro_com/1euro_com'; collectors.push(_1euroComCollector);
 import { _1msgPteLtdCollector } from './1msg_pte_ltd/1msg_pte_ltd'; collectors.push(_1msgPteLtdCollector);
 import { _1nceCollector } from './1nce/1nce'; collectors.push(_1nceCollector);
-import { _1passwordCollector } from './1password/1password'; collectors.push(_1passwordCollector);
-import { _1passwordSeparateEuropeanSiteCollector } from './1password_separate_european_site/1password_separate_european_site'; collectors.push(_1passwordSeparateEuropeanSiteCollector);
+import { _1passwordComCollector } from './1password_com/1password_com'; collectors.push(_1passwordComCollector);
+import { _1passwordEuCollector } from './1password_eu/1password_eu'; collectors.push(_1passwordEuCollector);
 import { _1stdibsCollector } from './1stdibs/1stdibs'; collectors.push(_1stdibsCollector);
 import { _20iCollector } from './20i/20i'; collectors.push(_20iCollector);
 import { _21runCollector } from './21run_com/21run_com'; collectors.push(_21runCollector);
