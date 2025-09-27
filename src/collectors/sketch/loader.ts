@@ -4376,9 +4376,7 @@ import { LeaseServicesPeacSolutionsCollector } from './lease_services_peac_solut
 import { LeasetrackEsFinanceCollector } from './leasetrack_es_finance/leasetrack_es_finance'; collectors.push(LeasetrackEsFinanceCollector);
 import { LeasetrackNcmCollector } from './leasetrack_ncm/leasetrack_ncm'; collectors.push(LeasetrackNcmCollector);
 import { LEauBordeauxMetropoleProfessionnelsCollector } from './l_eau_bordeaux_metropole_professionnels/l_eau_bordeaux_metropole_professionnels'; collectors.push(LEauBordeauxMetropoleProfessionnelsCollector);
-import { LeauDIleDeFranceCollector } from './leau_d_ile_de_france/leau_d_ile_de_france'; collectors.push(LeauDIleDeFranceCollector);
-import { LEauDIleDeFranceCollector } from './l_eau_d_ile_de_france/l_eau_d_ile_de_france'; collectors.push(LEauDIleDeFranceCollector);
-import { LEauDIleDeFranceProfessionalCollector } from './l_eau_d_ile_de_france_professional/l_eau_d_ile_de_france_professional'; collectors.push(LEauDIleDeFranceProfessionalCollector);
+import { LeauDileDeFranceCollector } from './leaudiledefrance/leaudiledefrance'; collectors.push(LeauDileDeFranceCollector);
 import { LEauDuValenciennoisCollector } from './l_eau_du_valenciennois/l_eau_du_valenciennois'; collectors.push(LEauDuValenciennoisCollector);
 import { LebaraDeCollector } from './lebara_de/lebara_de'; collectors.push(LebaraDeCollector);
 import { LebaraDkCollector } from './lebara_dk/lebara_dk'; collectors.push(LebaraDkCollector);
@@ -8450,7 +8448,6 @@ import { VenteUniqueComCollector } from './vente_unique_com/vente_unique_com'; c
 import { VentoryoneCollector } from './ventoryone/ventoryone'; collectors.push(VentoryoneCollector);
 import { VenturyoneCollector } from './venturyone/venturyone'; collectors.push(VenturyoneCollector);
 import { VentyaClearInvoiceCollector } from './ventya_clear_invoice/ventya_clear_invoice'; collectors.push(VentyaClearInvoiceCollector);
-import { VeoliaCollector } from './veolia/veolia'; collectors.push(VeoliaCollector);
 import { VeoliaEauCollector } from './veolia_eau/veolia_eau'; collectors.push(VeoliaEauCollector);
 import { VeoliaEauEspaceClientCollector } from './veolia_eau_espace_client/veolia_eau_espace_client'; collectors.push(VeoliaEauEspaceClientCollector);
 import { VeoliaEauxDeLArtoisCollector } from './veolia_eaux_de_l_artois/veolia_eaux_de_l_artois'; collectors.push(VeoliaEauxDeLArtoisCollector);

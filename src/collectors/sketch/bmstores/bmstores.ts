@@ -22,7 +22,8 @@ export class BMStoresCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://bmstores.fr/connexion?back=my-account",
     }
 
     constructor() {

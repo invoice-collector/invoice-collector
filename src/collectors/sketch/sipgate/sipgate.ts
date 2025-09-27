@@ -22,7 +22,8 @@ export class SipgateCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://login.sipgate.com/",
     }
 
     constructor() {

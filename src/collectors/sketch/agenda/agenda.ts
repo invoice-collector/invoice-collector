@@ -8,7 +8,7 @@ export class AgendaCollector extends SketchCollector {
         name: "Agenda",
         description: "i18n.collectors.agenda.description",
         version: "0",
-        website: "https://agenda-unternehmens-portal.de/Unternehmensportal/",
+        website: "https://www.agenda-software.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/169046.jpg",
         params: {
             email: {
@@ -24,6 +24,7 @@ export class AgendaCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        entryUrl: "https://agenda-unternehmens-portal.de/Unternehmensportal/",
     }
 
     constructor() {

@@ -22,7 +22,8 @@ export class ToutSurMonEauCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.toutsurmoneau.fr/mon-compte-en-ligne/je-me-connecte",
     }
 
     constructor() {

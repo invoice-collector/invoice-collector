@@ -22,7 +22,8 @@ export class FacebookCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://facebook.com",
     }
 
     constructor() {

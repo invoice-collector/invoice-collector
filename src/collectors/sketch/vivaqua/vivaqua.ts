@@ -22,7 +22,8 @@ export class VivaquaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://secure.doccle.be/doccle-euui/login/auth",
     }
 
     constructor() {

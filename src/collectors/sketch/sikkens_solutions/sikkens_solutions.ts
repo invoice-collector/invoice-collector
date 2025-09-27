@@ -22,7 +22,8 @@ export class SikkensSolutionsCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.sikkens-solutions.fr/profile/login",
     }
 
     constructor() {

@@ -22,7 +22,8 @@ export class HetznerCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://accounts.hetzner.com/login",
     }
 
     constructor() {

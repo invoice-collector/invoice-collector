@@ -22,7 +22,8 @@ export class MmaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://espace-client.mma.fr/",
     }
 
     constructor() {
