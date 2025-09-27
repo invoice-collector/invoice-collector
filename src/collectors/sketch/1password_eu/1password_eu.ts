@@ -1,15 +1,15 @@
 
 import { SketchCollector } from '../../sketchCollector';
 
-export class _1passwordCollector extends SketchCollector {
+export class _1passwordEuCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "1password",
-        name: "1Password",
-        description: "i18n.collectors.1password.description",
+        id: "1password_eu",
+        name: "1Password (.eu)",
+        description: "i18n.collectors.1password_eu.description",
         version: "0",
-        website: "https://my.1password.com/signin?l=en",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7293.jpg",
+        website: "https://my.1password.eu/billing/invoices",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135337.jpg",
         params: {
             email: {
                 type: "email",
@@ -24,10 +24,10 @@ export class _1passwordCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.1password.com/signin?l=en",
+        entryUrl: "https://my.1password.eu/billing/invoices",
     }
 
     constructor() {
-        super(_1passwordCollector.CONFIG);
+        super(_1passwordEuCollector.CONFIG);
     }
 }
