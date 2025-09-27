@@ -1,15 +1,15 @@
 
 import { SketchCollector } from '../../sketchCollector';
 
-export class OrangeFrCollector extends SketchCollector {
+export class LeclercCarburantCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "orange_fr",
-        name: "Orange.fr",
-        description: "i18n.collectors.orange_fr.description",
+        id: "leclerc_carburant",
+        name: "Leclerc Carburant",
+        description: "i18n.collectors.leclerc_carburant.description",
         version: "0",
-        website: "http://www.orange.fr",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9435.jpg",
+        website: "https://espace.cartecarburant.leclerc/EnergeoSI/client/facture/lister.do?method=rechercher",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1421237.jpg",
         params: {
             email: {
                 type: "email",
@@ -24,10 +24,10 @@ export class OrangeFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.orange.fr",
+        entryUrl: "https://espace.cartecarburant.leclerc/EnergeoSI/client/facture/lister.do?method=rechercher",
     }
 
     constructor() {
-        super(OrangeFrCollector.CONFIG);
+        super(CarteCarburantLeclercCollector.CONFIG);
     }
 }
