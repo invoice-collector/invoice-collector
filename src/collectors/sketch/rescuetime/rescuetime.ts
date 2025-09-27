@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class RescuetimeCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "rescuetime",
+        name: "RescueTime",
+        description: "i18n.collectors.rescuetime.description",
+        version: "0",
+        website: "https://www.rescuetime.com/invoices/list",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/40938.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.rescuetime.com/invoices/list",
+    }
+
+    constructor() {
+        super(RescuetimeCollector.CONFIG);
+    }
+}

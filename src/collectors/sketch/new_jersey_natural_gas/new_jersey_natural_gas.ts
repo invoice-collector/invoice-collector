@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class NewJerseyNaturalGasCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "new_jersey_natural_gas",
+        name: "New Jersey Natural Gas",
+        description: "i18n.collectors.new_jersey_natural_gas.description",
+        version: "0",
+        website: "https://myaccount.njng.com/portal/default.aspx",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2798831.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://myaccount.njng.com/portal/default.aspx",
+    }
+
+    constructor() {
+        super(NewJerseyNaturalGasCollector.CONFIG);
+    }
+}

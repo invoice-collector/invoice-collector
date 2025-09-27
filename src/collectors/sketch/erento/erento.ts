@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class ErentoCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "erento",
+        name: "Erento",
+        description: "i18n.collectors.erento.description",
+        version: "0",
+        website: "https://www.erento.com/dashboard/invoices",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2195552.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.erento.com/dashboard/invoices",
+    }
+
+    constructor() {
+        super(ErentoCollector.CONFIG);
+    }
+}

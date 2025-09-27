@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class CircleKGermanyCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "circle_k_germany",
+        name: "Circle K - Germany",
+        description: "i18n.collectors.circle_k_germany.description",
+        version: "0",
+        website: "https://fleet.circlek-deutschland.de/secure/clients/factures/recherche.do#anchorRecherche",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4510327.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://fleet.circlek-deutschland.de/secure/clients/factures/recherche.do#anchorRecherche",
+    }
+
+    constructor() {
+        super(CircleKGermanyCollector.CONFIG);
+    }
+}

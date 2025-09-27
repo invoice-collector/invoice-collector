@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class PaperlessCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "paperless",
+        name: "Paperless",
+        description: "i18n.collectors.paperless.description",
+        version: "0",
+        website: "https://app.paperless.io/organizations/91/billing_session",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1763950.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.paperless.io/organizations/91/billing_session",
+    }
+
+    constructor() {
+        super(PaperlessCollector.CONFIG);
+    }
+}

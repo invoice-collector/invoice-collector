@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class PrusaprintersCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "prusaprinters",
+        name: "PrusaPrinters",
+        description: "i18n.collectors.prusaprinters.description",
+        version: "0",
+        website: "https://account.prusa3d.com/login",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/532455.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://account.prusa3d.com/login",
+    }
+
+    constructor() {
+        super(PrusaprintersCollector.CONFIG);
+    }
+}

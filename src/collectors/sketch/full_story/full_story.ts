@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class FullStoryCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "full_story",
+        name: "Full Story",
+        description: "i18n.collectors.full_story.description",
+        version: "0",
+        website: "https://app.fullstory.com",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9337.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.fullstory.com",
+    }
+
+    constructor() {
+        super(FullStoryCollector.CONFIG);
+    }
+}

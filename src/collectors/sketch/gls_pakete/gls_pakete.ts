@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class GlsPaketeCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "gls_pakete",
+        name: "GLS Pakete",
+        description: "i18n.collectors.gls_pakete.description",
+        version: "0",
+        website: "https://www.gls-pakete.de/profile?tab=myReceipts",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2698582.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.gls-pakete.de/profile?tab=myReceipts",
+    }
+
+    constructor() {
+        super(GlsPaketeCollector.CONFIG);
+    }
+}

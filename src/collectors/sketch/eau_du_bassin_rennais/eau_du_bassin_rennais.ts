@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class EauDuBassinRennaisCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "eau_du_bassin_rennais",
+        name: "Eau Du Bassin Rennais",
+        description: "i18n.collectors.eau_du_bassin_rennais.description",
+        version: "0",
+        website: "https://www.eaudubassinrennais.fr/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778926.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.eaudubassinrennais.fr/",
+    }
+
+    constructor() {
+        super(EauDuBassinRennaisCollector.CONFIG);
+    }
+}

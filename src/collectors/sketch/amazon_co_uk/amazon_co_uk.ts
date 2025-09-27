@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class AmazonCoUkCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "amazon_co_uk",
+        name: "Amazon (co.uk)",
+        description: "i18n.collectors.amazon_co_uk.description",
+        version: "0",
+        website: "https://www.amazon.co.uk",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8532.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.amazon.co.uk",
+    }
+
+    constructor() {
+        super(AmazonCoUkCollector.CONFIG);
+    }
+}

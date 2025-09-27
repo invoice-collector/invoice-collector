@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class NominetUkCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "nominet_uk",
+        name: "Nominet UK",
+        description: "i18n.collectors.nominet_uk.description",
+        version: "0",
+        website: "https://secure.nominet.org.uk/account/credit/online-payments.html",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778900.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://secure.nominet.org.uk/account/credit/online-payments.html",
+    }
+
+    constructor() {
+        super(NominetUkCollector.CONFIG);
+    }
+}

@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class TeslaHandschuhfachCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "tesla_handschuhfach",
+        name: "Tesla Handschuhfach",
+        description: "i18n.collectors.tesla_handschuhfach.description",
+        version: "0",
+        website: "https://www.tesla.com/de_DE/teslaaccount/ownership?rn=RN114491712",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1317274.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.tesla.com/de_DE/teslaaccount/ownership?rn=RN114491712",
+    }
+
+    constructor() {
+        super(TeslaHandschuhfachCollector.CONFIG);
+    }
+}

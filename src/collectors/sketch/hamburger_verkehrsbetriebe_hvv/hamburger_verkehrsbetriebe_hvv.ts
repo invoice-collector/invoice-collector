@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class HamburgerVerkehrsbetriebeHvvCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "hamburger_verkehrsbetriebe_hvv",
+        name: "Hamburger Verkehrsbetriebe - HVV",
+        description: "i18n.collectors.hamburger_verkehrsbetriebe_hvv.description",
+        version: "0",
+        website: "https://shop.hvv.de/personal_data/orderList",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20248.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://shop.hvv.de/personal_data/orderList",
+    }
+
+    constructor() {
+        super(HamburgerVerkehrsbetriebeHvvCollector.CONFIG);
+    }
+}

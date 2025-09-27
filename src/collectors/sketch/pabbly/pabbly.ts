@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class PabblyCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "pabbly",
+        name: "Pabbly",
+        description: "i18n.collectors.pabbly.description",
+        version: "0",
+        website: "https://payments.pabbly.com/portal/app/en/affiliateportal/invoice/1/all",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1318809.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://payments.pabbly.com/portal/app/en/affiliateportal/invoice/1/all",
+    }
+
+    constructor() {
+        super(PabblyCollector.CONFIG);
+    }
+}

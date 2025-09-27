@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class NeutrinoApiCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "neutrino_api",
+        name: "Neutrino API",
+        description: "i18n.collectors.neutrino_api.description",
+        version: "0",
+        website: "https://www.neutrinoapi.com/account/billing-history/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/748680.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.neutrinoapi.com/account/billing-history/",
+    }
+
+    constructor() {
+        super(NeutrinoApiCollector.CONFIG);
+    }
+}

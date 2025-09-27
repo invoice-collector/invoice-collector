@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class MarkECollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "mark_e",
+        name: "Mark-E",
+        description: "i18n.collectors.mark_e.description",
+        version: "0",
+        website: "https://selfservice.mark-e.de/portal/login",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/429772.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://selfservice.mark-e.de/portal/login",
+    }
+
+    constructor() {
+        super(MarkECollector.CONFIG);
+    }
+}

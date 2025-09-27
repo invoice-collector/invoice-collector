@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class CnmssAvisDePaiementCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "cnmss_avis_de_paiement",
+        name: "CNMSS (avis de paiement)",
+        description: "i18n.collectors.cnmss_avis_de_paiement.description",
+        version: "0",
+        website: "https://www.cnmss.fr/professionnel-de-sante/mes-services-en-ligne/amelipro/consulter-vos-paiements-5772.html",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123805.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.cnmss.fr/professionnel-de-sante/mes-services-en-ligne/amelipro/consulter-vos-paiements-5772.html",
+    }
+
+    constructor() {
+        super(CnmssAvisDePaiementCollector.CONFIG);
+    }
+}

@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class _99designsUkCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "99designs_uk",
+        name: "99Designs UK",
+        description: "i18n.collectors.99designs_uk.description",
+        version: "0",
+        website: "https://99designs.co.uk/login",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/137152.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://99designs.co.uk/login",
+    }
+
+    constructor() {
+        super(_99designsUkCollector.CONFIG);
+    }
+}

@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class TotalFrGrOnlineCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "total_fr_gr_online",
+        name: "Total.fr - GR Online",
+        description: "i18n.collectors.total_fr_gr_online.description",
+        version: "0",
+        website: "https://gronline.total.fr/secure/clients/factures/recherche.do",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/37597.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://gronline.total.fr/secure/clients/factures/recherche.do",
+    }
+
+    constructor() {
+        super(TotalFrGrOnlineCollector.CONFIG);
+    }
+}

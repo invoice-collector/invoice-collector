@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class HostingerPartnersCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "hostinger_partners",
+        name: "Hostinger Partners",
+        description: "i18n.collectors.hostinger_partners.description",
+        version: "0",
+        website: "https://affiliates.hostinger.com/publisher/#!/billing?limit=50&page=1",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2189601.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://affiliates.hostinger.com/publisher/#!/billing?limit=50&page=1",
+    }
+
+    constructor() {
+        super(HostingerPartnersCollector.CONFIG);
+    }
+}

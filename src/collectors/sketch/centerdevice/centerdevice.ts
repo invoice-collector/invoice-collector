@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class CenterdeviceCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "centerdevice",
+        name: "CenterDevice",
+        description: "i18n.collectors.centerdevice.description",
+        version: "0",
+        website: "https://www.centerdevice.de/anmelden/.",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11679.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.centerdevice.de/anmelden/.",
+    }
+
+    constructor() {
+        super(CenterdeviceCollector.CONFIG);
+    }
+}

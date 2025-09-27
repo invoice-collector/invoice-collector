@@ -26,6 +26,6 @@ export class EngieFrCollector extends SketchCollector {
     }
 
     constructor() {
-        super(EngieCollector.CONFIG);
+        super(EngieFrCollector.CONFIG);
     }
 }

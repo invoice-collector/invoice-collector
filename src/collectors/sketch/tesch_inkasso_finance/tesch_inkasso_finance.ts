@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class TeschInkassoFinanceCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "tesch_inkasso_finance",
+        name: "Tesch Inkasso Finance",
+        description: "i18n.collectors.tesch_inkasso_finance.description",
+        version: "0",
+        website: "https://arag.tesch-finance.de/a/forderungen.php",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/743829.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://arag.tesch-finance.de/a/forderungen.php",
+    }
+
+    constructor() {
+        super(TeschInkassoFinanceCollector.CONFIG);
+    }
+}

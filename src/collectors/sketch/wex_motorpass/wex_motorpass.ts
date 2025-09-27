@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class WexMotorpassCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "wex_motorpass",
+        name: "WEX Motorpass",
+        description: "i18n.collectors.wex_motorpass.description",
+        version: "0",
+        website: "https://osc.motorpass.com.au/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8556.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://osc.motorpass.com.au/",
+    }
+
+    constructor() {
+        super(WexMotorpassCollector.CONFIG);
+    }
+}

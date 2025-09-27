@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class LpaMobilitesCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "lpa_mobilites",
+        name: "LPA Mobilites",
+        description: "i18n.collectors.lpa_mobilites.description",
+        version: "0",
+        website: "https://espaceclient.lpa.fr/ESCLAB/public/account-fac-lister",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4465716.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://espaceclient.lpa.fr/ESCLAB/public/account-fac-lister",
+    }
+
+    constructor() {
+        super(LpaMobilitesCollector.CONFIG);
+    }
+}

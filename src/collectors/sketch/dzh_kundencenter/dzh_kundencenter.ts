@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class DzhKundencenterCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "dzh_kundencenter",
+        name: "DZH Kundencenter",
+        description: "i18n.collectors.dzh_kundencenter.description",
+        version: "0",
+        website: "https://kundencenter.dzh-online.de/redirect.ac",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/573559.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://kundencenter.dzh-online.de/redirect.ac",
+    }
+
+    constructor() {
+        super(DzhKundencenterCollector.CONFIG);
+    }
+}

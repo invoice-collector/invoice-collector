@@ -1,0 +1,33 @@
+
+import { SketchCollector } from '../../sketchCollector';
+
+export class ConstantContactCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "constant_contact",
+        name: "Constant Contact",
+        description: "i18n.collectors.constant_contact.description",
+        version: "0",
+        website: "https://login.constantcontact.com/login/login.sdo?goto=https%3A%2F%2Fwww.constantcontact.com%2Fprocessing_login.jsp",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8811.jpg",
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://login.constantcontact.com/login/login.sdo?goto=https%3A%2F%2Fwww.constantcontact.com%2Fprocessing_login.jsp",
+    }
+
+    constructor() {
+        super(ConstantContactCollector.CONFIG);
+    }
+}
