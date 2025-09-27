@@ -4,9 +4,9 @@ import { SketchCollector } from '../../sketchCollector';
 export class AllInklCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "all_inkl",
+        id: "all_inkl_com",
         name: "ALL-INKL",
-        description: "i18n.collectors.all_inkl.description",
+        description: "i18n.collectors.all_inkl_com.description",
         version: "0",
         website: "https://all-inkl.com/members/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3074.jpg",
