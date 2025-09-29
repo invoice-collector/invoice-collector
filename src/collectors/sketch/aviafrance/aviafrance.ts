@@ -22,7 +22,8 @@ export class AviaFranceCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://avia-france.fr"
     }
 
     constructor() {

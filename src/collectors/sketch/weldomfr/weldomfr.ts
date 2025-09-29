@@ -22,7 +22,8 @@ export class WeldomFrCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.weldom.fr/"
     }
 
     constructor() {

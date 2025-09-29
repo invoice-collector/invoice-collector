@@ -22,7 +22,8 @@ export class BurgerKingCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.burgerking.fr/connexion"
     }
 
     constructor() {
