@@ -8374,7 +8374,6 @@ import { UriageCollector } from './uriage/uriage'; collectors.push(UriageCollect
 import { Url2pngCollector } from './url2png/url2png'; collectors.push(Url2pngCollector);
 import { UrlboxCollector } from './urlbox/urlbox'; collectors.push(UrlboxCollector);
 import { UrlGeniusCollector } from './url_genius/url_genius'; collectors.push(UrlGeniusCollector);
-import { UrssafCollector } from './urssaf/urssaf'; collectors.push(UrssafCollector);
 import { UsabilityhubCollector } from './usabilityhub/usabilityhub'; collectors.push(UsabilityhubCollector);
 import { USCellularCollector } from './u_s_cellular/u_s_cellular'; collectors.push(USCellularCollector);
 import { UscreenIoCollector } from './uscreen_io/uscreen_io'; collectors.push(UscreenIoCollector);
