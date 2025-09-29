@@ -683,6 +683,7 @@ import { AvastCollector } from './avast/avast'; collectors.push(AvastCollector);
 import { AvayaCollector } from './avaya/avaya'; collectors.push(AvayaCollector);
 import { AvazaCollector } from './avaza/avaza'; collectors.push(AvazaCollector);
 import { AvgCollector } from './avg/avg'; collectors.push(AvgCollector);
+import { AviaFranceCollector } from './aviafrance/aviafrance'; collectors.push(AviaFranceCollector);
 import { AvidCollector } from './avid/avid'; collectors.push(AvidCollector);
 import { AvinodeCollector } from './avinode/avinode'; collectors.push(AvinodeCollector);
 import { AviraCollector } from './avira/avira'; collectors.push(AviraCollector);
@@ -1052,6 +1053,7 @@ import { BorgbaseCollector } from './borgbase/borgbase'; collectors.push(Borgbas
 import { BorlabsCollector } from './borlabs/borlabs'; collectors.push(BorlabsCollector);
 import { BornetDeCollector } from './bornet_de/bornet_de'; collectors.push(BornetDeCollector);
 import { BottleTaxiCollector } from './bottle_taxi/bottle_taxi'; collectors.push(BottleTaxiCollector);
+import { BoulangerCollector } from './boulanger/boulanger'; collectors.push(BoulangerCollector);
 import { BouncebanCollector } from './bounceban/bounceban'; collectors.push(BouncebanCollector);
 import { BouncerCollector } from './bouncer/bouncer'; collectors.push(BouncerCollector);
 import { BourseDirectCollector } from './bourse_direct/bourse_direct'; collectors.push(BourseDirectCollector);
@@ -1089,6 +1091,8 @@ import { BremerSteuerInstitutEVCollector } from './bremer_steuer_institut_e_v/br
 import { BrennercomCollector } from './brennercom/brennercom'; collectors.push(BrennercomCollector);
 import { BrevoCollector } from './brevo/brevo'; collectors.push(BrevoCollector);
 import { BriaTeamsCollector } from './bria_teams/bria_teams'; collectors.push(BriaTeamsCollector);
+import { BricoDepotCollector } from './bricodepot/bricodepot'; collectors.push(BricoDepotCollector);
+import { BricomanCollector } from './bricoman/bricoman'; collectors.push(BricomanCollector);
 import { BricoPhoneCollector } from './brico_phone/brico_phone'; collectors.push(BricoPhoneCollector);
 import { BricopriveCollector } from './bricoprive/bricoprive'; collectors.push(BricopriveCollector);
 import { BridgeCollector } from './bridge/bridge'; collectors.push(BridgeCollector);
@@ -1164,6 +1168,7 @@ import { BunningsWarehouseAuCollector } from './bunnings_warehouse_au/bunnings_w
 import { BunnyCollector } from './bunny/bunny'; collectors.push(BunnyCollector);
 import { BurbankWaterAndPowerCollector } from './burbank_water_and_power/burbank_water_and_power'; collectors.push(BurbankWaterAndPowerCollector);
 import { BureauDeLaPcrCollector } from './bureau_de_la_pcr/bureau_de_la_pcr'; collectors.push(BureauDeLaPcrCollector);
+import { BurgerKingCollector } from './burgerking/burgerking'; collectors.push(BurgerKingCollector);
 import { BurlingtonHydroCollector } from './burlington_hydro/burlington_hydro'; collectors.push(BurlingtonHydroCollector);
 import { BuromarktBottcherCollector } from './buromarkt_bottcher/buromarkt_bottcher'; collectors.push(BuromarktBottcherCollector);
 import { BuroPlusCollector } from './buroplus/buroplus'; collectors.push(BuroPlusCollector);
@@ -1814,6 +1819,7 @@ import { CubebrushCollector } from './cubebrush/cubebrush'; collectors.push(Cube
 import { CucamongaValleyWaterDistrictCollector } from './cucamonga_valley_water_district/cucamonga_valley_water_district'; collectors.push(CucamongaValleyWaterDistrictCollector);
 import { CuedbCollector } from './cuedb/cuedb'; collectors.push(CuedbCollector);
 import { CulliganWaterNewJerseyCollector } from './culligan_water_new_jersey/culligan_water_new_jersey'; collectors.push(CulliganWaterNewJerseyCollector);
+import { CulturaCollector } from './cultura/cultura'; collectors.push(CulturaCollector);
 import { CuratorIoCollector } from './curator_io/curator_io'; collectors.push(CuratorIoCollector);
 import { CurenergiaCollector } from './curenergia/curenergia'; collectors.push(CurenergiaCollector);
 import { CurrenciesDirectCollector } from './currencies_direct/currencies_direct'; collectors.push(CurrenciesDirectCollector);
@@ -3513,6 +3519,7 @@ import { HelinetPrivatkundenCollector } from './helinet_privatkunden/helinet_pri
 import { Helium10Collector } from './helium10/helium10'; collectors.push(Helium10Collector);
 import { HelixWaterDistrictCollector } from './helix_water_district/helix_water_district'; collectors.push(HelixWaterDistrictCollector);
 import { HellaCollector } from './hella/hella'; collectors.push(HellaCollector);
+import { HelloAssoCollector } from './helloasso/helloasso'; collectors.push(HelloAssoCollector);
 import { HelloBarCollector } from './hello_bar/hello_bar'; collectors.push(HelloBarCollector);
 import { HellofaxCollector } from './hellofax/hellofax'; collectors.push(HellofaxCollector);
 import { HelloFreshCollector } from './hello_fresh/hello_fresh'; collectors.push(HelloFreshCollector);
@@ -3828,6 +3835,7 @@ import { InfocallerInfofaxCollector } from './infocaller_infofax/infocaller_info
 import { InfocityRostockCollector } from './infocity_rostock/infocity_rostock'; collectors.push(InfocityRostockCollector);
 import { InfogrAmCollector } from './infogr_am/infogr_am'; collectors.push(InfogrAmCollector);
 import { InfographyCollector } from './infography/infography'; collectors.push(InfographyCollector);
+import { InfogreffeCollector } from './infogreffe/infogreffe'; collectors.push(InfogreffeCollector);
 import { InfoleasysCollector } from './infoleasys/infoleasys'; collectors.push(InfoleasysCollector);
 import { InfomaniakCollector } from './infomaniak/infomaniak'; collectors.push(InfomaniakCollector);
 import { InforCollector } from './infor/infor'; collectors.push(InforCollector);
@@ -3859,6 +3867,7 @@ import { Innova24BizCollector } from './innova24_biz/innova24_biz'; collectors.p
 import { InnovationGroupCollector } from './innovation_group/innovation_group'; collectors.push(InnovationGroupCollector);
 import { InnpowerCollector } from './innpower/innpower'; collectors.push(InnpowerCollector);
 import { InoplaCollector } from './inopla/inopla'; collectors.push(InoplaCollector);
+import { InpiCollector } from './inpi/inpi'; collectors.push(InpiCollector);
 import { InsightAtCollector } from './insight_at/insight_at'; collectors.push(InsightAtCollector);
 import { InsightlyCollector } from './insightly/insightly'; collectors.push(InsightlyCollector);
 import { InsignCollector } from './insign/insign'; collectors.push(InsignCollector);
@@ -4159,6 +4168,7 @@ import { KeySystemsRrpproxyCollector } from './key_systems_rrpproxy/key_systems_
 import { KeytchensCollector } from './keytchens/keytchens'; collectors.push(KeytchensCollector);
 import { KeywordToolCollector } from './keyword_tool/keyword_tool'; collectors.push(KeywordToolCollector);
 import { KeyyoCollector } from './keyyo/keyyo'; collectors.push(KeyyoCollector);
+import { KfcFrCollector } from './kfcfr/kfcfr'; collectors.push(KfcFrCollector);
 import { KFeeCollector } from './k_fee/k_fee'; collectors.push(KFeeCollector);
 import { KfwKreditanstaltFurWiederaufbauCollector } from './kfw_kreditanstalt_fur_wiederaufbau/kfw_kreditanstalt_fur_wiederaufbau'; collectors.push(KfwKreditanstaltFurWiederaufbauCollector);
 import { KfzBetriebVogelCollector } from './kfz_betrieb_vogel/kfz_betrieb_vogel'; collectors.push(KfzBetriebVogelCollector);
@@ -4172,6 +4182,7 @@ import { KickresumeCollector } from './kickresume/kickresume'; collectors.push(K
 import { KiehlsGermanyCollector } from './kiehls_germany/kiehls_germany'; collectors.push(KiehlsGermanyCollector);
 import { KifdomCollector } from './kifdom/kifdom'; collectors.push(KifdomCollector);
 import { KikudooCollector } from './kikudoo/kikudoo'; collectors.push(KikudooCollector);
+import { KiloutouCollector } from './kiloutou/kiloutou'; collectors.push(KiloutouCollector);
 import { KimaiCollector } from './kimai/kimai'; collectors.push(KimaiCollector);
 import { KimsufiCollector } from './kimsufi/kimsufi'; collectors.push(KimsufiCollector);
 import { KinderdentCollector } from './kinderdent/kinderdent'; collectors.push(KinderdentCollector);
@@ -4801,6 +4812,7 @@ import { MazeCollector } from './maze/maze'; collectors.push(MazeCollector);
 import { McafeeEpolicyOrchestratorCloudCollector } from './mcafee_epolicy_orchestrator_cloud/mcafee_epolicy_orchestrator_cloud'; collectors.push(McafeeEpolicyOrchestratorCloudCollector);
 import { McanismCollector } from './mcanism/mcanism'; collectors.push(McanismCollector);
 import { McaTechnologyCollector } from './mca_technology/mca_technology'; collectors.push(McaTechnologyCollector);
+import { McdonaldsCollector } from './mcdonalds/mcdonalds'; collectors.push(McdonaldsCollector);
 import { McgPartsCollector } from './mcg_parts/mcg_parts'; collectors.push(McgPartsCollector);
 import { McgrundrissCollector } from './mcgrundriss/mcgrundriss'; collectors.push(McgrundrissCollector);
 import { MckessonMedicalCollector } from './mckesson_medical/mckesson_medical'; collectors.push(MckessonMedicalCollector);
@@ -5066,6 +5078,7 @@ import { MonitorBacklinksCollector } from './monitor_backlinks/monitor_backlinks
 import { MonizzeCollector } from './monizze/monizze'; collectors.push(MonizzeCollector);
 import { Monocure3dB2bCollector } from './monocure_3d_b2b/monocure_3d_b2b'; collectors.push(Monocure3dB2bCollector);
 import { Monocure3dCollector } from './monocure_3d/monocure_3d'; collectors.push(Monocure3dCollector);
+import { MonoprixCollector } from './monoprix/monoprix'; collectors.push(MonoprixCollector);
 import { MonotypeCollector } from './monotype/monotype'; collectors.push(MonotypeCollector);
 import { MonServicePublicCollector } from './mon_service_public/mon_service_public'; collectors.push(MonServicePublicCollector);
 import { MonsieurTelecommandeCollector } from './monsieur_telecommande/monsieur_telecommande'; collectors.push(MonsieurTelecommandeCollector);
@@ -5112,6 +5125,7 @@ import { Mparts24Collector } from './mparts24/mparts24'; collectors.push(Mparts2
 import { MpbGmbhChangeGearCollector } from './mpb_gmbh_change_gear/mpb_gmbh_change_gear'; collectors.push(MpbGmbhChangeGearCollector);
 import { MpCareCollector } from './mp_care/mp_care'; collectors.push(MpCareCollector);
 import { Mql5MarktCollector } from './mql5_markt/mql5_markt'; collectors.push(Mql5MarktCollector);
+import { MrBricolageCollector } from './mrbricolage/mrbricolage'; collectors.push(MrBricolageCollector);
 import { MrcutoutCollector } from './mrcutout/mrcutout'; collectors.push(MrcutoutCollector);
 import { MrMoneyServiceGmbhCollector } from './mr_money_service_gmbh/mr_money_service_gmbh'; collectors.push(MrMoneyServiceGmbhCollector);
 import { MrpEasyCollector } from './mrp_easy/mrp_easy'; collectors.push(MrpEasyCollector);
@@ -5857,6 +5871,7 @@ import { PathwaySolutionsCollector } from './pathway_solutions/pathway_solutions
 import { PatreonCollector } from './patreon/patreon'; collectors.push(PatreonCollector);
 import { PatriwineCollector } from './patriwine/patriwine'; collectors.push(PatriwineCollector);
 import { PatterndesignsCollector } from './patterndesigns/patterndesigns'; collectors.push(PatterndesignsCollector);
+import { PaulCollector } from './paul/paul'; collectors.push(PaulCollector);
 import { PaulsenGruppeOnlinePortalCollector } from './paulsen_gruppe_online_portal/paulsen_gruppe_online_portal'; collectors.push(PaulsenGruppeOnlinePortalCollector);
 import { PawForTeamsCollector } from './paw_for_teams/paw_for_teams'; collectors.push(PawForTeamsCollector);
 import { Pax8Collector } from './pax8/pax8'; collectors.push(Pax8Collector);
@@ -6768,6 +6783,7 @@ import { SanacorpConnectCollector } from './sanacorp_connect/sanacorp_connect'; 
 import { SandozFrCollector } from './sandoz_fr/sandoz_fr'; collectors.push(SandozFrCollector);
 import { SandroCollector } from './sandro/sandro'; collectors.push(SandroCollector);
 import { SaneboxCollector } from './sanebox/sanebox'; collectors.push(SaneboxCollector);
+import { SanefCollector } from './sanef/sanef'; collectors.push(SanefCollector);
 import { SanityCollector } from './sanity/sanity'; collectors.push(SanityCollector);
 import { SanteeCooperMelCollector } from './santee_cooper_mel/santee_cooper_mel'; collectors.push(SanteeCooperMelCollector);
 import { SapAribaCollector } from './sap_ariba/sap_ariba'; collectors.push(SapAribaCollector);
@@ -8755,6 +8771,7 @@ import { WeglotCollector } from './weglot/weglot'; collectors.push(WeglotCollect
 import { WekaMediaCollector } from './weka_media/weka_media'; collectors.push(WekaMediaCollector);
 import { WelcomeOfficeCollector } from './welcome_office/welcome_office'; collectors.push(WelcomeOfficeCollector);
 import { WelcomeToTheJungleCollector } from './welcome_to_the_jungle/welcome_to_the_jungle'; collectors.push(WelcomeToTheJungleCollector);
+import { WeldomFrCollector } from './weldomfr/weldomfr'; collectors.push(WeldomFrCollector);
 import { WellaCollector } from './wella/wella'; collectors.push(WellaCollector);
 import { WellandHydroCollector } from './welland_hydro/welland_hydro'; collectors.push(WellandHydroCollector);
 import { WellsFargoCopierMyaccountsCollector } from './wells_fargo_copier_myaccounts/wells_fargo_copier_myaccounts'; collectors.push(WellsFargoCopierMyaccountsCollector);
