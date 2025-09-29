@@ -131,7 +131,7 @@
   "i18n.collectors.acronis.description": "Une solution complète de cybersécurité offrant sauvegarde, reprise après sinistre et synchronisation sécurisée de fichiers.",
   "i18n.collectors.actaport.description": "Une plateforme en ligne allemande pour gérer et optimiser les processus et flux de travail des entreprises.",
   "i18n.collectors.actindo.description": "Actindo est une plateforme tout-en-un de gestion d'entreprise pour le e-commerce, la vente au détail et le commerce de gros.",
-  "i18n.collectors.action.description": "Une plateforme en ligne polyvalente proposant des outils pour la productivité, l'automatisation et la gestion des flux de travail.",
+  "i18n.collectors.action.description": "Une chaîne de magasins discount d'origine néerlandaise proposant une large gamme de produits non alimentaires à prix abordables.",
   "i18n.collectors.action_magasins_france.description": "Une chaîne de magasins discount d'origine néerlandaise proposant une large gamme de produits non alimentaires à prix abordables en France.",
   "i18n.collectors.action_vfx.description": "Un fournisseur premium d'images de stock d'effets visuels de haute qualité pour les cinéastes et créateurs de contenu.",
   "i18n.collectors.activate_by_reclay.description": "Un service d'activation en ligne pour les solutions de conformité et de gestion des déchets d'emballage.",
@@ -9159,5 +9159,8 @@
   "i18n.views.manage.unknown": "Oups ! Quelque chose s'est mal passé... Nous allons réessayer plus tard.",
   "i18n.views.manage.verification_code": "Code de vérification",
   "i18n.views.manage.verification_code.error": "Code de vérification incorrect",
-  "i18n.views.manage.verification_code.placeholder": "Code de vérification à 6 chiffres reçu par email"
+  "i18n.views.manage.verification_code.placeholder": "Code de vérification à 6 chiffres reçu par email",
+  "i18n.collectors.infogreffe.description": "Infogreffe est le registre du commerce et des sociétés en France, fournissant des informations légales et financières sur les entreprises.",
+  "i18n.collectors.boulanger.description": "Un détaillant français de premier plan spécialisé dans l'électronique, les appareils électroménagers et les produits multimédias.",
+  "i18n.collectors.mcdonalds.description": "Une chaîne de restauration rapide mondiale connue pour ses hamburgers, ses frites et son service rapide."
 }

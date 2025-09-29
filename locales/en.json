@@ -131,7 +131,7 @@
   "i18n.collectors.acronis.description": "A comprehensive cyber protection solution offering backup, disaster recovery, and secure file sync.",
   "i18n.collectors.actaport.description": "A German online platform for managing and optimizing business processes and workflows.",
   "i18n.collectors.actindo.description": "Actindo is an all-in-one business management platform for e-commerce, retail, and wholesale.",
-  "i18n.collectors.action.description": "A versatile online platform offering tools for productivity, automation, and workflow management.",
+  "i18n.collectors.action.description": "A Dutch-owned discount retail chain offering a wide range of affordable non-food products.",
   "i18n.collectors.action_magasins_france.description": "A Dutch-owned discount retail chain offering a wide range of affordable non-food products across France.",
   "i18n.collectors.action_vfx.description": "A premium provider of high-quality visual effects stock footage for filmmakers and content creators.",
   "i18n.collectors.activate_by_reclay.description": "An online activation service for compliance and packaging waste management solutions.",
@@ -9159,5 +9159,8 @@
   "i18n.views.manage.unknown": "Oops! Something went wrong... We will try again later.",
   "i18n.views.manage.verification_code": "Verification code",
   "i18n.views.manage.verification_code.error": "Incorrect verification code",
-  "i18n.views.manage.verification_code.placeholder": "6 digits verification code received by email"
+  "i18n.views.manage.verification_code.placeholder": "6 digits verification code received by email",
+  "i18n.collectors.infogreffe.description": "The official platform for accessing French company registration and legal information.",
+  "i18n.collectors.boulanger.description": "A leading French retailer specializing in electronics, appliances, and multimedia products.",
+  "i18n.collectors.mcdonalds.description": "A global fast-food chain known for its burgers, fries, and quick service."
 }
