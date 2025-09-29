@@ -22,7 +22,8 @@ export class MrBricolageCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.mr-bricolage.fr/paris-montyon/customer/account/login"
     }
 
     constructor() {
