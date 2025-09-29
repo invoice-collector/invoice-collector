@@ -4376,6 +4376,7 @@ import { LeaseServicesPeacSolutionsCollector } from './lease_services_peac_solut
 import { LeasetrackEsFinanceCollector } from './leasetrack_es_finance/leasetrack_es_finance'; collectors.push(LeasetrackEsFinanceCollector);
 import { LeasetrackNcmCollector } from './leasetrack_ncm/leasetrack_ncm'; collectors.push(LeasetrackNcmCollector);
 import { LEauBordeauxMetropoleProfessionnelsCollector } from './l_eau_bordeaux_metropole_professionnels/l_eau_bordeaux_metropole_professionnels'; collectors.push(LEauBordeauxMetropoleProfessionnelsCollector);
+import { LeauDileDeFranceBailleursSyndicsCollector } from './leaudiledefrance_bailleurs_syndics/leaudiledefrance_bailleurs_syndics'; collectors.push(LeauDileDeFranceBailleursSyndicsCollector);
 import { LeauDileDeFranceCollector } from './leaudiledefrance/leaudiledefrance'; collectors.push(LeauDileDeFranceCollector);
 import { LEauDuValenciennoisCollector } from './l_eau_du_valenciennois/l_eau_du_valenciennois'; collectors.push(LEauDuValenciennoisCollector);
 import { LebaraDeCollector } from './lebara_de/lebara_de'; collectors.push(LebaraDeCollector);
@@ -5648,6 +5649,7 @@ import { OnvistaCollector } from './onvista/onvista'; collectors.push(OnvistaCol
 import { OogardenCollector } from './oogarden/oogarden'; collectors.push(OogardenCollector);
 import { OowvCollector } from './oowv/oowv'; collectors.push(OowvCollector);
 import { OpalKurierLogistikCollector } from './opal_kurier_logistik/opal_kurier_logistik'; collectors.push(OpalKurierLogistikCollector);
+import { OpenaiChatgptCollector } from './openai_chatgpt/openai_chatgpt'; collectors.push(OpenaiChatgptCollector);
 import { OpencartCollector } from './opencart/opencart'; collectors.push(OpencartCollector);
 import { OpenDriveCollector } from './open_drive/open_drive'; collectors.push(OpenDriveCollector);
 import { OpenexchangeratesCollector } from './openexchangerates/openexchangerates'; collectors.push(OpenexchangeratesCollector);
