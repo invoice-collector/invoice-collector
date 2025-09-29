@@ -5,7 +5,7 @@ import { collectors as communityCollectors } from './community/loader';
 import { collectors as coreCollectors } from './core/loader';
 let premiumCollectors: any[] = [];
 try {
-    premiumCollectors = require('./premium/collectors/loader').collectors;
+    premiumCollectors = require('../premium/collectors/loader').collectors;
 } catch (e) {
     // No premium collectors
 }
