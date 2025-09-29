@@ -28,6 +28,6 @@ export class LeclercCarburantCollector extends SketchCollector {
     }
 
     constructor() {
-        super(CarteCarburantLeclercCollector.CONFIG);
+        super(LeclercCarburantCollector.CONFIG);
     }
 }
