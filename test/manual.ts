@@ -14,7 +14,7 @@ import assert from 'assert';
 import * as crypto from 'crypto';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
-import { AbstractCollector } from '../src/collectors/abstractCollector';
+import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
     await DatabaseFactory.getDatabase().connect();
@@ -92,7 +92,7 @@ function getHashFromSecret(secret: Secret): string {
         const loadedCollectors = CollectorLoader.load(id);
 
         // If collector loaded, it means it is a credential
-        let collector: AbstractCollector;
+        let collector: AbstractCollector<Config>;
         if(loadedCollectors.size == 0) {
             console.log(`No collector found with id "${id}", trying to find credential...`);
             // Get credential

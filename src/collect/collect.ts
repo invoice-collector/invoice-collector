@@ -1,5 +1,5 @@
 import { CallbackHandler } from "../callback/callback";
-import { AbstractCollector } from "../collectors/abstractCollector";
+import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential } from "../model/credential";
@@ -26,7 +26,7 @@ export class Collect {
         let credential: IcCredential|null = null;
         let user: User|null = null;
         let secret: Secret|null = null;
-        let collector: AbstractCollector|null = null;
+        let collector: AbstractCollector<Config>|null = null;
         let customer: Customer|null = null;
 
         try {

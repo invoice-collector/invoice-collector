@@ -1,4 +1,4 @@
-import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
+import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState, Config } from "./abstractCollector";
 import { V1Collector } from "./v1Collector";
 import { Driver } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, MaintenanceError, UnfinishedCollectorError, NoInvoiceFoundError } from '../error';
@@ -11,23 +11,7 @@ import { State } from "../model/state";
 import * as utils from '../utils';
 
 
-export type WebConfig = {
-    id: string,
-    name: string,
-    description: string,
-    instructions?: string,
-    version: string,
-    website: string,
-    logo: string,
-    params: {
-        [key: string]: {
-            type: string,
-            name: string,
-            placeholder: string,
-            mandatory: boolean
-        }
-    },
-    state?: CollectorState,
+export type WebConfig = Config & {
     entryUrl: string,
     useProxy?: boolean,
     captcha?: CollectorCaptcha,
@@ -38,7 +22,7 @@ export type WebConfig = {
     }
 }
 
-export abstract class WebCollector extends V1Collector {
+export abstract class WebCollector extends V1Collector<WebConfig> {
 
     driver: Driver | null;
 
@@ -124,10 +108,10 @@ export abstract class WebCollector extends V1Collector {
             console.log("User is successfully logged in")
 
             // Update secret.cookies
-            secret.cookies = await this.driver.getCookies(this.config.autoLogin.cookieNames);
+            secret.cookies = await this.driver.getCookies(this.config.autoLogin?.cookieNames);
 
             // Update secret.localStorage
-            secret.localStorage = await this.driver.getLocalStorage(this.config.autoLogin.localStorageKeys);
+            secret.localStorage = await this.driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
 
             // Set progress step to collecting
             state.update(State._5_COLLECTING);
