@@ -121,7 +121,8 @@ export abstract class WebCollector extends V2Collector {
             let firstDownload = true;
             await this.forEachPage(driver, secret.params, async () => {
                 // For each invoice on the page
-                await this.forEachInvoice(driver, secret.params, async (element: Element) => {
+                const invoiceElements = await this.getInvoices(driver, secret.params);
+                for (const element of invoiceElements) {
                     // Get invoice data
                     let invoice: Invoice = await this.data(driver, secret.params, element);
 
@@ -179,7 +180,7 @@ export abstract class WebCollector extends V2Collector {
                             });
                         }
                     }
-                });
+                }
             });
 
             // Set progress step to done
@@ -231,28 +232,28 @@ export abstract class WebCollector extends V2Collector {
     abstract login(driver: Driver, params: any): Promise<string | void>;
 
     async needTwofa(driver: Driver): Promise<string | void>{
-        //Assume the collector does not implement 2FA
+        // Assume the collector does not implement 2FA
     }
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
-        //Assume the collector does not implement 2FA
+        // Assume the collector does not implement 2FA
     }
 
     async navigate(driver: Driver, params: any): Promise<Invoice[] | void> {
-        //Assume the collector does need to navigate
+        // Assume the collector does not need to navigate
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {
-        //Assume no invoices found
+        // Assume invoices are present
         return false;
     }
 
     async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
-        //Assume the collector does not have pagination
+        // Assume the collector does not have pagination
         await next();
     }
 
-    abstract forEachInvoice(driver: Driver, params: any, next: (element: Element) => void): Promise<void>;
+    abstract getInvoices(driver: Driver, params: any): Promise<Element[]>;
 
     abstract data(driver: Driver, params: any, element: Element): Promise<Invoice>;
 
