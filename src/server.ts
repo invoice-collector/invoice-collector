@@ -977,9 +977,9 @@ export class Server {
         }
 
         return CollectorLoader.getAll()
-            .filter((collector: AbstractCollector) => isSubscribedToAll || subscribedCollectors.includes(collector.config.id))
-            .filter((collector: AbstractCollector) => collector.config.type !== CollectorType.SKETCH || displaySketchCollectors)
-            .map((collector: AbstractCollector): Config => {
+            .filter((collector: AbstractCollector<Config>) => isSubscribedToAll || subscribedCollectors.includes(collector.config.id))
+            .filter((collector: AbstractCollector<Config>) => collector.config.type !== CollectorType.SKETCH || displaySketchCollectors)
+            .map((collector: AbstractCollector<Config>): Config => {
                 const name: string = I18n.get(collector.config.name, locale);
                 const description: string = I18n.get(collector.config.description, locale);
                 const instructions: string = I18n.get(collector.config.instructions, locale);

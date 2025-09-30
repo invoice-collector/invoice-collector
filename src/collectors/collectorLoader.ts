@@ -1,4 +1,4 @@
-import { AbstractCollector } from './abstractCollector';
+import { AbstractCollector, Config } from './abstractCollector';
 import { StatusError } from '../error';
 import { collectors as sketchCollectors } from './sketch/loader';
 import { collectors as communityCollectors } from './community/loader';
@@ -55,7 +55,7 @@ export class CollectorLoader {
         }
     }
 
-    public static getAll(): AbstractCollector[] {
+    public static getAll(): AbstractCollector<Config>[] {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();
@@ -64,7 +64,7 @@ export class CollectorLoader {
         return Array.from(CollectorLoader.collectors.values()).map((collector: any) => new collector());
     }
 
-    public static get(id: string): AbstractCollector {
+    public static get(id: string): AbstractCollector<Config> {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size == 0) {
             CollectorLoader.load();

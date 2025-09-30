@@ -1,4 +1,4 @@
-import { AbstractCollector } from "../collectors/abstractCollector";
+import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { AuthenticationError } from "../error";
 import * as utils from "../utils";
 
@@ -11,7 +11,7 @@ export class TwofaPromise{
     private codePromise: Promise<string>;
     private codeResolve: (value: string) => void;
 
-    collector: AbstractCollector | null = null;
+    collector: AbstractCollector<Config> | null = null;
 
     constructor() {
         // Instructions promise

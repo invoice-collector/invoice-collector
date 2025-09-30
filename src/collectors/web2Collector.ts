@@ -11,14 +11,14 @@ import * as utils from '../utils';
 import { WebConfig } from "./webCollector";
 import { V2Collector } from "./v2Collector";
 
-export abstract class WebCollector extends V2Collector {
+export abstract class WebCollector extends V2Collector<WebConfig> {
 
     driver: Driver | null;
 
     constructor(config: WebConfig) {
         super({
             ...config,
-            type: CollectorType.WEB,
+            type: config.type || CollectorType.WEB,
             useProxy: config.useProxy === undefined ? true : config.useProxy,
             state: config.state || CollectorState.ACTIVE,
             loadImages: config.loadImages === undefined ? config.captcha == CollectorCaptcha.CLOUDFLARE : config.loadImages,
@@ -99,10 +99,10 @@ export abstract class WebCollector extends V2Collector {
             console.log("User is successfully logged in")
 
             // Update secret.cookies
-            secret.cookies = await driver.getCookies(this.config.autoLogin.cookieNames);
+            secret.cookies = await driver.getCookies(this.config.autoLogin?.cookieNames);
 
             // Update secret.localStorage
-            secret.localStorage = await driver.getLocalStorage(this.config.autoLogin.localStorageKeys);
+            secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
 
             // Set progress step to collecting
             state.update(State._5_COLLECTING);

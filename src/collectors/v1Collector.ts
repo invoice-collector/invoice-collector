@@ -4,9 +4,9 @@ import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { AbstractCollector, CompleteInvoice, Config, Invoice } from './abstractCollector';
 
-export abstract class V1Collector extends AbstractCollector {
+export abstract class V1Collector<C extends Config> extends AbstractCollector<C> {
 
-    constructor(config: Config) {
+    constructor(config: C) {
         super(config);
     }
 

@@ -1,3 +1,4 @@
+import { Config } from "./collectors/abstractCollector";
 import { AbstractCollector } from "./collectors/abstractCollector";
 import { Theme } from "./model/customer";
 
@@ -66,7 +67,7 @@ export class CollectorError extends Error {
     collector_name: string;
     collector_version: string;
 
-    constructor(message: string, collector: AbstractCollector, opts = {}) {
+    constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(message, opts);
         this.name = this.constructor.name;
         this.collector_id = collector.config.id;
@@ -76,7 +77,7 @@ export class CollectorError extends Error {
 }
 
 export class MaintenanceError extends CollectorError {
-    constructor(collector: AbstractCollector, opts = {}) {
+    constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
             `The website is in maintenance. Wait a moment and try again.`,
             collector,
@@ -87,7 +88,7 @@ export class MaintenanceError extends CollectorError {
 }
 
 export class AuthenticationError extends CollectorError {
-    constructor(message: string, collector: AbstractCollector, opts = {}) {
+    constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             message.trim(),
             collector,
@@ -102,7 +103,7 @@ export class LoggableError extends CollectorError {
     source_code: string;
     screenshot: string;
 
-    constructor(message: string, collector: AbstractCollector, opts = {}) {
+    constructor(message: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             message,
             collector,
@@ -118,7 +119,7 @@ export class LoggableError extends CollectorError {
 export class ElementNotFoundError extends LoggableError {
     selector: any;
 
-    constructor(collector: AbstractCollector, selector: any, opts = {}) {
+    constructor(collector: AbstractCollector<Config>, selector: any, opts = {}) {
         super(
             `Could not find selector '${selector.selector}' corresponding to the "${selector.info}" on the page. See the source code and the screenshot to find the issue.`,
             collector,
@@ -130,7 +131,7 @@ export class ElementNotFoundError extends LoggableError {
 }
 
 export class UnfinishedCollectorError extends LoggableError {
-    constructor(collector: AbstractCollector, opts = {}) {
+    constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
             `The collector is not finished`,
             collector,
@@ -141,7 +142,7 @@ export class UnfinishedCollectorError extends LoggableError {
 }
 
 export class NoInvoiceFoundError extends LoggableError {
-    constructor(collector: AbstractCollector, opts = {}) {
+    constructor(collector: AbstractCollector<Config>, opts = {}) {
         super(
             `No invoice found, collector may be broken`,
             collector,
@@ -152,7 +153,7 @@ export class NoInvoiceFoundError extends LoggableError {
 }
 
 export class DesynchronizationError extends AuthenticationError {
-    constructor(credential_id: string, collector: AbstractCollector, opts = {}) {
+    constructor(credential_id: string, collector: AbstractCollector<Config>, opts = {}) {
         super(
             `Desynchronization Error - We are sorry but something went wrong with the collector. Please remove it and add it again. (${credential_id})`,
             collector,

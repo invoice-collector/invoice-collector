@@ -1,4 +1,4 @@
-import { Invoice, CompleteInvoice, CollectorType, CollectorState } from "./abstractCollector";
+import { Invoice, CompleteInvoice, CollectorType, CollectorState, Config } from "./abstractCollector";
 import { V1Collector } from "./v1Collector";
 import { UnfinishedCollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
@@ -6,34 +6,17 @@ import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 
-export type SketchConfig = {
-    id: string,
-    name: string,
-    description: string,
-    version: string,
-    website: string,
-    logo: string,
-    params: {
-        [key: string]: {
-            type: string,
-            name: string,
-            placeholder: string,
-            mandatory: boolean
-        }
-    },
-    entryUrl: string,
+export type SketchConfig = Config & {
+    entryUrl: string
 }
 
-export abstract class SketchCollector extends V1Collector {
+export abstract class SketchCollector extends V1Collector<SketchConfig> {
 
     constructor(config: SketchConfig) {
         super({
             ...config,
             type: CollectorType.SKETCH,
-            useProxy: false,
-            state: CollectorState.DEVELOPMENT,
-            loadImages: false,
-            autoLogin: {}   // No auto login by default
+            state: CollectorState.DEVELOPMENT
         });
     }
 
