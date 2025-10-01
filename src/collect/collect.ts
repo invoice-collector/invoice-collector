@@ -55,7 +55,7 @@ export class Collect {
             secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
 
             // Get collector from collector_id
-            collector = CollectorLoader.get(credential.collector_id);
+            collector = await CollectorLoader.get(credential.collector_id);
 
             // Check if collector not found
             if(collector == null) {
