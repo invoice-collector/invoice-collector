@@ -144,14 +144,14 @@ export class Customer {
         this.theme = theme as Theme;
     }
 
-    setSubscribedCollectors(collectors: string[]) {
+    async setSubscribedCollectors(collectors: string[]) {
         // Check if collectors is an array
         if (!Array.isArray(collectors)) {
             throw new StatusError(`Collectors must be an array.`, 400);
         }
 
         // Get existing collectors
-        const valid_collectors = CollectorLoader.getAll().map((collector) => collector.config.id);
+        const valid_collectors = (await CollectorLoader.getAll()).map((config) => config.id);
 
         // For each collector, check if it exists
         for (const collector of collectors) {

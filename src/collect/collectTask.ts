@@ -51,7 +51,6 @@ export class CollectTask {
             waitForCompletion: true,
             timeZone: CollectTask.DEFAULT_TIMEZONE
         });
-        this.start();
     }
 
     public start() {
