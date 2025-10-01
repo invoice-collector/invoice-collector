@@ -209,6 +209,8 @@ function showForm(company) {
             const input = document.createElement('input');
             if (param.type === 'password') {
                 input.setAttribute('type', 'password');
+            } else if (param.type === 'boolean') {
+                input.setAttribute('type', 'checkbox');
             } else {
                 input.setAttribute('type', 'text');
             }
@@ -247,7 +249,12 @@ async function addCredential(event) {
     const formData = new FormData(event.target);
     let params = {};
     formData.forEach((value, key) => {
-        params[key] = value;
+        const input = event.target[key];
+        if (input.type === "checkbox") {
+            params[key] = (value === "on");
+        } else {
+            params[key] = value;
+        }
     });
 
     const response = await fetch(`credential?token=${token}`, {
