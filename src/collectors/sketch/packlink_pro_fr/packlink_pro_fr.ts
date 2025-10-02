@@ -5,7 +5,7 @@ export class PacklinkProFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "packlink_pro_fr",
-        name: "Packlink PRO FR",
+        name: "Packlink PRO (.fr)",
         description: "i18n.collectors.packlink_pro_fr.description",
         version: "0",
         website: "https://auth.packlink.com/fr-FR/pro/login?platform=PRO&platform_country=FR",

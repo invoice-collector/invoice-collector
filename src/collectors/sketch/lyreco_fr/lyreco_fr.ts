@@ -5,7 +5,7 @@ export class LyrecoFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "lyreco_fr",
-        name: "Lyreco FR",
+        name: "Lyreco (.fr)",
         description: "i18n.collectors.lyreco_fr.description",
         version: "0",
         website: "https://www.lyreco.com/webshop/FRFR/wslogin",

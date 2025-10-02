@@ -5,7 +5,7 @@ export class KeysExpressFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "keys_express_fr",
-        name: "Keys Express FR",
+        name: "Keys Express (.fr)",
         description: "i18n.collectors.keys_express_fr.description",
         version: "0",
         website: "https://keys.express/FR/sales/order/invoice/order_id/105568/",

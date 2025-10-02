@@ -5,7 +5,7 @@ export class EurodisFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "eurodis_fr",
-        name: "Eurodis FR",
+        name: "Eurodis (.fr)",
         description: "i18n.collectors.eurodis_fr.description",
         version: "0",
         website: "https://www.francofa-eurodis.fr/authentification?back=my-account",

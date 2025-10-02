@@ -5,7 +5,7 @@ export class StroerOnlineMarketingDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "stroer_online_marketing_de",
-        name: "Stroer Online Marketing DE",
+        name: "Stroer Online Marketing (.de)",
         description: "i18n.collectors.stroer_online_marketing_de.description",
         version: "0",
         website: "https://kundencenter.stroeer-online-marketing.de/auth/login?next=%2Fanalytics%2Foverview",

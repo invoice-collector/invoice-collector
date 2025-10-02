@@ -5,7 +5,7 @@ export class NumericableFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "numericable_fr",
-        name: "Numericable FR",
+        name: "Numericable (.fr)",
         description: "i18n.collectors.numericable_fr.description",
         version: "0",
         website: "https://connexion.numericable.fr/Oauth/Oauth.php",

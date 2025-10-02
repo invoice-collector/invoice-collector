@@ -5,7 +5,7 @@ export class DhlParcelNlCollector extends SketchCollector {
 
     static CONFIG = {
         id: "dhl_parcel_nl",
-        name: "DHL Parcel NL",
+        name: "DHL Parcel (.nl)",
         description: "i18n.collectors.dhl_parcel_nl.description",
         version: "0",
         website: "https://billing.dhlparcel.nl/#/",

@@ -5,7 +5,7 @@ export class SimyoEsCollector extends SketchCollector {
 
     static CONFIG = {
         id: "simyo_es",
-        name: "Simyo ES",
+        name: "Simyo (.es)",
         description: "i18n.collectors.simyo_es.description",
         version: "0",
         website: "https://www.simyo.es",

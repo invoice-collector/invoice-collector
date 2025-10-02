@@ -5,7 +5,7 @@ export class IonosDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "ionos_de",
-        name: "Ionos DE",
+        name: "Ionos (.de)",
         description: "i18n.collectors.ionos_de.description",
         version: "0",
         website: "https://login.ionos.de",

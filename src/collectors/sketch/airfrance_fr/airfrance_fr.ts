@@ -5,7 +5,7 @@ export class AirfranceFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "airfrance_fr",
-        name: "Airfrance FR",
+        name: "Airfrance (.fr)",
         description: "i18n.collectors.airfrance_fr.description",
         version: "0",
         website: "https://wwws.airfrance.fr/",

@@ -5,7 +5,7 @@ export class UberCollector extends SketchCollector {
 
     static CONFIG = {
         id: "uber",
-        name: "UBER",
+        name: "Uber",
         description: "i18n.collectors.uber.description",
         version: "0",
         website: "https://riders.uber.com/trips",

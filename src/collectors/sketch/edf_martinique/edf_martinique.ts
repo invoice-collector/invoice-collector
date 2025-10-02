@@ -9,7 +9,7 @@ export class EdfMartiniqueCollector extends SketchCollector {
         description: "i18n.collectors.edf_martinique.description",
         version: "0",
         website: "https://sei-ael-martinique.edf.com/aelEDF/jsp/arc/habilitation/acteur.ZoomerDossierClient.go",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4590412.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/%C3%89lectricit%C3%A9_de_France_logo.svg",
         params: {
             email: {
                 type: "email",

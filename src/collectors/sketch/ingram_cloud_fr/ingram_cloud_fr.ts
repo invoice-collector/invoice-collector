@@ -5,7 +5,7 @@ export class IngramCloudFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "ingram_cloud_fr",
-        name: "Ingram Cloud FR",
+        name: "Ingram Cloud (.fr)",
         description: "i18n.collectors.ingram_cloud_fr.description",
         version: "0",
         website: "https://cp.fr.eu.cloud.im/ccp/v/pa/ccp-billing/invoice?pbaDocumentId=",

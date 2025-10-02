@@ -5,7 +5,7 @@ export class EngieEntreprisesAndCollectivitesCollector extends SketchCollector {
 
     static CONFIG = {
         id: "engie_entreprises_and_collectivites",
-        name: "Engie entreprises & collectivites",
+        name: "Engie Entreprises & Collectivités (.fr)",
         description: "i18n.collectors.engie_entreprises_and_collectivites.description",
         version: "0",
         website: "https://espace-client.entreprises-collectivites.engie.fr/eec/#/invoices",

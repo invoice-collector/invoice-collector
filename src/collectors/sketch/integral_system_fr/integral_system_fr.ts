@@ -5,7 +5,7 @@ export class IntegralSystemFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "integral_system_fr",
-        name: "Integral System FR",
+        name: "Integral System (.fr)",
         description: "i18n.collectors.integral_system_fr.description",
         version: "0",
         website: "https://www.integral-system.fr/fr_FR/",

@@ -5,7 +5,7 @@ export class AmazonDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "amazon_de",
-        name: "Amazon (DE)",
+        name: "Amazon (.de)",
         description: "i18n.collectors.amazon_de.description",
         version: "0",
         website: "https://www.amazon.de/gp/css/order-history/ref=nav_youraccount_orders",

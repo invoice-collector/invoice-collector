@@ -5,7 +5,7 @@ export class LmcStoreFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "lmc_store_fr",
-        name: "LMC Store FR",
+        name: "LMC Store (.fr)",
         description: "i18n.collectors.lmc_store_fr.description",
         version: "0",
         website: "https://www.lmcstore.com/fr/",

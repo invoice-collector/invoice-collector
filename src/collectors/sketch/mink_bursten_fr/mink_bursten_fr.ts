@@ -5,7 +5,7 @@ export class MinkBurstenFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "mink_bursten_fr",
-        name: "Mink Bursten FR",
+        name: "Mink Bursten (.fr)",
         description: "i18n.collectors.mink_bursten_fr.description",
         version: "0",
         website: "https://www.mink-buersten.com/fr/connexionpanier-darticles/connexion-form.html",

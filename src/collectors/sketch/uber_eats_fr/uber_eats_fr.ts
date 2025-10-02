@@ -5,7 +5,7 @@ export class UberEatsFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "uber_eats_fr",
-        name: "UBER Eats FR",
+        name: "Uber Eats (.fr)",
         description: "i18n.collectors.uber_eats_fr.description",
         version: "0",
         website: "https://www.ubereats.com/fr",

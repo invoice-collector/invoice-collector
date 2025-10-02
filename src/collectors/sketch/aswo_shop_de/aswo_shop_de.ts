@@ -5,7 +5,7 @@ export class AswoShopDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "aswo_shop_de",
-        name: "ASWO shop DE",
+        name: "ASWO shop (.de)",
         description: "i18n.collectors.aswo_shop_de.description",
         version: "0",
         website: "https://shop.aswo.com/aswoShop/startPage.faces?storeId=599",

@@ -5,7 +5,7 @@ export class AmazonCoUkCollector extends SketchCollector {
 
     static CONFIG = {
         id: "amazon_co_uk",
-        name: "Amazon (co.uk)",
+        name: "Amazon (.co.uk)",
         description: "i18n.collectors.amazon_co_uk.description",
         version: "0",
         website: "https://www.amazon.co.uk",

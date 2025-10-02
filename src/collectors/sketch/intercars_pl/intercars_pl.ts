@@ -24,7 +24,7 @@ export class IntercarsPlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pl.e-cat.intercars.eu/de",
+        entryUrl: "https://pl.e-cat.intercars.eu",
     }
 
     constructor() {

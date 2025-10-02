@@ -5,7 +5,7 @@ export class RexelFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "rexel_fr",
-        name: "Rexel FR",
+        name: "Rexel (.fr)",
         description: "i18n.collectors.rexel_fr.description",
         version: "0",
         website: "https://www.rexel.fr/frx/",

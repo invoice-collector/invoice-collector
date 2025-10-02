@@ -5,7 +5,7 @@ export class LyrecoDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "lyreco_de",
-        name: "Lyreco DE",
+        name: "Lyreco (.de)",
         description: "i18n.collectors.lyreco_de.description",
         version: "0",
         website: "https://www.lyreco.com/webshop/DEDE/wslogin",

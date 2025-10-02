@@ -5,7 +5,7 @@ export class RakutenFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "rakuten_fr",
-        name: "Rakuten FR",
+        name: "Rakuten (.fr)",
         description: "i18n.collectors.rakuten_fr.description",
         version: "0",
         website: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",

@@ -5,7 +5,7 @@ export class SecuritasDirectEsCollector extends SketchCollector {
 
     static CONFIG = {
         id: "securitas_direct_es",
-        name: "Securitas Direct ES",
+        name: "Securitas Direct (.es)",
         description: "i18n.collectors.securitas_direct_es.description",
         version: "0",
         website: "https://customers.securitasdirect.es/",

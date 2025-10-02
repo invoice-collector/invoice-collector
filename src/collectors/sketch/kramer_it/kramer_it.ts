@@ -5,7 +5,7 @@ export class KramerItCollector extends SketchCollector {
 
     static CONFIG = {
         id: "kramer_it",
-        name: "Kramer IT",
+        name: "Kramer (.it)",
         description: "i18n.collectors.kramer_it.description",
         version: "0",
         website: "https://rechnung.kraemer-it.de/",

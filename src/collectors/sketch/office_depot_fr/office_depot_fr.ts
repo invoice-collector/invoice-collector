@@ -5,7 +5,7 @@ export class OfficeDepotFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "office_depot_fr",
-        name: "Office Depot FR",
+        name: "Office Depot (.fr)",
         description: "i18n.collectors.office_depot_fr.description",
         version: "0",
         website: "https://www.officedepot.fr/",

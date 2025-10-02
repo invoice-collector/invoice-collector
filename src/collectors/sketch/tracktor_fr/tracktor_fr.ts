@@ -5,7 +5,7 @@ export class TracktorFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "tracktor_fr",
-        name: "Tracktor FR",
+        name: "Tracktor (.fr)",
         description: "i18n.collectors.tracktor_fr.description",
         version: "0",
         website: "https://tracktor.fr/users/2060-simon/bookings/14604#facturation",

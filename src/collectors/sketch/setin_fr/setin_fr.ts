@@ -5,7 +5,7 @@ export class SetinFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "setin_fr",
-        name: "Setin FR",
+        name: "Setin (.fr)",
         description: "i18n.collectors.setin_fr.description",
         version: "0",
         website: "https://www.setin.fr/",
