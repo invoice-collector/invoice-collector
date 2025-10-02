@@ -5,7 +5,7 @@ export class VelocityfleetDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "velocityfleet_de",
-        name: "velocityfleet DE",
+        name: "velocityfleet (.de)",
         description: "i18n.collectors.velocityfleet_de.description",
         version: "0",
         website: "https://www.velocityfleet.com/app/invoices/list/all-invoices/",

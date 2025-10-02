@@ -5,7 +5,7 @@ export class HenryScheinDentalDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "henry_schein_dental_de",
-        name: "Henry Schein Dental DE",
+        name: "Henry Schein Dental (.de)",
         description: "i18n.collectors.henry_schein_dental_de.description",
         version: "0",
         website: "https://www.henryschein-dental.de/global/olp/onlineinvoice.aspx?",

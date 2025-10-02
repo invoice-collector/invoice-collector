@@ -5,7 +5,7 @@ export class FnacMarketplaceFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "fnac_marketplace_fr",
-        name: "FNAC MarketPlace (FR)",
+        name: "FNAC MarketPlace (.fr)",
         description: "i18n.collectors.fnac_marketplace_fr.description",
         version: "0",
         website: "https://mp.fnac.com/compte/vendeur/factures/date_desc/1",

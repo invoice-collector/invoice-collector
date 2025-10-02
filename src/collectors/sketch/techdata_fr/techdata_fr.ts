@@ -5,7 +5,7 @@ export class TechdataFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "techdata_fr",
-        name: "Techdata FR",
+        name: "Techdata (.fr)",
         description: "i18n.collectors.techdata_fr.description",
         version: "0",
         website: "https://fr.techdata.com/",

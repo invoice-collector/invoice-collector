@@ -5,7 +5,7 @@ export class EngieEspaceClientCollector extends SketchCollector {
 
     static CONFIG = {
         id: "engie_espace_client",
-        name: "Engie (Espace Client)",
+        name: "Engie Pro (.fr)",
         description: "i18n.collectors.engie_espace_client.description",
         version: "0",
         website: "https://pro.engie.fr/",

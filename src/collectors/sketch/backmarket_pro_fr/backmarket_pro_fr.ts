@@ -5,7 +5,7 @@ export class BackmarketProFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "backmarket_pro_fr",
-        name: "BackMarket Pro FR",
+        name: "BackMarket Pro (.fr)",
         description: "i18n.collectors.backmarket_pro_fr.description",
         version: "0",
         website: "https://pro.backmarket.fr/account/orders",

@@ -5,7 +5,7 @@ export class SandozFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "sandoz_fr",
-        name: "Sandoz FR",
+        name: "Sandoz (.fr)",
         description: "i18n.collectors.sandoz_fr.description",
         version: "0",
         website: "https://www.sandoz.fr/",

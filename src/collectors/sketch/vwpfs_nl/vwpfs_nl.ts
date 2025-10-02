@@ -5,7 +5,7 @@ export class VwpfsNlCollector extends SketchCollector {
 
     static CONFIG = {
         id: "vwpfs_nl",
-        name: "VWPFS NL",
+        name: "VWPFS (.nl)",
         description: "i18n.collectors.vwpfs_nl.description",
         version: "0",
         website: "https://e-invoice.vwpfs.nl/vwpfs/welcome.html?9d9sgshrkor2ntdie9fr72eerc=g862dns1ajil4q3mrol6rl99gr",

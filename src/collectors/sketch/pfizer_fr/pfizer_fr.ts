@@ -5,7 +5,7 @@ export class PfizerFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "pfizer_fr",
-        name: "Pfizer FR",
+        name: "Pfizer (.fr)",
         description: "i18n.collectors.pfizer_fr.description",
         version: "0",
         website: "https://www.pfizerpro.fr/",

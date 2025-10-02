@@ -5,7 +5,7 @@ export class BauhausDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "bauhaus_de",
-        name: "Bauhaus DE",
+        name: "Bauhaus (.de)",
         description: "i18n.collectors.bauhaus_de.description",
         version: "0",
         website: "https://www.bauhaus.info/mein-konto/bestellungen/30056485#",

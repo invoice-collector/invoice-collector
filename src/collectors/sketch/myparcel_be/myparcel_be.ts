@@ -5,7 +5,7 @@ export class MyparcelBeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "myparcel_be",
-        name: "MyParcel BE",
+        name: "MyParcel (.be)",
         description: "i18n.collectors.myparcel_be.description",
         version: "0",
         website: "https://backoffice.sendmyparcel.be/invoices",

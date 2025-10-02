@@ -5,7 +5,7 @@ export class IngramMicroCloudDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "ingram_micro_cloud_de",
-        name: "Ingram Micro Cloud DE",
+        name: "Ingram Micro Cloud (.de)",
         description: "i18n.collectors.ingram_micro_cloud_de.description",
         version: "0",
         website: "https://cp.de.eu.cloud.im/",

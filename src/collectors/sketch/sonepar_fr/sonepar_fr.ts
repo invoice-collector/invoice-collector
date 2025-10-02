@@ -5,7 +5,7 @@ export class SoneparFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "sonepar_fr",
-        name: "Sonepar FR",
+        name: "Sonepar (.fr)",
         description: "i18n.collectors.sonepar_fr.description",
         version: "0",
         website: "https://www.sonepar.fr/service-soneshop_cms.html",

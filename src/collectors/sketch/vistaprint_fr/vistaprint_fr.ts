@@ -5,7 +5,7 @@ export class VistaprintFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "vistaprint_fr",
-        name: "Vistaprint FR",
+        name: "Vistaprint (.fr)",
         description: "i18n.collectors.vistaprint_fr.description",
         version: "0",
         website: "https://www.vistaprint.fr/oh/",

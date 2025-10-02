@@ -5,7 +5,7 @@ export class ShellClubSmartDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "shell_club_smart_de",
-        name: "Shell Club Smart DE",
+        name: "Shell Club Smart (.de)",
         description: "i18n.collectors.shell_club_smart_de.description",
         version: "0",
         website: "https://www.shellsmart.com/smart/account/transactions?site=de-de",

@@ -5,7 +5,7 @@ export class KonicaMinoltaFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "konica_minolta_fr",
-        name: "Konica Minolta FR",
+        name: "Konica Minolta (.fr)",
         description: "i18n.collectors.konica_minolta_fr.description",
         version: "0",
         website: "https://ds-ecommerce.konicaminolta.fr/fr-fr/invoices",

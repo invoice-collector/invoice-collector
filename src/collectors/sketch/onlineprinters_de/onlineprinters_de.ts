@@ -5,7 +5,7 @@ export class OnlineprintersDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "onlineprinters_de",
-        name: "Onlineprinters DE",
+        name: "Onlineprinters (.de)",
         description: "i18n.collectors.onlineprinters_de.description",
         version: "0",
         website: "https://www.onlineprinters.de/websale8/",

@@ -5,7 +5,7 @@ export class AmazonCoJpCollector extends SketchCollector {
 
     static CONFIG = {
         id: "amazon_co_jp",
-        name: "Amazon (co.jp)",
+        name: "Amazon (.co.jp)",
         description: "i18n.collectors.amazon_co_jp.description",
         version: "0",
         website: "https://www.amazon.co.jp/",

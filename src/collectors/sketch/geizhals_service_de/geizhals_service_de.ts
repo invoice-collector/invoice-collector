@@ -5,7 +5,7 @@ export class GeizhalsServiceDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "geizhals_service_de",
-        name: "Geizhals Service DE",
+        name: "Geizhals Service (.de)",
         description: "i18n.collectors.geizhals_service_de.description",
         version: "0",
         website: "https://service.geizhals.de/",

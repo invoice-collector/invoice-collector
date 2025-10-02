@@ -5,7 +5,7 @@ export class FlaschenpostDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "flaschenpost_de",
-        name: "Flaschenpost DE",
+        name: "Flaschenpost (.de)",
         description: "i18n.collectors.flaschenpost_de.description",
         version: "0",
         website: "https://www.flaschenpost.de/Account/Overview",

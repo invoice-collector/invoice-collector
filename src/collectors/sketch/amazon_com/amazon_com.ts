@@ -9,7 +9,7 @@ export class AmazonComCollector extends SketchCollector {
         description: "i18n.collectors.amazon_com.description",
         version: "0",
         website: "https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/395.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         params: {
             email: {
                 type: "email",

@@ -11,7 +11,7 @@ export class AmazonCollector extends WebCollector {
 
     static CONFIG = {
         id: "amazon",
-        name: "Amazon FR",
+        name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
         version: "16",
         website: "https://www.amazon.fr",

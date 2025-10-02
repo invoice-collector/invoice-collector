@@ -5,7 +5,7 @@ export class RemoteItCollector extends SketchCollector {
 
     static CONFIG = {
         id: "remote_it",
-        name: "Remote IT",
+        name: "Remote (.it)",
         description: "i18n.collectors.remote_it.description",
         version: "0",
         website: "https://app.remote.it/#/account/billing",

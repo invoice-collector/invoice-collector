@@ -5,7 +5,7 @@ export class UberBoxCollector extends SketchCollector {
 
     static CONFIG = {
         id: "uber_box",
-        name: "Uber - Box",
+        name: "Uber Box",
         description: "i18n.collectors.uber_box.description",
         version: "0",
         website: "https://uber.app.box.com",

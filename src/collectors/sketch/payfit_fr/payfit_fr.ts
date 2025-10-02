@@ -5,7 +5,7 @@ export class PayfitFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "payfit_fr",
-        name: "Payfit FR",
+        name: "Payfit (.fr)",
         description: "i18n.collectors.payfit_fr.description",
         version: "0",
         website: "https://payfit.com/fr/",

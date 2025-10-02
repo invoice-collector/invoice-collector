@@ -5,7 +5,7 @@ export class JohnsonAndJohnsonFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "johnson_and_johnson_fr",
-        name: "Johnson & Johnson FR",
+        name: "Johnson & Johnson (.fr)",
         description: "i18n.collectors.johnson_and_johnson_fr.description",
         version: "0",
         website: "https://www.jnjvisioncare.fr/e-ordering-login",

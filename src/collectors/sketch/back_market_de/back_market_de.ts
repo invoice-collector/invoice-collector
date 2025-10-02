@@ -5,7 +5,7 @@ export class BackMarketDeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "back_market_de",
-        name: "Back Market DE",
+        name: "Back Market (.de)",
         description: "i18n.collectors.back_market_de.description",
         version: "0",
         website: "https://www.backmarket.de/dashboard/orders",

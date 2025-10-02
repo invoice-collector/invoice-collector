@@ -5,7 +5,7 @@ export class EngieBeNlCollector extends SketchCollector {
 
     static CONFIG = {
         id: "engie_be_nl",
-        name: "Engie.be NL",
+        name: "Engie Pro (.be)",
         description: "i18n.collectors.engie_be_nl.description",
         version: "0",
         website: "https://www.engie.be/nl/professionals/customer-area/facturen-en-betalingen/facturen-betalingen/",

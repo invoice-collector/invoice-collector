@@ -4,7 +4,7 @@ export class EngieBeCollector extends SketchCollector {
 
     static CONFIG = {
         id: "engie_be",
-        name: "Engie BE",
+        name: "Engie Particuliers (.be)",
         description: "i18n.collectors.engie.description",
         version: "0",
         website: "https://engie.be",

@@ -5,7 +5,7 @@ export class PaybyphoneFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "paybyphone_fr",
-        name: "PayByPhone FR",
+        name: "PayByPhone (.fr)",
         description: "i18n.collectors.paybyphone_fr.description",
         version: "0",
         website: "https://m2.paybyphone.fr/parking",
