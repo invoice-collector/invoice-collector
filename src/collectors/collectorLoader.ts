@@ -60,6 +60,12 @@ export class CollectorLoader {
 
                     // Evaluate the config object
                     const config = eval('(' + configStr + ')');
+
+                    // Set config.state to default if not set
+                    if (!config.state) {
+                        config.state = CollectorState.ACTIVE;
+                    }
+
                     if (config && config.id) {
                     CollectorLoader.collectors.set(config.id.toLowerCase(), { config, file });
                     nbFFilesLoaded++;
