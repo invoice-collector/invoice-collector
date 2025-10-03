@@ -109,6 +109,9 @@ export class Collect {
                 credential.sortInvoices();
             }
 
+            // Set progress step to done
+            credential.state.update(State._7_DONE);
+
             // Log success
             RegistryServer.getInstance().logSuccess(collector);
 

@@ -77,9 +77,6 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
                 console.log(`Found ${uniqueInvoices.length} invoices but none are new`);
             }
 
-            // Set progress step to done
-            state.update(State._7_DONE);
-
             return completeInvoices;
         }
         finally {
