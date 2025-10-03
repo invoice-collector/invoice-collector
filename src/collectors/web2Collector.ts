@@ -183,9 +183,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 }
             });
 
-            // Set progress step to done
-            state.update(State._7_DONE);
-
             return invoices;
         } catch (error) {
             // Get url, source code and screenshot
