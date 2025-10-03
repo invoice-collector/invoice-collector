@@ -1,7 +1,7 @@
 import path from 'path';
 import glob from 'glob';
 import fs from 'fs';
-import { AbstractCollector, CollectorCaptcha, Config } from './abstractCollector';
+import { AbstractCollector, CollectorCaptcha, CollectorType, Config } from './abstractCollector';
 import { StatusError } from '../error';
 import { CollectorState } from './abstractCollector';
 
@@ -47,9 +47,16 @@ export class CollectorLoader {
                 try {
                     // Replace enum references with their values before eval
                     let configStr = configMatch[1]
+                    .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
                     .replace("CollectorState.DEVELOPMENT", `"${CollectorState.DEVELOPMENT.toString()}"`)
+                    .replace("CollectorState.MAINTENANCE", `"${CollectorState.MAINTENANCE.toString()}"`)
                     .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
                     .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)
+                    .replace("CollectorType.WEB", `"${CollectorType.WEB.toString()}"`)
+                    .replace("CollectorType.AGENT", `"${CollectorType.AGENT.toString()}"`)
+                    .replace("CollectorType.API", `"${CollectorType.API.toString()}"`)
+                    .replace("CollectorType.EMAIL", `"${CollectorType.EMAIL.toString()}"`)
+                    .replace("CollectorType.SKETCH", `"${CollectorType.SKETCH.toString()}"`)
 
                     // Evaluate the config object
                     const config = eval('(' + configStr + ')');
