@@ -12,7 +12,6 @@ export class _1bluCollector extends SketchCollector {
         website: "https://login.1blu.de/login.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/667.jpg",
         type: CollectorType.SKETCH,
-        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
