@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TechshipCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TechshipCollector extends SketchCollector {
         version: "0",
         website: "https://techship.com/order/history/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185034.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TechshipCollector extends SketchCollector {
             }
         },
         entryUrl: "https://techship.com/order/history/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

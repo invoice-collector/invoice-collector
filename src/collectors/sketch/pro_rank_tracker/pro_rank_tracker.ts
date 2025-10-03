@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProRankTrackerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProRankTrackerCollector extends SketchCollector {
         version: "0",
         website: "http://www.proranktracker.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26391.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProRankTrackerCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.proranktracker.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

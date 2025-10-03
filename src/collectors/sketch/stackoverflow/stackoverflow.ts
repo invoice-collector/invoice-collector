@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StackoverflowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StackoverflowCollector extends SketchCollector {
         version: "0",
         website: "https://stackoverflow.com/users/login?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2f",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/56521.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StackoverflowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://stackoverflow.com/users/login?ssrc=head&returnurl=https%3a%2f%2fstackoverflow.com%2f",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

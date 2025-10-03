@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeefreeDeveloperCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeefreeDeveloperCollector extends SketchCollector {
         version: "0",
         website: "https://developers.beefree.io/subscriptions/16000/statements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3110525.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeefreeDeveloperCollector extends SketchCollector {
             }
         },
         entryUrl: "https://developers.beefree.io/subscriptions/16000/statements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

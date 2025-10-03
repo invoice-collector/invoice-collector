@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DampsoftCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DampsoftCollector extends SketchCollector {
         version: "0",
         website: "https://shop.dampsoft.de/einkaufshistorie.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4582943.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DampsoftCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.dampsoft.de/einkaufshistorie.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InpiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InpiCollector extends SketchCollector {
         version: "0",
         website: "https://www.inpi.fr/",
         logo: "https://upload.wikimedia.org/wikipedia/fr/a/ab/Logo-inpi.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InpiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.inpi.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

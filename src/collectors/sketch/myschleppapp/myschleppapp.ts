@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyschleppappCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyschleppappCollector extends SketchCollector {
         version: "0",
         website: "https://portal.myschleppapp.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2761414.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyschleppappCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.myschleppapp.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DxComDealextremeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DxComDealextremeCollector extends SketchCollector {
         version: "0",
         website: "https://passport.dx.com/?redirect=http%3A%2F%2Fwww.dx.com%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/38312.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DxComDealextremeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://passport.dx.com/?redirect=http%3A%2F%2Fwww.dx.com%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

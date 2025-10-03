@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeeperSecurityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KeeperSecurityCollector extends SketchCollector {
         version: "0",
         website: "https://keepersecurity.eu/console/#subscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1230977.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KeeperSecurityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://keepersecurity.eu/console/#subscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

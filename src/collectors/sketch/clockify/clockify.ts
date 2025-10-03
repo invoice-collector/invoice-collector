@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClockifyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClockifyCollector extends SketchCollector {
         version: "0",
         website: "https://clockify.me/workspaces/5c227ebdb079870b01b06417/settings#subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/223729.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClockifyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clockify.me/workspaces/5c227ebdb079870b01b06417/settings#subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

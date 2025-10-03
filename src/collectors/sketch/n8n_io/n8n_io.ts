@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class N8nIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class N8nIoCollector extends SketchCollector {
         version: "0",
         website: "https://app.n8n.cloud/manage/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2310230.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class N8nIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.n8n.cloud/manage/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

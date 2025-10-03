@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerdooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PerdooCollector extends SketchCollector {
         version: "0",
         website: "https://web.perdoo.com/#/settings/company/general/info",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1278809.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PerdooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.perdoo.com/#/settings/company/general/info",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

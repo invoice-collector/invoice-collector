@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LightspeedhqNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LightspeedhqNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.lightspeedhq.nl/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20477.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LightspeedhqNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lightspeedhq.nl/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

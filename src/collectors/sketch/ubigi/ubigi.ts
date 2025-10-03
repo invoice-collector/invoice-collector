@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UbigiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UbigiCollector extends SketchCollector {
         version: "0",
         website: "https://ubigi.me/#/order-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4188927.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UbigiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ubigi.me/#/order-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

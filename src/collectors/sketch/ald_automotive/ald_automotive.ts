@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AldAutomotiveCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AldAutomotiveCollector extends SketchCollector {
         version: "0",
         website: "https://www.aldnet.fr/portal/aldnetpal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/42603.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AldAutomotiveCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.aldnet.fr/portal/aldnetpal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

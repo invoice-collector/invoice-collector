@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlertiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlertiCollector extends SketchCollector {
         version: "0",
         website: "https://app.alerti.com/#/en/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153638.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlertiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.alerti.com/#/en/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

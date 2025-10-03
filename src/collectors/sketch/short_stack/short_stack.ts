@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShortStackCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShortStackCollector extends SketchCollector {
         version: "0",
         website: "https://app2.shortstackapp.com/manage/#/account?tab=statements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185140.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShortStackCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app2.shortstackapp.com/manage/#/account?tab=statements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

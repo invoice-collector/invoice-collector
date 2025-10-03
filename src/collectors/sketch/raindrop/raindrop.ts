@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RaindropCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RaindropCollector extends SketchCollector {
         version: "0",
         website: "https://raindrop.onfastspring.com/account/v0iOIrtqQCaoR0giOKLqkA/zX6n0mAkT2M",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1334125.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RaindropCollector extends SketchCollector {
             }
         },
         entryUrl: "https://raindrop.onfastspring.com/account/v0iOIrtqQCaoR0giOKLqkA/zX6n0mAkT2M",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

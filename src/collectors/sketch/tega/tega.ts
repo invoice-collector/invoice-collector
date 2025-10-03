@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TegaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TegaCollector extends SketchCollector {
         version: "0",
         website: "https://www.tega.de/kundenportal/de/start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/426729.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TegaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tega.de/kundenportal/de/start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

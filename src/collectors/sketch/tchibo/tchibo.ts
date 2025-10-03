@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TchiboCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TchiboCollector extends SketchCollector {
         version: "0",
         website: "https://www.tchibo.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15294.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TchiboCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tchibo.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

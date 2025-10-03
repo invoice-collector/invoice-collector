@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoodaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YoodaCollector extends SketchCollector {
         version: "0",
         website: "https://www.yooda.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778230.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YoodaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.yooda.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

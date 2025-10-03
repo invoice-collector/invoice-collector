@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BolComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BolComCollector extends SketchCollector {
         version: "0",
         website: "https://www.bol.com/nl/account/login.html?redirectUrl=https%3A%2F%2Fwww.bol.com%2Fnl%2Frnwy%2Faccount%2Foverzicht",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20445.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BolComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bol.com/nl/account/login.html?redirectUrl=https%3A%2F%2Fwww.bol.com%2Fnl%2Frnwy%2Faccount%2Foverzicht",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

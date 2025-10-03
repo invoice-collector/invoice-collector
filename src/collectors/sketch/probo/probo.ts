@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProboCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProboCollector extends SketchCollector {
         version: "0",
         website: "https://www.probo.de/myaccount/invoice/index/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2254827.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProboCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.probo.de/myaccount/invoice/index/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpbaseComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IpbaseComCollector extends SketchCollector {
         version: "0",
         website: "https://app.ipbase.com/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1339506.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IpbaseComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.ipbase.com/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

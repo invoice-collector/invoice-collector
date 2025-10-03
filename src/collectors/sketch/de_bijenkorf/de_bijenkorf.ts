@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeBijenkorfCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeBijenkorfCollector extends SketchCollector {
         version: "0",
         website: "https://www.debijenkorf.nl/mijn-account/#mijn-aankopen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1239200.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeBijenkorfCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.debijenkorf.nl/mijn-account/#mijn-aankopen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

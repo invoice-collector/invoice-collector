@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NaturgyGasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NaturgyGasCollector extends SketchCollector {
         version: "0",
         website: "https://areaprivada.naturgy.es/ovh-web/SearchInvoiceAndConsumptionList.gas",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2128491.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NaturgyGasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://areaprivada.naturgy.es/ovh-web/SearchInvoiceAndConsumptionList.gas",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

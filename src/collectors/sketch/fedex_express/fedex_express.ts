@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FedexExpressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FedexExpressCollector extends SketchCollector {
         version: "0",
         website: "https://www.fedex.com/secure-login/en-ph/#/login-credentials",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1040937.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FedexExpressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fedex.com/secure-login/en-ph/#/login-credentials",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

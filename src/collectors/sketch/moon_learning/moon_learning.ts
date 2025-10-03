@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MoonLearningCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MoonLearningCollector extends SketchCollector {
         version: "0",
         website: "https://www.moonlearning.io/settings/purchase_history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4095683.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MoonLearningCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.moonlearning.io/settings/purchase_history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

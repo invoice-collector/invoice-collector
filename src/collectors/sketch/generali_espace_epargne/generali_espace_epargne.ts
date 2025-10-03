@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeneraliEspaceEpargneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeneraliEspaceEpargneCollector extends SketchCollector {
         version: "0",
         website: "https://espace-epargne.generali.fr/b2b2c/entreesite/EntAccLog?ssbouCode=8000857",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106588.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeneraliEspaceEpargneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-epargne.generali.fr/b2b2c/entreesite/EntAccLog?ssbouCode=8000857",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

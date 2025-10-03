@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectAssurancesContratsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DirectAssurancesContratsCollector extends SketchCollector {
         version: "0",
         website: "https://www.direct-assurance.fr/Sales/QBQQ2B7Q/Common/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105878.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DirectAssurancesContratsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.direct-assurance.fr/Sales/QBQQ2B7Q/Common/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

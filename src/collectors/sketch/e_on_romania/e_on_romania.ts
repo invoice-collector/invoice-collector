@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EOnRomaniaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EOnRomaniaCollector extends SketchCollector {
         version: "0",
         website: "https://www.eon.ro/myline/facturile-mele",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2654595.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EOnRomaniaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eon.ro/myline/facturile-mele",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

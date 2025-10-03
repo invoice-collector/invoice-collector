@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QparkNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QparkNlCollector extends SketchCollector {
         version: "0",
         website: "https://onlinesales.q-park.nl/nl-nl/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20523.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QparkNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlinesales.q-park.nl/nl-nl/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

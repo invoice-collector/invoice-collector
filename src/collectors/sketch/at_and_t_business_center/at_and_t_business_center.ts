@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtAndTBusinessCenterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AtAndTBusinessCenterCollector extends SketchCollector {
         version: "0",
         website: "https://www.att.com/ebiz/registration/home.jsp#/login?logout=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88361.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AtAndTBusinessCenterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.att.com/ebiz/registration/home.jsp#/login?logout=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

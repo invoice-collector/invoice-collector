@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MytweakCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MytweakCollector extends SketchCollector {
         version: "0",
         website: "https://kunde.mytweak.at/invoice.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1326316.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MytweakCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kunde.mytweak.at/invoice.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

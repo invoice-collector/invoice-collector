@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MercedesMeFinanceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MercedesMeFinanceCollector extends SketchCollector {
         version: "0",
         website: "https://customerportal.mercedes-benz.com/cp-de/portal/documentArchive.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2718322.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MercedesMeFinanceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customerportal.mercedes-benz.com/cp-de/portal/documentArchive.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

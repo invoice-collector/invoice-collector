@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Home24MiraklCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Home24MiraklCollector extends SketchCollector {
         version: "0",
         website: "https://home24.mirakl.net/sellerpayment/shop/accounting-document/list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2254952.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Home24MiraklCollector extends SketchCollector {
             }
         },
         entryUrl: "https://home24.mirakl.net/sellerpayment/shop/accounting-document/list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

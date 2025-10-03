@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeaumontCherryValleyWaterDistrictCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeaumontCherryValleyWaterDistrictCollector extends SketchCollector 
         version: "0",
         website: "https://bcvwd.merchanttransact.com/secure/MyBill",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2724340.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeaumontCherryValleyWaterDistrictCollector extends SketchCollector 
             }
         },
         entryUrl: "https://bcvwd.merchanttransact.com/secure/MyBill",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

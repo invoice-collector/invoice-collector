@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HandwerkskamemrStuttgartCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HandwerkskamemrStuttgartCollector extends SketchCollector {
         version: "0",
         website: "https://www.hwk-stuttgart.de/download",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1372380.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HandwerkskamemrStuttgartCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hwk-stuttgart.de/download",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

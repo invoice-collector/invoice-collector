@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelekomBusinessKundenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelekomBusinessKundenCollector extends SketchCollector {
         version: "0",
         website: "https://www.rechnung-online-business.telekom.de/dtroot/login/loginpage.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/119855.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelekomBusinessKundenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rechnung-online-business.telekom.de/dtroot/login/loginpage.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

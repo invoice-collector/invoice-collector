@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RocketreachCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RocketreachCollector extends SketchCollector {
         version: "0",
         website: "https://rocketreach.co/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/66252.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RocketreachCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rocketreach.co/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

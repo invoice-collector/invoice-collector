@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StromkreisPortalEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StromkreisPortalEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://portal-energie.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3312428.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StromkreisPortalEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal-energie.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

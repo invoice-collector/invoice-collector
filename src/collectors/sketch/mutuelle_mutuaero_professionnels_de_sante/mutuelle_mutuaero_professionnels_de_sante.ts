@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMutuaeroProfessionnelsDeSanteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleMutuaeroProfessionnelsDeSanteCollector extends SketchCollec
         version: "0",
         website: "https://pfs.synergie-mutuelles.fr/default_synergie.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/130356.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleMutuaeroProfessionnelsDeSanteCollector extends SketchCollec
             }
         },
         entryUrl: "https://pfs.synergie-mutuelles.fr/default_synergie.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

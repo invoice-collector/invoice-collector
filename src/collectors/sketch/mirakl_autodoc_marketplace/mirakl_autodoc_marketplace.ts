@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklAutodocMarketplaceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MiraklAutodocMarketplaceCollector extends SketchCollector {
         version: "0",
         website: "https://autodocde-prod.mirakl.net/sellerpayment/shop/transaction?select-search=ORDER_NUMBER_REF&limit=25",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4693706.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MiraklAutodocMarketplaceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://autodocde-prod.mirakl.net/sellerpayment/shop/transaction?select-search=ORDER_NUMBER_REF&limit=25",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

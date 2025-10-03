@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BundesdruckereiTestCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BundesdruckereiTestCollector extends SketchCollector {
         version: "0",
         website: "https://test.xrechnung-bdr.de/portal/Documents/#/Inbox",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778192.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BundesdruckereiTestCollector extends SketchCollector {
             }
         },
         entryUrl: "https://test.xrechnung-bdr.de/portal/Documents/#/Inbox",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

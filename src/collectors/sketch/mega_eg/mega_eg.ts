@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MegaEgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MegaEgCollector extends SketchCollector {
         version: "0",
         website: "https://shop.mega.de/store/mega/de/EUR/my-account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1264460.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MegaEgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.mega.de/store/mega/de/EUR/my-account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

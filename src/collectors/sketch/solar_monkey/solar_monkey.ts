@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SolarMonkeyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SolarMonkeyCollector extends SketchCollector {
         version: "0",
         website: "https://solar-monkey.chargebee.com/portal/v2/billing_history?source=home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4181313.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SolarMonkeyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://solar-monkey.chargebee.com/portal/v2/billing_history?source=home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

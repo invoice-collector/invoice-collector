@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WecandooArtisanFacturesDeCommissionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WecandooArtisanFacturesDeCommissionCollector extends SketchCollecto
         version: "0",
         website: "https://wecandoo.fr/loginregister",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034232.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WecandooArtisanFacturesDeCommissionCollector extends SketchCollecto
             }
         },
         entryUrl: "https://wecandoo.fr/loginregister",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

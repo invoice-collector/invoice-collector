@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinkBurstenFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MinkBurstenFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.mink-buersten.com/fr/connexionpanier-darticles/connexion-form.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/522390.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MinkBurstenFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mink-buersten.com/fr/connexionpanier-darticles/connexion-form.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

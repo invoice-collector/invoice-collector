@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WerLiefertWasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WerLiefertWasCollector extends SketchCollector {
         version: "0",
         website: "https://www.wlw.de/de/mein-konto/uebersicht/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/54751.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WerLiefertWasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wlw.de/de/mein-konto/uebersicht/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

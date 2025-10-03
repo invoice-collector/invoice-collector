@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeistertaskCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeistertaskCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.meister.co/billing/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32081.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeistertaskCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.meister.co/billing/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

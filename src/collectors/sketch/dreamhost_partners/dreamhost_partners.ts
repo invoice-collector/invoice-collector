@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreamhostPartnersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DreamhostPartnersCollector extends SketchCollector {
         version: "0",
         website: "https://aff-dreamhost.pay.tune.com/payment-orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2135725.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DreamhostPartnersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aff-dreamhost.pay.tune.com/payment-orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

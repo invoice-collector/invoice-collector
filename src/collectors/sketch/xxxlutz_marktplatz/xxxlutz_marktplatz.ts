@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XxxlutzMarktplatzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class XxxlutzMarktplatzCollector extends SketchCollector {
         version: "0",
         website: "https://marketplace.xxxlgroup.com/sellerpayment/shop/accounting-document/list?sort=issueDate%2CDESC&limit=25",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4447158.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class XxxlutzMarktplatzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://marketplace.xxxlgroup.com/sellerpayment/shop/accounting-document/list?sort=issueDate%2CDESC&limit=25",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

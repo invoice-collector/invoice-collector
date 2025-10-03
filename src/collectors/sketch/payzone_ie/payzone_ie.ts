@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayzoneIeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PayzoneIeCollector extends SketchCollector {
         version: "0",
         website: "https://www.payzone.ie/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/741161.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PayzoneIeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.payzone.ie/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

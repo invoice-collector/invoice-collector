@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuphonicCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AuphonicCollector extends SketchCollector {
         version: "0",
         website: "https://auphonic.com/accounts/invoice_list/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/54360.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AuphonicCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auphonic.com/accounts/invoice_list/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

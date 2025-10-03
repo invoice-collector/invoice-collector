@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServicepartnerOneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ServicepartnerOneCollector extends SketchCollector {
         version: "0",
         website: "https://web.servicepartner.one/invoices-orders/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18242.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ServicepartnerOneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.servicepartner.one/invoices-orders/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

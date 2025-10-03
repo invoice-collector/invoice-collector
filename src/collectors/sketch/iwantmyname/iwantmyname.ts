@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IwantmynameCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IwantmynameCollector extends SketchCollector {
         version: "0",
         website: "https://iwantmyname.com/dashboard/account/receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/510866.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IwantmynameCollector extends SketchCollector {
             }
         },
         entryUrl: "https://iwantmyname.com/dashboard/account/receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

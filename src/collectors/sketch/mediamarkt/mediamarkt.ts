@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MediamarktCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MediamarktCollector extends SketchCollector {
         version: "0",
         website: "https://www.mediamarkt.de/de/myaccount/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18395.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MediamarktCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mediamarkt.de/de/myaccount/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

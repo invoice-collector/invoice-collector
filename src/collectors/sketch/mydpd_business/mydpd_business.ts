@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MydpdBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MydpdBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://www.mydpdbusiness.de/auftraege/rechnungen.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/45749.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MydpdBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mydpdbusiness.de/auftraege/rechnungen.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

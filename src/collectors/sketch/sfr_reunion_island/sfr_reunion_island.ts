@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SfrReunionIslandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SfrReunionIslandCollector extends SketchCollector {
         version: "0",
         website: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/230386.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SfrReunionIslandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CosmosdirektCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CosmosdirektCollector extends SketchCollector {
         version: "0",
         website: "https://www.cosmosdirekt.de/services/mcd-info/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18489.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CosmosdirektCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cosmosdirekt.de/services/mcd-info/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

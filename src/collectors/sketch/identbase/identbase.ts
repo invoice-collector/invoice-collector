@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdentbaseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IdentbaseCollector extends SketchCollector {
         version: "0",
         website: "https://identbase.de/shop/system/?func=customer&action=orderlist&",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1496524.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IdentbaseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://identbase.de/shop/system/?func=customer&action=orderlist&",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

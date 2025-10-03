@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JanolawCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JanolawCollector extends SketchCollector {
         version: "0",
         website: "https://www.janolaw.de/myjanolaw/rechnungen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/45712.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JanolawCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.janolaw.de/myjanolaw/rechnungen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

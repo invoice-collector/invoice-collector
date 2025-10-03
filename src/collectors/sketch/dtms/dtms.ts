@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DtmsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DtmsCollector extends SketchCollector {
         version: "0",
         website: "http://www.dtms.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/54344.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DtmsCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.dtms.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

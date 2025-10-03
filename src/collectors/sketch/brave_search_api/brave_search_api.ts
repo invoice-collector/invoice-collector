@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BraveSearchApiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BraveSearchApiCollector extends SketchCollector {
         version: "0",
         website: "https://api-dashboard.search.brave.com/app/invoicing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4642570.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BraveSearchApiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://api-dashboard.search.brave.com/app/invoicing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

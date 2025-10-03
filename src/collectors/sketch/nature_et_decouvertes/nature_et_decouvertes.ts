@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NatureEtDecouvertesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NatureEtDecouvertesCollector extends SketchCollector {
         version: "0",
         website: "https://marketplace.natureetdecouvertes.com/mmp/shop/accounting-document/finalized?limit=50&order=DESC&sort=dateCreated",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/131153.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NatureEtDecouvertesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://marketplace.natureetdecouvertes.com/mmp/shop/accounting-document/finalized?limit=50&order=DESC&sort=dateCreated",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

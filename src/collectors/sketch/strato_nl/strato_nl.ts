@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StratoNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StratoNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.strato.nl/apps/CustomerService#/skl",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9559.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StratoNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.strato.nl/apps/CustomerService#/skl",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

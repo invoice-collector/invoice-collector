@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianceHealthcareDeutschlandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AllianceHealthcareDeutschlandCollector extends SketchCollector {
         version: "0",
         website: "https://www.apothekenmanager.de/de/start/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1230264.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AllianceHealthcareDeutschlandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.apothekenmanager.de/de/start/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

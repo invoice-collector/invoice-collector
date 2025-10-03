@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BirchCoomunicationsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BirchCoomunicationsCollector extends SketchCollector {
         version: "0",
         website: "https://birchconnect.com/bc/core/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88503.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BirchCoomunicationsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://birchconnect.com/bc/core/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

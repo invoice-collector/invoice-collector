@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeadlineFunnelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeadlineFunnelCollector extends SketchCollector {
         version: "0",
         website: "https://deadlinefunnel.com/auth/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23540.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeadlineFunnelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://deadlinefunnel.com/auth/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

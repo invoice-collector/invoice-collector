@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CibtpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CibtpCollector extends SketchCollector {
         version: "0",
         website: "https://mon-espace.cibtp.fr/4/adh/documents/list-documents/recents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1277004.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CibtpCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mon-espace.cibtp.fr/4/adh/documents/list-documents/recents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

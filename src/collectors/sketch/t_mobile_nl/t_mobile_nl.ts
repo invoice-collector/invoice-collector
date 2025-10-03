@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TMobileNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TMobileNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.t-mobile.nl/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9557.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TMobileNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.t-mobile.nl/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

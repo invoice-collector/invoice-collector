@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MalakoffMedericRetraiteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MalakoffMedericRetraiteCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.malakoffmederic.com/espaceClient/LogonAccess.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107152.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MalakoffMedericRetraiteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.malakoffmederic.com/espaceClient/LogonAccess.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VirtuoForBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VirtuoForBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://business.govirtuo.com/fr/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1421314.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VirtuoForBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://business.govirtuo.com/fr/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

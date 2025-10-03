@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonPayeeCentralCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonPayeeCentralCollector extends SketchCollector {
         version: "0",
         website: "https://payeecentral.amazon.com/Payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2246693.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonPayeeCentralCollector extends SketchCollector {
             }
         },
         entryUrl: "https://payeecentral.amazon.com/Payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

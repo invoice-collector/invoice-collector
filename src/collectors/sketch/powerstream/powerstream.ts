@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PowerstreamCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PowerstreamCollector extends SketchCollector {
         version: "0",
         website: "https://www.powerstream.ca/app/login.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8993.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PowerstreamCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.powerstream.ca/app/login.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

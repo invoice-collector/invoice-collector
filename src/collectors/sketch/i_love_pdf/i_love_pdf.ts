@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ILovePdfCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ILovePdfCollector extends SketchCollector {
         version: "0",
         website: "https://developer.ilovepdf.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1037318.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ILovePdfCollector extends SketchCollector {
             }
         },
         entryUrl: "https://developer.ilovepdf.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

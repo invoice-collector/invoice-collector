@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArtlistIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ArtlistIoCollector extends SketchCollector {
         version: "0",
         website: "https://artlist.io/page/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21941.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ArtlistIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://artlist.io/page/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

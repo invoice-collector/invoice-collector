@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EprimoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EprimoCollector extends SketchCollector {
         version: "0",
         website: "https://www.eprimo.de/service/contract/inbox",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15613.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EprimoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eprimo.de/service/contract/inbox",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

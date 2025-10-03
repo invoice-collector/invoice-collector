@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleApicilPartenaireCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleApicilPartenaireCollector extends SketchCollector {
         version: "0",
         website: "https://auth-partenaire.apicil.com/cas/login?url=aHR0cHM6Ly9wYXJ0ZW5haXJlLmFwaWNpbC5jb20v&skin=apicil&service=https%3A%2F%2Fpartenaire.apicil.com%2Fc%2Fportal%2Flogin%3Fredirect%3D%252F%26p_l_id%3D4946734",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/125652.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleApicilPartenaireCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auth-partenaire.apicil.com/cas/login?url=aHR0cHM6Ly9wYXJ0ZW5haXJlLmFwaWNpbC5jb20v&skin=apicil&service=https%3A%2F%2Fpartenaire.apicil.com%2Fc%2Fportal%2Flogin%3Fredirect%3D%252F%26p_l_id%3D4946734",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

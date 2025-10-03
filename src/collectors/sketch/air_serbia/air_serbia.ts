@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirSerbiaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AirSerbiaCollector extends SketchCollector {
         version: "0",
         website: "https://www.airserbia.com/de/my-trips",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28709.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AirSerbiaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.airserbia.com/de/my-trips",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

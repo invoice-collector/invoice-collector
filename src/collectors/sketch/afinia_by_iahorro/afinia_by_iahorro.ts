@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AfiniaByIahorroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AfiniaByIahorroCollector extends SketchCollector {
         version: "0",
         website: "https://afinia.uintertool.com/#/pinvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/510872.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AfiniaByIahorroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://afinia.uintertool.com/#/pinvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

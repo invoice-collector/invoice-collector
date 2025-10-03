@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TronityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TronityCollector extends SketchCollector {
         version: "0",
         website: "https://tronity.io/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/241373.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TronityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://tronity.io/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

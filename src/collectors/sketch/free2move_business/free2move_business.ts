@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Free2moveBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Free2moveBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://www.free2move.com/business/#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4483001.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Free2moveBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.free2move.com/business/#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

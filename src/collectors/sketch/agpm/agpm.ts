@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgpmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AgpmCollector extends SketchCollector {
         version: "0",
         website: "https://www.agpm.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102329.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AgpmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.agpm.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

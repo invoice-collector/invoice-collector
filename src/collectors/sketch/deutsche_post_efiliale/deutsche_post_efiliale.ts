@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutschePostEfilialeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeutschePostEfilialeCollector extends SketchCollector {
         version: "0",
         website: "https://shop.deutschepost.de/shop/login_page.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8208.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeutschePostEfilialeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.deutschepost.de/shop/login_page.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

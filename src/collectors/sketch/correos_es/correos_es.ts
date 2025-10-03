@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CorreosEsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CorreosEsCollector extends SketchCollector {
         version: "0",
         website: "https://epostal.correos.es/OV2PREENVWEB/jsp/_rlvid.jsp.faces?_rap=mov_listaRelacionesPagadasHandler.mostrarVista&om=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1436284.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CorreosEsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://epostal.correos.es/OV2PREENVWEB/jsp/_rlvid.jsp.faces?_rap=mov_listaRelacionesPagadasHandler.mostrarVista&om=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BiffaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BiffaCollector extends SketchCollector {
         version: "0",
         website: "https://customerzone.biffa.co.uk/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/751042.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BiffaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customerzone.biffa.co.uk/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

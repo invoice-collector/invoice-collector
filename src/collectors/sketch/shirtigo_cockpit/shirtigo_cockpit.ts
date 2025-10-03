@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShirtigoCockpitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShirtigoCockpitCollector extends SketchCollector {
         version: "0",
         website: "https://cockpit.shirtigo.de/app/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/69033.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShirtigoCockpitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cockpit.shirtigo.de/app/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

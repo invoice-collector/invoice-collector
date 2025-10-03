@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RemotepcCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RemotepcCollector extends SketchCollector {
         version: "0",
         website: "https://login.remotepc.com/rpcnew/account?page=billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2144528.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RemotepcCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.remotepc.com/rpcnew/account?page=billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

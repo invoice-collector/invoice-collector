@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KontitoreiHeinemannCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KontitoreiHeinemannCollector extends SketchCollector {
         version: "0",
         website: "https://www.konditorei-heinemann.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/555761.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KontitoreiHeinemannCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.konditorei-heinemann.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

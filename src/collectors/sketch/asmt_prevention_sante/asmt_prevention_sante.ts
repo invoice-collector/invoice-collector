@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsmtPreventionSanteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AsmtPreventionSanteCollector extends SketchCollector {
         version: "0",
         website: "https://portailasmt65.pulseprevention.com/Documents/Invoicing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4480241.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AsmtPreventionSanteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portailasmt65.pulseprevention.com/Documents/Invoicing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

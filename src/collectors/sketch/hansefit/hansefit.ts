@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HansefitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HansefitCollector extends SketchCollector {
         version: "0",
         website: "https://cas.hansefit.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1577622.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HansefitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cas.hansefit.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

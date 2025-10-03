@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnsoDatendiensteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnsoDatendiensteCollector extends SketchCollector {
         version: "0",
         website: "https://enso.plusportal.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/95519.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnsoDatendiensteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://enso.plusportal.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

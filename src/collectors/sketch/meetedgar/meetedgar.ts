@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeetedgarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeetedgarCollector extends SketchCollector {
         version: "0",
         website: "https://app.meetedgar.com/users/sign_in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7521.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeetedgarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.meetedgar.com/users/sign_in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

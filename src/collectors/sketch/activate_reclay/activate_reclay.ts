@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ActivateReclayCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ActivateReclayCollector extends SketchCollector {
         version: "0",
         website: "https://activate.reclay.at/activate_austria_german/customer/account/login/referer/aHR0cHM6Ly9hY3RpdmF0ZS5yZWNsYXkuYXQvYWN0aXZhdGVfYXVzdHJpYV9nZXJtYW4v/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2550704.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ActivateReclayCollector extends SketchCollector {
             }
         },
         entryUrl: "https://activate.reclay.at/activate_austria_german/customer/account/login/referer/aHR0cHM6Ly9hY3RpdmF0ZS5yZWNsYXkuYXQvYWN0aXZhdGVfYXVzdHJpYV9nZXJtYW4v/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

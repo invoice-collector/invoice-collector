@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FaxtasticCoUkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FaxtasticCoUkCollector extends SketchCollector {
         version: "0",
         website: "https://www.faxtastic.co.uk/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/109338.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FaxtasticCoUkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.faxtastic.co.uk/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

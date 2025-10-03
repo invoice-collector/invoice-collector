@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OctikaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OctikaCollector extends SketchCollector {
         version: "0",
         website: "https://www.octika.com/module/bms_customer_account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4639953.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OctikaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.octika.com/module/bms_customer_account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

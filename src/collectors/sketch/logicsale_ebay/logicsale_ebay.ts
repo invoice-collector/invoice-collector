@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogicsaleEbayCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LogicsaleEbayCollector extends SketchCollector {
         version: "0",
         website: "https://ebay.logicsale.com/index.php?action=mydata",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/78581.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LogicsaleEbayCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ebay.logicsale.com/index.php?action=mydata",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

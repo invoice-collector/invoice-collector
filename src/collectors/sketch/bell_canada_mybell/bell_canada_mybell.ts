@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BellCanadaMybellCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BellCanadaMybellCollector extends SketchCollector {
         version: "0",
         website: "https://mybell.bell.ca/MyBills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8582.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BellCanadaMybellCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mybell.bell.ca/MyBills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

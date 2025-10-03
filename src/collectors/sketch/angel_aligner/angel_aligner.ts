@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AngelAlignerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AngelAlignerCollector extends SketchCollector {
         version: "0",
         website: "https://payments.angelalign.com/ecp/?language=de#/paid/detail",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4439308.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AngelAlignerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://payments.angelalign.com/ecp/?language=de#/paid/detail",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

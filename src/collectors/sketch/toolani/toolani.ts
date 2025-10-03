@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToolaniCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ToolaniCollector extends SketchCollector {
         version: "0",
         website: "https://www.toolani.com/de-de/members/einstellungen/#/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/61845.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ToolaniCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.toolani.com/de-de/members/einstellungen/#/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

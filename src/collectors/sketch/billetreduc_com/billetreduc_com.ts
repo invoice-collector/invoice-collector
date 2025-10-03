@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BilletreducComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BilletreducComCollector extends SketchCollector {
         version: "0",
         website: "https://www.billetreduc.com/monbrconnec.htm?go=monbrresa.htm%3ftype%3dmesresas",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115939.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BilletreducComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.billetreduc.com/monbrconnec.htm?go=monbrresa.htm%3ftype%3dmesresas",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

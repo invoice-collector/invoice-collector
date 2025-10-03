@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlatchrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlatchrCollector extends SketchCollector {
         version: "0",
         website: "https://app.flatchr.io/board/settings/plan/payment",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445831.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlatchrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.flatchr.io/board/settings/plan/payment",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

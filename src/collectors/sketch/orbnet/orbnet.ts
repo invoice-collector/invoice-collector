@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrbnetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OrbnetCollector extends SketchCollector {
         version: "0",
         website: "https://my.orbnet.de/account/downloads/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/134681.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OrbnetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.orbnet.de/account/downloads/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

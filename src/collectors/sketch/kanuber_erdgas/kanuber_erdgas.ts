@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KanuberErdgasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KanuberErdgasCollector extends SketchCollector {
         version: "0",
         website: "https://energieportal.knauber.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/90723.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KanuberErdgasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://energieportal.knauber.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

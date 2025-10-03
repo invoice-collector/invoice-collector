@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeipzigerStadtwerkeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeipzigerStadtwerkeCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal-stadtwerke.l.de/swlkunden-portal-frontend/postbox/11534186/contract/86412155",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/849546.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeipzigerStadtwerkeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal-stadtwerke.l.de/swlkunden-portal-frontend/postbox/11534186/contract/86412155",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

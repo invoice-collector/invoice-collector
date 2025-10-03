@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KahunasIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KahunasIoCollector extends SketchCollector {
         version: "0",
         website: "https://kahunas.io/login?redirect=https%3A%2F%2Fkahunas.io%2Fprofile%2Fbilling",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2515361.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KahunasIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kahunas.io/login?redirect=https%3A%2F%2Fkahunas.io%2Fprofile%2Fbilling",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

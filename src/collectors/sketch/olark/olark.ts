@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OlarkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OlarkCollector extends SketchCollector {
         version: "0",
         website: "https://www.olark.com/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6599.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OlarkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.olark.com/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

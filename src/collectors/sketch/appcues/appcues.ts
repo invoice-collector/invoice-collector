@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppcuesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AppcuesCollector extends SketchCollector {
         version: "0",
         website: "https://studio.appcues.com/settings/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/416019.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AppcuesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://studio.appcues.com/settings/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

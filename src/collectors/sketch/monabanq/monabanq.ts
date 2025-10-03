@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonabanqCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MonabanqCollector extends SketchCollector {
         version: "0",
         website: "https://www.monabanq.com/fr/identification/authentification.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115988.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MonabanqCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.monabanq.com/fr/identification/authentification.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

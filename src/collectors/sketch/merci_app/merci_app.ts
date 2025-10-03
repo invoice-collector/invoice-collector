@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MerciAppCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MerciAppCollector extends SketchCollector {
         version: "0",
         website: "https://web.merci-app.com/u/1455021896/settings/subscription?fsu=workspacequickswitcher#subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2513818.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MerciAppCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.merci-app.com/u/1455021896/settings/subscription?fsu=workspacequickswitcher#subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

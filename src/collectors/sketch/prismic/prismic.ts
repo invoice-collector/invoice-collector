@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrismicCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrismicCollector extends SketchCollector {
         version: "0",
         website: "https://prismic.io/dashboard/login?redirectUri=/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778661.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrismicCollector extends SketchCollector {
             }
         },
         entryUrl: "https://prismic.io/dashboard/login?redirectUri=/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

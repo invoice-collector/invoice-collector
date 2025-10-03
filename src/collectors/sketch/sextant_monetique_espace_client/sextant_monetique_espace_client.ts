@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SextantMonetiqueEspaceClientCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SextantMonetiqueEspaceClientCollector extends SketchCollector {
         version: "0",
         website: "https://espace-clients.sextant-monetique.fr/index.php?module=pages&page=ListeFactures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4639887.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SextantMonetiqueEspaceClientCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-clients.sextant-monetique.fr/index.php?module=pages&page=ListeFactures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

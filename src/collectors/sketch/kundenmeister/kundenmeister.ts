@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KundenmeisterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KundenmeisterCollector extends SketchCollector {
         version: "0",
         website: "https://www.kundenmeister.com/crm/index.php/invoices/listInvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/874597.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KundenmeisterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.kundenmeister.com/crm/index.php/invoices/listInvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WerbenUndVerkaufenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WerbenUndVerkaufenCollector extends SketchCollector {
         version: "0",
         website: "https://www.wuv.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/759104.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WerbenUndVerkaufenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wuv.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

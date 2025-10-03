@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BurgerKingCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class BurgerKingCollector extends SketchCollector {
         version: "0",
         website: "https://burgerking.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Burger_King_2020.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class BurgerKingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.burgerking.fr/connexion"
+        entryUrl: "https://www.burgerking.fr/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

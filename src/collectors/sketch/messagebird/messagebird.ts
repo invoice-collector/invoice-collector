@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MessagebirdCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MessagebirdCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.messagebird.com/de-de/financial/list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7976.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MessagebirdCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.messagebird.com/de-de/financial/list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Umzug365Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Umzug365Collector extends SketchCollector {
         version: "0",
         website: "https://www.umzug-365.de/account/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3197738.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Umzug365Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.umzug-365.de/account/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

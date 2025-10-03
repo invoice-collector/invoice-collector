@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicketmasterFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TicketmasterFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.ticketmaster.fr/fr/identification?redirect=moncompte",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123515.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TicketmasterFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ticketmaster.fr/fr/identification?redirect=moncompte",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

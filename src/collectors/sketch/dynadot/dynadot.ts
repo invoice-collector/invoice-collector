@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DynadotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DynadotCollector extends SketchCollector {
         version: "0",
         website: "https://www.dynadot.com/account/info/order/list.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/72218.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DynadotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dynadot.com/account/info/order/list.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

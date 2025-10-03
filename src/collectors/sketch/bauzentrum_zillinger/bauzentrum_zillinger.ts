@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BauzentrumZillingerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BauzentrumZillingerCollector extends SketchCollector {
         version: "0",
         website: "https://www.zillinger24.de/my-account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2246691.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BauzentrumZillingerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.zillinger24.de/my-account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

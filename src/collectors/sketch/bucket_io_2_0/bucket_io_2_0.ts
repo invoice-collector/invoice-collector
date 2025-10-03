@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BucketIo20Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BucketIo20Collector extends SketchCollector {
         version: "0",
         website: "https://app2.bucket.io/account/plan-management",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534504.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BucketIo20Collector extends SketchCollector {
             }
         },
         entryUrl: "https://app2.bucket.io/account/plan-management",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

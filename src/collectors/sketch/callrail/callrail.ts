@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CallrailCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CallrailCollector extends SketchCollector {
         version: "0",
         website: "https://app.callrail.com/settings/a/292910140/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4449912.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CallrailCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.callrail.com/settings/a/292910140/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

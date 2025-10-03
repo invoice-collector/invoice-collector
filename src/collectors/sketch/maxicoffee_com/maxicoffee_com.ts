@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxicoffeeComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaxicoffeeComCollector extends SketchCollector {
         version: "0",
         website: "https://www.maxicoffee.com/account_home.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27329.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaxicoffeeComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.maxicoffee.com/account_home.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

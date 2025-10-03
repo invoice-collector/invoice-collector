@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LohnunionKundencenterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LohnunionKundencenterCollector extends SketchCollector {
         version: "0",
         website: "https://www.lohnunioncenter.de/de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778937.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LohnunionKundencenterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lohnunioncenter.de/de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

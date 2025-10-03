@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeHildenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeHildenCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.stadtwerke-hilden.de/csit/action/csStart",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4417168.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeHildenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.stadtwerke-hilden.de/csit/action/csStart",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

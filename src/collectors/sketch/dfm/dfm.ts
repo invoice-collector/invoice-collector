@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DfmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DfmCollector extends SketchCollector {
         version: "0",
         website: "https://portail-dfm.artis.fr/dfm/portail/login/auth/DO.action",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1040935.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DfmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail-dfm.artis.fr/dfm/portail/login/auth/DO.action",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

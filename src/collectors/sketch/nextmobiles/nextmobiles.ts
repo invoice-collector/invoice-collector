@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextmobilesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NextmobilesCollector extends SketchCollector {
         version: "0",
         website: "https://www.nextmobiles.com/moncompte/mes-factures/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3015109.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NextmobilesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.nextmobiles.com/moncompte/mes-factures/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

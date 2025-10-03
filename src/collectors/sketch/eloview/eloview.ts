@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EloviewCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EloviewCollector extends SketchCollector {
         version: "0",
         website: "https://manage.eloview.com/3.56.50/accountSettings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1307603.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EloviewCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manage.eloview.com/3.56.50/accountSettings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

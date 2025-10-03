@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MixpanelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MixpanelCollector extends SketchCollector {
         version: "0",
         website: "https://mixpanel.com/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6647.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MixpanelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mixpanel.com/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

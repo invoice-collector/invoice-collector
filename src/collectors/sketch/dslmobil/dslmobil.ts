@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DslmobilCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DslmobilCollector extends SketchCollector {
         version: "0",
         website: "https://km.dslmobil.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1494323.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DslmobilCollector extends SketchCollector {
             }
         },
         entryUrl: "https://km.dslmobil.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

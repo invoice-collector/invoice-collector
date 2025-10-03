@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Lumen5Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Lumen5Collector extends SketchCollector {
         version: "0",
         website: "https://lumen5.com/dashboard/account/#billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/64899.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Lumen5Collector extends SketchCollector {
             }
         },
         entryUrl: "https://lumen5.com/dashboard/account/#billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

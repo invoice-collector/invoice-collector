@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GtranslateCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GtranslateCollector extends SketchCollector {
         version: "0",
         website: "https://my.gtranslate.io/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2183872.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GtranslateCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.gtranslate.io/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

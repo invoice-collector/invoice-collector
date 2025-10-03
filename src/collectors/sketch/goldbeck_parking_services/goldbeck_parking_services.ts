@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoldbeckParkingServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoldbeckParkingServicesCollector extends SketchCollector {
         version: "0",
         website: "https://www.goldbeck-parking.de/mein-parking-profil/de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2513821.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoldbeckParkingServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.goldbeck-parking.de/mein-parking-profil/de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

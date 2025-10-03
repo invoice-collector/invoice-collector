@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrametraxxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FrametraxxCollector extends SketchCollector {
         version: "0",
         website: "http://www.frametraxx.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14245.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FrametraxxCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.frametraxx.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

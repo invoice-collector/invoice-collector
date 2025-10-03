@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Dew21Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Dew21Collector extends SketchCollector {
         version: "0",
         website: "https://www.dew21.de/mein-konto/anmeldung/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/64476.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Dew21Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dew21.de/mein-konto/anmeldung/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

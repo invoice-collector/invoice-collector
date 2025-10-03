@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector extends Ske
         version: "0",
         website: "https://www.klesia.fr/accedez-votre-espace-client",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/125677.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector extends Ske
             }
         },
         entryUrl: "https://www.klesia.fr/accedez-votre-espace-client",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

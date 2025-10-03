@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FcMotoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FcMotoCollector extends SketchCollector {
         version: "0",
         website: "https://www.fc-moto.de/epages/fcm.sf/de_DE/?ObjectID=139105782&ViewAction=ViewOrderTracking",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132282.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FcMotoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fc-moto.de/epages/fcm.sf/de_DE/?ObjectID=139105782&ViewAction=ViewOrderTracking",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

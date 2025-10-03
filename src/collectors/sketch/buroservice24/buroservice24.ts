@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Buroservice24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Buroservice24Collector extends SketchCollector {
         version: "0",
         website: "http://www.bueroservice24.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/31522.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Buroservice24Collector extends SketchCollector {
             }
         },
         entryUrl: "http://www.bueroservice24.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

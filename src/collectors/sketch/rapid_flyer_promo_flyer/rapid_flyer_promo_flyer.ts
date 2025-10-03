@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RapidFlyerPromoFlyerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RapidFlyerPromoFlyerCollector extends SketchCollector {
         version: "0",
         website: "https://www.rapid-flyer.com/authentification?back=https://www.rapid-flyer.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122462.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RapidFlyerPromoFlyerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rapid-flyer.com/authentification?back=https://www.rapid-flyer.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

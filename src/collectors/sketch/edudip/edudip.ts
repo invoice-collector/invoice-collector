@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdudipCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EdudipCollector extends SketchCollector {
         version: "0",
         website: "https://www.edudip.com/de/intern/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10898.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EdudipCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.edudip.com/de/intern/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HighriseCrmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HighriseCrmCollector extends SketchCollector {
         version: "0",
         website: "https://launchpad.37signals.com/highrise/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9399.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HighriseCrmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://launchpad.37signals.com/highrise/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

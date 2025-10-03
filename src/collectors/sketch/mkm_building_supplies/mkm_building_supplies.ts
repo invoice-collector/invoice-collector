@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MkmBuildingSuppliesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MkmBuildingSuppliesCollector extends SketchCollector {
         version: "0",
         website: "https://www.mkmbs.co.uk/templates/mkm/pages/login/login.aspx/?returnurl=/my-account/my-account-landing/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/408107.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MkmBuildingSuppliesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mkmbs.co.uk/templates/mkm/pages/login/login.aspx/?returnurl=/my-account/my-account-landing/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

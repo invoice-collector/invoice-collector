@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KrispCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KrispCollector extends SketchCollector {
         version: "0",
         website: "https://account.krisp.ai/app/manage/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/787626.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KrispCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.krisp.ai/app/manage/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

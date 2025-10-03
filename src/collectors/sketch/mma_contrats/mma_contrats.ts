@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MmaContratsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MmaContratsCollector extends SketchCollector {
         version: "0",
         website: "https://espace-client.mma.fr/authenticationForm/compteClientLogin/index?nexturl=https%3A%2F%2Fespace-client.mma.fr%2Fconnaissance-client%2Fsynthese&domain=client",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107151.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MmaContratsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-client.mma.fr/authenticationForm/compteClientLogin/index?nexturl=https%3A%2F%2Fespace-client.mma.fr%2Fconnaissance-client%2Fsynthese&domain=client",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeinewbdKundenportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeinewbdKundenportalCollector extends SketchCollector {
         version: "0",
         website: "https://meine-wbd.de/de/portal/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4691061.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeinewbdKundenportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meine-wbd.de/de/portal/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

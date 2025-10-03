@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BzBernerZeitungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BzBernerZeitungCollector extends SketchCollector {
         version: "0",
         website: "https://epaper.bernerzeitung.ch",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4179467.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BzBernerZeitungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://epaper.bernerzeitung.ch",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

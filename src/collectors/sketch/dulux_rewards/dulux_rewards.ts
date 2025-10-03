@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuluxRewardsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DuluxRewardsCollector extends SketchCollector {
         version: "0",
         website: "https://rewards.dulux.com.au",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/415681.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DuluxRewardsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rewards.dulux.com.au",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TirehubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TirehubCollector extends SketchCollector {
         version: "0",
         website: "https://secure.versapay.com/payables/tirehub/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4593577.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TirehubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.versapay.com/payables/tirehub/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

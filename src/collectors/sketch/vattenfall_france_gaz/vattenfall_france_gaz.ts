@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VattenfallFranceGazCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VattenfallFranceGazCollector extends SketchCollector {
         version: "0",
         website: "https://espaceclientgaz.vattenfall-energies.fr/list/view/4",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4642218.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VattenfallFranceGazCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceclientgaz.vattenfall-energies.fr/list/view/4",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

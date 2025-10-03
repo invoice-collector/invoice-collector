@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheBrickCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheBrickCollector extends SketchCollector {
         version: "0",
         website: "https://www.thebrick.com/account/sign-in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8617.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheBrickCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.thebrick.com/account/sign-in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

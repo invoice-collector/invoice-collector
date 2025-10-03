@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PartenaireedenredCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PartenaireedenredCollector extends SketchCollector {
         version: "0",
         website: "https://partenaire.edenred.fr/s/connexion",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/807185.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PartenaireedenredCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partenaire.edenred.fr/s/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostelworldCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HostelworldCollector extends SketchCollector {
         version: "0",
         website: "https://inbox.hostelworld.com/reports/vatinvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1866470.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HostelworldCollector extends SketchCollector {
             }
         },
         entryUrl: "https://inbox.hostelworld.com/reports/vatinvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

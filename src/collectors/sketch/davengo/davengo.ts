@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DavengoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DavengoCollector extends SketchCollector {
         version: "0",
         website: "https://www.davengo.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1108441.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DavengoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.davengo.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

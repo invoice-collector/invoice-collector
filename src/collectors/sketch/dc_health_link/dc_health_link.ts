@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DcHealthLinkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DcHealthLinkCollector extends SketchCollector {
         version: "0",
         website: "https://enroll.dchealthlink.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2409463.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DcHealthLinkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://enroll.dchealthlink.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

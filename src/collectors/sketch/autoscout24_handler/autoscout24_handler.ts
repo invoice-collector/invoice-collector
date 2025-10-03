@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Autoscout24HandlerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Autoscout24HandlerCollector extends SketchCollector {
         version: "0",
         website: "https://www.autoscout24.de/dealer-invoice-download",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4170824.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Autoscout24HandlerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.autoscout24.de/dealer-invoice-download",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

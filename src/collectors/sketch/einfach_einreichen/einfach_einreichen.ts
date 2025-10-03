@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EinfachEinreichenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EinfachEinreichenCollector extends SketchCollector {
         version: "0",
         website: "https://einfach-einreichen.de/meine-belege",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2014867.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EinfachEinreichenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://einfach-einreichen.de/meine-belege",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SfrBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SfrBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/72746.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SfrBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

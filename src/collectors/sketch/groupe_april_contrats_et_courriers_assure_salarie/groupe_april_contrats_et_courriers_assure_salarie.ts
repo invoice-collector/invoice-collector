@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends Sketch
         version: "0",
         website: "https://espace-assures.april-entreprise-prevoyance.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106871.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GroupeAprilContratsEtCourriersAssureSalarieCollector extends Sketch
             }
         },
         entryUrl: "https://espace-assures.april-entreprise-prevoyance.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

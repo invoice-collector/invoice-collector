@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuinbookCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuinbookCollector extends SketchCollector {
         version: "0",
         website: "https://quinbook.com/Seller/#invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124045.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuinbookCollector extends SketchCollector {
             }
         },
         entryUrl: "https://quinbook.com/Seller/#invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

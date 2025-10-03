@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinitoolsSrlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MinitoolsSrlCollector extends SketchCollector {
         version: "0",
         website: "https://store.minitools.com/en/sales/order/history/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1801080.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MinitoolsSrlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store.minitools.com/en/sales/order/history/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

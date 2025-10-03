@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DtadDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DtadDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.dtad.de/login/;jsessionid=1C2B5674DA488F938325C8E10B5F20E0",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/31371.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DtadDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dtad.de/login/;jsessionid=1C2B5674DA488F938325C8E10B5F20E0",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

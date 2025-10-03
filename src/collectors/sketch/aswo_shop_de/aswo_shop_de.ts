@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AswoShopDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AswoShopDeCollector extends SketchCollector {
         version: "0",
         website: "https://shop.aswo.com/aswoShop/startPage.faces?storeId=599",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778915.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AswoShopDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.aswo.com/aswoShop/startPage.faces?storeId=599",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

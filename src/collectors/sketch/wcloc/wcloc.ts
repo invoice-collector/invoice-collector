@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WclocCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WclocCollector extends SketchCollector {
         version: "0",
         website: "https://clients.wcloc.com/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1421184.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WclocCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clients.wcloc.com/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

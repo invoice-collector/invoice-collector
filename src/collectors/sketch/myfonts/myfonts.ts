@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyfontsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyfontsCollector extends SketchCollector {
         version: "0",
         website: "https://www.myfonts.com/secure/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6026.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyfontsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.myfonts.com/secure/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllegroSanitationCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AllegroSanitationCollector extends SketchCollector {
         version: "0",
         website: "https://asc.onlineportal.us.com/User/Login?ReturnUrl=%2f",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2798679.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AllegroSanitationCollector extends SketchCollector {
             }
         },
         entryUrl: "https://asc.onlineportal.us.com/User/Login?ReturnUrl=%2f",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

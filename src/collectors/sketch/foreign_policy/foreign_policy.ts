@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ForeignPolicyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ForeignPolicyCollector extends SketchCollector {
         version: "0",
         website: "https://foreignpolicy.com/manage/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4564458.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ForeignPolicyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://foreignpolicy.com/manage/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

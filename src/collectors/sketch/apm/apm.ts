@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ApmCollector extends SketchCollector {
         version: "0",
         website: "https://buergerportal.apm-niemegk.de/objects/96661/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4213304.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ApmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://buergerportal.apm-niemegk.de/objects/96661/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

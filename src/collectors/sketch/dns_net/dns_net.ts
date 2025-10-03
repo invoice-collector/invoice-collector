@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DnsNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DnsNetCollector extends SketchCollector {
         version: "0",
         website: "https://mein.dns-net.de/#/app/welcome",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/409690.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DnsNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.dns-net.de/#/app/welcome",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

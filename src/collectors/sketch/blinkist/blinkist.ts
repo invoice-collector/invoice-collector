@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlinkistCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BlinkistCollector extends SketchCollector {
         version: "0",
         website: "https://www.blinkist.com/de/nc/settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1216268.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BlinkistCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.blinkist.com/de/nc/settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

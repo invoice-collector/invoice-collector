@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TuftsHealthEmployerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TuftsHealthEmployerCollector extends SketchCollector {
         version: "0",
         website: "https://employers.tufts-health.com/nonsec/emlogon.fcc",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2385151.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TuftsHealthEmployerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://employers.tufts-health.com/nonsec/emlogon.fcc",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

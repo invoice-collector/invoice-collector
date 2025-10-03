@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KanbanFlowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KanbanFlowCollector extends SketchCollector {
         version: "0",
         website: "https://kanbanflow.com/organization/moHZ7G/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2310354.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KanbanFlowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kanbanflow.com/organization/moHZ7G/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

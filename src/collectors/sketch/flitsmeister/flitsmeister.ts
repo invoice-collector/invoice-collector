@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlitsmeisterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlitsmeisterCollector extends SketchCollector {
         version: "0",
         website: "https://mijn.flitsmeister.nl/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3139974.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlitsmeisterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mijn.flitsmeister.nl/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MultiloginCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MultiloginCollector extends SketchCollector {
         version: "0",
         website: "https://billing.multilogin.com/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1291565.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MultiloginCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.multilogin.com/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RyteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RyteCollector extends SketchCollector {
         version: "0",
         website: "https://login.ryte.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7569.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RyteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.ryte.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

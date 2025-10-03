@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailboxOrgBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MailboxOrgBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://setup.mailbox.org/#/account=sekucon",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176394.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MailboxOrgBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://setup.mailbox.org/#/account=sekucon",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

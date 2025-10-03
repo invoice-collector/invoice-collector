@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelmarvaPowerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DelmarvaPowerCollector extends SketchCollector {
         version: "0",
         website: "https://secure.delmarva.com/MyAccount/MyBillUsage/pages/secure/MyBillUsage.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4700122.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DelmarvaPowerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.delmarva.com/MyAccount/MyBillUsage/pages/secure/MyBillUsage.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

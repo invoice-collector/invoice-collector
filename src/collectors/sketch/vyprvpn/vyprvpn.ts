@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VyprvpnCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VyprvpnCollector extends SketchCollector {
         version: "0",
         website: "https://account.vyprvpn.com/payment-information",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2793008.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VyprvpnCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.vyprvpn.com/payment-information",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

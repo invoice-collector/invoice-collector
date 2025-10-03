@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrdersmartPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OrdersmartPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://my.ordersmart.de/ClientInvoices/BillingPeriodIndex",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4181515.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OrdersmartPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.ordersmart.de/ClientInvoices/BillingPeriodIndex",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

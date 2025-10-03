@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteilEnergieGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SteilEnergieGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://portal.steil-energie.de/aviacard/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1811531.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SteilEnergieGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.steil-energie.de/aviacard/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

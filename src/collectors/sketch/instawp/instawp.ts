@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstawpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InstawpCollector extends SketchCollector {
         version: "0",
         website: "https://app.instawp.io/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730436.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InstawpCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.instawp.io/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

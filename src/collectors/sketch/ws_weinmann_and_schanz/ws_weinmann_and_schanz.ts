@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WsWeinmannAndSchanzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WsWeinmannAndSchanzCollector extends SketchCollector {
         version: "0",
         website: "https://www.weinmann-schanz.de/de/de/Anmelden-Abmelden/Anmelden.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/66611.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WsWeinmannAndSchanzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.weinmann-schanz.de/de/de/Anmelden-Abmelden/Anmelden.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

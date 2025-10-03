@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmailHippoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EmailHippoCollector extends SketchCollector {
         version: "0",
         website: "https://portal.emailhippo.com/Settings/Cancel",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15612.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EmailHippoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.emailhippo.com/Settings/Cancel",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

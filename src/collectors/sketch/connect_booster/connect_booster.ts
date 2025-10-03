@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConnectBoosterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConnectBoosterCollector extends SketchCollector {
         version: "0",
         website: "https://pcs.connectboosterportal.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3206246.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConnectBoosterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pcs.connectboosterportal.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

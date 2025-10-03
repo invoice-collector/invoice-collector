@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _42mattersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _42mattersCollector extends SketchCollector {
         version: "0",
         website: "https://42matters.com/user/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/81808.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _42mattersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://42matters.com/user/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

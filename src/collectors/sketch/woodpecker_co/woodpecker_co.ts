@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoodpeckerCoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WoodpeckerCoCollector extends SketchCollector {
         version: "0",
         website: "https://app.woodpecker.co/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/43178.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WoodpeckerCoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.woodpecker.co/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

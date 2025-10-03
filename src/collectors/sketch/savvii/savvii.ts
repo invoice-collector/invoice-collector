@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SavviiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SavviiCollector extends SketchCollector {
         version: "0",
         website: "https://billing.savvii.nl/index.php?/clientarea/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19003.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SavviiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.savvii.nl/index.php?/clientarea/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

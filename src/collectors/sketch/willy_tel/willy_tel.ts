@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WillyTelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WillyTelCollector extends SketchCollector {
         version: "0",
         website: "https://portal.willytel.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9186.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WillyTelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.willytel.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

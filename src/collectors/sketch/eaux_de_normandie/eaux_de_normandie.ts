@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauxDeNormandieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EauxDeNormandieCollector extends SketchCollector {
         version: "0",
         website: "https://www.usagers.eaux-de-normandie.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/813713.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EauxDeNormandieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.usagers.eaux-de-normandie.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

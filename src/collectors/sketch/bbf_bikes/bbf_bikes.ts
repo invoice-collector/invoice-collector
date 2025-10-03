@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BbfBikesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BbfBikesCollector extends SketchCollector {
         version: "0",
         website: "https://b2b.bbf-bike.de/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1918670.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BbfBikesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://b2b.bbf-bike.de/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

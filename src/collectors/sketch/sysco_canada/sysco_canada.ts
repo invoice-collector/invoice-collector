@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SyscoCanadaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SyscoCanadaCollector extends SketchCollector {
         version: "0",
         website: "https://syscosource.ca/pnet/eOrder",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/812409.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SyscoCanadaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://syscosource.ca/pnet/eOrder",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LesEchosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LesEchosCollector extends SketchCollector {
         version: "0",
         website: "https://www.lesechos.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/819975.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LesEchosCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lesechos.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

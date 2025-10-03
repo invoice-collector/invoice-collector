@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MockuuupsStudioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MockuuupsStudioCollector extends SketchCollector {
         version: "0",
         website: "https://mockuuups.studio/manage/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/943600.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MockuuupsStudioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mockuuups.studio/manage/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

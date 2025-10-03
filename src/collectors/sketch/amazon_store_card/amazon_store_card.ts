@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonStoreCardCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonStoreCardCollector extends SketchCollector {
         version: "0",
         website: "https://www.synchronycredit.com/eService/EBill/eBillAction.action",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/162044.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonStoreCardCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.synchronycredit.com/eService/EBill/eBillAction.action",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

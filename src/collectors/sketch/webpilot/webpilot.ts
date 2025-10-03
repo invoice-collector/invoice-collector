@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebpilotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WebpilotCollector extends SketchCollector {
         version: "0",
         website: "https://www.webpilot.ai/developer/dashboard/payment?addResult=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2694539.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WebpilotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.webpilot.ai/developer/dashboard/payment?addResult=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

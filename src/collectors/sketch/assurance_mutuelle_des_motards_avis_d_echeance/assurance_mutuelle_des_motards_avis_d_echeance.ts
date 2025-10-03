@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssuranceMutuelleDesMotardsAvisDEcheanceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AssuranceMutuelleDesMotardsAvisDEcheanceCollector extends SketchCol
         version: "0",
         website: "https://ext2.mutuelledesmotards.fr/cas/login?service=https%3A%2F%2Fext2.mutuelledesmotards.fr%2FEspaceSocietaireApplication-web%2Fapp%2Fj_spring_cas_security_check",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105205.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AssuranceMutuelleDesMotardsAvisDEcheanceCollector extends SketchCol
             }
         },
         entryUrl: "https://ext2.mutuelledesmotards.fr/cas/login?service=https%3A%2F%2Fext2.mutuelledesmotards.fr%2FEspaceSocietaireApplication-web%2Fapp%2Fj_spring_cas_security_check",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

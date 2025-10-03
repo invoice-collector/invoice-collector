@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirLiquideAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AirLiquideAtCollector extends SketchCollector {
         version: "0",
         website: "https://portal.airliquide.at/portal/secure/abfragen/airliquide",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2387801.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AirLiquideAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.airliquide.at/portal/secure/abfragen/airliquide",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

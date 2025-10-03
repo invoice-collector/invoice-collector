@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoopraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WoopraCollector extends SketchCollector {
         version: "0",
         website: "http://www.woopra.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10097.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WoopraCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.woopra.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

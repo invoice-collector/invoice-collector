@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KagiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KagiCollector extends SketchCollector {
         version: "0",
         website: "https://kagi.com/settings?p=billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2797968.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KagiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kagi.com/settings?p=billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

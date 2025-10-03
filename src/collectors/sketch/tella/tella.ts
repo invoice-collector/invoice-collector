@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TellaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TellaCollector extends SketchCollector {
         version: "0",
         website: "https://www.tella.tv/api/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3197532.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TellaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tella.tv/api/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

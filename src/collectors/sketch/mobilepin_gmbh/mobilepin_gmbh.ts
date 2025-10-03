@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobilepinGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MobilepinGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://mobilepin.de/invoices-all",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1764059.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MobilepinGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mobilepin.de/invoices-all",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

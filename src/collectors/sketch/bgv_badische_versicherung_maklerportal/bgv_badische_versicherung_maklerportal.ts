@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BgvBadischeVersicherungMaklerportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BgvBadischeVersicherungMaklerportalCollector extends SketchCollecto
         version: "0",
         website: "https://makler.bgv.de/makler/bestand/kundenverwaltung/epostkorb/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73646.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BgvBadischeVersicherungMaklerportalCollector extends SketchCollecto
             }
         },
         entryUrl: "https://makler.bgv.de/makler/bestand/kundenverwaltung/epostkorb/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeatporthypeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeatporthypeCollector extends SketchCollector {
         version: "0",
         website: "https://gethype.beatport.com/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/976557.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeatporthypeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://gethype.beatport.com/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FigmaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FigmaCollector extends SketchCollector {
         version: "0",
         website: "https://www.figma.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/77708.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FigmaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.figma.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

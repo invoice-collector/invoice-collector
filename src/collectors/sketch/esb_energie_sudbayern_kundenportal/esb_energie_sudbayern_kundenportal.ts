@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EsbEnergieSudbayernKundenportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EsbEnergieSudbayernKundenportalCollector extends SketchCollector {
         version: "0",
         website: "https://onlineservice.esb.de/portal/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2515182.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EsbEnergieSudbayernKundenportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlineservice.esb.de/portal/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

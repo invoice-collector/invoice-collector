@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxpoolCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaxpoolCollector extends SketchCollector {
         version: "0",
         website: "https://maxoffice.maxpool.de/#/legacy/accountingOverview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1739876.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaxpoolCollector extends SketchCollector {
             }
         },
         entryUrl: "https://maxoffice.maxpool.de/#/legacy/accountingOverview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PirateShipingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PirateShipingCollector extends SketchCollector {
         version: "0",
         website: "https://ship.pirateship.com/reports/paymentreceipt",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3313199.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PirateShipingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ship.pirateship.com/reports/paymentreceipt",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

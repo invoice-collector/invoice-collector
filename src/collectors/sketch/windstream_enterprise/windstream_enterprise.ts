@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WindstreamEnterpriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WindstreamEnterpriseCollector extends SketchCollector {
         version: "0",
         website: "https://www.windstreamonline.com/pol/Home.action?cm_sp=BizUtilityNav-_-Customer%2520Login-_-NA",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88465.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WindstreamEnterpriseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.windstreamonline.com/pol/Home.action?cm_sp=BizUtilityNav-_-Customer%2520Login-_-NA",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KutegoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KutegoCollector extends SketchCollector {
         version: "0",
         website: "https://robot-school.kurs.software/account/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2862866.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KutegoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://robot-school.kurs.software/account/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

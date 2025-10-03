@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IsoChemieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IsoChemieCollector extends SketchCollector {
         version: "0",
         website: "https://portal.iso-chemie.eu/dokumente/auftragsdokumente",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1389902.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IsoChemieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.iso-chemie.eu/dokumente/auftragsdokumente",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

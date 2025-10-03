@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfHollywoodCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfHollywoodCollector extends SketchCollector {
         version: "0",
         website: "https://ipn.paymentus.com/cp/bills.action?CSRF_TOKEN=1712891227536-fba4f02b5ce24c9bcda99a8acc0c4330dc0bd642c61d6cd3f2f274789704076e",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2724318.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfHollywoodCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ipn.paymentus.com/cp/bills.action?CSRF_TOKEN=1712891227536-fba4f02b5ce24c9bcda99a8acc0c4330dc0bd642c61d6cd3f2f274789704076e",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

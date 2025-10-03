@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CerpFranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CerpFranceCollector extends SketchCollector {
         version: "0",
         website: "https://www.cerpfrance.com/fr/accueil/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/565878.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CerpFranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cerpfrance.com/fr/accueil/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

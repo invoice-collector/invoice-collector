@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeloDeVilleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VeloDeVilleCollector extends SketchCollector {
         version: "0",
         website: "https://b2b.velo-de-ville.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/846077.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VeloDeVilleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://b2b.velo-de-ville.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

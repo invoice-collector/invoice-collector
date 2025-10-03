@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlottenkarteStarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlottenkarteStarCollector extends SketchCollector {
         version: "0",
         website: "https://flottenkarte.star.de/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2097857.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlottenkarteStarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://flottenkarte.star.de/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

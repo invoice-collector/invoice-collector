@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LohmannUndRauscherDeutschlandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LohmannUndRauscherDeutschlandCollector extends SketchCollector {
         version: "0",
         website: "https://store-de.lrmed.com/mein-konto/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/396885.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LohmannUndRauscherDeutschlandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store-de.lrmed.com/mein-konto/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

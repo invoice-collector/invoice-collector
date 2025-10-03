@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrivatefloorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrivatefloorCollector extends SketchCollector {
         version: "0",
         website: "https://es.privatefloor.com/cuenta/pedidos/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/116248.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrivatefloorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://es.privatefloor.com/cuenta/pedidos/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

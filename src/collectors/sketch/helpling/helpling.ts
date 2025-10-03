@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelplingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HelplingCollector extends SketchCollector {
         version: "0",
         website: "https://www.helpling.de/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9667.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HelplingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.helpling.de/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

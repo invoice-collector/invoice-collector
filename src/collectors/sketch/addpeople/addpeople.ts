@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AddpeopleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AddpeopleCollector extends SketchCollector {
         version: "0",
         website: "https://members.addpeople.co.uk/?utm_source=emailmarketing&utm_medium=email&utm_campaign=5be3fb16387d7_15874&utm_content=2019-10-09&cid=Brr5jrOyZlxmd5xwH1jFE1EOLUTA1IUYdK68J0wk5bdl6RrEjD6Hd64o0-3TZrlQwOlFRdTDxH0Hq08pXM6OTg..",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/170842.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AddpeopleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://members.addpeople.co.uk/?utm_source=emailmarketing&utm_medium=email&utm_campaign=5be3fb16387d7_15874&utm_content=2019-10-09&cid=Brr5jrOyZlxmd5xwH1jFE1EOLUTA1IUYdK68J0wk5bdl6RrEjD6Hd64o0-3TZrlQwOlFRdTDxH0Hq08pXM6OTg..",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

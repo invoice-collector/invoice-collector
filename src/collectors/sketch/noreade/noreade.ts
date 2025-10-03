@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NoreadeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NoreadeCollector extends SketchCollector {
         version: "0",
         website: "https://agenceenligne.noreade.fr/espace-personnel/historique-facturation",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4484548.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NoreadeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://agenceenligne.noreade.fr/espace-personnel/historique-facturation",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

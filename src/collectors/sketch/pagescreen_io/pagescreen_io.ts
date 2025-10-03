@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PagescreenIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PagescreenIoCollector extends SketchCollector {
         version: "0",
         website: "https://app.pagescreen.io/account/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/169058.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PagescreenIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.pagescreen.io/account/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

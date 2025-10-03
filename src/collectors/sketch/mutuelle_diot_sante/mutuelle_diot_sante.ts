@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleDiotSanteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleDiotSanteCollector extends SketchCollector {
         version: "0",
         website: "https://www.diot.com/fr/nos-solutions-d-assurances-diot/particuliers/sante-auto-habitation-protection-de-la-famille",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127694.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleDiotSanteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.diot.com/fr/nos-solutions-d-assurances-diot/particuliers/sante-auto-habitation-protection-de-la-famille",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

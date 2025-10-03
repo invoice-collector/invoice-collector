@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinanzplanerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinanzplanerCollector extends SketchCollector {
         version: "0",
         website: "https://cloud.finanzportal24.de/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4203088.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinanzplanerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cloud.finanzportal24.de/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

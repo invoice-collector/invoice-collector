@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DartyboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DartyboxCollector extends SketchCollector {
         version: "0",
         website: "https://www.dartybox.com/redbox-frontoffice-web/wac03-forwardLoginPage.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27353.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DartyboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dartybox.com/redbox-frontoffice-web/wac03-forwardLoginPage.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

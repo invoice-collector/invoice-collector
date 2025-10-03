@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NpowerBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NpowerBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://www.npower.com/in_business/applications/BusinessOAM/SME.OAM/Logon.aspx#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/395890.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NpowerBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.npower.com/in_business/applications/BusinessOAM/SME.OAM/Logon.aspx#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

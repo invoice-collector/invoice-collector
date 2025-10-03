@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PecoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PecoCollector extends SketchCollector {
         version: "0",
         website: "http://www.peco-uk.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8865.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PecoCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.peco-uk.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

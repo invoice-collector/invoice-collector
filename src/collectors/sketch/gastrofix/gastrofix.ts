@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GastrofixCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GastrofixCollector extends SketchCollector {
         version: "0",
         website: "https://cloud.gastrofix.com/client/#/financial/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/74795.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GastrofixCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cloud.gastrofix.com/client/#/financial/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

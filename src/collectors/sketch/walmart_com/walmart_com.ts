@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WalmartComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WalmartComCollector extends SketchCollector {
         version: "0",
         website: "https://www.walmart.com/account/login?tid=0&returnUrl=%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8554.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WalmartComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.walmart.com/account/login?tid=0&returnUrl=%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

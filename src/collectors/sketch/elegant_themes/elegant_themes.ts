@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElegantThemesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ElegantThemesCollector extends SketchCollector {
         version: "0",
         website: "https://www.elegantthemes.com/members-area/history/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7883.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ElegantThemesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.elegantthemes.com/members-area/history/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlearCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KlearCollector extends SketchCollector {
         version: "0",
         website: "https://klear.com/settings#/account/general",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/761258.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KlearCollector extends SketchCollector {
             }
         },
         entryUrl: "https://klear.com/settings#/account/general",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

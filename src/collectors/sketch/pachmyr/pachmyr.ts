@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PachmyrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PachmyrCollector extends SketchCollector {
         version: "0",
         website: "https://www.pachmayr.de/shop/neu-im-sortiment",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2063561.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PachmyrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pachmayr.de/shop/neu-im-sortiment",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

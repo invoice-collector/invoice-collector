@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbayCaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EbayCaCollector extends SketchCollector {
         version: "0",
         website: "https://cgi3.ebay.ca/ws/eBayISAPI.dll?MfcISAPICommand=ViewAccount&acctpagetype=0&invoiceYear=0&sortorder=1&daysback=-1&startmonth=&startday=&startyear=&endmonth=&endday=&endyear=&TabSelected=PaymentsRefunds&cid=002",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132303.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EbayCaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cgi3.ebay.ca/ws/eBayISAPI.dll?MfcISAPICommand=ViewAccount&acctpagetype=0&invoiceYear=0&sortorder=1&daysback=-1&startmonth=&startday=&startyear=&endmonth=&endday=&endyear=&TabSelected=PaymentsRefunds&cid=002",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

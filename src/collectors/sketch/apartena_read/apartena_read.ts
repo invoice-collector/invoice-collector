@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApartenaReadCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ApartenaReadCollector extends SketchCollector {
         version: "0",
         website: "https://read.apartena.net/user-billings.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/103285.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ApartenaReadCollector extends SketchCollector {
             }
         },
         entryUrl: "https://read.apartena.net/user-billings.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

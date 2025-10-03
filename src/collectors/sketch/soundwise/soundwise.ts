@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoundwiseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoundwiseCollector extends SketchCollector {
         version: "0",
         website: "https://app.mysoundwise.com/dashboard/publisher/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1316255.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoundwiseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.mysoundwise.com/dashboard/publisher/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

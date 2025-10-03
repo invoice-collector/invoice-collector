@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LiveuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LiveuCollector extends SketchCollector {
         version: "0",
         website: "https://solo.liveu.tv/dashboard/invoice/in_1IgVMsAcRTuYLIIw5yfSOChu",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779617.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LiveuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://solo.liveu.tv/dashboard/invoice/in_1IgVMsAcRTuYLIIw5yfSOChu",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

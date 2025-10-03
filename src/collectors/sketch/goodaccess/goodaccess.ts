@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoodaccessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoodaccessCollector extends SketchCollector {
         version: "0",
         website: "https://account.goodaccess.com/payments/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2120263.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoodaccessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.goodaccess.com/payments/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuoSecurityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DuoSecurityCollector extends SketchCollector {
         version: "0",
         website: "https://admin-4c9fdb22.duosecurity.com/billing/billing-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1271406.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DuoSecurityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin-4c9fdb22.duosecurity.com/billing/billing-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

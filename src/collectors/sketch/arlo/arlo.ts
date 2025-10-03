@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArloCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ArloCollector extends SketchCollector {
         version: "0",
         website: "https://my.arlo.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1201343.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ArloCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.arlo.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

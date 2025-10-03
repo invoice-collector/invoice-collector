@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhotowebFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhotowebFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.photoweb.fr/moncompte/Account/LogOn?ReturnUrl=%2fmoncompte%2f#registration-modal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27322.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhotowebFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.photoweb.fr/moncompte/Account/LogOn?ReturnUrl=%2fmoncompte%2f#registration-modal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirplusBusinesstravelPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AirplusBusinesstravelPortalCollector extends SketchCollector {
         version: "0",
         website: "https://businesstravelportal.airplus.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/874326.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AirplusBusinesstravelPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://businesstravelportal.airplus.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

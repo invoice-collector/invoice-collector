@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntercomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IntercomCollector extends SketchCollector {
         version: "0",
         website: "https://app.intercom.com/admins/sign_in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10022.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IntercomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.intercom.com/admins/sign_in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

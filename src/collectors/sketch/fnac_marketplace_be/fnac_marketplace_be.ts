@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FnacMarketplaceBeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FnacMarketplaceBeCollector extends SketchCollector {
         version: "0",
         website: "https://secure.fr.fnac.be/identity/server/gateway/signin-signup",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4543347.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FnacMarketplaceBeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.fr.fnac.be/identity/server/gateway/signin-signup",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGpmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleGpmCollector extends SketchCollector {
         version: "0",
         website: "https://espace-adherent.gpm.fr/connexion.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/128483.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleGpmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-adherent.gpm.fr/connexion.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

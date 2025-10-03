@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MenageATroisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MenageATroisCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.ximi.xelya.io/Ximi/swee/Account/SignIn?returnUrl=%2Fximi%2Fswee%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/137155.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MenageATroisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.ximi.xelya.io/Ximi/swee/Account/SignIn?returnUrl=%2Fximi%2Fswee%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrowWingPowerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CrowWingPowerCollector extends SketchCollector {
         version: "0",
         website: "https://cwpower.smarthub.coop/Login.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2526036.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CrowWingPowerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cwpower.smarthub.coop/Login.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

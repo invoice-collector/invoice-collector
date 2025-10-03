@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RealhostersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RealhostersCollector extends SketchCollector {
         version: "0",
         website: "https://www.realhosters.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10943.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RealhostersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.realhosters.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

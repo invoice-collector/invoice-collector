@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkedinAdsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LinkedinAdsCollector extends SketchCollector {
         version: "0",
         website: "https://www.linkedin.com/campaignmanager/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/131727.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LinkedinAdsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.linkedin.com/campaignmanager/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

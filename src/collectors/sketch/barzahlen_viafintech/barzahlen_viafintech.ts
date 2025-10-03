@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BarzahlenViafintechCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BarzahlenViafintechCollector extends SketchCollector {
         version: "0",
         website: "https://controlcenter.barzahlen.de/#/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1301917.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BarzahlenViafintechCollector extends SketchCollector {
             }
         },
         entryUrl: "https://controlcenter.barzahlen.de/#/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

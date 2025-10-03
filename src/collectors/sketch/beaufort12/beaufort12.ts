@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Beaufort12Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Beaufort12Collector extends SketchCollector {
         version: "0",
         website: "https://alpha-deutschland.lightning.force.com/lightning/n/wbsendit__CM_Settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2712261.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Beaufort12Collector extends SketchCollector {
             }
         },
         entryUrl: "https://alpha-deutschland.lightning.force.com/lightning/n/wbsendit__CM_Settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

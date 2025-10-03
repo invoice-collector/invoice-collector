@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutoroutesEtTunnelDuMontBlancCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AutoroutesEtTunnelDuMontBlancCollector extends SketchCollector {
         version: "0",
         website: "https://espaceabonnes.atmb.net/Default.aspx?tabid=58&returnurl=%2fdefault.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27498.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AutoroutesEtTunnelDuMontBlancCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceabonnes.atmb.net/Default.aspx?tabid=58&returnurl=%2fdefault.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

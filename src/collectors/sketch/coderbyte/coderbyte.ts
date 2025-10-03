@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoderbyteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CoderbyteCollector extends SketchCollector {
         version: "0",
         website: "https://coderbyte.com/dashboard/avimedical-bijzh#settings-plan_and_billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/654746.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CoderbyteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://coderbyte.com/dashboard/avimedical-bijzh#settings-plan_and_billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BerecycledCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BerecycledCollector extends SketchCollector {
         version: "0",
         website: "https://berecycled.org/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/119144.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BerecycledCollector extends SketchCollector {
             }
         },
         entryUrl: "https://berecycled.org/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

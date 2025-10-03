@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransistorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TransistorCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.transistor.fm/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/828310.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TransistorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.transistor.fm/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

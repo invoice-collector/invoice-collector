@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpinrewriterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpinrewriterCollector extends SketchCollector {
         version: "0",
         website: "https://www.smiley-tech.com/invoice.php?a=i6w5r4i6i6-8w5&b=eeba0299e149e854360d0871f0806eae32d30983b62252da50&c=r4a0i6a0z2w5w5",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/144110.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpinrewriterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.smiley-tech.com/invoice.php?a=i6w5r4i6i6-8w5&b=eeba0299e149e854360d0871f0806eae32d30983b62252da50&c=r4a0i6a0z2w5w5",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoopiaSeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LoopiaSeCollector extends SketchCollector {
         version: "0",
         website: "https://customerzone.loopia.se/invoice/pdf/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9573.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LoopiaSeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customerzone.loopia.se/invoice/pdf/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ItNerd24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ItNerd24Collector extends SketchCollector {
         version: "0",
         website: "https://it-nerd24.de/account#hide-registration",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/81073.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ItNerd24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://it-nerd24.de/account#hide-registration",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

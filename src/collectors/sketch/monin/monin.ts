@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MoninCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MoninCollector extends SketchCollector {
         version: "0",
         website: "https://www.moninside.com/BMS/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1132308.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MoninCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.moninside.com/BMS/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

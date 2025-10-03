@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IkeaKreditkarteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IkeaKreditkarteCollector extends SketchCollector {
         version: "0",
         website: "https://www.onlinebanking.ikea-kreditkarte.de/#/login/cred",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/134907.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IkeaKreditkarteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.onlinebanking.ikea-kreditkarte.de/#/login/cred",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccessallyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AccessallyCollector extends SketchCollector {
         version: "0",
         website: "https://access.accessally.com/my-account/my-orders-and-subscriptions/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203076.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AccessallyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://access.accessally.com/my-account/my-orders-and-subscriptions/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

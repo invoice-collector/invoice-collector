@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _360DialogCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _360DialogCollector extends SketchCollector {
         version: "0",
         website: "https://billing.stripe.com/p/session/live_YWNjdF8xR1h2bnZLamtXN0JNSnpSLF9NbnkyRTNRRjBCcjNWTHViTEtMaVZVbWJVSGtKVHVu0100PH0iR6wo",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1488447.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _360DialogCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xR1h2bnZLamtXN0JNSnpSLF9NbnkyRTNRRjBCcjNWTHViTEtMaVZVbWJVSGtKVHVu0100PH0iR6wo",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

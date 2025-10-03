@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LuminatiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LuminatiCollector extends SketchCollector {
         version: "0",
         website: "https://luminati.io/cp/billing?cust=goalcommerce",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/46401.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LuminatiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://luminati.io/cp/billing?cust=goalcommerce",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

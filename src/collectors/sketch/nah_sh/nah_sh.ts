@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NahShCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NahShCollector extends SketchCollector {
         version: "0",
         website: "https://nahsh.tickeos.de/index.php/customer",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2038957.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NahShCollector extends SketchCollector {
             }
         },
         entryUrl: "https://nahsh.tickeos.de/index.php/customer",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InflueeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InflueeCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.influee.co/billing/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2134129.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InflueeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.influee.co/billing/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FeederCoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FeederCoCollector extends SketchCollector {
         version: "0",
         website: "https://feeder.co/reader?view=account-settings%2Finvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4216931.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FeederCoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://feeder.co/reader?view=account-settings%2Finvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

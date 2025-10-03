@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RivalIqCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RivalIqCollector extends SketchCollector {
         version: "0",
         website: "https://app.rivaliq.com/account/receipts/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1333301.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RivalIqCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.rivaliq.com/account/receipts/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

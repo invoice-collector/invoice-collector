@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaildosoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaildosoCollector extends SketchCollector {
         version: "0",
         website: "https://app.maildoso.com/accounts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4417746.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaildosoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.maildoso.com/accounts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

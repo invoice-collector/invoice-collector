@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TokeetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TokeetCollector extends SketchCollector {
         version: "0",
         website: "https://app.tokeet.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1224780.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TokeetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.tokeet.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

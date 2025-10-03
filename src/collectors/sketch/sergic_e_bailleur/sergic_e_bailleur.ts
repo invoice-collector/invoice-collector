@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SergicEBailleurCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SergicEBailleurCollector extends SketchCollector {
         version: "0",
         website: "https://www.ebailleur.sergic.com/pages/bailleur/identification.seam",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/108734.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SergicEBailleurCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ebailleur.sergic.com/pages/bailleur/identification.seam",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

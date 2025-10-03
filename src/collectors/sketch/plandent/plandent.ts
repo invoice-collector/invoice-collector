@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlandentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlandentCollector extends SketchCollector {
         version: "0",
         website: "https://shop.plandent.de/de/mein-konto/rechnungen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2515316.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlandentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.plandent.de/de/mein-konto/rechnungen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

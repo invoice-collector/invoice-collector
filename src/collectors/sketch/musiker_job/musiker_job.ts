@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MusikerJobCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MusikerJobCollector extends SketchCollector {
         version: "0",
         website: "https://www.musiker-job.de/mein-konto/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779717.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MusikerJobCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.musiker-job.de/mein-konto/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeUlmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeUlmCollector extends SketchCollector {
         version: "0",
         website: "https://www.swu.de/privatkunden/service/meine-swu/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9163.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeUlmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.swu.de/privatkunden/service/meine-swu/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

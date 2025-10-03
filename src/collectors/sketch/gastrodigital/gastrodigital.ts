@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GastrodigitalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GastrodigitalCollector extends SketchCollector {
         version: "0",
         website: "https://kunden.gastro.digital/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4179398.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GastrodigitalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kunden.gastro.digital/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

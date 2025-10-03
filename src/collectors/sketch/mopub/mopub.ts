@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MopubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MopubCollector extends SketchCollector {
         version: "0",
         website: "https://app.mopub.com/payment/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/150583.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MopubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.mopub.com/payment/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

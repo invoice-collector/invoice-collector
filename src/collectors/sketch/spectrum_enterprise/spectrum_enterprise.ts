@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpectrumEnterpriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpectrumEnterpriseCollector extends SketchCollector {
         version: "0",
         website: "https://spectrumenterprise.net/login?signed-out=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2385159.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpectrumEnterpriseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://spectrumenterprise.net/login?signed-out=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RcibanqueCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RcibanqueCollector extends SketchCollector {
         version: "0",
         website: "https://www.meine.rcibanque.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1980323.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RcibanqueCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.meine.rcibanque.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrontendmastersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FrontendmastersCollector extends SketchCollector {
         version: "0",
         website: "https://frontendmasters.com/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/35392.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FrontendmastersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://frontendmasters.com/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

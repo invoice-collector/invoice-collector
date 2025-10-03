@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WildBeautyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WildBeautyCollector extends SketchCollector {
         version: "0",
         website: "https://www.wild-beauty.de/kundenbereich/salon/383EA001-0011-1021-89-83-0000DC01010A",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1359610.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WildBeautyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wild-beauty.de/kundenbereich/salon/383EA001-0011-1021-89-83-0000DC01010A",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

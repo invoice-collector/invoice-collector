@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AntargazCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class AntargazCollector extends SketchCollector {
         version: "0",
         website: "https://antargaz.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/6/65/Logo_Antargaz_Energies.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class AntargazCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-clients.antargaz.fr/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ForeverLivingProductsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ForeverLivingProductsCollector extends SketchCollector {
         version: "0",
         website: "https://fbosite.foreverliving.com/distribNew/MyReports.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/75997.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ForeverLivingProductsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fbosite.foreverliving.com/distribNew/MyReports.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

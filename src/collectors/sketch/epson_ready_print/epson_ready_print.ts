@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpsonReadyPrintCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EpsonReadyPrintCollector extends SketchCollector {
         version: "0",
         website: "https://readyprint.epson.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1132284.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EpsonReadyPrintCollector extends SketchCollector {
             }
         },
         entryUrl: "https://readyprint.epson.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

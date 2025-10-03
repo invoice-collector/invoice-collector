@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApiaryCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ApiaryCollector extends SketchCollector {
         version: "0",
         website: "https://login.apiary.io/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7051.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ApiaryCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.apiary.io/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

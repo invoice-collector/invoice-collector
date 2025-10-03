@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AponeoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AponeoCollector extends SketchCollector {
         version: "0",
         website: "https://www.aponeo.de/kundenbereich/bestellungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/178820.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AponeoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.aponeo.de/kundenbereich/bestellungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

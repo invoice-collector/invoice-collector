@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwilioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TwilioCollector extends SketchCollector {
         version: "0",
         website: "https://www.twilio.com/console/billing/payment-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7157.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TwilioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.twilio.com/console/billing/payment-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

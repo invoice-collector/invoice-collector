@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaveDistributionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WaveDistributionCollector extends SketchCollector {
         version: "0",
         website: "https://www.wave-distribution.de/Mein-Konto/Bestellungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/40222.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WaveDistributionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wave-distribution.de/Mein-Konto/Bestellungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

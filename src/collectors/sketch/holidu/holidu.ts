@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HoliduCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HoliduCollector extends SketchCollector {
         version: "0",
         website: "https://host.holidu.com/app/profile/invoices?pageNum=0",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2419777.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HoliduCollector extends SketchCollector {
             }
         },
         entryUrl: "https://host.holidu.com/app/profile/invoices?pageNum=0",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OcmInternetMarketingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OcmInternetMarketingCollector extends SketchCollector {
         version: "0",
         website: "https://partner.net.ocm.de/app/index.html#/account/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115314.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OcmInternetMarketingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.net.ocm.de/app/index.html#/account/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

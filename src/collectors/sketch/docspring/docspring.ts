@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DocspringCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DocspringCollector extends SketchCollector {
         version: "0",
         website: "https://app.docspring.com/sign_in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732078.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DocspringCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.docspring.com/sign_in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

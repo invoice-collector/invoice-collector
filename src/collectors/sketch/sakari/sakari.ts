@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SakariCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SakariCollector extends SketchCollector {
         version: "0",
         website: "https://auth.sakari.io/u/login?state=hKFo2SBPcnpDbWxrVTA2RnN1R0lveGtBZTJHOHd6aTBxdkRfcaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFZDS0hCeVVfdmdVTmNaLWVDUE9HVnZxamFJVHVOS0pVo2NpZNkgVlZua0lWcE95eVRaYzIyRWRPTHA0bjZYMlZBeWNMTHQ",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1467962.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SakariCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auth.sakari.io/u/login?state=hKFo2SBPcnpDbWxrVTA2RnN1R0lveGtBZTJHOHd6aTBxdkRfcaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIFZDS0hCeVVfdmdVTmNaLWVDUE9HVnZxamFJVHVOS0pVo2NpZNkgVlZua0lWcE95eVRaYzIyRWRPTHA0bjZYMlZBeWNMTHQ",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

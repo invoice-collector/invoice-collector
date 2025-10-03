@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JustEatPartnerCentreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JustEatPartnerCentreCollector extends SketchCollector {
         version: "0",
         website: "https://connect.just-eat.co.uk/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/524380.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JustEatPartnerCentreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://connect.just-eat.co.uk/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

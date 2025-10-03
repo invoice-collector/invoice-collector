@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetscreenshotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GetscreenshotCollector extends SketchCollector {
         version: "0",
         website: "https://www.getscreenshotapi.com/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1426101.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GetscreenshotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.getscreenshotapi.com/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

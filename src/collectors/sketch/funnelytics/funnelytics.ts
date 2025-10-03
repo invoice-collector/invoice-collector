@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunnelyticsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FunnelyticsCollector extends SketchCollector {
         version: "0",
         website: "https://app.funnelytics.io/login?_fs=3ed242b0-b9fd-4af6-b6fc-d44c9bc1f797",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/800958.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FunnelyticsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.funnelytics.io/login?_fs=3ed242b0-b9fd-4af6-b6fc-d44c9bc1f797",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

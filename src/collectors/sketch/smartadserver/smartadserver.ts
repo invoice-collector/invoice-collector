@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartadserverCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartadserverCollector extends SketchCollector {
         version: "0",
         website: "http://manage.smartadserver.com/ux/admin/financialportal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185150.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartadserverCollector extends SketchCollector {
             }
         },
         entryUrl: "http://manage.smartadserver.com/ux/admin/financialportal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

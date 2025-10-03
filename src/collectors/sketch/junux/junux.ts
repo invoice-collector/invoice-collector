@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JunuxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JunuxCollector extends SketchCollector {
         version: "0",
         website: "https://account.junux.de/auth/login?returnUrl=%2Faccount%2Fsubscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1237204.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JunuxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.junux.de/auth/login?returnUrl=%2Faccount%2Fsubscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

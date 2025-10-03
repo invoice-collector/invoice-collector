@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RungisOperateurCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RungisOperateurCollector extends SketchCollector {
         version: "0",
         website: "https://www.rungisoperateur.com/dashboard/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2729764.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RungisOperateurCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rungisoperateur.com/dashboard/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

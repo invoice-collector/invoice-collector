@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreatlrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CreatlrCollector extends SketchCollector {
         version: "0",
         website: "https://shop.creatlr.com/my-orders/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11204.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CreatlrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.creatlr.com/my-orders/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

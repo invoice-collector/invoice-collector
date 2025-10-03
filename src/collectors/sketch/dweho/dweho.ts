@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DwehoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DwehoCollector extends SketchCollector {
         version: "0",
         website: "https://espaceximi.colibriwithus.com/dweo/client/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118637.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DwehoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceximi.colibriwithus.com/dweo/client/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

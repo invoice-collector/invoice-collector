@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WasabiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WasabiCollector extends SketchCollector {
         version: "0",
         website: "https://console.wasabisys.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/120869.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WasabiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://console.wasabisys.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OntraportCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OntraportCollector extends SketchCollector {
         version: "0",
         website: "https://app.ontraport.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9028.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OntraportCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.ontraport.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

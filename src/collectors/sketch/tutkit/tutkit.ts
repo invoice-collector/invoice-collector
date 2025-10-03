@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TutkitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TutkitCollector extends SketchCollector {
         version: "0",
         website: "https://www.tutkit.com/de/mein-konto/lizenz",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1722891.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TutkitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tutkit.com/de/mein-konto/lizenz",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

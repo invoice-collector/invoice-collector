@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShellClubSmartDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShellClubSmartDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.shellsmart.com/smart/account/transactions?site=de-de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/772762.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShellClubSmartDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.shellsmart.com/smart/account/transactions?site=de-de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

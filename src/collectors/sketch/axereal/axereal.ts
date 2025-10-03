@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxerealCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AxerealCollector extends SketchCollector {
         version: "0",
         website: "https://www.axereal.com/en",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/640716.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AxerealCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.axereal.com/en",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

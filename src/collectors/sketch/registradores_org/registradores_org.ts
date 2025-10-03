@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RegistradoresOrgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RegistradoresOrgCollector extends SketchCollector {
         version: "0",
         website: "https://www.registradores.org/propiedad/pags/estado_cuenta/facturas/ListadoFacturas.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1436273.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RegistradoresOrgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.registradores.org/propiedad/pags/estado_cuenta/facturas/ListadoFacturas.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

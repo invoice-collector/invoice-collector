@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FeaturemapCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FeaturemapCollector extends SketchCollector {
         version: "0",
         website: "https://www.featuremap.co/subscription/aHR0cHM6Ly9mZWF0dXJlbWFwLWV1ci5wcm9hYm9uby5jb20vcG9ydGFsLWNvbnRhY3Qvdk93d09NU0V6UURCSjlVTmJqN090TkpQRFk5RUhSOXFLTDBXb3NkVUxBZ2dUdUk3MEFPM3Zmc0c4aDk5R0xnQ1hZcXBlV2QzQVVGaWZCVkVjRnhyd2MzWEtiN1BUSjhxYVIwMGVBVGljcWs%3d",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/396400.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FeaturemapCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.featuremap.co/subscription/aHR0cHM6Ly9mZWF0dXJlbWFwLWV1ci5wcm9hYm9uby5jb20vcG9ydGFsLWNvbnRhY3Qvdk93d09NU0V6UURCSjlVTmJqN090TkpQRFk5RUhSOXFLTDBXb3NkVUxBZ2dUdUk3MEFPM3Zmc0c4aDk5R0xnQ1hZcXBlV2QzQVVGaWZCVkVjRnhyd2MzWEtiN1BUSjhxYVIwMGVBVGljcWs%3d",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

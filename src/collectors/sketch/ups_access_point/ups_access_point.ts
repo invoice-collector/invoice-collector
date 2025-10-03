@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UpsAccessPointCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UpsAccessPointCollector extends SketchCollector {
         version: "0",
         website: "https://ap.ups.com/REAP/viewAccessPoint.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1274279.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UpsAccessPointCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ap.ups.com/REAP/viewAccessPoint.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

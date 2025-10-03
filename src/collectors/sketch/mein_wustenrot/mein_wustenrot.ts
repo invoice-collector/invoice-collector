@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeinWustenrotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeinWustenrotCollector extends SketchCollector {
         version: "0",
         website: "https://www.wuestenrot.de/de/mein_wuestenrot.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/196418.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeinWustenrotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wuestenrot.de/de/mein_wuestenrot.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

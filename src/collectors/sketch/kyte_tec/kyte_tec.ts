@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KyteTecCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KyteTecCollector extends SketchCollector {
         version: "0",
         website: "https://console.kyte-tec.com/shopadmin/document/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4220478.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KyteTecCollector extends SketchCollector {
             }
         },
         entryUrl: "https://console.kyte-tec.com/shopadmin/document/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

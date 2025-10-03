@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tyre24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Tyre24Collector extends SketchCollector {
         version: "0",
         website: "https://www.tyre24.com/de/de/user/login/page/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19520.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Tyre24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tyre24.com/de/de/user/login/page/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PromotiqueCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PromotiqueCollector extends SketchCollector {
         version: "0",
         website: "https://account.vistaprint.com/login?state=hKFo2SAtYUYxa1VVakVEaG1QS3QtcTZPaUtxVDVDd0c5TzB0dKFupWxvZ2luo3RpZNkgZU1FUzl5RVZnempnVTBHVHFMM1ZJY29Ldl9NOHFtNnejY2lk2SBZaFdpWFdOMTJ1RFNlWW82MkJZMnVEMzV2V0xlRVR4MQ&client=YhWiXWN12uDSeYo62BY2uD35vWLeETx1&protocol=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1060592.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PromotiqueCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.vistaprint.com/login?state=hKFo2SAtYUYxa1VVakVEaG1QS3QtcTZPaUtxVDVDd0c5TzB0dKFupWxvZ2luo3RpZNkgZU1FUzl5RVZnempnVTBHVHFMM1ZJY29Ldl9NOHFtNnejY2lk2SBZaFdpWFdOMTJ1RFNlWW82MkJZMnVEMzV2V0xlRVR4MQ&client=YhWiXWN12uDSeYo62BY2uD35vWLeETx1&protocol=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

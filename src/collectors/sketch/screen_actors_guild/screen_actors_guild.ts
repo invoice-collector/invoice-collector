@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScreenActorsGuildCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ScreenActorsGuildCollector extends SketchCollector {
         version: "0",
         website: "https://www.sagaftra.org/welcome",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8667.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ScreenActorsGuildCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sagaftra.org/welcome",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

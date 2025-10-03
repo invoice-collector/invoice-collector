@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAlpServicesSalarieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleAlpServicesSalarieCollector extends SketchCollector {
         version: "0",
         website: "http://www.april-entreprise.fr/accedez-a-votre-espace",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/125690.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleAlpServicesSalarieCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.april-entreprise.fr/accedez-a-votre-espace",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Check24PartnerprogrammCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Check24PartnerprogrammCollector extends SketchCollector {
         version: "0",
         website: "https://www.check24-partnerprogramm.de/berichte/gutschriften/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/59730.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Check24PartnerprogrammCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.check24-partnerprogramm.de/berichte/gutschriften/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

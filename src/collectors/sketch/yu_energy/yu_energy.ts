@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YuEnergyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YuEnergyCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.yuenergy.co.uk/MyAccount/s/account-overview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4545941.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YuEnergyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.yuenergy.co.uk/MyAccount/s/account-overview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

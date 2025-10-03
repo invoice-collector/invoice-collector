@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudnsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CloudnsCollector extends SketchCollector {
         version: "0",
         website: "https://www.cloudns.net/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/429765.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CloudnsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cloudns.net/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

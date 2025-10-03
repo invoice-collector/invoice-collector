@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleAdmobCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoogleAdmobCollector extends SketchCollector {
         version: "0",
         website: "https://apps.admob.com/v2/payments/transaction-service",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/419135.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoogleAdmobCollector extends SketchCollector {
             }
         },
         entryUrl: "https://apps.admob.com/v2/payments/transaction-service",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

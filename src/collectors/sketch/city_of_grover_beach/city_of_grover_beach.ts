@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfGroverBeachCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfGroverBeachCollector extends SketchCollector {
         version: "0",
         website: "https://grover.dpnetbill.com/secure/customer/default.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/108736.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfGroverBeachCollector extends SketchCollector {
             }
         },
         entryUrl: "https://grover.dpnetbill.com/secure/customer/default.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

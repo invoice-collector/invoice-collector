@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoyaltyBrainBehindCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LoyaltyBrainBehindCollector extends SketchCollector {
         version: "0",
         website: "https://loyalty.brain-behind.com/VM_Login.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1440779.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LoyaltyBrainBehindCollector extends SketchCollector {
             }
         },
         entryUrl: "https://loyalty.brain-behind.com/VM_Login.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Kuv24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Kuv24Collector extends SketchCollector {
         version: "0",
         website: "https://www.kuv24.de/mykuv24_getfile.php?iddokument=50221",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105772.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Kuv24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.kuv24.de/mykuv24_getfile.php?iddokument=50221",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

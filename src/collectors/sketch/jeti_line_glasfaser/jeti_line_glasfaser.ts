@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JetiLineGlasfaserCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JetiLineGlasfaserCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.jeti-line.de/swtr-portal/csc/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2695827.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JetiLineGlasfaserCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.jeti-line.de/swtr-portal/csc/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

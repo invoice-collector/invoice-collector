@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EFactureDiacCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EFactureDiacCollector extends SketchCollector {
         version: "0",
         website: "https://diac-diaclocation.e-facture.net/esp_ent/index.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1616496.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EFactureDiacCollector extends SketchCollector {
             }
         },
         entryUrl: "https://diac-diaclocation.e-facture.net/esp_ent/index.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

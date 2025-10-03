@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlicktippManagerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KlicktippManagerCollector extends SketchCollector {
         version: "0",
         website: "https://www.digistore24.com/receipt/3A4YFYVP/YS9R3NMX",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2063559.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KlicktippManagerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.digistore24.com/receipt/3A4YFYVP/YS9R3NMX",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

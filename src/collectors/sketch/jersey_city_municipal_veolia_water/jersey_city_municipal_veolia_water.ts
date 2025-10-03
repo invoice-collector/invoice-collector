@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JerseyCityMunicipalVeoliaWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JerseyCityMunicipalVeoliaWaterCollector extends SketchCollector {
         version: "0",
         website: "https://mywater.veolia.us/jersey-city-mua/standard-home?_gl=1*1jjiwgr*_ga*MTAwNzcwOTI0Mi4xNzAzNzgxODI5*_ga_37RC2MZRT4*MTcxNTYxMzk1My4yNi4xLjE3MTU2MTQxOTYuMC4wLjA.",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2798723.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JerseyCityMunicipalVeoliaWaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mywater.veolia.us/jersey-city-mua/standard-home?_gl=1*1jjiwgr*_ga*MTAwNzcwOTI0Mi4xNzAzNzgxODI5*_ga_37RC2MZRT4*MTcxNTYxMzk1My4yNi4xLjE3MTU2MTQxOTYuMC4wLjA.",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

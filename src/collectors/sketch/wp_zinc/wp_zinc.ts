@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpZincCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WpZincCollector extends SketchCollector {
         version: "0",
         website: "https://www.wpzinc.com/account/?action=payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/187230.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WpZincCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wpzinc.com/account/?action=payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

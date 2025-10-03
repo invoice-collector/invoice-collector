@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhysicaladdressComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhysicaladdressComCollector extends SketchCollector {
         version: "0",
         website: "https://physicaladdress.com/virtualizedmail/customerLogin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/857981.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhysicaladdressComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://physicaladdress.com/virtualizedmail/customerLogin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

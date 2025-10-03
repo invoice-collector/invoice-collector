@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EinhundertEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EinhundertEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://portal.einhundert-energie.de/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2985680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EinhundertEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.einhundert-energie.de/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

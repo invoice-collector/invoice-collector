@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuperxGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SuperxGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://super-chat.eu.auth0.com/login?state=hKFo2SBhT2sxZjBiaE1fLTN1anFIRE9SS2dGV0JlWGQ2MDAzbKFupWxvZ2luo3RpZNkgQ0tJbWU5ZG1TRzlQVlIyQXlTUVd3SklPdmFUWjZ0cnKjY2lk2SBMUWRxRnRpNjRzcjljOTJMYUpXclR6cDZpelQ0YlpkZw&client=LQdqFti64sr9c92LaJWrTzp6izT4bZdg&protocol",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1326342.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SuperxGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://super-chat.eu.auth0.com/login?state=hKFo2SBhT2sxZjBiaE1fLTN1anFIRE9SS2dGV0JlWGQ2MDAzbKFupWxvZ2luo3RpZNkgQ0tJbWU5ZG1TRzlQVlIyQXlTUVd3SklPdmFUWjZ0cnKjY2lk2SBMUWRxRnRpNjRzcjljOTJMYUpXclR6cDZpelQ0YlpkZw&client=LQdqFti64sr9c92LaJWrTzp6izT4bZdg&protocol",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

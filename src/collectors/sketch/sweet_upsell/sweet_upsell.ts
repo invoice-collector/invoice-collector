@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SweetUpsellCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SweetUpsellCollector extends SketchCollector {
         version: "0",
         website: "https://admin.sweetupsell.com/auth",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1132289.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SweetUpsellCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.sweetupsell.com/auth",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

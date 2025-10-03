@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TechquartierCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TechquartierCollector extends SketchCollector {
         version: "0",
         website: "https://techquartier.officernd.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1500926.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TechquartierCollector extends SketchCollector {
             }
         },
         entryUrl: "https://techquartier.officernd.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

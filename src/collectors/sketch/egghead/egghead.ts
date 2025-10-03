@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EggheadCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EggheadCollector extends SketchCollector {
         version: "0",
         website: "https://egghead.io/transaction_receipt",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/75372.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EggheadCollector extends SketchCollector {
             }
         },
         entryUrl: "https://egghead.io/transaction_receipt",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

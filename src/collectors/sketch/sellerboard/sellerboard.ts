@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellerboardCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SellerboardCollector extends SketchCollector {
         version: "0",
         website: "https://app.sellerboard.com/en/auth/login/?_ga=2.186678696.1679769345.1559218854-1670839472.1559218854",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/78244.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SellerboardCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.sellerboard.com/en/auth/login/?_ga=2.186678696.1679769345.1559218854-1670839472.1559218854",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

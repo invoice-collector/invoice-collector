@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnvoyerIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnvoyerIoCollector extends SketchCollector {
         version: "0",
         website: "https://envoyer.io/user/profile",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20301.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnvoyerIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://envoyer.io/user/profile",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

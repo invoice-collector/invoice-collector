@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UtilityWarehouseUkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UtilityWarehouseUkCollector extends SketchCollector {
         version: "0",
         website: "https://uw.co.uk/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/742536.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UtilityWarehouseUkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://uw.co.uk/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

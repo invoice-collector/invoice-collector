@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColisexpatCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ColisexpatCollector extends SketchCollector {
         version: "0",
         website: "https://client.colisexpat.com/de/comptes/displayClientFacture/888678/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919997.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ColisexpatCollector extends SketchCollector {
             }
         },
         entryUrl: "https://client.colisexpat.com/de/comptes/displayClientFacture/888678/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

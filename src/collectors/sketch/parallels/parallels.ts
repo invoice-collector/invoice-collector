@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParallelsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ParallelsCollector extends SketchCollector {
         version: "0",
         website: "https://account.parallels.com/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14903.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ParallelsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.parallels.com/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

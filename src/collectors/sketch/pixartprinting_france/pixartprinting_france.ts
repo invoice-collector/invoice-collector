@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixartprintingFranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PixartprintingFranceCollector extends SketchCollector {
         version: "0",
         website: "https://www.pixartprinting.fr/espace-perso/commandes-effectuees/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2695455.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PixartprintingFranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pixartprinting.fr/espace-perso/commandes-effectuees/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

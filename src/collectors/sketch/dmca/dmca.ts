@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DmcaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DmcaCollector extends SketchCollector {
         version: "0",
         website: "https://www.dmca.com/Billing/default.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2973262.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DmcaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dmca.com/Billing/default.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

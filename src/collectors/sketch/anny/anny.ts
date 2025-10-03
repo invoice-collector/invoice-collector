@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnnyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AnnyCollector extends SketchCollector {
         version: "0",
         website: "https://app.anny.co",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1266401.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AnnyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.anny.co",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

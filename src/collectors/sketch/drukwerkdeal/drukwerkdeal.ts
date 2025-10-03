@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrukwerkdealCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DrukwerkdealCollector extends SketchCollector {
         version: "0",
         website: "https://www.drukwerkdeal.nl/nl/account/login-page",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32718.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DrukwerkdealCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.drukwerkdeal.nl/nl/account/login-page",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

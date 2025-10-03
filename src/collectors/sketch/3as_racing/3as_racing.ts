@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _3asRacingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _3asRacingCollector extends SketchCollector {
         version: "0",
         website: "https://www.3as-racing.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115873.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _3asRacingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.3as-racing.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

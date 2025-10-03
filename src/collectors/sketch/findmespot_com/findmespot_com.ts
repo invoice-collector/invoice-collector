@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FindmespotComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FindmespotComCollector extends SketchCollector {
         version: "0",
         website: "https://login.findmespot.com/spot-main-web/auth/login.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/43196.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FindmespotComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.findmespot.com/spot-main-web/auth/login.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

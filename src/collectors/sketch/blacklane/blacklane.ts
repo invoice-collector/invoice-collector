@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlacklaneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BlacklaneCollector extends SketchCollector {
         version: "0",
         website: "https://www.blacklane.com/de/sessions/new",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28530.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BlacklaneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.blacklane.com/de/sessions/new",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmiratesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EmiratesCollector extends SketchCollector {
         version: "0",
         website: "https://www.emirates.com/de/german/manage-booking",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4216782.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EmiratesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.emirates.com/de/german/manage-booking",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

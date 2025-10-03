@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CryptolensCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CryptolensCollector extends SketchCollector {
         version: "0",
         website: "https://app.cryptolens.io/Account/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/811723.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CryptolensCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.cryptolens.io/Account/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

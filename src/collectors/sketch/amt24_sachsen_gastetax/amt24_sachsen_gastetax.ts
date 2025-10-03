@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Amt24SachsenGastetaxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Amt24SachsenGastetaxCollector extends SketchCollector {
         version: "0",
         website: "https://sso.amt24.sachsen.de/idp/profile/SAML2/Redirect/SSO?execution=e3s1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1201350.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Amt24SachsenGastetaxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sso.amt24.sachsen.de/idp/profile/SAML2/Redirect/SSO?execution=e3s1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

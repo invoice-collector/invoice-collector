@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TinytubesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TinytubesCollector extends SketchCollector {
         version: "0",
         website: "https://tiny-tubes.fr/index.php?route=account/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123496.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TinytubesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://tiny-tubes.fr/index.php?route=account/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

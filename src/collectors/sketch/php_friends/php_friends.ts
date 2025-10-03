@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhpFriendsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhpFriendsCollector extends SketchCollector {
         version: "0",
         website: "https://crm.php-friends.de/invoice/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/37594.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhpFriendsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://crm.php-friends.de/invoice/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

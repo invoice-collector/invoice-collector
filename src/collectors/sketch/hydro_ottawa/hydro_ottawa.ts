@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HydroOttawaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HydroOttawaCollector extends SketchCollector {
         version: "0",
         website: "https://account.hydroottawa.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8816.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HydroOttawaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.hydroottawa.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

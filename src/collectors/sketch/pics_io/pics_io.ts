@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PicsIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PicsIoCollector extends SketchCollector {
         version: "0",
         website: "https://pics.io/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/530560.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PicsIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pics.io/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

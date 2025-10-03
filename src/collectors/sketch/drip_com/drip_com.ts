@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DripComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DripComCollector extends SketchCollector {
         version: "0",
         website: "https://login.getdrip.com/login/email?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1109628.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DripComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.getdrip.com/login/email?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

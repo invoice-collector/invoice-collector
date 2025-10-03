@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinanceadsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinanceadsCollector extends SketchCollector {
         version: "0",
         website: "https://login.financeads.net/de/index.php?module=login&msg=cookieerr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/46106.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinanceadsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.financeads.net/de/index.php?module=login&msg=cookieerr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhsCollector extends SketchCollector {
         version: "0",
         website: "https://my.phs.co.uk/documents?utm_source=myphs",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1240165.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.phs.co.uk/documents?utm_source=myphs",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

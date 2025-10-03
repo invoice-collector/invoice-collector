@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradeukCreditCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TradeukCreditCollector extends SketchCollector {
         version: "0",
         website: "https://www.credit.trade.co.uk/#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/490327.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TradeukCreditCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.credit.trade.co.uk/#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

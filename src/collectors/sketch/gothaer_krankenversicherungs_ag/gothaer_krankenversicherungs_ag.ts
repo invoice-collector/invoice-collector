@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GothaerKrankenversicherungsAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GothaerKrankenversicherungsAgCollector extends SketchCollector {
         version: "0",
         website: "https://www.gothaer.de/app/webmailer/webmail",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1242606.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GothaerKrankenversicherungsAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gothaer.de/app/webmailer/webmail",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

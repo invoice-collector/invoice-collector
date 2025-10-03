@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfLongBeachCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfLongBeachCollector extends SketchCollector {
         version: "0",
         website: "https://clbutilitywebservices.longbeach.gov/meridian.html#/log",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176465.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfLongBeachCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clbutilitywebservices.longbeach.gov/meridian.html#/log",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

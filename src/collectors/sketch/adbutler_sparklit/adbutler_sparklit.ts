@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdbutlerSparklitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdbutlerSparklitCollector extends SketchCollector {
         version: "0",
         website: "https://www.sparklit.com/common_admin.spark?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185319.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdbutlerSparklitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sparklit.com/common_admin.spark?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

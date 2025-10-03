@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrivupCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DrivupCollector extends SketchCollector {
         version: "0",
         website: "https://admin.drivup.fr/abonnement.php?zone=config#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2382498.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DrivupCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.drivup.fr/abonnement.php?zone=config#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AbasCollector extends SketchCollector {
         version: "0",
         website: "https://abas-erp.com/de/customer-and-partner-logins",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/558.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AbasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://abas-erp.com/de/customer-and-partner-logins",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

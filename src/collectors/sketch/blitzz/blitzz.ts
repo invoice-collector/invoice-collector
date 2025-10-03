@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlitzzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BlitzzCollector extends SketchCollector {
         version: "0",
         website: "https://subscriptions.zoho.com/portal/blitzz/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/618806.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BlitzzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://subscriptions.zoho.com/portal/blitzz/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

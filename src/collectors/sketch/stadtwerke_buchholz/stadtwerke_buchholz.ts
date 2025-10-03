@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBuchholzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeBuchholzCollector extends SketchCollector {
         version: "0",
         website: "https://portal.buchholz-stadtwerke.de/powercommerce/ivu/fo/portal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/429288.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeBuchholzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.buchholz-stadtwerke.de/powercommerce/ivu/fo/portal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

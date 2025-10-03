@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TobitSoftwarePartnersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TobitSoftwarePartnersCollector extends SketchCollector {
         version: "0",
         website: "https://de.tobit.software/team",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/25012.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TobitSoftwarePartnersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.tobit.software/team",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

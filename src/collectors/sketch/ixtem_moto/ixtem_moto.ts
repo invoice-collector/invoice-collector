@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IxtemMotoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IxtemMotoCollector extends SketchCollector {
         version: "0",
         website: "https://ixtem-moto.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/120471.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IxtemMotoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ixtem-moto.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

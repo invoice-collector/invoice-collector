@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GazDeBarrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GazDeBarrCollector extends SketchCollector {
         version: "0",
         website: "https://ael.gaz-de-barr.fr/application/jsp/arc/habilitation/contrat.ZoomerContratOServicesSouscrits.go",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4385205.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GazDeBarrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ael.gaz-de-barr.fr/application/jsp/arc/habilitation/contrat.ZoomerContratOServicesSouscrits.go",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

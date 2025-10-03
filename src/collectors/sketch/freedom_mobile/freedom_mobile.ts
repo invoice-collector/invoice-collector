@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreedomMobileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FreedomMobileCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.freedommobile.ca/selfcare/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9311.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FreedomMobileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.freedommobile.ca/selfcare/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

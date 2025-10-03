@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GitbookCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GitbookCollector extends SketchCollector {
         version: "0",
         website: "https://app.gitbook.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1376440.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GitbookCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.gitbook.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

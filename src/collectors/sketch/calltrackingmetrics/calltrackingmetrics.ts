@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalltrackingmetricsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CalltrackingmetricsCollector extends SketchCollector {
         version: "0",
         website: "https://app.calltrackingmetrics.com/payment_methods?agency=1#billing-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2097935.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CalltrackingmetricsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.calltrackingmetrics.com/payment_methods?agency=1#billing-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

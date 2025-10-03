@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VidalyticsApiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VidalyticsApiCollector extends SketchCollector {
         version: "0",
         website: "https://api.vidalytics.com/oauth/authorize?response_type=token&client_id=app&state=STJlbTVCVDUtcVZfOTBiUW9HdzRtU1AwWDJ3a0pSUDVNZld4YkpSYWt4Y1hG&redirect_uri=https://app.vidalytics.com/dashboard&scope=api",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/709651.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VidalyticsApiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://api.vidalytics.com/oauth/authorize?response_type=token&client_id=app&state=STJlbTVCVDUtcVZfOTBiUW9HdzRtU1AwWDJ3a0pSUDVNZld4YkpSYWt4Y1hG&redirect_uri=https://app.vidalytics.com/dashboard&scope=api",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

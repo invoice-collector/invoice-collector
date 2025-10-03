@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbilanzOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EbilanzOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://www.ebilanzonline.de/ebo/#:sections:user:transactions.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135854.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EbilanzOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ebilanzonline.de/ebo/#:sections:user:transactions.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

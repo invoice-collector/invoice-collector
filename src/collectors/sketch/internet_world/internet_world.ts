@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternetWorldCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InternetWorldCollector extends SketchCollector {
         version: "0",
         website: "https://www.internetworld.de/profil-1120069.html?snippet=order",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/875963.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InternetWorldCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.internetworld.de/profil-1120069.html?snippet=order",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

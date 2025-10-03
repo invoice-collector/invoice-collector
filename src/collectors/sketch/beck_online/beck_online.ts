@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeckOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeckOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://beck-online.beck.de/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2123187.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeckOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://beck-online.beck.de/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

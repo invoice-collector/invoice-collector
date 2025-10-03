@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GhCranesAndComponentsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GhCranesAndComponentsCollector extends SketchCollector {
         version: "0",
         website: "https://portal.ghcranes.com/clientesat/es/intervenciones",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420555.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GhCranesAndComponentsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.ghcranes.com/clientesat/es/intervenciones",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

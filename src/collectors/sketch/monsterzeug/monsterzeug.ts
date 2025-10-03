@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonsterzeugCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MonsterzeugCollector extends SketchCollector {
         version: "0",
         website: "https://www.monsterzeug.de/account.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/492243.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MonsterzeugCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.monsterzeug.de/account.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

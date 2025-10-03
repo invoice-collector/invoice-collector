@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfAlhambraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfAlhambraCollector extends SketchCollector {
         version: "0",
         website: "https://billpay.onlinebiller.com/ebpp/alhambraca/Login/Index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4179021.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfAlhambraCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billpay.onlinebiller.com/ebpp/alhambraca/Login/Index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

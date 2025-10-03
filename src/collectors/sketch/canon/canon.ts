@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CanonCollector extends SketchCollector {
         version: "0",
         website: "https://myid.canon/canonid/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/65489.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CanonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myid.canon/canonid/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

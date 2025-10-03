@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrKurtWolffGmbhAndCoKgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DrKurtWolffGmbhAndCoKgCollector extends SketchCollector {
         version: "0",
         website: "https://www.alcina-professional.com/de-de/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2049629.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DrKurtWolffGmbhAndCoKgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.alcina-professional.com/de-de/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

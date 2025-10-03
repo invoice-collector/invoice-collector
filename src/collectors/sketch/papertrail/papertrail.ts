@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PapertrailCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PapertrailCollector extends SketchCollector {
         version: "0",
         website: "https://papertrailapp.com/account/purchases",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8999.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PapertrailCollector extends SketchCollector {
             }
         },
         entryUrl: "https://papertrailapp.com/account/purchases",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FidorBankCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FidorBankCollector extends SketchCollector {
         version: "0",
         website: "https://banking.fidor.de/ebox",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102414.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FidorBankCollector extends SketchCollector {
             }
         },
         entryUrl: "https://banking.fidor.de/ebox",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

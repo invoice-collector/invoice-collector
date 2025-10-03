@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrunerFunkeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GrunerFunkeCollector extends SketchCollector {
         version: "0",
         website: "https://portal.gruenerfunke.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/90987.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GrunerFunkeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.gruenerfunke.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FibwiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FibwiCollector extends SketchCollector {
         version: "0",
         website: "https://clientes.fibwi.com/panelClientes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/741159.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FibwiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clientes.fibwi.com/panelClientes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

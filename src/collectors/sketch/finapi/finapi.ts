@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinapiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinapiCollector extends SketchCollector {
         version: "0",
         website: "https://finapi.zendesk.com/hc/en-us",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/24304.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinapiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://finapi.zendesk.com/hc/en-us",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

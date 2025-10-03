@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauDesCollinesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EauDesCollinesCollector extends SketchCollector {
         version: "0",
         website: "https://monespace.eaudescollines.fr/#/facture",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2418840.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EauDesCollinesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://monespace.eaudescollines.fr/#/facture",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

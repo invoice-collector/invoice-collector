@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaleanacloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BaleanacloudCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.balena-cloud.com/billing/summary",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/169056.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BaleanacloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.balena-cloud.com/billing/summary",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

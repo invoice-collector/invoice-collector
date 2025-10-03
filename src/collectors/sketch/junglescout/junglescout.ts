@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JunglescoutCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JunglescoutCollector extends SketchCollector {
         version: "0",
         website: "https://members.junglescout.com/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/37591.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JunglescoutCollector extends SketchCollector {
             }
         },
         entryUrl: "https://members.junglescout.com/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

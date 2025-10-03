@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BliskCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BliskCollector extends SketchCollector {
         version: "0",
         website: "https://app.blisk.io/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/178526.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BliskCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.blisk.io/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

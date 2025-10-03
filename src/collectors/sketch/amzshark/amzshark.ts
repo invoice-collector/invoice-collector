@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmzsharkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmzsharkCollector extends SketchCollector {
         version: "0",
         website: "https://amzshark.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/770827.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmzsharkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://amzshark.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

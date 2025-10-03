@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AffilaeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AffilaeCollector extends SketchCollector {
         version: "0",
         website: "https://affilae.com/fr/logiciel-affiliation/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/648508.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AffilaeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://affilae.com/fr/logiciel-affiliation/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

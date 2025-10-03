@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LagrowthmachineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LagrowthmachineCollector extends SketchCollector {
         version: "0",
         website: "https://app.lagrowthmachine.com/campaigns",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1183966.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LagrowthmachineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.lagrowthmachine.com/campaigns",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

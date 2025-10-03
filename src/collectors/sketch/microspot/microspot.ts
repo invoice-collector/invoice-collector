@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MicrospotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MicrospotCollector extends SketchCollector {
         version: "0",
         website: "https://www.microspot.ch/de/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2155172.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MicrospotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.microspot.ch/de/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

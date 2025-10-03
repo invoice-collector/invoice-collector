@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteuerverwaltungDesKantonsBernCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SteuerverwaltungDesKantonsBernCollector extends SketchCollector {
         version: "0",
         website: "http://www.fin.be.ch",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/46558.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SteuerverwaltungDesKantonsBernCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.fin.be.ch",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ModifiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ModifiCollector extends SketchCollector {
         version: "0",
         website: "https://billing.modifi.com/invoices/buyer-finance",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1799158.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ModifiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.modifi.com/invoices/buyer-finance",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

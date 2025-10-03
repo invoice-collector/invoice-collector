@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetaffiliationCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NetaffiliationCollector extends SketchCollector {
         version: "0",
         website: "https://www6.netaffiliation.com/billing/in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/84339.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NetaffiliationCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www6.netaffiliation.com/billing/in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdacKreditkartenbankingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdacKreditkartenbankingCollector extends SketchCollector {
         version: "0",
         website: "https://banking.adac-kreditkarte.de/profile/post-box/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3273921.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdacKreditkartenbankingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://banking.adac-kreditkarte.de/profile/post-box/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

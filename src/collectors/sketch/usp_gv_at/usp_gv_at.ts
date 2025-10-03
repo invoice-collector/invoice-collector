@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UspGvAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UspGvAtCollector extends SketchCollector {
         version: "0",
         website: "https://www.usp.gv.at/at.gv.mpk-p/portal/main?resetFolder",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/553311.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UspGvAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.usp.gv.at/at.gv.mpk-p/portal/main?resetFolder",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

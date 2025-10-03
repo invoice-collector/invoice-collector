@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WalleeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WalleeCollector extends SketchCollector {
         version: "0",
         website: "https://app-wallee.com/user/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777399.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WalleeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app-wallee.com/user/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

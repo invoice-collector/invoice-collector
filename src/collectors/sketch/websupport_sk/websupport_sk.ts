@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebsupportSkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WebsupportSkCollector extends SketchCollector {
         version: "0",
         website: "https://login.websupport.sk/?s=cart&l=sk&c=websupport.sk",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2771551.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WebsupportSkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.websupport.sk/?s=cart&l=sk&c=websupport.sk",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

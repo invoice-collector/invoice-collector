@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReweKartenweltCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReweKartenweltCollector extends SketchCollector {
         version: "0",
         website: "https://kartenwelt.rewe.de/sales/order/invoice/order_id/762116/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2727892.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReweKartenweltCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kartenwelt.rewe.de/sales/order/invoice/order_id/762116/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

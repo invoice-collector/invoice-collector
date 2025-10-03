@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheGoodRollCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheGoodRollCollector extends SketchCollector {
         version: "0",
         website: "https://thegoodroll.com/nl-nl/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2158086.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheGoodRollCollector extends SketchCollector {
             }
         },
         entryUrl: "https://thegoodroll.com/nl-nl/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

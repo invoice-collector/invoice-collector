@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoothemeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YoothemeCollector extends SketchCollector {
         version: "0",
         website: "https://yootheme.com/user/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14941.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YoothemeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://yootheme.com/user/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

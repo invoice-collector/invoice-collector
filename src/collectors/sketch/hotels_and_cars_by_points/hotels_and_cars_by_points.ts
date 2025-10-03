@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HotelsAndCarsByPointsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HotelsAndCarsByPointsCollector extends SketchCollector {
         version: "0",
         website: "https://milesandmore.points.com/me/trips",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/221828.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HotelsAndCarsByPointsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://milesandmore.points.com/me/trips",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheReceptionistCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheReceptionistCollector extends SketchCollector {
         version: "0",
         website: "https://app.thereceptionist.com/billing/hq/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/760629.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheReceptionistCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.thereceptionist.com/billing/hq/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

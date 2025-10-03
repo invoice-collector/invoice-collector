@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaneiDigitalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CaneiDigitalCollector extends SketchCollector {
         version: "0",
         website: "https://app.canei.digital/account/abo",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/753109.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CaneiDigitalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.canei.digital/account/abo",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RoyalMailInvoicingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RoyalMailInvoicingCollector extends SketchCollector {
         version: "0",
         website: "https://invoicing.royalmail.com/RMF/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1086474.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RoyalMailInvoicingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://invoicing.royalmail.com/RMF/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

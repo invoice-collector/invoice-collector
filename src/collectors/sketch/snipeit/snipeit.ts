@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnipeitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SnipeitCollector extends SketchCollector {
         version: "0",
         website: "https://snipeitapp.com/account/invoices/in_1Eb3TLLn2xhxKhITMn4NrvC7/download",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/134680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SnipeitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://snipeitapp.com/account/invoices/in_1Eb3TLLn2xhxKhITMn4NrvC7/download",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

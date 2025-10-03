@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MicrosoftAzureCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MicrosoftAzureCollector extends SketchCollector {
         version: "0",
         website: "http://azure.microsoft.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8758.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MicrosoftAzureCollector extends SketchCollector {
             }
         },
         entryUrl: "http://azure.microsoft.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

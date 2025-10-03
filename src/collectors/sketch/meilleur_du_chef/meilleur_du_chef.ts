@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeilleurDuChefCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeilleurDuChefCollector extends SketchCollector {
         version: "0",
         website: "https://www.meilleurduchef.com/en/perso/commandes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732661.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeilleurDuChefCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.meilleurduchef.com/en/perso/commandes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

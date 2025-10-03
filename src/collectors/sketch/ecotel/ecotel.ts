@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcotelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EcotelCollector extends SketchCollector {
         version: "0",
         website: "https://www.ecotel.de/index.php/login-link",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9197.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EcotelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ecotel.de/index.php/login-link",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

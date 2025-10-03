@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanadaLifeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CanadaLifeCollector extends SketchCollector {
         version: "0",
         website: "https://partnernet.canadalife.de/selfcare/CleAdvisorLoginSelfCare/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115650.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CanadaLifeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partnernet.canadalife.de/selfcare/CleAdvisorLoginSelfCare/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

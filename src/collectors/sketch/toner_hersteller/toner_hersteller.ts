@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TonerHerstellerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TonerHerstellerCollector extends SketchCollector {
         version: "0",
         website: "http://www.tonerhersteller.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/541383.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TonerHerstellerCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.tonerhersteller.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

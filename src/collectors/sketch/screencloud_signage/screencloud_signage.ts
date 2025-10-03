@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScreencloudSignageCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ScreencloudSignageCollector extends SketchCollector {
         version: "0",
         website: "https://signage.screen.cloud",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/96934.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ScreencloudSignageCollector extends SketchCollector {
             }
         },
         entryUrl: "https://signage.screen.cloud",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuperprofCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SuperprofCollector extends SketchCollector {
         version: "0",
         website: "https://www.superprof.de/dashboard.html/premium",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185036.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SuperprofCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.superprof.de/dashboard.html/premium",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

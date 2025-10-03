@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SecuritasDirectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SecuritasDirectCollector extends SketchCollector {
         version: "0",
         website: "https://customers.securitasdirect.fr/fr/bills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73830.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SecuritasDirectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customers.securitasdirect.fr/fr/bills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnworCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnworCollector extends SketchCollector {
         version: "0",
         website: "https://www.enwor.de/enworPortal/Portal?Anwendung=RhenagRechnungslisteV2&Methode=Init&AuswahlVertragSchluessel=214992062!4",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2654200.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnworCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.enwor.de/enworPortal/Portal?Anwendung=RhenagRechnungslisteV2&Methode=Init&AuswahlVertragSchluessel=214992062!4",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

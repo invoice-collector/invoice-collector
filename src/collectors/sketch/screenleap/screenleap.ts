@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScreenleapCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ScreenleapCollector extends SketchCollector {
         version: "0",
         website: "https://www.screenleap.com/subscription/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/60389.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ScreenleapCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.screenleap.com/subscription/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

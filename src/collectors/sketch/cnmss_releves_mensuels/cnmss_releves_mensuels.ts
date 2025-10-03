@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CnmssRelevesMensuelsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CnmssRelevesMensuelsCollector extends SketchCollector {
         version: "0",
         website: "https://www.cnmss.fr/professionnel-de-sante/en-1-clic-449.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123799.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CnmssRelevesMensuelsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cnmss.fr/professionnel-de-sante/en-1-clic-449.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

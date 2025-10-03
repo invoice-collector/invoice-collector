@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerformanceHorizonGroupLtdGbCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PerformanceHorizonGroupLtdGbCollector extends SketchCollector {
         version: "0",
         website: "https://appleservices-console.partnerize.com/login/appleservices/de?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1920095.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PerformanceHorizonGroupLtdGbCollector extends SketchCollector {
             }
         },
         entryUrl: "https://appleservices-console.partnerize.com/login/appleservices/de?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

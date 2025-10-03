@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EgekoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EgekoCollector extends SketchCollector {
         version: "0",
         website: "http://www.egeko.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/56813.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EgekoCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.egeko.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

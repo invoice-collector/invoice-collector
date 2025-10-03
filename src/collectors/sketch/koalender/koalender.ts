@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KoalenderCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KoalenderCollector extends SketchCollector {
         version: "0",
         website: "https://koalendar.com/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2175415.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KoalenderCollector extends SketchCollector {
             }
         },
         entryUrl: "https://koalendar.com/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

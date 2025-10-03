@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZendutyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZendutyCollector extends SketchCollector {
         version: "0",
         website: "https://www.zenduty.com/dashboard/account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779015.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZendutyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.zenduty.com/dashboard/account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

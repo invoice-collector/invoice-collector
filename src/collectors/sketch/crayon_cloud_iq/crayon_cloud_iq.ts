@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrayonCloudIqCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CrayonCloudIqCollector extends SketchCollector {
         version: "0",
         website: "https://cloudiq.crayon.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035250.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CrayonCloudIqCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cloudiq.crayon.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

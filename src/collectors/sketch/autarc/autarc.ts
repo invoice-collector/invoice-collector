@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutarcCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AutarcCollector extends SketchCollector {
         version: "0",
         website: "https://app2.autarc.energy/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4466177.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AutarcCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app2.autarc.energy/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

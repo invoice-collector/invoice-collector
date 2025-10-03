@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProductlaneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProductlaneCollector extends SketchCollector {
         version: "0",
         website: "https://productlane.com/settings/plans",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420600.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProductlaneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://productlane.com/settings/plans",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

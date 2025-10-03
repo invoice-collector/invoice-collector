@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerstistiqCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PerstistiqCollector extends SketchCollector {
         version: "0",
         website: "https://persistiq.com/app#/billing/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/146177.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PerstistiqCollector extends SketchCollector {
             }
         },
         entryUrl: "https://persistiq.com/app#/billing/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

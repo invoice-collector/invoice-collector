@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RetraceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RetraceCollector extends SketchCollector {
         version: "0",
         website: "https://s1.stackify.com/Manage/ManageSubscription/ViewStatements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203079.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RetraceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://s1.stackify.com/Manage/ManageSubscription/ViewStatements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

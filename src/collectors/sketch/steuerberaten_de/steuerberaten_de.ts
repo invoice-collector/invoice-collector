@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteuerberatenDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SteuerberatenDeCollector extends SketchCollector {
         version: "0",
         website: "http://www.steuerberaten.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/5057.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SteuerberatenDeCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.steuerberaten.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CycleschemeLtdCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CycleschemeLtdCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.myschemes.co.uk/cs/index/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153542.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CycleschemeLtdCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.myschemes.co.uk/cs/index/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookingsyncCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BookingsyncCollector extends SketchCollector {
         version: "0",
         website: "https://www.bookingsync.com/users/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/95744.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BookingsyncCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bookingsync.com/users/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

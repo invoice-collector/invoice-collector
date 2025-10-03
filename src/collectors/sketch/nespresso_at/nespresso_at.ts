@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NespressoAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NespressoAtCollector extends SketchCollector {
         version: "0",
         website: "https://www.nespresso.com/at/de/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1269265.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NespressoAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.nespresso.com/at/de/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

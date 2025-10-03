@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HrsGroupOnlineInvoicePortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HrsGroupOnlineInvoicePortalCollector extends SketchCollector {
         version: "0",
         website: "https://hotelservice.hrs.com/hpp/Account/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1216.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HrsGroupOnlineInvoicePortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hotelservice.hrs.com/hpp/Account/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

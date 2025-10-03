@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonteurunterkunftDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MonteurunterkunftDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.monteurunterkunft.de/buchung/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1083843.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MonteurunterkunftDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.monteurunterkunft.de/buchung/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

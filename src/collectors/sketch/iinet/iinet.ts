@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IinetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IinetCollector extends SketchCollector {
         version: "0",
         website: "https://www.iinet.net.au/customers/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/405660.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IinetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.iinet.net.au/customers/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

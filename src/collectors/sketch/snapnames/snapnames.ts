@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnapnamesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SnapnamesCollector extends SketchCollector {
         version: "0",
         website: "https://www.snapnames.com/switch.sn?view=registrationHistory&vcFilter=true&viewName=sn.view.regHist&filter=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/190171.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SnapnamesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.snapnames.com/switch.sn?view=registrationHistory&vcFilter=true&viewName=sn.view.regHist&filter=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

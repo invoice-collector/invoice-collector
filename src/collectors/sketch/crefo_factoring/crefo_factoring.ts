@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrefoFactoringCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CrefoFactoringCollector extends SketchCollector {
         version: "0",
         website: "https://online.crefo-factoring.de/firstlogin.do;jsessionid=6AB0E64A11A325479003FDB743435D82",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/31078.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CrefoFactoringCollector extends SketchCollector {
             }
         },
         entryUrl: "https://online.crefo-factoring.de/firstlogin.do;jsessionid=6AB0E64A11A325479003FDB743435D82",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

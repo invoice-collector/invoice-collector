@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LbsPrimalianCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LbsPrimalianCollector extends SketchCollector {
         version: "0",
         website: "https://portail-lbs33.artis.fr/ArtisWebLbs33/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=fGkPzEhOldEBb3wS&typeLicence=LBS17",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4604555.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LbsPrimalianCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail-lbs33.artis.fr/ArtisWebLbs33/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=fGkPzEhOldEBb3wS&typeLicence=LBS17",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

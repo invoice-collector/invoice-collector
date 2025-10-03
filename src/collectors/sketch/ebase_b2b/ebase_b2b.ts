@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbaseB2bCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EbaseB2bCollector extends SketchCollector {
         version: "0",
         website: "https://portal.ebase.com/(e2)/eop/tools-reports/bestandscontrolling/weitere-auswertungen/vermittlerpostkorb",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/111984.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EbaseB2bCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.ebase.com/(e2)/eop/tools-reports/bestandscontrolling/weitere-auswertungen/vermittlerpostkorb",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

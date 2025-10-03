@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GStarRawCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GStarRawCollector extends SketchCollector {
         version: "0",
         website: "https://invoicing.g-star.com/gstar/#/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777326.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GStarRawCollector extends SketchCollector {
             }
         },
         entryUrl: "https://invoicing.g-star.com/gstar/#/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

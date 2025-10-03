@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AiprmForChatgptCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AiprmForChatgptCollector extends SketchCollector {
         version: "0",
         website: "https://app1.aiprm.com/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2246686.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AiprmForChatgptCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app1.aiprm.com/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

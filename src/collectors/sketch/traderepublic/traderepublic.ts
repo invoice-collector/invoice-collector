@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraderepublicCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TraderepublicCollector extends SketchCollector {
         version: "0",
         website: "https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2077769.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TraderepublicCollector extends SketchCollector {
             }
         },
         entryUrl: "https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

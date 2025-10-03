@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HasoffersAthleticGreeensEuropeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HasoffersAthleticGreeensEuropeCollector extends SketchCollector {
         version: "0",
         website: "http://euroathleticgreens.hasoffers.com/publisher/#!/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/65932.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HasoffersAthleticGreeensEuropeCollector extends SketchCollector {
             }
         },
         entryUrl: "http://euroathleticgreens.hasoffers.com/publisher/#!/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

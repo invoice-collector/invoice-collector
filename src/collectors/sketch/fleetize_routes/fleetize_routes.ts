@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FleetizeRoutesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FleetizeRoutesCollector extends SketchCollector {
         version: "0",
         website: "https://routes.fleetize.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/25330.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FleetizeRoutesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://routes.fleetize.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

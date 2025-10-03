@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SushishopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SushishopCollector extends SketchCollector {
         version: "0",
         website: "https://www.sushishop.fr/fr/authentification",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123504.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SushishopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sushishop.fr/fr/authentification",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

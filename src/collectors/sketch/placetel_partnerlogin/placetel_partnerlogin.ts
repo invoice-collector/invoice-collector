@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlacetelPartnerloginCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlacetelPartnerloginCollector extends SketchCollector {
         version: "0",
         website: "https://rap.placetel.de/rap/main/revenues",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23103.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlacetelPartnerloginCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rap.placetel.de/rap/main/revenues",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

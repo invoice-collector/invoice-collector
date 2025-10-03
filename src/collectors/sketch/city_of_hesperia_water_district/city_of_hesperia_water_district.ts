@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfHesperiaWaterDistrictCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfHesperiaWaterDistrictCollector extends SketchCollector {
         version: "0",
         website: "https://billpay.onlinebiller.com/ebpp/hesperia/Payment/History",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2724329.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfHesperiaWaterDistrictCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billpay.onlinebiller.com/ebpp/hesperia/Payment/History",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

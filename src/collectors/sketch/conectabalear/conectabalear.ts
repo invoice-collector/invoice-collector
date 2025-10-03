@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConectabalearCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConectabalearCollector extends SketchCollector {
         version: "0",
         website: "https://www.conectabalear.com/en/clientes/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153613.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConectabalearCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.conectabalear.com/en/clientes/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

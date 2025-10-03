@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HoverCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HoverCollector extends SketchCollector {
         version: "0",
         website: "https://www.hover.com/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19946.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HoverCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hover.com/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

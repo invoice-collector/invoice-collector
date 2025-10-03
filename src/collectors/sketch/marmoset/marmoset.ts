@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarmosetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MarmosetCollector extends SketchCollector {
         version: "0",
         website: "https://account.marmoset.co/orders?63lvh5yg66sgu6jswt4224rrva=qkz5clxxhgeegpkwqbdthbuokq",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2097932.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MarmosetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.marmoset.co/orders?63lvh5yg66sgu6jswt4224rrva=qkz5clxxhgeegpkwqbdthbuokq",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

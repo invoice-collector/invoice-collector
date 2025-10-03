@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DocmorrisPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DocmorrisPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://partner.docmorris.de/phw/my-account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4446831.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DocmorrisPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.docmorris.de/phw/my-account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

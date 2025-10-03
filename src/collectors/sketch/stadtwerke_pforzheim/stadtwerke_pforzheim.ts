@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkePforzheimCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkePforzheimCollector extends SketchCollector {
         version: "0",
         website: "https://portal.stadtwerke-pforzheim.de/powercommerce/swph/fo/portal/start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2584142.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkePforzheimCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.stadtwerke-pforzheim.de/powercommerce/swph/fo/portal/start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

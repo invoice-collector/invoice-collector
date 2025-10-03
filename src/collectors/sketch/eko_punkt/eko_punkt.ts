@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EkoPunktCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EkoPunktCollector extends SketchCollector {
         version: "0",
         website: "https://www.eko-punkt.de/kundenportal-neukunden/dokumente/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1225110.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EkoPunktCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eko-punkt.de/kundenportal-neukunden/dokumente/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

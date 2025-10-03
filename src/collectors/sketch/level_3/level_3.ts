@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Level3Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Level3Collector extends SketchCollector {
         version: "0",
         website: "https://account.level3.com/login?service=https%3A%2F%2Fmy.level3.com%2FportalWeb%2Fpartner%2Fcommon%2Flogin%2Fbegin.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/87698.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Level3Collector extends SketchCollector {
             }
         },
         entryUrl: "https://account.level3.com/login?service=https%3A%2F%2Fmy.level3.com%2FportalWeb%2Fpartner%2Fcommon%2Flogin%2Fbegin.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

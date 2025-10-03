@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DattoGmbhSaasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DattoGmbhSaasCollector extends SketchCollector {
         version: "0",
         website: "https://store.datto.com/account/purchases/monthly-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1316267.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DattoGmbhSaasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store.datto.com/account/purchases/monthly-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnexmaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnexmaCollector extends SketchCollector {
         version: "0",
         website: "https://www.onexma.com/cgi-bin/user.cgi",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33638.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnexmaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.onexma.com/cgi-bin/user.cgi",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

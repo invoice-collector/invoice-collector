@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProsaldoNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProsaldoNetCollector extends SketchCollector {
         version: "0",
         website: "https://mein.prosaldo.net/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1323224.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProsaldoNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.prosaldo.net/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

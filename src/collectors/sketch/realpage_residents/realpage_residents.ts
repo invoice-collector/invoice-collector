@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RealpageResidentsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RealpageResidentsCollector extends SketchCollector {
         version: "0",
         website: "https://umresident.realpage.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2385165.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RealpageResidentsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://umresident.realpage.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

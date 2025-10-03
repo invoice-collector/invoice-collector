@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DegeniaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DegeniaCollector extends SketchCollector {
         version: "0",
         website: "https://degenia.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8664.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DegeniaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://degenia.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

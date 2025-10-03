@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfCapeTownCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfCapeTownCollector extends SketchCollector {
         version: "0",
         website: "https://eservices.capetown.gov.za/irj/portal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/391638.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfCapeTownCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eservices.capetown.gov.za/irj/portal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

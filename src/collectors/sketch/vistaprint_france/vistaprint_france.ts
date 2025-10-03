@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VistaprintFranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VistaprintFranceCollector extends SketchCollector {
         version: "0",
         website: "https://www.vistaprint.fr/vp/ns/my_account/order_history.aspx?xnav=accountMenu",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/245914.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VistaprintFranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vistaprint.fr/vp/ns/my_account/order_history.aspx?xnav=accountMenu",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

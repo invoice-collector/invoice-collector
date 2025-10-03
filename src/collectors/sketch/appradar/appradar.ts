@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppradarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AppradarCollector extends SketchCollector {
         version: "0",
         website: "https://web.appradar.com/settings/payment",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/148960.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AppradarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.appradar.com/settings/payment",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

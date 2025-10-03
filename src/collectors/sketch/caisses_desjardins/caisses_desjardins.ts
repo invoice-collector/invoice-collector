@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaissesDesjardinsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CaissesDesjardinsCollector extends SketchCollector {
         version: "0",
         website: "https://accweb.mouv.desjardins.com/identifiantunique/identification?domaineVirtuel=desjardins&langueCible=en",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/77612.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CaissesDesjardinsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accweb.mouv.desjardins.com/identifiantunique/identification?domaineVirtuel=desjardins&langueCible=en",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BartlOnlineShopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BartlOnlineShopCollector extends SketchCollector {
         version: "0",
         website: "https://b2b.bartlshop.de/de/account/?action=document_archive",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2728426.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BartlOnlineShopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://b2b.bartlshop.de/de/account/?action=document_archive",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

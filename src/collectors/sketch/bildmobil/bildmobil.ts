@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BildmobilCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BildmobilCollector extends SketchCollector {
         version: "0",
         website: "https://www.bildmobil.de/login.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9025.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BildmobilCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bildmobil.de/login.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HuduCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HuduCollector extends SketchCollector {
         version: "0",
         website: "https://hq.hudu.com/subscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4565127.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HuduCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hq.hudu.com/subscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

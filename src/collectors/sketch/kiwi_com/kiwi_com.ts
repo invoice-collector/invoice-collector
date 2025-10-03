@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiwiComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KiwiComCollector extends SketchCollector {
         version: "0",
         website: "http://www.kiwi.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/77693.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KiwiComCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.kiwi.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

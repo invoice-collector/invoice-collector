@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbfallwirtschaftSudholsteinAwshCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AbfallwirtschaftSudholsteinAwshCollector extends SketchCollector {
         version: "0",
         website: "https://www.awsh.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778194.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AbfallwirtschaftSudholsteinAwshCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.awsh.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

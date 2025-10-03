@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RightBloggerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RightBloggerCollector extends SketchCollector {
         version: "0",
         website: "https://rightblogger.com/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3062233.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RightBloggerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rightblogger.com/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

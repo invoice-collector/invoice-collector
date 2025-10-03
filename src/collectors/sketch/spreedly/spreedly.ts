@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpreedlyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpreedlyCollector extends SketchCollector {
         version: "0",
         website: "https://id.spreedly.com/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/56515.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpreedlyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://id.spreedly.com/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

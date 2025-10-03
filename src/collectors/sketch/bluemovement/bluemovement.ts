@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BluemovementCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BluemovementCollector extends SketchCollector {
         version: "0",
         website: "https://www.bluemovement.com/de-de/auth/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1101196.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BluemovementCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bluemovement.com/de-de/auth/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdfReunionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EdfReunionCollector extends SketchCollector {
         version: "0",
         website: "https://sei-ael-reunion.edf.com/aelEDF/jsp/arc/habilitation/login.jsp",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/%C3%89lectricit%C3%A9_de_France_logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EdfReunionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sei-ael-reunion.edf.com/aelEDF/jsp/arc/habilitation/login.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

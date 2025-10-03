@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityBankUsaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityBankUsaCollector extends SketchCollector {
         version: "0",
         website: "https://secure.city.bank/CityBankOnline/uux.aspx#/landingPage",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/435447.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityBankUsaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.city.bank/CityBankOnline/uux.aspx#/landingPage",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

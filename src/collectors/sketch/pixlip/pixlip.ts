@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixlipCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PixlipCollector extends SketchCollector {
         version: "0",
         website: "https://www.pixlip.com/account/order",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4196387.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PixlipCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pixlip.com/account/order",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FieberNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FieberNlCollector extends SketchCollector {
         version: "0",
         website: "https://support.fieber.nl/hc/nl",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32700.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FieberNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://support.fieber.nl/hc/nl",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

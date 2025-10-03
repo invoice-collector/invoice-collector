@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaptionsAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CaptionsAiCollector extends SketchCollector {
         version: "0",
         website: "https://desktop.captions.ai/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4415147.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CaptionsAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://desktop.captions.ai/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

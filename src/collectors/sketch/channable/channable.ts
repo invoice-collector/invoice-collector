@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChannableCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChannableCollector extends SketchCollector {
         version: "0",
         website: "http://www.channable.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/108654.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChannableCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.channable.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MartensDeutscheTelekabelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MartensDeutscheTelekabelCollector extends SketchCollector {
         version: "0",
         website: "https://service.pyur.net/kundenportal/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9472.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MartensDeutscheTelekabelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.pyur.net/kundenportal/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

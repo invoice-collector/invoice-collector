@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupeArgusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GroupeArgusCollector extends SketchCollector {
         version: "0",
         website: "https://factures.largus.fr/#!/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1374771.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GroupeArgusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://factures.largus.fr/#!/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WorkflowyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WorkflowyCollector extends SketchCollector {
         version: "0",
         website: "https://workflowy.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/522640.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WorkflowyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://workflowy.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

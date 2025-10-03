@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleWalletCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoogleWalletCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.google.com/signin/v2/identifier?service=sierra&passive=1209600&osid=1&continue=https%3A%2F%2Fpay.google.com%2Fsend%2Ftransactions&followup=https%3A%2F%2Fwallet.google.com%2Fn%2Ftransactions&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/502.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoogleWalletCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.google.com/signin/v2/identifier?service=sierra&passive=1209600&osid=1&continue=https%3A%2F%2Fpay.google.com%2Fsend%2Ftransactions&followup=https%3A%2F%2Fwallet.google.com%2Fn%2Ftransactions&flowName=GlifWebSignIn&flowEntry=ServiceLogin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

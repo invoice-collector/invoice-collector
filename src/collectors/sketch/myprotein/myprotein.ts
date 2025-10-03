@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyproteinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyproteinCollector extends SketchCollector {
         version: "0",
         website: "https://de.myprotein.com/login.jsp?returnTo=https%3A%2F%2Fde.myprotein.com%2FaccountHome.account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/45060.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyproteinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.myprotein.com/login.jsp?returnTo=https%3A%2F%2Fde.myprotein.com%2FaccountHome.account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

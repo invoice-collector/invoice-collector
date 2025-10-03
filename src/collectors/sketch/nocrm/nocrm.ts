@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NocrmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NocrmCollector extends SketchCollector {
         version: "0",
         website: "https://digitalanders.nocrm.io/admin/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2765219.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NocrmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://digitalanders.nocrm.io/admin/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

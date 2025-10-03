@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BauTechSolarenergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BauTechSolarenergieCollector extends SketchCollector {
         version: "0",
         website: "https://www.bau-tech.shop/customer",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1248103.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BauTechSolarenergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bau-tech.shop/customer",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

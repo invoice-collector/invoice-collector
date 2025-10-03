@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tyre24SupplierCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Tyre24SupplierCollector extends SketchCollector {
         version: "0",
         website: "https://supplier.alzura.com/de/de/user/login/page/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1121179.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Tyre24SupplierCollector extends SketchCollector {
             }
         },
         entryUrl: "https://supplier.alzura.com/de/de/user/login/page/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

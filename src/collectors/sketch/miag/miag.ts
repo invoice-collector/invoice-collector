@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiagCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MiagCollector extends SketchCollector {
         version: "0",
         website: "https://app.miag.com/member/de/services/rma",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4181670.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MiagCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.miag.com/member/de/services/rma",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

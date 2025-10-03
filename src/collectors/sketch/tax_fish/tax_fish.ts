@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaxFishCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TaxFishCollector extends SketchCollector {
         version: "0",
         website: "https://online.tax.fish/Dokumente",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2310227.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TaxFishCollector extends SketchCollector {
             }
         },
         entryUrl: "https://online.tax.fish/Dokumente",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

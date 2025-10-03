@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QqtubeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QqtubeCollector extends SketchCollector {
         version: "0",
         website: "https://www.qqtube.com/order-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/81310.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QqtubeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.qqtube.com/order-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

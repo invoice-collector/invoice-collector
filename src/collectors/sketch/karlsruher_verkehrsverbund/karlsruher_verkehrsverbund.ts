@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KarlsruherVerkehrsverbundCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KarlsruherVerkehrsverbundCollector extends SketchCollector {
         version: "0",
         website: "https://kvv.mobilesticket.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10491.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KarlsruherVerkehrsverbundCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kvv.mobilesticket.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

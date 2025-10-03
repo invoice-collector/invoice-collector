@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConnectilCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConnectilCollector extends SketchCollector {
         version: "0",
         website: "https://cloud.connectill.com/dashboard/my-account-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445709.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConnectilCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cloud.connectill.com/dashboard/my-account-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

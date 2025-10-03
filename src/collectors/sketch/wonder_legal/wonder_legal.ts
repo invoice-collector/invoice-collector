@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WonderLegalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WonderLegalCollector extends SketchCollector {
         version: "0",
         website: "https://www.wonder.legal/de/compte/factures.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4503765.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WonderLegalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wonder.legal/de/compte/factures.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

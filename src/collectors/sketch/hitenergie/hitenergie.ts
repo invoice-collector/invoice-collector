@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HitenergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HitenergieCollector extends SketchCollector {
         version: "0",
         website: "https://www.hitenergie.de/selfcare",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/16487.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HitenergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hitenergie.de/selfcare",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

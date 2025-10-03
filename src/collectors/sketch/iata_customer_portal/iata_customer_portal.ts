@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IataCustomerPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IataCustomerPortalCollector extends SketchCollector {
         version: "0",
         website: "https://casslink2.iata.org/iata-cass-frontend-container/output/output-agents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2419784.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IataCustomerPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://casslink2.iata.org/iata-cass-frontend-container/output/output-agents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

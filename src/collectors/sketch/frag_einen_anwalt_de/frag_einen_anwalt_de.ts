@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FragEinenAnwaltDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FragEinenAnwaltDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.123recht.de/thick_register.asp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107060.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FragEinenAnwaltDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.123recht.de/thick_register.asp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

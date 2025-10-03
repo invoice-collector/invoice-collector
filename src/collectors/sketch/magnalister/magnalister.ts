@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagnalisterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MagnalisterCollector extends SketchCollector {
         version: "0",
         website: "https://www.magnalister.com/de/customer/login/check.do/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10280.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MagnalisterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.magnalister.com/de/customer/login/check.do/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

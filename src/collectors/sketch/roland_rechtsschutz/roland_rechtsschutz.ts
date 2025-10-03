@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RolandRechtsschutzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RolandRechtsschutzCollector extends SketchCollector {
         version: "0",
         website: "https://www.roland-service.de/epostfach/views/home.xhtml#!",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1863349.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RolandRechtsschutzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.roland-service.de/epostfach/views/home.xhtml#!",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

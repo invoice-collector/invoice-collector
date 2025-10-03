@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TestmanuelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TestmanuelCollector extends SketchCollector {
         version: "0",
         website: "ibcs.online/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2101864.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TestmanuelCollector extends SketchCollector {
             }
         },
         entryUrl: "ibcs.online/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

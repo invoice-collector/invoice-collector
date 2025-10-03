@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BauschLombDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BauschLombDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.bausch-lomb.de/single-pages/e-rechnungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/526490.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BauschLombDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bausch-lomb.de/single-pages/e-rechnungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaterielNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaterielNetCollector extends SketchCollector {
         version: "0",
         website: "https://www.materiel.net/pm/client/login.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27330.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaterielNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.materiel.net/pm/client/login.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

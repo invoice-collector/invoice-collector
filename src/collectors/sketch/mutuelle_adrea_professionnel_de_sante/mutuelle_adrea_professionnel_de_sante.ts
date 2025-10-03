@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAdreaProfessionnelDeSanteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleAdreaProfessionnelDeSanteCollector extends SketchCollector 
         version: "0",
         website: "https://corporate.adrea.fr/professionnel-de-sante/espace-securise/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/125694.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleAdreaProfessionnelDeSanteCollector extends SketchCollector 
             }
         },
         entryUrl: "https://corporate.adrea.fr/professionnel-de-sante/espace-securise/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

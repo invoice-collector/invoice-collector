@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrivyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrivyCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.privy.com/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/530556.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrivyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.privy.com/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

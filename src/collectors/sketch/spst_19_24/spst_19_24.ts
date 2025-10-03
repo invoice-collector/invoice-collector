@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Spst1924Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Spst1924Collector extends SketchCollector {
         version: "0",
         website: "https://portailadherents.spst19-24.org/Documents/Invoicing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4503425.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Spst1924Collector extends SketchCollector {
             }
         },
         entryUrl: "https://portailadherents.spst19-24.org/Documents/Invoicing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

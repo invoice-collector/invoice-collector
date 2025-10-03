@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WexVelocityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WexVelocityCollector extends SketchCollector {
         version: "0",
         website: "https://www.wexvelocity.com/accounts/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/30266.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WexVelocityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wexvelocity.com/accounts/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

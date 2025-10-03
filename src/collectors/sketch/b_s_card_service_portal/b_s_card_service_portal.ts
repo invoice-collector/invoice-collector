@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BSCardServicePortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BSCardServicePortalCollector extends SketchCollector {
         version: "0",
         website: "https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/22489.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BSCardServicePortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

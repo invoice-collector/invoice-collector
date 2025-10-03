@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TMobileRechnungonlineBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TMobileRechnungonlineBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://rechnungonline-business.t-mobile.de/gk/auth",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102714.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TMobileRechnungonlineBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rechnungonline-business.t-mobile.de/gk/auth",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

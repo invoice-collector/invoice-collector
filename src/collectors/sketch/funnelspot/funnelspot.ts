@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunnelspotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FunnelspotCollector extends SketchCollector {
         version: "0",
         website: "https://app.funnelspot.io",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3004070.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FunnelspotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.funnelspot.io",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

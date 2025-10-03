@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianzDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AllianzDeCollector extends SketchCollector {
         version: "0",
         website: "https://meine.allianz.de/protected/res/postfach/posteingang/index.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/16027.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AllianzDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meine.allianz.de/protected/res/postfach/posteingang/index.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

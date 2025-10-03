@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PvhOnlineBillingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PvhOnlineBillingCollector extends SketchCollector {
         version: "0",
         website: "https://secure2.billtrust.com/pvh-de/ig/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3197596.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PvhOnlineBillingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure2.billtrust.com/pvh-de/ig/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

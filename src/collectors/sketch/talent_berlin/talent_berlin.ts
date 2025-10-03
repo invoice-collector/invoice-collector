@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TalentBerlinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TalentBerlinCollector extends SketchCollector {
         version: "0",
         website: "https://www.talent-berlin.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/508974.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TalentBerlinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.talent-berlin.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

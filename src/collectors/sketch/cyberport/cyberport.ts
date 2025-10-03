@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CyberportCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CyberportCollector extends SketchCollector {
         version: "0",
         website: "https://www.cyberport.de/tools/my-account.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/441.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CyberportCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cyberport.de/tools/my-account.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

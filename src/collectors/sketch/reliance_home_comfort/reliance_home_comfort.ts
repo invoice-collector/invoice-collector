@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RelianceHomeComfortCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RelianceHomeComfortCollector extends SketchCollector {
         version: "0",
         website: "https://reliancehomecomfort.com/paperless-billing/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8834.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RelianceHomeComfortCollector extends SketchCollector {
             }
         },
         entryUrl: "https://reliancehomecomfort.com/paperless-billing/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

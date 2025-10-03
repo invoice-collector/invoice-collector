@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotoProfilSpZOOCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MotoProfilSpZOOCollector extends SketchCollector {
         version: "0",
         website: "https://id.profiauto.pl/Account/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3022362.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MotoProfilSpZOOCollector extends SketchCollector {
             }
         },
         entryUrl: "https://id.profiauto.pl/Account/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

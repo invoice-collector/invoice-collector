@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IisiiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IisiiCollector extends SketchCollector {
         version: "0",
         website: "https://www.online-tis.de/px_rechnungen.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/223730.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IisiiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.online-tis.de/px_rechnungen.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

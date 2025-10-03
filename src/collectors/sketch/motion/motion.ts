@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MotionCollector extends SketchCollector {
         version: "0",
         website: "https://app.usemotion.com/web/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3339926.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MotionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.usemotion.com/web/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

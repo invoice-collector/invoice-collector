@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BinectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BinectCollector extends SketchCollector {
         version: "0",
         website: "https://app.binect.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10923.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BinectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.binect.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

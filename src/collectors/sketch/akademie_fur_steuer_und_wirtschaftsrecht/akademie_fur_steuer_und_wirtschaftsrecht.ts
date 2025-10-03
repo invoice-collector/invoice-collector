@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AkademieFurSteuerUndWirtschaftsrechtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AkademieFurSteuerUndWirtschaftsrechtCollector extends SketchCollect
         version: "0",
         website: "https://www.akademie-stuw.de/eportal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/955984.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AkademieFurSteuerUndWirtschaftsrechtCollector extends SketchCollect
             }
         },
         entryUrl: "https://www.akademie-stuw.de/eportal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

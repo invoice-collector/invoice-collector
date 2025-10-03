@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimvolyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SimvolyCollector extends SketchCollector {
         version: "0",
         website: "https://simvoly.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1121200.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SimvolyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://simvoly.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

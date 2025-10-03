@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinetAssetManagementAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinetAssetManagementAgCollector extends SketchCollector {
         version: "0",
         website: "https://my.finet.de/portal/tiles/artikel.cfm?ID_Seite=282",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2066542.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinetAssetManagementAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.finet.de/portal/tiles/artikel.cfm?ID_Seite=282",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

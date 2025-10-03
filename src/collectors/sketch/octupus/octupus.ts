@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OctupusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OctupusCollector extends SketchCollector {
         version: "0",
         website: "https://octopus.do/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1902240.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OctupusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://octopus.do/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

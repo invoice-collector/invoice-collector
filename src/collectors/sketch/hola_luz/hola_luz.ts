@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HolaLuzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HolaLuzCollector extends SketchCollector {
         version: "0",
         website: "https://clientes.holaluz.com/es/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/166537.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HolaLuzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clientes.holaluz.com/es/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StoriesDieBuchhandlungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StoriesDieBuchhandlungCollector extends SketchCollector {
         version: "0",
         website: "https://www.stories-hamburg.de/shop/kundenkonto/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730443.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StoriesDieBuchhandlungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.stories-hamburg.de/shop/kundenkonto/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

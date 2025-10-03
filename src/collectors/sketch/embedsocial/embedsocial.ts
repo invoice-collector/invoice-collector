@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmbedsocialCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EmbedsocialCollector extends SketchCollector {
         version: "0",
         website: "https://embedsocial.com/admin/embedsocial_accounts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1378843.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EmbedsocialCollector extends SketchCollector {
             }
         },
         entryUrl: "https://embedsocial.com/admin/embedsocial_accounts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

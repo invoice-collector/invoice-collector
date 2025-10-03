@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdserviveASCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdserviveASCollector extends SketchCollector {
         version: "0",
         website: "http://publisher.adservice.com/cgi-bin/publisher/payments.pl?p1=finance",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/103360.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdserviveASCollector extends SketchCollector {
             }
         },
         entryUrl: "http://publisher.adservice.com/cgi-bin/publisher/payments.pl?p1=finance",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntacctCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IntacctCollector extends SketchCollector {
         version: "0",
         website: "https://www.intacct.com/ia/acct/login.phtml?_ga=2.74544722.1779628590.1523427773-399854463.1523427773",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8270.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IntacctCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.intacct.com/ia/acct/login.phtml?_ga=2.74544722.1779628590.1523427773-399854463.1523427773",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

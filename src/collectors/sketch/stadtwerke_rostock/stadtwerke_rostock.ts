@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeRostockCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeRostockCollector extends SketchCollector {
         version: "0",
         website: "https://ihrportal.swrag.de/INTERSHOP/web/WFS/SWR-Portal-Site/-/-/-/Default-Start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/90725.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeRostockCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ihrportal.swrag.de/INTERSHOP/web/WFS/SWR-Portal-Site/-/-/-/Default-Start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

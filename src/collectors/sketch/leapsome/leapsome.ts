@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeapsomeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeapsomeCollector extends SketchCollector {
         version: "0",
         website: "https://www.leapsome.com/app/#/team/settings/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/202959.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeapsomeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.leapsome.com/app/#/team/settings/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

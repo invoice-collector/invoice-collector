@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbsenceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AbsenceCollector extends SketchCollector {
         version: "0",
         website: "https://app.absence.io/#/actions/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/13355.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AbsenceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.absence.io/#/actions/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

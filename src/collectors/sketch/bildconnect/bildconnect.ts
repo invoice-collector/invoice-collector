@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BildconnectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BildconnectCollector extends SketchCollector {
         version: "0",
         website: "https://service.bildconnect.de/mytariff/invoice/showAll",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/744019.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BildconnectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.bildconnect.de/mytariff/invoice/showAll",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

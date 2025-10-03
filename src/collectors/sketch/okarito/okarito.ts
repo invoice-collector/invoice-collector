@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OkaritoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OkaritoCollector extends SketchCollector {
         version: "0",
         website: "https://app.okarito.io/administration/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/746803.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OkaritoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.okarito.io/administration/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

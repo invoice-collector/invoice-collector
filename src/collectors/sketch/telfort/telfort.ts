@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelfortCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelfortCollector extends SketchCollector {
         version: "0",
         website: "https://www.telfort.nl/persoonlijk/inloggen-mijn-telfort.htm#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9476.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelfortCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.telfort.nl/persoonlijk/inloggen-mijn-telfort.htm#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

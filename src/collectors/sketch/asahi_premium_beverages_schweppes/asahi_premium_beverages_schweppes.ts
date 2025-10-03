@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsahiPremiumBeveragesSchweppesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AsahiPremiumBeveragesSchweppesCollector extends SketchCollector {
         version: "0",
         website: "https://www.albconnect.com.au/storefront/sga/en/AUD/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/230389.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AsahiPremiumBeveragesSchweppesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.albconnect.com.au/storefront/sga/en/AUD/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

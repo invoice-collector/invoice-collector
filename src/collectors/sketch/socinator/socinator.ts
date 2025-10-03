@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocinatorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SocinatorCollector extends SketchCollector {
         version: "0",
         website: "https://socinator.com/amember/signup",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/545036.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SocinatorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://socinator.com/amember/signup",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

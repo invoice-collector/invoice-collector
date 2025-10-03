@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DentaurumCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DentaurumCollector extends SketchCollector {
         version: "0",
         website: "https://shop.dentaurum.de/login.php?source=&ch=c12a5c",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445901.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DentaurumCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.dentaurum.de/login.php?source=&ch=c12a5c",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

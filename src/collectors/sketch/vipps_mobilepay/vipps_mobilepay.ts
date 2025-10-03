@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VippsMobilepayCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VippsMobilepayCollector extends SketchCollector {
         version: "0",
         website: "https://portal.vippsmobilepay.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4230605.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VippsMobilepayCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.vippsmobilepay.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

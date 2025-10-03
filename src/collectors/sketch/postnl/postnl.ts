@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PostnlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PostnlCollector extends SketchCollector {
         version: "0",
         website: "https://jouw.postnl.nl/account/overzicht",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20512.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PostnlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://jouw.postnl.nl/account/overzicht",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

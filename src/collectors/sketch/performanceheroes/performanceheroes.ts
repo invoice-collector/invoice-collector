@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerformanceheroesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PerformanceheroesCollector extends SketchCollector {
         version: "0",
         website: "https://performancehero.de/de/index.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1061832.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PerformanceheroesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://performancehero.de/de/index.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

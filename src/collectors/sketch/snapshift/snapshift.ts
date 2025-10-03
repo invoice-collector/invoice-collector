@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnapshiftCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SnapshiftCollector extends SketchCollector {
         version: "0",
         website: "https://app.snapshift.co/subscription?tab=payment_history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/672340.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SnapshiftCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.snapshift.co/subscription?tab=payment_history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

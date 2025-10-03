@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReifenGoggelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReifenGoggelCollector extends SketchCollector {
         version: "0",
         website: "https://www.goeggel-reifenserver.de/shop/bestueb.php?site=anzeige&s=1&PHPSESSID=57f3979423ada967e9b691a5f72b0815",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2715359.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReifenGoggelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.goeggel-reifenserver.de/shop/bestueb.php?site=anzeige&s=1&PHPSESSID=57f3979423ada967e9b691a5f72b0815",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

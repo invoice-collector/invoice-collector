@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdleaksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdleaksCollector extends SketchCollector {
         version: "0",
         website: "https://www.billingportal.com/s/adleaks-bt/statements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203083.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdleaksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.billingportal.com/s/adleaks-bt/statements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BellaliantSmallBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BellaliantSmallBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://productsandservice.bellaliant.ca/BillPresenter/BusinessBill",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/396882.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BellaliantSmallBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://productsandservice.bellaliant.ca/BillPresenter/BusinessBill",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

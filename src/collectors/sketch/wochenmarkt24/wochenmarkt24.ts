@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Wochenmarkt24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Wochenmarkt24Collector extends SketchCollector {
         version: "0",
         website: "https://www.wochenmarkt24.de/shop/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/403665.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Wochenmarkt24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wochenmarkt24.de/shop/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

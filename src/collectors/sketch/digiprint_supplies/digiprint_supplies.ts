@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigiprintSuppliesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigiprintSuppliesCollector extends SketchCollector {
         version: "0",
         website: "https://www.digiprint-supplies.com/en/invoices/index/list/order_id/333694/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/170844.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigiprintSuppliesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.digiprint-supplies.com/en/invoices/index/list/order_id/333694/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApothekenRechenzentrumGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ApothekenRechenzentrumGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://www.arz-darmstadt.de/azuro/azuro_new/AbrechnungAction.do?anzeigen.x&SSO_TOKEN=ea6f0e2e-32f3-4c99-9c55-fe6237abb2e2",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2049708.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ApothekenRechenzentrumGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.arz-darmstadt.de/azuro/azuro_new/AbrechnungAction.do?anzeigen.x&SSO_TOKEN=ea6f0e2e-32f3-4c99-9c55-fe6237abb2e2",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

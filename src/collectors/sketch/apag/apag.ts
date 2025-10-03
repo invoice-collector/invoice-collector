@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApagCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ApagCollector extends SketchCollector {
         version: "0",
         website: "https://www.meine.apag.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778120.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ApagCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.meine.apag.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

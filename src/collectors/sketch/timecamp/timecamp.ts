@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimecampCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TimecampCollector extends SketchCollector {
         version: "0",
         website: "https://app.timecamp.com/app#/subscription/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034205.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TimecampCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.timecamp.com/app#/subscription/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

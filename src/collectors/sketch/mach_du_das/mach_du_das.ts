@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MachDuDasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MachDuDasCollector extends SketchCollector {
         version: "0",
         website: "https://www.machdudas.de/signin?redirectTo=%2Fjobs-neu",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779126.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MachDuDasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.machdudas.de/signin?redirectTo=%2Fjobs-neu",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

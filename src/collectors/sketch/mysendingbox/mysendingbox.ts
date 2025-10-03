@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MysendingboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MysendingboxCollector extends SketchCollector {
         version: "0",
         website: "https://www.mysendingbox.fr/app/dashboard/settings/invoicing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778892.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MysendingboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mysendingbox.fr/app/dashboard/settings/invoicing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

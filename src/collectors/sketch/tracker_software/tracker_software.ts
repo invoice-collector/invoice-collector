@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrackerSoftwareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrackerSoftwareCollector extends SketchCollector {
         version: "0",
         website: "https://www.tracker-software.com/account/my_account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/96005.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrackerSoftwareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tracker-software.com/account/my_account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

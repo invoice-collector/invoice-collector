@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AviaFranceCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class AviaFranceCollector extends SketchCollector {
         version: "0",
         website: "https://avia-france.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c0/AVIA_International_logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class AviaFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://avia-france.fr"
+        entryUrl: "https://avia-france.fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

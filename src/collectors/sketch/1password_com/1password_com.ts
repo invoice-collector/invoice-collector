@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1passwordComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _1passwordComCollector extends SketchCollector {
         version: "0",
         website: "https://my.1password.com/signin?l=en",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7293.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _1passwordComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.1password.com/signin?l=en",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuraDkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AuraDkCollector extends SketchCollector {
         version: "0",
         website: "https://www.aura.dk/internet-tv-og-telefoni/fiber-selvbetjening/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9017.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AuraDkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.aura.dk/internet-tv-og-telefoni/fiber-selvbetjening/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Shk4youPietschGruppeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Shk4youPietschGruppeCollector extends SketchCollector {
         version: "0",
         website: "https://www.shk-4you.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3202628.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Shk4youPietschGruppeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.shk-4you.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

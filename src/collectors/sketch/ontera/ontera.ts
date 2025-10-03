@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnteraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnteraCollector extends SketchCollector {
         version: "0",
         website: "http://www.ontera.ca",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9031.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnteraCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.ontera.ca",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeShGmbhAndCoKgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeShGmbhAndCoKgCollector extends SketchCollector {
         version: "0",
         website: "https://www.stadtwerke-sh.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2549165.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeShGmbhAndCoKgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.stadtwerke-sh.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

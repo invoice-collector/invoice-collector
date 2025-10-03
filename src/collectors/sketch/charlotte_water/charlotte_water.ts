@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CharlotteWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CharlotteWaterCollector extends SketchCollector {
         version: "0",
         website: "https://secure8.i-doxs.net/CityOfCharlotte/Secure/DistributionView.aspx?DistributionView=1%7C3513%7C8595%7C1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777438.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CharlotteWaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure8.i-doxs.net/CityOfCharlotte/Secure/DistributionView.aspx?DistributionView=1%7C3513%7C8595%7C1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdobeSignCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdobeSignCollector extends SketchCollector {
         version: "0",
         website: "https://secure.echosign.com/public/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21642.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdobeSignCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.echosign.com/public/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

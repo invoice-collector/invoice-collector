@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CubebrushCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CubebrushCollector extends SketchCollector {
         version: "0",
         website: "http://www.cubebrush.co",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/35842.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CubebrushCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.cubebrush.co",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

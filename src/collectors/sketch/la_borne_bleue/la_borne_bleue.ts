@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaBorneBleueCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaBorneBleueCollector extends SketchCollector {
         version: "0",
         website: "https://my.labornebleue.fr/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1862921.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaBorneBleueCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.labornebleue.fr/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

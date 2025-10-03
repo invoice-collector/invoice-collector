@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TracktorFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TracktorFrCollector extends SketchCollector {
         version: "0",
         website: "https://tracktor.fr/users/2060-simon/bookings/14604#facturation",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/745731.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TracktorFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://tracktor.fr/users/2060-simon/bookings/14604#facturation",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

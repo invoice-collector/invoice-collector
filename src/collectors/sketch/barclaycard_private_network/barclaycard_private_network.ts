@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BarclaycardPrivateNetworkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BarclaycardPrivateNetworkCollector extends SketchCollector {
         version: "0",
         website: "https://barclaycard-pvn.de/user-billings.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/531896.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BarclaycardPrivateNetworkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://barclaycard-pvn.de/user-billings.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

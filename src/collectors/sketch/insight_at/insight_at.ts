@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InsightAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InsightAtCollector extends SketchCollector {
         version: "0",
         website: "https://at.insight.com/de/apps/account/invoices.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/396901.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InsightAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://at.insight.com/de/apps/account/invoices.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

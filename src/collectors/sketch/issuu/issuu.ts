@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IssuuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IssuuCollector extends SketchCollector {
         version: "0",
         website: "https://issuu.com/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8134.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IssuuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://issuu.com/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

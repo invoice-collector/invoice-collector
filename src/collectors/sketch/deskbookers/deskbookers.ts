@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeskbookersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeskbookersCollector extends SketchCollector {
         version: "0",
         website: "https://www.deskbookers.com/en-gb/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33389.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeskbookersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.deskbookers.com/en-gb/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

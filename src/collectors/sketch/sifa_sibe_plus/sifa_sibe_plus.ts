@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SifaSibePlusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SifaSibePlusCollector extends SketchCollector {
         version: "0",
         website: "https://www.sifa-sibe.de/aboplus-service-center/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4095680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SifaSibePlusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sifa-sibe.de/aboplus-service-center/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

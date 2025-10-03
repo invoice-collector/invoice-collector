@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PraxispandaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PraxispandaCollector extends SketchCollector {
         version: "0",
         website: "https://www.praxispanda.de/account/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4553347.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PraxispandaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.praxispanda.de/account/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

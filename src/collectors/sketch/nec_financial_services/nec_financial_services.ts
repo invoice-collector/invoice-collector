@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NecFinancialServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NecFinancialServicesCollector extends SketchCollector {
         version: "0",
         website: "https://necleasebillpay.osgview.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/74135.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NecFinancialServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://necleasebillpay.osgview.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

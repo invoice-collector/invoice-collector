@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneEsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VodafoneEsCollector extends SketchCollector {
         version: "0",
         website: "https://www.vodafone.es/empresas/es/login-ds/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8747.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VodafoneEsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vodafone.es/empresas/es/login-ds/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

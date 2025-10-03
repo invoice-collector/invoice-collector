@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VrboCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VrboCollector extends SketchCollector {
         version: "0",
         website: "https://www.vrbo.com/p/properties",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1881766.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VrboCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vrbo.com/p/properties",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradedoublerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TradedoublerCollector extends SketchCollector {
         version: "0",
         website: "https://login.tradedoubler.com/public/aLogin.action?language=de&country=GB",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9496.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TradedoublerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.tradedoubler.com/public/aLogin.action?language=de&country=GB",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

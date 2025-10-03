@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShipupCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShipupCollector extends SketchCollector {
         version: "0",
         website: "https://app.shipup.co/settings/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124046.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShipupCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.shipup.co/settings/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4playersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _4playersCollector extends SketchCollector {
         version: "0",
         website: "https://login.4players.de/4players.php/login/?callback=http://www.4players.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/72377.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _4playersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.4players.de/4players.php/login/?callback=http://www.4players.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NuozCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NuozCollector extends SketchCollector {
         version: "0",
         website: "http://nuoz.com/customer-login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8688.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NuozCollector extends SketchCollector {
             }
         },
         entryUrl: "http://nuoz.com/customer-login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

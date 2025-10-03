@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlumsailCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlumsailCollector extends SketchCollector {
         version: "0",
         website: "https://plumsail.com/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2011937.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlumsailCollector extends SketchCollector {
             }
         },
         entryUrl: "https://plumsail.com/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

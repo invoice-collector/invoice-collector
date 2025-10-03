@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeyflowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HeyflowCollector extends SketchCollector {
         version: "0",
         website: "https://go.heyflow.app/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/920850.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HeyflowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://go.heyflow.app/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

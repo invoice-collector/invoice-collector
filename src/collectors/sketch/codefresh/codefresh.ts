@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodefreshCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CodefreshCollector extends SketchCollector {
         version: "0",
         website: "https://codefresh.io/dontknow",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/432661.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CodefreshCollector extends SketchCollector {
             }
         },
         entryUrl: "https://codefresh.io/dontknow",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VolvoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VolvoCollector extends SketchCollector {
         version: "0",
         website: "https://www.vcfs.partenaireslld.fr/portal/vlvnetpal/DEPENSES/Votre_Coffre_Fort/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2729763.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VolvoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vcfs.partenaireslld.fr/portal/vlvnetpal/DEPENSES/Votre_Coffre_Fort/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdealoPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IdealoPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://partner.net.idealo-partner.com/app/index.html#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/513819.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IdealoPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.net.idealo-partner.com/app/index.html#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

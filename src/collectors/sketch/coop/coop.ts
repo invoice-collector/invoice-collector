@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CoopCollector extends SketchCollector {
         version: "0",
         website: "https://om.coop.dk/forside.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21970.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CoopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://om.coop.dk/forside.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

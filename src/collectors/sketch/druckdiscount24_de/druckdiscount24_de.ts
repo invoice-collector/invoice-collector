@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Druckdiscount24DeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Druckdiscount24DeCollector extends SketchCollector {
         version: "0",
         website: "https://www.druckdiscount24.de/de/ShoppingCart/ShowOrder/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6027.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Druckdiscount24DeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.druckdiscount24.de/de/ShoppingCart/ShowOrder/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

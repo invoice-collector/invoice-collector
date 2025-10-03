@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToyboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ToyboxCollector extends SketchCollector {
         version: "0",
         website: "https://app.toyboxsystems.com/workspace/qgTIT3G9ggPY/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/414370.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ToyboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.toyboxsystems.com/workspace/qgTIT3G9ggPY/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

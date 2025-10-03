@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlsGemeinschaftsbankGeschaftskundenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GlsGemeinschaftsbankGeschaftskundenCollector extends SketchCollecto
         version: "0",
         website: "https://www.gls-online-filiale.de/services_cloud/portal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/95743.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GlsGemeinschaftsbankGeschaftskundenCollector extends SketchCollecto
             }
         },
         entryUrl: "https://www.gls-online-filiale.de/services_cloud/portal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

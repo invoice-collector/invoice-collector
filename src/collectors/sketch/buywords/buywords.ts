@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuywordsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BuywordsCollector extends SketchCollector {
         version: "0",
         website: "http://www.buywords.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/427.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BuywordsCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.buywords.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

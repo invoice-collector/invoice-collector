@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssurupCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AssurupCollector extends SketchCollector {
         version: "0",
         website: "https://app.assurup.com/client/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4356567.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AssurupCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.assurup.com/client/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

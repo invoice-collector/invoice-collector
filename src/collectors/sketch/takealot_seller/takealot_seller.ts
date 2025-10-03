@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TakealotSellerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TakealotSellerCollector extends SketchCollector {
         version: "0",
         website: "https://sellers.takealot.com/sales",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4233537.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TakealotSellerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sellers.takealot.com/sales",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

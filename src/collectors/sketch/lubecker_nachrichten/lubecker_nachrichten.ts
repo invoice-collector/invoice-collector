@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LubeckerNachrichtenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LubeckerNachrichtenCollector extends SketchCollector {
         version: "0",
         website: "https://www.ln-online.de/mein-konto/#Abonnement/Plus",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4564512.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LubeckerNachrichtenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ln-online.de/mein-konto/#Abonnement/Plus",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OneUpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OneUpCollector extends SketchCollector {
         version: "0",
         website: "https://app.oneup.com/#customer_invoice/search?after=2023-01-01&before=2023-12-31&on_date=date&sort=due_date&sortOrder=asc&filter=payment-paid",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2228057.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OneUpCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.oneup.com/#customer_invoice/search?after=2023-01-01&before=2023-12-31&on_date=date&sort=due_date&sortOrder=asc&filter=payment-paid",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LueningCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LueningCollector extends SketchCollector {
         version: "0",
         website: "https://www.luening-24.de/de/mein-luening/rechnungen-lieferscheine-sonstige-liefer-belege/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/213139.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LueningCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.luening-24.de/de/mein-luening/rechnungen-lieferscheine-sonstige-liefer-belege/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

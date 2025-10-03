@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApaleoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ApaleoCollector extends SketchCollector {
         version: "0",
         website: "https://app.apaleo.com/payment/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/531895.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ApaleoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.apaleo.com/payment/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

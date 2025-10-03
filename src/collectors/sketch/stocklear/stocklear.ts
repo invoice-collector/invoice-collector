@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StocklearCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StocklearCollector extends SketchCollector {
         version: "0",
         website: "https://stocklear.co.uk/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035269.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StocklearCollector extends SketchCollector {
             }
         },
         entryUrl: "https://stocklear.co.uk/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

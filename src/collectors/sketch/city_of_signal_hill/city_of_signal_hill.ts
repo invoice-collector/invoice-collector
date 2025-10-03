@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfSignalHillCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfSignalHillCollector extends SketchCollector {
         version: "0",
         website: "https://signalhillca.municipalonlinepayments.com/signalhillca/utilities",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176401.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfSignalHillCollector extends SketchCollector {
             }
         },
         entryUrl: "https://signalhillca.municipalonlinepayments.com/signalhillca/utilities",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

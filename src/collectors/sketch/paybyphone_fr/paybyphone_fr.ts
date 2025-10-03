@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaybyphoneFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PaybyphoneFrCollector extends SketchCollector {
         version: "0",
         website: "https://m2.paybyphone.fr/parking",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/573602.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PaybyphoneFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://m2.paybyphone.fr/parking",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

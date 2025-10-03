@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupamaContratsGroupeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GroupamaContratsGroupeCollector extends SketchCollector {
         version: "0",
         website: "https://www.contrat-groupe-groupama.fr/lib/aspx/EspacePublic/homeErgoAlt.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106873.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GroupamaContratsGroupeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.contrat-groupe-groupama.fr/lib/aspx/EspacePublic/homeErgoAlt.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

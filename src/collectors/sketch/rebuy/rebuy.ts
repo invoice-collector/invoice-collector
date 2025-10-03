@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RebuyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RebuyCollector extends SketchCollector {
         version: "0",
         website: "https://www.rebuy.de/my/orders/blue",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14448.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RebuyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rebuy.de/my/orders/blue",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

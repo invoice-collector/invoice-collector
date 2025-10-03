@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EtiExpertsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EtiExpertsCollector extends SketchCollector {
         version: "0",
         website: "https://login.eti-experts.de/portal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2515315.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EtiExpertsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.eti-experts.de/portal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

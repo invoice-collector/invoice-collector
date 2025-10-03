@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MedialogCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MedialogCollector extends SketchCollector {
         version: "0",
         website: "https://clients.medialog.fr/Compte",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4216941.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MedialogCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clients.medialog.fr/Compte",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

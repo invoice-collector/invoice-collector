@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonizzeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MonizzeCollector extends SketchCollector {
         version: "0",
         website: "https://client.monizze.be/customer/85887/invoices/overview#page=1&sort=date_added&direction=desc",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779728.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MonizzeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://client.monizze.be/customer/85887/invoices/overview#page=1&sort=date_added&direction=desc",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

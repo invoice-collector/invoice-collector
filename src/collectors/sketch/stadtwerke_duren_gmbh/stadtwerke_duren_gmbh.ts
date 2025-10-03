@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeDurenGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeDurenGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://portal.stadtwerke-dueren.de/postfach",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1799137.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeDurenGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.stadtwerke-dueren.de/postfach",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

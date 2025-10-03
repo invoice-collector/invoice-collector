@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpenditCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpenditCollector extends SketchCollector {
         version: "0",
         website: "https://www.spendit.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/38953.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpenditCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.spendit.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

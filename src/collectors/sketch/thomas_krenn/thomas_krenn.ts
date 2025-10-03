@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThomasKrennCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ThomasKrennCollector extends SketchCollector {
         version: "0",
         website: "https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94965.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ThomasKrennCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

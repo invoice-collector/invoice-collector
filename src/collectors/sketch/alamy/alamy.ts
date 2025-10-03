@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlamyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlamyCollector extends SketchCollector {
         version: "0",
         website: "http://www.alamy.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/36953.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlamyCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.alamy.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

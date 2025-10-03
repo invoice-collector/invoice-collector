@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FosterAcademyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FosterAcademyCollector extends SketchCollector {
         version: "0",
         website: "https://aussiescertification.com/certification/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1061768.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FosterAcademyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aussiescertification.com/certification/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

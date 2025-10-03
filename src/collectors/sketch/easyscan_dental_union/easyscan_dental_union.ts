@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyscanDentalUnionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EasyscanDentalUnionCollector extends SketchCollector {
         version: "0",
         website: "https://easyscan.dental-union.de/index.php/locale:de_DE/archive",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1210675.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EasyscanDentalUnionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://easyscan.dental-union.de/index.php/locale:de_DE/archive",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

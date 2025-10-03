@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuroPlusCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class BuroPlusCollector extends SketchCollector {
         version: "0",
         website: "https://buroplus.com",
         logo: "https://www.buroplus.com/INTERSHOP/static/WFS/ADVEO-BuroPlus-Site/-/-/fr_FR/themes/buroplus/img/logo.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class BuroPlusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.buroplus.com/connexion.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

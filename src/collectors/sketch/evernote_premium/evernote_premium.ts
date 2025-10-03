@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvernotePremiumCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EvernotePremiumCollector extends SketchCollector {
         version: "0",
         website: "https://www.evernote.com/Login.action",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/137159.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EvernotePremiumCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.evernote.com/Login.action",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

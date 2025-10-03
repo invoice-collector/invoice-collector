@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OrangeBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://espaceclient.orange-business.com/group/ece2/facture-electronique",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/211140.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OrangeBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceclient.orange-business.com/group/ece2/facture-electronique",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklDecathlonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MiraklDecathlonCollector extends SketchCollector {
         version: "0",
         website: "https://marketplace-decathlon-eu.mirakl.net/sellerpayment/shop/shop-billing-cycles",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1881919.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MiraklDecathlonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://marketplace-decathlon-eu.mirakl.net/sellerpayment/shop/shop-billing-cycles",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

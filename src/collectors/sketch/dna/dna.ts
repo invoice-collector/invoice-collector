@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DnaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DnaCollector extends SketchCollector {
         version: "0",
         website: "https://c.dna.fr/espace-client/mes-factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1468251.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DnaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://c.dna.fr/espace-client/mes-factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

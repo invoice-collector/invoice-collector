@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopMobilezoneHandelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShopMobilezoneHandelCollector extends SketchCollector {
         version: "0",
         website: "https://shop.mobilezone-handel.de/account#documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1226957.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShopMobilezoneHandelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.mobilezone-handel.de/account#documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

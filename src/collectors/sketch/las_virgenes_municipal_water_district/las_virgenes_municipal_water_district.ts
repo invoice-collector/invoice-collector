@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LasVirgenesMunicipalWaterDistrictCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LasVirgenesMunicipalWaterDistrictCollector extends SketchCollector 
         version: "0",
         website: "https://www.invoicecloud.com/portal/(S(bx55lkn5pzfif1oi3cus4of1))/2/customerlogin.aspx?billerguid=12e2dd5f-b913-4946-8aba-d25cf4facb88",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176441.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LasVirgenesMunicipalWaterDistrictCollector extends SketchCollector 
             }
         },
         entryUrl: "https://www.invoicecloud.com/portal/(S(bx55lkn5pzfif1oi3cus4of1))/2/customerlogin.aspx?billerguid=12e2dd5f-b913-4946-8aba-d25cf4facb88",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

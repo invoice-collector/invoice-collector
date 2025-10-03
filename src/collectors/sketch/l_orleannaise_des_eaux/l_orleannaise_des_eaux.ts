@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LOrleannaiseDesEauxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LOrleannaiseDesEauxCollector extends SketchCollector {
         version: "0",
         website: "https://leaudorleansmetropole.toutsurmoneau.fr/mon-compte-en-ligne/mes-factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4120196.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LOrleannaiseDesEauxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://leaudorleansmetropole.toutsurmoneau.fr/mon-compte-en-ligne/mes-factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

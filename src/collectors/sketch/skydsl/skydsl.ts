@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkydslCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SkydslCollector extends SketchCollector {
         version: "0",
         website: "https://www.skydsl.eu/de-DE/Privatkunden/Satelliten-Internet/customer/faccount/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2310229.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SkydslCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.skydsl.eu/de-DE/Privatkunden/Satelliten-Internet/customer/faccount/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

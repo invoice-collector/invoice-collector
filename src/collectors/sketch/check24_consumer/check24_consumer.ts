@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Check24ConsumerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Check24ConsumerCollector extends SketchCollector {
         version: "0",
         website: "https://kundenbereich.check24.de/index.html?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/17350.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Check24ConsumerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenbereich.check24.de/index.html?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

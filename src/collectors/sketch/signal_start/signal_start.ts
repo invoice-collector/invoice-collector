@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SignalStartCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SignalStartCollector extends SketchCollector {
         version: "0",
         website: "https://www.signalstart.com/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/211137.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SignalStartCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.signalstart.com/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

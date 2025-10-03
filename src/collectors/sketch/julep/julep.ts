@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JulepCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JulepCollector extends SketchCollector {
         version: "0",
         website: "https://app.julep.de/podcaster/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1240136.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JulepCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.julep.de/podcaster/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

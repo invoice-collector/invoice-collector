@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StonegateGroupPubPartnersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StonegateGroupPubPartnersCollector extends SketchCollector {
         version: "0",
         website: "https://www.stonegatepubpartners.co.uk/sites/myaccount/my-pub/Pages/invoices-documents.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1276126.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StonegateGroupPubPartnersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.stonegatepubpartners.co.uk/sites/myaccount/my-pub/Pages/invoices-documents.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

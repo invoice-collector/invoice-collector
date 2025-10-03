@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WorldOfSweetsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WorldOfSweetsCollector extends SketchCollector {
         version: "0",
         website: "http://www.worldofsweets.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/57473.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WorldOfSweetsCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.worldofsweets.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

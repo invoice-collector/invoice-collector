@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Alphabet360Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Alphabet360Collector extends SketchCollector {
         version: "0",
         website: "https://360fp.alphabet.com/portal-app/en-US/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4188766.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Alphabet360Collector extends SketchCollector {
             }
         },
         entryUrl: "https://360fp.alphabet.com/portal-app/en-US/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

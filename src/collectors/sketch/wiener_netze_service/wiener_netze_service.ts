@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WienerNetzeServiceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WienerNetzeServiceCollector extends SketchCollector {
         version: "0",
         website: "https://service.wienernetze.at/#/rechnungsarchiv/anlagenauswahl",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1222427.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WienerNetzeServiceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.wienernetze.at/#/rechnungsarchiv/anlagenauswahl",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StrikinglyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StrikinglyCollector extends SketchCollector {
         version: "0",
         website: "https://www.strikingly.com/s/charges",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778140.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StrikinglyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.strikingly.com/s/charges",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

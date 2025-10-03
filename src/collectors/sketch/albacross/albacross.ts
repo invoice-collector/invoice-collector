@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlbacrossCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlbacrossCollector extends SketchCollector {
         version: "0",
         website: "app.albacross.com/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/157965.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlbacrossCollector extends SketchCollector {
             }
         },
         entryUrl: "app.albacross.com/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

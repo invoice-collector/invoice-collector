@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZentrallaborCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZentrallaborCollector extends SketchCollector {
         version: "0",
         website: "https://zlportal.zlgmbh.com/zl/frontend/index.php?section=postfach",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1862722.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZentrallaborCollector extends SketchCollector {
             }
         },
         entryUrl: "https://zlportal.zlgmbh.com/zl/frontend/index.php?section=postfach",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

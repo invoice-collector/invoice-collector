@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DerTouristikCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DerTouristikCollector extends SketchCollector {
         version: "0",
         website: "https://www.dertouristik.info/intern/chefsache/provisionsabrechnung/index.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/48586.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DerTouristikCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dertouristik.info/intern/chefsache/provisionsabrechnung/index.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrillischOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DrillischOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://service.drillisch-online.de/mytariff/invoice/showAll",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778099.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DrillischOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.drillisch-online.de/mytariff/invoice/showAll",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

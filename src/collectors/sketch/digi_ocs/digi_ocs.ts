@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigiOcsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigiOcsCollector extends SketchCollector {
         version: "0",
         website: "https://new.digi.com.my/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135069.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigiOcsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://new.digi.com.my/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

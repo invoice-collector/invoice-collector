@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SimDeCollector extends SketchCollector {
         version: "0",
         website: "https://service.sim.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14244.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SimDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.sim.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoxbrownieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BoxbrownieCollector extends SketchCollector {
         version: "0",
         website: "https://www.boxbrownie.com/members/payment-invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3104116.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BoxbrownieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.boxbrownie.com/members/payment-invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

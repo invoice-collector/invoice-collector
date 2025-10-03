@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CristalUnionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CristalUnionCollector extends SketchCollector {
         version: "0",
         website: "https://www.cristal-union.fr/en/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/640617.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CristalUnionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cristal-union.fr/en/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

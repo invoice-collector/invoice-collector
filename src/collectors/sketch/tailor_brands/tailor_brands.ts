@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TailorBrandsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TailorBrandsCollector extends SketchCollector {
         version: "0",
         website: "https://studio.tailorbrands.com/settings/invoices?selectedOrgId=15884670",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2075545.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TailorBrandsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://studio.tailorbrands.com/settings/invoices?selectedOrgId=15884670",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

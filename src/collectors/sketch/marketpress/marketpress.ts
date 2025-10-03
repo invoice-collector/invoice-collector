@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarketpressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MarketpressCollector extends SketchCollector {
         version: "0",
         website: "https://marketpress.de/mein-konto/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8332.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MarketpressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://marketpress.de/mein-konto/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

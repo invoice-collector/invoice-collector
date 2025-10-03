@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutschlandsimCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeutschlandsimCollector extends SketchCollector {
         version: "0",
         website: "https://service.deutschlandsim.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3872.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeutschlandsimCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.deutschlandsim.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

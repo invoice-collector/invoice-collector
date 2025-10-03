@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CorrentlyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CorrentlyCollector extends SketchCollector {
         version: "0",
         website: "https://corrently.de/service/quittung-list.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/920852.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CorrentlyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://corrently.de/service/quittung-list.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

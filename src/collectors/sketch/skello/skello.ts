@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkelloCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SkelloCollector extends SketchCollector {
         version: "0",
         website: "https://skello.io/?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778133.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SkelloCollector extends SketchCollector {
             }
         },
         entryUrl: "https://skello.io/?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

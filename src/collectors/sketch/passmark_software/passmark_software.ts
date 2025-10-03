@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PassmarkSoftwareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PassmarkSoftwareCollector extends SketchCollector {
         version: "0",
         website: "https://www.passmark.com/profile.php?history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3014707.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PassmarkSoftwareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.passmark.com/profile.php?history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

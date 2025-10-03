@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DieEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DieEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://www.kundenonlineservice.de/powercommerce/fk-elv/action/flightteaser;jsessionid=66305684A43DA3E325824415FBA3A972?gap=3283",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/533897.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DieEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.kundenonlineservice.de/powercommerce/fk-elv/action/flightteaser;jsessionid=66305684A43DA3E325824415FBA3A972?gap=3283",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

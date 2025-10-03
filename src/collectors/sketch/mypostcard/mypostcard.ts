@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MypostcardCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MypostcardCollector extends SketchCollector {
         version: "0",
         website: "https://www.mypostcard.com/kundenkonto/guthaben-aufladen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1470090.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MypostcardCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mypostcard.com/kundenkonto/guthaben-aufladen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

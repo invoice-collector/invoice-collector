@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WunderlabelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WunderlabelCollector extends SketchCollector {
         version: "0",
         website: "https://wunderlabel.de/customerarea/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1526371.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WunderlabelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wunderlabel.de/customerarea/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

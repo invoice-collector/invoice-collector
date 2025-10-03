@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlarmDetectionSystemsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlarmDetectionSystemsCollector extends SketchCollector {
         version: "0",
         website: "https://www2.adsalarm.com/MyADS/LoginPage.aspx?_gl=1*jbfak8*_ga*MTQ2MDIyODc3Mi4xNjk0NTM2NzU3*_ga_JNDSRR9E48*MTY5NDUzNjc1Ny4xLjAuMTY5NDUzNjc1Ny42MC4wLjA.",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2382649.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlarmDetectionSystemsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www2.adsalarm.com/MyADS/LoginPage.aspx?_gl=1*jbfak8*_ga*MTQ2MDIyODc3Mi4xNjk0NTM2NzU3*_ga_JNDSRR9E48*MTY5NDUzNjc1Ny4xLjAuMTY5NDUzNjc1Ny42MC4wLjA.",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

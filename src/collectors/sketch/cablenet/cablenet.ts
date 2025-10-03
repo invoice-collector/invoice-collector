@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CablenetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CablenetCollector extends SketchCollector {
         version: "0",
         website: "https://pay.cablenet.me/payment",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2168751.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CablenetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pay.cablenet.me/payment",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

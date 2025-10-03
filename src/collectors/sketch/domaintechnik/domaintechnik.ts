@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomaintechnikCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DomaintechnikCollector extends SketchCollector {
         version: "0",
         website: "https://manage.domaintechnik.at/invoice_index.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/158120.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DomaintechnikCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manage.domaintechnik.at/invoice_index.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

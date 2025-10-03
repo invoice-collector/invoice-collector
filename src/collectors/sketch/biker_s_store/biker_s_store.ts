@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BikerSStoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BikerSStoreCollector extends SketchCollector {
         version: "0",
         website: "https://www.bikers-store.fr/client.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115926.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BikerSStoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bikers-store.fr/client.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FeedbackgeniusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FeedbackgeniusCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.sellerlabs.com/login?redirect=%2Foauth%2Fauth%3Fclient_id%3D17%26redirect_uri%3Dhttps%253A%252F%252Ffeedbackgenius.sellerlabs.com%252Foauth%252Freceive%26scope%3D%26response_type%3Dcode",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/52378.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FeedbackgeniusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.sellerlabs.com/login?redirect=%2Foauth%2Fauth%3Fclient_id%3D17%26redirect_uri%3Dhttps%253A%252F%252Ffeedbackgenius.sellerlabs.com%252Foauth%252Freceive%26scope%3D%26response_type%3Dcode",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

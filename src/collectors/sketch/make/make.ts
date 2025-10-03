@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MakeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MakeCollector extends SketchCollector {
         version: "0",
         website: "https://www.make.com/en/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1193635.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MakeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.make.com/en/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

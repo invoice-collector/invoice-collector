@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HmLandRegistryCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HmLandRegistryCollector extends SketchCollector {
         version: "0",
         website: "https://eservices.landregistry.gov.uk/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3137497.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HmLandRegistryCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eservices.landregistry.gov.uk/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

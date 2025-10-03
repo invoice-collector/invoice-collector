@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NelnetStudentLoansCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NelnetStudentLoansCollector extends SketchCollector {
         version: "0",
         website: "https://nelnet.studentaid.gov/documents/statements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3131718.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NelnetStudentLoansCollector extends SketchCollector {
             }
         },
         entryUrl: "https://nelnet.studentaid.gov/documents/statements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

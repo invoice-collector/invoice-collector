@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XinkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class XinkCollector extends SketchCollector {
         version: "0",
         website: "https://auth.xink.io/Account/Logon",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/555755.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class XinkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auth.xink.io/Account/Logon",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

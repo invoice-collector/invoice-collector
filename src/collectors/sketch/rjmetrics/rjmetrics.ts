@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RjmetricsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RjmetricsCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.rjmetrics.com/v2/session/create",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8771.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RjmetricsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.rjmetrics.com/v2/session/create",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GomoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GomoCollector extends SketchCollector {
         version: "0",
         website: "https://my.gomo.ie/bills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/555192.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GomoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.gomo.ie/bills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

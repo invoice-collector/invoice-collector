@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AldiGruneEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AldiGruneEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://click.123energie.de/123/getBillInit.sap",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2517120.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AldiGruneEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://click.123energie.de/123/getBillInit.sap",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

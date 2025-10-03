@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SavetvCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SavetvCollector extends SketchCollector {
         version: "0",
         website: "https://premium.save.tv/user-billings.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2635122.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SavetvCollector extends SketchCollector {
             }
         },
         entryUrl: "https://premium.save.tv/user-billings.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

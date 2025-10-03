@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfomaniakCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InfomaniakCollector extends SketchCollector {
         version: "0",
         website: "https://login.infomaniak.com/en/login?r=%2Fauthorize%3Fscope%3Dcrypt_key%2Bprivate%2Baccounts%2Busers%2Buser_email%2Buser_info%26state%3D%252F%26s%3Da%26access_type%3Doffline",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33044.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InfomaniakCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.infomaniak.com/en/login?r=%2Fauthorize%3Fscope%3Dcrypt_key%2Bprivate%2Baccounts%2Busers%2Buser_email%2Buser_info%26state%3D%252F%26s%3Da%26access_type%3Doffline",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

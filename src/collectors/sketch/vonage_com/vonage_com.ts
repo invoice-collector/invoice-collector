@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VonageComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VonageComCollector extends SketchCollector {
         version: "0",
         website: "https://secure.vonage.com/account/doLogin.html?icmp=HO_LOGIN_BANNER",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8563.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VonageComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.vonage.com/account/doLogin.html?icmp=HO_LOGIN_BANNER",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

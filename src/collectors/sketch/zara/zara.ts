@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZaraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZaraCollector extends SketchCollector {
         version: "0",
         website: "https://www.zara.com/fr/fr/logon",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123815.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZaraCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.zara.com/fr/fr/logon",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

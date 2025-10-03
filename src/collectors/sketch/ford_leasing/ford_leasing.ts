@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FordLeasingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FordLeasingCollector extends SketchCollector {
         version: "0",
         website: "https://www.manager.fordfleetmanagement.fr/portal/flonetpal/DEPENSES/Votre_Coffre_Fort/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2027049.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FordLeasingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.manager.fordfleetmanagement.fr/portal/flonetpal/DEPENSES/Votre_Coffre_Fort/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

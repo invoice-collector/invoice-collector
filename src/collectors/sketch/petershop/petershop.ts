@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PetershopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PetershopCollector extends SketchCollector {
         version: "0",
         website: "https://www.petershop.de/index.php?cl=tc_b2b_item_list_document",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1920083.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PetershopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.petershop.de/index.php?cl=tc_b2b_item_list_document",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlipfolioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KlipfolioCollector extends SketchCollector {
         version: "0",
         website: "https://app.klipfolio.com/company/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6718.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KlipfolioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.klipfolio.com/company/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

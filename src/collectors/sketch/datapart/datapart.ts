@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatapartCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DatapartCollector extends SketchCollector {
         version: "0",
         website: "https://mydatapart.de/dp_fs_message/account/login.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176236.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DatapartCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mydatapart.de/dp_fs_message/account/login.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

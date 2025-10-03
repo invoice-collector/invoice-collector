@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GengoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GengoCollector extends SketchCollector {
         version: "0",
         website: "https://gengo.com/c/order/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/236112.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GengoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://gengo.com/c/order/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

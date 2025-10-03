@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptimonkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OptimonkCollector extends SketchCollector {
         version: "0",
         website: "https://my.optimonk.com/en/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/37596.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OptimonkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.optimonk.com/en/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

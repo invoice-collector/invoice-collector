@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WinestroCloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WinestroCloudCollector extends SketchCollector {
         version: "0",
         website: "https://nephele-s5.de/program.php?p=51000",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1438953.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WinestroCloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://nephele-s5.de/program.php?p=51000",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

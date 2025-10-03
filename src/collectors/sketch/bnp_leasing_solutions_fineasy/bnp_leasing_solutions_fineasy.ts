@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BnpLeasingSolutionsFineasyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BnpLeasingSolutionsFineasyCollector extends SketchCollector {
         version: "0",
         website: "https://leasingsolutions.kundenportal.fineasy.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534315.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BnpLeasingSolutionsFineasyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://leasingsolutions.kundenportal.fineasy.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

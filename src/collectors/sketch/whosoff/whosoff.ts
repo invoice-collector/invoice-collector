@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhosoffCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WhosoffCollector extends SketchCollector {
         version: "0",
         website: "https://staff.whosoff.com/login/?Redirect=/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/24906.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WhosoffCollector extends SketchCollector {
             }
         },
         entryUrl: "https://staff.whosoff.com/login/?Redirect=/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

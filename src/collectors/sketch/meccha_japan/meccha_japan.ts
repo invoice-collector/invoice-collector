@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MecchaJapanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MecchaJapanCollector extends SketchCollector {
         version: "0",
         website: "https://meccha-japan.com/en/login?back=my-account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/803042.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MecchaJapanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meccha-japan.com/en/login?back=my-account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

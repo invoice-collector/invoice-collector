@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrumairCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BrumairCollector extends SketchCollector {
         version: "0",
         website: "https://www.e-brumair.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115947.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BrumairCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.e-brumair.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

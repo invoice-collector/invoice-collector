@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RestpackCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RestpackCollector extends SketchCollector {
         version: "0",
         website: "https://restpack.io/console/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/988657.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RestpackCollector extends SketchCollector {
             }
         },
         entryUrl: "https://restpack.io/console/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

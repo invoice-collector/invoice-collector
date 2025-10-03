@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeoliaReunionIslandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VeoliaReunionIslandCollector extends SketchCollector {
         version: "0",
         website: "https://www.service.eau.veolia.fr/home.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/383295.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VeoliaReunionIslandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.service.eau.veolia.fr/home.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

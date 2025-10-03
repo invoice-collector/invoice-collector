@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnbwSmartMobilitySuiteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnbwSmartMobilitySuiteCollector extends SketchCollector {
         version: "0",
         website: "https://smartenergysuite.enbw.com/smartmobility/fleet",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1902245.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnbwSmartMobilitySuiteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://smartenergysuite.enbw.com/smartmobility/fleet",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

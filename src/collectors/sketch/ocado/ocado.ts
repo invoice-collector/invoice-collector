@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OcadoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OcadoCollector extends SketchCollector {
         version: "0",
         website: "https://www.ocado.com/webshop/startWebshop.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8759.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OcadoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ocado.com/webshop/startWebshop.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

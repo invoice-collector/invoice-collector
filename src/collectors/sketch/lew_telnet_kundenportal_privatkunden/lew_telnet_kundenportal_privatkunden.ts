@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LewTelnetKundenportalPrivatkundenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LewTelnetKundenportalPrivatkundenCollector extends SketchCollector 
         version: "0",
         website: "https://kundenportal.lew-highspeed.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1802868.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LewTelnetKundenportalPrivatkundenCollector extends SketchCollector 
             }
         },
         entryUrl: "https://kundenportal.lew-highspeed.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

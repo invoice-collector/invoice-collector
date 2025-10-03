@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroverBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GroverBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://www.grover.com/business/your-payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1172646.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GroverBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.grover.com/business/your-payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

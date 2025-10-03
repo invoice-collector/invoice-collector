@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Blume2000Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Blume2000Collector extends SketchCollector {
         version: "0",
         website: "https://www.blume2000.de/index.php?cl=account&fnc=showOrders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14293.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Blume2000Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.blume2000.de/index.php?cl=account&fnc=showOrders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

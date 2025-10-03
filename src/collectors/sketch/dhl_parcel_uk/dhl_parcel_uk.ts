@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DhlParcelUkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DhlParcelUkCollector extends SketchCollector {
         version: "0",
         website: "https://documents.dhlparcel.co.uk/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3137504.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DhlParcelUkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://documents.dhlparcel.co.uk/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

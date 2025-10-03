@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmbarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmbarCollector extends SketchCollector {
         version: "0",
         website: "https://comunidad.ambarplus.com/s/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420572.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmbarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://comunidad.ambarplus.com/s/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

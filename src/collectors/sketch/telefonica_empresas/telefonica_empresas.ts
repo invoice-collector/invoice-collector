@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelefonicaEmpresasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelefonicaEmpresasCollector extends SketchCollector {
         version: "0",
         website: "https://paut.telefonica.es/facturas",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200642.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelefonicaEmpresasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://paut.telefonica.es/facturas",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

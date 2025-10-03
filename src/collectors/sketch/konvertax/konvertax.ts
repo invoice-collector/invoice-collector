@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KonvertaxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KonvertaxCollector extends SketchCollector {
         version: "0",
         website: "https://konvertax.de/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1759333.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KonvertaxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://konvertax.de/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

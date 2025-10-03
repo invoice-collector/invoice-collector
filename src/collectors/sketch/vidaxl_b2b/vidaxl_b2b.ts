@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VidaxlB2bCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VidaxlB2bCollector extends SketchCollector {
         version: "0",
         website: "https://b2b.vidaxl.com/profile/customers/sign_in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778226.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VidaxlB2bCollector extends SketchCollector {
             }
         },
         entryUrl: "https://b2b.vidaxl.com/profile/customers/sign_in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SheetgptCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SheetgptCollector extends SketchCollector {
         version: "0",
         website: "https://billing.sheetgpt.ai/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2842036.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SheetgptCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.sheetgpt.ai/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AralFleetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AralFleetCollector extends SketchCollector {
         version: "0",
         website: "https://fleet.aral.com/de/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1278555.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AralFleetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fleet.aral.com/de/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

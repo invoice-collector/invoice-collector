@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VitradoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VitradoCollector extends SketchCollector {
         version: "0",
         website: "https://app.vitrado.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/532740.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VitradoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.vitrado.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

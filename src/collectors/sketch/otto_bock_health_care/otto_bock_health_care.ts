@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoBockHealthCareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OttoBockHealthCareCollector extends SketchCollector {
         version: "0",
         website: "https://www.ottobock.de/downloadcenter/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/428741.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OttoBockHealthCareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ottobock.de/downloadcenter/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcosolCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AcosolCollector extends SketchCollector {
         version: "0",
         website: "https://www.acosol.es/clientes/acosol?check_logged_in=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4484400.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AcosolCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.acosol.es/clientes/acosol?check_logged_in=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfVancouverPermitsAndLicencesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfVancouverPermitsAndLicencesCollector extends SketchCollector 
         version: "0",
         website: "https://plposweb.vancouver.ca/Public/Login.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23370.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfVancouverPermitsAndLicencesCollector extends SketchCollector 
             }
         },
         entryUrl: "https://plposweb.vancouver.ca/Public/Login.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

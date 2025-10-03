@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomainfactoryCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DomainfactoryCollector extends SketchCollector {
         version: "0",
         website: "https://sso.df.eu/?app=cp&path=%2Fkunde%2Findex.php5&realm=idp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/335.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DomainfactoryCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sso.df.eu/?app=cp&path=%2Fkunde%2Findex.php5&realm=idp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

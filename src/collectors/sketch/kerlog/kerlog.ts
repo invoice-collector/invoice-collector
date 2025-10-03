@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KerlogCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KerlogCollector extends SketchCollector {
         version: "0",
         website: "https://www.ecorec-online.fr/Kerlog/Portail/#/ecoportail/document/Documents%20KERLOG",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1526337.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KerlogCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ecorec-online.fr/Kerlog/Portail/#/ecoportail/document/Documents%20KERLOG",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

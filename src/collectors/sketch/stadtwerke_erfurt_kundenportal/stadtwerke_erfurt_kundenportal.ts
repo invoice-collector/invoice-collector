@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeErfurtKundenportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeErfurtKundenportalCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.stadtwerke-erfurt.de/powercommerce/swe/fo/portal/invoiceDetails",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2123111.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeErfurtKundenportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.stadtwerke-erfurt.de/powercommerce/swe/fo/portal/invoiceDetails",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

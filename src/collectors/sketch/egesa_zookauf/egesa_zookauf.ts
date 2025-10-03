@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EgesaZookaufCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EgesaZookaufCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.egesa-zookauf.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1802872.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EgesaZookaufCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.egesa-zookauf.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

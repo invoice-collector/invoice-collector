@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdtelligenceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdtelligenceCollector extends SketchCollector {
         version: "0",
         website: "https://adtelligence.com/de/about-us/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/546.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdtelligenceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://adtelligence.com/de/about-us/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MissLashesDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MissLashesDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.miss-lashes.de/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1037332.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MissLashesDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.miss-lashes.de/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

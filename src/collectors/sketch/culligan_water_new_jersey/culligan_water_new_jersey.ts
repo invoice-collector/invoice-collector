@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CulliganWaterNewJerseyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CulliganWaterNewJerseyCollector extends SketchCollector {
         version: "0",
         website: "https://www.culligannj.com/services/online-bill-pay",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2798828.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CulliganWaterNewJerseyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.culligannj.com/services/online-bill-pay",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

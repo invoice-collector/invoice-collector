@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpriceItCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EpriceItCollector extends SketchCollector {
         version: "0",
         website: "https://www.eprice.it/login.aspx?zona=5&dove=0",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/50913.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EpriceItCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eprice.it/login.aspx?zona=5&dove=0",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

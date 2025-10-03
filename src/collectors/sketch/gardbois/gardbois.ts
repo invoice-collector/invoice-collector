@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GardboisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GardboisCollector extends SketchCollector {
         version: "0",
         website: "https://www.gardbois.fr/mon-compte/atoo-sync-documents/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2180700.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GardboisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gardbois.fr/mon-compte/atoo-sync-documents/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

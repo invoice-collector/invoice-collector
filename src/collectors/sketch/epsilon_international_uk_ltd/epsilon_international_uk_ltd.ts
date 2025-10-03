@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpsilonInternationalUkLtdCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EpsilonInternationalUkLtdCollector extends SketchCollector {
         version: "0",
         website: "https://na2.esker.com/ondemand/webaccess/CustomerLogon.aspx?server=W03&skin=skin15&lang=en&uid=2963535A305854276F352C4A7321734441",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1941404.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EpsilonInternationalUkLtdCollector extends SketchCollector {
             }
         },
         entryUrl: "https://na2.esker.com/ondemand/webaccess/CustomerLogon.aspx?server=W03&skin=skin15&lang=en&uid=2963535A305854276F352C4A7321734441",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

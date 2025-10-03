@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhapiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WhapiCollector extends SketchCollector {
         version: "0",
         website: "https://panel.whapi.cloud/billing/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4693591.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WhapiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://panel.whapi.cloud/billing/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

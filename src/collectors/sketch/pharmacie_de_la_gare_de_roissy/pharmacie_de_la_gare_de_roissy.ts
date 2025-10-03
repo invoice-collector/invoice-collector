@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PharmacieDeLaGareDeRoissyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PharmacieDeLaGareDeRoissyCollector extends SketchCollector {
         version: "0",
         website: "https://pharmacie-gare-roissy.fr/index.php/customer/account/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122631.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PharmacieDeLaGareDeRoissyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pharmacie-gare-roissy.fr/index.php/customer/account/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

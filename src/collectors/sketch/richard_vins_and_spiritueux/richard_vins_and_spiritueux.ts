@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
         version: "0",
         website: "https://pro.vinsrichard.fr/vin/factures/view#bigbook",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4220802.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pro.vinsrichard.fr/vin/factures/view#bigbook",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

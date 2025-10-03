@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DonedoneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DonedoneCollector extends SketchCollector {
         version: "0",
         website: "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18805.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DonedoneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

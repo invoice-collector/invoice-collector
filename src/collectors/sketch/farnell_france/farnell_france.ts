@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FarnellFranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FarnellFranceCollector extends SketchCollector {
         version: "0",
         website: "https://fr.farnell.com/webapp/wcs/stores/servlet/LogonForm?returnToURL&URL=https%3A%2F%2Ffr.farnell.com%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/510847.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FarnellFranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fr.farnell.com/webapp/wcs/stores/servlet/LogonForm?returnToURL&URL=https%3A%2F%2Ffr.farnell.com%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

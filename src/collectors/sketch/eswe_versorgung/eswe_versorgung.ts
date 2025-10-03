@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EsweVersorgungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EsweVersorgungCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.eswe.com/eswe/index.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28705.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EsweVersorgungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.eswe.com/eswe/index.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

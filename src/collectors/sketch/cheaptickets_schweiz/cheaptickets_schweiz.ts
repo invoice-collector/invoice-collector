@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CheapticketsSchweizCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CheapticketsSchweizCollector extends SketchCollector {
         version: "0",
         website: "https://www.cheaptickets.ch/account/bookings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2155168.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CheapticketsSchweizCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cheaptickets.ch/account/bookings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

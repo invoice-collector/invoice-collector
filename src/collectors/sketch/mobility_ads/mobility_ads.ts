@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobilityAdsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MobilityAdsCollector extends SketchCollector {
         version: "0",
         website: "https://partner.mobility-ads.de/de/user/auszahlungen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776387.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MobilityAdsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.mobility-ads.de/de/user/auszahlungen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

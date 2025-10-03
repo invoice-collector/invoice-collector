@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenaiChatgptCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpenaiChatgptCollector extends SketchCollector {
         version: "0",
         website: "https://chatgpt.com",
         logo: "https://pngimg.com/uploads/chatgpt/chatgpt_PNG2.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpenaiChatgptCollector extends SketchCollector {
             }
         },
         entryUrl: "https://chatgpt.com/#settings/Account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

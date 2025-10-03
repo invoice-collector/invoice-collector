@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinutCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MinutCollector extends SketchCollector {
         version: "0",
         website: "https://web.minut.com/account/settings_billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1863383.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MinutCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.minut.com/account/settings_billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

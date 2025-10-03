@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KMMaklerportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KMMaklerportalCollector extends SketchCollector {
         version: "0",
         website: "https://secure.konzept-marketing.de/Maklerportal/V2/CourtageListenDownload.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4693333.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KMMaklerportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.konzept-marketing.de/Maklerportal/V2/CourtageListenDownload.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

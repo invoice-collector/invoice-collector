@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MatthiesAutoteileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MatthiesAutoteileCollector extends SketchCollector {
         version: "0",
         website: "https://www.matthies.de/mein-matthies/e-rechnung-belegarchiv.html?no_cache=1#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/210994.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MatthiesAutoteileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.matthies.de/mein-matthies/e-rechnung-belegarchiv.html?no_cache=1#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

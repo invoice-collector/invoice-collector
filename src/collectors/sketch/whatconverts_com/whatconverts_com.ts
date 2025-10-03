@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhatconvertsComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WhatconvertsComCollector extends SketchCollector {
         version: "0",
         website: "https://app.whatconverts.com/billing/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1381198.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WhatconvertsComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.whatconverts.com/billing/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

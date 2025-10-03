@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TssGroupCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TssGroupCollector extends SketchCollector {
         version: "0",
         website: "https://www.tss.coop/intranet9/chefsache/rechnungsarchiv.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4571947.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TssGroupCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tss.coop/intranet9/chefsache/rechnungsarchiv.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

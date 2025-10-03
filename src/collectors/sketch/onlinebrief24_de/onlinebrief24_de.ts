@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Onlinebrief24DeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Onlinebrief24DeCollector extends SketchCollector {
         version: "0",
         website: "https://service.onlinebrief24.de/kundencenter.pl?act=loginerror&providerid=onlinebrief24",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/321.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Onlinebrief24DeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.onlinebrief24.de/kundencenter.pl?act=loginerror&providerid=onlinebrief24",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

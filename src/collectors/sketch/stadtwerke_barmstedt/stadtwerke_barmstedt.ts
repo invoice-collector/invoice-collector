@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBarmstedtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeBarmstedtCollector extends SketchCollector {
         version: "0",
         website: "https://stadtwerke-barmstedt.de/xitylight/mein-xitylight/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9195.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeBarmstedtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://stadtwerke-barmstedt.de/xitylight/mein-xitylight/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

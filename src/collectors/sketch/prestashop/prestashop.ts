@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrestashopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrestashopCollector extends SketchCollector {
         version: "0",
         website: "https://addons.prestashop.com/en/order-history?pab=1&",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26980.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrestashopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://addons.prestashop.com/en/order-history?pab=1&",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

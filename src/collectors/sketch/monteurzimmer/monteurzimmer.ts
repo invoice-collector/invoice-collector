@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonteurzimmerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MonteurzimmerCollector extends SketchCollector {
         version: "0",
         website: "https://www.monteurzimmer.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/96853.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MonteurzimmerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.monteurzimmer.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

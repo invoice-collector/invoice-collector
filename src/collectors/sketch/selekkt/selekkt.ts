@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelekktCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SelekktCollector extends SketchCollector {
         version: "0",
         website: "https://selekkt.com/selekkt_dropship/vendor/statements/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/172788.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SelekktCollector extends SketchCollector {
             }
         },
         entryUrl: "https://selekkt.com/selekkt_dropship/vendor/statements/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

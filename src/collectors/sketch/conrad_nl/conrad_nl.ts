@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConradNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConradNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.conrad.nl/nl/account.html#/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1416078.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConradNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.conrad.nl/nl/account.html#/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

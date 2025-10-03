@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WessexWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WessexWaterCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.wessexwater.co.uk/profile/summary/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2001645.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WessexWaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.wessexwater.co.uk/profile/summary/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

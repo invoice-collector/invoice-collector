@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NosCollector extends SketchCollector {
         version: "0",
         website: "https://login.nos.pt/o/IVLJg6cTEpXit2RLo1kOfpMEmzzFIMMJ/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9453.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NosCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.nos.pt/o/IVLJg6cTEpXit2RLo1kOfpMEmzzFIMMJ/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

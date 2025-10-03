@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParfumdreamsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ParfumdreamsCollector extends SketchCollector {
         version: "0",
         website: "https://www.parfumdreams.de/User/Orders/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/30032.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ParfumdreamsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.parfumdreams.de/User/Orders/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

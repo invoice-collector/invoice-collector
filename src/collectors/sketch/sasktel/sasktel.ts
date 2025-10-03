@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SasktelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SasktelCollector extends SketchCollector {
         version: "0",
         website: "https://sso.sasktel.com/iam/SasktelLogin?bmctx=573900EFA02B1469DB53F7C6EEA40B1EEE1C650556767FD737825CC81F92B053&contextType=external&username=string&OverrideRetryLimit=3&password=secure_string&challenge_url=%2Fiam%2FSasktelLogin&request_id=404331019806325",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8699.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SasktelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sso.sasktel.com/iam/SasktelLogin?bmctx=573900EFA02B1469DB53F7C6EEA40B1EEE1C650556767FD737825CC81F92B053&contextType=external&username=string&OverrideRetryLimit=3&password=secure_string&challenge_url=%2Fiam%2FSasktelLogin&request_id=404331019806325",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

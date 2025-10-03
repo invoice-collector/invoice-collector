@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RasaIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RasaIoCollector extends SketchCollector {
         version: "0",
         website: "https://rasa.io/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/810075.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RasaIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rasa.io/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

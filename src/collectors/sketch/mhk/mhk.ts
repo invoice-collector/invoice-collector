@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MhkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MhkCollector extends SketchCollector {
         version: "0",
         website: "https://www.mhk.net/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1862995.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MhkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mhk.net/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

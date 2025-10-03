@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WifiberCyprusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WifiberCyprusCollector extends SketchCollector {
         version: "0",
         website: "https://billing.wifiber.com.cy",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2120008.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WifiberCyprusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.wifiber.com.cy",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

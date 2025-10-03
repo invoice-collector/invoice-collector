@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StampreadyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StampreadyCollector extends SketchCollector {
         version: "0",
         website: "https://www.stampready.net/dashboard/account/billing/renderpdf/index.php?token=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1781378.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StampreadyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.stampready.net/dashboard/account/billing/renderpdf/index.php?token=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

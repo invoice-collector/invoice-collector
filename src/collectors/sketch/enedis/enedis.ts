@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnedisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnedisCollector extends SketchCollector {
         version: "0",
         website: "https://mon-compte-entreprise.enedis.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1526369.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnedisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mon-compte-entreprise.enedis.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

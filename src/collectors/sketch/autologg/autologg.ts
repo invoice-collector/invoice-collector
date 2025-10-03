@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutologgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AutologgCollector extends SketchCollector {
         version: "0",
         website: "https://www.autologg.com/mein-konto/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1920133.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AutologgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.autologg.com/mein-konto/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

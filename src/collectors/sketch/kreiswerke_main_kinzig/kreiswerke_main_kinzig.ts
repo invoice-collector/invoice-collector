@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KreiswerkeMainKinzigCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KreiswerkeMainKinzigCollector extends SketchCollector {
         version: "0",
         website: "https://www.kreiswerke-main-kinzig.de/kundenportal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153558.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KreiswerkeMainKinzigCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.kreiswerke-main-kinzig.de/kundenportal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

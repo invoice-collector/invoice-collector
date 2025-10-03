@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JeunesseGlobalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JeunesseGlobalCollector extends SketchCollector {
         version: "0",
         website: "https://joffice.jeunesseglobal.com//login.asp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226710.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JeunesseGlobalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://joffice.jeunesseglobal.com//login.asp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

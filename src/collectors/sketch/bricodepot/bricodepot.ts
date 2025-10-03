@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BricoDepotCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class BricoDepotCollector extends SketchCollector {
         version: "0",
         website: "https://bricodepot.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Bricodepot.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class BricoDepotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bricodepot.fr/catalogue/account/login/"
+        entryUrl: "https://www.bricodepot.fr/catalogue/account/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

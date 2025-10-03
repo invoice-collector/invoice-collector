@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PassportcardCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PassportcardCollector extends SketchCollector {
         version: "0",
         website: "https://mein.passportcard.de/site/plan/expenses",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1747436.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PassportcardCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.passportcard.de/site/plan/expenses",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

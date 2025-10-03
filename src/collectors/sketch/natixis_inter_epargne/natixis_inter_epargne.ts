@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NatixisInterEpargneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NatixisInterEpargneCollector extends SketchCollector {
         version: "0",
         website: "https://epargnants.interepargne.natixis.fr/def_int_ep/ep/home.do?language=fr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115992.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NatixisInterEpargneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://epargnants.interepargne.natixis.fr/def_int_ep/ep/home.do?language=fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

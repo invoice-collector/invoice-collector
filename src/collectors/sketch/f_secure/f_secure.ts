@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FSecureCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FSecureCollector extends SketchCollector {
         version: "0",
         website: "https://www.f-secure.com/en/home/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035304.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FSecureCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.f-secure.com/en/home/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

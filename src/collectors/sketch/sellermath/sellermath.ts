@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellermathCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SellermathCollector extends SketchCollector {
         version: "0",
         website: "https://system.seller-math.com/sellermath/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200541.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SellermathCollector extends SketchCollector {
             }
         },
         entryUrl: "https://system.seller-math.com/sellermath/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

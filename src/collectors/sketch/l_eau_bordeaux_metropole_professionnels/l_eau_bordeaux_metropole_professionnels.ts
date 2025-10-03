@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LEauBordeauxMetropoleProfessionnelsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LEauBordeauxMetropoleProfessionnelsCollector extends SketchCollecto
         version: "0",
         website: "https://moncompte.leaubordeauxmetropole.fr/#/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4447106.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LEauBordeauxMetropoleProfessionnelsCollector extends SketchCollecto
             }
         },
         entryUrl: "https://moncompte.leaubordeauxmetropole.fr/#/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

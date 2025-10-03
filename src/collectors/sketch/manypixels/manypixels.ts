@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManypixelsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ManypixelsCollector extends SketchCollector {
         version: "0",
         website: "https://app.manypixels.co/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777410.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ManypixelsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.manypixels.co/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

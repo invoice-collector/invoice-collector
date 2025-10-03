@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HuggingfaceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HuggingfaceCollector extends SketchCollector {
         version: "0",
         website: "https://huggingface.com/bills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2131401.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HuggingfaceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://huggingface.com/bills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

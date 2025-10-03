@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KastnerWebshopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KastnerWebshopCollector extends SketchCollector {
         version: "0",
         website: "https://shop.kastner.at/receipts/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4417222.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KastnerWebshopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.kastner.at/receipts/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

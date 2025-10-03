@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UpsaPharmaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UpsaPharmaCollector extends SketchCollector {
         version: "0",
         website: "https://www.upsapharma.com/upsa/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/496959.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UpsaPharmaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.upsapharma.com/upsa/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

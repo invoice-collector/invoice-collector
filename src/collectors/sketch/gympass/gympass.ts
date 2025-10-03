@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GympassCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GympassCollector extends SketchCollector {
         version: "0",
         website: "https://partners.gympass.com/payslips",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1329435.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GympassCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partners.gympass.com/payslips",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

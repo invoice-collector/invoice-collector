@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HawaiianTelcomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HawaiianTelcomCollector extends SketchCollector {
         version: "0",
         website: "https://www.hawaiiantel.com/MyAccount/tabid/2089/Default.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/428607.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HawaiianTelcomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hawaiiantel.com/MyAccount/tabid/2089/Default.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

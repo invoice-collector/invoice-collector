@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetaroundCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GetaroundCollector extends SketchCollector {
         version: "0",
         website: "https://at.getaround.com/dashboard/payments?role=driver",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1476028.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GetaroundCollector extends SketchCollector {
             }
         },
         entryUrl: "https://at.getaround.com/dashboard/payments?role=driver",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

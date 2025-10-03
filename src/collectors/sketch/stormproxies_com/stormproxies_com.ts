@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StormproxiesComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StormproxiesComCollector extends SketchCollector {
         version: "0",
         website: "https://stormproxies.com/clients/member/payment-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28955.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StormproxiesComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://stormproxies.com/clients/member/payment-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

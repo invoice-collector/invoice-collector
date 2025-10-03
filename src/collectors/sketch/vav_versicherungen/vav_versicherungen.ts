@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VavVersicherungenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VavVersicherungenCollector extends SketchCollector {
         version: "0",
         website: "https://mein.vav.at/meinvav/meine-polizzen/polizzen-details?id=1495719001",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4365276.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VavVersicherungenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.vav.at/meinvav/meine-polizzen/polizzen-details?id=1495719001",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RefoodCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RefoodCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.refood.de/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/169139.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RefoodCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.refood.de/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

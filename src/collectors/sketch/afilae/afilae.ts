@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AfilaeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AfilaeCollector extends SketchCollector {
         version: "0",
         website: "https://app.affilae.com/fr/advertiser/billing/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135467.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AfilaeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.affilae.com/fr/advertiser/billing/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CpamRelevesMensuelsAmeliFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CpamRelevesMensuelsAmeliFrCollector extends SketchCollector {
         version: "0",
         website: "https://utilisateur-forum-assures.ameli.fr/cas/login?service=https%3A%2F%2Fforum-assures.ameli.fr%2Fquestions%2F1559000-telecharger-releves-mensuels-paiements&env=desk",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123800.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CpamRelevesMensuelsAmeliFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://utilisateur-forum-assures.ameli.fr/cas/login?service=https%3A%2F%2Fforum-assures.ameli.fr%2Fquestions%2F1559000-telecharger-releves-mensuels-paiements&env=desk",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntegralSystemeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IntegralSystemeCollector extends SketchCollector {
         version: "0",
         website: "https://www.integral-systeme.fr/fr/moncompte/?in=/fr/commandes/commandeWeb",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1313045.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IntegralSystemeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.integral-systeme.fr/fr/moncompte/?in=/fr/commandes/commandeWeb",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

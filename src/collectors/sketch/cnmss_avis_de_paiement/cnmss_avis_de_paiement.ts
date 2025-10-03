@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CnmssAvisDePaiementCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CnmssAvisDePaiementCollector extends SketchCollector {
         version: "0",
         website: "https://www.cnmss.fr/professionnel-de-sante/mes-services-en-ligne/amelipro/consulter-vos-paiements-5772.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123805.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CnmssAvisDePaiementCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cnmss.fr/professionnel-de-sante/mes-services-en-ligne/amelipro/consulter-vos-paiements-5772.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

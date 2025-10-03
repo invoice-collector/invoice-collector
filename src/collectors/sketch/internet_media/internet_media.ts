@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternetMediaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InternetMediaCollector extends SketchCollector {
         version: "0",
         website: "https://my.internet-media.com/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3134884.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InternetMediaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.internet-media.com/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

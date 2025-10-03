@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlarnaMerchantsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KlarnaMerchantsCollector extends SketchCollector {
         version: "0",
         website: "https://online.klarna.com/costs.yaws",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/47409.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KlarnaMerchantsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://online.klarna.com/costs.yaws",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

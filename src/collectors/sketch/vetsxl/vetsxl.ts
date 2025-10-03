@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VetsxlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VetsxlCollector extends SketchCollector {
         version: "0",
         website: "https://www.myvetsxl.com/de/Konto/Konto_Rechnungen/Default.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2705615.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VetsxlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.myvetsxl.com/de/Konto/Konto_Rechnungen/Default.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

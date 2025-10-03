@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SageComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SageComCollector extends SketchCollector {
         version: "0",
         website: "https://customers.sage.com/s/my-subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124839.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SageComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customers.sage.com/s/my-subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

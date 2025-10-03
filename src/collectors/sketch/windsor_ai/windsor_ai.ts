@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WindsorAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WindsorAiCollector extends SketchCollector {
         version: "0",
         website: "https://windsor.ai/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2513816.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WindsorAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://windsor.ai/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

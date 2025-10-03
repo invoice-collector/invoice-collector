@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheTelefonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeutscheTelefonCollector extends SketchCollector {
         version: "0",
         website: "https://partnerportal.dtst.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/385957.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeutscheTelefonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partnerportal.dtst.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

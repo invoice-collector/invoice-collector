@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeekbuyingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeekbuyingCollector extends SketchCollector {
         version: "0",
         website: "https://www.geekbuying.com/BuyerOrder/Orders?action=History",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/114133.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeekbuyingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.geekbuying.com/BuyerOrder/Orders?action=History",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VereinigteStadtwerkeMediaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VereinigteStadtwerkeMediaCollector extends SketchCollector {
         version: "0",
         website: "https://mediaportal.vereinigte-stadtwerke.de/self-service/authentication/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/148978.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VereinigteStadtwerkeMediaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mediaportal.vereinigte-stadtwerke.de/self-service/authentication/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

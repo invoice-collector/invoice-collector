@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BikeleasingBlsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BikeleasingBlsCollector extends SketchCollector {
         version: "0",
         website: "https://portal.bikeleasing-service.de/user/retailer/credits",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2727688.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BikeleasingBlsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.bikeleasing-service.de/user/retailer/credits",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

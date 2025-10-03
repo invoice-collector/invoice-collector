@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GanttifyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GanttifyCollector extends SketchCollector {
         version: "0",
         website: "https://gantt-chart.com/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/409893.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GanttifyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://gantt-chart.com/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

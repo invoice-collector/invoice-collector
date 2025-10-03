@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarketmanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MarketmanCollector extends SketchCollector {
         version: "0",
         website: "https://buyer.marketman.com/Login.html?ReturnUrl=%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1340254.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MarketmanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://buyer.marketman.com/Login.html?ReturnUrl=%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

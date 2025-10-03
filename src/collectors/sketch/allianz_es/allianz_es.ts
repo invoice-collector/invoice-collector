@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianzEsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AllianzEsCollector extends SketchCollector {
         version: "0",
         website: "https://seguros.allianz.es/ngx-ecliente/private/pic-cliente",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4484496.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AllianzEsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://seguros.allianz.es/ngx-ecliente/private/pic-cliente",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

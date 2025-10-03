@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Worldwide101Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Worldwide101Collector extends SketchCollector {
         version: "0",
         website: "https://dash.worldwide101.com/clients/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14256.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Worldwide101Collector extends SketchCollector {
             }
         },
         entryUrl: "https://dash.worldwide101.com/clients/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

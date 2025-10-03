@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DwTelefondiensteVoip2gsmDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DwTelefondiensteVoip2gsmDeCollector extends SketchCollector {
         version: "0",
         website: "https://config.voip2gsm.eu",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70689.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DwTelefondiensteVoip2gsmDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://config.voip2gsm.eu",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

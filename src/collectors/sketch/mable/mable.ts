@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MableCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MableCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.mable.ai/data_quality/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2694502.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MableCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.mable.ai/data_quality/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

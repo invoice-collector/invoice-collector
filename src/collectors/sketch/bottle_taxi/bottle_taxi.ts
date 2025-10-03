@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BottleTaxiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BottleTaxiCollector extends SketchCollector {
         version: "0",
         website: "https://bottle.taxi/me/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3203542.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BottleTaxiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bottle.taxi/me/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

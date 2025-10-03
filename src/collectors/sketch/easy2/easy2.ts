@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Easy2Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Easy2Collector extends SketchCollector {
         version: "0",
         website: "https://easy2.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2509872.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Easy2Collector extends SketchCollector {
             }
         },
         entryUrl: "https://easy2.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

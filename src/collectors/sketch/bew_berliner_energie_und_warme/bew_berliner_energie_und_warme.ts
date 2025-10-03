@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BewBerlinerEnergieUndWarmeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BewBerlinerEnergieUndWarmeCollector extends SketchCollector {
         version: "0",
         website: "https://xn--wrme-service-berlin-gwb.vattenfall.de/cost/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4414790.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BewBerlinerEnergieUndWarmeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://xn--wrme-service-berlin-gwb.vattenfall.de/cost/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

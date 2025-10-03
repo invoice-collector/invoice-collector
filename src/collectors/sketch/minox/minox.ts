@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinoxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MinoxCollector extends SketchCollector {
         version: "0",
         website: "https://www.minox.nl/feature-categories/minox-open-api/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1468209.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MinoxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.minox.nl/feature-categories/minox-open-api/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

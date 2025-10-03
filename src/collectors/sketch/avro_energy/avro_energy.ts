@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvroEnergyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AvroEnergyCollector extends SketchCollector {
         version: "0",
         website: "https://www.avroenergy.co.uk/Account/Login2",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8784.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AvroEnergyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.avroenergy.co.uk/Account/Login2",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TngCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TngCollector extends SketchCollector {
         version: "0",
         website: "https://www.mytng.de/group/mytng/mein-vertrag/rechnungsarchiv",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9211.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TngCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mytng.de/group/mytng/mein-vertrag/rechnungsarchiv",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

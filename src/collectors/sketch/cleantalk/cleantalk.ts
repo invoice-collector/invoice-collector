@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CleantalkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CleantalkCollector extends SketchCollector {
         version: "0",
         website: "https://cleantalk.org/my/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/556111.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CleantalkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cleantalk.org/my/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

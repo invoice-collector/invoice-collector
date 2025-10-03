@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EventzoneDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EventzoneDeCollector extends SketchCollector {
         version: "0",
         website: "https://eventzone.de/artists/4101/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919278.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EventzoneDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eventzone.de/artists/4101/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

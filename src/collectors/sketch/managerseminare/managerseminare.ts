@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManagerseminareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ManagerseminareCollector extends SketchCollector {
         version: "0",
         website: "https://www.managerseminare.de/Login/Rechnungseinstellungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/759090.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ManagerseminareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.managerseminare.de/Login/Rechnungseinstellungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

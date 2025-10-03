@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeltaTCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeltaTCollector extends SketchCollector {
         version: "0",
         website: "https://www.messdienst24.de/?md=dth#!",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4367620.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeltaTCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.messdienst24.de/?md=dth#!",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

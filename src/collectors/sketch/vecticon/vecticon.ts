@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VecticonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VecticonCollector extends SketchCollector {
         version: "0",
         website: "https://www.vecticon.co/de/dashboard?tab=billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4182180.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VecticonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vecticon.co/de/dashboard?tab=billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

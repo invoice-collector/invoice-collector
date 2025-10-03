@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErefererCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ErefererCollector extends SketchCollector {
         version: "0",
         website: "https://fr.ereferer.com/bo/invoice/list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4396327.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ErefererCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fr.ereferer.com/bo/invoice/list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

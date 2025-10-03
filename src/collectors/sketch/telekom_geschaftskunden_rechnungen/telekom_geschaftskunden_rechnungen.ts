@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelekomGeschaftskundenRechnungenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelekomGeschaftskundenRechnungenCollector extends SketchCollector {
         version: "0",
         website: "https://rechnungonline.geschaeftskunden.telekom.de/gk/auth",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1203990.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelekomGeschaftskundenRechnungenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rechnungonline.geschaeftskunden.telekom.de/gk/auth",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

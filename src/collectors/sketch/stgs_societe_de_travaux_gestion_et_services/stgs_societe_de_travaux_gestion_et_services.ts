@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StgsSocieteDeTravauxGestionEtServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StgsSocieteDeTravauxGestionEtServicesCollector extends SketchCollec
         version: "0",
         website: "https://espaceabonne.stgs.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/846105.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StgsSocieteDeTravauxGestionEtServicesCollector extends SketchCollec
             }
         },
         entryUrl: "https://espaceabonne.stgs.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

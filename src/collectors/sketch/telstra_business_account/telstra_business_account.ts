@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelstraBusinessAccountCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelstraBusinessAccountCollector extends SketchCollector {
         version: "0",
         website: "https://onlinebilling.telstra.com.au/corporatebill/hierarchy/main/dashboard/show.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/30559.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelstraBusinessAccountCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlinebilling.telstra.com.au/corporatebill/hierarchy/main/dashboard/show.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

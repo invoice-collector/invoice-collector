@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RVVersicherungsAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RVVersicherungsAgCollector extends SketchCollector {
         version: "0",
         website: "https://www.ruv.de/meineruv/portal/vertraege",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1109631.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RVVersicherungsAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ruv.de/meineruv/portal/vertraege",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

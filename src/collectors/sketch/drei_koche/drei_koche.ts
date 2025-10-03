@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreiKocheCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DreiKocheCollector extends SketchCollector {
         version: "0",
         website: "https://bestellen.drei-koeche.de/pages/dokumente",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/163754.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DreiKocheCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bestellen.drei-koeche.de/pages/dokumente",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

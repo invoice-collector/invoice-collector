@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwoMinuteReportsC2022CreatedByGoxAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TwoMinuteReportsC2022CreatedByGoxAiCollector extends SketchCollecto
         version: "0",
         website: "https://two-minute-reports.chargebee.com/portal/v2/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1255094.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TwoMinuteReportsC2022CreatedByGoxAiCollector extends SketchCollecto
             }
         },
         entryUrl: "https://two-minute-reports.chargebee.com/portal/v2/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

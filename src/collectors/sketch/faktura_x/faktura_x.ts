@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FakturaXCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FakturaXCollector extends SketchCollector {
         version: "0",
         website: "http://www.faktura-xp.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/563.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FakturaXCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.faktura-xp.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

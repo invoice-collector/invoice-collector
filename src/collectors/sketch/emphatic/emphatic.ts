@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmphaticCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EmphaticCollector extends SketchCollector {
         version: "0",
         website: "https://emphatic.co",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/405802.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EmphaticCollector extends SketchCollector {
             }
         },
         entryUrl: "https://emphatic.co",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

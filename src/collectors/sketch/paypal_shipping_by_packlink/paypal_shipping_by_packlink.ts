@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaypalShippingByPacklinkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PaypalShippingByPacklinkCollector extends SketchCollector {
         version: "0",
         website: "https://paypal.packlink.com/de/private/settings/billing/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420932.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PaypalShippingByPacklinkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://paypal.packlink.com/de/private/settings/billing/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

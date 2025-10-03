@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ABSRechenzentrumCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ABSRechenzentrumCollector extends SketchCollector {
         version: "0",
         website: "https://www.abs-rz.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1040952.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ABSRechenzentrumCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.abs-rz.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

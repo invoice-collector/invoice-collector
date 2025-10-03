@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WodupCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WodupCollector extends SketchCollector {
         version: "0",
         website: "https://www.wodup.com/gyms/evope-gmbh/admin/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/641056.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WodupCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wodup.com/gyms/evope-gmbh/admin/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

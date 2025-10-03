@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyyavinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyyavinCollector extends SketchCollector {
         version: "0",
         website: "https://my.yavin.com/bo/company/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2201656.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyyavinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.yavin.com/bo/company/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

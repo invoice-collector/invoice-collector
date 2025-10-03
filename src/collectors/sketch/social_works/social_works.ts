@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialWorksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SocialWorksCollector extends SketchCollector {
         version: "0",
         website: "https://techfusion.azurewebsites.net/Invoices/List#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/59408.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SocialWorksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://techfusion.azurewebsites.net/Invoices/List#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

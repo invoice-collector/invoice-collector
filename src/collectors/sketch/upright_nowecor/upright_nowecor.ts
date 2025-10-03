@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UprightNowecorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UprightNowecorCollector extends SketchCollector {
         version: "0",
         website: "https://upright.nowecor.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2698588.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UprightNowecorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://upright.nowecor.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

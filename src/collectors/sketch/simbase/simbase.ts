@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimbaseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SimbaseCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.simbase.com/dashboard/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2077771.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SimbaseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.simbase.com/dashboard/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

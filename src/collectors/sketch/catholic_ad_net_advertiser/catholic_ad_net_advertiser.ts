@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CatholicAdNetAdvertiserCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CatholicAdNetAdvertiserCollector extends SketchCollector {
         version: "0",
         website: "https://www.catholicadnet.com/advertiser/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2387797.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CatholicAdNetAdvertiserCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.catholicadnet.com/advertiser/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

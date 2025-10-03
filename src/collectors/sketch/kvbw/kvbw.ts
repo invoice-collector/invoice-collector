@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KvbwCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KvbwCollector extends SketchCollector {
         version: "0",
         website: "https://dienste.portal.kvbawue.de/bw-testverordnung/#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1239246.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KvbwCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dienste.portal.kvbawue.de/bw-testverordnung/#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

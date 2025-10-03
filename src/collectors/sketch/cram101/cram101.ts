@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Cram101Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Cram101Collector extends SketchCollector {
         version: "0",
         website: "http://cram101.com/index.html#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/167114.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Cram101Collector extends SketchCollector {
             }
         },
         entryUrl: "http://cram101.com/index.html#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

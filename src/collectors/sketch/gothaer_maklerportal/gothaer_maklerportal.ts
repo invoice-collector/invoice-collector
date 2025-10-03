@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GothaerMaklerportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GothaerMaklerportalCollector extends SketchCollector {
         version: "0",
         website: "https://makler.gothaer.de/app/ProvisionsabrechnungOnline/start.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73645.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GothaerMaklerportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://makler.gothaer.de/app/ProvisionsabrechnungOnline/start.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

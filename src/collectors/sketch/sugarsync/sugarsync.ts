@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SugarsyncCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SugarsyncCollector extends SketchCollector {
         version: "0",
         website: "https://www.sugarsync.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/12067.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SugarsyncCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sugarsync.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NnsendCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NnsendCollector extends SketchCollector {
         version: "0",
         website: "https://ebill.nnsend.net/vfne/documents/list_by?action=update",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/414367.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NnsendCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ebill.nnsend.net/vfne/documents/list_by?action=update",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

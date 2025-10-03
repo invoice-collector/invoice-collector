@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BnpParibasRealEstateCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BnpParibasRealEstateCollector extends SketchCollector {
         version: "0",
         website: "https://extranetclients.repmfrance.bnpparibas.fr/fr/account/statement",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4196657.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BnpParibasRealEstateCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranetclients.repmfrance.bnpparibas.fr/fr/account/statement",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

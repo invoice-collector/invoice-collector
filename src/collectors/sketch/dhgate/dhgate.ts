@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DhgateCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DhgateCollector extends SketchCollector {
         version: "0",
         website: "https://dg.dhgate.com/buyerordmng/orderList/list.do?pahttps://dg.dhgate.com/buyerordmng/orderList/list.do?params.linkType=100rams.linkType=100",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778914.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DhgateCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dg.dhgate.com/buyerordmng/orderList/list.do?pahttps://dg.dhgate.com/buyerordmng/orderList/list.do?params.linkType=100rams.linkType=100",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

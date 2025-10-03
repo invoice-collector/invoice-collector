@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KoelscheBlisterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KoelscheBlisterCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.koelsche-blister.de/browse//Rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4210099.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KoelscheBlisterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.koelsche-blister.de/browse//Rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

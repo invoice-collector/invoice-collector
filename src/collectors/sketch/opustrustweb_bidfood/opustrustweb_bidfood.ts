@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpustrustwebBidfoodCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpustrustwebBidfoodCollector extends SketchCollector {
         version: "0",
         website: "https://www.opustrustweb.co.uk/bidfood/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/385879.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpustrustwebBidfoodCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.opustrustweb.co.uk/bidfood/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

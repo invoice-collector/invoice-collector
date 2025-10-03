@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IndeedCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IndeedCollector extends SketchCollector {
         version: "0",
         website: "https://secure.indeed.com/account/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11493.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IndeedCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.indeed.com/account/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

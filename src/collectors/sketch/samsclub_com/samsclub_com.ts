@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SamsclubComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SamsclubComCollector extends SketchCollector {
         version: "0",
         website: "https://www.samsclub.com/sams/account/signin/login.jsp?xid=hdr_account_login&redirectURL=%2Fsams%2Fhomepage.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9605.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SamsclubComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.samsclub.com/sams/account/signin/login.jsp?xid=hdr_account_login&redirectURL=%2Fsams%2Fhomepage.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

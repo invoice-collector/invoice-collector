@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetsiteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NetsiteCollector extends SketchCollector {
         version: "0",
         website: "https://www.netsite.dk/mit/faktura/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/109856.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NetsiteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.netsite.dk/mit/faktura/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

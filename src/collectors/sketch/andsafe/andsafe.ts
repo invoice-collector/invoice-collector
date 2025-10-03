@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AndsafeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AndsafeCollector extends SketchCollector {
         version: "0",
         website: "https://andsafe.de/portal/kunden/vertraege",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2513842.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AndsafeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://andsafe.de/portal/kunden/vertraege",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

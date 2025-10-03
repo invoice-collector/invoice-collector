@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FortrabbitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FortrabbitCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.fortrabbit.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/22662.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FortrabbitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.fortrabbit.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

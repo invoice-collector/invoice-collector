@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaracastsComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaracastsComCollector extends SketchCollector {
         version: "0",
         website: "https://laracasts.com/settings/subscription/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/49330.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaracastsComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://laracasts.com/settings/subscription/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

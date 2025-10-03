@@ -13,6 +13,7 @@ export class OpenaiCollector extends WebCollector {
         version: "1",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
+        type: CollectorType.WEB,
         params: {
             email: {
                 type: "email",

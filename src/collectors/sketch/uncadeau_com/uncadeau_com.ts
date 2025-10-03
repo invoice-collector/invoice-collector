@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UncadeauComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UncadeauComCollector extends SketchCollector {
         version: "0",
         website: "https://www.uncadeau.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123518.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UncadeauComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.uncadeau.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

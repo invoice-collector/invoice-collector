@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CampaignMonitorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CampaignMonitorCollector extends SketchCollector {
         version: "0",
         website: "https://login.createsend.com/l?_ga=2.41260645.657612371.1523338420-1375527042.1523338420",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/409.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CampaignMonitorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.createsend.com/l?_ga=2.41260645.657612371.1523338420-1375527042.1523338420",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

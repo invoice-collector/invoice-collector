@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebmailerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WebmailerCollector extends SketchCollector {
         version: "0",
         website: "https://email.ionos.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/241367.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WebmailerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://email.ionos.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuquesneLightCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DuquesneLightCollector extends SketchCollector {
         version: "0",
         website: "https://duquesnelight.com/account-billing/account-summary",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2193914.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DuquesneLightCollector extends SketchCollector {
             }
         },
         entryUrl: "https://duquesnelight.com/account-billing/account-summary",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

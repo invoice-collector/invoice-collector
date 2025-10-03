@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SgbEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SgbEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.sgb-energie.de/index.php?page=invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4417802.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SgbEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.sgb-energie.de/index.php?page=invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TuritopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TuritopCollector extends SketchCollector {
         version: "0",
         website: "https://app.turitop.com/admin/company/L194/edit",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132280.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TuritopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.turitop.com/admin/company/L194/edit",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimonsaysCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SimonsaysCollector extends SketchCollector {
         version: "0",
         website: "https://app.simonsays.ai/app/account-settings#invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778121.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SimonsaysCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.simonsays.ai/app/account-settings#invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

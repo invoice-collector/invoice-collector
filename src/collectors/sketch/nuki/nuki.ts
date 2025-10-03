@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NukiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NukiCollector extends SketchCollector {
         version: "0",
         website: "https://shop.nuki.io/de/mein-account/orders/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1480719.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NukiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.nuki.io/de/mein-account/orders/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

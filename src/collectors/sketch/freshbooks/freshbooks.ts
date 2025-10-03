@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreshbooksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FreshbooksCollector extends SketchCollector {
         version: "0",
         website: "https://secure.freshbooks.com/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9333.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FreshbooksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.freshbooks.com/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

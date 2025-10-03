@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManpowerEmployerPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ManpowerEmployerPortalCollector extends SketchCollector {
         version: "0",
         website: "https://www.manpower.us/en/Employers.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107840.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ManpowerEmployerPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.manpower.us/en/Employers.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

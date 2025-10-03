@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DvAbrechnungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DvAbrechnungCollector extends SketchCollector {
         version: "0",
         website: "https://abrechnungplus.dv-portal.de/master-data?tab=2&page=1&itemsPerPage=15&sortBy%5B0%5D=voucherDate&sortDesc%5B0%5D=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2862869.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DvAbrechnungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://abrechnungplus.dv-portal.de/master-data?tab=2&page=1&itemsPerPage=15&sortBy%5B0%5D=voucherDate&sortDesc%5B0%5D=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

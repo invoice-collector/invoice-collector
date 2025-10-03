@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalameoComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CalameoComCollector extends SketchCollector {
         version: "0",
         website: "https://de.calameo.com/account/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/201080.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CalameoComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.calameo.com/account/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

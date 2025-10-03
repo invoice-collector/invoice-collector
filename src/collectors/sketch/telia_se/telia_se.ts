@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeliaSeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TeliaSeCollector extends SketchCollector {
         version: "0",
         website: "https://www.telia.se/privat/mitt-telia/logga-in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9571.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TeliaSeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.telia.se/privat/mitt-telia/logga-in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

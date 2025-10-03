@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DropcatchCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DropcatchCollector extends SketchCollector {
         version: "0",
         website: "https://www.dropcatch.com/MyAccount/MyOrders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/116250.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DropcatchCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dropcatch.com/MyAccount/MyOrders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

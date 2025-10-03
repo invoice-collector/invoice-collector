@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PosterxxlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PosterxxlCollector extends SketchCollector {
         version: "0",
         website: "https://www.posterxxl.de/kundenkonto/sammelrechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7737.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PosterxxlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.posterxxl.de/kundenkonto/sammelrechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

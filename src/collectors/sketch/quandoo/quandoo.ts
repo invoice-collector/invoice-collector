@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuandooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuandooCollector extends SketchCollector {
         version: "0",
         website: "https://admin.quandoo.com/auth/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4178834.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuandooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.quandoo.com/auth/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

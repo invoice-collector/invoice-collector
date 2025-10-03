@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonDspConsoleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonDspConsoleCollector extends SketchCollector {
         version: "0",
         website: "https://advertising.amazon.com/de-de/sign-in?ref_=a20m_us_hnav_sgn&countrycode=de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/792401.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonDspConsoleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://advertising.amazon.com/de-de/sign-in?ref_=a20m_us_hnav_sgn&countrycode=de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

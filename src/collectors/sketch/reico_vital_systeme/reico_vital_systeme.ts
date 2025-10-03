@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReicoVitalSystemeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReicoVitalSystemeCollector extends SketchCollector {
         version: "0",
         website: "https://vp.reico-vital.com/sales-data",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1368223.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReicoVitalSystemeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vp.reico-vital.com/sales-data",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

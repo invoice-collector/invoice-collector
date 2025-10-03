@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChesterfieldCountyUtilitiesDeptCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChesterfieldCountyUtilitiesDeptCollector extends SketchCollector {
         version: "0",
         website: "https://www.chesterfield.gov/236/Utilities",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2798680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChesterfieldCountyUtilitiesDeptCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.chesterfield.gov/236/Utilities",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

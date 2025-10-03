@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PanthermediaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PanthermediaCollector extends SketchCollector {
         version: "0",
         website: "https://bildagentur.panthermedia.net/pm/sign-in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/397.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PanthermediaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bildagentur.panthermedia.net/pm/sign-in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

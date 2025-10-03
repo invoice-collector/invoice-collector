@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LrCollector extends SketchCollector {
         version: "0",
         website: "https://myoffice.lrworld.com/personal-orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161944.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myoffice.lrworld.com/personal-orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

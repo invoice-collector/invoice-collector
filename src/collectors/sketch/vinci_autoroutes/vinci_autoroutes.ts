@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VinciAutoroutesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VinciAutoroutesCollector extends SketchCollector {
         version: "0",
         website: "https://espaceabonnes.vinci-autoroutes.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27509.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VinciAutoroutesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceabonnes.vinci-autoroutes.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

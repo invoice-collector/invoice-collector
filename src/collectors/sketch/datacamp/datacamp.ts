@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatacampCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DatacampCollector extends SketchCollector {
         version: "0",
         website: "https://www.datacamp.com/profile/account_settings/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/409699.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DatacampCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.datacamp.com/profile/account_settings/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

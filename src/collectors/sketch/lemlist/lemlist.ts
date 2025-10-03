@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LemlistCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LemlistCollector extends SketchCollector {
         version: "0",
         website: "https://app.lemlist.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/178811.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LemlistCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.lemlist.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

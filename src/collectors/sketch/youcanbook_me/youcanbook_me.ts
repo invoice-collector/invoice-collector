@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoucanbookMeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YoucanbookMeCollector extends SketchCollector {
         version: "0",
         website: "https://app.youcanbook.me/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7378.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YoucanbookMeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.youcanbook.me/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

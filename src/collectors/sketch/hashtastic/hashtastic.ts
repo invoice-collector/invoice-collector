@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HashtasticCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HashtasticCollector extends SketchCollector {
         version: "0",
         website: "https://app.hashtastic.eu/profile",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/758724.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HashtasticCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.hashtastic.eu/profile",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

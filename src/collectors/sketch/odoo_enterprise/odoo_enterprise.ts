@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OdooEnterpriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OdooEnterpriseCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.odoo.com/de_DE/my/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/395996.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OdooEnterpriseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.odoo.com/de_DE/my/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

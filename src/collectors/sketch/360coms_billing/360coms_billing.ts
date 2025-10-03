@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _360comsBillingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _360comsBillingCollector extends SketchCollector {
         version: "0",
         website: "https://360coms.enlighten-online.net/EnlightenInvoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4582907.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _360comsBillingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://360coms.enlighten-online.net/EnlightenInvoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

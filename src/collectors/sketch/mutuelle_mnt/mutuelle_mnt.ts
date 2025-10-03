@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMntCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleMntCollector extends SketchCollector {
         version: "0",
         website: "https://adherents.mnt.fr/sign/connectAndRegister",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129821.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleMntCollector extends SketchCollector {
             }
         },
         entryUrl: "https://adherents.mnt.fr/sign/connectAndRegister",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

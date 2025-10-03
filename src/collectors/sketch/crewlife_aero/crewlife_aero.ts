@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrewlifeAeroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CrewlifeAeroCollector extends SketchCollector {
         version: "0",
         website: "https://portal.crewlife.aero/app/profi/partner/anzeigen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2842033.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CrewlifeAeroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.crewlife.aero/app/profi/partner/anzeigen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

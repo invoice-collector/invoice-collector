@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ButagazCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ButagazCollector extends SketchCollector {
         version: "0",
         website: "https://espace-client.butagaz.fr/facture",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3083381.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ButagazCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-client.butagaz.fr/facture",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

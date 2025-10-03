@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JoburgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JoburgCollector extends SketchCollector {
         version: "0",
         website: "https://eservices.joburg.org.za/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/95477.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JoburgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eservices.joburg.org.za/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

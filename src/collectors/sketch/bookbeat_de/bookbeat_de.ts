@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookbeatDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BookbeatDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.bookbeat.de/konto/belege",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778122.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BookbeatDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bookbeat.de/konto/belege",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FleuropCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FleuropCollector extends SketchCollector {
         version: "0",
         website: "https://www.fleurop.de/Shop/MeinFleurop/Login.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7534.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FleuropCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fleurop.de/Shop/MeinFleurop/Login.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

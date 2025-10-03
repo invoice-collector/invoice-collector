@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EkwateurProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EkwateurProCollector extends SketchCollector {
         version: "0",
         website: "https://espace-energie.ekwateur.fr/search/regroupement",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919573.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EkwateurProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-energie.ekwateur.fr/search/regroupement",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

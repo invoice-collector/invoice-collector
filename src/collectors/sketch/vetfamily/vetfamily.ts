@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VetfamilyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VetfamilyCollector extends SketchCollector {
         version: "0",
         website: "https://portal.vetfamily.de/login?next=/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4196211.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VetfamilyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.vetfamily.de/login?next=/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

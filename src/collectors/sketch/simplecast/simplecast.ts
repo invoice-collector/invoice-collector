@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplecastCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SimplecastCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.simplecast.com/accounts/f3c3379a-5720-459f-8760-1926cbc50719/billing/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1799169.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SimplecastCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.simplecast.com/accounts/f3c3379a-5720-459f-8760-1926cbc50719/billing/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlanolyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlanolyCollector extends SketchCollector {
         version: "0",
         website: "https://billing.planoly.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/50658.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlanolyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.planoly.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

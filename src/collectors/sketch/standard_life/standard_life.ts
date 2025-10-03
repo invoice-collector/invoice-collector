@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StandardLifeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StandardLifeCollector extends SketchCollector {
         version: "0",
         website: "https://bs.standardlife.de/slcontroller/home/page.home.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777329.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StandardLifeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bs.standardlife.de/slcontroller/home/page.home.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

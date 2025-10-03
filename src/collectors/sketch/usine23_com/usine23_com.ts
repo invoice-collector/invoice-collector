@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Usine23ComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Usine23ComCollector extends SketchCollector {
         version: "0",
         website: "https://www.usine23.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123529.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Usine23ComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.usine23.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChekinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChekinCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.chekin.com/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730169.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChekinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.chekin.com/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

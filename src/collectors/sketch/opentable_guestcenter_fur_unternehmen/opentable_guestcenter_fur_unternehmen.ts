@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpentableGuestcenterFurUnternehmenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpentableGuestcenterFurUnternehmenCollector extends SketchCollector
         version: "0",
         website: "https://guestcenter.opentable.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4085663.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpentableGuestcenterFurUnternehmenCollector extends SketchCollector
             }
         },
         entryUrl: "https://guestcenter.opentable.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

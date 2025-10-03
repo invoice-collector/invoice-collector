@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeitIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZeitIoCollector extends SketchCollector {
         version: "0",
         website: "https://zeit.io/de/credit_notes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1316256.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZeitIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://zeit.io/de/credit_notes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FraenkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FraenkCollector extends SketchCollector {
         version: "0",
         website: "https://fraenk.de/xyz",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/988599.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FraenkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fraenk.de/xyz",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

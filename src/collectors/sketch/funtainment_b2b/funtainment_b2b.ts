@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FuntainmentB2bCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FuntainmentB2bCollector extends SketchCollector {
         version: "0",
         website: "https://funtainment-b2b.de/index.php?ID=18",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1416082.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FuntainmentB2bCollector extends SketchCollector {
             }
         },
         entryUrl: "https://funtainment-b2b.de/index.php?ID=18",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

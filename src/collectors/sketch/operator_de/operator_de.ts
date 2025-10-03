@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OperatorDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OperatorDeCollector extends SketchCollector {
         version: "0",
         website: "http://www.telefonkonferenz-operator.de/conference/ng/login.html;jsessionid=9236054249FE742C4E4B3E93A80F8F3C?wicket-crypt=2A0x73ua85w",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9470.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OperatorDeCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.telefonkonferenz-operator.de/conference/ng/login.html;jsessionid=9236054249FE742C4E4B3E93A80F8F3C?wicket-crypt=2A0x73ua85w",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

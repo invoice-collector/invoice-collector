@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GettyImagesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GettyImagesCollector extends SketchCollector {
         version: "0",
         website: "https://www.gettyimages.de/Account/Invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/445.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GettyImagesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gettyimages.de/Account/Invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AflacCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AflacCollector extends SketchCollector {
         version: "0",
         website: "https://login.aflac.com/?returnURL=https://my.aflac.com/portal/sso/ssologin.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777987.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AflacCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.aflac.com/?returnURL=https://my.aflac.com/portal/sso/ssologin.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

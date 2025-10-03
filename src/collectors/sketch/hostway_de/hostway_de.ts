@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostwayDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HostwayDeCollector extends SketchCollector {
         version: "0",
         website: "https://helix.hostway.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/222544.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HostwayDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://helix.hostway.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

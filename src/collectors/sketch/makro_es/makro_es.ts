@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MakroEsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MakroEsCollector extends SketchCollector {
         version: "0",
         website: "https://docs.makro.es/?_ga=2.64458799.1836613730.1568624469-1760255380.1568027377",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/166538.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MakroEsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://docs.makro.es/?_ga=2.64458799.1836613730.1568624469-1760255380.1568027377",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

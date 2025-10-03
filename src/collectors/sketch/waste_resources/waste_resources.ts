@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WasteResourcesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WasteResourcesCollector extends SketchCollector {
         version: "0",
         website: "https://wrk-prd-tow-etr.amcsplatform.com/WR/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176340.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WasteResourcesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wrk-prd-tow-etr.amcsplatform.com/WR/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

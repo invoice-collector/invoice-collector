@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UcbCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UcbCollector extends SketchCollector {
         version: "0",
         website: "https://www.ucb.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/67537.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UcbCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ucb.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

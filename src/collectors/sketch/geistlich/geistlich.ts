@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeistlichCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeistlichCollector extends SketchCollector {
         version: "0",
         website: "https://shop.geistlich.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4385297.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeistlichCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.geistlich.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

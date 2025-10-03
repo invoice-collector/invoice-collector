@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RockautoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RockautoCollector extends SketchCollector {
         version: "0",
         website: "https://www.rockauto.com/orderstatus/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4375470.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RockautoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rockauto.com/orderstatus/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

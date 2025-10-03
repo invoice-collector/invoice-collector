@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitPhotoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigitPhotoCollector extends SketchCollector {
         version: "0",
         website: "https://www.digit-photo.com/login.html?back=compteclient.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/117229.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigitPhotoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.digit-photo.com/login.html?back=compteclient.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

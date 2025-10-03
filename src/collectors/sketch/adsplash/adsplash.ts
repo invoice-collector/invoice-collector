@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdsplashCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdsplashCollector extends SketchCollector {
         version: "0",
         website: "https://netzwerk.adsplash.de/modules/affili/frontend/de/user/auszahlungen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776444.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdsplashCollector extends SketchCollector {
             }
         },
         entryUrl: "https://netzwerk.adsplash.de/modules/affili/frontend/de/user/auszahlungen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

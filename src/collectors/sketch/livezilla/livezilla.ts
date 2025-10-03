@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LivezillaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LivezillaCollector extends SketchCollector {
         version: "0",
         website: "https://www.livezilla.net/shop/de/?action=login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8132.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LivezillaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.livezilla.net/shop/de/?action=login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

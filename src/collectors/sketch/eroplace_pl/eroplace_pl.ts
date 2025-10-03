@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EroplacePlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EroplacePlCollector extends SketchCollector {
         version: "0",
         website: "https://en.eroplace.pl/moje-konto/zamowienia",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3274076.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EroplacePlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://en.eroplace.pl/moje-konto/zamowienia",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

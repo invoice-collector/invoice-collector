@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BelboonServiceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BelboonServiceCollector extends SketchCollector {
         version: "0",
         website: "https://ui.service.belboon.com/app/index.html#/finance/billing/advertiser",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/396880.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BelboonServiceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ui.service.belboon.com/app/index.html#/finance/billing/advertiser",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

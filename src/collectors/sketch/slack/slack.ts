@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SlackCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SlackCollector extends SketchCollector {
         version: "0",
         website: "https://slack.com/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6348.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SlackCollector extends SketchCollector {
             }
         },
         entryUrl: "https://slack.com/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

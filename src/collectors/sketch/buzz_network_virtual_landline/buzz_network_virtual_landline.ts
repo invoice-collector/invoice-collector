@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuzzNetworkVirtualLandlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BuzzNetworkVirtualLandlineCollector extends SketchCollector {
         version: "0",
         website: "https://www.virtuallandline.co.uk/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3206484.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BuzzNetworkVirtualLandlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.virtuallandline.co.uk/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

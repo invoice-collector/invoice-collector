@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GametradeDistribuzioneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GametradeDistribuzioneCollector extends SketchCollector {
         version: "0",
         website: "https://www.gametrade.it/stato_pagamenti",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1862776.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GametradeDistribuzioneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gametrade.it/stato_pagamenti",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

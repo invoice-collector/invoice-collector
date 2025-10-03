@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoocommerceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WoocommerceCollector extends SketchCollector {
         version: "0",
         website: "https://woocommerce.com/my-account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15308.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WoocommerceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://woocommerce.com/my-account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DolistoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DolistoreCollector extends SketchCollector {
         version: "0",
         website: "https://www.dolistore.com/fr/historique-des-commandes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2556778.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DolistoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dolistore.com/fr/historique-des-commandes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

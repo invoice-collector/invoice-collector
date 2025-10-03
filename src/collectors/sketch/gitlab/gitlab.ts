@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GitlabCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GitlabCollector extends SketchCollector {
         version: "0",
         website: "https://customers.gitlab.com/receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/39718.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GitlabCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customers.gitlab.com/receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

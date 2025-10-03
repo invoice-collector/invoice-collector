@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErgoVersicherungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ErgoVersicherungCollector extends SketchCollector {
         version: "0",
         website: "https://kunde-s.ergo.de/meineversicherungen/L1/Postfach/Posteingang%20(Spa).aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/565854.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ErgoVersicherungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kunde-s.ergo.de/meineversicherungen/L1/Postfach/Posteingang%20(Spa).aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

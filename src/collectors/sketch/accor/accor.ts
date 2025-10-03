@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AccorCollector extends SketchCollector {
         version: "0",
         website: "https://all.accor.com/account/index.en.shtml#/my-bookings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1371803.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AccorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://all.accor.com/account/index.en.shtml#/my-bookings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

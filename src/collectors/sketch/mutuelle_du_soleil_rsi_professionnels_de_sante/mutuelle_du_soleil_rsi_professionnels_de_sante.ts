@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleDuSoleilRsiProfessionnelsDeSanteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleDuSoleilRsiProfessionnelsDeSanteCollector extends SketchCol
         version: "0",
         website: "https://tiers.mutuellesdusoleil.fr/login#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127554.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleDuSoleilRsiProfessionnelsDeSanteCollector extends SketchCol
             }
         },
         entryUrl: "https://tiers.mutuellesdusoleil.fr/login#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpeedyAdCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpeedyAdCollector extends SketchCollector {
         version: "0",
         website: "https://services.speedy.bg/invoices/?p=invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1282704.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpeedyAdCollector extends SketchCollector {
             }
         },
         entryUrl: "https://services.speedy.bg/invoices/?p=invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenfiberInternetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GreenfiberInternetCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.greenfiber.de/Greenfiber/MeineRechnungen.cms?ActiveID=1002",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1307654.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GreenfiberInternetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.greenfiber.de/Greenfiber/MeineRechnungen.cms?ActiveID=1002",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

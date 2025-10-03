@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProgressiveInsuranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProgressiveInsuranceCollector extends SketchCollector {
         version: "0",
         website: "https://servicing5.progressive.com/xps.web/s4/scripts/DisplayPage.aspx?Page=Documents&TransactionName=ProofOfInsurance&Zone=LocalNav_Zone&Filter=Forms&Location=BunkerWest&Userid=f51eb364-f97c-41c3-be65-8bae5d6c463c&OfferingId=CAAAAAAG201804&transNum=&Act=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161952.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProgressiveInsuranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://servicing5.progressive.com/xps.web/s4/scripts/DisplayPage.aspx?Page=Documents&TransactionName=ProofOfInsurance&Zone=LocalNav_Zone&Filter=Forms&Location=BunkerWest&Userid=f51eb364-f97c-41c3-be65-8bae5d6c463c&OfferingId=CAAAAAAG201804&transNum=&Act=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

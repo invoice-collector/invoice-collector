@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssurOPoilCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AssurOPoilCollector extends SketchCollector {
         version: "0",
         website: "https://www.assuropoil.fr/espace-adherent/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123808.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AssurOPoilCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.assuropoil.fr/espace-adherent/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

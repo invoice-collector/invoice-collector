@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MymetroAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MymetroAtCollector extends SketchCollector {
         version: "0",
         website: "https://mymetro.at/Invoices/10097842",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776024.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MymetroAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mymetro.at/Invoices/10097842",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

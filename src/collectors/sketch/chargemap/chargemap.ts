@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChargemapCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChargemapCollector extends SketchCollector {
         version: "0",
         website: "https://fr.chargemap.com/user/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534313.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChargemapCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fr.chargemap.com/user/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

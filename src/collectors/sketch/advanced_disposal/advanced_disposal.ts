@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdvancedDisposalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdvancedDisposalCollector extends SketchCollector {
         version: "0",
         website: "https://secure8.i-doxs.net/AdvancedDisposal/SignIn.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88495.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdvancedDisposalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure8.i-doxs.net/AdvancedDisposal/SignIn.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

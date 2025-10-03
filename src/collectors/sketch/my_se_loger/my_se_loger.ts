@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MySeLogerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MySeLogerCollector extends SketchCollector {
         version: "0",
         website: "https://myselogerpro.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035266.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MySeLogerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myselogerpro.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyKruellVersichertDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyKruellVersichertDeCollector extends SketchCollector {
         version: "0",
         website: "https://my-kruell-versichert.de/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1126176.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyKruellVersichertDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my-kruell-versichert.de/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

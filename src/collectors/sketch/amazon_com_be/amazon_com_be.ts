@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonComBeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonComBeCollector extends SketchCollector {
         version: "0",
         website: "https://www.amazon.com.be/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1488443.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonComBeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.amazon.com.be/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

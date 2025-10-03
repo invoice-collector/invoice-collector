@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PluxeeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PluxeeCollector extends SketchCollector {
         version: "0",
         website: "https://commercants.pluxee.fr/invoice/restaurant",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3103865.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PluxeeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://commercants.pluxee.fr/invoice/restaurant",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

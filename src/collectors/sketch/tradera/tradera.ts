@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraderaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TraderaCollector extends SketchCollector {
         version: "0",
         website: "https://www.tradera.com/my/Invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/59709.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TraderaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tradera.com/my/Invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JulitecCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JulitecCollector extends SketchCollector {
         version: "0",
         website: "https://app.billwerk.com/portal/account.html#/WoCt0G6hy8rks2vESZWvgQ",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/197393.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JulitecCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.billwerk.com/portal/account.html#/WoCt0G6hy8rks2vESZWvgQ",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

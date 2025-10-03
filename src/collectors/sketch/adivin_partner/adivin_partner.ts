@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdivinPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdivinPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://partner.adivin.com/index.php?idi=es#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2419775.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdivinPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.adivin.com/index.php?idi=es#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

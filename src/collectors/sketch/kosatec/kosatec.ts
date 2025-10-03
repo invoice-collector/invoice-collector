@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KosatecCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KosatecCollector extends SketchCollector {
         version: "0",
         website: "https://www.kosatec.de/de/Login?redir=de/Home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/24468.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KosatecCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.kosatec.de/de/Login?redir=de/Home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

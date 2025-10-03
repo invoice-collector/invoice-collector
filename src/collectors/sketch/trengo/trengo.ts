@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrengoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrengoCollector extends SketchCollector {
         version: "0",
         website: "https://app.trengo.com/admin/subscription_settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2284746.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrengoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.trengo.com/admin/subscription_settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

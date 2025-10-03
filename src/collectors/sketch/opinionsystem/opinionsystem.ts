@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpinionsystemCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpinionsystemCollector extends SketchCollector {
         version: "0",
         website: "https://www.opinionsystem.fr/fr-fr/?lang=fr-FR",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2155186.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpinionsystemCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.opinionsystem.fr/fr-fr/?lang=fr-FR",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

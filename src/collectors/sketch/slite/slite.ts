@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SliteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SliteCollector extends SketchCollector {
         version: "0",
         website: "https://slite.com/organization/select",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/786628.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SliteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://slite.com/organization/select",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

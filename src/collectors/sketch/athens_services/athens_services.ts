@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AthensServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AthensServicesCollector extends SketchCollector {
         version: "0",
         website: "https://billing.athensservices.com/webpak/signin.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176461.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AthensServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.athensservices.com/webpak/signin.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

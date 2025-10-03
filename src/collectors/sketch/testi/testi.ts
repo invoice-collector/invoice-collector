@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TestiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TestiCollector extends SketchCollector {
         version: "0",
         website: "https://testi.at/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1985677.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TestiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://testi.at/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

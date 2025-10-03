@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VolkswagenWeChargeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VolkswagenWeChargeCollector extends SketchCollector {
         version: "0",
         website: "https://www.volkswagen.de/de/meine-ladethemen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26800.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VolkswagenWeChargeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.volkswagen.de/de/meine-ladethemen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

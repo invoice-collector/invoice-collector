@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FondsnetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FondsnetCollector extends SketchCollector {
         version: "0",
         website: "https://fondsnet.depotplattform.de/vertriebspartner/abwicklung_provisionsabrechnung.php?mId=102",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/68982.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FondsnetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fondsnet.depotplattform.de/vertriebspartner/abwicklung_provisionsabrechnung.php?mId=102",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

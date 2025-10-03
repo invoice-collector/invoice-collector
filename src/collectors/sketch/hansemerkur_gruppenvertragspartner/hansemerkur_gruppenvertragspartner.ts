@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HansemerkurGruppenvertragspartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HansemerkurGruppenvertragspartnerCollector extends SketchCollector 
         version: "0",
         website: "https://groupie.hansemerkur.de/oauth2/authorization/kobil-grpdezentral-login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4175839.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HansemerkurGruppenvertragspartnerCollector extends SketchCollector 
             }
         },
         entryUrl: "https://groupie.hansemerkur.de/oauth2/authorization/kobil-grpdezentral-login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

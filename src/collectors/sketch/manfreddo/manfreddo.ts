@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManfreddoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ManfreddoCollector extends SketchCollector {
         version: "0",
         website: "https://www.manfreddo.com/login.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4415014.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ManfreddoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.manfreddo.com/login.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

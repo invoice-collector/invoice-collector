@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReisekostenGorillaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReisekostenGorillaCollector extends SketchCollector {
         version: "0",
         website: "https://www.reisekosten-gorilla.com/admin/teams/a9e9e9b8-657b-11e7-bbf2-06f35348abf7/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/138787.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReisekostenGorillaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.reisekosten-gorilla.com/admin/teams/a9e9e9b8-657b-11e7-bbf2-06f35348abf7/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

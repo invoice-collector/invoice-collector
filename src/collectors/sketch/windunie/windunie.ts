@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WindunieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WindunieCollector extends SketchCollector {
         version: "0",
         website: "https://www.windunie.nl/inloggen/?URL=/mijn-windunie/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9544.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WindunieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.windunie.nl/inloggen/?URL=/mijn-windunie/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TruelancerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TruelancerCollector extends SketchCollector {
         version: "0",
         website: "https://www.truelancer.com/payments/mymoney",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/116951.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TruelancerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.truelancer.com/payments/mymoney",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

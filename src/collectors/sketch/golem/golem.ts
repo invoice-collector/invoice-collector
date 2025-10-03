@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GolemCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GolemCollector extends SketchCollector {
         version: "0",
         website: "https://account.golem.de/user/bills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2284731.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GolemCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.golem.de/user/bills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

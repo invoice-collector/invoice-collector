@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VirtualStagingAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VirtualStagingAiCollector extends SketchCollector {
         version: "0",
         website: "https://www.virtualstagingai.app/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4642524.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VirtualStagingAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.virtualstagingai.app/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

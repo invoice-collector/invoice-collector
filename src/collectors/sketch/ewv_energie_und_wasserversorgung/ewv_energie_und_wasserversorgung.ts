@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwvEnergieUndWasserversorgungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EwvEnergieUndWasserversorgungCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.ewv.de/ewvGips/Gips?SessionMandant=EWV&Anwendung=CMSWEBPAGE&Methode=ShowHTMLAusgabe&RessourceID=4645&Startlink=&utm_source=Webseite+Startseite+Icons+Header&utm_medium=Textlink&utm_campaign=Startseite-Header-Kundenportal-Icon&_ga=2.136",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1188450.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EwvEnergieUndWasserversorgungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.ewv.de/ewvGips/Gips?SessionMandant=EWV&Anwendung=CMSWEBPAGE&Methode=ShowHTMLAusgabe&RessourceID=4645&Startlink=&utm_source=Webseite+Startseite+Icons+Header&utm_medium=Textlink&utm_campaign=Startseite-Header-Kundenportal-Icon&_ga=2.136",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

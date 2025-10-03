@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HoustonPublicWorksCityOfHoustonWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HoustonPublicWorksCityOfHoustonWaterCollector extends SketchCollect
         version: "0",
         website: "https://www.houstonwaterbills.houstontx.gov/ProdDP/Billing/MyUtilityPortal/MyAccountSummary",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/922934.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HoustonPublicWorksCityOfHoustonWaterCollector extends SketchCollect
             }
         },
         entryUrl: "https://www.houstonwaterbills.houstontx.gov/ProdDP/Billing/MyUtilityPortal/MyAccountSummary",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

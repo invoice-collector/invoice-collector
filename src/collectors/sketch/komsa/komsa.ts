@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KomsaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KomsaCollector extends SketchCollector {
         version: "0",
         website: "https://karlo.de/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/221835.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KomsaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://karlo.de/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

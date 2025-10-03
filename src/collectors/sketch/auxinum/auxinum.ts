@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuxinumCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AuxinumCollector extends SketchCollector {
         version: "0",
         website: "https://auxinum.tq-onis.de/Intern/Balance/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4418486.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AuxinumCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auxinum.tq-onis.de/Intern/Balance/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

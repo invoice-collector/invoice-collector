@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NorthgateCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NorthgateCollector extends SketchCollector {
         version: "0",
         website: "https://services.intralinks.com/branding/4461927055/?status=LOGIN&clientID=4461927055",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/49704.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NorthgateCollector extends SketchCollector {
             }
         },
         entryUrl: "https://services.intralinks.com/branding/4461927055/?status=LOGIN&clientID=4461927055",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

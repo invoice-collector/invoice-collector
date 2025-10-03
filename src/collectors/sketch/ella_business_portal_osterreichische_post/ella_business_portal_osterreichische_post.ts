@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EllaBusinessPortalOsterreichischePostCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EllaBusinessPortalOsterreichischePostCollector extends SketchCollec
         version: "0",
         website: "https://ella.post.at/en/my-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1862811.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EllaBusinessPortalOsterreichischePostCollector extends SketchCollec
             }
         },
         entryUrl: "https://ella.post.at/en/my-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

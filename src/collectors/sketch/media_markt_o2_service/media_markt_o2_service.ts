@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MediaMarktO2ServiceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MediaMarktO2ServiceCollector extends SketchCollector {
         version: "0",
         website: "https://mediamarkt.o2service.de/kundencenter/public/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/177802.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MediaMarktO2ServiceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mediamarkt.o2service.de/kundencenter/public/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

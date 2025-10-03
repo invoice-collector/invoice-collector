@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirdnaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AirdnaCollector extends SketchCollector {
         version: "0",
         website: "https://app.airdna.co/data/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/39379.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AirdnaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.airdna.co/data/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

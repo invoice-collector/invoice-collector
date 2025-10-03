@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NiniteProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NiniteProCollector extends SketchCollector {
         version: "0",
         website: "https://ninite.com/me/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/104406.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NiniteProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ninite.com/me/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

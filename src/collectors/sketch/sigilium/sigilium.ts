@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SigiliumCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SigiliumCollector extends SketchCollector {
         version: "0",
         website: "https://sigilium.com/en/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4418420.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SigiliumCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sigilium.com/en/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

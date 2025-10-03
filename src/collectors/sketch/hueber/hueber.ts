@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HueberCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HueberCollector extends SketchCollector {
         version: "0",
         website: "https://www.hueber.de/?login=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1109630.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HueberCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hueber.de/?login=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

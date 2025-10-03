@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FontByHoeflerAndCoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FontByHoeflerAndCoCollector extends SketchCollector {
         version: "0",
         website: "https://www.typography.com/account/your-account.php#subscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/59324.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FontByHoeflerAndCoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.typography.com/account/your-account.php#subscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TollcollectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TollcollectCollector extends SketchCollector {
         version: "0",
         website: "https://www.toll-collect.de/de/toll_collect/systemservice/login/Login.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73419.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TollcollectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.toll-collect.de/de/toll_collect/systemservice/login/Login.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

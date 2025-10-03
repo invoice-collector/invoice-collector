@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcsWebhostingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EcsWebhostingCollector extends SketchCollector {
         version: "0",
         website: "https://admin.fritz.gmbh/?lang=de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15358.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EcsWebhostingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.fritz.gmbh/?lang=de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

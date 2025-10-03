@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VolsingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VolsingCollector extends SketchCollector {
         version: "0",
         website: "https://www.tier-urnen.de/de/user/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4479339.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VolsingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tier-urnen.de/de/user/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UmschlageDeutschlandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UmschlageDeutschlandCollector extends SketchCollector {
         version: "0",
         website: "https://www.umschlaege.com/customer?xCmd=account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/937750.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UmschlageDeutschlandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.umschlaege.com/customer?xCmd=account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

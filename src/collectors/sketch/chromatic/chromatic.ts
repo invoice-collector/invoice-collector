@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChromaticCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChromaticCollector extends SketchCollector {
         version: "0",
         website: "https://www.chromatic.com/start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779618.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChromaticCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.chromatic.com/start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

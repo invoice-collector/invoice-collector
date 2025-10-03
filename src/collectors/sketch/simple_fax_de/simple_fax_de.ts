@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimpleFaxDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SimpleFaxDeCollector extends SketchCollector {
         version: "0",
         website: "https://simple-fax.de/app/kontoeinstellungen/?task=rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6528.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SimpleFaxDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://simple-fax.de/app/kontoeinstellungen/?task=rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

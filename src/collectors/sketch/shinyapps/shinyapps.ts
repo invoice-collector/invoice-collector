@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShinyappsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShinyappsCollector extends SketchCollector {
         version: "0",
         website: "https://www.shinyapps.io/admin/#/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/213233.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShinyappsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.shinyapps.io/admin/#/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

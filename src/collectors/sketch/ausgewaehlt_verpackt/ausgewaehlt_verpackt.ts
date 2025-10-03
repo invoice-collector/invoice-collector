@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AusgewaehltVerpacktCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AusgewaehltVerpacktCollector extends SketchCollector {
         version: "0",
         website: "https://www.ausgewaehlt.com/sales/order/invoice/order_id/5929/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2228055.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AusgewaehltVerpacktCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ausgewaehlt.com/sales/order/invoice/order_id/5929/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

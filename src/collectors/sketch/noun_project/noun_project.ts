@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NounProjectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NounProjectCollector extends SketchCollector {
         version: "0",
         website: "https://thenounproject.com/accounts/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8808.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NounProjectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://thenounproject.com/accounts/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

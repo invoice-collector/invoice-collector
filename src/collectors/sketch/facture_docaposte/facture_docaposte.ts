@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FactureDocaposteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FactureDocaposteCollector extends SketchCollector {
         version: "0",
         website: "https://publication.e-facture.net/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4465509.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FactureDocaposteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://publication.e-facture.net/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

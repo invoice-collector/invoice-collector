@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickatellCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClickatellCollector extends SketchCollector {
         version: "0",
         website: "https://app.clickatell.com/billing/services",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2157913.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClickatellCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.clickatell.com/billing/services",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

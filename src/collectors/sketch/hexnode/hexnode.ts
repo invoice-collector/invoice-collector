@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HexnodeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HexnodeCollector extends SketchCollector {
         version: "0",
         website: "https://bitwip.hexnodemdm.com/subscribe/#/reciepts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777992.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HexnodeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bitwip.hexnodemdm.com/subscribe/#/reciepts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

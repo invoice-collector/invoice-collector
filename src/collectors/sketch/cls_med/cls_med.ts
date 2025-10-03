@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClsMedCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClsMedCollector extends SketchCollector {
         version: "0",
         website: "https://www.cls-med.de/login.php?MODsid=7b3c779e52b77d562ec1b5be1832ba33",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/747331.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClsMedCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cls-med.de/login.php?MODsid=7b3c779e52b77d562ec1b5be1832ba33",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

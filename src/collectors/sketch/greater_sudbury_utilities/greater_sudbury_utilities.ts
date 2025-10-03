@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreaterSudburyUtilitiesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GreaterSudburyUtilitiesCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.gsuinc.ca/app/login.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9401.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GreaterSudburyUtilitiesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.gsuinc.ca/app/login.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

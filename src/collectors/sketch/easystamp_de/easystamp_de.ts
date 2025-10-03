@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasystampDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EasystampDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.easystamp.de/einloggen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33370.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EasystampDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.easystamp.de/einloggen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

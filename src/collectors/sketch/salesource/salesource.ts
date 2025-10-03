@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalesourceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SalesourceCollector extends SketchCollector {
         version: "0",
         website: "https://salesource.io/subscription/billing_details",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/492108.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SalesourceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://salesource.io/subscription/billing_details",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

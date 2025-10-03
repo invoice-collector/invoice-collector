@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4tsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _4tsCollector extends SketchCollector {
         version: "0",
         website: "https://kunden.4ts.at/index.php?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121221.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _4tsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kunden.4ts.at/index.php?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebDeEmergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WebDeEmergieCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.energie.web.de/index.php?page=login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1037311.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WebDeEmergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.energie.web.de/index.php?page=login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

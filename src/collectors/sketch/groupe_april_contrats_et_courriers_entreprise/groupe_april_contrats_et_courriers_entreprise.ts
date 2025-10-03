@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCol
         version: "0",
         website: "https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106872.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCol
             }
         },
         entryUrl: "https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EskerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EskerCollector extends SketchCollector {
         version: "0",
         website: "https://as1.ondemand.esker.com/ondemand/webaccess/logon.aspx?lang=en&TestCookie=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10676.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EskerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://as1.ondemand.esker.com/ondemand/webaccess/logon.aspx?lang=en&TestCookie=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

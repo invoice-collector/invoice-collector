@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IrideosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IrideosCollector extends SketchCollector {
         version: "0",
         website: "https://reseller-areaclienti.irideos.it/AdminPanel/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/850030.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IrideosCollector extends SketchCollector {
             }
         },
         entryUrl: "https://reseller-areaclienti.irideos.it/AdminPanel/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuickbooksOnlineAccountantUkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuickbooksOnlineAccountantUkCollector extends SketchCollector {
         version: "0",
         website: "https://c1.qbo.intuit.com/c1/v1608.1641/0/login?redirect=true&accountant-sign-in=&redirect=true&locale=en_gb",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107632.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuickbooksOnlineAccountantUkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://c1.qbo.intuit.com/c1/v1608.1641/0/login?redirect=true&accountant-sign-in=&redirect=true&locale=en_gb",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

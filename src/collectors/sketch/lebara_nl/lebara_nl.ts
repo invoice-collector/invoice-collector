@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LebaraNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LebaraNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.lebara.nl/nl/mylebara.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2985625.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LebaraNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lebara.nl/nl/mylebara.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

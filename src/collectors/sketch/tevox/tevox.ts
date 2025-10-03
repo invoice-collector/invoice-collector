@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TevoxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TevoxCollector extends SketchCollector {
         version: "0",
         website: "https://portal.tenios.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7882.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TevoxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.tenios.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

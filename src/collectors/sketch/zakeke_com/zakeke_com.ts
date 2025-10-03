@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZakekeComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZakekeComCollector extends SketchCollector {
         version: "0",
         website: "https://portal.zakeke.com/en-US/Admin/Seller/Billings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/221827.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZakekeComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.zakeke.com/en-US/Admin/Seller/Billings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

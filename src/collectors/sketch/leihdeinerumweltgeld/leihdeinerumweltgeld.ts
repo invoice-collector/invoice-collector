@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeihdeinerumweltgeldCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeihdeinerumweltgeldCollector extends SketchCollector {
         version: "0",
         website: "https://invest.leihdeinerumweltgeld.de/account/tax_documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121253.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeihdeinerumweltgeldCollector extends SketchCollector {
             }
         },
         entryUrl: "https://invest.leihdeinerumweltgeld.de/account/tax_documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

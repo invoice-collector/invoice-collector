@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BulksmsComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BulksmsComCollector extends SketchCollector {
         version: "0",
         website: "https://www2.bulksms.com/login.mc",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/48725.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BulksmsComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www2.bulksms.com/login.mc",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

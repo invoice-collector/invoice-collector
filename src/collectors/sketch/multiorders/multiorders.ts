@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MultiordersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MultiordersCollector extends SketchCollector {
         version: "0",
         website: "https://app.multiorders.com/auth/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1193574.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MultiordersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.multiorders.com/auth/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

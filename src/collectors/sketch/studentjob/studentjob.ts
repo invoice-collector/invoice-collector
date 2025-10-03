@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StudentjobCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StudentjobCollector extends SketchCollector {
         version: "0",
         website: "https://www.studentjob.de/betreff/orders?q%5Bindex_selection%5D=paid_with_invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777341.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StudentjobCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.studentjob.de/betreff/orders?q%5Bindex_selection%5D=paid_with_invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

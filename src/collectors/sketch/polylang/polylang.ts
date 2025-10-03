@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PolylangCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PolylangCollector extends SketchCollector {
         version: "0",
         website: "https://polylang.pro/account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/95137.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PolylangCollector extends SketchCollector {
             }
         },
         entryUrl: "https://polylang.pro/account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

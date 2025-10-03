@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheThingsIndustriesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheThingsIndustriesCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.thethingsindustries.com/dashboard/subscriptions/sub_1ObdRdBfIIHupA2rb7uAawLm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2695825.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheThingsIndustriesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.thethingsindustries.com/dashboard/subscriptions/sub_1ObdRdBfIIHupA2rb7uAawLm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GreenlineCollector extends SketchCollector {
         version: "0",
         website: "https://alt.greenline.de/members/bill_pdf",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4334791.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GreenlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://alt.greenline.de/members/bill_pdf",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

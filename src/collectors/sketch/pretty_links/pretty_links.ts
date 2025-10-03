@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrettyLinksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrettyLinksCollector extends SketchCollector {
         version: "0",
         website: "https://prettylinks.com/account/?action=payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3110537.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrettyLinksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://prettylinks.com/account/?action=payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

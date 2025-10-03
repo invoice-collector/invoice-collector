@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Ip2locationComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Ip2locationComCollector extends SketchCollector {
         version: "0",
         website: "https://www.ip2location.com/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/34068.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Ip2locationComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ip2location.com/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

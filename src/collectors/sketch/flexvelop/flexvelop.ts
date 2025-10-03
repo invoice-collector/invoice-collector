@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlexvelopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlexvelopCollector extends SketchCollector {
         version: "0",
         website: "https://www.flexvelop.com/customer-dashboard/contracts/FLEX-Y2X6H7X7",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1881936.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlexvelopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.flexvelop.com/customer-dashboard/contracts/FLEX-Y2X6H7X7",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

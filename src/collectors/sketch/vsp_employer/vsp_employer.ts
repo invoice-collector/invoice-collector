@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VspEmployerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VspEmployerCollector extends SketchCollector {
         version: "0",
         website: "https://billing.vsp.com/bd/startEBPP.sap",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2734234.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VspEmployerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.vsp.com/bd/startEBPP.sap",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

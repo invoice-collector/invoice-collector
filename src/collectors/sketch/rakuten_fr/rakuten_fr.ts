@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RakutenFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RakutenFrCollector extends SketchCollector {
         version: "0",
         website: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/618870.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RakutenFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

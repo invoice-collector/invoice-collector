@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSellerCentralDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonSellerCentralDeCollector extends SketchCollector {
         version: "0",
         website: "https://sellercentral.amazon.de/gp/payments-account/past-settlements.html/ref=ag_xx_cont_pymtvtrans",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/916.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonSellerCentralDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sellercentral.amazon.de/gp/payments-account/past-settlements.html/ref=ag_xx_cont_pymtvtrans",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CclsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CclsCollector extends SketchCollector {
         version: "0",
         website: "https://www.espaceclients.ccls-leasing.fr/espaceclients/initlogin.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153612.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CclsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.espaceclients.ccls-leasing.fr/espaceclients/initlogin.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

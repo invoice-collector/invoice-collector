@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElektroBraunCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ElektroBraunCollector extends SketchCollector {
         version: "0",
         website: "https://www.elektro-braun.de/kunde-werden/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1389825.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ElektroBraunCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.elektro-braun.de/kunde-werden/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

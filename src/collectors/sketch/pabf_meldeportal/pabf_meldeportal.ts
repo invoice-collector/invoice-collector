@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PabfMeldeportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PabfMeldeportalCollector extends SketchCollector {
         version: "0",
         website: "https://abf-nds.de/meine_dateien",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3140076.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PabfMeldeportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://abf-nds.de/meine_dateien",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

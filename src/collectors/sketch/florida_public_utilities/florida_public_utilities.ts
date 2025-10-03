@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FloridaPublicUtilitiesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FloridaPublicUtilitiesCollector extends SketchCollector {
         version: "0",
         website: "https://secure8.i-doxs.net/Florida/Secure/Bills.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2723583.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FloridaPublicUtilitiesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure8.i-doxs.net/Florida/Secure/Bills.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

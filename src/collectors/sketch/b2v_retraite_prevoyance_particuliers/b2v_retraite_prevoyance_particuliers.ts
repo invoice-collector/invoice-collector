@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class B2vRetraitePrevoyanceParticuliersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class B2vRetraitePrevoyanceParticuliersCollector extends SketchCollector 
         version: "0",
         website: "https://www.b2v.fr/particuliers/espace-client",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105271.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class B2vRetraitePrevoyanceParticuliersCollector extends SketchCollector 
             }
         },
         entryUrl: "https://www.b2v.fr/particuliers/espace-client",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

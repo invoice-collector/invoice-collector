@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyjetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EasyjetCollector extends SketchCollector {
         version: "0",
         website: "https://www.easyjet.com/DE/secure/MyEasyJet.mvc/ViewBooking",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1218.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EasyjetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.easyjet.com/DE/secure/MyEasyJet.mvc/ViewBooking",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

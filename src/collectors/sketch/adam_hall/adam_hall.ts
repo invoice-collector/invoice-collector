@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdamHallCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdamHallCollector extends SketchCollector {
         version: "0",
         website: "https://www.adamhall.com/shop/lu-de/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/210954.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdamHallCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.adamhall.com/shop/lu-de/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

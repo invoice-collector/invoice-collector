@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectEnergyAlbertaCustomerLoginCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DirectEnergyAlbertaCustomerLoginCollector extends SketchCollector {
         version: "0",
         website: "https://oam.directenergyregulatedservices.com/home/login.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121686.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DirectEnergyAlbertaCustomerLoginCollector extends SketchCollector {
             }
         },
         entryUrl: "https://oam.directenergyregulatedservices.com/home/login.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

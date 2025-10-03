@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DealerconnectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DealerconnectCollector extends SketchCollector {
         version: "0",
         website: "https://dealerconnect.chrysler.com/portal/Controller/Portal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4458795.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DealerconnectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dealerconnect.chrysler.com/portal/Controller/Portal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

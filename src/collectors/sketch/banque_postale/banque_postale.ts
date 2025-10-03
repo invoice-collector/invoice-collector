@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BanquePostaleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BanquePostaleCollector extends SketchCollector {
         version: "0",
         website: "https://www.labanquepostale.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/114385.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BanquePostaleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.labanquepostale.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

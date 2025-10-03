@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookitupCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BookitupCollector extends SketchCollector {
         version: "0",
         website: "https://app.bookitup.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4178787.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BookitupCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.bookitup.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

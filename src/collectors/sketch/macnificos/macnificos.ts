@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MacnificosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MacnificosCollector extends SketchCollector {
         version: "0",
         website: "https://www.macnificos.com/cuenta/mis-pedidos",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2010913.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MacnificosCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.macnificos.com/cuenta/mis-pedidos",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

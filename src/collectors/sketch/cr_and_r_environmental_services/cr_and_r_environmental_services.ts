@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrAndREnvironmentalServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CrAndREnvironmentalServicesCollector extends SketchCollector {
         version: "0",
         website: "https://secured.crrwasteservices.com/webpak2sw/index.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2723594.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CrAndREnvironmentalServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secured.crrwasteservices.com/webpak2sw/index.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TemuSellerCenterEuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TemuSellerCenterEuCollector extends SketchCollector {
         version: "0",
         website: "https://seller-eu.temu.com/login.html?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4336059.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TemuSellerCenterEuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://seller-eu.temu.com/login.html?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

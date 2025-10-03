@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReplyIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReplyIoCollector extends SketchCollector {
         version: "0",
         website: "https://run.reply.io/Home/Login?ReturnUrl=%2f",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/54475.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReplyIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://run.reply.io/Home/Login?ReturnUrl=%2f",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

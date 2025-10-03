@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CronjobDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CronjobDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.cronjob.de/loggedin/tarifdaten",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102333.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CronjobDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cronjob.de/loggedin/tarifdaten",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

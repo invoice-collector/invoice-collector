@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmeropaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmeropaCollector extends SketchCollector {
         version: "0",
         website: "https://service.ameropa.de/kreditoren/?action=avisen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226583.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmeropaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.ameropa.de/kreditoren/?action=avisen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

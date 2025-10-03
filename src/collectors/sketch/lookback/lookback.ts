@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LookbackCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LookbackCollector extends SketchCollector {
         version: "0",
         website: "https://lookback.io/canyon-bicycles-gmbh/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/110592.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LookbackCollector extends SketchCollector {
             }
         },
         entryUrl: "https://lookback.io/canyon-bicycles-gmbh/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

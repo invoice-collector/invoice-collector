@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FederatedAutoPartsFederatedLinkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FederatedAutoPartsFederatedLinkCollector extends SketchCollector {
         version: "0",
         website: "https://www.federatedlink.com/ecomm/ar/Invoices.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4543021.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FederatedAutoPartsFederatedLinkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.federatedlink.com/ecomm/ar/Invoices.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CintasInvoicePortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CintasInvoicePortalCollector extends SketchCollector {
         version: "0",
         website: "https://account.cintas.com/online/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1197149.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CintasInvoicePortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.cintas.com/online/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

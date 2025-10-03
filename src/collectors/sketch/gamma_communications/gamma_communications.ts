@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GammaCommunicationsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GammaCommunicationsCollector extends SketchCollector {
         version: "0",
         website: "https://login.gammacommunications.de/path/app/?rq_AppGuid=FF94DC683D677A9715F5DC21B0BE72CA6FF0E450&rq_TargetPageGuid=88D2C37241A396CF103761CFDC6851BE92D98CC0&qs_link=6DB5FF42AE64D8569442A19905EEF40F2FAD1E4D&qs_mode=new&qs_page=88D2C37241A396CF103761CFDC68",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2761415.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GammaCommunicationsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.gammacommunications.de/path/app/?rq_AppGuid=FF94DC683D677A9715F5DC21B0BE72CA6FF0E450&rq_TargetPageGuid=88D2C37241A396CF103761CFDC6851BE92D98CC0&qs_link=6DB5FF42AE64D8569442A19905EEF40F2FAD1E4D&qs_mode=new&qs_page=88D2C37241A396CF103761CFDC68",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

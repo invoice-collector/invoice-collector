@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NorthHudsonSewerageAuthorityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NorthHudsonSewerageAuthorityCollector extends SketchCollector {
         version: "0",
         website: "https://wipp.edmundsassoc.com/Wipp/?wippid=NHSA",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3083798.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NorthHudsonSewerageAuthorityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wipp.edmundsassoc.com/Wipp/?wippid=NHSA",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

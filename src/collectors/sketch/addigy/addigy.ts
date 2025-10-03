@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AddigyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AddigyCollector extends SketchCollector {
         version: "0",
         website: "https://prod.addigy.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/794849.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AddigyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://prod.addigy.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

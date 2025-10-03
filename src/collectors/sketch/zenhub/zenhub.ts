@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZenhubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZenhubCollector extends SketchCollector {
         version: "0",
         website: "https://app.zenhub.com/dashboard/o/ridecapital/account-details",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534358.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZenhubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.zenhub.com/dashboard/o/ridecapital/account-details",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

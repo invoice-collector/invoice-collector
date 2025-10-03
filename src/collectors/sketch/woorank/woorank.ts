@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoorankCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WoorankCollector extends SketchCollector {
         version: "0",
         website: "https://www.woorank.com/en/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4417101.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WoorankCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.woorank.com/en/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClubOpticLeaderCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClubOpticLeaderCollector extends SketchCollector {
         version: "0",
         website: "https://adherents.opticlibre.com/espace-de-connexion",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4355592.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClubOpticLeaderCollector extends SketchCollector {
             }
         },
         entryUrl: "https://adherents.opticlibre.com/espace-de-connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

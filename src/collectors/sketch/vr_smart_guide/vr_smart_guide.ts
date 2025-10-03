@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VrSmartGuideCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VrSmartGuideCollector extends SketchCollector {
         version: "0",
         website: "https://app.vr-smart-guide.de/datev",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1545145.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VrSmartGuideCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.vr-smart-guide.de/datev",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

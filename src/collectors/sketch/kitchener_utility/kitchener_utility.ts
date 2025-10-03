@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KitchenerUtilityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KitchenerUtilityCollector extends SketchCollector {
         version: "0",
         website: "https://ebilling.kitchener.ca/sap/bc/ui5_ui5/sap/ZUMCUI5/index.html#page|%7B%22id%22%3A%22login%22%7D|0",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23338.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KitchenerUtilityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ebilling.kitchener.ca/sap/bc/ui5_ui5/sap/ZUMCUI5/index.html#page|%7B%22id%22%3A%22login%22%7D|0",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

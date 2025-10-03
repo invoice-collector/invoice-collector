@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGeneraliCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleGeneraliCollector extends SketchCollector {
         version: "0",
         website: "https://www.generali.fr/espace-client/public/connexion/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129097.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleGeneraliCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.generali.fr/espace-client/public/connexion/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

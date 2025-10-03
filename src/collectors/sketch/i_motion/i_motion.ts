@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IMotionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IMotionCollector extends SketchCollector {
         version: "0",
         website: "http://www.i-motion.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/47850.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IMotionCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.i-motion.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

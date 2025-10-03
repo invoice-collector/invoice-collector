@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViapresseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ViapresseCollector extends SketchCollector {
         version: "0",
         website: "https://www.viapresse.com/customer/account/login/referer/aHR0cHM6Ly93d3cudmlhcHJlc3NlLmNvbS9jdXN0b21lci9hY2NvdW50L2luZGV4Lw,,/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123801.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ViapresseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.viapresse.com/customer/account/login/referer/aHR0cHM6Ly93d3cudmlhcHJlc3NlLmNvbS9jdXN0b21lci9hY2NvdW50L2luZGV4Lw,,/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

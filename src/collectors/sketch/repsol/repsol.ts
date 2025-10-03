@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepsolCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RepsolCollector extends SketchCollector {
         version: "0",
         website: "https://login.repsol.com/es/Landing/AuthnPage?returnUrl=https://www.repsol.com/es/index.cshtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/111705.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RepsolCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.repsol.com/es/Landing/AuthnPage?returnUrl=https://www.repsol.com/es/index.cshtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

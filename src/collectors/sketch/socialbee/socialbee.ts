@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialbeeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SocialbeeCollector extends SketchCollector {
         version: "0",
         website: "https://app.socialbee.com/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4267043.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SocialbeeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.socialbee.com/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

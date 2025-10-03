@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProsegurAlarmasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProsegurAlarmasCollector extends SketchCollector {
         version: "0",
         website: "https://alarmas.movistarproseguralarmas.es/smart-mv/#!/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200679.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProsegurAlarmasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://alarmas.movistarproseguralarmas.es/smart-mv/#!/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

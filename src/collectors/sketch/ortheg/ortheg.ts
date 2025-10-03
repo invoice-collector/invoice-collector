@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrthegCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OrthegCollector extends SketchCollector {
         version: "0",
         website: "https://www.ortheg.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/418663.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OrthegCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ortheg.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

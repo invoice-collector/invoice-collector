@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeFlensburgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeFlensburgCollector extends SketchCollector {
         version: "0",
         website: "https://www.stadtwerke-flensburg.de/kundenportal/?page=login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9254.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeFlensburgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.stadtwerke-flensburg.de/kundenportal/?page=login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

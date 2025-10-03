@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvocadostoreDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AvocadostoreDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.avocadostore.de/user_session/new",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/44817.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AvocadostoreDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.avocadostore.de/user_session/new",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

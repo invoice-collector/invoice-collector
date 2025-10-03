@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AzimoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AzimoCollector extends SketchCollector {
         version: "0",
         website: "https://azimo.com/de/ngk/transactions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7986.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AzimoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://azimo.com/de/ngk/transactions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

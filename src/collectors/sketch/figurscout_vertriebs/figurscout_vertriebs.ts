@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FigurscoutVertriebsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FigurscoutVertriebsCollector extends SketchCollector {
         version: "0",
         website: "https://www.dein-figurplan.de/mein-konto/orders/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161592.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FigurscoutVertriebsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dein-figurplan.de/mein-konto/orders/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

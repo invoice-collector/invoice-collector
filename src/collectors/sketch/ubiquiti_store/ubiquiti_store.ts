@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UbiquitiStoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UbiquitiStoreCollector extends SketchCollector {
         version: "0",
         website: "https://eu.store.ui.com/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/852749.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UbiquitiStoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eu.store.ui.com/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

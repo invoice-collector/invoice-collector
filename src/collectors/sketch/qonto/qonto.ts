@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QontoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QontoCollector extends SketchCollector {
         version: "0",
         website: "https://app.qonto.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534513.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QontoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.qonto.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

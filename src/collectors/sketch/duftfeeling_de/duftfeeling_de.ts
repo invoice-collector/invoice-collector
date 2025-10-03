@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuftfeelingDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DuftfeelingDeCollector extends SketchCollector {
         version: "0",
         website: "https://duftfeeling.de/jtl.php?view=bestellungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1210739.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DuftfeelingDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://duftfeeling.de/jtl.php?view=bestellungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

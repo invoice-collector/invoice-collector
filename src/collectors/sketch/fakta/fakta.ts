@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FaktaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FaktaCollector extends SketchCollector {
         version: "0",
         website: "https://fakta.dk",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21977.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FaktaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fakta.dk",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

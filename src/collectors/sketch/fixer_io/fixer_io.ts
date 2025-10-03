@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FixerIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FixerIoCollector extends SketchCollector {
         version: "0",
         website: "https://fixer.io/payment",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/79441.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FixerIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fixer.io/payment",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

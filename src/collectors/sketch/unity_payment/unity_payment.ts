@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnityPaymentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnityPaymentCollector extends SketchCollector {
         version: "0",
         website: "https://payments.unity3d.com/portal/viewAllInvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/988679.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnityPaymentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://payments.unity3d.com/portal/viewAllInvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

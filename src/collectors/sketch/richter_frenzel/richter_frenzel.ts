@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RichterFrenzelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RichterFrenzelCollector extends SketchCollector {
         version: "0",
         website: "https://www.richter-frenzel.de/b2b/profi-login/#e-sales",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/65486.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RichterFrenzelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.richter-frenzel.de/b2b/profi-login/#e-sales",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

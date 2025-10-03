@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JungheinrichProfishopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JungheinrichProfishopCollector extends SketchCollector {
         version: "0",
         website: "https://www.jh-profishop.de/?gclid=EAIaIQobChMI-aO4gJT6_gIVSvCyCh0hZgo5EAAYAiAAEgJxR_D_BwE&gclsrc=aw.ds",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1932188.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JungheinrichProfishopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.jh-profishop.de/?gclid=EAIaIQobChMI-aO4gJT6_gIVSvCyCh0hZgo5EAAYAiAAEgJxR_D_BwE&gclsrc=aw.ds",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

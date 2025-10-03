@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShippyProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShippyProCollector extends SketchCollector {
         version: "0",
         website: "https://compute.fattureincloud.it/doc/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1369929.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShippyProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://compute.fattureincloud.it/doc/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

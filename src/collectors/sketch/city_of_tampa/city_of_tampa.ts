@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfTampaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfTampaCollector extends SketchCollector {
         version: "0",
         website: "https://www.tampa.gov",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1037295.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfTampaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tampa.gov",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

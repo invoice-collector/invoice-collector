@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MmogaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MmogaCollector extends SketchCollector {
         version: "0",
         website: "https://www.mmoga.com/account_history.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135936.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MmogaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mmoga.com/account_history.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

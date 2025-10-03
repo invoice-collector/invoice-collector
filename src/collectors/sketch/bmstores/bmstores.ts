@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BMStoresCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class BMStoresCollector extends SketchCollector {
         version: "0",
         website: "https://bmstores.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Logo_AvecFond_RVB.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class BMStoresCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bmstores.fr/connexion?back=my-account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

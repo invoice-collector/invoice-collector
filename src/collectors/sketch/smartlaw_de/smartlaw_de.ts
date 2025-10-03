@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartlawDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartlawDeCollector extends SketchCollector {
         version: "0",
         website: "https://app.smartlaw.de/l/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/17796.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartlawDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.smartlaw.de/l/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

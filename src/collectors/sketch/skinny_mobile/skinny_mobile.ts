@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkinnyMobileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SkinnyMobileCollector extends SketchCollector {
         version: "0",
         website: "https://www.skinny.co.nz/Security/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8704.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SkinnyMobileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.skinny.co.nz/Security/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

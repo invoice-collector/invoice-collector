@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RaiffeisenEmsVechteOnlineBelegarchivCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RaiffeisenEmsVechteOnlineBelegarchivCollector extends SketchCollect
         version: "0",
         website: "https://archiv.raiffeisen-ems-vechte.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/97577.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RaiffeisenEmsVechteOnlineBelegarchivCollector extends SketchCollect
             }
         },
         entryUrl: "https://archiv.raiffeisen-ems-vechte.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

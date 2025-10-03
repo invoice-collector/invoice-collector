@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IMaterialiseDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IMaterialiseDeCollector extends SketchCollector {
         version: "0",
         website: "https://i.materialise.de/de/account/login?returnUrl=%2fde",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32710.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IMaterialiseDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://i.materialise.de/de/account/login?returnUrl=%2fde",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

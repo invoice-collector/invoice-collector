@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FroneriSchollerGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FroneriSchollerGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://www.froneri-schoeller.de/mein-schoeller/meine-bestellungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/503986.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FroneriSchollerGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.froneri-schoeller.de/mein-schoeller/meine-bestellungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

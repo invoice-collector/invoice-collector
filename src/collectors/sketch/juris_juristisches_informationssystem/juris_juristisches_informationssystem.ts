@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JurisJuristischesInformationssystemCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JurisJuristischesInformationssystemCollector extends SketchCollecto
         version: "0",
         website: "https://juris.de/jportal/nav/index.jsp#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2854472.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JurisJuristischesInformationssystemCollector extends SketchCollecto
             }
         },
         entryUrl: "https://juris.de/jportal/nav/index.jsp#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

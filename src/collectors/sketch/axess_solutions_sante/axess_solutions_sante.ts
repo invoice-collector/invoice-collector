@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxessSolutionsSanteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AxessSolutionsSanteCollector extends SketchCollector {
         version: "0",
         website: "https://pst-astgl.medtra.fr/liste-factures-adh.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/823879.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AxessSolutionsSanteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pst-astgl.medtra.fr/liste-factures-adh.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrustboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrustboxCollector extends SketchCollector {
         version: "0",
         website: "https://trustboxbackup.com/client/clientarea.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1060588.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrustboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://trustboxbackup.com/client/clientarea.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

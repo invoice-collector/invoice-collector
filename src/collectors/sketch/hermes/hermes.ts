@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HermesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HermesCollector extends SketchCollector {
         version: "0",
         website: "https://www.hermes-port.de/port/main.jsp?site=1027",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1932182.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HermesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hermes-port.de/port/main.jsp?site=1027",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

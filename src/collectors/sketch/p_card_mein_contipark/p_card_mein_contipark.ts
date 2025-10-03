@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PCardMeinContiparkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PCardMeinContiparkCollector extends SketchCollector {
         version: "0",
         website: "https://pcard.mein-contipark.de/konto/transaktionen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1301874.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PCardMeinContiparkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pcard.mein-contipark.de/konto/transaktionen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

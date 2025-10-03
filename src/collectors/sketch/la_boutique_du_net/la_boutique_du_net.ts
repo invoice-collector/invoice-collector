@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaBoutiqueDuNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaBoutiqueDuNetCollector extends SketchCollector {
         version: "0",
         website: "https://www.laboutiquedunet.com/c-connexion/Connexion.html?ProcessusOrigine=&PageOrigine=&Var1Origine=&Var2Origine=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/120858.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaBoutiqueDuNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.laboutiquedunet.com/c-connexion/Connexion.html?ProcessusOrigine=&PageOrigine=&Var1Origine=&Var2Origine=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

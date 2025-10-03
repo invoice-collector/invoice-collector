@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeaverBuilderCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeaverBuilderCollector extends SketchCollector {
         version: "0",
         website: "https://www.wpbeaverbuilder.com/my-account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/50382.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeaverBuilderCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wpbeaverbuilder.com/my-account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

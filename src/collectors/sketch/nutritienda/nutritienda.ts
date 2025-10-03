@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NutritiendaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NutritiendaCollector extends SketchCollector {
         version: "0",
         website: "https://www.nutritienda.com/de/mein-konto?tab=orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200146.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NutritiendaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.nutritienda.com/de/mein-konto?tab=orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

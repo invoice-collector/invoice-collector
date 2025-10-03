@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchaffererCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SchaffererCollector extends SketchCollector {
         version: "0",
         website: "https://www.schafferer.de/gastro/Mein-Konto/Meine-Einkaeufe/#action",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/148949.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SchaffererCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.schafferer.de/gastro/Mein-Konto/Meine-Einkaeufe/#action",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

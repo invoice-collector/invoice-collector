@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PinwheelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PinwheelCollector extends SketchCollector {
         version: "0",
         website: "https://paybypinwheel.com/dashboard/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777221.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PinwheelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://paybypinwheel.com/dashboard/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

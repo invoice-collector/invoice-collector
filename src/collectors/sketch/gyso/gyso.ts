@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GysoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GysoCollector extends SketchCollector {
         version: "0",
         website: "https://www.gyso.ch/de/letzte-rechnung.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2189605.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GysoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gyso.ch/de/letzte-rechnung.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

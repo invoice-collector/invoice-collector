@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NooaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NooaCollector extends SketchCollector {
         version: "0",
         website: "https://web.nooa.app/de-DE/app/admin-cockpit/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732520.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NooaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.nooa.app/de-DE/app/admin-cockpit/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

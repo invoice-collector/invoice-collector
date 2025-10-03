@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoungLivingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YoungLivingCollector extends SketchCollector {
         version: "0",
         website: "https://www.youngliving.com/vo/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2189592.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YoungLivingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.youngliving.com/vo/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

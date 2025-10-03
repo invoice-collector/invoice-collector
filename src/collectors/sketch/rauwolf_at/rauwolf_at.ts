@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RauwolfAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RauwolfAtCollector extends SketchCollector {
         version: "0",
         website: "https://rauwolf-coffee.at/account/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/541218.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RauwolfAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rauwolf-coffee.at/account/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

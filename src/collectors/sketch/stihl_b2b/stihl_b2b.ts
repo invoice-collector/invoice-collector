@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StihlB2bCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StihlB2bCollector extends SketchCollector {
         version: "0",
         website: "https://stihl.logistics-mall.com/group/stihl-rechnung",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2378385.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StihlB2bCollector extends SketchCollector {
             }
         },
         entryUrl: "https://stihl.logistics-mall.com/group/stihl-rechnung",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnoeuroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnoeuroCollector extends SketchCollector {
         version: "0",
         website: "https://en.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21979.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnoeuroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://en.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

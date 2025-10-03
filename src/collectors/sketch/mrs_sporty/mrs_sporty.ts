@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MrsSportyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MrsSportyCollector extends SketchCollector {
         version: "0",
         website: "https://portal.mrssporty.com/ControlPanel/Bwa",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2742736.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MrsSportyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.mrssporty.com/ControlPanel/Bwa",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

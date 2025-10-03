@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TranseoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TranseoCollector extends SketchCollector {
         version: "0",
         website: "https://app.transeo.io/sign/in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/782561.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TranseoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.transeo.io/sign/in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

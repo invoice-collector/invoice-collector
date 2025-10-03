@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MadgicxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MadgicxCollector extends SketchCollector {
         version: "0",
         website: "https://invoice.stripe.com/i/acct_1CSQNKCGZsMIpI9T/invst_IUrRwsldDZw1bQOSLmrm1qEOCXXuPDW",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/640790.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MadgicxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://invoice.stripe.com/i/acct_1CSQNKCGZsMIpI9T/invst_IUrRwsldDZw1bQOSLmrm1qEOCXXuPDW",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

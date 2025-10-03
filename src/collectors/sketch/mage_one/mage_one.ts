@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MageOneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MageOneCollector extends SketchCollector {
         version: "0",
         website: "https://my.mage-one.com/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/759683.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MageOneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.mage-one.com/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

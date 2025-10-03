@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NotismIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NotismIoCollector extends SketchCollector {
         version: "0",
         website: "https://www.notism.io/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1357532.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NotismIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.notism.io/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

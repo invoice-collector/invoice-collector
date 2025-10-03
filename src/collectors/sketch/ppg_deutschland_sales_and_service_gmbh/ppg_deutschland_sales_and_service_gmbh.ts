@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PpgDeutschlandSalesAndServiceGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PpgDeutschlandSalesAndServiceGmbhCollector extends SketchCollector 
         version: "0",
         website: "https://refeuinvoices.ppg.com/ppg/#/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1304462.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PpgDeutschlandSalesAndServiceGmbhCollector extends SketchCollector 
             }
         },
         entryUrl: "https://refeuinvoices.ppg.com/ppg/#/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

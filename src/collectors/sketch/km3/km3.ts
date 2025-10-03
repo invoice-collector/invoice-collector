@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Km3Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Km3Collector extends SketchCollector {
         version: "0",
         website: "https://www.internet.km3.de/Login/007-28062/007-28062/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/552932.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Km3Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.internet.km3.de/Login/007-28062/007-28062/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

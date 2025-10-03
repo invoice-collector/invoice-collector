@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlutterflowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlutterflowCollector extends SketchCollector {
         version: "0",
         website: "https://billing.stripe.com/p/session/live_YWNjdF8xSHFxbmVIV2pGbHg4MFNNLF9PVmpJWmFhdkRHbXR0SGdoWThRTmZqM1I3dDlJQnow0100RoTEsU3H",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2108656.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlutterflowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xSHFxbmVIV2pGbHg4MFNNLF9PVmpJWmFhdkRHbXR0SGdoWThRTmZqM1I3dDlJQnow0100RoTEsU3H",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

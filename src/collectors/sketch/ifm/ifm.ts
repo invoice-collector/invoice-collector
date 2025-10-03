@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IfmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IfmCollector extends SketchCollector {
         version: "0",
         website: "https://www.ifm.com/de/de/secure/my-account#!/invoiceList",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/136800.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IfmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ifm.com/de/de/secure/my-account#!/invoiceList",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

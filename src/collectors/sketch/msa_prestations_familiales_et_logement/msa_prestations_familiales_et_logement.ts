@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MsaPrestationsFamilialesEtLogementCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MsaPrestationsFamilialesEtLogementCollector extends SketchCollector
         version: "0",
         website: "https://monespaceprive.msa.fr/lfy/web/msa/famille/prestations-familiales?modalId=2",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/126047.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MsaPrestationsFamilialesEtLogementCollector extends SketchCollector
             }
         },
         entryUrl: "https://monespaceprive.msa.fr/lfy/web/msa/famille/prestations-familiales?modalId=2",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

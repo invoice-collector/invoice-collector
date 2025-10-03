@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CorsizioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CorsizioCollector extends SketchCollector {
         version: "0",
         website: "https://manager.corsizio.com/attendees",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1336514.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CorsizioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manager.corsizio.com/attendees",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

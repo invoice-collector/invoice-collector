@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DataslayerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DataslayerCollector extends SketchCollector {
         version: "0",
         website: "https://app.dataslayer.ai/billing-info",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919599.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DataslayerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.dataslayer.ai/billing-info",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

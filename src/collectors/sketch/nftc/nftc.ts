@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NftcCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NftcCollector extends SketchCollector {
         version: "0",
         website: "https://frontenac.smarthub.coop/billPdfServlet/2020_05_1_82097127.pdf?account=82097127&timestamp=1588305600000&systemOfRecord=TELECOM",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/385972.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NftcCollector extends SketchCollector {
             }
         },
         entryUrl: "https://frontenac.smarthub.coop/billPdfServlet/2020_05_1_82097127.pdf?account=82097127&timestamp=1588305600000&systemOfRecord=TELECOM",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

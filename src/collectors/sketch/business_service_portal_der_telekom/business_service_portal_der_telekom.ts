@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BusinessServicePortalDerTelekomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BusinessServicePortalDerTelekomCollector extends SketchCollector {
         version: "0",
         website: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7599.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BusinessServicePortalDerTelekomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

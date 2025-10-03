@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnwbCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AnwbCollector extends SketchCollector {
         version: "0",
         website: "https://www.anwb.nl/inloggen#client_id=jjanIwY0NfPdbrnFWFQPDMCRCAlBgoMx&redirect_uri=https%3A%2F%2Fwww.anwb.nl%2Fmijn-anwb",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20521.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AnwbCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.anwb.nl/inloggen#client_id=jjanIwY0NfPdbrnFWFQPDMCRCAlBgoMx&redirect_uri=https%3A%2F%2Fwww.anwb.nl%2Fmijn-anwb",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

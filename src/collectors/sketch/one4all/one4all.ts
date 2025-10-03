@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class One4allCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class One4allCollector extends SketchCollector {
         version: "0",
         website: "https://www.one4all.ie/customer/account/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/408103.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class One4allCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.one4all.ie/customer/account/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

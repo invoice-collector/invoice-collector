@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineprohsSchmidtMgDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnlineprohsSchmidtMgDeCollector extends SketchCollector {
         version: "0",
         website: "https://onlineprohs.schmidt-mg.de/hs/kontoauszug.csp?getPerfacto=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2077745.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnlineprohsSchmidtMgDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlineprohs.schmidt-mg.de/hs/kontoauszug.csp?getPerfacto=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

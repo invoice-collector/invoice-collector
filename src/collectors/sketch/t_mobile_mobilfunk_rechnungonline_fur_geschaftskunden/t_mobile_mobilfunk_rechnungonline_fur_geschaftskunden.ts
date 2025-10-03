@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector extends S
         version: "0",
         website: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7669.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TMobileMobilfunkRechnungonlineFurGeschaftskundenCollector extends S
             }
         },
         entryUrl: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

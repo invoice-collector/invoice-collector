@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SamuraisellerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SamuraisellerCollector extends SketchCollector {
         version: "0",
         website: "https://www.samuraiseller.com/members/samsvc",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/241843.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SamuraisellerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.samuraiseller.com/members/samsvc",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

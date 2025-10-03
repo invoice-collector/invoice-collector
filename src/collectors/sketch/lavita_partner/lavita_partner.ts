@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LavitaPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LavitaPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://partner.lavita.de/honorare/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4486830.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LavitaPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.lavita.de/honorare/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

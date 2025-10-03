@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RollecoFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RollecoFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.rolleco.fr/connexion?back=my-account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/883246.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RollecoFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rolleco.fr/connexion?back=my-account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

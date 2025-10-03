@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LastpassCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LastpassCollector extends SketchCollector {
         version: "0",
         website: "https://lastpass.com/company/#!/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6207.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LastpassCollector extends SketchCollector {
             }
         },
         entryUrl: "https://lastpass.com/company/#!/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

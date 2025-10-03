@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TurboscribeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TurboscribeCollector extends SketchCollector {
         version: "0",
         website: "https://turboscribe.ai/de/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4503674.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TurboscribeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://turboscribe.ai/de/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudienseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AudienseCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.audiense.com/?main-product=true&_ga=2.201741969.165080570.1524064356-374652238.1524064356#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32799.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AudienseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.audiense.com/?main-product=true&_ga=2.201741969.165080570.1524064356-374652238.1524064356#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

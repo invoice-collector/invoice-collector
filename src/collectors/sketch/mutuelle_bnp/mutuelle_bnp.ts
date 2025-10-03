@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleBnpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleBnpCollector extends SketchCollector {
         version: "0",
         website: "https://www.mutuelle.bnpparibas.fr/View/AccueilAssure.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127704.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleBnpCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mutuelle.bnpparibas.fr/View/AccueilAssure.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

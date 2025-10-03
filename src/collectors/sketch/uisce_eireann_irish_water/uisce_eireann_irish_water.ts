@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UisceEireannIrishWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UisceEireannIrishWaterCollector extends SketchCollector {
         version: "0",
         website: "https://www.water.ie/webcenter/portal/secure/pages_waterusage",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4546058.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UisceEireannIrishWaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.water.ie/webcenter/portal/secure/pages_waterusage",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

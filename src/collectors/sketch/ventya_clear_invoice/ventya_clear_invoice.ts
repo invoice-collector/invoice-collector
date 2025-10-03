@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VentyaClearInvoiceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VentyaClearInvoiceCollector extends SketchCollector {
         version: "0",
         website: "https://einvoicing01.clear-invoice.com/CI01/secure/document.form?opener=documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4639961.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VentyaClearInvoiceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://einvoicing01.clear-invoice.com/CI01/secure/document.form?opener=documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

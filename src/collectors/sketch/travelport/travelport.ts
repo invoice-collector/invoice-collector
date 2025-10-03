@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravelportCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TravelportCollector extends SketchCollector {
         version: "0",
         website: "https://my.travelport.com/v2/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3014708.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TravelportCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.travelport.com/v2/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

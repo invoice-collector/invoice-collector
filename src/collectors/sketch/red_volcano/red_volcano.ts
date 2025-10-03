@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RedVolcanoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RedVolcanoCollector extends SketchCollector {
         version: "0",
         website: "https://magma.redvolcano.uk/pages/login.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2525620.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RedVolcanoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://magma.redvolcano.uk/pages/login.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

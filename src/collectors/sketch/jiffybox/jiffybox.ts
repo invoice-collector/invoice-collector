@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JiffyboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JiffyboxCollector extends SketchCollector {
         version: "0",
         website: "https://admin.jiffybox.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8066.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JiffyboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.jiffybox.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

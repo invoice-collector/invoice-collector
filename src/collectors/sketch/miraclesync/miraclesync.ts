@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraclesyncCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MiraclesyncCollector extends SketchCollector {
         version: "0",
         website: "https://app.miraclesync.de/#/sign-up",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3006162.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MiraclesyncCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.miraclesync.de/#/sign-up",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

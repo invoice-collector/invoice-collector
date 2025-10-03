@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeNorderstedtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeNorderstedtCollector extends SketchCollector {
         version: "0",
         website: "https://stadtwerke-norderstedt.ivurz.de/powercommerce/nor/fo/portal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/66161.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeNorderstedtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://stadtwerke-norderstedt.ivurz.de/powercommerce/nor/fo/portal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

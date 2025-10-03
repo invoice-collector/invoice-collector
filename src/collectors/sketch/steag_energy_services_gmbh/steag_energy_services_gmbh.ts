@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteagEnergyServicesGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SteagEnergyServicesGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://portal.steag-fernwaerme.de/portal/csmain.asp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1534128.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SteagEnergyServicesGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.steag-fernwaerme.de/portal/csmain.asp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

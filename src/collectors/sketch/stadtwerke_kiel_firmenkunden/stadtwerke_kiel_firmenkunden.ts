@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeKielFirmenkundenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeKielFirmenkundenCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.stadtwerke-kiel.de/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4450018.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeKielFirmenkundenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.stadtwerke-kiel.de/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

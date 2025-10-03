@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonServicePublicCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MonServicePublicCollector extends SketchCollector {
         version: "0",
         website: "https://www.service-public.fr/compte/se-connecter",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105813.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MonServicePublicCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.service-public.fr/compte/se-connecter",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

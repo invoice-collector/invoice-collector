@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WintopItServiceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WintopItServiceCollector extends SketchCollector {
         version: "0",
         website: "https://www.emeldeschein.de/oms/hausstat/viewAbrechnung.xhtml?faces-redirect=trueewAbrechnung.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4509962.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WintopItServiceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.emeldeschein.de/oms/hausstat/viewAbrechnung.xhtml?faces-redirect=trueewAbrechnung.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

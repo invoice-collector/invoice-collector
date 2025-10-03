@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Anrufannahme24DeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Anrufannahme24DeCollector extends SketchCollector {
         version: "0",
         website: "https://app.anrufannahme24.de/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1416076.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Anrufannahme24DeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.anrufannahme24.de/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

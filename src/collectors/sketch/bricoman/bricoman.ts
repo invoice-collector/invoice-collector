@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BricomanCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class BricomanCollector extends SketchCollector {
         version: "0",
         website: "https://bricoman.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/2/24/Logo_Bricoman.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class BricomanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bricoman.fr/login.html"
+        entryUrl: "https://www.bricoman.fr/login.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

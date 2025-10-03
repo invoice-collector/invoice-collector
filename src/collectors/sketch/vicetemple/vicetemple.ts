@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VicetempleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VicetempleCollector extends SketchCollector {
         version: "0",
         website: "https://vicetemple.net/clientarea.php?action=invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/385971.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VicetempleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vicetemple.net/clientarea.php?action=invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TixforgigsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TixforgigsCollector extends SketchCollector {
         version: "0",
         website: "https://promoter.tixforgigs.com/de-DE",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1439568.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TixforgigsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://promoter.tixforgigs.com/de-DE",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

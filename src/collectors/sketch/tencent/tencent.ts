@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TencentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TencentCollector extends SketchCollector {
         version: "0",
         website: "https://console.tencentcloud.com/expense/invoicing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4368505.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TencentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://console.tencentcloud.com/expense/invoicing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaptaincontratCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CaptaincontratCollector extends SketchCollector {
         version: "0",
         website: "https://client.captaincontrat.com/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/784156.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CaptaincontratCollector extends SketchCollector {
             }
         },
         entryUrl: "https://client.captaincontrat.com/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

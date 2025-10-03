@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RV24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RV24Collector extends SketchCollector {
         version: "0",
         website: "https://www.rv24.de/vertragscenter",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/640442.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RV24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rv24.de/vertragscenter",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

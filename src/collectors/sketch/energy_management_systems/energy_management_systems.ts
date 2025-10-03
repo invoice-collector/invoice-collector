@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnergyManagementSystemsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnergyManagementSystemsCollector extends SketchCollector {
         version: "0",
         website: "https://portal.ems3.com/consumer/bill-copy",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732306.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnergyManagementSystemsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.ems3.com/consumer/bill-copy",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

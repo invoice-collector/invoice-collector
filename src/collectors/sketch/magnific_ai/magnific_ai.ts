@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagnificAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MagnificAiCollector extends SketchCollector {
         version: "0",
         website: "https://magnific.ai/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2859120.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MagnificAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://magnific.ai/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

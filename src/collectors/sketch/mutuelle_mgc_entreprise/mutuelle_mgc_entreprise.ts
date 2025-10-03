@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMgcEntrepriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleMgcEntrepriseCollector extends SketchCollector {
         version: "0",
         website: "https://monespacepersonnel.cimut.net/web/mgc-entreprise",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129362.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleMgcEntrepriseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://monespacepersonnel.cimut.net/web/mgc-entreprise",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

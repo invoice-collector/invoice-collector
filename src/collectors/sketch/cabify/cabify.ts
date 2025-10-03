@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CabifyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CabifyCollector extends SketchCollector {
         version: "0",
         website: "https://www.cabify.com/app/billing/receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/61673.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CabifyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cabify.com/app/billing/receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

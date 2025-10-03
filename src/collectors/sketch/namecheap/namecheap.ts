@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NamecheapCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NamecheapCollector extends SketchCollector {
         version: "0",
         website: "https://www.namecheap.com/myaccount/login.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9339.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NamecheapCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.namecheap.com/myaccount/login.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

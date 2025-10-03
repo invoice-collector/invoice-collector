@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CegidCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CegidCollector extends SketchCollector {
         version: "0",
         website: "https://www.cegidlife.com/fr/factures-et-avoirs",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4375595.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CegidCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cegidlife.com/fr/factures-et-avoirs",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmmyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EmmyCollector extends SketchCollector {
         version: "0",
         website: "https://emmy-sharing.de/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/50355.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EmmyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://emmy-sharing.de/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

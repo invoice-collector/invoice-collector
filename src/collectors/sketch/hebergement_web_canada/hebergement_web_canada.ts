@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HebergementWebCanadaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HebergementWebCanadaCollector extends SketchCollector {
         version: "0",
         website: "https://clients.whc.ca/clientarea.php?language=french",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/749692.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HebergementWebCanadaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clients.whc.ca/clientarea.php?language=french",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

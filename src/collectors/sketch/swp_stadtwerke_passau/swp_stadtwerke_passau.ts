@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwpStadtwerkePassauCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwpStadtwerkePassauCollector extends SketchCollector {
         version: "0",
         website: "https://portal.tpponline.de/py/portal/default/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919980.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwpStadtwerkePassauCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.tpponline.de/py/portal/default/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

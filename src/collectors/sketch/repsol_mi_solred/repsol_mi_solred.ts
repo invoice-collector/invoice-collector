@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepsolMiSolredCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RepsolMiSolredCollector extends SketchCollector {
         version: "0",
         website: "https://misolred.repsol.com/facturas",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4691062.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RepsolMiSolredCollector extends SketchCollector {
             }
         },
         entryUrl: "https://misolred.repsol.com/facturas",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

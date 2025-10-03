@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwindisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TwindisCollector extends SketchCollector {
         version: "0",
         website: "https://www.twindis.com/en/account/inloggen.html?_returnURL=%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32666.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TwindisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.twindis.com/en/account/inloggen.html?_returnURL=%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

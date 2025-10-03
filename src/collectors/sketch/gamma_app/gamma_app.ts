@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GammaAppCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GammaAppCollector extends SketchCollector {
         version: "0",
         website: "https://gamma.app/settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4219909.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GammaAppCollector extends SketchCollector {
             }
         },
         entryUrl: "https://gamma.app/settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

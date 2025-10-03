@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FournirestoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FournirestoCollector extends SketchCollector {
         version: "0",
         website: "https://www.fourniresto.com/historique-commandes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2105969.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FournirestoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fourniresto.com/historique-commandes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

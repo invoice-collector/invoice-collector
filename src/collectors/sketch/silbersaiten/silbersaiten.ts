@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SilbersaitenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SilbersaitenCollector extends SketchCollector {
         version: "0",
         website: "https://www.silbersaiten.de/prestashop/de/bestellungsverlauf",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/81311.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SilbersaitenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.silbersaiten.de/prestashop/de/bestellungsverlauf",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

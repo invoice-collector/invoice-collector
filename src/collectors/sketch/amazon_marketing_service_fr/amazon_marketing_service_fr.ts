@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonMarketingServiceFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonMarketingServiceFrCollector extends SketchCollector {
         version: "0",
         website: "https://advertising.amazon.fr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/36940.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonMarketingServiceFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://advertising.amazon.fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

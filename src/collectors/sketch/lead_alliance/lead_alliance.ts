@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadAllianceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeadAllianceCollector extends SketchCollector {
         version: "0",
         website: "https://www.lead-alliance.net/partner/financial/payments/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94988.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeadAllianceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lead-alliance.net/partner/financial/payments/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

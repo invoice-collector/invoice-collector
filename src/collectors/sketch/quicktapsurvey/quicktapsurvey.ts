@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuicktapsurveyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuicktapsurveyCollector extends SketchCollector {
         version: "0",
         website: "https://www.quicktapsurvey.com/admin/account/list-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/64901.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuicktapsurveyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.quicktapsurvey.com/admin/account/list-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

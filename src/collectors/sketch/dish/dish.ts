@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DishCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DishCollector extends SketchCollector {
         version: "0",
         website: "https://www.dish.co/DE/de/user/invoices/?tx_dishuser_currentestablishment%5Best%5D=5e4d5690-8d57-11eb-90a9-c143d1e47501&tx_dishuser_currentestablishment%5Baction%5D=form&tx_dishuser_currentestablishment%5Bcontroller%5D=CurrentEstablishment&cHash=bf7c0deb5",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1387432.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DishCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dish.co/DE/de/user/invoices/?tx_dishuser_currentestablishment%5Best%5D=5e4d5690-8d57-11eb-90a9-c143d1e47501&tx_dishuser_currentestablishment%5Baction%5D=form&tx_dishuser_currentestablishment%5Bcontroller%5D=CurrentEstablishment&cHash=bf7c0deb5",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

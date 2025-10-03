@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoelknerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VoelknerCollector extends SketchCollector {
         version: "0",
         website: "https://www.voelkner.de/account/history.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6145.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VoelknerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.voelkner.de/account/history.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

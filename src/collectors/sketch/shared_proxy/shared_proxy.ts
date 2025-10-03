@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SharedProxyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SharedProxyCollector extends SketchCollector {
         version: "0",
         website: "https://sharedproxy.co/proxy-service-panel/login.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/126634.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SharedProxyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sharedproxy.co/proxy-service-panel/login.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

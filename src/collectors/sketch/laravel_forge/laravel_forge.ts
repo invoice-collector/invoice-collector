@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaravelForgeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaravelForgeCollector extends SketchCollector {
         version: "0",
         website: "https://forge.laravel.com/auth/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28135.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaravelForgeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://forge.laravel.com/auth/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

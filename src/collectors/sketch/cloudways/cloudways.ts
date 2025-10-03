@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudwaysCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CloudwaysCollector extends SketchCollector {
         version: "0",
         website: "https://platform.cloudways.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27147.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CloudwaysCollector extends SketchCollector {
             }
         },
         entryUrl: "https://platform.cloudways.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

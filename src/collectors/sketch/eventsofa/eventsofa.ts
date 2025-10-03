@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EventsofaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EventsofaCollector extends SketchCollector {
         version: "0",
         website: "https://www.eventsofa.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/24449.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EventsofaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eventsofa.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

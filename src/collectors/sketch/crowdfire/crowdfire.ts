@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrowdfireCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CrowdfireCollector extends SketchCollector {
         version: "0",
         website: "https://web.crowdfireapp.com/#/grow/receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9888.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CrowdfireCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.crowdfireapp.com/#/grow/receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

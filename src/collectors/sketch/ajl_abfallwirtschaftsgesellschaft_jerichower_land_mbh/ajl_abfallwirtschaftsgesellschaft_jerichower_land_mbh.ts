@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AjlAbfallwirtschaftsgesellschaftJerichowerLandMbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AjlAbfallwirtschaftsgesellschaftJerichowerLandMbhCollector extends 
         version: "0",
         website: "https://kundenportal.ajl-mbh.de/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730019.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AjlAbfallwirtschaftsgesellschaftJerichowerLandMbhCollector extends 
             }
         },
         entryUrl: "https://kundenportal.ajl-mbh.de/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

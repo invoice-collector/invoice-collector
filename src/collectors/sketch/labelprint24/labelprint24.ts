@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Labelprint24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Labelprint24Collector extends SketchCollector {
         version: "0",
         website: "https://www.labelprint24.com/en/account/overview.php?id=orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/51405.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Labelprint24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.labelprint24.com/en/account/overview.php?id=orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

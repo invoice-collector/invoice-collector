@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TripitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TripitCollector extends SketchCollector {
         version: "0",
         website: "https://www.tripit.com/account/edit/section/billing_history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115653.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TripitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tripit.com/account/edit/section/billing_history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

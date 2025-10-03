@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BelcentraleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BelcentraleCollector extends SketchCollector {
         version: "0",
         website: "https://www.belcentrale.nl/control-panel/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32800.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BelcentraleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.belcentrale.nl/control-panel/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

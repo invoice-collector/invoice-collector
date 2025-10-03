@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PinMailAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PinMailAgCollector extends SketchCollector {
         version: "0",
         website: "https://meine.pin-ag.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/83640.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PinMailAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meine.pin-ag.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

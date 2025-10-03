@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class I4wifiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class I4wifiCollector extends SketchCollector {
         version: "0",
         website: "https://www.i4wifi.eu/en/faktury",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4202840.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class I4wifiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.i4wifi.eu/en/faktury",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

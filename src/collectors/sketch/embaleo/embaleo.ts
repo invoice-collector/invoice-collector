@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmbaleoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EmbaleoCollector extends SketchCollector {
         version: "0",
         website: "https://www.embaleo.com/historique-des-commandes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2012171.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EmbaleoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.embaleo.com/historique-des-commandes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

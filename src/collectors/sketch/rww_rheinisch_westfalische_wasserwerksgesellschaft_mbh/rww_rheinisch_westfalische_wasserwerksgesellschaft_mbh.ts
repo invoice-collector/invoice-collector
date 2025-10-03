@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RwwRheinischWestfalischeWasserwerksgesellschaftMbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RwwRheinischWestfalischeWasserwerksgesellschaftMbhCollector extends
         version: "0",
         website: "https://onlineservice.service-rz.de/?act=login&werknr=29#normal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1534126.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RwwRheinischWestfalischeWasserwerksgesellschaftMbhCollector extends
             }
         },
         entryUrl: "https://onlineservice.service-rz.de/?act=login&werknr=29#normal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

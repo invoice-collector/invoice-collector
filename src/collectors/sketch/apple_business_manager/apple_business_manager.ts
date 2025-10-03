@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppleBusinessManagerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AppleBusinessManagerCollector extends SketchCollector {
         version: "0",
         website: "https://business.apple.com/#main/accounts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/170974.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AppleBusinessManagerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://business.apple.com/#main/accounts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

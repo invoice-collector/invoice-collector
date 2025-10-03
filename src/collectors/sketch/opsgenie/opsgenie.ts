@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpsgenieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpsgenieCollector extends SketchCollector {
         version: "0",
         website: "https://app.opsgenie.com/auth/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32793.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpsgenieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.opsgenie.com/auth/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PinterstCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PinterstCollector extends SketchCollector {
         version: "0",
         website: "https://ads.pinterest.com/advertiser/549762496194/billing/history/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2075470.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PinterstCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ads.pinterest.com/advertiser/549762496194/billing/history/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

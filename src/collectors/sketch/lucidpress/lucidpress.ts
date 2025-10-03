@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LucidpressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LucidpressCollector extends SketchCollector {
         version: "0",
         website: "https://www.lucidpress.com/users/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10675.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LucidpressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lucidpress.com/users/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

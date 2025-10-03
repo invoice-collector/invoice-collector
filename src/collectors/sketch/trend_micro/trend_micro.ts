@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrendMicroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrendMicroCollector extends SketchCollector {
         version: "0",
         website: "https://wfbs-svc-nabu.trendmicro.com/wfbs-svc/portal/en/view/index#/reports",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185139.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrendMicroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wfbs-svc-nabu.trendmicro.com/wfbs-svc/portal/en/view/index#/reports",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

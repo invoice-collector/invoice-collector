@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcomdashCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EcomdashCollector extends SketchCollector {
         version: "0",
         website: "https://app.ecomdash.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/863413.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EcomdashCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.ecomdash.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

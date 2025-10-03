@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZenmateCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZenmateCollector extends SketchCollector {
         version: "0",
         website: "https://account.zenmate.com/de_DE/login?redirectTo=/de_DE/devices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/48669.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZenmateCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.zenmate.com/de_DE/login?redirectTo=/de_DE/devices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

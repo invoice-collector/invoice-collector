@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvinodeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AvinodeCollector extends SketchCollector {
         version: "0",
         website: "https://marketplace.avinode.com/industry/mvc/billing/list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/664230.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AvinodeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://marketplace.avinode.com/industry/mvc/billing/list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

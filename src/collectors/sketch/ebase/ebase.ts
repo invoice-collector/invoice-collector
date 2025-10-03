@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbaseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EbaseCollector extends SketchCollector {
         version: "0",
         website: "https://portal.ebase.com/(e1)/portal.ebase.com/depot/online-postkorb",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/57368.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EbaseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.ebase.com/(e1)/portal.ebase.com/depot/online-postkorb",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartSenderCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartSenderCollector extends SketchCollector {
         version: "0",
         website: "https://console.smartsender.com/me/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4199152.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartSenderCollector extends SketchCollector {
             }
         },
         entryUrl: "https://console.smartsender.com/me/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

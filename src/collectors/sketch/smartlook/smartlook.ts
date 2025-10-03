@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartlookCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartlookCollector extends SketchCollector {
         version: "0",
         website: "https://app.smartlook.com/settings/billing/profile",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/213229.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartlookCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.smartlook.com/settings/billing/profile",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

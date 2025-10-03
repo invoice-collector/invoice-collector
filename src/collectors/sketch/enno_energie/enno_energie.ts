@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnnoEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnnoEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://www.enno-energie.de/kunden-login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/90712.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnnoEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.enno-energie.de/kunden-login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

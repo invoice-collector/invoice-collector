@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMutestCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleMutestCollector extends SketchCollector {
         version: "0",
         website: "https://www.mutest.fr/particuliers/Acc%C3%A8s_extranets",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/130358.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleMutestCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mutest.fr/particuliers/Acc%C3%A8s_extranets",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

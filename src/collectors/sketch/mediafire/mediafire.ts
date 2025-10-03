@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MediafireCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MediafireCollector extends SketchCollector {
         version: "0",
         website: "https://www.mediafire.com/ssl_login.php?type=login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/387.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MediafireCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mediafire.com/ssl_login.php?type=login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DasaugeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DasaugeCollector extends SketchCollector {
         version: "0",
         website: "https://dasauge.de/mitglieder/rechnungen/?utm_source=erinnerung&utm_medium=email",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1284041.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DasaugeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dasauge.de/mitglieder/rechnungen/?utm_source=erinnerung&utm_medium=email",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

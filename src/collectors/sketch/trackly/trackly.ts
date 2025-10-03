@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TracklyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TracklyCollector extends SketchCollector {
         version: "0",
         website: "https://trackly.io/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/167034.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TracklyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://trackly.io/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

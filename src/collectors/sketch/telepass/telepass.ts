@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelepassCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelepassCollector extends SketchCollector {
         version: "0",
         website: "https://www.telepass.com/KTI/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/804772.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelepassCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.telepass.com/KTI/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

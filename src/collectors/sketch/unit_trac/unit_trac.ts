@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitTracCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnitTracCollector extends SketchCollector {
         version: "0",
         website: "https://www.unittrac.com/Secure/Settings/UTBilling",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4565112.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnitTracCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.unittrac.com/Secure/Settings/UTBilling",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

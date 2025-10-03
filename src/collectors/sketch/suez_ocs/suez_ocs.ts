@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuezOcsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SuezOcsCollector extends SketchCollector {
         version: "0",
         website: "https://suez.sps-ocs.co.uk/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/761287.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SuezOcsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://suez.sps-ocs.co.uk/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

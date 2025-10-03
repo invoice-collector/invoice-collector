@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreatcontentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GreatcontentCollector extends SketchCollector {
         version: "0",
         website: "https://platform.greatcontent.com/common/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15966.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GreatcontentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://platform.greatcontent.com/common/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

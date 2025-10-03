@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StudiolutionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StudiolutionCollector extends SketchCollector {
         version: "0",
         website: "https://www.studiolution.com/de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/63271.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StudiolutionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.studiolution.com/de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

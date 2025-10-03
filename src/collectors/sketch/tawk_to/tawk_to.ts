@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TawkToCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TawkToCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.tawk.to/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4672933.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TawkToCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.tawk.to/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinterIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MinterIoCollector extends SketchCollector {
         version: "0",
         website: "https://minter.io/payment/in_1EY83nF8TNScfXnTDEIdJFLR/in_1EY83nF8TNScfXnTDEIdJFLR",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135330.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MinterIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://minter.io/payment/in_1EY83nF8TNScfXnTDEIdJFLR/in_1EY83nF8TNScfXnTDEIdJFLR",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

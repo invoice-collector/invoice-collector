@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SaltChHomeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SaltChHomeCollector extends SketchCollector {
         version: "0",
         website: "https://my.salt.ch/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1643201.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SaltChHomeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.salt.ch/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

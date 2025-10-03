@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunnelTunnelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FunnelTunnelCollector extends SketchCollector {
         version: "0",
         website: "https://bernhard-5.funnel-tunnel.com/me/settings/billing/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2636540.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FunnelTunnelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bernhard-5.funnel-tunnel.com/me/settings/billing/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

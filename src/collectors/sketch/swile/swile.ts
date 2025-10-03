@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwileCollector extends SketchCollector {
         version: "0",
         website: "https://app.swile.co/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/228714.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.swile.co/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

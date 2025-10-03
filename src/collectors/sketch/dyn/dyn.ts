@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DynCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DynCollector extends SketchCollector {
         version: "0",
         website: "https://account.dyn.com/entrance/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6275.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DynCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.dyn.com/entrance/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

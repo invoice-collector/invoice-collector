@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeautyleverancierCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeautyleverancierCollector extends SketchCollector {
         version: "0",
         website: "https://www.beautyleverancier.nl/customer/account/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32850.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeautyleverancierCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.beautyleverancier.nl/customer/account/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

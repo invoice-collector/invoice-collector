@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MomoxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MomoxCollector extends SketchCollector {
         version: "0",
         website: "https://www.momox.de/konto/profil/verkaeufe/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123948.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MomoxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.momox.de/konto/profil/verkaeufe/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

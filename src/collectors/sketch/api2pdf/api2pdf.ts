@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Api2pdfCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Api2pdfCollector extends SketchCollector {
         version: "0",
         website: "https://portal.api2pdf.com/billing/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/158371.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Api2pdfCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.api2pdf.com/billing/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

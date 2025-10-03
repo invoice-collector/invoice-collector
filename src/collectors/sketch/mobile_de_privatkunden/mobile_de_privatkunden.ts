@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobileDePrivatkundenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MobileDePrivatkundenCollector extends SketchCollector {
         version: "0",
         website: "https://www.mobile.de/rechnung/herunterladen/?utmSource=invoice-email",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2846856.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MobileDePrivatkundenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.mobile.de/a2/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

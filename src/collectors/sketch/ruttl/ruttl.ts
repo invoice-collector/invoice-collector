@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RuttlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RuttlCollector extends SketchCollector {
         version: "0",
         website: "https://web.ruttl.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4396019.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RuttlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.ruttl.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

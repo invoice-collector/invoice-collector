@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeMunchenGeschaftskundenportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeMunchenGeschaftskundenportalCollector extends SketchColle
         version: "0",
         website: "https://geschaeftskundenportal.swm.de/secure/rechnungsuebersicht.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/110054.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeMunchenGeschaftskundenportalCollector extends SketchColle
             }
         },
         entryUrl: "https://geschaeftskundenportal.swm.de/secure/rechnungsuebersicht.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

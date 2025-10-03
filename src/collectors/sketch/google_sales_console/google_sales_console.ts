@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleSalesConsoleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoogleSalesConsoleCollector extends SketchCollector {
         version: "0",
         website: "https://channelservices.cloud.google.com/billing/accounts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2729765.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoogleSalesConsoleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://channelservices.cloud.google.com/billing/accounts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

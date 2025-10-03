@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwnGlasfaserGiga5Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwnGlasfaserGiga5Collector extends SketchCollector {
         version: "0",
         website: "https://connect.stadtwerke-neumuenster.de/index.mx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6240.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwnGlasfaserGiga5Collector extends SketchCollector {
             }
         },
         entryUrl: "https://connect.stadtwerke-neumuenster.de/index.mx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

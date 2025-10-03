@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaseconeAddisonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BaseconeAddisonCollector extends SketchCollector {
         version: "0",
         website: "https://identity.basecone.com/authentication/login?signin=6dd09df2f7dca6eada587463a123cbe7",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153607.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BaseconeAddisonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://identity.basecone.com/authentication/login?signin=6dd09df2f7dca6eada587463a123cbe7",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

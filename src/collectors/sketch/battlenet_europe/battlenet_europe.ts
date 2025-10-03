@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BattlenetEuropeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BattlenetEuropeCollector extends SketchCollector {
         version: "0",
         website: "https://eu.battle.net/login/en/?ref=https://eu.battle.net/forums/en/&app=com-forums",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/116129.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BattlenetEuropeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eu.battle.net/login/en/?ref=https://eu.battle.net/forums/en/&app=com-forums",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

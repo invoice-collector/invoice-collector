@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodetwoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CodetwoCollector extends SketchCollector {
         version: "0",
         website: "https://emailsignatures365.codetwo.com/Profile/Billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/850019.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CodetwoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://emailsignatures365.codetwo.com/Profile/Billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MlfMercatorLeasingGmbhAndCoFinanzKgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MlfMercatorLeasingGmbhAndCoFinanzKgCollector extends SketchCollecto
         version: "0",
         website: "https://messenger.mercator-leasing.de/login.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200224.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MlfMercatorLeasingGmbhAndCoFinanzKgCollector extends SketchCollecto
             }
         },
         entryUrl: "https://messenger.mercator-leasing.de/login.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

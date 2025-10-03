@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrisqqCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BrisqqCollector extends SketchCollector {
         version: "0",
         website: "https://partners.brisqq.com/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/68438.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BrisqqCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partners.brisqq.com/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

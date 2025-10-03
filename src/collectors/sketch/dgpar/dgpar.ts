@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DgparCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DgparCollector extends SketchCollector {
         version: "0",
         website: "https://portal.dgpar.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778210.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DgparCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.dgpar.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

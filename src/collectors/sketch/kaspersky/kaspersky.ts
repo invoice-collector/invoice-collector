@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KasperskyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KasperskyCollector extends SketchCollector {
         version: "0",
         website: "https://my.kaspersky.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/24460.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KasperskyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.kaspersky.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

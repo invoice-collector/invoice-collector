@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WemindCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WemindCollector extends SketchCollector {
         version: "0",
         website: "https://membre.wemind.io/connexion",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1126175.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WemindCollector extends SketchCollector {
             }
         },
         entryUrl: "https://membre.wemind.io/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

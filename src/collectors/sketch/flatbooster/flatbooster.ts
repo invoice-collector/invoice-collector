@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlatboosterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlatboosterCollector extends SketchCollector {
         version: "0",
         website: "https://flatbooster.com/de/client/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3203208.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlatboosterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://flatbooster.com/de/client/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

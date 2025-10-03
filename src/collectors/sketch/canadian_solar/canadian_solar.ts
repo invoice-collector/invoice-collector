@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanadianSolarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CanadianSolarCollector extends SketchCollector {
         version: "0",
         website: "https://canadiansolar.us3.list-manage.com/subscribe/post?u=c9428931ef1d8f14e9b0616e1&id=43582f2947",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8906.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CanadianSolarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://canadiansolar.us3.list-manage.com/subscribe/post?u=c9428931ef1d8f14e9b0616e1&id=43582f2947",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

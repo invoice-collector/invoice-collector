@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CentronCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CentronCollector extends SketchCollector {
         version: "0",
         website: "https://ccenter.internet1.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/49983.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CentronCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ccenter.internet1.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

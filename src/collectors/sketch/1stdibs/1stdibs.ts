@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1stdibsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _1stdibsCollector extends SketchCollector {
         version: "0",
         website: "https://adminv2.1stdibs.com/dealers/statement",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70081.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _1stdibsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://adminv2.1stdibs.com/dealers/statement",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

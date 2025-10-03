@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DistillIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DistillIoCollector extends SketchCollector {
         version: "0",
         website: "https://app.distill.io/settings/billing#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/759044.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DistillIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.distill.io/settings/billing#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClubdeskCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClubdeskCollector extends SketchCollector {
         version: "0",
         website: "https://app.clubdesk.com/clubdesk/start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2513863.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClubdeskCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.clubdesk.com/clubdesk/start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

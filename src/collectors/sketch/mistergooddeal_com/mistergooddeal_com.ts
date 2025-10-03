@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MistergooddealComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MistergooddealComCollector extends SketchCollector {
         version: "0",
         website: "https://www.mistergooddeal.com/views/account/identification.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27327.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MistergooddealComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mistergooddeal.com/views/account/identification.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

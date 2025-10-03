@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HikeordersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HikeordersCollector extends SketchCollector {
         version: "0",
         website: "https://a11yenabler.hikeorders.com/invoice/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2841413.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HikeordersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://a11yenabler.hikeorders.com/invoice/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

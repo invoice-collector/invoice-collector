@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheTelekomBreitbandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeutscheTelekomBreitbandCollector extends SketchCollector {
         version: "0",
         website: "https://breitband.telekom-dienste.de/kundencenter-breitband/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23658.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeutscheTelekomBreitbandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://breitband.telekom-dienste.de/kundencenter-breitband/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

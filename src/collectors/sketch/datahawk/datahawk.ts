@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatahawkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DatahawkCollector extends SketchCollector {
         version: "0",
         website: "https://analytics.datahawk.co/app/36451/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1649611.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DatahawkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://analytics.datahawk.co/app/36451/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CarbonifyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CarbonifyCollector extends SketchCollector {
         version: "0",
         website: "https://carbonify.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2310347.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CarbonifyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://carbonify.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

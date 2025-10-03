@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyrabenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyrabenCollector extends SketchCollector {
         version: "0",
         website: "https://oftc.myraben.com/index.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1355668.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyrabenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://oftc.myraben.com/index.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

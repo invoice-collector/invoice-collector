@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StatusIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StatusIoCollector extends SketchCollector {
         version: "0",
         website: "https://app.status.io/dashboard/6013c4514fe4a10537f38d98/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/745711.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StatusIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.status.io/dashboard/6013c4514fe4a10537f38d98/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

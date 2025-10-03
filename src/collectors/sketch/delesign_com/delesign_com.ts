@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelesignComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DelesignComCollector extends SketchCollector {
         version: "0",
         website: "https://go.delesign.com/sign-in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1218059.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DelesignComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://go.delesign.com/sign-in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

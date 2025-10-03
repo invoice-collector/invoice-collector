@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SklumCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SklumCollector extends SketchCollector {
         version: "0",
         website: "https://www.sklum.com/fr/historial-de-pedidos",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1895674.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SklumCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sklum.com/fr/historial-de-pedidos",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

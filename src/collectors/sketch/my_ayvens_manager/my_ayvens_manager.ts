@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyAyvensManagerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyAyvensManagerCollector extends SketchCollector {
         version: "0",
         website: "https://manager.ayvens.fr/portal/aldnetpal/depenses/votre_coffre_fort/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4385671.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyAyvensManagerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manager.ayvens.fr/portal/aldnetpal/depenses/votre_coffre_fort/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

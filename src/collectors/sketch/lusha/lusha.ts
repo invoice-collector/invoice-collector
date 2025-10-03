@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LushaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LushaCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.lusha.co/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/213126.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LushaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.lusha.co/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

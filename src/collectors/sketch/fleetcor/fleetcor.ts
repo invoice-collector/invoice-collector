@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FleetcorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FleetcorCollector extends SketchCollector {
         version: "0",
         website: "https://selfserve.fleetcor.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14249.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FleetcorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://selfserve.fleetcor.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

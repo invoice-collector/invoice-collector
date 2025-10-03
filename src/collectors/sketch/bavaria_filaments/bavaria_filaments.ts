@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BavariaFilamentsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BavariaFilamentsCollector extends SketchCollector {
         version: "0",
         website: "https://www.bavaria-filaments.com//_api/invoice/5be32b7a-b921-448e-9c3c-b8af81a67e7b:9c7bae06-4ba7-43d6-a734-895fc27d2c42/view?token=e85acb71-f8eb-468c-a0e5-4c28229c4f60",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1744808.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BavariaFilamentsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bavaria-filaments.com//_api/invoice/5be32b7a-b921-448e-9c3c-b8af81a67e7b:9c7bae06-4ba7-43d6-a734-895fc27d2c42/view?token=e85acb71-f8eb-468c-a0e5-4c28229c4f60",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

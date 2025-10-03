@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AviraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AviraCollector extends SketchCollector {
         version: "0",
         website: "https://my.avira.com/de/dashboard/subscriptions/tabs/plans",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3177.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AviraCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.avira.com/de/dashboard/subscriptions/tabs/plans",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

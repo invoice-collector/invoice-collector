@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlsoNetstarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlsoNetstarCollector extends SketchCollector {
         version: "0",
         website: "https://netzvermarktung.also.com/pvd",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2222075.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlsoNetstarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://netzvermarktung.also.com/pvd",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

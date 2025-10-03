@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PumpappCoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PumpappCoCollector extends SketchCollector {
         version: "0",
         website: "https://identity.pumpapp.co/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3015070.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PumpappCoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://identity.pumpapp.co/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

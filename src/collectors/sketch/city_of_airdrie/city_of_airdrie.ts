@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfAirdrieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfAirdrieCollector extends SketchCollector {
         version: "0",
         website: "https://www.airdrie.ca/index.cfm?serviceID=1104",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23372.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfAirdrieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.airdrie.ca/index.cfm?serviceID=1104",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

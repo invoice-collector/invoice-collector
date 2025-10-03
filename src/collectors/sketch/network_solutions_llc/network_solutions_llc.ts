@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetworkSolutionsLlcCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NetworkSolutionsLlcCollector extends SketchCollector {
         version: "0",
         website: "https://www.networksolutions.com/manage-it/billing-history.jsp?1table_35527700__open=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/236274.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NetworkSolutionsLlcCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.networksolutions.com/manage-it/billing-history.jsp?1table_35527700__open=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

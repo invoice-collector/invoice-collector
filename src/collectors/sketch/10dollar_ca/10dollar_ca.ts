@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _10dollarCaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _10dollarCaCollector extends SketchCollector {
         version: "0",
         website: "https://10dollar.ca/en/invoice.php?id=158783351728",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/392735.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _10dollarCaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://10dollar.ca/en/invoice.php?id=158783351728",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

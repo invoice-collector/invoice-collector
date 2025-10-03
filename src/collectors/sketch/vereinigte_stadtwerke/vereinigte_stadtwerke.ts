@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VereinigteStadtwerkeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VereinigteStadtwerkeCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.vereinigte-stadtwerke.de/sap/bc/ui5_ui5/sap/z_mcf_lief/index.html#Logon",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9206.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VereinigteStadtwerkeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.vereinigte-stadtwerke.de/sap/bc/ui5_ui5/sap/z_mcf_lief/index.html#Logon",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

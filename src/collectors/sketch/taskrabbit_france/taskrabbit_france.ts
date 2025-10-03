@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaskrabbitFranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TaskrabbitFranceCollector extends SketchCollector {
         version: "0",
         website: "https://www.taskrabbit.fr/dashboard/completed",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2656473.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TaskrabbitFranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.taskrabbit.fr/dashboard/completed",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToysforfunCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ToysforfunCollector extends SketchCollector {
         version: "0",
         website: "https://www.toys-for-fun.com/de/customer/account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2105971.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ToysforfunCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.toys-for-fun.com/de/customer/account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

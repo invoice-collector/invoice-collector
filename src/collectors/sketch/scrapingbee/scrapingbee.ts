@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScrapingbeeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ScrapingbeeCollector extends SketchCollector {
         version: "0",
         website: "https://app.scrapingbee.com/account/manage/info",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/236271.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ScrapingbeeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.scrapingbee.com/account/manage/info",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

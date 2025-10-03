@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HogastAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HogastAtCollector extends SketchCollector {
         version: "0",
         website: "https://my.hogast.at/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1865504.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HogastAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.hogast.at/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

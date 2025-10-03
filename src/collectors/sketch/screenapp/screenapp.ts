@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScreenappCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ScreenappCollector extends SketchCollector {
         version: "0",
         website: "https://screenapp.io/app/#/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4589603.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ScreenappCollector extends SketchCollector {
             }
         },
         entryUrl: "https://screenapp.io/app/#/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

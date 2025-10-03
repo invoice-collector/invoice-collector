@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SerpapiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SerpapiCollector extends SketchCollector {
         version: "0",
         website: "https://serpapi.com/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203791.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SerpapiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://serpapi.com/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

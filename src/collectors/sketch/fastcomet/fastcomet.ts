@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FastcometCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FastcometCollector extends SketchCollector {
         version: "0",
         website: "https://my.fastcomet.com/clientarea.php?action=invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/131154.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FastcometCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.fastcomet.com/clientarea.php?action=invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XcelEnergyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class XcelEnergyCollector extends SketchCollector {
         version: "0",
         website: "http://www.xcelenergy.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9582.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class XcelEnergyCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.xcelenergy.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SslpointCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SslpointCollector extends SketchCollector {
         version: "0",
         website: "https://www.sslpoint.com/myorder/clientarea.php?action=invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11340.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SslpointCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sslpoint.com/myorder/clientarea.php?action=invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

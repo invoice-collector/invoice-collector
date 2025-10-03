@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TranslatepressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TranslatepressCollector extends SketchCollector {
         version: "0",
         website: "https://translatepress.com/?edd_action=view_invoice&payment_id=1272812&invoice=edbcfe0c6953edc174ecdcc783c82093",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2192167.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TranslatepressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://translatepress.com/?edd_action=view_invoice&payment_id=1272812&invoice=edbcfe0c6953edc174ecdcc783c82093",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

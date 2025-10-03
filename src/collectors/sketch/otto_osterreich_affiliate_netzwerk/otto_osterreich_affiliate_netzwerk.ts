@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoOsterreichAffiliateNetzwerkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OttoOsterreichAffiliateNetzwerkCollector extends SketchCollector {
         version: "0",
         website: "https://affiliate.ottoversand.at/user-billings.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/84338.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OttoOsterreichAffiliateNetzwerkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://affiliate.ottoversand.at/user-billings.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

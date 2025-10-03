@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeneralAnzeigerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeneralAnzeigerCollector extends SketchCollector {
         version: "0",
         website: "https://id.ga.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4571806.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeneralAnzeigerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://id.ga.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

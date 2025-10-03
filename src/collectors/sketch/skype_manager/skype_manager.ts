@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkypeManagerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SkypeManagerCollector extends SketchCollector {
         version: "0",
         website: "https://manager.skype.com/reports/purchases/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/156541.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SkypeManagerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manager.skype.com/reports/purchases/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

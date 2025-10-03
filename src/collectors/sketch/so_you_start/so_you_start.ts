@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoYouStartCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoYouStartCollector extends SketchCollector {
         version: "0",
         website: "https://eu.soyoustart.com/manager/?lang=de_DE#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7663.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoYouStartCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eu.soyoustart.com/manager/?lang=de_DE#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

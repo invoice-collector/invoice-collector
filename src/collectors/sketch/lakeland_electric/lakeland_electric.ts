@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LakelandElectricCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LakelandElectricCollector extends SketchCollector {
         version: "0",
         website: "https://lakelandelectric.com/billing/home.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4472169.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LakelandElectricCollector extends SketchCollector {
             }
         },
         entryUrl: "https://lakelandelectric.com/billing/home.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

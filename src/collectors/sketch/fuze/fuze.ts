@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FuzeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FuzeCollector extends SketchCollector {
         version: "0",
         website: "https://portal.thinkingphones.com/jetspeed/portal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6419.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FuzeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.thinkingphones.com/jetspeed/portal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

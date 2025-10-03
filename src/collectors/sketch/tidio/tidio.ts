@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TidioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TidioCollector extends SketchCollector {
         version: "0",
         website: "https://www.tidio.com/panel/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/783422.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TidioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tidio.com/panel/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

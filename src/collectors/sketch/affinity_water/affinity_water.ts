@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AffinityWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AffinityWaterCollector extends SketchCollector {
         version: "0",
         website: "https://myonlineaccount.affinitywater.co.uk/Account/Login?ReturnUrl=%2F&ReturnUrl=%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/16066.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AffinityWaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myonlineaccount.affinitywater.co.uk/Account/Login?ReturnUrl=%2F&ReturnUrl=%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlanforCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlanforCollector extends SketchCollector {
         version: "0",
         website: "https://www.planfor.fr/index.php?action=formulaire_contact&etape=1&orig=moncpte&langue=FR",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122800.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlanforCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.planfor.fr/index.php?action=formulaire_contact&etape=1&orig=moncpte&langue=FR",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

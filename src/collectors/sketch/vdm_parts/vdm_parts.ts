@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VdmPartsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VdmPartsCollector extends SketchCollector {
         version: "0",
         website: "https://portal.vdmparts.com/de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1745278.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VdmPartsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.vdmparts.com/de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

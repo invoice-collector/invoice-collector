@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StripeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StripeCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.stripe.com/account/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6459.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StripeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.stripe.com/account/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

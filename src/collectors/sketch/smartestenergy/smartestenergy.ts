@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartestenergyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartestenergyCollector extends SketchCollector {
         version: "0",
         website: "https://smartweb.smartestenergy.com/Account/LogIn",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/899957.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartestenergyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://smartweb.smartestenergy.com/Account/LogIn",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

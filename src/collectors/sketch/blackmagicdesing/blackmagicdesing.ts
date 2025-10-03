@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlackmagicdesingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BlackmagicdesingCollector extends SketchCollector {
         version: "0",
         website: "https://cloud.blackmagicdesign.com/apps/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2201646.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BlackmagicdesingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cloud.blackmagicdesign.com/apps/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShpockFinderlyGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShpockFinderlyGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://plus.shpock.com/en-gb/manager/account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/530565.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShpockFinderlyGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://plus.shpock.com/en-gb/manager/account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

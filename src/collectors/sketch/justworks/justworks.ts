@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JustworksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JustworksCollector extends SketchCollector {
         version: "0",
         website: "https://secure.justworks.com/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777340.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JustworksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.justworks.com/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

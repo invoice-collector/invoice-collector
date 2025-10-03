@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DropsendCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DropsendCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.dropsend.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/51420.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DropsendCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.dropsend.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

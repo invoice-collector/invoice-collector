@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvsMeldescheinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AvsMeldescheinCollector extends SketchCollector {
         version: "0",
         website: "https://meldeschein.avs.de/traben-trarbach/auswert3Rechnungseinsicht.do?init=yes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4199733.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AvsMeldescheinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meldeschein.avs.de/traben-trarbach/auswert3Rechnungseinsicht.do?init=yes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AerticketCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AerticketCollector extends SketchCollector {
         version: "0",
         website: "https://cockpit.aerticket.de/home/mein-aer/rechnungen-und-gutschriften/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/22091.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AerticketCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cockpit.aerticket.de/home/mein-aer/rechnungen-und-gutschriften/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimetraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SimetraCollector extends SketchCollector {
         version: "0",
         website: "https://portail.simetra.fr/PortailBayonne",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4693549.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SimetraCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail.simetra.fr/PortailBayonne",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

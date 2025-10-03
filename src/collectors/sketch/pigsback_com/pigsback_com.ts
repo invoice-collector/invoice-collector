@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PigsbackComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PigsbackComCollector extends SketchCollector {
         version: "0",
         website: "https://www.pigsback.com/en-ie/Account/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/68599.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PigsbackComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pigsback.com/en-ie/Account/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

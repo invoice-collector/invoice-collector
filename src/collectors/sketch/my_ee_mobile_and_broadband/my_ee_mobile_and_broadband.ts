@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyEeMobileAndBroadbandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyEeMobileAndBroadbandCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.ee.co.uk/app/top-up-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/76314.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyEeMobileAndBroadbandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.ee.co.uk/app/top-up-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShophunterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShophunterCollector extends SketchCollector {
         version: "0",
         website: "https://www.shophunter.io/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919760.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShophunterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.shophunter.io/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

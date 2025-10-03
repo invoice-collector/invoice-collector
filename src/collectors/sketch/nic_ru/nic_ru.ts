@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NicRuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NicRuCollector extends SketchCollector {
         version: "0",
         website: "https://www.nic.ru/manager/payment.cgi?step=pay.inv_list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/150640.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NicRuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.nic.ru/manager/payment.cgi?step=pay.inv_list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

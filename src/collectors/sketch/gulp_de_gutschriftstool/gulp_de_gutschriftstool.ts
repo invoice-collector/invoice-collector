@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GulpDeGutschriftstoolCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GulpDeGutschriftstoolCollector extends SketchCollector {
         version: "0",
         website: "https://www.gulp.de/gstool",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/46457.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GulpDeGutschriftstoolCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gulp.de/gstool",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

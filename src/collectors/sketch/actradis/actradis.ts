@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ActradisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ActradisCollector extends SketchCollector {
         version: "0",
         website: "https://app.actradis.fr/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1060574.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ActradisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.actradis.fr/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

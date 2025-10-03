@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravelersInsuranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TravelersInsuranceCollector extends SketchCollector {
         version: "0",
         website: "https://signin.travelers.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2385156.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TravelersInsuranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://signin.travelers.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

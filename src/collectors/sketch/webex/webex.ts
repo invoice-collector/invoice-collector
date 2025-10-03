@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebexCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WebexCollector extends SketchCollector {
         version: "0",
         website: "https://support.webex.com/MyAccountWeb/invoice.do?root=My&parent=invoice&child=invPayHist",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/543.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WebexCollector extends SketchCollector {
             }
         },
         entryUrl: "https://support.webex.com/MyAccountWeb/invoice.do?root=My&parent=invoice&child=invPayHist",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

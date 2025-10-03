@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GraphicReseauCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GraphicReseauCollector extends SketchCollector {
         version: "0",
         website: "https://www.graphic-reseau.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/791555.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GraphicReseauCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.graphic-reseau.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

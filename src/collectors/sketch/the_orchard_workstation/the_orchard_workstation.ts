@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheOrchardWorkstationCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheOrchardWorkstationCollector extends SketchCollector {
         version: "0",
         website: "https://workstation.theorchard.com/accounting/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1966438.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheOrchardWorkstationCollector extends SketchCollector {
             }
         },
         entryUrl: "https://workstation.theorchard.com/accounting/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

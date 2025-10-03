@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Print24ComDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Print24ComDeCollector extends SketchCollector {
         version: "0",
         website: "https://print24.com/de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7332.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Print24ComDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://print24.com/de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

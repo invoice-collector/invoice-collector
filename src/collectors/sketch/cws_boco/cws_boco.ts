@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CwsBocoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CwsBocoCollector extends SketchCollector {
         version: "0",
         website: "https://www.mein-cws-boco.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21776.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CwsBocoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mein-cws-boco.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

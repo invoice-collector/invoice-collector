@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AralCardkomfortCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AralCardkomfortCollector extends SketchCollector {
         version: "0",
         website: "https://www.bpplus.com/pages/aral/logon.asp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6637.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AralCardkomfortCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bpplus.com/pages/aral/logon.asp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

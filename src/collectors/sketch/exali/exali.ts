@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExaliCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ExaliCollector extends SketchCollector {
         version: "0",
         website: "https://www.exali.de/Kundencenter/Kunden-Login,100336.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/336.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ExaliCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.exali.de/Kundencenter/Kunden-Login,100336.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

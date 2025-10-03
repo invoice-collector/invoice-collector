@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WibuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WibuCollector extends SketchCollector {
         version: "0",
         website: "https://www.wibu.care/de-de/customer/order/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4213215.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WibuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wibu.care/de-de/customer/order/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

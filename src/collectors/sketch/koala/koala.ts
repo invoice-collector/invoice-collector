@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KoalaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KoalaCollector extends SketchCollector {
         version: "0",
         website: "https://billing.stripe.com/p/session/live_YWNjdF8xTVpWbUtIR1lNTzlpdEszLF9RaENFSFVyR3hFRnZHeTJ1STA4ZDg1cWlJdXZaaVhZ0100vFe3vnD7",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3118597.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KoalaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xTVpWbUtIR1lNTzlpdEszLF9RaENFSFVyR3hFRnZHeTJ1STA4ZDg1cWlJdXZaaVhZ0100vFe3vnD7",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

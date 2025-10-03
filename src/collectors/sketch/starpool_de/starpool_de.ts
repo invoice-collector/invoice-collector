@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarpoolDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StarpoolDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.starpool.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/150505.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StarpoolDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.starpool.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

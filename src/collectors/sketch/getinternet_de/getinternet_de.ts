@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetinternetDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GetinternetDeCollector extends SketchCollector {
         version: "0",
         website: "https://kunden.getinternet.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9498.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GetinternetDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kunden.getinternet.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

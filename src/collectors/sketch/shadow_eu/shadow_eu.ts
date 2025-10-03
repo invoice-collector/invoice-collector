@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShadowEuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShadowEuCollector extends SketchCollector {
         version: "0",
         website: "https://auth.eu.shadow.tech/ui/kratos/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1866882.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShadowEuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auth.eu.shadow.tech/ui/kratos/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

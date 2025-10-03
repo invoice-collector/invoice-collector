@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccessibeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AccessibeCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.accessibe.com/app/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2761292.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AccessibeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.accessibe.com/app/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

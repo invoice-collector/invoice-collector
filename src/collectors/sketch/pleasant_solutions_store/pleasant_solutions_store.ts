@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PleasantSolutionsStoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PleasantSolutionsStoreCollector extends SketchCollector {
         version: "0",
         website: "https://store.pleasantsolutions.com/Account/SignIn",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/64605.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PleasantSolutionsStoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store.pleasantsolutions.com/Account/SignIn",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

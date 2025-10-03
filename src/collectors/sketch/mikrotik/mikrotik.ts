@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MikrotikCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MikrotikCollector extends SketchCollector {
         version: "0",
         website: "https://mikrotik.com/client/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/148967.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MikrotikCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mikrotik.com/client/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

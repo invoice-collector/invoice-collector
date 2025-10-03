@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpatialCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpatialCollector extends SketchCollector {
         version: "0",
         website: "https://billing.stripe.com/session/live_YWNjdF8xRjhWN2FCN1F0RWV6bjdNLF9MZXJLZlo4R2EwRklJYWhrdk5rNUhpZ2xBQkppUFo10100JNILus9k",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1248085.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpatialCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.stripe.com/session/live_YWNjdF8xRjhWN2FCN1F0RWV6bjdNLF9MZXJLZlo4R2EwRklJYWhrdk5rNUhpZ2xBQkppUFo10100JNILus9k",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

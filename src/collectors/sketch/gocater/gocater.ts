@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GocaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GocaterCollector extends SketchCollector {
         version: "0",
         website: "https://gocater.de/office/orders/past",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/56742.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GocaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://gocater.de/office/orders/past",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartmobilDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartmobilDeCollector extends SketchCollector {
         version: "0",
         website: "https://service.smartmobil.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8106.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartmobilDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.smartmobil.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

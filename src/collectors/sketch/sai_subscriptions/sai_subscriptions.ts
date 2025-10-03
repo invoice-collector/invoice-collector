@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SaiSubscriptionsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SaiSubscriptionsCollector extends SketchCollector {
         version: "0",
         website: "https://www.saisubscriptions.com/?invoices=open",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4491397.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SaiSubscriptionsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.saisubscriptions.com/?invoices=open",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

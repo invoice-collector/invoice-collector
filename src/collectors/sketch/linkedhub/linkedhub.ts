@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkedhubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LinkedhubCollector extends SketchCollector {
         version: "0",
         website: "https://api.linkedhub.io/api/v3/billing.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/150643.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LinkedhubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://api.linkedhub.io/api/v3/billing.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

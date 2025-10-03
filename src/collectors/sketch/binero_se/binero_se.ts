@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BineroSeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BineroSeCollector extends SketchCollector {
         version: "0",
         website: "http://www.binero.se",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9027.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BineroSeCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.binero.se",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

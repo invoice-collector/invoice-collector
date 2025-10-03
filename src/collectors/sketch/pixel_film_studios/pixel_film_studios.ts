@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixelFilmStudiosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PixelFilmStudiosCollector extends SketchCollector {
         version: "0",
         website: "https://store.pixelfilmstudios.com/my-account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/42371.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PixelFilmStudiosCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store.pixelfilmstudios.com/my-account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TMobileAtBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TMobileAtBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://rechnung.t-mobile.at/vpn/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9445.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TMobileAtBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rechnung.t-mobile.at/vpn/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

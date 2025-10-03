@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GranvaloraGmbhAndCoKgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GranvaloraGmbhAndCoKgCollector extends SketchCollector {
         version: "0",
         website: "https://mein.granvalora.de/partner/refunds",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1307407.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GranvaloraGmbhAndCoKgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.granvalora.de/partner/refunds",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

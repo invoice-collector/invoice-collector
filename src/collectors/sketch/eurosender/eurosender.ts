@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EurosenderCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EurosenderCollector extends SketchCollector {
         version: "0",
         website: "https://www.eurosender.com/dashboard/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/46779.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EurosenderCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eurosender.com/dashboard/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QvcPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QvcPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://partner.qvc.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776395.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QvcPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.qvc.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

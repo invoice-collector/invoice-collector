@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VirginMobileCanadaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VirginMobileCanadaCollector extends SketchCollector {
         version: "0",
         website: "https://www.virginmobile.ca/en/members-lounge/login.html?itcid=NAV:31",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8567.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VirginMobileCanadaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.virginmobile.ca/en/members-lounge/login.html?itcid=NAV:31",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

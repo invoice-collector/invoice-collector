@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnoffBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnoffBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://web.onoffbusiness.com/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779710.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnoffBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.onoffbusiness.com/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

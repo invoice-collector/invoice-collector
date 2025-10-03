@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FattoriaLaViallaDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FattoriaLaViallaDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.lavialla.com/de-DE/meine-bestellungen-und-lieferungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4220275.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FattoriaLaViallaDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lavialla.com/de-DE/meine-bestellungen-und-lieferungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

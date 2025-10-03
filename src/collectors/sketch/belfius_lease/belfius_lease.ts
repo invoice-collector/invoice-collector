@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BelfiusLeaseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BelfiusLeaseCollector extends SketchCollector {
         version: "0",
         website: "https://iportal.belfius-lease.be/en/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1436870.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BelfiusLeaseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://iportal.belfius-lease.be/en/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

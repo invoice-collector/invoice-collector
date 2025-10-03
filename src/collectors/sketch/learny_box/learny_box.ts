@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LearnyBoxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LearnyBoxCollector extends SketchCollector {
         version: "0",
         website: "https://learnybox.com/connexion_lb/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/409821.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LearnyBoxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://learnybox.com/connexion_lb/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

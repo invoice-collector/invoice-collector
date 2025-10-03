@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ECigFactoryFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ECigFactoryFrCollector extends SketchCollector {
         version: "0",
         website: "http://e-cig-factory.fr/shop/fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118632.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ECigFactoryFrCollector extends SketchCollector {
             }
         },
         entryUrl: "http://e-cig-factory.fr/shop/fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

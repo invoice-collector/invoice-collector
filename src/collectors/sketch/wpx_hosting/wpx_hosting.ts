@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpxHostingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WpxHostingCollector extends SketchCollector {
         version: "0",
         website: "https://de.wpxhosting.com/clientarea/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/170810.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WpxHostingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.wpxhosting.com/clientarea/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

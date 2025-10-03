@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProBackupCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProBackupCollector extends SketchCollector {
         version: "0",
         website: "https://app.probackup.io/p/asana/dashboard/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1475976.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProBackupCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.probackup.io/p/asana/dashboard/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

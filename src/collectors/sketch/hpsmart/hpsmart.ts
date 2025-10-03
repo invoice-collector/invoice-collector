@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HpsmartCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HpsmartCollector extends SketchCollector {
         version: "0",
         website: "https://www.hpsmart.com/de/de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1314677.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HpsmartCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hpsmart.com/de/de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CookieScriptCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CookieScriptCollector extends SketchCollector {
         version: "0",
         website: "https://cookie-script.com/subscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1526328.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CookieScriptCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cookie-script.com/subscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

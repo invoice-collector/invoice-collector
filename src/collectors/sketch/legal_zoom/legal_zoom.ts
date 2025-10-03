@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LegalZoomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LegalZoomCollector extends SketchCollector {
         version: "0",
         website: "https://www.legalzoom.com/account/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1230913.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LegalZoomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.legalzoom.com/account/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

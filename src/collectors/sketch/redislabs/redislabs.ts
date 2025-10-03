@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RedislabsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RedislabsCollector extends SketchCollector {
         version: "0",
         website: "https://app.redislabs.com/#/login?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8828.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RedislabsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.redislabs.com/#/login?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

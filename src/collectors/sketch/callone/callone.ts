@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalloneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CalloneCollector extends SketchCollector {
         version: "0",
         website: "https://box.callone.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/49815.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CalloneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://box.callone.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

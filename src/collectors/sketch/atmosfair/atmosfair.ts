@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtmosfairCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AtmosfairCollector extends SketchCollector {
         version: "0",
         website: "https://www.atmosfair.de/de/myatmosfair",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/157967.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AtmosfairCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.atmosfair.de/de/myatmosfair",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

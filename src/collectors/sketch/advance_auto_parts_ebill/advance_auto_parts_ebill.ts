@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdvanceAutoPartsEbillCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdvanceAutoPartsEbillCollector extends SketchCollector {
         version: "0",
         website: "https://ebill.advancecommercial.com/psp/ebill/CUSTOMER/ASC_ARP/c/ASC_CUSTOM_AR.ASC_EBILL_SEARCH.GBL?FolderPath=PORTAL_ROOT_OBJECT.ASC_EBILL_SEARCH&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4447087.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdvanceAutoPartsEbillCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ebill.advancecommercial.com/psp/ebill/CUSTOMER/ASC_ARP/c/ASC_CUSTOM_AR.ASC_EBILL_SEARCH.GBL?FolderPath=PORTAL_ROOT_OBJECT.ASC_EBILL_SEARCH&IsFolder=false&IgnoreParamTempl=FolderPath%2cIsFolder",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

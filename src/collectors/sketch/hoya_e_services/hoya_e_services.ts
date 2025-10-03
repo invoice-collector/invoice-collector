@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HoyaEServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HoyaEServicesCollector extends SketchCollector {
         version: "0",
         website: "https://eservices.hoya.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4216890.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HoyaEServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eservices.hoya.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

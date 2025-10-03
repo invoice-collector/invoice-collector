@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImmobilienWertermittlungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ImmobilienWertermittlungCollector extends SketchCollector {
         version: "0",
         website: "https://www.immobilien-wertermittlung.de/user_rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/446098.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ImmobilienWertermittlungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.immobilien-wertermittlung.de/user_rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

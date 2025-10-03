@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbesucherCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EbesucherCollector extends SketchCollector {
         version: "0",
         website: "https://www.ebesucher.de/?link=userinvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/63017.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EbesucherCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ebesucher.de/?link=userinvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

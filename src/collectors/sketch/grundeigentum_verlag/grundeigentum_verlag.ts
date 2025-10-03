@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrundeigentumVerlagCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GrundeigentumVerlagCollector extends SketchCollector {
         version: "0",
         website: "https://premium.grundeigentum-verlag.de/zugang/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26543.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GrundeigentumVerlagCollector extends SketchCollector {
             }
         },
         entryUrl: "https://premium.grundeigentum-verlag.de/zugang/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

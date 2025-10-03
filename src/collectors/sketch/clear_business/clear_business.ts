@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClearBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClearBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://customerzone.clearbusiness.co.uk/Invoice/Index/34181673",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4545950.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClearBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customerzone.clearbusiness.co.uk/Invoice/Index/34181673",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

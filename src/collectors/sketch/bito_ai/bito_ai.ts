@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BitoAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BitoAiCollector extends SketchCollector {
         version: "0",
         website: "https://billing.bito.ai/p/session/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2110711.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BitoAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.bito.ai/p/session/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

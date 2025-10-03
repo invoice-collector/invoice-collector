@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagentaBusinessAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MagentaBusinessAtCollector extends SketchCollector {
         version: "0",
         website: "https://csc.magentabusiness.at/client/login?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2477067.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MagentaBusinessAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://csc.magentabusiness.at/client/login?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

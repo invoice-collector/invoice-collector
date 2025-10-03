@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceBarterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FranceBarterCollector extends SketchCollector {
         version: "0",
         website: "https://korp.co/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1052827.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FranceBarterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://korp.co/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BesUtilitiesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BesUtilitiesCollector extends SketchCollector {
         version: "0",
         website: "https://account.besutilities.co.uk/Login/Login?ReturnUrl=%2fCustomer%2fLogin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/41876.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BesUtilitiesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.besutilities.co.uk/Login/Login?ReturnUrl=%2fCustomer%2fLogin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EquinuxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EquinuxCollector extends SketchCollector {
         version: "0",
         website: "https://store.equinux.com/eqnetwork/store/signin.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/58820.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EquinuxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store.equinux.com/eqnetwork/store/signin.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

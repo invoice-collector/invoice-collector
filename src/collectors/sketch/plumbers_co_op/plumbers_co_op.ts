@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlumbersCoOpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlumbersCoOpCollector extends SketchCollector {
         version: "0",
         website: "https://www.pscoop.com.au/invoice-credits",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/541214.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlumbersCoOpCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pscoop.com.au/invoice-credits",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

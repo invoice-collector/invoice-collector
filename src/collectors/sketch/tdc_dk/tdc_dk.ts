@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TdcDkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TdcDkCollector extends SketchCollector {
         version: "0",
         website: "https://profil.yousee.dk/?context=selfservice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9561.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TdcDkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://profil.yousee.dk/?context=selfservice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

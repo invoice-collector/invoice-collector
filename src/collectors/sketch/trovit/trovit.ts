@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrovitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrovitCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.trovit.com/?cod=check_login&url=https%3A%2F%2Fhomes.trovit.com%2Findex.php%2Fcod.mail_preferences&language=en_US&",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33052.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrovitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.trovit.com/?cod=check_login&url=https%3A%2F%2Fhomes.trovit.com%2Findex.php%2Fcod.mail_preferences&language=en_US&",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

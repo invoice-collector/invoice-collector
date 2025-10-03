@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LibsynCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LibsynCollector extends SketchCollector {
         version: "0",
         website: "https://four.libsyn.com/billing/billing-form/type/change-plan",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20876.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LibsynCollector extends SketchCollector {
             }
         },
         entryUrl: "https://four.libsyn.com/billing/billing-form/type/change-plan",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

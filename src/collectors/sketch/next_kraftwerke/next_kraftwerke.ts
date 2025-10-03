@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextKraftwerkeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NextKraftwerkeCollector extends SketchCollector {
         version: "0",
         website: "https://mein-kraftwerk.next-kraftwerke.de/document/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2656513.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NextKraftwerkeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein-kraftwerk.next-kraftwerke.de/document/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

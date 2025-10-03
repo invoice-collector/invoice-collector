@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KohlForderungsmanagementCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KohlForderungsmanagementCollector extends SketchCollector {
         version: "0",
         website: "https://kundenlogin.kohlkg.de/MP/Menue.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4507036.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KohlForderungsmanagementCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenlogin.kohlkg.de/MP/Menue.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

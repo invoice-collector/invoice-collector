@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SistrixCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SistrixCollector extends SketchCollector {
         version: "0",
         website: "https://de.sistrix.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/408.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SistrixCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.sistrix.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

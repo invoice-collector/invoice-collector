@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MadisonGasAndElectricCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MadisonGasAndElectricCollector extends SketchCollector {
         version: "0",
         website: "https://www.mge.com/my_mge/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8962.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MadisonGasAndElectricCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mge.com/my_mge/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

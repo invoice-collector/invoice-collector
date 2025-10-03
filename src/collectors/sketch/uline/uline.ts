@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UlineCollector extends SketchCollector {
         version: "0",
         website: "https://www.uline.com/SignIn/SignIn",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/385911.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.uline.com/SignIn/SignIn",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DzbBankCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DzbBankCollector extends SketchCollector {
         version: "0",
         website: "https://portal.dzb-bank.de/dzb/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203775.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DzbBankCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.dzb-bank.de/dzb/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlancraftCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlancraftCollector extends SketchCollector {
         version: "0",
         website: "https://plancraft.de/anmelden",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2246689.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlancraftCollector extends SketchCollector {
             }
         },
         entryUrl: "https://plancraft.de/anmelden",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
