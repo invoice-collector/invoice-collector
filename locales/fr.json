@@ -5814,7 +5814,7 @@
   "i18n.collectors.overloop_classic.description": "Une plateforme d'engagement commercial pour automatiser et développer les campagnes de prospection sortante.",
   "i18n.collectors.ovh.authentication_error": "Erreur d'authentification. L'un de vos identifiants est incorrect.",
   "i18n.collectors.ovh.description": "OVH est un hébergeur web français.",
-  "i18n.collectors.ovh.instructions": "Obtenez vos identifiants en cliquant sur <a href='https://www.ovh.com/auth/api/createToken?GET=/me/bill&GET=/me/bill/*' target='_blank'>ce lien</a>.<ul><li>Entrez le nom et la description de votre choix</li><li>Sélectionnez une validité illimitée (Unlimited)</li><li>Les droits doivent être \"GET /me/bill\"</li><li>Cliquez sur le bouton \"Create\"</li><li>Copiez l'Application key, l'Application secret et la Consumer key dans le formulaire ci-dessous</li></ul>",
+  "i18n.collectors.ovh.instructions": "Obtenez vos identifiants en cliquant sur <a href='https://www.ovh.com/auth/api/createToken?GET=/me/bill*' target='_blank'>ce lien</a>.<ul><li>Entrez le nom et la description de votre choix</li><li>Sélectionnez une validité illimitée (Unlimited)</li><li>Les droits doivent être \"GET /me/bill*\"</li><li>Cliquez sur le bouton \"Create\"</li><li>Copiez l'Application key, l'Application secret et la Consumer key dans le formulaire ci-dessous</li></ul>",
   "i18n.collectors.ovh.server": "Serveur",
   "i18n.collectors.ovo_energy.description": "Un fournisseur d'énergie basé au Royaume-Uni proposant une électricité 100% renouvelable et des solutions domotiques.",
   "i18n.collectors.ovz.description": "OVZ est un hébergeur allemand proposant des serveurs virtuels, des serveurs dédiés et des services de noms de domaine.",

@@ -5814,7 +5814,7 @@
   "i18n.collectors.overloop_classic.description": "A sales engagement platform to automate and scale outbound prospecting campaigns.",
   "i18n.collectors.ovh.authentication_error": "Authentication error. One of your credentials is incorrect.",
   "i18n.collectors.ovh.description": "OVH is a French web hosting company.",
-  "i18n.collectors.ovh.instructions": "Get your credentials by clicking on <a href='https://www.ovh.com/auth/api/createToken?GET=/me/bill&GET=/me/bill/*' target='_blank'>this link</a>.<ul><li>Enter the name and the description of your choice</li><li>Select an unilimited validity</li><li>The rights must be \"GET /me/bill\"</li><li>Click on the button \"Create\"</li><li>Copy the Application key, Application secret and Consumer key in the form bellow</li></ul>",
+  "i18n.collectors.ovh.instructions": "Get your credentials by clicking on <a href='https://www.ovh.com/auth/api/createToken?GET=/me/bill*' target='_blank'>this link</a>.<ul><li>Enter the name and the description of your choice</li><li>Select an unilimited validity</li><li>The rights must be \"GET /me/bill*\"</li><li>Click on the button \"Create\"</li><li>Copy the Application key, Application secret and Consumer key in the form bellow</li></ul>",
   "i18n.collectors.ovh.server": "Server",
   "i18n.collectors.ovo_energy.description": "A UK-based energy supplier offering 100% renewable electricity and smart home solutions.",
   "i18n.collectors.ovz.description": "OVZ is a German hosting provider offering virtual servers, dedicated servers, and domain services.",
