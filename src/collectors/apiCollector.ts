@@ -34,7 +34,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
         // Initialise axios instance
         this.instance = axios.create({
             baseURL: this.config.baseUrl,
-            timeout: 1000
+            timeout: 10000
         });
 
         try {
