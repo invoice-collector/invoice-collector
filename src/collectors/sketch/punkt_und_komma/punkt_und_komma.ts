@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PunktUndKommaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PunktUndKommaCollector extends SketchCollector {
         version: "0",
         website: "https://punkt-und-komma.net/user/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/549039.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PunktUndKommaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://punkt-und-komma.net/user/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

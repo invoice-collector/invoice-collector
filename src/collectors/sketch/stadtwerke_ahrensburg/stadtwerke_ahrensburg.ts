@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeAhrensburgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeAhrensburgCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal-schlossmedia.stadtwerke-ahrensburg.de/#/payments-list?page=0",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2203319.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeAhrensburgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal-schlossmedia.stadtwerke-ahrensburg.de/#/payments-list?page=0",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Rent24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Rent24Collector extends SketchCollector {
         version: "0",
         website: "https://members.rent24.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/47323.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Rent24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://members.rent24.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tele2NlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Tele2NlCollector extends SketchCollector {
         version: "0",
         website: "https://www.tele2.nl/mijn-tele2/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9474.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Tele2NlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tele2.nl/mijn-tele2/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

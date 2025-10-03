@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SapAribaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SapAribaCollector extends SketchCollector {
         version: "0",
         website: "https://service.ariba.com/ProfileManagement.aw/109544067/aw?awh=r&awssk=Q00yLHqP&dard=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2183867.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SapAribaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.ariba.com/ProfileManagement.aw/109544067/aw?awh=r&awssk=Q00yLHqP&dard=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

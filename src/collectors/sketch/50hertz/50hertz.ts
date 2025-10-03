@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _50hertzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _50hertzCollector extends SketchCollector {
         version: "0",
         website: "https://rechnungsportal.50hertz.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/194676.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _50hertzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rechnungsportal.50hertz.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogpayMobileparkingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LogpayMobileparkingCollector extends SketchCollector {
         version: "0",
         website: "https://www.logpay.de/DE/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/222565.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LogpayMobileparkingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.logpay.de/DE/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

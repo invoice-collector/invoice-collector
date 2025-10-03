@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaVapotiereCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaVapotiereCollector extends SketchCollector {
         version: "0",
         website: "https://www.la-vapotiere.fr/connexion?back=my-account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121382.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaVapotiereCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.la-vapotiere.fr/connexion?back=my-account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

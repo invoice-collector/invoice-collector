@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FloridaNaturalGasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FloridaNaturalGasCollector extends SketchCollector {
         version: "0",
         website: "https://click.onlyfng.com/BillingHistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2723587.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FloridaNaturalGasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://click.onlyfng.com/BillingHistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

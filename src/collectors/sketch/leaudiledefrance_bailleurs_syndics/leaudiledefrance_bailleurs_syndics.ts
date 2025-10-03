@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeauDileDeFranceBailleursSyndicsCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class LeauDileDeFranceBailleursSyndicsCollector extends SketchCollector {
         version: "0",
         website: "https://www.leaudiledefrance.fr/",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc6asmbkt0q9fF-5f1yZmyK_EOb-CIesBnHA&s",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class LeauDileDeFranceBailleursSyndicsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://connexion.leaudiledefrance.fr/espace-bailleurs-syndics/s/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

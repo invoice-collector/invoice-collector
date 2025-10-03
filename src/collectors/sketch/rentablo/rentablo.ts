@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RentabloCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RentabloCollector extends SketchCollector {
         version: "0",
         website: "https://rentablo.de/app#!/cashbackSubscriptionDashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/223722.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RentabloCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rentablo.de/app#!/cashbackSubscriptionDashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

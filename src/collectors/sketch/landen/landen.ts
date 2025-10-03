@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LandenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LandenCollector extends SketchCollector {
         version: "0",
         website: "https://app.landen.co/settings/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/409627.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LandenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.landen.co/settings/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

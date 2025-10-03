@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EntrepotDuBricolageCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class EntrepotDuBricolageCollector extends SketchCollector {
         version: "0",
         website: "https://entrepot-du-bricolage.fr",
         logo: "https://blog.entrepot-du-bricolage.fr/app/themes/entrepot-du-bricolage/dist/img/logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class EntrepotDuBricolageCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.entrepot-du-bricolage.fr/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

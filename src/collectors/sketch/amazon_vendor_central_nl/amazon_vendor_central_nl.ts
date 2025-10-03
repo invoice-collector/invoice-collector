@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonVendorCentralNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonVendorCentralNlCollector extends SketchCollector {
         version: "0",
         website: "https://vendorcentral.amazon.nl/gp/vendor/sign-in/257-4832853-4155409?ie=UTF8&originatingURI=%2Fgp%2Fvendor%2Fmembers%2Fhome",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/553397.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonVendorCentralNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vendorcentral.amazon.nl/gp/vendor/sign-in/257-4832853-4155409?ie=UTF8&originatingURI=%2Fgp%2Fvendor%2Fmembers%2Fhome",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

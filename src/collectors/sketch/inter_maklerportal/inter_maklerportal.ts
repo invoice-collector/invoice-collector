@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterMaklerportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InterMaklerportalCollector extends SketchCollector {
         version: "0",
         website: "https://makler.inter.de/e-abrechnungsservice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4693363.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InterMaklerportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://makler.inter.de/e-abrechnungsservice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

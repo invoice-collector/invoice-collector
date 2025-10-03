@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RheinbahnAboonlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RheinbahnAboonlineCollector extends SketchCollector {
         version: "0",
         website: "https://aboonline.rheinbahn.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/53082.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RheinbahnAboonlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aboonline.rheinbahn.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

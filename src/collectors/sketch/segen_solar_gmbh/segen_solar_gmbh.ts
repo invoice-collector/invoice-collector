@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SegenSolarGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SegenSolarGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://portal.segensolar.de/Reseller/Orders/RecentInvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1534210.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SegenSolarGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.segensolar.de/Reseller/Orders/RecentInvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

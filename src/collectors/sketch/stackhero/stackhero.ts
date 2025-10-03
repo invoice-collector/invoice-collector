@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StackheroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StackheroCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.stackhero.io/account/organizations/org-cnrq47/billing/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1723351.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StackheroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.stackhero.io/account/organizations/org-cnrq47/billing/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

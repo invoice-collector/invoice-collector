@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdsimpleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdsimpleCollector extends SketchCollector {
         version: "0",
         website: "https://www.adsimple.at/mein-benutzerkonto/bestellungen-liste/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2027050.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdsimpleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.adsimple.at/mein-benutzerkonto/bestellungen-liste/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

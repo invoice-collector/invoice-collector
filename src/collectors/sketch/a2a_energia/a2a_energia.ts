@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class A2aEnergiaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class A2aEnergiaCollector extends SketchCollector {
         version: "0",
         website: "http://www.a2aenergia.eu",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8909.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class A2aEnergiaCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.a2aenergia.eu",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

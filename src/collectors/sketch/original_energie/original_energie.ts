@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OriginalEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OriginalEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://portal.originalenergie.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/90985.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OriginalEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.originalenergie.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

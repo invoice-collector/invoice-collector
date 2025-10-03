@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class O2HomeServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class O2HomeServicesCollector extends SketchCollector {
         version: "0",
         website: "https://www.o2.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122531.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class O2HomeServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.o2.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

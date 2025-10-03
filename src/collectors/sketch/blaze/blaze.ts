@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlazeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BlazeCollector extends SketchCollector {
         version: "0",
         website: "https://blaze.today/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3014702.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BlazeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://blaze.today/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarckIndustriesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MarckIndustriesCollector extends SketchCollector {
         version: "0",
         website: "https://waste.marck.net/truxweb/login.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88492.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MarckIndustriesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://waste.marck.net/truxweb/login.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

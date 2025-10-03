@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DesignmodoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DesignmodoCollector extends SketchCollector {
         version: "0",
         website: "https://designmodo.com/my-account/view-subscription/550265/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2513820.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DesignmodoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://designmodo.com/my-account/view-subscription/550265/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellersuiteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SellersuiteCollector extends SketchCollector {
         version: "0",
         website: "https://pay.stripe.com/invoice/invst_0Ty0ieAwz12P2OoIYVcjmCjygU",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/144438.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SellersuiteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pay.stripe.com/invoice/invst_0Ty0ieAwz12P2OoIYVcjmCjygU",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

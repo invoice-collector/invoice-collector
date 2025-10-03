@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarksoftDeutschlandGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StarksoftDeutschlandGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://www.insikacenter.de/insikaoffice/script/module/rechnungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1316281.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StarksoftDeutschlandGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.insikacenter.de/insikaoffice/script/module/rechnungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

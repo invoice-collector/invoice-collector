@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptimizepressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OptimizepressCollector extends SketchCollector {
         version: "0",
         website: "https://my.optimizepress.com/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9154.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OptimizepressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.optimizepress.com/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

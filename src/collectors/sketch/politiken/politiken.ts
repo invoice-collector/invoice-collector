@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PolitikenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PolitikenCollector extends SketchCollector {
         version: "0",
         website: "https://politiken.dk/minside/betaling/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4365220.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PolitikenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://politiken.dk/minside/betaling/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

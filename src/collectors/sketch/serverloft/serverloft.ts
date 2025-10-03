@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServerloftCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ServerloftCollector extends SketchCollector {
         version: "0",
         website: "https://my.server4you.net/en/Generic/Auth/Index/login\'",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15562.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ServerloftCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.server4you.net/en/Generic/Auth/Index/login\'",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

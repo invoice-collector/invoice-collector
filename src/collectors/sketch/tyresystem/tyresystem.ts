@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TyresystemCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TyresystemCollector extends SketchCollector {
         version: "0",
         website: "https://www.tyresystem.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1173761.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TyresystemCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tyresystem.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

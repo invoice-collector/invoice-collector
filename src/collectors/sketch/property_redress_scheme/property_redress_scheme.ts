@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PropertyRedressSchemeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PropertyRedressSchemeCollector extends SketchCollector {
         version: "0",
         website: "https://www.theprs.co.uk/propertyagent/dashboard/#mebership",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21944.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PropertyRedressSchemeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.theprs.co.uk/propertyagent/dashboard/#mebership",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

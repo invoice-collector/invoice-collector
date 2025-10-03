@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EstugoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EstugoCollector extends SketchCollector {
         version: "0",
         website: "https://hera.estugo.de:8443/login_up.php?success_redirect_url=%2Fsmb%2Fweb%2Fview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/55429.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EstugoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hera.estugo.de:8443/login_up.php?success_redirect_url=%2Fsmb%2Fweb%2Fview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyAutobidDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyAutobidDeCollector extends SketchCollector {
         version: "0",
         website: "https://my.autobid.de/?action=mailbox&actionPath=mailbox/invoices&portal=all",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1679588.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyAutobidDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.autobid.de/?action=mailbox&actionPath=mailbox/invoices&portal=all",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

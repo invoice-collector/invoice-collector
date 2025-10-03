@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravionItDistributionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TravionItDistributionCollector extends SketchCollector {
         version: "0",
         website: "https://www.travion.nl/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/71591.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TravionItDistributionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.travion.nl/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

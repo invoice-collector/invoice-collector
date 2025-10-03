@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VyroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VyroCollector extends SketchCollector {
         version: "0",
         website: "https://billing.vyro.ai/p/session/live_YWNjdF8xTjFUNWFKc0FuQ3RNcU4yLF9QZnVVM1NQbGxPbXZsQXhVUlRIMTBlbjQyS1pNSDh00100YSlVk2jI",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2705613.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VyroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.vyro.ai/p/session/live_YWNjdF8xTjFUNWFKc0FuQ3RNcU4yLF9QZnVVM1NQbGxPbXZsQXhVUlRIMTBlbjQyS1pNSDh00100YSlVk2jI",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

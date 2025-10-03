@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImpactCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ImpactCollector extends SketchCollector {
         version: "0",
         website: "https://app.impact.com/secure/mediapartner/PUB_FINANCE_Report/r3/report/viewReport.report?handle=mp_invoice_history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/61843.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ImpactCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.impact.com/secure/mediapartner/PUB_FINANCE_Report/r3/report/viewReport.report?handle=mp_invoice_history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

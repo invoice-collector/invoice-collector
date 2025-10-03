@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CurrencylayerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CurrencylayerCollector extends SketchCollector {
         version: "0",
         website: "https://currencylayer.com/invoice-dl?invoice_id=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7507.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CurrencylayerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://currencylayer.com/invoice-dl?invoice_id=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

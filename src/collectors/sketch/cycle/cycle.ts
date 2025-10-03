@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CycleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CycleCollector extends SketchCollector {
         version: "0",
         website: "https://erp.app-room.de/org/office/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1322310.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CycleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://erp.app-room.de/org/office/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

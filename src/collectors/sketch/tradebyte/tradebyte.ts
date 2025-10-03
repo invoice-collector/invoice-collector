@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradebyteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TradebyteCollector extends SketchCollector {
         version: "0",
         website: "https://www.trade-server.net/index.php?page=current_user&sub=invoicing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/180777.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TradebyteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.trade-server.net/index.php?page=current_user&sub=invoicing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

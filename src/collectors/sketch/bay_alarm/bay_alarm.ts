@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BayAlarmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BayAlarmCollector extends SketchCollector {
         version: "0",
         website: "https://baynet.bayalarm.com/billing/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/740507.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BayAlarmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://baynet.bayalarm.com/billing/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

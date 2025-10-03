@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnzerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnzerCollector extends SketchCollector {
         version: "0",
         website: "https://insights.unzer.com/signin?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534353.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnzerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://insights.unzer.com/signin?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

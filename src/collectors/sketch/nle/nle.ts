@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NleCollector extends SketchCollector {
         version: "0",
         website: "https://mijn.nle.nl/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9552.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mijn.nle.nl/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

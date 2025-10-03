@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleCloudPlatformCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoogleCloudPlatformCollector extends SketchCollector {
         version: "0",
         website: "http://console.cloud.google.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18546.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoogleCloudPlatformCollector extends SketchCollector {
             }
         },
         entryUrl: "http://console.cloud.google.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

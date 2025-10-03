@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KohlpharmaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KohlpharmaCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.kohlpharma.com/PIDocument/Document/DocumentOverview?isDirectCall=False",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445820.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KohlpharmaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.kohlpharma.com/PIDocument/Document/DocumentOverview?isDirectCall=False",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlextrackCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlextrackCollector extends SketchCollector {
         version: "0",
         website: "https://www.flextrack.ca/Account/LogOn",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8842.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlextrackCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.flextrack.ca/Account/LogOn",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

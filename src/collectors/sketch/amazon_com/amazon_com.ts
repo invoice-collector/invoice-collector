@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonComCollector extends SketchCollector {
         version: "0",
         website: "https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

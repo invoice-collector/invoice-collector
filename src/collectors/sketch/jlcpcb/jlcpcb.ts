@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JlcpcbCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JlcpcbCollector extends SketchCollector {
         version: "0",
         website: "https://jlcpcb.com/client/index.html#/order",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124044.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JlcpcbCollector extends SketchCollector {
             }
         },
         entryUrl: "https://jlcpcb.com/client/index.html#/order",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

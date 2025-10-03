@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpusEnergyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpusEnergyCollector extends SketchCollector {
         version: "0",
         website: "https://my.opusenergy.com/login?ReturnUrl=https://my.opusenergy.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9332.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpusEnergyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.opusenergy.com/login?ReturnUrl=https://my.opusenergy.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfoleasysCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InfoleasysCollector extends SketchCollector {
         version: "0",
         website: "https://portail.infoleasys.fr/ArtisWeb/portail/login/auth/01.action",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4175674.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InfoleasysCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail.infoleasys.fr/ArtisWeb/portail/login/auth/01.action",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

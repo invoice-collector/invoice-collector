@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BreezyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BreezyCollector extends SketchCollector {
         version: "0",
         website: "https://breezy.hr/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/56738.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BreezyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://breezy.hr/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

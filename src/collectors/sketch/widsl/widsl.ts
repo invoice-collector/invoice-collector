@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WidslCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WidslCollector extends SketchCollector {
         version: "0",
         website: "https://www.widsl.de/loginformular",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9200.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WidslCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.widsl.de/loginformular",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

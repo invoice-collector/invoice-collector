@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineafsprakenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnlineafsprakenCollector extends SketchCollector {
         version: "0",
         website: "https://agenda.onlineafspraken.nl/companies/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3020647.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnlineafsprakenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://agenda.onlineafspraken.nl/companies/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

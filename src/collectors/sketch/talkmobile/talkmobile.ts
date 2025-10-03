@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TalkmobileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TalkmobileCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.talkmobile.co.uk/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/30196.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TalkmobileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.talkmobile.co.uk/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

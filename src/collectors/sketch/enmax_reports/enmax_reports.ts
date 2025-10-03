@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnmaxReportsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnmaxReportsCollector extends SketchCollector {
         version: "0",
         website: "https://www.enmax.com/reports",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9204.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnmaxReportsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.enmax.com/reports",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

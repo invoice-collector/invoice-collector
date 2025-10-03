@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeniosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TeniosCollector extends SketchCollector {
         version: "0",
         website: "http://www.tenios.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/77113.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TeniosCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.tenios.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

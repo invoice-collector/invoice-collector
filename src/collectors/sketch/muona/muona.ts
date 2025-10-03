@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MuonaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MuonaCollector extends SketchCollector {
         version: "0",
         website: "https://moncompte.muona.com/index.php?p=MonCompteClientFacture/main&tab=1&id=1706",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1487089.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MuonaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://moncompte.muona.com/index.php?p=MonCompteClientFacture/main&tab=1&id=1706",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

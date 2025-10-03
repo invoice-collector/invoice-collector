@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CassCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CassCollector extends SketchCollector {
         version: "0",
         website: "https://online.cass.ad/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4397029.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CassCollector extends SketchCollector {
             }
         },
         entryUrl: "https://online.cass.ad/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NapaProlinkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NapaProlinkCollector extends SketchCollector {
         version: "0",
         website: "https://pro.napaprolink.com/my-account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4593639.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NapaProlinkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pro.napaprolink.com/my-account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

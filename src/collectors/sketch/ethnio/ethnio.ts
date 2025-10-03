@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EthnioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EthnioCollector extends SketchCollector {
         version: "0",
         website: "https://ethn.io/users/5423/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/159732.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EthnioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ethn.io/users/5423/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoriolisCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class CoriolisCollector extends SketchCollector {
         version: "0",
         website: "https://coriolis.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/e/e6/Logo_Coriolis_Telecom.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class CoriolisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.coriolis.com/connexion"
+        entryUrl: "https://espaceclient.coriolis.com/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheTelekomBusinessServicePortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeutscheTelekomBusinessServicePortalCollector extends SketchCollect
         version: "0",
         website: "https://bsp.t-mobile.de/portal/login.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/65818.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeutscheTelekomBusinessServicePortalCollector extends SketchCollect
             }
         },
         entryUrl: "https://bsp.t-mobile.de/portal/login.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SozialFactoringCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SozialFactoringCollector extends SketchCollector {
         version: "0",
         website: "https://app.clever-factoring.de/kunde/einrichtungen/F31179/ankaufpositionen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732084.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SozialFactoringCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.clever-factoring.de/kunde/einrichtungen/F31179/ankaufpositionen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

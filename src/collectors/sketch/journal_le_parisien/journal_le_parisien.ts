@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JournalLeParisienCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JournalLeParisienCollector extends SketchCollector {
         version: "0",
         website: "https://serviceclients.leparisien.fr/abonnement/paiements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1470158.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JournalLeParisienCollector extends SketchCollector {
             }
         },
         entryUrl: "https://serviceclients.leparisien.fr/abonnement/paiements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

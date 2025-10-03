@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BauschLombFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BauschLombFrCollector extends SketchCollector {
         version: "0",
         website: "http://www.bausch.fr/chirurgie/fr/access",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/496966.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BauschLombFrCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.bausch.fr/chirurgie/fr/access",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

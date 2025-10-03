@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SubscribersComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SubscribersComCollector extends SketchCollector {
         version: "0",
         website: "https://app.subscribers.com/settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/236273.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SubscribersComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.subscribers.com/settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

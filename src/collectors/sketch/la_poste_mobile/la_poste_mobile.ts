@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaPosteMobileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaPosteMobileCollector extends SketchCollector {
         version: "0",
         website: "https://lapostemobile.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/8/80/LaPosteMobile-2025.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaPosteMobileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceclient.lapostemobile.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomadooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DomadooCollector extends SketchCollector {
         version: "0",
         website: "https://www.domadoo.fr/fr/authentification?back=my-account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118645.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DomadooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.domadoo.fr/fr/authentification?back=my-account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

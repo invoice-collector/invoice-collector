@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CttComputertechnikAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CttComputertechnikAgCollector extends SketchCollector {
         version: "0",
         website: "https://ctt.de/customer/account/login/referer/aHR0cHM6Ly9jdHQuZGUv/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1439515.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CttComputertechnikAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ctt.de/customer/account/login/referer/aHR0cHM6Ly9jdHQuZGUv/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

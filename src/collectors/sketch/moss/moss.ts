@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MossCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MossCollector extends SketchCollector {
         version: "0",
         website: "https://getmoss.com/de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777335.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MossCollector extends SketchCollector {
             }
         },
         entryUrl: "https://getmoss.com/de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

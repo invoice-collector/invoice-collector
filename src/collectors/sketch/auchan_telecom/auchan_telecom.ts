@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuchanTelecomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AuchanTelecomCollector extends SketchCollector {
         version: "0",
         website: "https://www.auchantelecom.fr/fr/identification/espace-client.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135078.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AuchanTelecomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.auchantelecom.fr/fr/identification/espace-client.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

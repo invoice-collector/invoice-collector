@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdpPtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EdpPtCollector extends SketchCollector {
         version: "0",
         website: "http://www.edp.pt",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9084.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EdpPtCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.edp.pt",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

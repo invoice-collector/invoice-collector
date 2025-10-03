@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WvvEnergieversorgerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WvvEnergieversorgerCollector extends SketchCollector {
         version: "0",
         website: "https://onlineservice.wvv.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2201642.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WvvEnergieversorgerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlineservice.wvv.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

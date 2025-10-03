@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OtoyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OtoyCollector extends SketchCollector {
         version: "0",
         website: "https://render.otoy.com/account/purchases.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/213145.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OtoyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://render.otoy.com/account/purchases.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

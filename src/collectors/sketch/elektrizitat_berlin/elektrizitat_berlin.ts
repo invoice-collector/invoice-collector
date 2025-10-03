@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElektrizitatBerlinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ElektrizitatBerlinCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.elektrizitaet-berlin.de/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4465656.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ElektrizitatBerlinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.elektrizitaet-berlin.de/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClassPassPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClassPassPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://studios.classpass.com/stats/reports",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2130742.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClassPassPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://studios.classpass.com/stats/reports",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

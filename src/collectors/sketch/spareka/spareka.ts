@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SparekaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SparekaCollector extends SketchCollector {
         version: "0",
         website: "https://www.spareka.fr/sales/order/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1268958.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SparekaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.spareka.fr/sales/order/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

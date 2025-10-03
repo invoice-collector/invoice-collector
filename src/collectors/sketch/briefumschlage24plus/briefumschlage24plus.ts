@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Briefumschlage24plusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Briefumschlage24plusCollector extends SketchCollector {
         version: "0",
         website: "https://www.briefumschlaege24plus.de/download",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1440665.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Briefumschlage24plusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.briefumschlaege24plus.de/download",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

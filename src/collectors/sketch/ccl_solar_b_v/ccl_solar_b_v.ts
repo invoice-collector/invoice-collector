@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CclSolarBVCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CclSolarBVCollector extends SketchCollector {
         version: "0",
         website: "https://www.cclsolar.eu/Home/AgedDebt",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1472721.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CclSolarBVCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cclsolar.eu/Home/AgedDebt",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

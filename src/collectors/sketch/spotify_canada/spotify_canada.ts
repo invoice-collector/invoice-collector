@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpotifyCanadaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpotifyCanadaCollector extends SketchCollector {
         version: "0",
         website: "https://www.spotify.com/ca-en/account/subscription/receipt/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/586002.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpotifyCanadaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.spotify.com/ca-en/account/subscription/receipt/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

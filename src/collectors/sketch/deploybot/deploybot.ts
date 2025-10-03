@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeploybotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeploybotCollector extends SketchCollector {
         version: "0",
         website: "https://login.deploybot.com/session/new",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/30816.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeploybotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.deploybot.com/session/new",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

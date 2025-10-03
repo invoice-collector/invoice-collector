@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaperlessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PaperlessCollector extends SketchCollector {
         version: "0",
         website: "https://app.paperless.io/organizations/91/billing_session",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1763950.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PaperlessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.paperless.io/organizations/91/billing_session",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

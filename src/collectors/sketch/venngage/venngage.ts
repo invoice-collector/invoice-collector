@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VenngageCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VenngageCollector extends SketchCollector {
         version: "0",
         website: "https://infograph.venngage.com/account/billinghistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/654783.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VenngageCollector extends SketchCollector {
             }
         },
         entryUrl: "https://infograph.venngage.com/account/billinghistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

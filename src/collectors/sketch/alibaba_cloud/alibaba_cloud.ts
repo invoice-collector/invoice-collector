@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlibabaCloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlibabaCloudCollector extends SketchCollector {
         version: "0",
         website: "https://account.alibabacloud.com/login/login.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/72316.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlibabaCloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.alibabacloud.com/login/login.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

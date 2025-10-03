@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnviaTelPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnviaTelPortalCollector extends SketchCollector {
         version: "0",
         website: "https://portal.enviatel.de/rechnungen_verbrauch/rechnungen/2019/7/Stammdaten::Bill/10217568",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/159734.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnviaTelPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.enviatel.de/rechnungen_verbrauch/rechnungen/2019/7/Stammdaten::Bill/10217568",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

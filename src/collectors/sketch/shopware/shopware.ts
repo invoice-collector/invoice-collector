@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopwareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShopwareCollector extends SketchCollector {
         version: "0",
         website: "https://account.shopware.com/#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4686.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShopwareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.shopware.com/#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

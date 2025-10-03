@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KleinanzeigenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KleinanzeigenCollector extends SketchCollector {
         version: "0",
         website: "https://www.kleinanzeigen.de/m-rechnungen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3340229.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KleinanzeigenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.kleinanzeigen.de/m-rechnungen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

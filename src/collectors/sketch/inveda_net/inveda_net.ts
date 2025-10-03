@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InvedaNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InvedaNetCollector extends SketchCollector {
         version: "0",
         website: "https://secure.inveda.net/system.user.user.rechnungen.html?RechnungenBox[fad_t_limit]=-1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1745246.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InvedaNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.inveda.net/system.user.user.rechnungen.html?RechnungenBox[fad_t_limit]=-1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

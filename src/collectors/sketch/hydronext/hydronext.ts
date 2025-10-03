@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HydronextCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HydronextCollector extends SketchCollector {
         version: "0",
         website: "https://www.hydronext.fr/espaceclient/facture_remit.php?periode=2023-09",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2161809.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HydronextCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hydronext.fr/espaceclient/facture_remit.php?periode=2023-09",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

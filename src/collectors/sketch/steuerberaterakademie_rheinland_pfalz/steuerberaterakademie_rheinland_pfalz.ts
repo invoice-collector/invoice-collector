@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteuerberaterakademieRheinlandPfalzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SteuerberaterakademieRheinlandPfalzCollector extends SketchCollecto
         version: "0",
         website: "https://www.stb-akademie-rlp.de/aktuelle-buchungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1347387.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SteuerberaterakademieRheinlandPfalzCollector extends SketchCollecto
             }
         },
         entryUrl: "https://www.stb-akademie-rlp.de/aktuelle-buchungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

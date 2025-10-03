@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkyTicketCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SkyTicketCollector extends SketchCollector {
         version: "0",
         website: "https://skyticket.sky.de/scrm/storm/onko/boundary/showAccountsRH.do?forward_success=/scrm/cms/account_abrechnungen-uebersicht.jsp&months=6",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/34690.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SkyTicketCollector extends SketchCollector {
             }
         },
         entryUrl: "https://skyticket.sky.de/scrm/storm/onko/boundary/showAccountsRH.do?forward_success=/scrm/cms/account_abrechnungen-uebersicht.jsp&months=6",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

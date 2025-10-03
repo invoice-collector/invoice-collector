@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtmobilDeCarsharingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtmobilDeCarsharingCollector extends SketchCollector {
         version: "0",
         website: "https://mein.stadtmobil.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/5433.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtmobilDeCarsharingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.stadtmobil.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

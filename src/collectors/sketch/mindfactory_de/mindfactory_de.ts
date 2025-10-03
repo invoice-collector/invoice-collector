@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MindfactoryDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MindfactoryDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.mindfactory.de/login.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9752.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MindfactoryDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mindfactory.de/login.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AislerNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AislerNetCollector extends SketchCollector {
         version: "0",
         website: "https://aisler.net/juwi/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/246192.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AislerNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aisler.net/juwi/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

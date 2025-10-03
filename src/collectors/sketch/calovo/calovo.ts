@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalovoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CalovoCollector extends SketchCollector {
         version: "0",
         website: "https://calpit.calovo.com/user/account?anchor=addon-tab-tab",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2297683.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CalovoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://calpit.calovo.com/user/account?anchor=addon-tab-tab",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

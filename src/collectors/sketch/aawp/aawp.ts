@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AawpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AawpCollector extends SketchCollector {
         version: "0",
         website: "https://aawp.de/dashboard/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778956.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AawpCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aawp.de/dashboard/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

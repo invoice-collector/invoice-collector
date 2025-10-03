@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PloiIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PloiIoCollector extends SketchCollector {
         version: "0",
         website: "https://ploi.io/profile?#v-orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/241762.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PloiIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ploi.io/profile?#v-orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

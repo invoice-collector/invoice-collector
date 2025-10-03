@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeltyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZeltyCollector extends SketchCollector {
         version: "0",
         website: "https://zelty.fr/contact.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1264915.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZeltyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://zelty.fr/contact.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

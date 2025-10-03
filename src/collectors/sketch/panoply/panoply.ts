@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PanoplyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PanoplyCollector extends SketchCollector {
         version: "0",
         website: "https://platform.panoply.io/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034240.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PanoplyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://platform.panoply.io/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

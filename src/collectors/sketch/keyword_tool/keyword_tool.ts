@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeywordToolCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KeywordToolCollector extends SketchCollector {
         version: "0",
         website: "https://keywordtool.io/user?destination=node",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/42204.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KeywordToolCollector extends SketchCollector {
             }
         },
         entryUrl: "https://keywordtool.io/user?destination=node",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

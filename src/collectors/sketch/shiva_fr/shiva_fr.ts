@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShivaFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShivaFrCollector extends SketchCollector {
         version: "0",
         website: "https://portail.shiva.fr/?cookies",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27312.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShivaFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail.shiva.fr/?cookies",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HochzeitManagementCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HochzeitManagementCollector extends SketchCollector {
         version: "0",
         website: "https://app.hochzeit.management/Invoice?view=overview&list=all",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/194680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HochzeitManagementCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.hochzeit.management/Invoice?view=overview&list=all",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

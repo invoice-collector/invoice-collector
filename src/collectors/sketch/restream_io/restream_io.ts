@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RestreamIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RestreamIoCollector extends SketchCollector {
         version: "0",
         website: "https://restream.io/channel",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23363.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RestreamIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://restream.io/channel",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

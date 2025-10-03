@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HpConnectedCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HpConnectedCollector extends SketchCollector {
         version: "0",
         website: "https://instantink.hpconnected.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20874.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HpConnectedCollector extends SketchCollector {
             }
         },
         entryUrl: "https://instantink.hpconnected.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

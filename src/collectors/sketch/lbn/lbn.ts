@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LbnCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LbnCollector extends SketchCollector {
         version: "0",
         website: "https://vermittler.lbn.de/vermittlerportal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1985664.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LbnCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vermittler.lbn.de/vermittlerportal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

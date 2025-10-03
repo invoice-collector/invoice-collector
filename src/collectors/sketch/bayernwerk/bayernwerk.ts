@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BayernwerkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BayernwerkCollector extends SketchCollector {
         version: "0",
         website: "https://www.bayernwerk-netz.de/de/service/rechnungen.html#contractAccId=255000112680",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226712.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BayernwerkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bayernwerk-netz.de/de/service/rechnungen.html#contractAccId=255000112680",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

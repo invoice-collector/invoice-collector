@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AquarienpflanzenShopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AquarienpflanzenShopCollector extends SketchCollector {
         version: "0",
         website: "https://www.aquarienpflanzen-shop.de/Mein-Konto?bestellung=219815",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2586024.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AquarienpflanzenShopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.aquarienpflanzen-shop.de/Mein-Konto?bestellung=219815",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

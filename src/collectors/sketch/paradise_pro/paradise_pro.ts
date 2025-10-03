@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParadiseProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ParadiseProCollector extends SketchCollector {
         version: "0",
         website: "https://pro.paradise-distribution.com/de/app/admin/finance/statements?offset=0&rowNum=20&sort=statementAccountingPeriod-desc",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2793063.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ParadiseProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pro.paradise-distribution.com/de/app/admin/finance/statements?offset=0&rowNum=20&sort=statementAccountingPeriod-desc",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

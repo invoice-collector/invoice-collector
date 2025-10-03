@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChartbeatCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChartbeatCollector extends SketchCollector {
         version: "0",
         website: "https://chartbeat.com/signin/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/137051.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChartbeatCollector extends SketchCollector {
             }
         },
         entryUrl: "https://chartbeat.com/signin/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

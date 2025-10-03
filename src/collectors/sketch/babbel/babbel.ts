@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BabbelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BabbelCollector extends SketchCollector {
         version: "0",
         website: "https://babbel.com/users/payments?locale=de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9588.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BabbelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://babbel.com/users/payments?locale=de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

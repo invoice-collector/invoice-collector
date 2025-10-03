@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TuiDeutschlandRechnungsarchivCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TuiDeutschlandRechnungsarchivCollector extends SketchCollector {
         version: "0",
         website: "https://archivsystem.tui.com/extern/nTASlogin.jsf",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/616615.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TuiDeutschlandRechnungsarchivCollector extends SketchCollector {
             }
         },
         entryUrl: "https://archivsystem.tui.com/extern/nTASlogin.jsf",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SvbSiegenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SvbSiegenCollector extends SketchCollector {
         version: "0",
         website: "https://www.svb-siegen.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/840144.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SvbSiegenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.svb-siegen.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

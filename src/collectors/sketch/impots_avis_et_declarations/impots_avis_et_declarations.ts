@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImpotsAvisEtDeclarationsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ImpotsAvisEtDeclarationsCollector extends SketchCollector {
         version: "0",
         website: "https://cfspart.impots.gouv.fr/LoginAccess?op=c&url=aHR0cHM6Ly9jZnNwYXJ0LmltcG90cy5nb3V2LmZyLw==",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105876.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ImpotsAvisEtDeclarationsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cfspart.impots.gouv.fr/LoginAccess?op=c&url=aHR0cHM6Ly9jZnNwYXJ0LmltcG90cy5nb3V2LmZyLw==",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

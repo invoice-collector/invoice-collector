@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeslaHandschuhfachCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TeslaHandschuhfachCollector extends SketchCollector {
         version: "0",
         website: "https://www.tesla.com/de_DE/teslaaccount/ownership?rn=RN114491712",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1317274.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TeslaHandschuhfachCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tesla.com/de_DE/teslaaccount/ownership?rn=RN114491712",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

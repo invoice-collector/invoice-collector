@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HaistGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HaistGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://www.haist.com/statistik/statistik.cgi?un=w7codUxUMof3aEEcyhvOHytCefOpMVif",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1271408.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HaistGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.haist.com/statistik/statistik.cgi?un=w7codUxUMof3aEEcyhvOHytCefOpMVif",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeoCollector extends SketchCollector {
         version: "0",
         website: "https://login.telecom.pt/adfs/ls/?wa=wsignin1.0&wtrealm=https%3a%2f%2fid.services.telecom.pt%2fwsfed%2fcliente-meo-web&wreply=https%3a%2f%2fid.services.telecom.pt%2fwsfed%2fcliente-meo-web%2freferer-SlRHMVk3Wlc1a3krZlpKSnRveFFvbFN5WXZHZkZyU3E0YUxaMUc3Z3VE",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9455.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.telecom.pt/adfs/ls/?wa=wsignin1.0&wtrealm=https%3a%2f%2fid.services.telecom.pt%2fwsfed%2fcliente-meo-web&wreply=https%3a%2f%2fid.services.telecom.pt%2fwsfed%2fcliente-meo-web%2freferer-SlRHMVk3Wlc1a3krZlpKSnRveFFvbFN5WXZHZkZyU3E0YUxaMUc3Z3VE",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

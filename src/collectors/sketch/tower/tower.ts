@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TowerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TowerCollector extends SketchCollector {
         version: "0",
         website: "https://account.git-tower.com/user_session/new",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/156397.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TowerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.git-tower.com/user_session/new",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

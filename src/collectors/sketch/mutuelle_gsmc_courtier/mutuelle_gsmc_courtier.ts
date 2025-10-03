@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGsmcCourtierCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleGsmcCourtierCollector extends SketchCollector {
         version: "0",
         website: "https://www.mutuelle-gsmc.fr/courtier/public/authentification",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/128486.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleGsmcCourtierCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mutuelle-gsmc.fr/courtier/public/authentification",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

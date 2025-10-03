@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CitizCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CitizCollector extends SketchCollector {
         version: "0",
         website: "https://service.citiz.fr/webapp/my_invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/654757.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CitizCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.citiz.fr/webapp/my_invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

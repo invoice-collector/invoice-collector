@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LibertyMutualCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LibertyMutualCollector extends SketchCollector {
         version: "0",
         website: "https://lmidp.libertymutual.com/as/authorization.oauth2?client_id=ci_blportaloidc_1&scope=openid%20profile%20email&response_type=code&redirect_uri=https%3A%2F%2Fmybusiness.libertymutual.com%2Fauth%2Fuser%2F&state=%2Faccount&IdpAdapterId=extldap",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2387618.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LibertyMutualCollector extends SketchCollector {
             }
         },
         entryUrl: "https://lmidp.libertymutual.com/as/authorization.oauth2?client_id=ci_blportaloidc_1&scope=openid%20profile%20email&response_type=code&redirect_uri=https%3A%2F%2Fmybusiness.libertymutual.com%2Fauth%2Fuser%2F&state=%2Faccount&IdpAdapterId=extldap",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

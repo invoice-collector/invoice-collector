@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeamweekCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TeamweekCollector extends SketchCollector {
         version: "0",
         website: "https://plan.toggl.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6424.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TeamweekCollector extends SketchCollector {
             }
         },
         entryUrl: "https://plan.toggl.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

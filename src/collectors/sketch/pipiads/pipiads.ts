@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PipiadsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PipiadsCollector extends SketchCollector {
         version: "0",
         website: "https://www.pipiads.com/user-center/payment",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1621994.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PipiadsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pipiads.com/user-center/payment",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

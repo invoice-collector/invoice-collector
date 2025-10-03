@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NavanComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NavanComCollector extends SketchCollector {
         version: "0",
         website: "https://app.navan.com/app/admin2/de/reports/overview?fromEpochSeconds=1672560000&toEpochSeconds=1691046182&timezone=America%2FLos_Angeles&selectedTimeframe=YTD&currency=EUR&selectedTravelDateTimeframe=null",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2077750.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NavanComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.navan.com/app/admin2/de/reports/overview?fromEpochSeconds=1672560000&toEpochSeconds=1691046182&timezone=America%2FLos_Angeles&selectedTimeframe=YTD&currency=EUR&selectedTravelDateTimeframe=null",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

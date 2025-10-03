@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NovofleetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NovofleetCollector extends SketchCollector {
         version: "0",
         website: "https://www.novofleet.com/portal/de/mein-novofleet-login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15359.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NovofleetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.novofleet.com/portal/de/mein-novofleet-login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

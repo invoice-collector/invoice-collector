@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigixoComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigixoComCollector extends SketchCollector {
         version: "0",
         website: "https://www.digixo.com/login.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118651.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigixoComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.digixo.com/login.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

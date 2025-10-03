@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FashyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FashyCollector extends SketchCollector {
         version: "0",
         website: "https://www.fashy.de/b2b/de/account/?action=document_archive",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4220438.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FashyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fashy.de/b2b/de/account/?action=document_archive",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcuitySchedulingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AcuitySchedulingCollector extends SketchCollector {
         version: "0",
         website: "https://secure.acuityscheduling.com/preferences.php?action=myaccount",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21721.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AcuitySchedulingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.acuityscheduling.com/preferences.php?action=myaccount",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

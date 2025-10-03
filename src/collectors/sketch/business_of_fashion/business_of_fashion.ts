@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BusinessOfFashionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BusinessOfFashionCollector extends SketchCollector {
         version: "0",
         website: "https://www.businessoffashion.com/spa#/app/account/personal/your-membership",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1501930.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BusinessOfFashionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.businessoffashion.com/spa#/app/account/personal/your-membership",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

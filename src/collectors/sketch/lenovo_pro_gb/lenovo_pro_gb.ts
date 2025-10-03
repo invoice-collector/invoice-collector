@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LenovoProGbCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LenovoProGbCollector extends SketchCollector {
         version: "0",
         website: "https://account.lenovo.com/gb/lenovopro/en/smbaccount/gatekeeper/showpage",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4203705.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LenovoProGbCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.lenovo.com/gb/lenovopro/en/smbaccount/gatekeeper/showpage",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

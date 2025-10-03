@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DewabitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DewabitCollector extends SketchCollector {
         version: "0",
         website: "https://member.dewabit.com/dash/subscription?status=success&action=create",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115308.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DewabitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://member.dewabit.com/dash/subscription?status=success&action=create",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

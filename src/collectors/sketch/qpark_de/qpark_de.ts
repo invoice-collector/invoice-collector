@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QparkDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QparkDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.q-park.de/de-de/myqpark/mein-q-park/meine-rechnungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20522.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QparkDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.q-park.de/de-de/myqpark/mein-q-park/meine-rechnungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

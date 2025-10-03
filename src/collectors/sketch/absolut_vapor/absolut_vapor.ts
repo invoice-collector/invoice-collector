@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbsolutVaporCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AbsolutVaporCollector extends SketchCollector {
         version: "0",
         website: "https://www.absolut-vapor.com/ecigarette-eliquide/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115877.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AbsolutVaporCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.absolut-vapor.com/ecigarette-eliquide/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

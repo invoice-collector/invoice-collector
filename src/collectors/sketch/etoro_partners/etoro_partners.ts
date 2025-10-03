@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EtoroPartnersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EtoroPartnersCollector extends SketchCollector {
         version: "0",
         website: "https://etoropartners.b2clogin.com/etoropartners.onmicrosoft.com/b2c_1_signin/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fpor.etoro.com%2Fen-gb%2Fauth%2Flogin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1675306.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EtoroPartnersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://etoropartners.b2clogin.com/etoropartners.onmicrosoft.com/b2c_1_signin/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fpor.etoro.com%2Fen-gb%2Fauth%2Flogin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

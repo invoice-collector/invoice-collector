@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SohohouseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SohohouseCollector extends SketchCollector {
         version: "0",
         website: "https://identity.houseseven.com/sessions/new",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/50633.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SohohouseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://identity.houseseven.com/sessions/new",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

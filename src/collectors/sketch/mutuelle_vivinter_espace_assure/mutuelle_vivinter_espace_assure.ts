@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleVivinterEspaceAssureCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleVivinterEspaceAssureCollector extends SketchCollector {
         version: "0",
         website: "https://assure.vivinter.fr/connexion.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/130686.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleVivinterEspaceAssureCollector extends SketchCollector {
             }
         },
         entryUrl: "https://assure.vivinter.fr/connexion.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

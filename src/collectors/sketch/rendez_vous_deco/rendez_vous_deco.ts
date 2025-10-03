@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RendezVousDecoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RendezVousDecoCollector extends SketchCollector {
         version: "0",
         website: "https://www.rendezvousdeco.com/customer/account/login/?___SID=S",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122792.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RendezVousDecoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rendezvousdeco.com/customer/account/login/?___SID=S",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

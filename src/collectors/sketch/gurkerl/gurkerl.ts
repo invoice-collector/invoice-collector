@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GurkerlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GurkerlCollector extends SketchCollector {
         version: "0",
         website: "https://www.gurkerl.at/benutzer/profil",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/920873.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GurkerlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gurkerl.at/benutzer/profil",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

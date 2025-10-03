@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlmaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlmaCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.getalma.eu/data",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534310.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlmaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.getalma.eu/data",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

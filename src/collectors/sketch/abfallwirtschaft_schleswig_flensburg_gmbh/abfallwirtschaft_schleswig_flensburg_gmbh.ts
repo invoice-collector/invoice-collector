@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbfallwirtschaftSchleswigFlensburgGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AbfallwirtschaftSchleswigFlensburgGmbhCollector extends SketchColle
         version: "0",
         website: "https://portal.asf-online.de/start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2553009.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AbfallwirtschaftSchleswigFlensburgGmbhCollector extends SketchColle
             }
         },
         entryUrl: "https://portal.asf-online.de/start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

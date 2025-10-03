@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShulexVocAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShulexVocAiCollector extends SketchCollector {
         version: "0",
         website: "https://apps.voc.ai/app#/account/user?redirect=%2Fapp&type=billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445828.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShulexVocAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://apps.voc.ai/app#/account/user?redirect=%2Fapp&type=billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

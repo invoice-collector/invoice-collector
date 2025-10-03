@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HomerunCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HomerunCollector extends SketchCollector {
         version: "0",
         website: "https://admin.homerun.co/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/68985.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HomerunCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.homerun.co/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

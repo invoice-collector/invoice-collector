@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpigraphCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpigraphCollector extends SketchCollector {
         version: "0",
         website: "https://spigraph.valeur-probante.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1092466.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpigraphCollector extends SketchCollector {
             }
         },
         entryUrl: "https://spigraph.valeur-probante.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

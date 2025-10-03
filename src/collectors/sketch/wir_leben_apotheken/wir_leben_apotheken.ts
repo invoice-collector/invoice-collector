@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WirLebenApothekenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WirLebenApothekenCollector extends SketchCollector {
         version: "0",
         website: "https://www.wirleben.de/myshop/orders/overview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730166.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WirLebenApothekenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wirleben.de/myshop/orders/overview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

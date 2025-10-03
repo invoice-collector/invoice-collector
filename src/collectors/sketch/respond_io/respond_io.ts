@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RespondIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RespondIoCollector extends SketchCollector {
         version: "0",
         website: "https://app.respond.io/organization/76901/billing/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2284745.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RespondIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.respond.io/organization/76901/billing/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Auth0Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Auth0Collector extends SketchCollector {
         version: "0",
         website: "https://auth0.auth0.com/login?state=9j7VXnGdEc3g-nqviPl0Yn26rbqkhIX6&client=bLR9T5ar6nFtDO4zErGXdoqMCM4iNZSV&protocol=oauth2&response_type=code&redirect_uri=https%3A%2F%2Fauth0.com%2Fauth%2Fcallback&scope=openid%20profile%20email",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18675.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Auth0Collector extends SketchCollector {
             }
         },
         entryUrl: "https://auth0.auth0.com/login?state=9j7VXnGdEc3g-nqviPl0Yn26rbqkhIX6&client=bLR9T5ar6nFtDO4zErGXdoqMCM4iNZSV&protocol=oauth2&response_type=code&redirect_uri=https%3A%2F%2Fauth0.com%2Fauth%2Fcallback&scope=openid%20profile%20email",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

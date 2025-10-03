@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CofaceCustomerPortalCofanetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CofaceCustomerPortalCofanetCollector extends SketchCollector {
         version: "0",
         website: "https://cofanet.coface.com/fr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4502935.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CofaceCustomerPortalCofanetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cofanet.coface.com/fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

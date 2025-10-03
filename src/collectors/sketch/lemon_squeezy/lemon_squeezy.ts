@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LemonSqueezyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LemonSqueezyCollector extends SketchCollector {
         version: "0",
         website: "https://app.lemonsqueezy.com/my-orders/991b6869-2dca-4c71-845d-e4e63b06ee7a?signature=6cff2efc9eb3d696face66a5b19d71730d1e20f36dcb85322e5df4210f33025d",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2387799.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LemonSqueezyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.lemonsqueezy.com/my-orders/991b6869-2dca-4c71-845d-e4e63b06ee7a?signature=6cff2efc9eb3d696face66a5b19d71730d1e20f36dcb85322e5df4210f33025d",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

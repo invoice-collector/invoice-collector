@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UlysCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UlysCollector extends SketchCollector {
         version: "0",
         website: "https://espaceabonnes.vinci-autoroutes.com/invoices-consos/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1230271.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UlysCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceabonnes.vinci-autoroutes.com/invoices-consos/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

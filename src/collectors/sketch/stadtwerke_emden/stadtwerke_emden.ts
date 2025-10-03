@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeEmdenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeEmdenCollector extends SketchCollector {
         version: "0",
         website: "https://csit.sw-emden.de/powercommerce/csit3/fo/portal/start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3202700.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeEmdenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://csit.sw-emden.de/powercommerce/csit3/fo/portal/start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

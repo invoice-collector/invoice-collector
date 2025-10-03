@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FtComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FtComCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.ft.com/login?location=https%3A%2F%2Fwww.ft.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/72624.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FtComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.ft.com/login?location=https%3A%2F%2Fwww.ft.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnimotoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AnimotoCollector extends SketchCollector {
         version: "0",
         website: "https://animoto.com/log_in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/313.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AnimotoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://animoto.com/log_in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

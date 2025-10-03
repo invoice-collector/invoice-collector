@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnityAssetStoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnityAssetStoreCollector extends SketchCollector {
         version: "0",
         website: "https://assetstore.unity.com/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2848424.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnityAssetStoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://assetstore.unity.com/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

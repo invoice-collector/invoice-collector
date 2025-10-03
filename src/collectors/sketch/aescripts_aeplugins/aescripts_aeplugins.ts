@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AescriptsAepluginsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AescriptsAepluginsCollector extends SketchCollector {
         version: "0",
         website: "https://aescripts.com/customer/account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33851.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AescriptsAepluginsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aescripts.com/customer/account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

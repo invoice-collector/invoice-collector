@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChocopingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChocopingCollector extends SketchCollector {
         version: "0",
         website: "https://chocoping.com/processing/viewinvoice.php?id=1004129&paymentsuccess=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1480716.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChocopingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://chocoping.com/processing/viewinvoice.php?id=1004129&paymentsuccess=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

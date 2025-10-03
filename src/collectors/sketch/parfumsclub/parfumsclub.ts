@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParfumsclubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ParfumsclubCollector extends SketchCollector {
         version: "0",
         website: "https://www.parfumsclub.de/de/konto/login/?returnUrl=/?returnUrl=/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200174.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ParfumsclubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.parfumsclub.de/de/konto/login/?returnUrl=/?returnUrl=/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

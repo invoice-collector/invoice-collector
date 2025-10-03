@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishAirwayCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BritishAirwayCollector extends SketchCollector {
         version: "0",
         website: "https://www.britishairways.com/travel/viewaccount/inet/en_de?eId=106062&source=INET_LHN_PASTBOOKINGS",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185051.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BritishAirwayCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.britishairways.com/travel/viewaccount/inet/en_de?eId=106062&source=INET_LHN_PASTBOOKINGS",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

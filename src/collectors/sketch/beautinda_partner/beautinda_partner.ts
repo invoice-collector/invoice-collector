@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeautindaPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeautindaPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://pro.beautinda.de/settings/finance/data-export",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4547036.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeautindaPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pro.beautinda.de/settings/finance/data-export",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

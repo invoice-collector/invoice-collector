@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllstarBusinessSolutionsLtdCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AllstarBusinessSolutionsLtdCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.allstaronline.co.uk/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153551.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AllstarBusinessSolutionsLtdCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.allstaronline.co.uk/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

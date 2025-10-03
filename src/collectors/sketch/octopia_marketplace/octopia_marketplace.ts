@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OctopiaMarketplaceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OctopiaMarketplaceCollector extends SketchCollector {
         version: "0",
         website: "https://seller.octopia.com/finance/Invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4189138.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OctopiaMarketplaceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://seller.octopia.com/finance/Invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

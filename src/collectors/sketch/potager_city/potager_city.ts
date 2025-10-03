@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PotagerCityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PotagerCityCollector extends SketchCollector {
         version: "0",
         website: "https://www.potagercity.fr/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122816.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PotagerCityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.potagercity.fr/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

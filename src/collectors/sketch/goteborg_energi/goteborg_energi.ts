@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoteborgEnergiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoteborgEnergiCollector extends SketchCollector {
         version: "0",
         website: "https://www.goteborgenergi.se/Kundservice/Logga_in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9346.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoteborgEnergiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.goteborgenergi.se/Kundservice/Logga_in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

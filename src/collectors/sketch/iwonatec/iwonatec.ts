@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IwonatecCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IwonatecCollector extends SketchCollector {
         version: "0",
         website: "https://www.iwonatec.com/de/kundenkonto",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1314715.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IwonatecCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.iwonatec.com/de/kundenkonto",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

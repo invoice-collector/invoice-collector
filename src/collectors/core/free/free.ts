@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { FreeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 
 export class FreeCollector extends WebCollector {
 
@@ -12,6 +12,7 @@ export class FreeCollector extends WebCollector {
         version: "6",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",

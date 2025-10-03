@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CsiiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CsiiCollector extends SketchCollector {
         version: "0",
         website: "https://secure.eplustechnologies.com/esalesplus/home_CSI.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88377.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CsiiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.eplustechnologies.com/esalesplus/home_CSI.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

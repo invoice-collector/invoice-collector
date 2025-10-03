@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EevolutionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EevolutionCollector extends SketchCollector {
         version: "0",
         website: "https://www.eevolution.de/forum/forum/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/561.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EevolutionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eevolution.de/forum/forum/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

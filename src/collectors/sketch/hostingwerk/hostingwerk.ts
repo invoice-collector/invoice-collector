@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostingwerkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HostingwerkCollector extends SketchCollector {
         version: "0",
         website: "https://hostingwerk.de/anmelden",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/782244.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HostingwerkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hostingwerk.de/anmelden",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

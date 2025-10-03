@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SewanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SewanCollector extends SketchCollector {
         version: "0",
         website: "https://partenaire.sewan.fr/login/?redirect_to=https://partenaire.sewan.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/940359.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SewanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partenaire.sewan.fr/login/?redirect_to=https://partenaire.sewan.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

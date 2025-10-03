@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimeonePerformanceAdvertiserCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TimeonePerformanceAdvertiserCollector extends SketchCollector {
         version: "0",
         website: "https://performance.timeonegroup.com/en/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/119908.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TimeonePerformanceAdvertiserCollector extends SketchCollector {
             }
         },
         entryUrl: "https://performance.timeonegroup.com/en/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

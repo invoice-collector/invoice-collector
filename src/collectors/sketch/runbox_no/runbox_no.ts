@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RunboxNoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RunboxNoCollector extends SketchCollector {
         version: "0",
         website: "https://runbox.com/mail",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9580.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RunboxNoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://runbox.com/mail",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

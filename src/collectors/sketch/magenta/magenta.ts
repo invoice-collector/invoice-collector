@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagentaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MagentaCollector extends SketchCollector {
         version: "0",
         website: "https://rechnung.magenta.at/index.cfm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/131550.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MagentaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rechnung.magenta.at/index.cfm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

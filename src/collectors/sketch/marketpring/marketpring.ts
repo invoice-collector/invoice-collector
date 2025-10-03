@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarketpringCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MarketpringCollector extends SketchCollector {
         version: "0",
         website: "https://app.marketprint.de/api/invoice/5044959543562",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1293769.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MarketpringCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.marketprint.de/api/invoice/5044959543562",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

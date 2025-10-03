@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Q8Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Q8Collector extends SketchCollector {
         version: "0",
         website: "https://www.q8.dk/q8-login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21976.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Q8Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.q8.dk/q8-login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

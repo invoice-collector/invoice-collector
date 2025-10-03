@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasywerkstattCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EasywerkstattCollector extends SketchCollector {
         version: "0",
         website: "https://app.easywerkstatt.com/subscription/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1349390.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EasywerkstattCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.easywerkstatt.com/subscription/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

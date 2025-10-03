@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeForchheimCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeForchheimCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.fo-one.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2050676.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeForchheimCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.fo-one.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

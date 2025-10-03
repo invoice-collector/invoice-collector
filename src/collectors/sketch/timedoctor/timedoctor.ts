@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimedoctorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TimedoctorCollector extends SketchCollector {
         version: "0",
         website: "https://2.timedoctor.com/billing#invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1664949.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TimedoctorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://2.timedoctor.com/billing#invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

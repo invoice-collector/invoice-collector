@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HbMarketplaceHandlerbundCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HbMarketplaceHandlerbundCollector extends SketchCollector {
         version: "0",
         website: "https://auth.hb-marketplace.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4024589.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HbMarketplaceHandlerbundCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auth.hb-marketplace.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

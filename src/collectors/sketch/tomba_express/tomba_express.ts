@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TombaExpressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TombaExpressCollector extends SketchCollector {
         version: "0",
         website: "https://www.tomba-express.com/index.php?action=my_orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70083.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TombaExpressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tomba-express.com/index.php?action=my_orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

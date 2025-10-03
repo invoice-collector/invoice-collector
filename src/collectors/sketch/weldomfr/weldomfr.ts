@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeldomFrCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class WeldomFrCollector extends SketchCollector {
         version: "0",
         website: "https://weldom.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/0/09/Logo_Weldom_2012.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class WeldomFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.weldom.fr/"
+        entryUrl: "https://www.weldom.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

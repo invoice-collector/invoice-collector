@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayNowEatLaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PayNowEatLaterCollector extends SketchCollector {
         version: "0",
         website: "https://partner.paynoweatlater.de/location/abrechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/899469.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PayNowEatLaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.paynoweatlater.de/location/abrechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

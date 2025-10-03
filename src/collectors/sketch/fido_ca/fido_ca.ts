@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FidoCaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FidoCaCollector extends SketchCollector {
         version: "0",
         website: "https://www.fido.ca",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8778.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FidoCaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fido.ca",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

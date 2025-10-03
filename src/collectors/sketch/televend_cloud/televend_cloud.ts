@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelevendCloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelevendCloudCollector extends SketchCollector {
         version: "0",
         website: "https://route.televendcloud.com/tax-center/tax-report-generator",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1470109.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelevendCloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://route.televendcloud.com/tax-center/tax-report-generator",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

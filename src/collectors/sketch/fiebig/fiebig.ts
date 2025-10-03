@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FiebigCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FiebigCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.fiebig.de/ig-ApothekenWebx/index.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2693790.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FiebigCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.fiebig.de/ig-ApothekenWebx/index.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NaturstromCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NaturstromCollector extends SketchCollector {
         version: "0",
         website: "https://kundenservice.naturstrom.de/naturstrom/#/loginRegistration",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/22564.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NaturstromCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenservice.naturstrom.de/naturstrom/#/loginRegistration",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

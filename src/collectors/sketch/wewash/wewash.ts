@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WewashCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WewashCollector extends SketchCollector {
         version: "0",
         website: "https://partner.we-wash.com/#/turnover?_k=43h9l3",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/228717.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WewashCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.we-wash.com/#/turnover?_k=43h9l3",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

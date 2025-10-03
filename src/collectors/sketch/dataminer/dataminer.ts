@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DataminerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DataminerCollector extends SketchCollector {
         version: "0",
         website: "https://dataminer.io/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3274099.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DataminerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dataminer.io/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

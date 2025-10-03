@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MusgravesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MusgravesCollector extends SketchCollector {
         version: "0",
         website: "https://www.musgravemarketplace.ie/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/748588.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MusgravesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.musgravemarketplace.ie/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

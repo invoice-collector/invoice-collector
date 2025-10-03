@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FccEnvironmentalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FccEnvironmentalCollector extends SketchCollector {
         version: "0",
         website: "https://fccenvironmental.com/pay-your-bill/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2525942.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FccEnvironmentalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fccenvironmental.com/pay-your-bill/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

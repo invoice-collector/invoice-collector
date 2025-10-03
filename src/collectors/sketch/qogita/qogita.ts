@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QogitaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QogitaCollector extends SketchCollector {
         version: "0",
         website: "https://www.qogita.com/login/?redirectTo=%2Faccount%2Fprofile%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2842138.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QogitaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.qogita.com/login/?redirectTo=%2Faccount%2Fprofile%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

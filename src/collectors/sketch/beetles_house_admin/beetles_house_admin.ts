@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeetlesHouseAdminCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeetlesHouseAdminCollector extends SketchCollector {
         version: "0",
         website: "https://beetleshouse.com/w8wlae0ugdwihmvt/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1617133.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeetlesHouseAdminCollector extends SketchCollector {
             }
         },
         entryUrl: "https://beetleshouse.com/w8wlae0ugdwihmvt/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RhonEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RhonEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://service.re-fd.de/css/index.html#/invoiceOverview/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1534072.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RhonEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.re-fd.de/css/index.html#/invoiceOverview/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

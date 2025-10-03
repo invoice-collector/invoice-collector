@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheTelekomM2mPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeutscheTelekomM2mPortalCollector extends SketchCollector {
         version: "0",
         website: "https://portal-m2m.telekom.de/m2m-customer-portal/user/invoices/list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/396964.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeutscheTelekomM2mPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal-m2m.telekom.de/m2m-customer-portal/user/invoices/list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

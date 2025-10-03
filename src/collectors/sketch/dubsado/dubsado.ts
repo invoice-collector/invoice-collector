@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DubsadoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DubsadoCollector extends SketchCollector {
         version: "0",
         website: "https://hello.dubsado.com/user/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/902157.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DubsadoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hello.dubsado.com/user/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrundlInstitutCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GrundlInstitutCollector extends SketchCollector {
         version: "0",
         website: "https://lernwelt.grundl-institut.de/meine-bestellungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1617905.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GrundlInstitutCollector extends SketchCollector {
             }
         },
         entryUrl: "https://lernwelt.grundl-institut.de/meine-bestellungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

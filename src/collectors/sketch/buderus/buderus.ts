@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuderusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BuderusCollector extends SketchCollector {
         version: "0",
         website: "https://www.onlineshop.buderus.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26517.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BuderusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.onlineshop.buderus.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

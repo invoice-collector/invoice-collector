@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlenderDevelopmentFundCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BlenderDevelopmentFundCollector extends SketchCollector {
         version: "0",
         website: "https://fund.blender.org/settings/receipts/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2973184.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BlenderDevelopmentFundCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fund.blender.org/settings/receipts/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

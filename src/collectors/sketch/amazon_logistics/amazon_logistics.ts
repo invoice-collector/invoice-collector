@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonLogisticsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonLogisticsCollector extends SketchCollector {
         version: "0",
         website: "https://logistics.amazon.de/flexpayments/invoices?navMenuVariant=external",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2418844.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonLogisticsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://logistics.amazon.de/flexpayments/invoices?navMenuVariant=external",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

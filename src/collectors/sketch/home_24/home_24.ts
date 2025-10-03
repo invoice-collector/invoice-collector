@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Home24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Home24Collector extends SketchCollector {
         version: "0",
         website: "https://partner.net.home24.com/app/index.html#/account/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/119591.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Home24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.net.home24.com/app/index.html#/account/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

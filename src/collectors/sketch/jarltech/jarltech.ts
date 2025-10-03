@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JarltechCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JarltechCollector extends SketchCollector {
         version: "0",
         website: "https://www.jarltech.com/2007/index.php?language=de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9309.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JarltechCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.jarltech.com/2007/index.php?language=de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

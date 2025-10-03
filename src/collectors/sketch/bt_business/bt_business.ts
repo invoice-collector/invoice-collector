@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BtBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BtBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://secure.business.bt.com/Account/LoginRedirect.aspx?tabId=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8492.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BtBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.business.bt.com/Account/LoginRedirect.aspx?tabId=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

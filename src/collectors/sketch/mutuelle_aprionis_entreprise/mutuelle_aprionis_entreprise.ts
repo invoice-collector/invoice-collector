@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAprionisEntrepriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleAprionisEntrepriseCollector extends SketchCollector {
         version: "0",
         website: "https://humanis.com/votre-espace-client-entreprise/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127327.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleAprionisEntrepriseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://humanis.com/votre-espace-client-entreprise/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

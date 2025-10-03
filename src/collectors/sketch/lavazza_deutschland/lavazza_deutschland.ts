@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LavazzaDeutschlandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LavazzaDeutschlandCollector extends SketchCollector {
         version: "0",
         website: "https://customerportal.lavazza.com/s/login/?language=en_US",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3025556.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LavazzaDeutschlandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customerportal.lavazza.com/s/login/?language=en_US",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

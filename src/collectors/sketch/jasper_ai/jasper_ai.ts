@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JasperAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JasperAiCollector extends SketchCollector {
         version: "0",
         website: "https://app.jasper.ai/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1287708.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JasperAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.jasper.ai/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

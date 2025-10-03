@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShirtKingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShirtKingCollector extends SketchCollector {
         version: "0",
         website: "https://connect.shirt-king.de/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2767737.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShirtKingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://connect.shirt-king.de/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JlrPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JlrPortalCollector extends SketchCollector {
         version: "0",
         website: "https://landroverhaendler.jlr-portal.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4124975.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JlrPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://landroverhaendler.jlr-portal.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceMenageCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FranceMenageCollector extends SketchCollector {
         version: "0",
         website: "https://client.france-menage.fr/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106548.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FranceMenageCollector extends SketchCollector {
             }
         },
         entryUrl: "https://client.france-menage.fr/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

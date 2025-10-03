@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FortisPolsterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FortisPolsterCollector extends SketchCollector {
         version: "0",
         website: "https://www.fortispolster.de/user/loginUser",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14898.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FortisPolsterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fortispolster.de/user/loginUser",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

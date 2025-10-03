@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KontentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KontentCollector extends SketchCollector {
         version: "0",
         website: "https://admin.kontent.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6792.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KontentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.kontent.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

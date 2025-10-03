@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleHarmonieRsiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleHarmonieRsiCollector extends SketchCollector {
         version: "0",
         website: "https://www.harmonie-mutuelle.fr/web/professionnels-independants-et-tpe",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129093.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleHarmonieRsiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.harmonie-mutuelle.fr/web/professionnels-independants-et-tpe",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

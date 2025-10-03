@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoluteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoluteCollector extends SketchCollector {
         version: "0",
         website: "https://partner.solute.de/my/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3340108.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoluteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.solute.de/my/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

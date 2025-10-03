@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Gs1CanadaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Gs1CanadaCollector extends SketchCollector {
         version: "0",
         website: "https://www.gs1ca.org/app_invoices/onlinePayment/Display.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/197398.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Gs1CanadaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gs1ca.org/app_invoices/onlinePayment/Display.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

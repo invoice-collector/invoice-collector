@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BobAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BobAtCollector extends SketchCollector {
         version: "0",
         website: "https://rechnung.bob.at",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/79445.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BobAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rechnung.bob.at",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JungDmsAndCieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JungDmsAndCieCollector extends SketchCollector {
         version: "0",
         website: "https://icrm.jungdms.de/commission/list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/180762.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JungDmsAndCieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://icrm.jungdms.de/commission/list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

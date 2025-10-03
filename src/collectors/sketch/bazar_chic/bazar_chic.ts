@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BazarChicCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BazarChicCollector extends SketchCollector {
         version: "0",
         website: "http://fr.bazarchic.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115923.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BazarChicCollector extends SketchCollector {
             }
         },
         entryUrl: "http://fr.bazarchic.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

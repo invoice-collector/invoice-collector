@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleInterialeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleInterialeCollector extends SketchCollector {
         version: "0",
         website: "https://mamutuelle.interiale.fr/espace-personnel/creer-mon-espace-personnel",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129545.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleInterialeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mamutuelle.interiale.fr/espace-personnel/creer-mon-espace-personnel",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

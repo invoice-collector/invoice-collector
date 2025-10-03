@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KspliceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KspliceCollector extends SketchCollector {
         version: "0",
         website: "https://status-ksplice.oracle.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19379.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KspliceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://status-ksplice.oracle.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

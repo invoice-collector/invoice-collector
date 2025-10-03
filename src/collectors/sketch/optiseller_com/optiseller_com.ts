@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptisellerComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OptisellerComCollector extends SketchCollector {
         version: "0",
         website: "https://app.optiseller.com/Admin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1649684.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OptisellerComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.optiseller.com/Admin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

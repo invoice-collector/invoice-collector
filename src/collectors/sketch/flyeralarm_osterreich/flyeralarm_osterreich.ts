@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlyeralarmOsterreichCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlyeralarmOsterreichCollector extends SketchCollector {
         version: "0",
         website: "https://login.flyeralarm.com/auth/realms/flyeralarm_at/protocol/openid-connect/auth?client_id=flyshop&scope=openid&response_type=code&redirect_uri=https://www.flyeralarm.com/at/auth/openid/token&kc_locale=de-at",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/111682.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlyeralarmOsterreichCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.flyeralarm.com/auth/realms/flyeralarm_at/protocol/openid-connect/auth?client_id=flyshop&scope=openid&response_type=code&redirect_uri=https://www.flyeralarm.com/at/auth/openid/token&kc_locale=de-at",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

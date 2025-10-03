@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LyrecoDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LyrecoDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.lyreco.com/webshop/DEDE/wslogin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4495748.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LyrecoDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lyreco.com/webshop/DEDE/wslogin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

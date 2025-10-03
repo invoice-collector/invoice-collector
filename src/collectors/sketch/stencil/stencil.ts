@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StencilCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StencilCollector extends SketchCollector {
         version: "0",
         website: "https://getstencil.com/app/login?curtain",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/69229.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StencilCollector extends SketchCollector {
             }
         },
         entryUrl: "https://getstencil.com/app/login?curtain",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

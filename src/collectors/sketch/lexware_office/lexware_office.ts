@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LexwareOfficeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LexwareOfficeCollector extends SketchCollector {
         version: "0",
         website: "https://app.lexoffice.de/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/494.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LexwareOfficeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.lexoffice.de/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

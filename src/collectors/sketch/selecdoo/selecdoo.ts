@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelecdooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SelecdooCollector extends SketchCollector {
         version: "0",
         website: "https://work.selecdoo.com/affiliates/login.php#login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2521233.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SelecdooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://work.selecdoo.com/affiliates/login.php#login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelpScoutCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HelpScoutCollector extends SketchCollector {
         version: "0",
         website: "https://secure.helpscout.net/members/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4485.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HelpScoutCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.helpscout.net/members/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

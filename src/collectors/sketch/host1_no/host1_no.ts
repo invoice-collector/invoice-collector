@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Host1NoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Host1NoCollector extends SketchCollector {
         version: "0",
         website: "https://host1.no/client/clientarea.php?language=Norwegian",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9478.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Host1NoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://host1.no/client/clientarea.php?language=Norwegian",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

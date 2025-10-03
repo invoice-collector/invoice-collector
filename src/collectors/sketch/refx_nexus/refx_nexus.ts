@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RefxNexusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RefxNexusCollector extends SketchCollector {
         version: "0",
         website: "https://refx.com/purchases/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4237978.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RefxNexusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://refx.com/purchases/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

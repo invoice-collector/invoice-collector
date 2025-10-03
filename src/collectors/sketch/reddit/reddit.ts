@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RedditCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RedditCollector extends SketchCollector {
         version: "0",
         website: "https://www.reddit.com/adslogin?dest=https://ads.reddit.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7990.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RedditCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.reddit.com/adslogin?dest=https://ads.reddit.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TalktalkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TalktalkCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.talktalk.co.uk/login/login/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8628.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TalktalkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.talktalk.co.uk/login/login/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CommodisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CommodisCollector extends SketchCollector {
         version: "0",
         website: "https://aflexio.commodis.de/de.commodis.ui.employer/secure/staff/booking-history.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4415207.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CommodisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aflexio.commodis.de/de.commodis.ui.employer/secure/staff/booking-history.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

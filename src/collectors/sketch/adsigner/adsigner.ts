@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdsignerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdsignerCollector extends SketchCollector {
         version: "0",
         website: "https://www.adsigner.com/app/en/customer/billing/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2985626.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdsignerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.adsigner.com/app/en/customer/billing/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

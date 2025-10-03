@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SelroCollector extends SketchCollector {
         version: "0",
         website: "https://app5.selro.com/account/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1763955.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SelroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app5.selro.com/account/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

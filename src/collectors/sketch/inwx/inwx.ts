@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InwxCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class InwxCollector extends SketchCollector {
         version: "0",
         website: "https://inwx.com",
         logo: "https://images.inwx.com/open-graph/inwx.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class InwxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.inwx.com/en",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

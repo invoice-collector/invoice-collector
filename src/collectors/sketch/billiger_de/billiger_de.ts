@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BilligerDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BilligerDeCollector extends SketchCollector {
         version: "0",
         website: "https://partner.billiger.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8191.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BilligerDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.billiger.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

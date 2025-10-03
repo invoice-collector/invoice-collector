@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetlifyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NetlifyCollector extends SketchCollector {
         version: "0",
         website: "https://app.netlify.com/login/email?next=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/31089.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NetlifyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.netlify.com/login/email?next=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

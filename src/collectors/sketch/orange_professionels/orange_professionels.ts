@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeProfessionelsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OrangeProfessionelsCollector extends SketchCollector {
         version: "0",
         website: "https://pro.orange.fr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/238945.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OrangeProfessionelsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pro.orange.fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MegaNzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MegaNzCollector extends SketchCollector {
         version: "0",
         website: "https://mega.nz/fm/user-management/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/419705.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MegaNzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mega.nz/fm/user-management/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

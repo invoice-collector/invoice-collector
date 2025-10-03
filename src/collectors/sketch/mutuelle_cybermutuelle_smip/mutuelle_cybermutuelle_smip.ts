@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleCybermutuelleSmipCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleCybermutuelleSmipCollector extends SketchCollector {
         version: "0",
         website: "https://adherents.apivia.fr/login#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127702.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleCybermutuelleSmipCollector extends SketchCollector {
             }
         },
         entryUrl: "https://adherents.apivia.fr/login#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

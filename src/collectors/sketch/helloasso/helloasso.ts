@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelloAssoCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class HelloAssoCollector extends SketchCollector {
         version: "0",
         website: "https://helloasso.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/2/27/Logo-HelloAsso.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class HelloAssoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.helloasso.com/connexion"
+        entryUrl: "https://auth.helloasso.com/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

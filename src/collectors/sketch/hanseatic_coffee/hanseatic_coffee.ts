@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HanseaticCoffeeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HanseaticCoffeeCollector extends SketchCollector {
         version: "0",
         website: "https://hanseatic-coffee.com/account?_gl=1*p38520*_up*MQ..*_ga*MTk0NjIwNDkwNC4xNzM5MDQxMTI4*_ga_0N79EF267Y*MTczOTA0MTEyNy4xLjAuMTczOTA0MTEyNy4wLjAuMA..",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4334806.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HanseaticCoffeeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hanseatic-coffee.com/account?_gl=1*p38520*_up*MQ..*_ga*MTk0NjIwNDkwNC4xNzM5MDQxMTI4*_ga_0N79EF267Y*MTczOTA0MTEyNy4xLjAuMTczOTA0MTEyNy4wLjAuMA..",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

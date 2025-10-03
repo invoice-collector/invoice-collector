@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoldanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoldanCollector extends SketchCollector {
         version: "0",
         website: "https://www.soldan.de/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/550796.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoldanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.soldan.de/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

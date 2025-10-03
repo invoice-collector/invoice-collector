@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeEutinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeEutinCollector extends SketchCollector {
         version: "0",
         website: "https://portal.stadtwerke-eutin.de/SWE/MeineRechnungen.cms?ActiveID=1002",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1221866.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeEutinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.stadtwerke-eutin.de/SWE/MeineRechnungen.cms?ActiveID=1002",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

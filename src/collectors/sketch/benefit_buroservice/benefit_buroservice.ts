@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BenefitBuroserviceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BenefitBuroserviceCollector extends SketchCollector {
         version: "0",
         website: "https://service.benefit-bueroservice.at/mein-bueroservice#g_benefit_tab_bills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/409687.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BenefitBuroserviceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.benefit-bueroservice.at/mein-bueroservice#g_benefit_tab_bills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

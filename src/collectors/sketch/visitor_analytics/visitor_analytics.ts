@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VisitorAnalyticsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VisitorAnalyticsCollector extends SketchCollector {
         version: "0",
         website: "https://app.visitor-analytics.io/website/92ab0db8-c4c6-11ed-b589-901b0edac50a/settings/subscription#payment-method",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1862681.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VisitorAnalyticsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.visitor-analytics.io/website/92ab0db8-c4c6-11ed-b589-901b0edac50a/settings/subscription#payment-method",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QobuzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QobuzCollector extends SketchCollector {
         version: "0",
         website: "https://www.qobuz.com/account/music-streaming/receipt",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102332.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QobuzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.qobuz.com/account/music-streaming/receipt",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

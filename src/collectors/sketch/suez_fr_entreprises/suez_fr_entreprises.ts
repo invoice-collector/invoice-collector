@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuezFrEntreprisesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SuezFrEntreprisesCollector extends SketchCollector {
         version: "0",
         website: "https://espace-entreprises-rv.suez.fr/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4560902.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SuezFrEntreprisesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-entreprises-rv.suez.fr/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

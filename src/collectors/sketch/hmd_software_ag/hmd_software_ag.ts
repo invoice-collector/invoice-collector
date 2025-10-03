@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HmdSoftwareAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HmdSoftwareAgCollector extends SketchCollector {
         version: "0",
         website: "https://www.netarchiv.eu/doLogin.php?inline=0&lang=de&addresscode=&code=&demo=0",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1627028.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HmdSoftwareAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.netarchiv.eu/doLogin.php?inline=0&lang=de&addresscode=&code=&demo=0",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

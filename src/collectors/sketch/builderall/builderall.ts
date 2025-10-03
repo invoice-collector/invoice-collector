@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuilderallCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BuilderallCollector extends SketchCollector {
         version: "0",
         website: "http://www.builderall.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/57871.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BuilderallCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.builderall.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

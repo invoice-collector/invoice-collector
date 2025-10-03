@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PagesJaunesBusinessCenterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PagesJaunesBusinessCenterCollector extends SketchCollector {
         version: "0",
         website: "https://businesscenter.pagesjaunes.fr/nouvelles_audiences/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778274.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PagesJaunesBusinessCenterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://businesscenter.pagesjaunes.fr/nouvelles_audiences/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

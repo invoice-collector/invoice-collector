@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConstellationNewEnergyDnCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConstellationNewEnergyDnCollector extends SketchCollector {
         version: "0",
         website: "https://energymanager.constellation.com/CustomerDashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2723643.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConstellationNewEnergyDnCollector extends SketchCollector {
             }
         },
         entryUrl: "https://energymanager.constellation.com/CustomerDashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

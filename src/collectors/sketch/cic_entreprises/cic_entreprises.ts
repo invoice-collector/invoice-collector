@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CicEntreprisesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CicEntreprisesCollector extends SketchCollector {
         version: "0",
         website: "https://www.cic.fr/fr/banque/documentinternet.html?_tabi=C&a_tiers=1300007491864&_pid=SelectDocument&k_typePageDoc=DocsAutres",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/670849.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CicEntreprisesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cic.fr/fr/banque/documentinternet.html?_tabi=C&a_tiers=1300007491864&_pid=SelectDocument&k_typePageDoc=DocsAutres",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

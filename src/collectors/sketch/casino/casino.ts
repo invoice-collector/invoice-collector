@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CasinoCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class CasinoCollector extends SketchCollector {
         version: "0",
         website: "https://casino.fr",
         logo: "https://cdn.worldvectorlogo.com/logos/casino-supermarket-logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class CasinoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://casino.fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfostradaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InfostradaCollector extends SketchCollector {
         version: "0",
         website: "http://www.infostrada.it",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9437.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InfostradaCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.infostrada.it",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

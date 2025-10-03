@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunbookerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FunbookerCollector extends SketchCollector {
         version: "0",
         website: "https://www.funbooker.com/fr/funpro/virements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1230280.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FunbookerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.funbooker.com/fr/funpro/virements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

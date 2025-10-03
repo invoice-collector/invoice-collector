@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArgewebNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ArgewebNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.argeweb.nl/argecs/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20509.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ArgewebNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.argeweb.nl/argecs/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

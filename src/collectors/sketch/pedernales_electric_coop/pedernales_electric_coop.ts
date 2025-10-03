@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PedernalesElectricCoopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PedernalesElectricCoopCollector extends SketchCollector {
         version: "0",
         website: "https://pec.smarthub.coop/ui/#/billingHistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4700110.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PedernalesElectricCoopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pec.smarthub.coop/ui/#/billingHistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

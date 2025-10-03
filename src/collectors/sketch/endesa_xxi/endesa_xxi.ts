@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EndesaXxiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EndesaXxiCollector extends SketchCollector {
         version: "0",
         website: "https://www.energiaxxi.com/login-en.html?d=Any",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1203385.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EndesaXxiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.energiaxxi.com/login-en.html?d=Any",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

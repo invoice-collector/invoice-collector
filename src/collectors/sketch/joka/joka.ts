@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JokaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JokaCollector extends SketchCollector {
         version: "0",
         website: "https://www.joka.de/joka-parkett-laminat-teppich-designboeden-und-mehr.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127297.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JokaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.joka.de/joka-parkett-laminat-teppich-designboeden-und-mehr.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

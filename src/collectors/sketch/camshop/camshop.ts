@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CamshopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CamshopCollector extends SketchCollector {
         version: "0",
         website: "https://www.camshop.fr/module/kcpscamshotmyaccountdolibarr/linkdolibarr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1313053.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CamshopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.camshop.fr/module/kcpscamshotmyaccountdolibarr/linkdolibarr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

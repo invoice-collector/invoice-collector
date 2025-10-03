@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VrPaymentBelegserviceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VrPaymentBelegserviceCollector extends SketchCollector {
         version: "0",
         website: "https://vr-payment.belegservice.de/download",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/246208.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VrPaymentBelegserviceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vr-payment.belegservice.de/download",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

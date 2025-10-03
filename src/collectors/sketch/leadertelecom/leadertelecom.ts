@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadertelecomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeadertelecomCollector extends SketchCollector {
         version: "0",
         website: "https://order.leadertelecom.biz",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88484.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeadertelecomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://order.leadertelecom.biz",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

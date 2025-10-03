@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectadminCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DirectadminCollector extends SketchCollector {
         version: "0",
         website: "https://www.directadmin.com/clients/invoices.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2141145.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DirectadminCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.directadmin.com/clients/invoices.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AglEnergyOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AglEnergyOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://secure.agl.com.au/login?state=PqNr8WhJIeaQUQ9sDgxcpwFUjYNCPFob&client=8NReZXmds46C4pCMhOCN8mbHjQ60F9zh&protocol=oauth2&response_type=code&scope=openid&redirect_uri=https%3A%2F%2Fwww.agl.com.au%2Fsts%2Faccount%2Flogincallback&nonce=18fa842d4320a1c5",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8516.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AglEnergyOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.agl.com.au/login?state=PqNr8WhJIeaQUQ9sDgxcpwFUjYNCPFob&client=8NReZXmds46C4pCMhOCN8mbHjQ60F9zh&protocol=oauth2&response_type=code&scope=openid&redirect_uri=https%3A%2F%2Fwww.agl.com.au%2Fsts%2Faccount%2Flogincallback&nonce=18fa842d4320a1c5",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

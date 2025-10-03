@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoulangerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BoulangerCollector extends SketchCollector {
         version: "0",
         website: "https://www.boulanger.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/4/46/Logo_Boulanger_2004.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BoulangerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.boulanger.com/account/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

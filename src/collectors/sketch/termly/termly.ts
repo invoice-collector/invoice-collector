@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TermlyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TermlyCollector extends SketchCollector {
         version: "0",
         website: "https://app.termly.io/dashboard/settings/billing-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1918680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TermlyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.termly.io/dashboard/settings/billing-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReadlyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReadlyCollector extends SketchCollector {
         version: "0",
         website: "https://de.readly.com/accounts/subscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/57869.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReadlyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.readly.com/accounts/subscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

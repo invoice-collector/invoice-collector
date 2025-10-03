@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BvukDownloadPortsalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BvukDownloadPortsalCollector extends SketchCollector {
         version: "0",
         website: "https://www.bvuk.de/downloads/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1182888.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BvukDownloadPortsalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bvuk.de/downloads/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CdmonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CdmonCollector extends SketchCollector {
         version: "0",
         website: "https://admin.cdmon.com/ca/facturacio/llistat-factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/109855.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CdmonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.cdmon.com/ca/facturacio/llistat-factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

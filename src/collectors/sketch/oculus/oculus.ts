@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OculusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OculusCollector extends SketchCollector {
         version: "0",
         website: "https://auth.oculus.com/login/?redirect_uri=https%3A%2F%2Fwww.oculus.com%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9771.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OculusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auth.oculus.com/login/?redirect_uri=https%3A%2F%2Fwww.oculus.com%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

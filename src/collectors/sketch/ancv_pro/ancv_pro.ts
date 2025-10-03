@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AncvProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AncvProCollector extends SketchCollector {
         version: "0",
         website: "https://secure-connect.ancv.com/auth/realms/ptl/protocol/openid-connect/auth?client_id=espace-ptl&response_type=code&scope=openid%20email&redirect_uri=https%3A//espace-ptl.ancv.com/openid-connect/generic&state=Pw6iwXwaOYM5QheiOSuiFo3oByUlWDd8zqyj4Kbz6WM",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2510483.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AncvProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure-connect.ancv.com/auth/realms/ptl/protocol/openid-connect/auth?client_id=espace-ptl&response_type=code&scope=openid%20email&redirect_uri=https%3A//espace-ptl.ancv.com/openid-connect/generic&state=Pw6iwXwaOYM5QheiOSuiFo3oByUlWDd8zqyj4Kbz6WM",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

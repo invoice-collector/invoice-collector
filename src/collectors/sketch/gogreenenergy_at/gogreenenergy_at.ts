@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GogreenenergyAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GogreenenergyAtCollector extends SketchCollector {
         version: "0",
         website: "https://portal.gogreenenergy.at/index.php?page=invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1322301.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GogreenenergyAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.gogreenenergy.at/index.php?page=invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

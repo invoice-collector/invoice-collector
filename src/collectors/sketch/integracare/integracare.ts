@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntegracareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IntegracareCollector extends SketchCollector {
         version: "0",
         website: "https://my.allstream.com/BillingInvoiceHistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70819.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IntegracareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.allstream.com/BillingInvoiceHistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

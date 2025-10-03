@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShareNowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShareNowCollector extends SketchCollector {
         version: "0",
         website: "https://www.share-now.com/customer/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/187348.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShareNowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.share-now.com/customer/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

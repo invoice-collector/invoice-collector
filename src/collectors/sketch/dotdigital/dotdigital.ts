@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DotdigitalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DotdigitalCollector extends SketchCollector {
         version: "0",
         website: "https://r1-app.dotdigital.com/account/my-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1505706.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DotdigitalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://r1-app.dotdigital.com/account/my-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

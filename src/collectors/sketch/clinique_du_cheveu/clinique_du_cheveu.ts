@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CliniqueDuCheveuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CliniqueDuCheveuCollector extends SketchCollector {
         version: "0",
         website: "http://www.cliniqueducheveu.be/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/117760.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CliniqueDuCheveuCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.cliniqueducheveu.be/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KsrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KsrCollector extends SketchCollector {
         version: "0",
         website: "https://shop.ksr-group.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/180724.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KsrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.ksr-group.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

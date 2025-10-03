@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoostMobileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BoostMobileCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.boostmobile.com/sign-in.html?intnav=UtilNav:SignIn",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8785.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BoostMobileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.boostmobile.com/sign-in.html?intnav=UtilNav:SignIn",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

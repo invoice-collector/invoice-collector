@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TripactionsComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TripactionsComCollector extends SketchCollector {
         version: "0",
         website: "https://app.tripactions.com/app/admin2/de/reports/overview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1488421.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TripactionsComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.tripactions.com/app/admin2/de/reports/overview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

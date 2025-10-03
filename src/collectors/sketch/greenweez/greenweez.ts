@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenweezCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GreenweezCollector extends SketchCollector {
         version: "0",
         website: "https://greenweezfr-prod.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25&sort=issueDate%2CDESC",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4396180.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GreenweezCollector extends SketchCollector {
             }
         },
         entryUrl: "https://greenweezfr-prod.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25&sort=issueDate%2CDESC",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

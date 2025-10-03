@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThomannFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ThomannFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.thomann.de/fr/mythomann_login.html?o=https://www.thomann.de/fr/mythomann.html?sid=b4463a701f069547968a1922ba133225",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123497.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ThomannFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.thomann.de/fr/mythomann_login.html?o=https://www.thomann.de/fr/mythomann.html?sid=b4463a701f069547968a1922ba133225",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

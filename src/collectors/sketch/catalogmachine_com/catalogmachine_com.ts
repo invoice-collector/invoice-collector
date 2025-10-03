@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CatalogmachineComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CatalogmachineComCollector extends SketchCollector {
         version: "0",
         website: "https://www.catalogmachine.com/account/signin?ReturnUrl=%2Fapp%2Fmyaccount%2Finvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/539273.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CatalogmachineComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.catalogmachine.com/account/signin?ReturnUrl=%2Fapp%2Fmyaccount%2Finvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

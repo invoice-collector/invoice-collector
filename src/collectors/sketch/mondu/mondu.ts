@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonduCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MonduCollector extends SketchCollector {
         version: "0",
         website: "https://portal.mondu.ai/#/payouts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732524.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MonduCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.mondu.ai/#/payouts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

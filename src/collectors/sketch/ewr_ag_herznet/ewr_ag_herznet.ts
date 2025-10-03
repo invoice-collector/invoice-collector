@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwrAgHerznetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EwrAgHerznetCollector extends SketchCollector {
         version: "0",
         website: "https://mein.ewr-internett.de/Default.asp?rq_Lang=de#{2}",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/153907.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EwrAgHerznetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.ewr-internett.de/Default.asp?rq_Lang=de#{2}",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

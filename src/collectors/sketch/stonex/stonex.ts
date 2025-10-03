@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StonexCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StonexCollector extends SketchCollector {
         version: "0",
         website: "https://payments.stonex.com/einloggen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/762505.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StonexCollector extends SketchCollector {
             }
         },
         entryUrl: "https://payments.stonex.com/einloggen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

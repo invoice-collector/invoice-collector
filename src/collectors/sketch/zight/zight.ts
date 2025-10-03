@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZightCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZightCollector extends SketchCollector {
         version: "0",
         website: "https://zight.recurly.com/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4542934.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZightCollector extends SketchCollector {
             }
         },
         entryUrl: "https://zight.recurly.com/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

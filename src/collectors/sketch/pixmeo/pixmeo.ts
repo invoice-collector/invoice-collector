@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixmeoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PixmeoCollector extends SketchCollector {
         version: "0",
         website: "https://pixmeo.pixmeo.com/pixmeo/login/subscription/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4196733.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PixmeoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pixmeo.pixmeo.com/pixmeo/login/subscription/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

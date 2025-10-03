@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChartableCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChartableCollector extends SketchCollector {
         version: "0",
         website: "https://chartable.com/teams/bimanu-wertgeschaetzt/dashboard/plans",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2508607.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChartableCollector extends SketchCollector {
             }
         },
         entryUrl: "https://chartable.com/teams/bimanu-wertgeschaetzt/dashboard/plans",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

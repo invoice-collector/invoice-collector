@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeeroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeeroCollector extends SketchCollector {
         version: "0",
         website: "https://www.meero.com/customer/fr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/396399.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeeroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.meero.com/customer/fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

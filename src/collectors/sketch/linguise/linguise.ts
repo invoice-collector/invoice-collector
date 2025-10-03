@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinguiseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LinguiseCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.linguise.com/account/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445715.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LinguiseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.linguise.com/account/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

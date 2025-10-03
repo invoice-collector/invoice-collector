@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PacklinkDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PacklinkDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.packlink.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9753.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PacklinkDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.packlink.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

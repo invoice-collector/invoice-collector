@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetzeBwCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NetzeBwCollector extends SketchCollector {
         version: "0",
         website: "https://meine.netze-bw.de/meine-anlagen-und-auftraege/einspeiseanlage/8831082544/dokumente",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1918677.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NetzeBwCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meine.netze-bw.de/meine-anlagen-und-auftraege/einspeiseanlage/8831082544/dokumente",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

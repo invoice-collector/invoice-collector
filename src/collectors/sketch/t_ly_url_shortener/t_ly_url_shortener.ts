@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TLyUrlShortenerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TLyUrlShortenerCollector extends SketchCollector {
         version: "0",
         website: "https://t.ly/settings/teams/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1334828.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TLyUrlShortenerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://t.ly/settings/teams/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

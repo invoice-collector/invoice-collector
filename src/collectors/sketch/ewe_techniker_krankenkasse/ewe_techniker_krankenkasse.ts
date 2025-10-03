@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EweTechnikerKrankenkasseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EweTechnikerKrankenkasseCollector extends SketchCollector {
         version: "0",
         website: "https://meine-tk.ewe.de/eCare",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2310355.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EweTechnikerKrankenkasseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meine-tk.ewe.de/eCare",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

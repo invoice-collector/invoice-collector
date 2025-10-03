@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RentilaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RentilaCollector extends SketchCollector {
         version: "0",
         website: "https://www.rentila.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1098162.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RentilaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rentila.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

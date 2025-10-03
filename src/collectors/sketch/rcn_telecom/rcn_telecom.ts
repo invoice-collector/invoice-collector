@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RcnTelecomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RcnTelecomCollector extends SketchCollector {
         version: "0",
         website: "http://www.rcn.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8712.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RcnTelecomCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.rcn.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

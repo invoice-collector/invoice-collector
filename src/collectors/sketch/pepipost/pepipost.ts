@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PepipostCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PepipostCollector extends SketchCollector {
         version: "0",
         website: "https://app.pepipost.com/app/billings/postpaid-billing/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779616.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PepipostCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.pepipost.com/app/billings/postpaid-billing/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GotaEnergiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GotaEnergiCollector extends SketchCollector {
         version: "0",
         website: "https://minasidor.gotaenergi.se/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/143860.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GotaEnergiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://minasidor.gotaenergi.se/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

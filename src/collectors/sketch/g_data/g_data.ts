@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GDataCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GDataCollector extends SketchCollector {
         version: "0",
         website: "https://www.gdata.de/mygdata",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/34091.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GDataCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gdata.de/mygdata",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

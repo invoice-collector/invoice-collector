@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeitLohnCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZeitLohnCollector extends SketchCollector {
         version: "0",
         website: "https://zeit-lohn.net/Home/Index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777209.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZeitLohnCollector extends SketchCollector {
             }
         },
         entryUrl: "https://zeit-lohn.net/Home/Index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

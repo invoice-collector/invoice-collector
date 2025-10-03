@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexudusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NexudusCollector extends SketchCollector {
         version: "0",
         website: "https://platform.nexudus.com/auth/sign-in?continue_to=/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034300.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NexudusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://platform.nexudus.com/auth/sign-in?continue_to=/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

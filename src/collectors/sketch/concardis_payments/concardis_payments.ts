@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConcardisPaymentsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConcardisPaymentsCollector extends SketchCollector {
         version: "0",
         website: "https://my.concardis.com/api/api/generated-file/4e897141-ec39-4996-1f80-08db8f0e611b",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2063515.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConcardisPaymentsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.concardis.com/api/api/generated-file/4e897141-ec39-4996-1f80-08db8f0e611b",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

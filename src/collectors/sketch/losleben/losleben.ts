@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoslebenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LoslebenCollector extends SketchCollector {
         version: "0",
         website: "https://losleben.wienerstaedtische.at/app/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176025.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LoslebenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://losleben.wienerstaedtische.at/app/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

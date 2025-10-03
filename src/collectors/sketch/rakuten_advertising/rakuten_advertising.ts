@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RakutenAdvertisingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RakutenAdvertisingCollector extends SketchCollector {
         version: "0",
         website: "https://publisher.rakutenadvertising.com/reports/payments/overview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2669861.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RakutenAdvertisingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://publisher.rakutenadvertising.com/reports/payments/overview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

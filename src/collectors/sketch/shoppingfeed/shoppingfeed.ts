@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShoppingfeedCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShoppingfeedCollector extends SketchCollector {
         version: "0",
         website: "https://app.shopping-feed.com/facturation",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/131136.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShoppingfeedCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.shopping-feed.com/facturation",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

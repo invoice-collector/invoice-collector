@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EOnNextCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EOnNextCollector extends SketchCollector {
         version: "0",
         website: "https://www.eonnext.com/dashboard/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/798521.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EOnNextCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eonnext.com/dashboard/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

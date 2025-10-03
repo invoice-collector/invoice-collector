@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JoistCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JoistCollector extends SketchCollector {
         version: "0",
         website: "https://shop.joist.eu/orderhistory.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2841408.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JoistCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.joist.eu/orderhistory.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

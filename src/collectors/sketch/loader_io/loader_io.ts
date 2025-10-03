@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoaderIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LoaderIoCollector extends SketchCollector {
         version: "0",
         website: "https://loader.io/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8744.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LoaderIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://loader.io/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AntiloCscCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AntiloCscCollector extends SketchCollector {
         version: "0",
         website: "https://csc.antilo.de/cgi-bin/uncgi/main.cgi?session=X5kfy1ndAT4AAGWZE-oAAAAA",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/543150.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AntiloCscCollector extends SketchCollector {
             }
         },
         entryUrl: "https://csc.antilo.de/cgi-bin/uncgi/main.cgi?session=X5kfy1ndAT4AAGWZE-oAAAAA",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

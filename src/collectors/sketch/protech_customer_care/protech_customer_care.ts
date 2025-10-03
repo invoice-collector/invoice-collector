@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProtechCustomerCareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProtechCustomerCareCollector extends SketchCollector {
         version: "0",
         website: "https://my.protechassociates.com/My-Protech/My-Paid-Invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/738693.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProtechCustomerCareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.protechassociates.com/My-Protech/My-Paid-Invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

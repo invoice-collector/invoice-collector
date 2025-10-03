@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeysummitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HeysummitCollector extends SketchCollector {
         version: "0",
         website: "https://heysummit.com/accounts/billing/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/392736.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HeysummitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://heysummit.com/accounts/billing/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

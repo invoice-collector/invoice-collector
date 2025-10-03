@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SepteoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SepteoCollector extends SketchCollector {
         version: "0",
         website: "https://espace-client.septeo.com/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4415109.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SepteoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-client.septeo.com/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

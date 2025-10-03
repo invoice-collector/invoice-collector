@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RevComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RevComCollector extends SketchCollector {
         version: "0",
         website: "https://www.rev.com/account/orders/orderhistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/72445.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RevComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rev.com/account/orders/orderhistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

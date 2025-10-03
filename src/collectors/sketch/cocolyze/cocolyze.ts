@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CocolyzeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CocolyzeCollector extends SketchCollector {
         version: "0",
         website: "https://cocolyze.com/fr/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/737779.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CocolyzeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cocolyze.com/fr/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MerchantOnlinePortalTelecashDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MerchantOnlinePortalTelecashDeCollector extends SketchCollector {
         version: "0",
         website: "https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203808.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MerchantOnlinePortalTelecashDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

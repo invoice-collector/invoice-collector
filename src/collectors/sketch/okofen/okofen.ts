@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OkofenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OkofenCollector extends SketchCollector {
         version: "0",
         website: "https://www.oekofen.com/de-de/pelletheizung/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/427327.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OkofenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.oekofen.com/de-de/pelletheizung/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

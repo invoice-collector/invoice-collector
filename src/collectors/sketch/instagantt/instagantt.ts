@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstaganttCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InstaganttCollector extends SketchCollector {
         version: "0",
         website: "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=5275785675948&redirect_uri=https://instagantt.com/asana/auth",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/17404.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InstaganttCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=5275785675948&redirect_uri=https://instagantt.com/asana/auth",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

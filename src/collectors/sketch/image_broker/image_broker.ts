@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImageBrokerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ImageBrokerCollector extends SketchCollector {
         version: "0",
         website: "https://my.imagebroker.com/de/verkaeufe/?tab=2",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2105948.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ImageBrokerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.imagebroker.com/de/verkaeufe/?tab=2",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

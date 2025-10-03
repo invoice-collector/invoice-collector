@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DmrzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DmrzCollector extends SketchCollector {
         version: "0",
         website: "https://ww18.autotask.net/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/832492.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DmrzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ww18.autotask.net/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

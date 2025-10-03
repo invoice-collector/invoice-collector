@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EFluxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EFluxCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.e-flux.io/my-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2695469.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EFluxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.e-flux.io/my-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

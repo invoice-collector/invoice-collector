@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlipBillboardsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BlipBillboardsCollector extends SketchCollector {
         version: "0",
         website: "https://marketplace.blipbillboards.com/reports",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4449718.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BlipBillboardsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://marketplace.blipbillboards.com/reports",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

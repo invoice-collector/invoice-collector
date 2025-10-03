@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DtnIqfeedCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DtnIqfeedCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.dtn.com/storefront/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33360.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DtnIqfeedCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.dtn.com/storefront/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

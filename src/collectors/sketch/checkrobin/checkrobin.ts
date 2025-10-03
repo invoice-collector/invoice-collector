@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CheckrobinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CheckrobinCollector extends SketchCollector {
         version: "0",
         website: "https://checkrobin.com/de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/823857.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CheckrobinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://checkrobin.com/de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

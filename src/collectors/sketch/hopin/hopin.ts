@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HopinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HopinCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.hopin.com/org/recode_law_42KL2CHkrue9QhIUBvMTL81md/manage/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1368225.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HopinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.hopin.com/org/recode_law_42KL2CHkrue9QhIUBvMTL81md/manage/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

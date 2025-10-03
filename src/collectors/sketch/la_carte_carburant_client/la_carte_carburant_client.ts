@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaCarteCarburantClientCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaCarteCarburantClientCollector extends SketchCollector {
         version: "0",
         website: "https://client.lacartecarburant.com/authentification?returnUrl=%2Ffactures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3026048.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaCarteCarburantClientCollector extends SketchCollector {
             }
         },
         entryUrl: "https://client.lacartecarburant.com/authentification?returnUrl=%2Ffactures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

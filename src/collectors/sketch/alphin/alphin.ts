@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlphinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlphinCollector extends SketchCollector {
         version: "0",
         website: "https://app.alphin.io/billing/overview?utm_source=zuora&utm_medium=email&utm_campaign=invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2103968.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlphinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.alphin.io/billing/overview?utm_source=zuora&utm_medium=email&utm_campaign=invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

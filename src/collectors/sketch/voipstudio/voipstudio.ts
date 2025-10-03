@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoipstudioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VoipstudioCollector extends SketchCollector {
         version: "0",
         website: "https://voipstudio.de/app/#billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2841620.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VoipstudioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://voipstudio.de/app/#billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

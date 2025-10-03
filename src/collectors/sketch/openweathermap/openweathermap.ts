@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenweathermapCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpenweathermapCollector extends SketchCollector {
         version: "0",
         website: "https://home.openweathermap.org/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/69032.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpenweathermapCollector extends SketchCollector {
             }
         },
         entryUrl: "https://home.openweathermap.org/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

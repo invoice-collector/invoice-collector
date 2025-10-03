@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAdreaEntrepriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleAdreaEntrepriseCollector extends SketchCollector {
         version: "0",
         website: "https://entreprise.adrea.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/125696.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleAdreaEntrepriseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://entreprise.adrea.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

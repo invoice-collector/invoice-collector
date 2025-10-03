@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IngenicoEpaymentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IngenicoEpaymentCollector extends SketchCollector {
         version: "0",
         website: "https://secure.ogone.com/Ncol/Prod/Invoices.asp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/131141.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IngenicoEpaymentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.ogone.com/Ncol/Prod/Invoices.asp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

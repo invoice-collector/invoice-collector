@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyfenceDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyfenceDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.myfence.de/authentifizierung?back=history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/50383.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyfenceDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.myfence.de/authentifizierung?back=history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

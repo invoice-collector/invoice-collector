@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaterialiseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaterialiseCollector extends SketchCollector {
         version: "0",
         website: "https://onsite.materialise.com/de/account/login?ReturnUrl=%2fde",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1371830.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaterialiseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onsite.materialise.com/de/account/login?ReturnUrl=%2fde",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

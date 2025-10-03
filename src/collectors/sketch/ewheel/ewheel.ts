@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwheelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EwheelCollector extends SketchCollector {
         version: "0",
         website: "https://ewheel.es/es/mi-cuenta",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4210275.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EwheelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ewheel.es/es/mi-cuenta",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

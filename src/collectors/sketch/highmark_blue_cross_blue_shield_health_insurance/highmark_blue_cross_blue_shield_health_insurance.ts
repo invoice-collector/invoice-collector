@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HighmarkBlueCrossBlueShieldHealthInsuranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HighmarkBlueCrossBlueShieldHealthInsuranceCollector extends SketchC
         version: "0",
         website: "https://employer.highmark.com/billing/group/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3377948.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HighmarkBlueCrossBlueShieldHealthInsuranceCollector extends SketchC
             }
         },
         entryUrl: "https://employer.highmark.com/billing/group/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

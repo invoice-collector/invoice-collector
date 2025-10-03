@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchieggVersicherungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SchieggVersicherungCollector extends SketchCollector {
         version: "0",
         website: "https://www.schiegg-versicherung.de/invoice/showList",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2761411.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SchieggVersicherungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.schiegg-versicherung.de/invoice/showList",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

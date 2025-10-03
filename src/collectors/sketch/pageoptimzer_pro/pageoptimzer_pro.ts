@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PageoptimzerProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PageoptimzerProCollector extends SketchCollector {
         version: "0",
         website: "https://app.pageoptimizer.pro/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4210159.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PageoptimzerProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.pageoptimizer.pro/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

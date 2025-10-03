@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CapitalflowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CapitalflowCollector extends SketchCollector {
         version: "0",
         website: "https://app.capital-flow.de/internal/settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420482.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CapitalflowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.capital-flow.de/internal/settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

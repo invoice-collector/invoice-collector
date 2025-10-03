@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudspotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CloudspotCollector extends SketchCollector {
         version: "0",
         website: "https://app.cloudspot.io/accountSettings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1480721.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CloudspotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.cloudspot.io/accountSettings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

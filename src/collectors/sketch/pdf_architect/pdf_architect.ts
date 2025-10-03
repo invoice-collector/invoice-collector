@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PdfArchitectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PdfArchitectCollector extends SketchCollector {
         version: "0",
         website: "http://myaccount.pdfarchitect.org/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779003.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PdfArchitectCollector extends SketchCollector {
             }
         },
         entryUrl: "http://myaccount.pdfarchitect.org/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

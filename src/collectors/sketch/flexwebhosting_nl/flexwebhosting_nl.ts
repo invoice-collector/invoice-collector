@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlexwebhostingNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlexwebhostingNlCollector extends SketchCollector {
         version: "0",
         website: "https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32724.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlexwebhostingNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

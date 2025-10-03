@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklBigbangCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MiraklBigbangCollector extends SketchCollector {
         version: "0",
         website: "https://bigbangmarketplace.mirakl.net/sellerpayment/shop/shop-billing-cycles?sort=dateCreated%2CDESC&limit=25",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2254956.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MiraklBigbangCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bigbangmarketplace.mirakl.net/sellerpayment/shop/shop-billing-cycles?sort=dateCreated%2CDESC&limit=25",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeocaminoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NeocaminoCollector extends SketchCollector {
         version: "0",
         website: "https://app.neocamino.com/admin/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4488123.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NeocaminoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.neocamino.com/admin/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

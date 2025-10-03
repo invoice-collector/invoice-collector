@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineserviceStadtwerkeBadNauheimCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnlineserviceStadtwerkeBadNauheimCollector extends SketchCollector 
         version: "0",
         website: "https://onlineservice.service-rz.de/?act=login&werknr=63&System=Prod#email",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2131227.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnlineserviceStadtwerkeBadNauheimCollector extends SketchCollector 
             }
         },
         entryUrl: "https://onlineservice.service-rz.de/?act=login&werknr=63&System=Prod#email",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

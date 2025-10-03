@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenTelekomCloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpenTelekomCloudCollector extends SketchCollector {
         version: "0",
         website: "https://www.websso.t-systems.com/MyWorkplace/General/TSIPageContainer.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779628.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpenTelekomCloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.websso.t-systems.com/MyWorkplace/General/TSIPageContainer.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

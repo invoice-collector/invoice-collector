@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManxUtilitiesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ManxUtilitiesCollector extends SketchCollector {
         version: "0",
         website: "https://www.manxutilities.im/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/424284.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ManxUtilitiesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.manxutilities.im/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

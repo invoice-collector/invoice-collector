@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaingauEnergieEnergieKundenportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaingauEnergieEnergieKundenportalCollector extends SketchCollector 
         version: "0",
         website: "https://www.maingau-energie.de/strom",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3025357.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaingauEnergieEnergieKundenportalCollector extends SketchCollector 
             }
         },
         entryUrl: "https://www.maingau-energie.de/strom",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceExpressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FranceExpressCollector extends SketchCollector {
         version: "0",
         website: "https://espace-client.france-express.com/client/home#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534309.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FranceExpressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-client.france-express.com/client/home#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

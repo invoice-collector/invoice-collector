@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Performance360Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Performance360Collector extends SketchCollector {
         version: "0",
         website: "https://www.performance360.de/registry-passwordreset.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1207900.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Performance360Collector extends SketchCollector {
             }
         },
         entryUrl: "https://www.performance360.de/registry-passwordreset.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YmlpYourMailingListProviderCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YmlpYourMailingListProviderCollector extends SketchCollector {
         version: "0",
         website: "https://www.ymlp.com/app/payments.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777424.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YmlpYourMailingListProviderCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ymlp.com/app/payments.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

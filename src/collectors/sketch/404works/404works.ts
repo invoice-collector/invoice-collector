@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _404worksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _404worksCollector extends SketchCollector {
         version: "0",
         website: "https://www.404works.com/fr/purchases/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/172796.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _404worksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.404works.com/fr/purchases/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

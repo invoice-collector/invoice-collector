@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaltFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaltFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.malt.fr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/812004.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaltFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.malt.fr/invoicing/freelancer/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

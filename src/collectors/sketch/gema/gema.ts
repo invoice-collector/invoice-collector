@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GemaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GemaCollector extends SketchCollector {
         version: "0",
         website: "https://www.gema.de/portal/app/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132474.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GemaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gema.de/portal/app/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

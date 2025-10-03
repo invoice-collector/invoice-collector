@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WwwZrkPortalDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WwwZrkPortalDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.zrk-portal.de/azh_oc/noc/pt/rezeptAbrechnung",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1649677.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WwwZrkPortalDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.zrk-portal.de/azh_oc/noc/pt/rezeptAbrechnung",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

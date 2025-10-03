@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DashthisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DashthisCollector extends SketchCollector {
         version: "0",
         website: "https://dashthis.com/app/admin/Security/LogOn",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/17792.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DashthisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashthis.com/app/admin/Security/LogOn",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParkenInMainzGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ParkenInMainzGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://pmg.evopark.de/b/aHR0cHM6Ly9hcGktcHJvZHVjdC5ldm9wYXJrLmRlL3BtZy5ldm9wYXJrLmRlL2ludm9pY2Vz",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185152.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ParkenInMainzGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pmg.evopark.de/b/aHR0cHM6Ly9hcGktcHJvZHVjdC5ldm9wYXJrLmRlL3BtZy5ldm9wYXJrLmRlL2ludm9pY2Vz",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

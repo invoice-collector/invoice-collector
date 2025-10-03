@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GatsbyjsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GatsbyjsCollector extends SketchCollector {
         version: "0",
         website: "https://www.gatsbyjs.com/dashboard/organization/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1621988.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GatsbyjsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gatsbyjs.com/dashboard/organization/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

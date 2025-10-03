@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaPosteProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaPosteProCollector extends SketchCollector {
         version: "0",
         website: "https://www.laposte.fr/professionnel/espaceclient/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73829.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaPosteProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.laposte.fr/professionnel/espaceclient/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

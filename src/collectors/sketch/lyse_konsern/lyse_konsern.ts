@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LyseKonsernCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LyseKonsernCollector extends SketchCollector {
         version: "0",
         website: "http://www.lysekonsern.no",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8988.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LyseKonsernCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.lysekonsern.no",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

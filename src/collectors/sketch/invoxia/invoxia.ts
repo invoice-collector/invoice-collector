@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InvoxiaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InvoxiaCollector extends SketchCollector {
         version: "0",
         website: "https://hub.invoxia.com/login?next=devices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/946418.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InvoxiaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hub.invoxia.com/login?next=devices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

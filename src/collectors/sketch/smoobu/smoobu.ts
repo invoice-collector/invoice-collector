@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmoobuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmoobuCollector extends SketchCollector {
         version: "0",
         website: "https://login.smoobu.com/de/login?utm_source=Smoobu.com&utm_medium=Login&utm_campaign=LoginTopMenu_DE",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33469.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmoobuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.smoobu.com/de/login?utm_source=Smoobu.com&utm_medium=Login&utm_campaign=LoginTopMenu_DE",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

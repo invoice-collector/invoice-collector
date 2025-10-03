@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EspaceClientProOrangeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EspaceClientProOrangeCollector extends SketchCollector {
         version: "0",
         website: "https://espaceclientpro.orange.fr/contracts?redir=facture",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1724610.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EspaceClientProOrangeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceclientpro.orange.fr/contracts?redir=facture",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

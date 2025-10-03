@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VabUnifiedPostCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VabUnifiedPostCollector extends SketchCollector {
         version: "0",
         website: "https://vab-documents.nxt.unifiedpost.com/link/document/c/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2698825.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VabUnifiedPostCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vab-documents.nxt.unifiedpost.com/link/document/c/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

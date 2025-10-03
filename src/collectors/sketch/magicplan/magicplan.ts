@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagicplanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MagicplanCollector extends SketchCollector {
         version: "0",
         website: "https://cloud.magicplan.app/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/820574.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MagicplanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cloud.magicplan.app/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

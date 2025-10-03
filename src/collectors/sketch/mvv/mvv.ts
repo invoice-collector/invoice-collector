@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MvvCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MvvCollector extends SketchCollector {
         version: "0",
         website: "https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/172790.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MvvCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ticketshop.mvv-muenchen.de/index.php/personal_data/orderList",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

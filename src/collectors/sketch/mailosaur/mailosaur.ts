@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailosaurCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MailosaurCollector extends SketchCollector {
         version: "0",
         website: "https://mailosaur.com/app/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732362.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MailosaurCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mailosaur.com/app/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

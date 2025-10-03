@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VivaloEspaceClientCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VivaloEspaceClientCollector extends SketchCollector {
         version: "0",
         website: "https://vivalo.re/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4415682.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VivaloEspaceClientCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vivalo.re/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

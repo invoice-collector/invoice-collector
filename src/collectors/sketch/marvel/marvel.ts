@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarvelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MarvelCollector extends SketchCollector {
         version: "0",
         website: "https://marvelapp.com/user/billing/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/60383.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MarvelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://marvelapp.com/user/billing/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

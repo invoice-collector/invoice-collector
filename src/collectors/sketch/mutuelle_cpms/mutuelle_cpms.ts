@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleCpmsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleCpmsCollector extends SketchCollector {
         version: "0",
         website: "https://www.cpms.fr/connexion-particulier/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleCpmsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cpms.fr/connexion-particulier/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

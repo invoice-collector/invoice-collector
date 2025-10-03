@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CitizenCircleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CitizenCircleCollector extends SketchCollector {
         version: "0",
         website: "https://member.citizencircle.de/mitgliedschaft/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/543152.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CitizenCircleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://member.citizencircle.de/mitgliedschaft/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

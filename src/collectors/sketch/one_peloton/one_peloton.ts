@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnePelotonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnePelotonCollector extends SketchCollector {
         version: "0",
         website: "https://www.onepeloton.de/mymembership/subscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1668030.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnePelotonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.onepeloton.de/mymembership/subscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

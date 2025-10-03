@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QscAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QscAgCollector extends SketchCollector {
         version: "0",
         website: "https://www.myplusnet.de/login_form.php?st=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/31484.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QscAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.myplusnet.de/login_form.php?st=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

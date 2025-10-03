@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RtxPlattformCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RtxPlattformCollector extends SketchCollector {
         version: "0",
         website: "https://app.rtxplatform.com/account/funding/transactions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/144291.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RtxPlattformCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.rtxplatform.com/account/funding/transactions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

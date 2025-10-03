@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CommunicationFournisseurCarrefourFranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CommunicationFournisseurCarrefourFranceCollector extends SketchColl
         version: "0",
         website: "https://www.cfcf.carrefour.net/cfou/gestionFactDiff.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4642150.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CommunicationFournisseurCarrefourFranceCollector extends SketchColl
             }
         },
         entryUrl: "https://www.cfcf.carrefour.net/cfou/gestionFactDiff.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

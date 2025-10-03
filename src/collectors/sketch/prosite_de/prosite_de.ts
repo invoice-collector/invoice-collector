@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrositeDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrositeDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.prosite.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11248.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrositeDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.prosite.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

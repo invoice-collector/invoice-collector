@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PropelleradsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PropelleradsCollector extends SketchCollector {
         version: "0",
         website: "https://partners.propellerads.com/#/app/finance/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102637.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PropelleradsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partners.propellerads.com/#/app/finance/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

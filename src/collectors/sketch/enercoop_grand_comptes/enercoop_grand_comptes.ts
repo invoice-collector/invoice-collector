@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnercoopGrandComptesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnercoopGrandComptesCollector extends SketchCollector {
         version: "0",
         website: "https://mon-espace.enercoop.fr/grandscomptes-collectivites/sites",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1526340.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnercoopGrandComptesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mon-espace.enercoop.fr/grandscomptes-collectivites/sites",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

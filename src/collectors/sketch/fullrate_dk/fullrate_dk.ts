@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FullrateDkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FullrateDkCollector extends SketchCollector {
         version: "0",
         website: "https://www.fullrate.dk/selvbetjening/fakturaoversigt",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/80276.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FullrateDkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fullrate.dk/selvbetjening/fakturaoversigt",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

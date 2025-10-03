@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PabblyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PabblyCollector extends SketchCollector {
         version: "0",
         website: "https://payments.pabbly.com/portal/app/en/affiliateportal/invoice/1/all",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1318809.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PabblyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://payments.pabbly.com/portal/app/en/affiliateportal/invoice/1/all",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

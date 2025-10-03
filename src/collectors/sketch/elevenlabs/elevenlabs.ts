@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElevenlabsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ElevenlabsCollector extends SketchCollector {
         version: "0",
         website: "https://elevenlabs.io/subscription",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2157923.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ElevenlabsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://elevenlabs.io/subscription",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

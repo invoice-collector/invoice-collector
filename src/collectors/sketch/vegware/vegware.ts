@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VegwareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VegwareCollector extends SketchCollector {
         version: "0",
         website: "https://www.vegware.com/index.php?act=login&redir=aHR0cHM6Ly93d3cudmVnd2FyZS5jb20vaW5kZXgucGhwP2NjVXNlcj0xMjRjZTViNDAzNTkyZWExMDQ2ZGU1ZWRiM2JiM2JhNw==",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/41878.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VegwareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vegware.com/index.php?act=login&redir=aHR0cHM6Ly93d3cudmVnd2FyZS5jb20vaW5kZXgucGhwP2NjVXNlcj0xMjRjZTViNDAzNTkyZWExMDQ2ZGU1ZWRiM2JiM2JhNw==",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

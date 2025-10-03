@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PipedreamCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PipedreamCollector extends SketchCollector {
         version: "0",
         website: "https://billing.stripe.com/p/session/live_YWNjdF8xREFMaUpCU1pzb2x0R2ZDLF9NUWxFRWl6ZUVCMHpiY0pqSFJ1Q0R6Q2dYaXJBMWts0100JFXBsEdX",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1374713.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PipedreamCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xREFMaUpCU1pzb2x0R2ZDLF9NUWxFRWl6ZUVCMHpiY0pqSFJ1Q0R6Q2dYaXJBMWts0100JFXBsEdX",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

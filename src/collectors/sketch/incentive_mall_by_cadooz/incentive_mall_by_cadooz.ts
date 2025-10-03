@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IncentiveMallByCadoozCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IncentiveMallByCadoozCollector extends SketchCollector {
         version: "0",
         website: "https://incentivemall.cadooz.com/mall/history.do;jsessionid=_KDe_8YYZnnjmLC6_FhkHHTrk_jdEiL0vhIROFmu.bus01?action=LOAD",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/875948.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IncentiveMallByCadoozCollector extends SketchCollector {
             }
         },
         entryUrl: "https://incentivemall.cadooz.com/mall/history.do;jsessionid=_KDe_8YYZnnjmLC6_FhkHHTrk_jdEiL0vhIROFmu.bus01?action=LOAD",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

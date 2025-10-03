@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtischeWerkeKasselCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtischeWerkeKasselCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.sw-kassel.de/portal/welcome",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/423630.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtischeWerkeKasselCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.sw-kassel.de/portal/welcome",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

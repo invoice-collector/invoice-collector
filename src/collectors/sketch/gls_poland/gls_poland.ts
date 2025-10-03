@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlsPolandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GlsPolandCollector extends SketchCollector {
         version: "0",
         website: "https://adeplus.gls-poland.com/adeplus/lm/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4572204.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GlsPolandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://adeplus.gls-poland.com/adeplus/lm/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

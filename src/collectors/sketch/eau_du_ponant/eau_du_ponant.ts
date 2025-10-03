@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauDuPonantCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EauDuPonantCollector extends SketchCollector {
         version: "0",
         website: "https://espace-abonne.eauduponant.fr//#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27351.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EauDuPonantCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-abonne.eauduponant.fr//#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VismeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VismeCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.visme.co/billing-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/97576.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VismeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.visme.co/billing-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

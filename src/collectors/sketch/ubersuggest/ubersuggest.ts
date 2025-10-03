@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UbersuggestCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UbersuggestCollector extends SketchCollector {
         version: "0",
         website: "https://app.neilpatel.com/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/976554.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UbersuggestCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.neilpatel.com/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HighMobileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HighMobileCollector extends SketchCollector {
         version: "0",
         website: "https://csc.high-mobile.de/high-csc/user/bills/list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/421634.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HighMobileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://csc.high-mobile.de/high-csc/user/bills/list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

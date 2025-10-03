@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnixterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AnixterCollector extends SketchCollector {
         version: "0",
         website: "https://www.eanixter.com/login.xhtml?spring-security-redirect=%2Fhome.xhtml&faces-redirect=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/74274.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AnixterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eanixter.com/login.xhtml?spring-security-redirect=%2Fhome.xhtml&faces-redirect=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

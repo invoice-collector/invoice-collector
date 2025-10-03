@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CongstarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CongstarCollector extends SketchCollector {
         version: "0",
         website: "https://www.congstar.de/meincongstar-d/meine-rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4904.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CongstarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.congstar.de/meincongstar-d/meine-rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EtlPisaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EtlPisaCollector extends SketchCollector {
         version: "0",
         website: "https://pisa.etl.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185313.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EtlPisaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pisa.etl.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

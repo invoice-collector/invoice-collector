@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _5eurosComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _5eurosComCollector extends SketchCollector {
         version: "0",
         website: "https://www.5euros.com/achats/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88373.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _5eurosComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.5euros.com/achats/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

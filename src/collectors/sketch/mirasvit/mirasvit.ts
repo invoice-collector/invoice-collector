@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MirasvitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MirasvitCollector extends SketchCollector {
         version: "0",
         website: "https://mirasvit.com/sales/invoice/history/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4397138.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MirasvitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mirasvit.com/sales/invoice/history/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

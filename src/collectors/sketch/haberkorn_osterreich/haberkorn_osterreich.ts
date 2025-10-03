@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HaberkornOsterreichCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HaberkornOsterreichCollector extends SketchCollector {
         version: "0",
         website: "https://www.haberkorn.com/at/de/bestellungen/ausgeliefert",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3104172.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HaberkornOsterreichCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.haberkorn.com/at/de/bestellungen/ausgeliefert",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

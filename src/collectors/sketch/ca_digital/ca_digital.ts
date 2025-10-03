@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaDigitalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CaDigitalCollector extends SketchCollector {
         version: "0",
         website: "https://order.ca-digit.com/cat/customer/address/?___store=en",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445902.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CaDigitalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://order.ca-digit.com/cat/customer/address/?___store=en",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

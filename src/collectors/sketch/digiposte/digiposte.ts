@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigiposteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigiposteCollector extends SketchCollector {
         version: "0",
         website: "https://secure.digiposte.fr/safe/940880c8c8504c019150b676723f2315",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1275481.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigiposteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.digiposte.fr/safe/940880c8c8504c019150b676723f2315",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

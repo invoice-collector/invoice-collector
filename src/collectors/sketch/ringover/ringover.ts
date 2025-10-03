@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RingoverCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RingoverCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.ringover.com/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/152277.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RingoverCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.ringover.com/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

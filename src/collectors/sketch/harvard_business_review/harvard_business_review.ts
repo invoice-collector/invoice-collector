@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HarvardBusinessReviewCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HarvardBusinessReviewCollector extends SketchCollector {
         version: "0",
         website: "https://hbr.org/my-library/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1242576.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HarvardBusinessReviewCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hbr.org/my-library/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

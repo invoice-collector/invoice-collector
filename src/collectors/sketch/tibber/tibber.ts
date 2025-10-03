@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TibberCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TibberCollector extends SketchCollector {
         version: "0",
         website: "https://tibber.com/de/portal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1368222.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TibberCollector extends SketchCollector {
             }
         },
         entryUrl: "https://tibber.com/de/portal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

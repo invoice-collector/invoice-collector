@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeruCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeruCollector extends SketchCollector {
         version: "0",
         website: "https://www.geru.com/customers/orders/NWMKRR",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1863279.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeruCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.geru.com/customers/orders/NWMKRR",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

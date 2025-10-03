@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeliverectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeliverectCollector extends SketchCollector {
         version: "0",
         website: "https://deliverect.chargebeeportal.com/portal/v2/billing_history?source=home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1219818.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeliverectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://deliverect.chargebeeportal.com/portal/v2/billing_history?source=home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

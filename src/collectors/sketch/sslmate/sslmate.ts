@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SslmateCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SslmateCollector extends SketchCollector {
         version: "0",
         website: "https://sslmate.com/dashboard?login=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8806.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SslmateCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sslmate.com/dashboard?login=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

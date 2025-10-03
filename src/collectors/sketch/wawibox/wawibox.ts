@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WawiboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WawiboxCollector extends SketchCollector {
         version: "0",
         website: "https://wawibox.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2155156.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WawiboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wawibox.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

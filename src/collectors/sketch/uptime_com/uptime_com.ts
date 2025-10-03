@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UptimeComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UptimeComCollector extends SketchCollector {
         version: "0",
         website: "https://uptime.com/billing/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2694549.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UptimeComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://uptime.com/billing/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

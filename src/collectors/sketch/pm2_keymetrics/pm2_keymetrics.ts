@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Pm2KeymetricsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Pm2KeymetricsCollector extends SketchCollector {
         version: "0",
         website: "https://id.keymetrics.io/api/oauth/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4503838.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Pm2KeymetricsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://id.keymetrics.io/api/oauth/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

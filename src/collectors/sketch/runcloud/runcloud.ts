@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RuncloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RuncloudCollector extends SketchCollector {
         version: "0",
         website: "https://manage.runcloud.io/auth/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/47163.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RuncloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manage.runcloud.io/auth/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

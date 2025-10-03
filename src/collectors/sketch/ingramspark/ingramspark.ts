@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IngramsparkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IngramsparkCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.ingramspark.com/Orders/PreviousOrders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2128536.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IngramsparkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.ingramspark.com/Orders/PreviousOrders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

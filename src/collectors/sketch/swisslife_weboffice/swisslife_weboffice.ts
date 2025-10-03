@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwisslifeWebofficeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwisslifeWebofficeCollector extends SketchCollector {
         version: "0",
         website: "https://www.swisslife-weboffice.de/einfogpweb/posteingang.faces",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/104149.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwisslifeWebofficeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.swisslife-weboffice.de/einfogpweb/posteingang.faces",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

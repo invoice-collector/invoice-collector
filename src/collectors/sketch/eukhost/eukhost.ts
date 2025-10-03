@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EukhostCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EukhostCollector extends SketchCollector {
         version: "0",
         website: "http://www.eukhost.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9212.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EukhostCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.eukhost.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetyourguidePartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GetyourguidePartnerCollector extends SketchCollector {
         version: "0",
         website: "https://partner.getyourguide.com/de-de/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778145.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GetyourguidePartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.getyourguide.com/de-de/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

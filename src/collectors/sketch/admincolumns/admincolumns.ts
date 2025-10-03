@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdmincolumnsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdmincolumnsCollector extends SketchCollector {
         version: "0",
         website: "https://www.admincolumns.com/my-account/orders/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/552469.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdmincolumnsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.admincolumns.com/my-account/orders/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

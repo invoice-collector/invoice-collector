@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SlendertoneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SlendertoneCollector extends SketchCollector {
         version: "0",
         website: "https://fr.slendertone.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122727.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SlendertoneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fr.slendertone.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

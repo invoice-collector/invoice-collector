@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SipgateTeamPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SipgateTeamPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://app.sipgate.com/w0/team/settings/affiliate",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778995.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SipgateTeamPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.sipgate.com/w0/team/settings/affiliate",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcomdataGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EcomdataGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://my.ecomdata.de/clientarea.php?_ga=2.6130931.1786468032.1601532605-1955470257.1601532605",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/508958.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EcomdataGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.ecomdata.de/clientarea.php?_ga=2.6130931.1786468032.1601532605-1955470257.1601532605",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

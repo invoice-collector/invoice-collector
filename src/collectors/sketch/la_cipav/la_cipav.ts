@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaCipavCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LaCipavCollector extends SketchCollector {
         version: "0",
         website: "https://espace-personnel.lacipav.fr/#/connexion/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105788.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LaCipavCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-personnel.lacipav.fr/#/connexion/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

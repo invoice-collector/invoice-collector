@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XoviCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class XoviCollector extends SketchCollector {
         version: "0",
         website: "https://suite.xovi.net/user/login?redirect=%2Faccount%2Finvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2854.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class XoviCollector extends SketchCollector {
             }
         },
         entryUrl: "https://suite.xovi.net/user/login?redirect=%2Faccount%2Finvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomaintoolsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DomaintoolsCollector extends SketchCollector {
         version: "0",
         website: "https://account.domaintools.com/my-account/?tab=history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/159723.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DomaintoolsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.domaintools.com/my-account/?tab=history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FactoryMotorPartsCustomerPaymentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FactoryMotorPartsCustomerPaymentCollector extends SketchCollector {
         version: "0",
         website: "https://ebilling.factorymotorparts.com/custportal/PayInvoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4642951.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FactoryMotorPartsCustomerPaymentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ebilling.factorymotorparts.com/custportal/PayInvoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

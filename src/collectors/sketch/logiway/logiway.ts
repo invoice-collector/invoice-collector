@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogiwayCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LogiwayCollector extends SketchCollector {
         version: "0",
         website: "https://www.logiway.de/shop/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/842041.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LogiwayCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.logiway.de/shop/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

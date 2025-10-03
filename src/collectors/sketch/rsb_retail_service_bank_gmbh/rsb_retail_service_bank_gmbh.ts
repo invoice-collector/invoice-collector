@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RsbRetailServiceBankGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RsbRetailServiceBankGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://portal.rsb-bank.de/RSBPortal/app/index.jsf",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777321.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RsbRetailServiceBankGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.rsb-bank.de/RSBPortal/app/index.jsf",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

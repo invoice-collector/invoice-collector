@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CorelDrawCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CorelDrawCollector extends SketchCollector {
         version: "0",
         website: "https://account.corel.com/accounts/user/accountOrderHistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/419738.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CorelDrawCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.corel.com/accounts/user/accountOrderHistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

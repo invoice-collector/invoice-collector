@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WincherCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WincherCollector extends SketchCollector {
         version: "0",
         website: "http://www.wincher.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/69261.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WincherCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.wincher.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RiverCleanerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RiverCleanerCollector extends SketchCollector {
         version: "0",
         website: "https://rivercleaner.com/member-profile/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/159724.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RiverCleanerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rivercleaner.com/member-profile/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

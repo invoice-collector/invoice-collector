@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuropcarCorporateCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EuropcarCorporateCollector extends SketchCollector {
         version: "0",
         website: "http://europcar.generix.biz/txe/ui/portal.jsf",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/215169.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EuropcarCorporateCollector extends SketchCollector {
             }
         },
         entryUrl: "http://europcar.generix.biz/txe/ui/portal.jsf",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

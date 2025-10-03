@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TehavaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TehavaCollector extends SketchCollector {
         version: "0",
         website: "https://www.tehava.com/en-us/profile/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32530.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TehavaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tehava.com/en-us/profile/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

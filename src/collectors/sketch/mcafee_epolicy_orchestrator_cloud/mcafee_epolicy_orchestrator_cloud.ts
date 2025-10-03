@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class McafeeEpolicyOrchestratorCloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class McafeeEpolicyOrchestratorCloudCollector extends SketchCollector {
         version: "0",
         website: "https://home.mcafee.com/secure/protected/login.aspx?rfhs=1&culture=en-us",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21948.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class McafeeEpolicyOrchestratorCloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://home.mcafee.com/secure/protected/login.aspx?rfhs=1&culture=en-us",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

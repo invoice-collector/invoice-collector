@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhonetastikCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhonetastikCollector extends SketchCollector {
         version: "0",
         website: "https://phonetastik.de/account/order-transactions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4571728.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhonetastikCollector extends SketchCollector {
             }
         },
         entryUrl: "https://phonetastik.de/account/order-transactions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

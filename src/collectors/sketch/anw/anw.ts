@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnwCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AnwCollector extends SketchCollector {
         version: "0",
         website: "https://secure.anw.es/extranet/admin.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4181460.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AnwCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.anw.es/extranet/admin.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

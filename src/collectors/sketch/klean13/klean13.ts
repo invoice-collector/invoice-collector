@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Klean13Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Klean13Collector extends SketchCollector {
         version: "0",
         website: "https://app.klean13.com/invoice?invoice_id=3676",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1525175.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Klean13Collector extends SketchCollector {
             }
         },
         entryUrl: "https://app.klean13.com/invoice?invoice_id=3676",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TakeEWayCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TakeEWayCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.take-e-way.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/62736.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TakeEWayCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.take-e-way.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

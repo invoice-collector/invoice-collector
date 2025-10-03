@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Pix4dCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Pix4dCollector extends SketchCollector {
         version: "0",
         website: "https://cloud.pix4d.com/account/licenses/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/194677.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Pix4dCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cloud.pix4d.com/account/licenses/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PepperfryCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PepperfryCollector extends SketchCollector {
         version: "0",
         website: "https://www.pepperfry.com/customer/logout/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7094.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PepperfryCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pepperfry.com/customer/logout/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

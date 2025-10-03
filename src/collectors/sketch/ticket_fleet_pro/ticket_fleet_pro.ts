@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicketFleetProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TicketFleetProCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.lacartecarburant.com/petrole/BackOfficeUTA/fr/facturation/consultation-factures-client/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/190084.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TicketFleetProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.lacartecarburant.com/petrole/BackOfficeUTA/fr/facturation/consultation-factures-client/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

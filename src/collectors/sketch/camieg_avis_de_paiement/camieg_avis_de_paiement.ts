@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CamiegAvisDePaiementCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CamiegAvisDePaiementCollector extends SketchCollector {
         version: "0",
         website: "https://assure.ameli.fr/PortailAS/appmanager/PortailAS/assure?_somtc=true%20_blank%20-%20%22Mon%20compte%20Ameli%22",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/125332.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CamiegAvisDePaiementCollector extends SketchCollector {
             }
         },
         entryUrl: "https://assure.ameli.fr/PortailAS/appmanager/PortailAS/assure?_somtc=true%20_blank%20-%20%22Mon%20compte%20Ameli%22",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

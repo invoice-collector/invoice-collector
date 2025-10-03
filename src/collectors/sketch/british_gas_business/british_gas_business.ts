@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishGasBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BritishGasBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://business.britishgas.co.uk/business/your-account/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2423185.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BritishGasBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://business.britishgas.co.uk/business/your-account/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

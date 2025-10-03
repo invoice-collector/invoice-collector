@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhorestCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhorestCollector extends SketchCollector {
         version: "0",
         website: "https://messenger6.phorest.com/clientlogin.php?lang=de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/45114.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhorestCollector extends SketchCollector {
             }
         },
         entryUrl: "https://messenger6.phorest.com/clientlogin.php?lang=de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

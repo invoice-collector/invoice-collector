@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MitsubishiElectricCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MitsubishiElectricCollector extends SketchCollector {
         version: "0",
         website: "https://edocs.mitsubishielectric.co.uk/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4381749.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MitsubishiElectricCollector extends SketchCollector {
             }
         },
         entryUrl: "https://edocs.mitsubishielectric.co.uk/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyEbillAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyEbillAtCollector extends SketchCollector {
         version: "0",
         website: "https://www.my-ebill.at/index.php?id=9&no_cache=1&tx_tanmarebill_ebill%5Baction%5D=list&tx_tanmarebill_ebill%5Bcontroller%5D=EBillVKBeleg&cHash=f69c6f8633f0a454f5f581139bdc536e",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/555750.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyEbillAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.my-ebill.at/index.php?id=9&no_cache=1&tx_tanmarebill_ebill%5Baction%5D=list&tx_tanmarebill_ebill%5Bcontroller%5D=EBillVKBeleg&cHash=f69c6f8633f0a454f5f581139bdc536e",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GanAssurancesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GanAssurancesCollector extends SketchCollector {
         version: "0",
         website: "https://authentification.ganassurances.fr/cas/login?service=https%3A%2F%2Fespaceclient.ganassurances.fr%2Fwps%2Fmyportal%2FTableauDeBord%3Fidcr%3D98",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106538.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GanAssurancesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://authentification.ganassurances.fr/cas/login?service=https%3A%2F%2Fespaceclient.ganassurances.fr%2Fwps%2Fmyportal%2FTableauDeBord%3Fidcr%3D98",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

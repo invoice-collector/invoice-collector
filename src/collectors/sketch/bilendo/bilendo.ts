@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BilendoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BilendoCollector extends SketchCollector {
         version: "0",
         website: "https://www.bilendo.de/users/sign_in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28555.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BilendoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bilendo.de/users/sign_in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

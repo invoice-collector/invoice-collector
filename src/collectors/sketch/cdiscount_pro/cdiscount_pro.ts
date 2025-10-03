@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CdiscountProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CdiscountProCollector extends SketchCollector {
         version: "0",
         website: "https://order.cdiscount.com/Account/LoginLight.html?referrer=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1543692.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CdiscountProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://order.cdiscount.com/Account/LoginLight.html?referrer=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

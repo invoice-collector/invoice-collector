@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpartooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpartooCollector extends SketchCollector {
         version: "0",
         website: "https://www.spartoo.com/securelogin.php?from=compte",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123506.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpartooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.spartoo.com/securelogin.php?from=compte",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

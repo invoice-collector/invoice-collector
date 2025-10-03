@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlyinguploadCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlyinguploadCollector extends SketchCollector {
         version: "0",
         website: "https://flyingupload.com/user-account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776462.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlyinguploadCollector extends SketchCollector {
             }
         },
         entryUrl: "https://flyingupload.com/user-account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

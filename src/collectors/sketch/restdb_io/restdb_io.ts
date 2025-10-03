@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RestdbIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RestdbIoCollector extends SketchCollector {
         version: "0",
         website: "https://restdb.io/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32962.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RestdbIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://restdb.io/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

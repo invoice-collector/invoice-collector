@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PandadocCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PandadocCollector extends SketchCollector {
         version: "0",
         website: "https://app.pandadoc.com/login/?next=/a/#/dashboard/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28141.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PandadocCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.pandadoc.com/login/?next=/a/#/dashboard/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

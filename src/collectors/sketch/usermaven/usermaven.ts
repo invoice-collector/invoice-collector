@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UsermavenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UsermavenCollector extends SketchCollector {
         version: "0",
         website: "https://app.usermaven.com/env/UMIeWR2K8l/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2740966.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UsermavenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.usermaven.com/env/UMIeWR2K8l/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

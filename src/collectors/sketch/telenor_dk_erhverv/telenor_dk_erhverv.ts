@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelenorDkErhvervCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelenorDkErhvervCollector extends SketchCollector {
         version: "0",
         website: "https://www.telenor.dk/erhverv/selvbetjening/faktura/kontooverblik/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/80521.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelenorDkErhvervCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.telenor.dk/erhverv/selvbetjening/faktura/kontooverblik/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

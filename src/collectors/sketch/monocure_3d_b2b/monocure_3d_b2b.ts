@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Monocure3dB2bCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Monocure3dB2bCollector extends SketchCollector {
         version: "0",
         website: "https://b2b.monocure3d.com.au/my-account/orders/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1368543.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Monocure3dB2bCollector extends SketchCollector {
             }
         },
         entryUrl: "https://b2b.monocure3d.com.au/my-account/orders/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

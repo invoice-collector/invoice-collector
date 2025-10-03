@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContegoFactoringCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ContegoFactoringCollector extends SketchCollector {
         version: "0",
         website: "https://contego.factoring.digital/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4213386.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ContegoFactoringCollector extends SketchCollector {
             }
         },
         entryUrl: "https://contego.factoring.digital/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

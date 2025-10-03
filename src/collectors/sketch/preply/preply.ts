@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PreplyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PreplyCollector extends SketchCollector {
         version: "0",
         website: "https://preply.de/de/settings/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226577.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PreplyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://preply.de/de/settings/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

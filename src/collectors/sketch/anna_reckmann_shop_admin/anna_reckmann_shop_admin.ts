@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnnaReckmannShopAdminCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AnnaReckmannShopAdminCollector extends SketchCollector {
         version: "0",
         website: "https://shop.annareckmann.com/admin#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1107118.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AnnaReckmannShopAdminCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.annareckmann.com/admin#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

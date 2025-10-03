@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SofortCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SofortCollector extends SketchCollector {
         version: "0",
         website: "https://www.sofort.com/payment/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3331.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SofortCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sofort.com/payment/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IBEEntgeltmanagementCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IBEEntgeltmanagementCollector extends SketchCollector {
         version: "0",
         website: "https://www.institut-be.de/ukc/index.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2785621.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IBEEntgeltmanagementCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.institut-be.de/ukc/index.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

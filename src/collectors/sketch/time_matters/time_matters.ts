@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimeMattersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TimeMattersCollector extends SketchCollector {
         version: "0",
         website: "https://www.time-matters.com/service-center/online-booking/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15749.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TimeMattersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.time-matters.com/service-center/online-booking/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

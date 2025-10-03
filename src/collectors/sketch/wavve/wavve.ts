@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WavveCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WavveCollector extends SketchCollector {
         version: "0",
         website: "https://app.wavve.co/plan",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/236100.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WavveCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.wavve.co/plan",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

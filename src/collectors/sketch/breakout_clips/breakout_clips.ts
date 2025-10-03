@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BreakoutClipsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BreakoutClipsCollector extends SketchCollector {
         version: "0",
         website: "https://breakoutclips.com/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/798196.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BreakoutClipsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://breakoutclips.com/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

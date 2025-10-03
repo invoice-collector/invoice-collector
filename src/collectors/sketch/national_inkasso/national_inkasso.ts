@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NationalInkassoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NationalInkassoCollector extends SketchCollector {
         version: "0",
         website: "https://test.national-inkasso.de/Account/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1920161.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NationalInkassoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://test.national-inkasso.de/Account/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

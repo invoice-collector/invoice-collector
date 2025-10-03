@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartboxPartnerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartboxPartnerCollector extends SketchCollector {
         version: "0",
         website: "https://partners.smartbox-group.com/s/login/?language=en_GB&startURL=%2Fs%2F&ec=302",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1037319.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartboxPartnerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partners.smartbox-group.com/s/login/?language=en_GB&startURL=%2Fs%2F&ec=302",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MoodsSolutionsGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MoodsSolutionsGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://dms.moodssolutions.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3025672.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MoodsSolutionsGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dms.moodssolutions.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

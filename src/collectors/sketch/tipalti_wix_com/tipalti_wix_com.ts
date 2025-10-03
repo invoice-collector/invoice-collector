@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TipaltiWixComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TipaltiWixComCollector extends SketchCollector {
         version: "0",
         website: "https://suppliers.tipalti.com/wix/Portal/Index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2105951.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TipaltiWixComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://suppliers.tipalti.com/wix/Portal/Index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

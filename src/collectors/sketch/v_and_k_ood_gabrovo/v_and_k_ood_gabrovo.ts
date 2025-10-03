@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VAndKOodGabrovoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VAndKOodGabrovoCollector extends SketchCollector {
         version: "0",
         website: "https://my.idocs.bg/Users/Documents.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1221884.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VAndKOodGabrovoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.idocs.bg/Users/Documents.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

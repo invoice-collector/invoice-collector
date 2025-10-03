@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DoorbirdCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DoorbirdCollector extends SketchCollector {
         version: "0",
         website: "https://www.doorbird.com/de/partner?login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/101207.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DoorbirdCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.doorbird.com/de/partner?login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HenryScheinCaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HenryScheinCaCollector extends SketchCollector {
         version: "0",
         website: "https://www.henryschein.ca/ca-en/Dental/Default.aspx?did=Dental-CA",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/405658.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HenryScheinCaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.henryschein.ca/ca-en/Dental/Default.aspx?did=Dental-CA",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

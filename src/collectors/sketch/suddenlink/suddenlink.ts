@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuddenlinkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SuddenlinkCollector extends SketchCollector {
         version: "0",
         website: "https://account.suddenlink.net/my-account/mybill/viewstatements.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/179850.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SuddenlinkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.suddenlink.net/my-account/mybill/viewstatements.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

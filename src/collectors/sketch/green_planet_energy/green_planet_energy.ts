@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenPlanetEnergyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GreenPlanetEnergyCollector extends SketchCollector {
         version: "0",
         website: "https://mein.green-planet-energy.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1862961.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GreenPlanetEnergyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.green-planet-energy.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MorgengoldCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MorgengoldCollector extends SketchCollector {
         version: "0",
         website: "https://www.morgengold.de/customer/invoiceHistory/invoiceHistory.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/759689.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MorgengoldCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.morgengold.de/customer/invoiceHistory/invoiceHistory.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

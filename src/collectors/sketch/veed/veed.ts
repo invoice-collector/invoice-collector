@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeedCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VeedCollector extends SketchCollector {
         version: "0",
         website: "https://www.veed.io/workspaces/d3757d68-f1f3-446f-8783-7b635bd00103/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/504680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VeedCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.veed.io/workspaces/d3757d68-f1f3-446f-8783-7b635bd00103/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

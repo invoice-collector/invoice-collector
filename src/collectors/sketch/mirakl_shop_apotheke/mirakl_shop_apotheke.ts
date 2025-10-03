@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklShopApothekeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MiraklShopApothekeCollector extends SketchCollector {
         version: "0",
         website: "https://shopapotheke.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2134132.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MiraklShopApothekeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shopapotheke.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

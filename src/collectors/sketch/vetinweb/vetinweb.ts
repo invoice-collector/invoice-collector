@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VetinwebCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VetinwebCollector extends SketchCollector {
         version: "0",
         website: "https://portail.vetinweb.com/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4196449.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VetinwebCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail.vetinweb.com/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

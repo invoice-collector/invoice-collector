@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EngieFrCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class EngieFrCollector extends SketchCollector {
         version: "0",
         website: "https://engie.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/5/5c/Engie_logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class EngieFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://particuliers.engie.fr/login-page/authentification.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

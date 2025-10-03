@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MkbAfvalNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MkbAfvalNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.mkb-afval.nl/login/?ReturnUrl=%2fmijn-mkb%2f",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32564.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MkbAfvalNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mkb-afval.nl/login/?ReturnUrl=%2fmijn-mkb%2f",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

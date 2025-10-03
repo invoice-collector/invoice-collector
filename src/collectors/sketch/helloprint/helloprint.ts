@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelloprintCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HelloprintCollector extends SketchCollector {
         version: "0",
         website: "https://www.helloprint.fr/index.php?controller=order-slip",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777996.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HelloprintCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.helloprint.fr/index.php?controller=order-slip",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

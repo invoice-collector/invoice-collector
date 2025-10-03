@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BbklopeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BbklopeCollector extends SketchCollector {
         version: "0",
         website: "http://bbklope.fr/index.php?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/116292.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BbklopeCollector extends SketchCollector {
             }
         },
         entryUrl: "http://bbklope.fr/index.php?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

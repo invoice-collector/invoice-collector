@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeelCollector extends SketchCollector {
         version: "0",
         website: "https://app.letsdeel.com/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/492107.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.letsdeel.com/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

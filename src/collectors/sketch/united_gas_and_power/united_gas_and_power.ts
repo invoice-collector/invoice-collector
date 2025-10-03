@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitedGasAndPowerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnitedGasAndPowerCollector extends SketchCollector {
         version: "0",
         website: "https://customer.ugp.co.uk/#/myBills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4503855.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnitedGasAndPowerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customer.ugp.co.uk/#/myBills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

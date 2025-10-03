@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HttpNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HttpNetCollector extends SketchCollector {
         version: "0",
         website: "https://partner.http.net/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/63881.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HttpNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.http.net/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

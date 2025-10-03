@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenpeaceEnergyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GreenpeaceEnergyCollector extends SketchCollector {
         version: "0",
         website: "https://www.greenpeace-energy.de/privatkunden.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28914.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GreenpeaceEnergyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.greenpeace-energy.de/privatkunden.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfArlingtonTxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfArlingtonTxCollector extends SketchCollector {
         version: "0",
         website: "https://waterbilling.arlingtontx.gov/app/login.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/180912.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfArlingtonTxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://waterbilling.arlingtontx.gov/app/login.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

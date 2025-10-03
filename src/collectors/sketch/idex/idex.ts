@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdexCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class IdexCollector extends SketchCollector {
         version: "0",
         website: "https://idex.fr",
         logo: "https://www.idex.fr/themes/custom/drup_theme/logo-en-color.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class IdexCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceclient.idex.fr/web/guest/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

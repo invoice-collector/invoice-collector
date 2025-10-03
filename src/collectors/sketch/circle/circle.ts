@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CircleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CircleCollector extends SketchCollector {
         version: "0",
         website: "https://login.circle.so/sign_in?request_host=app.circle.so",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/811765.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CircleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.circle.so/sign_in?request_host=app.circle.so",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LocalFalconCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LocalFalconCollector extends SketchCollector {
         version: "0",
         website: "https://www.localfalcon.com/billing/transactions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2077748.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LocalFalconCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.localfalcon.com/billing/transactions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

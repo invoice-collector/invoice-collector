@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JweilandNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JweilandNetCollector extends SketchCollector {
         version: "0",
         website: "https://jweiland83.premium-admin.eu/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/16330.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JweilandNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://jweiland83.premium-admin.eu/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

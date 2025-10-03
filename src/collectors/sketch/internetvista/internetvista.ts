@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternetvistaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InternetvistaCollector extends SketchCollector {
         version: "0",
         website: "https://www.internetvista.com/en/website-monitoring-service-login.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779111.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InternetvistaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.internetvista.com/en/website-monitoring-service-login.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

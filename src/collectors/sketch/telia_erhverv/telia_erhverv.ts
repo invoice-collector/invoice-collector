@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeliaErhvervCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TeliaErhvervCollector extends SketchCollector {
         version: "0",
         website: "https://www.telia.dk/lux/cr/hjem/faktura/fakturaoverblik/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/80275.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TeliaErhvervCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.telia.dk/lux/cr/hjem/faktura/fakturaoverblik/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

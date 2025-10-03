@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FusionauthCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FusionauthCollector extends SketchCollector {
         version: "0",
         website: "https://account.fusionauth.io/account/billing/list-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2841569.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FusionauthCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.fusionauth.io/account/billing/list-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

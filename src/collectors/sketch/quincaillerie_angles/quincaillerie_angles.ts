@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuincaillerieAnglesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuincaillerieAnglesCollector extends SketchCollector {
         version: "0",
         website: "https://www.quincaillerie-angles.fr/qangles/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4561985.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuincaillerieAnglesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.quincaillerie-angles.fr/qangles/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

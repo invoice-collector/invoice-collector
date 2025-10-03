@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloseCrmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CloseCrmCollector extends SketchCollector {
         version: "0",
         website: "https://app.close.com/settings/billing/payment/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1764023.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CloseCrmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.close.com/settings/billing/payment/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

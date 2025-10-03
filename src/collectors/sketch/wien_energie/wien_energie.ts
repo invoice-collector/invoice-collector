@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WienEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WienEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://service.wienenergie.at",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3499.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WienEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.wienenergie.at",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

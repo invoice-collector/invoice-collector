@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialMediaAkademieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SocialMediaAkademieCollector extends SketchCollector {
         version: "0",
         website: "https://elearning.socialmediaakademie.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9659.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SocialMediaAkademieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://elearning.socialmediaakademie.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

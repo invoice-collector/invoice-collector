@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyaxaMaklerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyaxaMaklerCollector extends SketchCollector {
         version: "0",
         website: "https://entry.axa.de/vertriebsportal/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1416895.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyaxaMaklerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://entry.axa.de/vertriebsportal/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

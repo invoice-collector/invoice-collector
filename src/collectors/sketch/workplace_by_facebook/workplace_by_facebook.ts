@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WorkplaceByFacebookCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WorkplaceByFacebookCollector extends SketchCollector {
         version: "0",
         website: "https://www.workplace.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/544909.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WorkplaceByFacebookCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.workplace.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

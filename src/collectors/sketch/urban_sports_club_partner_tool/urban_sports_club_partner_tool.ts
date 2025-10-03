@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UrbanSportsClubPartnerToolCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UrbanSportsClubPartnerToolCollector extends SketchCollector {
         version: "0",
         website: "https://partner.urbansportsclub.com/payout",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/96006.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UrbanSportsClubPartnerToolCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.urbansportsclub.com/payout",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

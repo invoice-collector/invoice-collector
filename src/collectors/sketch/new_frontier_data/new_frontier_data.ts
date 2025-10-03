@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewFrontierDataCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NewFrontierDataCollector extends SketchCollector {
         version: "0",
         website: "https://equio.newfrontierdata.com/userprofile",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/156540.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NewFrontierDataCollector extends SketchCollector {
             }
         },
         entryUrl: "https://equio.newfrontierdata.com/userprofile",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

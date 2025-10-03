@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoutiqueDeMuseesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BoutiqueDeMuseesCollector extends SketchCollector {
         version: "0",
         website: "https://www.boutiquesdemusees.fr/en/club/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/115922.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BoutiqueDeMuseesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.boutiquesdemusees.fr/en/club/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

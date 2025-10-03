@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StotaxSelectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StotaxSelectCollector extends SketchCollector {
         version: "0",
         website: "https://www.stotax-online.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185157.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StotaxSelectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.stotax-online.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

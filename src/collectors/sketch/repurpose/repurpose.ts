@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepurposeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RepurposeCollector extends SketchCollector {
         version: "0",
         website: "https://my.repurpose.io",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779008.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RepurposeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.repurpose.io",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

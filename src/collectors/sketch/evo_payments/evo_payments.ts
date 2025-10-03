@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvoPaymentsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EvoPaymentsCollector extends SketchCollector {
         version: "0",
         website: "https://www.evopayments.eu/service/evo-kundenportal-bis/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7670.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EvoPaymentsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.evopayments.eu/service/evo-kundenportal-bis/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

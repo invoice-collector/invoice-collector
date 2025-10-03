@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellerlegendCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SellerlegendCollector extends SketchCollector {
         version: "0",
         website: "https://app.sellerlegend.com/payment/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135935.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SellerlegendCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.sellerlegend.com/payment/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

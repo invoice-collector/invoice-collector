@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopeeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShopeeCollector extends SketchCollector {
         version: "0",
         website: "https://shopee.com.my/user/purchase?type=3",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2715379.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShopeeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shopee.com.my/user/purchase?type=3",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

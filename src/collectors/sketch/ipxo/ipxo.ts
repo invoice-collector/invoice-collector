@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpxoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IpxoCollector extends SketchCollector {
         version: "0",
         website: "https://www.ipxo.com/portal/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1287632.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IpxoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ipxo.com/portal/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuickbaseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuickbaseCollector extends SketchCollector {
         version: "0",
         website: "https://allmyhomes.quickbase.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/76768.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuickbaseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://allmyhomes.quickbase.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

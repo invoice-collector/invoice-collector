@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrostCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrostCollector extends SketchCollector {
         version: "0",
         website: "https://de.trost.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/246199.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrostCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.trost.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

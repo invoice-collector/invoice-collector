@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeMunsterBispingenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeMunsterBispingenCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.ihr-stadtwerk.de/powercommerce/ivu/fo/portal/invoiceView?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1340279.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeMunsterBispingenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.ihr-stadtwerk.de/powercommerce/ivu/fo/portal/invoiceView?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LibratoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LibratoCollector extends SketchCollector {
         version: "0",
         website: "https://metrics.librato.com/account/plans",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/39681.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LibratoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://metrics.librato.com/account/plans",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

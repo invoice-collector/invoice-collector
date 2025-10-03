@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Myh2oserversCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Myh2oserversCollector extends SketchCollector {
         version: "0",
         website: "https://www.myh2oservers.com/inloggen-klantenpaneel",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33371.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Myh2oserversCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.myh2oservers.com/inloggen-klantenpaneel",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

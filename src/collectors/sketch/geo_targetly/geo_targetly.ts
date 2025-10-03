@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeoTargetlyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeoTargetlyCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.geotargetly.com/credits",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2785575.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeoTargetlyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.geotargetly.com/credits",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

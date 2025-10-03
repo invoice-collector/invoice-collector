@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _99designsDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _99designsDeCollector extends SketchCollector {
         version: "0",
         website: "https://99designs.de/work",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/431.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _99designsDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://99designs.de/work",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

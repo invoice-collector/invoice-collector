@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IxlHostingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IxlHostingCollector extends SketchCollector {
         version: "0",
         website: "https://www.ixlhosting.nl/login/aanmelden",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32646.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IxlHostingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ixlhosting.nl/login/aanmelden",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

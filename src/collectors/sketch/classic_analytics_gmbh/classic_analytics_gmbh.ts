@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClassicAnalyticsGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClassicAnalyticsGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://www.classic-analytics.de/de/my_account/bills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3105870.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClassicAnalyticsGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.classic-analytics.de/de/my_account/bills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

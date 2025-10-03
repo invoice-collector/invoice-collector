@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _24DrukwerkNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _24DrukwerkNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.24-drukwerk.nl/mijn-account?zenid=shp22s54ojpe07fjrh89fk8tk7",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33134.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _24DrukwerkNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.24-drukwerk.nl/mijn-account?zenid=shp22s54ojpe07fjrh89fk8tk7",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

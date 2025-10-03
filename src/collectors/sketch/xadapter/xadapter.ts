@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XadapterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class XadapterCollector extends SketchCollector {
         version: "0",
         website: "https://www.xadapter.com/my-account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32764.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class XadapterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.xadapter.com/my-account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

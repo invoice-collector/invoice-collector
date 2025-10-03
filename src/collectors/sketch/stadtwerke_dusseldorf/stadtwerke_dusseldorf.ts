@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeDusseldorfCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeDusseldorfCollector extends SketchCollector {
         version: "0",
         website: "https://www.swd-ag.de/#close-cookie",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/36413.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeDusseldorfCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.swd-ag.de/#close-cookie",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

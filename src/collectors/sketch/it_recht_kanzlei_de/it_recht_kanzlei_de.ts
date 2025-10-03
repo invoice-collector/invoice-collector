@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ItRechtKanzleiDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ItRechtKanzleiDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.it-recht-kanzlei.de/Portal/rechnungen.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14229.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ItRechtKanzleiDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.it-recht-kanzlei.de/Portal/rechnungen.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

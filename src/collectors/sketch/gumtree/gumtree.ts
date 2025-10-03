@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GumtreeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GumtreeCollector extends SketchCollector {
         version: "0",
         website: "https://my.gumtree.com/manage-account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21951.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GumtreeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.gumtree.com/manage-account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

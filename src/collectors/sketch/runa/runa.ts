@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RunaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RunaCollector extends SketchCollector {
         version: "0",
         website: "https://connect.runa.io/connect/invoices/?customer=C-ZAWVJJEQ",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4195839.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RunaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://connect.runa.io/connect/invoices/?customer=C-ZAWVJJEQ",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

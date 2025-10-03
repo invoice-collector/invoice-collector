@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TclogCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TclogCollector extends SketchCollector {
         version: "0",
         website: "https://www.tclog.eu/profile/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2710657.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TclogCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tclog.eu/profile/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

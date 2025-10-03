@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SharefileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SharefileCollector extends SketchCollector {
         version: "0",
         website: "https://secure.sharefile.com/Authentication/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6483.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SharefileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.sharefile.com/Authentication/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

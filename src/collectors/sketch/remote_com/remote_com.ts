@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RemoteComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RemoteComCollector extends SketchCollector {
         version: "0",
         website: "https://employ.remote.com/sign-in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034247.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RemoteComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://employ.remote.com/sign-in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

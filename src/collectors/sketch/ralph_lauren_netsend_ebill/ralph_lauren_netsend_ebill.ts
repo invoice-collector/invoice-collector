@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RalphLaurenNetsendEbillCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RalphLaurenNetsendEbillCollector extends SketchCollector {
         version: "0",
         website: "https://ebill.nnsend.net/ralp/documents/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/389755.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RalphLaurenNetsendEbillCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ebill.nnsend.net/ralp/documents/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

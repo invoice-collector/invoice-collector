@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaryKayCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaryKayCollector extends SketchCollector {
         version: "0",
         website: "https://mk.marykayintouch.de/s/reports/bills-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1577631.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaryKayCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mk.marykayintouch.de/s/reports/bills-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

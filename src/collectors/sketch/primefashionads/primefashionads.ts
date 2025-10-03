@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimefashionadsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrimefashionadsCollector extends SketchCollector {
         version: "0",
         website: "https://www.primefashionads.com/partner",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/172958.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrimefashionadsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.primefashionads.com/partner",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

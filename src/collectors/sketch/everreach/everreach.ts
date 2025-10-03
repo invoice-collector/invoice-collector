@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EverreachCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EverreachCollector extends SketchCollector {
         version: "0",
         website: "http://everreach.co.uk",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9222.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EverreachCollector extends SketchCollector {
             }
         },
         entryUrl: "http://everreach.co.uk",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

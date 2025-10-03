@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElavonConnectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ElavonConnectCollector extends SketchCollector {
         version: "0",
         website: "https://www.elavonconnect.com/ui/#/eu/en_GB/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/189967.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ElavonConnectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.elavonconnect.com/ui/#/eu/en_GB/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

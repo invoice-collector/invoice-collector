@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeRusselsheimCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeRusselsheimCollector extends SketchCollector {
         version: "0",
         website: "https://privatkundenportal.net/stadtwerke-ruesselsheim/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9469.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeRusselsheimCollector extends SketchCollector {
             }
         },
         entryUrl: "https://privatkundenportal.net/stadtwerke-ruesselsheim/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

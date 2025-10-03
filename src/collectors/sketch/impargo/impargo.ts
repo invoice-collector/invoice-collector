@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImpargoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ImpargoCollector extends SketchCollector {
         version: "0",
         website: "https://apps.impargo.de/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4553678.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ImpargoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://apps.impargo.de/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

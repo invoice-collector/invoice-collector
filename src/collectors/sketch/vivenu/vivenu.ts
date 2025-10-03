@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VivenuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VivenuCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.vivenu.com/balancings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1264919.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VivenuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.vivenu.com/balancings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

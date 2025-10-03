@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutomoxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AutomoxCollector extends SketchCollector {
         version: "0",
         website: "https://console.automox.com/settings?o=9311",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/170785.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AutomoxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://console.automox.com/settings?o=9311",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

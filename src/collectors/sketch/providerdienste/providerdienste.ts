@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProviderdiensteCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProviderdiensteCollector extends SketchCollector {
         version: "0",
         website: "https://my.providerdienste.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10546.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProviderdiensteCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.providerdienste.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MoqoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MoqoCollector extends SketchCollector {
         version: "0",
         website: "https://portal.moqo.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161954.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MoqoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.moqo.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

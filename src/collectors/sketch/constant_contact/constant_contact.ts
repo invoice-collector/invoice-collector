@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConstantContactCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConstantContactCollector extends SketchCollector {
         version: "0",
         website: "https://login.constantcontact.com/login/login.sdo?goto=https%3A%2F%2Fwww.constantcontact.com%2Fprocessing_login.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8811.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConstantContactCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.constantcontact.com/login/login.sdo?goto=https%3A%2F%2Fwww.constantcontact.com%2Fprocessing_login.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

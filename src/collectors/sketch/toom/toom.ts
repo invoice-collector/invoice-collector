@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ToomCollector extends SketchCollector {
         version: "0",
         website: "https://toom.de/warenkorb",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123579.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ToomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://toom.de/warenkorb",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

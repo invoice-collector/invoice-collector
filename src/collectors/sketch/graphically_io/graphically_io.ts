@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GraphicallyIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GraphicallyIoCollector extends SketchCollector {
         version: "0",
         website: "https://clients.graphically.io/portal/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/747692.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GraphicallyIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clients.graphically.io/portal/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

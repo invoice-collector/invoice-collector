@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MsMileIqCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MsMileIqCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.mileiq.com/reports",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/211822.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MsMileIqCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.mileiq.com/reports",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

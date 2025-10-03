@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SacramentoMunicipalUtilityDistrictCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SacramentoMunicipalUtilityDistrictCollector extends SketchCollector
         version: "0",
         website: "https://myaccount.smud.org/signin/accountselection",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70044.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SacramentoMunicipalUtilityDistrictCollector extends SketchCollector
             }
         },
         entryUrl: "https://myaccount.smud.org/signin/accountselection",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

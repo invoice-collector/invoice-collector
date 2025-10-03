@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PreviewAppCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PreviewAppCollector extends SketchCollector {
         version: "0",
         website: "https://preview.app/settings/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778123.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PreviewAppCollector extends SketchCollector {
             }
         },
         entryUrl: "https://preview.app/settings/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

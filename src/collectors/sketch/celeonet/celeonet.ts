@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CeleonetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CeleonetCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.celeonet.fr/fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/112289.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CeleonetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.celeonet.fr/fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

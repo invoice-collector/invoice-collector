@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RheinEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RheinEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://www.rheinenergie.com/onlineservice/de/index.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/15176.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RheinEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rheinenergie.com/onlineservice/de/index.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

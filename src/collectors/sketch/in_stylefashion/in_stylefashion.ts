@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InStylefashionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InStylefashionCollector extends SketchCollector {
         version: "0",
         website: "https://www.in-stylefashion.de/customer/account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/120872.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InStylefashionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.in-stylefashion.de/customer/account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

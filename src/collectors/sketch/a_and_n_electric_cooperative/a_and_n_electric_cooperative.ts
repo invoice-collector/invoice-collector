@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AAndNElectricCooperativeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AAndNElectricCooperativeCollector extends SketchCollector {
         version: "0",
         website: "https://anecop.smarthub.coop/ui/#/billingHistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4700108.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AAndNElectricCooperativeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://anecop.smarthub.coop/ui/#/billingHistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

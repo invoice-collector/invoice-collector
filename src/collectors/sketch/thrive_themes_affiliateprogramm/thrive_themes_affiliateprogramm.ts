@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThriveThemesAffiliateprogrammCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ThriveThemesAffiliateprogrammCollector extends SketchCollector {
         version: "0",
         website: "https://thrivethemes.com/affiliates/account.php?page=3",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1496571.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ThriveThemesAffiliateprogrammCollector extends SketchCollector {
             }
         },
         entryUrl: "https://thrivethemes.com/affiliates/account.php?page=3",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

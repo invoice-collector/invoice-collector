@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeizhalsServiceDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeizhalsServiceDeCollector extends SketchCollector {
         version: "0",
         website: "https://service.geizhals.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2729777.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeizhalsServiceDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.geizhals.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

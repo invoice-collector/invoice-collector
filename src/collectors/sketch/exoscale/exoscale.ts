@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExoscaleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ExoscaleCollector extends SketchCollector {
         version: "0",
         website: "https://portal.exoscale.com/u//organization/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1470134.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ExoscaleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.exoscale.com/u//organization/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

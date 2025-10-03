@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrebonoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrebonoCollector extends SketchCollector {
         version: "0",
         website: "https://service.trebono.de/admin/module.php?load=billing&Section=invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/428633.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrebonoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.trebono.de/admin/module.php?load=billing&Section=invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

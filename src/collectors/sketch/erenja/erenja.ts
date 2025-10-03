@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErenjaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ErenjaCollector extends SketchCollector {
         version: "0",
         website: "https://onlineservice.erenja.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4654936.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ErenjaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlineservice.erenja.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

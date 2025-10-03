@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GazDeBordeauxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GazDeBordeauxCollector extends SketchCollector {
         version: "0",
         website: "http://www.gazdebordeaux.fr",
         logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9-clwMMGyCf1s8ZlvnIvX6eyjfq98zWKyMQ&s",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GazDeBordeauxCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.gazdebordeaux.fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

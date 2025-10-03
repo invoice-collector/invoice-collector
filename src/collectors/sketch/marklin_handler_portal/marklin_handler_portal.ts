@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarklinHandlerPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MarklinHandlerPortalCollector extends SketchCollector {
         version: "0",
         website: "https://order.maerklin.de/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1920112.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MarklinHandlerPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://order.maerklin.de/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

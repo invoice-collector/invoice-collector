@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinanzenDePartnerprogrammCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinanzenDePartnerprogrammCollector extends SketchCollector {
         version: "0",
         website: "https://www.finanzen.de/partner/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7941.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinanzenDePartnerprogrammCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.finanzen.de/partner/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeineNurnbergerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeineNurnbergerCollector extends SketchCollector {
         version: "0",
         website: "https://meine.nuernberger.de/kunde/pages/startseite.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1444764.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeineNurnbergerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meine.nuernberger.de/kunde/pages/startseite.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

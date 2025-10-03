@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CourseraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CourseraCollector extends SketchCollector {
         version: "0",
         website: "https://www.coursera.org/?authMode=login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/62049.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CourseraCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.coursera.org/?authMode=login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Ssl2buyComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Ssl2buyComCollector extends SketchCollector {
         version: "0",
         website: "https://store.ssl2buy.com/invoice/viewinvoice/all",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/929.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Ssl2buyComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store.ssl2buy.com/invoice/viewinvoice/all",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

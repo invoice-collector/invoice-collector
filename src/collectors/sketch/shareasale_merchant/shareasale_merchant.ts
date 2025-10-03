@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShareasaleMerchantCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShareasaleMerchantCollector extends SketchCollector {
         version: "0",
         website: "https://account.shareasale.com/a-login.cfm?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/79442.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShareasaleMerchantCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.shareasale.com/a-login.cfm?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

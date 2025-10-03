@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoneparFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoneparFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.sonepar.fr/service-soneshop_cms.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035221.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoneparFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sonepar.fr/service-soneshop_cms.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

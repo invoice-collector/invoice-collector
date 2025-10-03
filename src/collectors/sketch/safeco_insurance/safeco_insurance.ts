@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SafecoInsuranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SafecoInsuranceCollector extends SketchCollector {
         version: "0",
         website: "https://customer.safeco.com/accountmanager/billing/summary",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2841410.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SafecoInsuranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customer.safeco.com/accountmanager/billing/summary",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

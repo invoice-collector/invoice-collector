@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FastmailCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FastmailCollector extends SketchCollector {
         version: "0",
         website: "https://www.fastmail.com/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/111991.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FastmailCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fastmail.com/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

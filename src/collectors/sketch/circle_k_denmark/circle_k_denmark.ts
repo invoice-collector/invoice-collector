@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CircleKDenmarkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CircleKDenmarkCollector extends SketchCollector {
         version: "0",
         website: "https://www.circlek.dk/dk_DK/pg1334072984722/privat/voresbutikker/PrivatKort/MitCircleK.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/22015.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CircleKDenmarkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.circlek.dk/dk_DK/pg1334072984722/privat/voresbutikker/PrivatKort/MitCircleK.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

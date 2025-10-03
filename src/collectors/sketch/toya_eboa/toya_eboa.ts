@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToyaEboaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ToyaEboaCollector extends SketchCollector {
         version: "0",
         website: "https://eboa.toya.net.pl/payment",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2378377.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ToyaEboaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eboa.toya.net.pl/payment",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailshakeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MailshakeCollector extends SketchCollector {
         version: "0",
         website: "https://mailshake.com/app/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/74050.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MailshakeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mailshake.com/app/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

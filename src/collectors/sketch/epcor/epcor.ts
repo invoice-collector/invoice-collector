@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpcorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EpcorCollector extends SketchCollector {
         version: "0",
         website: "https://www.epcor.com/myaccount#/auth/login?returnRouteUrl=%2Fmanage%2Faccounts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9208.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EpcorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.epcor.com/myaccount#/auth/login?returnRouteUrl=%2Fmanage%2Faccounts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

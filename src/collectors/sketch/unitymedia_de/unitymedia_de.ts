@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitymediaDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnitymediaDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.unitymedia.de/kundencenter/meine-rechnungen/alle-rechnungen?months=12",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4905.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnitymediaDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.unitymedia.de/kundencenter/meine-rechnungen/alle-rechnungen?months=12",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

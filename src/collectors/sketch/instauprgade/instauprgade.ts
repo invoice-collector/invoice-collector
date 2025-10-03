@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstauprgadeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InstauprgadeCollector extends SketchCollector {
         version: "0",
         website: "https://abo.instaupgrade.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/385996.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InstauprgadeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://abo.instaupgrade.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

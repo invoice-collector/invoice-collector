@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WellsFargoCopierMyaccountsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WellsFargoCopierMyaccountsCollector extends SketchCollector {
         version: "0",
         website: "https://www.myaccounts.wellsfargo.com/lease/external/Reporting.html#Invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/78135.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WellsFargoCopierMyaccountsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.myaccounts.wellsfargo.com/lease/external/Reporting.html#Invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConvertflowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConvertflowCollector extends SketchCollector {
         version: "0",
         website: "https://app.convertflow.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/743921.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConvertflowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.convertflow.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

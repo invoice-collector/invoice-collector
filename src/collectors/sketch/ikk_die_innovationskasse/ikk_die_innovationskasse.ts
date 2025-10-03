@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IkkDieInnovationskasseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IkkDieInnovationskasseCollector extends SketchCollector {
         version: "0",
         website: "https://data-ikknord.bitmarck.org/Web%20Client/ListDir.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2301834.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IkkDieInnovationskasseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://data-ikknord.bitmarck.org/Web%20Client/ListDir.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

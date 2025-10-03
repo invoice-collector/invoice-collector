@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VerpackungskonigCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VerpackungskonigCollector extends SketchCollector {
         version: "0",
         website: "https://verpackungskoenig.de/registrieren.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9431.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VerpackungskonigCollector extends SketchCollector {
             }
         },
         entryUrl: "https://verpackungskoenig.de/registrieren.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

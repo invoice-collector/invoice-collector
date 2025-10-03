@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleAdsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoogleAdsCollector extends SketchCollector {
         version: "0",
         website: "https://ads.google.com/aw/overview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/312.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoogleAdsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ads.google.com/aw/overview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

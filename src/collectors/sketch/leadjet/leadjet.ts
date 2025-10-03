@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadjetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeadjetCollector extends SketchCollector {
         version: "0",
         website: "https://account.leadjet.io/settings/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/711728.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeadjetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.leadjet.io/settings/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

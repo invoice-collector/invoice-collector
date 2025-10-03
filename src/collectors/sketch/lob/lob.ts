@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LobCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LobCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.lob.com/#/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/51575.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LobCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.lob.com/#/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

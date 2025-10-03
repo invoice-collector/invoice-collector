@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FifthThirdBankCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FifthThirdBankCollector extends SketchCollector {
         version: "0",
         website: "https://onlinebanking.53.com/olb/#/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2519915.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FifthThirdBankCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlinebanking.53.com/olb/#/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

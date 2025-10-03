@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManagerMagazinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ManagerMagazinCollector extends SketchCollector {
         version: "0",
         website: "https://www.manager-magazin.de/premium/access/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121135.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ManagerMagazinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.manager-magazin.de/premium/access/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

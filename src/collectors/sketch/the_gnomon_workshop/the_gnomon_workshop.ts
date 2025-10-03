@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheGnomonWorkshopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheGnomonWorkshopCollector extends SketchCollector {
         version: "0",
         website: "https://www.thegnomonworkshop.com/settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/167026.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheGnomonWorkshopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.thegnomonworkshop.com/settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

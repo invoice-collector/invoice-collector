@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VattenfallGeschaftskundenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VattenfallGeschaftskundenCollector extends SketchCollector {
         version: "0",
         website: "https://service.vattenfall.de/vertragskonto",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129025.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VattenfallGeschaftskundenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.vattenfall.de/vertragskonto",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

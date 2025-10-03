@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortalLeebMotorCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PortalLeebMotorCollector extends SketchCollector {
         version: "0",
         website: "https://portal.leeb-motor.com/Home/InventCheck",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/492187.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PortalLeebMotorCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.leeb-motor.com/Home/InventCheck",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

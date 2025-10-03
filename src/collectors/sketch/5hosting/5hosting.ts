@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _5hostingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _5hostingCollector extends SketchCollector {
         version: "0",
         website: "https://whmcs.webhoster.ag/clientarea.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10678.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _5hostingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://whmcs.webhoster.ag/clientarea.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

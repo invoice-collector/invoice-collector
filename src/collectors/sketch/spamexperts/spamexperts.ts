@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpamexpertsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpamexpertsCollector extends SketchCollector {
         version: "0",
         website: "https://my.spamexperts.com/clientarea.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/317.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpamexpertsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.spamexperts.com/clientarea.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlzaAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlzaAtCollector extends SketchCollector {
         version: "0",
         website: "https://www.alza.at/my-account/orders.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4196423.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlzaAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.alza.at/my-account/orders.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

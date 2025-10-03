@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdrollCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdrollCollector extends SketchCollector {
         version: "0",
         website: "https://app.adroll.com/account/signin?next=%2Fdashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4151.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdrollCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.adroll.com/account/signin?next=%2Fdashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EngieEntreprisesAndCollectivitesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EngieEntreprisesAndCollectivitesCollector extends SketchCollector {
         version: "0",
         website: "https://espace-client.entreprises-collectivites.engie.fr/eec/#/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/670852.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EngieEntreprisesAndCollectivitesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-client.entreprises-collectivites.engie.fr/eec/#/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

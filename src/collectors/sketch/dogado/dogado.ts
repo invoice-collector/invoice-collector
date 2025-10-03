@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DogadoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DogadoCollector extends SketchCollector {
         version: "0",
         website: "https://www.cloudpit.io/customer/tab/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3837.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DogadoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cloudpit.io/customer/tab/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

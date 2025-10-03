@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmstradeDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmstradeDeCollector extends SketchCollector {
         version: "0",
         website: "https://login.smstrade.de/index.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/322.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmstradeDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.smstrade.de/index.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

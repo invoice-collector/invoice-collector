@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MrMoneyServiceGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MrMoneyServiceGmbhCollector extends SketchCollector {
         version: "0",
         website: "http://portal.maklersystems24.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/64953.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MrMoneyServiceGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "http://portal.maklersystems24.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

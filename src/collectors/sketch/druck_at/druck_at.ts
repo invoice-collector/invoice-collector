@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DruckAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DruckAtCollector extends SketchCollector {
         version: "0",
         website: "https://www.druck.at/user/tracking/?type=invoice#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6639.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DruckAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.druck.at/user/tracking/?type=invoice#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

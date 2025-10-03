@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VTrustCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VTrustCollector extends SketchCollector {
         version: "0",
         website: "https://www.v-trust.com/My/Payment/List.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106549.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VTrustCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.v-trust.com/My/Payment/List.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

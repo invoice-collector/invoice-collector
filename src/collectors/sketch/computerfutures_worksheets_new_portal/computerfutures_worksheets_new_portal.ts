@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ComputerfuturesWorksheetsNewPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ComputerfuturesWorksheetsNewPortalCollector extends SketchCollector
         version: "0",
         website: "https://sthree.force.com/contractor/s/invoices-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106194.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ComputerfuturesWorksheetsNewPortalCollector extends SketchCollector
             }
         },
         entryUrl: "https://sthree.force.com/contractor/s/invoices-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

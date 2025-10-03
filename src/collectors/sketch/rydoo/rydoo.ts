@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RydooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RydooCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.rydoo.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/175277.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RydooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.rydoo.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

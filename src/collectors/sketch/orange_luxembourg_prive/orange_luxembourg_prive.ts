@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeLuxembourgPriveCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OrangeLuxembourgPriveCollector extends SketchCollector {
         version: "0",
         website: "https://account.orange.lu/en/index/login#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135228.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OrangeLuxembourgPriveCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.orange.lu/en/index/login#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

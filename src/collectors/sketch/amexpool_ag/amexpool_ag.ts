@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmexpoolAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmexpoolAgCollector extends SketchCollector {
         version: "0",
         website: "https://amex-online.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107220.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmexpoolAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://amex-online.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

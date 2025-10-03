@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalonizedCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SalonizedCollector extends SketchCollector {
         version: "0",
         website: "https://app.salonized.com/c/15716/l/15795/register/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2203314.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SalonizedCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.salonized.com/c/15716/l/15795/register/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

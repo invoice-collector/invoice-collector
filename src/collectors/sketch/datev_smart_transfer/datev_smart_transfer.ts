@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatevSmartTransferCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DatevSmartTransferCollector extends SketchCollector {
         version: "0",
         website: "https://smarttransfer.datev.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/230804.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DatevSmartTransferCollector extends SketchCollector {
             }
         },
         entryUrl: "https://smarttransfer.datev.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

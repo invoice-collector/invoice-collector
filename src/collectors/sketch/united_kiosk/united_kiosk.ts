@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitedKioskCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnitedKioskCollector extends SketchCollector {
         version: "0",
         website: "https://www.united-kiosk.de/bibliothek/user/meine-epaper/alle-epaper/all_user_products?folderId=2120912",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3025538.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnitedKioskCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.united-kiosk.de/bibliothek/user/meine-epaper/alle-epaper/all_user_products?folderId=2120912",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

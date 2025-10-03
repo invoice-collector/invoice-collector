@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CocaColaAuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CocaColaAuCollector extends SketchCollector {
         version: "0",
         website: "https://www.mycca.com.au/login?returnUrl=%2FDashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/227377.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CocaColaAuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mycca.com.au/login?returnUrl=%2FDashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

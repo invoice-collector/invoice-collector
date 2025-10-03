@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ICanLocalizeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ICanLocalizeCollector extends SketchCollector {
         version: "0",
         website: "https://www.icanlocalize.com/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7987.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ICanLocalizeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.icanlocalize.com/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

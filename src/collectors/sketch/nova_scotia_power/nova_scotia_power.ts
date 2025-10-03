@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NovaScotiaPowerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NovaScotiaPowerCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.nspower.ca/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9583.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NovaScotiaPowerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.nspower.ca/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

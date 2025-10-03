@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TierurnenPetraStaadtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TierurnenPetraStaadtCollector extends SketchCollector {
         version: "0",
         website: "www.tierurnen-mit-herz.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4479463.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TierurnenPetraStaadtCollector extends SketchCollector {
             }
         },
         entryUrl: "www.tierurnen-mit-herz.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

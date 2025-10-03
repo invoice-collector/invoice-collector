@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FtzAutodeleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FtzAutodeleCollector extends SketchCollector {
         version: "0",
         website: "http://www.ftz.dk",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/21978.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FtzAutodeleCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.ftz.dk",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

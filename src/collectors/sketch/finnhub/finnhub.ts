@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinnhubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinnhubCollector extends SketchCollector {
         version: "0",
         website: "https://finnhub.io/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4375857.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinnhubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://finnhub.io/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

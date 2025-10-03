@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImmoweltKundenportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ImmoweltKundenportalCollector extends SketchCollector {
         version: "0",
         website: "https://immowelt-customerportal.de/_layouts/15/CustomLogin/Login.aspx?ReturnUrl=%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252F&Source=%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/839163.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ImmoweltKundenportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://immowelt-customerportal.de/_layouts/15/CustomLogin/Login.aspx?ReturnUrl=%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252F&Source=%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

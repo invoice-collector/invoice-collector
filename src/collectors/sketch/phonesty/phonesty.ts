@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhonestyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhonestyCollector extends SketchCollector {
         version: "0",
         website: "https://www.phonesty.de/myAccount",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/176812.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhonestyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.phonesty.de/myAccount",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

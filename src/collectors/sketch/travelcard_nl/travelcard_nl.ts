@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravelcardNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TravelcardNlCollector extends SketchCollector {
         version: "0",
         website: "https://portal.travelcard.eu/cas/login?locale=nl&service=https://portal.travelcard.eu/portal/initiatessologin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32382.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TravelcardNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.travelcard.eu/cas/login?locale=nl&service=https://portal.travelcard.eu/portal/initiatessologin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

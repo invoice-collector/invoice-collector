@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogrocketCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LogrocketCollector extends SketchCollector {
         version: "0",
         website: "https://app.logrocket.com/4yjbpy/debug/settings/invoices/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1480724.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LogrocketCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.logrocket.com/4yjbpy/debug/settings/invoices/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

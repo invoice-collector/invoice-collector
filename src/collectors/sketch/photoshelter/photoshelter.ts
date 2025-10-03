@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhotoshelterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhotoshelterCollector extends SketchCollector {
         version: "0",
         website: "https://www.photoshelter.com/mem/account/order-list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88800.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhotoshelterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.photoshelter.com/mem/account/order-list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

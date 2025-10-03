@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JoomlatoolsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JoomlatoolsCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.joomlatools.com/subscriptions/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/167022.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JoomlatoolsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.joomlatools.com/subscriptions/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

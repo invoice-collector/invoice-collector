@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GuinotMaryCohrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GuinotMaryCohrCollector extends SketchCollector {
         version: "0",
         website: "https://portailclients.guinot.com/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4614719.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GuinotMaryCohrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portailclients.guinot.com/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGroupamaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleGroupamaCollector extends SketchCollector {
         version: "0",
         website: "https://authentification.groupama.fr/cas/login?service=https%3A%2F%2Fauthentification.groupama.fr%2Fcas%2Foauth2.0%2FcallbackAuthorize&client_id=ecli_groupama",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129095.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleGroupamaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://authentification.groupama.fr/cas/login?service=https%3A%2F%2Fauthentification.groupama.fr%2Fcas%2Foauth2.0%2FcallbackAuthorize&client_id=ecli_groupama",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

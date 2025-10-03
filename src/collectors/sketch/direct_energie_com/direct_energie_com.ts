@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectEnergieComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DirectEnergieComCollector extends SketchCollector {
         version: "0",
         website: "https://clients.direct-energie.com/mes-factures/ma-facture/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9078.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DirectEnergieComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clients.direct-energie.com/mes-factures/ma-facture/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

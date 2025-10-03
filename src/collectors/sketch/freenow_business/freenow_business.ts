@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreenowBusinessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FreenowBusinessCollector extends SketchCollector {
         version: "0",
         website: "https://business.free-now.com/statements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/158574.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FreenowBusinessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://business.free-now.com/statements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

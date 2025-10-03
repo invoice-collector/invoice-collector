@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetStreamCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GetStreamCollector extends SketchCollector {
         version: "0",
         website: "https://getstream.io/dashboard/organization/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/157974.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GetStreamCollector extends SketchCollector {
             }
         },
         entryUrl: "https://getstream.io/dashboard/organization/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

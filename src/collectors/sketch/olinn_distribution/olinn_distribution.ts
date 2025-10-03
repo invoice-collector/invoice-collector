@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OlinnDistributionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OlinnDistributionCollector extends SketchCollector {
         version: "0",
         website: "https://olinn-distribution.com/mon-compte/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1526271.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OlinnDistributionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://olinn-distribution.com/mon-compte/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

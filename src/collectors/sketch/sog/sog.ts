@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SogCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SogCollector extends SketchCollector {
         version: "0",
         website: "https://www.sog.de/erp-warenwirtschaft/uebersicht-erp.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/553.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SogCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sog.de/erp-warenwirtschaft/uebersicht-erp.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

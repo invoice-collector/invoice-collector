@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TopviewCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TopviewCollector extends SketchCollector {
         version: "0",
         website: "https://www.topview.ai/dashboard/subscription?type=Invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4466240.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TopviewCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.topview.ai/dashboard/subscription?type=Invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

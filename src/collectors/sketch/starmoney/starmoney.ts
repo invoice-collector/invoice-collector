@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarmoneyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StarmoneyCollector extends SketchCollector {
         version: "0",
         website: "https://www.starmoney.de/kundenbereich/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1109.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StarmoneyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.starmoney.de/kundenbereich/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

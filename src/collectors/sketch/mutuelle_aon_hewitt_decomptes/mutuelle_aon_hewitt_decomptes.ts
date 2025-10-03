@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAonHewittDecomptesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleAonHewittDecomptesCollector extends SketchCollector {
         version: "0",
         website: "https://www.aon.com/france/produits-et-services/rh/gestion_frais_medicaux_regimes_prevoyance.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/125699.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleAonHewittDecomptesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.aon.com/france/produits-et-services/rh/gestion_frais_medicaux_regimes_prevoyance.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

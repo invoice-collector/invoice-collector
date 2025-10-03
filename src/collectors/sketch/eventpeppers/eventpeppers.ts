@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EventpeppersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EventpeppersCollector extends SketchCollector {
         version: "0",
         website: "https://www.eventpeppers.com/de/private-v/epp738776746/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132115.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EventpeppersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.eventpeppers.com/de/private-v/epp738776746/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

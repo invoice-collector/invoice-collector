@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LowenEntertaimentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LowenEntertaimentCollector extends SketchCollector {
         version: "0",
         website: "https://www.loewen-kundenportal.de/mein-konto/meine-rechnungen/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1653476.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LowenEntertaimentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.loewen-kundenportal.de/mein-konto/meine-rechnungen/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScalableCapitalAffiliateProgrammCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ScalableCapitalAffiliateProgrammCollector extends SketchCollector {
         version: "0",
         website: "https://partner.scalable-capital.de/auszahlungen.cgi",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1722884.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ScalableCapitalAffiliateProgrammCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.scalable-capital.de/auszahlungen.cgi",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HolterAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HolterAtCollector extends SketchCollector {
         version: "0",
         website: "https://online.holter.at/hon40/O4160W.PGM",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2729958.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HolterAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://online.holter.at/hon40/O4160W.PGM",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

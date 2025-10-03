@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HubrisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HubrisCollector extends SketchCollector {
         version: "0",
         website: "https://hubris-admin-dev.herokuapp.com/signup",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/532486.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HubrisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hubris-admin-dev.herokuapp.com/signup",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

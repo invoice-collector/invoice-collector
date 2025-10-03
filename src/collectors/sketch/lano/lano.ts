@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LanoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LanoCollector extends SketchCollector {
         version: "0",
         website: "https://fms.lano.io/de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/390071.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LanoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fms.lano.io/de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

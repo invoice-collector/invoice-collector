@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Helium10Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Helium10Collector extends SketchCollector {
         version: "0",
         website: "https://members.helium10.com/profile/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70820.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Helium10Collector extends SketchCollector {
             }
         },
         entryUrl: "https://members.helium10.com/profile/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

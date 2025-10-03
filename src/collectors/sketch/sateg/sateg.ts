@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SategCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SategCollector extends SketchCollector {
         version: "0",
         website: "https://mon-espace.sateg-eau.com/fr/mes-paiements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4367417.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SategCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mon-espace.sateg-eau.com/fr/mes-paiements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

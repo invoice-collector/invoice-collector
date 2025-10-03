@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetroFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MetroFrCollector extends SketchCollector {
         version: "0",
         website: "https://shop.metro.fr/shop/portal/overview/my-cmr-statements",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/112535.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MetroFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.metro.fr/shop/portal/overview/my-cmr-statements",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PyurVertriebspartnerPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PyurVertriebspartnerPortalCollector extends SketchCollector {
         version: "0",
         website: "https://www.pyur.tools/isa/provision",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1242916.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PyurVertriebspartnerPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pyur.tools/isa/provision",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

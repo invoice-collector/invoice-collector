@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextbikeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NextbikeCollector extends SketchCollector {
         version: "0",
         website: "https://iframe.nextbike.net/iframe/?domain=de&L=en&id=login&nolinks=0&redirect_index=https://www.nextbike.de/en/&redirect_account=https://secure.nextbike.net/de/en/account/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23769.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NextbikeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://iframe.nextbike.net/iframe/?domain=de&L=en&id=login&nolinks=0&redirect_index=https://www.nextbike.de/en/&redirect_account=https://secure.nextbike.net/de/en/account/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

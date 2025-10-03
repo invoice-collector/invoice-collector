@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StellantisFinancialServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StellantisFinancialServicesCollector extends SketchCollector {
         version: "0",
         website: "https://myprofile.stellantis-financial-services.be/nl/web/cuspor/invoices?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2694548.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StellantisFinancialServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myprofile.stellantis-financial-services.be/nl/web/cuspor/invoices?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CgImmobilierLogeImmobilierCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CgImmobilierLogeImmobilierCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.ics.fr/V4/connexion-logeimmobilier.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/108535.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CgImmobilierLogeImmobilierCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.ics.fr/V4/connexion-logeimmobilier.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

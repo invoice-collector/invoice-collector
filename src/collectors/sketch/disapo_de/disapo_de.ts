@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DisapoDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DisapoDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.disapo.de/myshop/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1217596.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DisapoDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.disapo.de/myshop/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

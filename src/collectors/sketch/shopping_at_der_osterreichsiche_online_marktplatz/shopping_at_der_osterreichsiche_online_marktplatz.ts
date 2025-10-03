@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector extends Sketc
         version: "0",
         website: "https://portal.shoepping.at/marketplaceportal/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778100.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector extends Sketc
             }
         },
         entryUrl: "https://portal.shoepping.at/marketplaceportal/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VitisoftCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VitisoftCollector extends SketchCollector {
         version: "0",
         website: "https://moncompte.vitisoft.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4571820.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VitisoftCollector extends SketchCollector {
             }
         },
         entryUrl: "https://moncompte.vitisoft.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

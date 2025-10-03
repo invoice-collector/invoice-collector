@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgemiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AgemiCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.agemi.net/client/attestations/index/old/1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2842118.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AgemiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.agemi.net/client/attestations/index/old/1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

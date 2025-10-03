@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitaldruckFabrikCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigitaldruckFabrikCollector extends SketchCollector {
         version: "0",
         website: "https://www.digitaldruck-fabrik.de/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7282.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigitaldruckFabrikCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.digitaldruck-fabrik.de/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

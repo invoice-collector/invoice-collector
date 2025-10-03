@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VestasOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VestasOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://vestasb2c.b2clogin.com/vestasb2c.onmicrosoft.com/b2c_1a_vestas_vo_app_signup_signin/oauth2/v2.0/authorize?client_id=b6af5e79-c2e7-42e1-8f16-6ba222c204d1&scope=openid%20offline_access%20openid%20https%3A%2F%2FVestasB2C.onmicrosoft.com%2Fvestasonlin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2588182.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VestasOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vestasb2c.b2clogin.com/vestasb2c.onmicrosoft.com/b2c_1a_vestas_vo_app_signup_signin/oauth2/v2.0/authorize?client_id=b6af5e79-c2e7-42e1-8f16-6ba222c204d1&scope=openid%20offline_access%20openid%20https%3A%2F%2FVestasB2C.onmicrosoft.com%2Fvestasonlin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

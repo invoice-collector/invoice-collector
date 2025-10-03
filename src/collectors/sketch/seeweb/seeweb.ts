@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeewebCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SeewebCollector extends SketchCollector {
         version: "0",
         website: "https://aop.seeweb.it/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8750.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SeewebCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aop.seeweb.it/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

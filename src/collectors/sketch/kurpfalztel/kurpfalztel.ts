@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KurpfalztelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KurpfalztelCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.kurpfalztel.de/DocumentArc/DocumentArchive",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1862672.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KurpfalztelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.kurpfalztel.de/DocumentArc/DocumentArchive",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

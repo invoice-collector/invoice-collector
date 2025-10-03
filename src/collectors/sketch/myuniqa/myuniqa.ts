@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyuniqaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyuniqaCollector extends SketchCollector {
         version: "0",
         website: "https://myuniqa.at/main/dashboard/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2557101.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyuniqaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myuniqa.at/main/dashboard/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

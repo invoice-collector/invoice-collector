@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WemagCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WemagCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.wemag.com/mein_wemio/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/91232.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WemagCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.wemag.com/mein_wemio/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

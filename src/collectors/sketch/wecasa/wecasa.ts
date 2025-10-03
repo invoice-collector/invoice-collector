@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WecasaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WecasaCollector extends SketchCollector {
         version: "0",
         website: "https://www.wecasa.fr/espace-client/connexion",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2654208.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WecasaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wecasa.fr/espace-client/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

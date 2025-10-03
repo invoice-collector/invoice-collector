@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StackoverflowTeamsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StackoverflowTeamsCollector extends SketchCollector {
         version: "0",
         website: "https://stackoverflowteams.com/users/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3079093.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StackoverflowTeamsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://stackoverflowteams.com/users/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

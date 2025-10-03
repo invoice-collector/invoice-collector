@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheDriveryCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheDriveryCollector extends SketchCollector {
         version: "0",
         website: "https://space.thedrivery.com/membership",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/505993.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheDriveryCollector extends SketchCollector {
             }
         },
         entryUrl: "https://space.thedrivery.com/membership",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

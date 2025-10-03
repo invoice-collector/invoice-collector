@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AltusIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AltusIoCollector extends SketchCollector {
         version: "0",
         website: "https://app.opteo.com/app/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7125.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AltusIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.opteo.com/app/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

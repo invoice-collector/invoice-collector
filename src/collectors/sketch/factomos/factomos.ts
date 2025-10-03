@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FactomosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FactomosCollector extends SketchCollector {
         version: "0",
         website: "https://factomos.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778923.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FactomosCollector extends SketchCollector {
             }
         },
         entryUrl: "https://factomos.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

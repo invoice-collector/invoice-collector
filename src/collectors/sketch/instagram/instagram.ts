@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstagramCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InstagramCollector extends SketchCollector {
         version: "0",
         website: "https://www.instagram.com/accounts/subscriptions/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2771562.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InstagramCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.instagram.com/accounts/subscriptions/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

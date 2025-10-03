@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptiOfficeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OptiOfficeCollector extends SketchCollector {
         version: "0",
         website: "https://optioffice.eu/optioffice/login/piti.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034194.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OptiOfficeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://optioffice.eu/optioffice/login/piti.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

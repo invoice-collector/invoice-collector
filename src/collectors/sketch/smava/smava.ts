@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmavaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmavaCollector extends SketchCollector {
         version: "0",
         website: "https://affiliate.smava.de/dashboard/payoff",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1444807.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmavaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://affiliate.smava.de/dashboard/payoff",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

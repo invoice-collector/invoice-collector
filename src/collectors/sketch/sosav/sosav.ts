@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SosavCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SosavCollector extends SketchCollector {
         version: "0",
         website: "https://www.sosav.fr/store/historique-commandes#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2792849.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SosavCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sosav.fr/store/historique-commandes#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

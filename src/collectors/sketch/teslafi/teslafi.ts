@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeslafiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TeslafiCollector extends SketchCollector {
         version: "0",
         website: "https://www.teslafi.com/userlogin.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1811686.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TeslafiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.teslafi.com/userlogin.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class McdonaldsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class McdonaldsCollector extends SketchCollector {
         version: "0",
         website: "https://www.mcdonalds.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/e/ea/Mcdonalds_France_2009_logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class McdonaldsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mcdonalds.fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WurzburgerVersicherungVermittlerportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WurzburgerVersicherungVermittlerportalCollector extends SketchColle
         version: "0",
         website: "https://www.wuerzburger.com/vermittlerportal/logon.aspx?ReturnUrl=%2fvermittlerportal%2f",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/56818.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WurzburgerVersicherungVermittlerportalCollector extends SketchColle
             }
         },
         entryUrl: "https://www.wuerzburger.com/vermittlerportal/logon.aspx?ReturnUrl=%2fvermittlerportal%2f",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

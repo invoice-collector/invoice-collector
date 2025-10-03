@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterMaklerNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InterMaklerNetCollector extends SketchCollector {
         version: "0",
         website: "https://www.inter-makler.net/online-services/e-abrechnungsservice/login-e-abrechnungsservice/?tx_interftp_pi1%5Bcategory%5D=abr&tx_interftp_pi1%5Baction%5D=filelist&tx_interftp_pi1%5Bcontroller%5D=File&cHash=f0f81fed31a1c73ff1bab4a99221b664",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/221832.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InterMaklerNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.inter-makler.net/online-services/e-abrechnungsservice/login-e-abrechnungsservice/?tx_interftp_pi1%5Bcategory%5D=abr&tx_interftp_pi1%5Baction%5D=filelist&tx_interftp_pi1%5Bcontroller%5D=File&cHash=f0f81fed31a1c73ff1bab4a99221b664",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

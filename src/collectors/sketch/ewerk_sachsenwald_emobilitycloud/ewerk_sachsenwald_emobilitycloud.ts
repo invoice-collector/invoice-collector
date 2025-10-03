@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
         version: "0",
         website: "https://ewerk.emobilitycloud.com/de/account/receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1421149.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ewerk.emobilitycloud.com/de/account/receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

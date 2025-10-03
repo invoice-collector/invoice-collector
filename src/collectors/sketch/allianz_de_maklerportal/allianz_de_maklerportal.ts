@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianzDeMaklerportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AllianzDeMaklerportalCollector extends SketchCollector {
         version: "0",
         website: "https://makler.allianz.de/res/startseite/index.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/116118.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AllianzDeMaklerportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://makler.allianz.de/res/startseite/index.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KokkuGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KokkuGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://kokku-online.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1101227.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KokkuGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kokku-online.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

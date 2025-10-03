@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KalenderDigitalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KalenderDigitalCollector extends SketchCollector {
         version: "0",
         website: "https://settings.kalender.digital/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3020653.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KalenderDigitalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://settings.kalender.digital/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

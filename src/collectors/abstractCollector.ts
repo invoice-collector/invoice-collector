@@ -25,13 +25,13 @@ export enum CollectorCaptcha {
 
 export type Config = {
     id: string,
-    type?: CollectorType,
     name: string,
     description: string,
     instructions?: string,
     version: string,
     website: string,
     logo: string,
+    type: CollectorType,
     params: {
         [key: string]: {
             type: string,

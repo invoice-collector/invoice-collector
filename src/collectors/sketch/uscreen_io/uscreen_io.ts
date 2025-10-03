@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UscreenIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UscreenIoCollector extends SketchCollector {
         version: "0",
         website: "https://www.uscreen.io/admin/billings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1122486.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UscreenIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.uscreen.io/admin/billings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

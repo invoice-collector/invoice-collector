@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VerizonWirelessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VerizonWirelessCollector extends SketchCollector {
         version: "0",
         website: "https://myvpostpay.verizonwireless.com/ui/bill/ao/viewbill#!/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6413.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VerizonWirelessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myvpostpay.verizonwireless.com/ui/bill/ao/viewbill#!/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

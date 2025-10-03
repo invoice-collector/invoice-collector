@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnacCarwashCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AnacCarwashCollector extends SketchCollector {
         version: "0",
         website: "https://www.anaccarwash.com/unlimited-inloggen-nl/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420672.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AnacCarwashCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.anaccarwash.com/unlimited-inloggen-nl/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

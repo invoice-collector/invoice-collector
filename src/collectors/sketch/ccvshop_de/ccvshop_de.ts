@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CcvshopDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CcvshopDeCollector extends SketchCollector {
         version: "0",
         website: "https://login.ccvshop.de/onderhoud/GenericLogin.php?Language=de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20480.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CcvshopDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.ccvshop.de/onderhoud/GenericLogin.php?Language=de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

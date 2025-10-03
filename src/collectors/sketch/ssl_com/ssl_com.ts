@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SslComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SslComCollector extends SketchCollector {
         version: "0",
         website: "https://secure.ssl.com/team/a1a-1gtohvd/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2418839.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SslComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.ssl.com/team/a1a-1gtohvd/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

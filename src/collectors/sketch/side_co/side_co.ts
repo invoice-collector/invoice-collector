@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SideCoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SideCoCollector extends SketchCollector {
         version: "0",
         website: "https://team.side.co/beta/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/112900.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SideCoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://team.side.co/beta/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

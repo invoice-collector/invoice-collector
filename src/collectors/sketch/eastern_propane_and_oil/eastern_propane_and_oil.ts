@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasternPropaneAndOilCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EasternPropaneAndOilCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.eastern.com/accountSummary",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4639881.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EasternPropaneAndOilCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.eastern.com/accountSummary",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

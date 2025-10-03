@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReferralCandyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReferralCandyCollector extends SketchCollector {
         version: "0",
         website: "https://my.referralcandy.com/current_bill",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777343.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReferralCandyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.referralcandy.com/current_bill",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

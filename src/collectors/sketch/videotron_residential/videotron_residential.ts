@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VideotronResidentialCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VideotronResidentialCollector extends SketchCollector {
         version: "0",
         website: "https://www.videotron.com/client/user-management/residentiel/secur/DisplayFactureForm.do?dispatch=displayFacture&appId=EC",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9610.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VideotronResidentialCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.videotron.com/client/user-management/residentiel/secur/DisplayFactureForm.do?dispatch=displayFacture&appId=EC",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

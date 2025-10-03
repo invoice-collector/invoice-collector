@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElectriciteDeStrasbourgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ElectriciteDeStrasbourgCollector extends SketchCollector {
         version: "0",
         website: "http://www.es.fr",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27349.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ElectriciteDeStrasbourgCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.es.fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

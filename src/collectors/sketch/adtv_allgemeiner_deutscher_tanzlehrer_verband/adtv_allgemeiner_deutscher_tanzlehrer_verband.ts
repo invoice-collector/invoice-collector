@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdtvAllgemeinerDeutscherTanzlehrerVerbandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdtvAllgemeinerDeutscherTanzlehrerVerbandCollector extends SketchCo
         version: "0",
         website: "https://community.nimbuscloud.at/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730168.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdtvAllgemeinerDeutscherTanzlehrerVerbandCollector extends SketchCo
             }
         },
         entryUrl: "https://community.nimbuscloud.at/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

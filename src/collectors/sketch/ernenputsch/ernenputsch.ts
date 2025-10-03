@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErnenputschCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ErnenputschCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.transporte-ernenputsch.de/documents",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2021186.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ErnenputschCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.transporte-ernenputsch.de/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

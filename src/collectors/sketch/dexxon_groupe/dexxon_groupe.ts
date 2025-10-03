@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DexxonGroupeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DexxonGroupeCollector extends SketchCollector {
         version: "0",
         website: "https://plus.dexxon.eu/index.php/fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/794904.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DexxonGroupeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://plus.dexxon.eu/index.php/fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

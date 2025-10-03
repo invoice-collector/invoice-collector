@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeysExpressFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KeysExpressFrCollector extends SketchCollector {
         version: "0",
         website: "https://keys.express/FR/sales/order/invoice/order_id/105568/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2695464.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KeysExpressFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://keys.express/FR/sales/order/invoice/order_id/105568/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

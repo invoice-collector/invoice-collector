@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FortisBcCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FortisBcCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.fortisbc.com/hcl-axon.com~iem~cssweb/pages/account/account_summary.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9306.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FortisBcCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.fortisbc.com/hcl-axon.com~iem~cssweb/pages/account/account_summary.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

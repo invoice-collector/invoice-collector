@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XeroxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class XeroxCollector extends SketchCollector {
         version: "0",
         website: "https://www.accounts.xerox.com/auth/login.jsf?&locale=en_US",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8522.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class XeroxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.accounts.xerox.com/auth/login.jsf?&locale=en_US",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

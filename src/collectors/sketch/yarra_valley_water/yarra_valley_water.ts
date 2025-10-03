@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YarraValleyWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YarraValleyWaterCollector extends SketchCollector {
         version: "0",
         website: "http://www.yvw.com.au",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8513.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YarraValleyWaterCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.yvw.com.au",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

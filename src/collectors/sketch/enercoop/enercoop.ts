@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnercoopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EnercoopCollector extends SketchCollector {
         version: "0",
         website: "https://espace-client.enercoop.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/532724.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EnercoopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-client.enercoop.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

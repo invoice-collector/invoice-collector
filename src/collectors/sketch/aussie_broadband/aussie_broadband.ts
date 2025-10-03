@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AussieBroadbandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AussieBroadbandCollector extends SketchCollector {
         version: "0",
         website: "https://www.aussiebroadband.com.au/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/776897.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AussieBroadbandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.aussiebroadband.com.au/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

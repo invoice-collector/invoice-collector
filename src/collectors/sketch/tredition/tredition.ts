@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TreditionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TreditionCollector extends SketchCollector {
         version: "0",
         website: "https://my.tredition.com/myaccount/provision/overview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1305682.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TreditionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.tredition.com/myaccount/provision/overview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

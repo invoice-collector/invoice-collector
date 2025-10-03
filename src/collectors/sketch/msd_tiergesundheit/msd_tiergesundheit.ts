@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MsdTiergesundheitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MsdTiergesundheitCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.authentication.us10.hana.ondemand.com/saml/login/alias/myaccount.aws-live?disco=true&idp=https%3A%2F%2Fwww.msd-tiergesundheit.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445821.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MsdTiergesundheitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.authentication.us10.hana.ondemand.com/saml/login/alias/myaccount.aws-live?disco=true&idp=https%3A%2F%2Fwww.msd-tiergesundheit.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

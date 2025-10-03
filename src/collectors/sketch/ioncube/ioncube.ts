@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IoncubeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IoncubeCollector extends SketchCollector {
         version: "0",
         website: "https://www.ioncube.com/main.php?c=account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/453.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IoncubeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ioncube.com/main.php?c=account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

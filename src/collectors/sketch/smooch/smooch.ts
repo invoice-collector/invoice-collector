@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmoochCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmoochCollector extends SketchCollector {
         version: "0",
         website: "https://app.smooch.io/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/230797.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmoochCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.smooch.io/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

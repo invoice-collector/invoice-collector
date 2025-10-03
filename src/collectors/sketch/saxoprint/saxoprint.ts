@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SaxoprintCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SaxoprintCollector extends SketchCollector {
         version: "0",
         website: "https://www.saxoprint.de/login.aspx?url=%2fkundenbereich%2fauftragsuebersicht",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7333.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SaxoprintCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.saxoprint.de/login.aspx?url=%2fkundenbereich%2fauftragsuebersicht",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

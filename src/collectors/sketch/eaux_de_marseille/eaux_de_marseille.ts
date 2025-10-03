@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauxDeMarseilleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EauxDeMarseilleCollector extends SketchCollector {
         version: "0",
         website: "https://espaceclients.eaudemarseille-metropole.fr/index.html#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27350.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EauxDeMarseilleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceclients.eaudemarseille-metropole.fr/index.html#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

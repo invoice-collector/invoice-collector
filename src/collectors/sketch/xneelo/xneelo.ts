@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XneeloCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class XneeloCollector extends SketchCollector {
         version: "0",
         website: "https://xneelo.co.za/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/740280.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class XneeloCollector extends SketchCollector {
             }
         },
         entryUrl: "https://xneelo.co.za/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

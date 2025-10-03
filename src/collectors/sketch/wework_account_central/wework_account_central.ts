@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeworkAccountCentralCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WeworkAccountCentralCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.wework.com/dashboard/balance-and-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2106062.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WeworkAccountCentralCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.wework.com/dashboard/balance-and-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

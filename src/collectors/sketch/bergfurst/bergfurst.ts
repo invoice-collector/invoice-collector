@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BergfurstCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BergfurstCollector extends SketchCollector {
         version: "0",
         website: "https://de.bergfuerst.com/nachrichten/posteingang",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121998.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BergfurstCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.bergfuerst.com/nachrichten/posteingang",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

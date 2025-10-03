@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelematicsDakoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelematicsDakoCollector extends SketchCollector {
         version: "0",
         website: "https://www.tachoweb.eu",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/192203.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelematicsDakoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tachoweb.eu",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

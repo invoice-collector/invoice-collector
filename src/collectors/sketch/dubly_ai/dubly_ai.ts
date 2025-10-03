@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DublyAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DublyAiCollector extends SketchCollector {
         version: "0",
         website: "https://dubly.ai/account?nav=plan&v=invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3312828.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DublyAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dubly.ai/account?nav=plan&v=invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

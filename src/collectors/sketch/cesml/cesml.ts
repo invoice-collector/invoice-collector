@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CesmlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CesmlCollector extends SketchCollector {
         version: "0",
         website: "https://moncompte-cesml.multield.net/application/jsp/arc/habilitation/login.jsp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1436925.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CesmlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://moncompte-cesml.multield.net/application/jsp/arc/habilitation/login.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

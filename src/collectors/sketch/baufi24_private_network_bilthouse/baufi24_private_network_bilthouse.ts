@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Baufi24PrivateNetworkBilthouseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Baufi24PrivateNetworkBilthouseCollector extends SketchCollector {
         version: "0",
         website: "https://partnerprogramm.bilthouse.com/auszahlungen.cgi",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2180704.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Baufi24PrivateNetworkBilthouseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partnerprogramm.bilthouse.com/auszahlungen.cgi",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

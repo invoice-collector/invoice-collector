@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FfnConnectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FfnConnectCollector extends SketchCollector {
         version: "0",
         website: "https://ffn-connect.de/partner-area/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2557355.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FfnConnectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ffn-connect.de/partner-area/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

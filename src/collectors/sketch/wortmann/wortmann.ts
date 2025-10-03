@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WortmannCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WortmannCollector extends SketchCollector {
         version: "0",
         website: "https://b2b.wortmann.de/de-de/profile/login.aspx?returnurl=%2fde-de%2fproductlist%2faktionsprodukte%2fherzlich-willkommen.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/43967.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WortmannCollector extends SketchCollector {
             }
         },
         entryUrl: "https://b2b.wortmann.de/de-de/profile/login.aspx?returnurl=%2fde-de%2fproductlist%2faktionsprodukte%2fherzlich-willkommen.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtlassianCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AtlassianCollector extends SketchCollector {
         version: "0",
         website: "https://id.atlassian.com/login?application=mac&continue=https://my.atlassian.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/530.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AtlassianCollector extends SketchCollector {
             }
         },
         entryUrl: "https://id.atlassian.com/login?application=mac&continue=https://my.atlassian.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

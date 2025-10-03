@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HiltiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HiltiCollector extends SketchCollector {
         version: "0",
         website: "https://www.hilti.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/16593.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HiltiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hilti.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

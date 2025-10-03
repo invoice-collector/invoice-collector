@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViperprintCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ViperprintCollector extends SketchCollector {
         version: "0",
         website: "https://www.viperprint.de/meine-rechnungen.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1540076.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ViperprintCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.viperprint.de/meine-rechnungen.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

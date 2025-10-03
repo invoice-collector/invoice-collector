@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SynaxonEgisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SynaxonEgisCollector extends SketchCollector {
         version: "0",
         website: "https://www.egis-online.de/cgi-bin/WebObjects.exe/EGIS.woa",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/392352.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SynaxonEgisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.egis-online.de/cgi-bin/WebObjects.exe/EGIS.woa",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

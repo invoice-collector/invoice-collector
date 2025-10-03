@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraedeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TraedeCollector extends SketchCollector {
         version: "0",
         website: "https://app.traede.com/invoices?page=1&perPage=20&sort=&sortDirection=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777318.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TraedeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.traede.com/invoices?page=1&perPage=20&sort=&sortDirection=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

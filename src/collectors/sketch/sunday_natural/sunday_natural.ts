@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SundayNaturalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SundayNaturalCollector extends SketchCollector {
         version: "0",
         website: "https://www.sunday.de/sales/order/history/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/388064.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SundayNaturalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sunday.de/sales/order/history/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

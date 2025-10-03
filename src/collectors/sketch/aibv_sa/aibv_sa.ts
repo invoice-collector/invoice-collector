@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AibvSaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AibvSaCollector extends SketchCollector {
         version: "0",
         website: "https://planning.aibv.be/Reservaties/ReservatieOverzicht.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4510278.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AibvSaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://planning.aibv.be/Reservaties/ReservatieOverzicht.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

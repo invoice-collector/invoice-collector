@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CockatooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CockatooCollector extends SketchCollector {
         version: "0",
         website: "https://checkout.cockatoo.com/p/session/live_YWNjdF8xSjZJMWpKUm1FUzNuaWNVLF9QdmdidW96aUlibXpPWVBkT2d6cVc1aEpER01ocjJ20100vWsVuOYW",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2728473.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CockatooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://checkout.cockatoo.com/p/session/live_YWNjdF8xSjZJMWpKUm1FUzNuaWNVLF9QdmdidW96aUlibXpPWVBkT2d6cVc1aEpER01ocjJ20100vWsVuOYW",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

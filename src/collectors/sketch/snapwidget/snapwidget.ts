@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnapwidgetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SnapwidgetCollector extends SketchCollector {
         version: "0",
         website: "https://snapwidget.com/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/405787.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SnapwidgetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://snapwidget.com/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

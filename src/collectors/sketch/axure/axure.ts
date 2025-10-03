@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxureCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AxureCollector extends SketchCollector {
         version: "0",
         website: "https://www.axure.com/portal/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8550.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AxureCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.axure.com/portal/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

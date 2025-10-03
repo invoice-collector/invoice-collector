@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExpediaTaapCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ExpediaTaapCollector extends SketchCollector {
         version: "0",
         website: "https://www.expediataap.de/trips",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4564517.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ExpediaTaapCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.expediataap.de/trips",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

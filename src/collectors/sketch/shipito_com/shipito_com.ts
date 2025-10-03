@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShipitoComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShipitoComCollector extends SketchCollector {
         version: "0",
         website: "https://www.shipito.com/de/account/login?nextpage=https%3A%2F%2Fwww.shipito.com%2Fen%2Faccount%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/126666.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShipitoComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.shipito.com/de/account/login?nextpage=https%3A%2F%2Fwww.shipito.com%2Fen%2Faccount%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

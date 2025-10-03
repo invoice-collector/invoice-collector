@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanalProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CanalProCollector extends SketchCollector {
         version: "0",
         website: "https://client.canalpro.fr/espaceclient/factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/553313.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CanalProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://client.canalpro.fr/espaceclient/factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

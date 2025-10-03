@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WerbewocheChCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WerbewocheChCollector extends SketchCollector {
         version: "0",
         website: "https://www.werbewoche.ch/de/account/view-order/197840/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2063530.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WerbewocheChCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.werbewoche.ch/de/account/view-order/197840/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfBocaRatonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfBocaRatonCollector extends SketchCollector {
         version: "0",
         website: "https://myubaccount.myboca.us/app/capricorn?para=index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2724338.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfBocaRatonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myubaccount.myboca.us/app/capricorn?para=index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

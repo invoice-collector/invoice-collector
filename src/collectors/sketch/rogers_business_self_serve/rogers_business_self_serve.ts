@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RogersBusinessSelfServeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RogersBusinessSelfServeCollector extends SketchCollector {
         version: "0",
         website: "https://www.rogers.com/web/smb/bss/#/viewInvoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/849060.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RogersBusinessSelfServeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rogers.com/web/smb/bss/#/viewInvoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

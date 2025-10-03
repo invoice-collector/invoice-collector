@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheNewYorkTimesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheNewYorkTimesCollector extends SketchCollector {
         version: "0",
         website: "https://customercare.inyt.com/ManageMyAccount/ManageMyAccount.html#billingHistory:billinghistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/883276.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheNewYorkTimesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://customercare.inyt.com/ManageMyAccount/ManageMyAccount.html#billingHistory:billinghistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BusinessBikeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BusinessBikeCollector extends SketchCollector {
         version: "0",
         website: "https://portal.businessbike.de/anmeldung",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1577627.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BusinessBikeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.businessbike.de/anmeldung",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

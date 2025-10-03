@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RaygunCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RaygunCollector extends SketchCollector {
         version: "0",
         website: "https://app.raygun.com/signin?ReturnUrl=%2f",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777991.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RaygunCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.raygun.com/signin?ReturnUrl=%2f",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

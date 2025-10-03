@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GiffgaffCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GiffgaffCollector extends SketchCollector {
         version: "0",
         website: "https://www.giffgaff.com/auth/login?redirect=%2Fdashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9405.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GiffgaffCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.giffgaff.com/auth/login?redirect=%2Fdashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

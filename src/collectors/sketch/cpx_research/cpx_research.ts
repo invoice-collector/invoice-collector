@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CpxResearchCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CpxResearchCollector extends SketchCollector {
         version: "0",
         website: "https://publisher.cpx-research.com/index.php?page=statistics_account_balance",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2715262.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CpxResearchCollector extends SketchCollector {
             }
         },
         entryUrl: "https://publisher.cpx-research.com/index.php?page=statistics_account_balance",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

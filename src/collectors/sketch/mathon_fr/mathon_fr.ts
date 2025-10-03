@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MathonFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MathonFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.mathon.fr/Mathon/identite/Login.aspx?ReturnUrl=%2fMonCompte%2fMonCompte.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122308.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MathonFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mathon.fr/Mathon/identite/Login.aspx?ReturnUrl=%2fMonCompte%2fMonCompte.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

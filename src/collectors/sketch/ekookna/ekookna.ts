@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EkooknaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EkooknaCollector extends SketchCollector {
         version: "0",
         website: "https://eko4u.com/?p=billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1255824.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EkooknaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eko4u.com/?p=billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CulturaCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class CulturaCollector extends SketchCollector {
         version: "0",
         website: "https://cultura.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/5/56/Cultura_Logo_2021.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class CulturaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cultura.com/"
+        entryUrl: "https://www.cultura.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

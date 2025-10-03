@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeloLohnbuchhaltungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeloLohnbuchhaltungCollector extends SketchCollector {
         version: "0",
         website: "https://gelo.portal-bereich.de/html/#documentsharing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1490694.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeloLohnbuchhaltungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://gelo.portal-bereich.de/html/#documentsharing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PomomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PomomCollector extends SketchCollector {
         version: "0",
         website: "https://app.lexoffice.de/customerportal/authenticate/133a9abb-727a-4259-8ad6-23fc720a1054",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2014891.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PomomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.lexoffice.de/customerportal/authenticate/133a9abb-727a-4259-8ad6-23fc720a1054",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

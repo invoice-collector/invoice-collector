@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IabcCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IabcCollector extends SketchCollector {
         version: "0",
         website: "https://members.iabc.com/my-account/my-profile/?tab=activememberships",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2761412.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IabcCollector extends SketchCollector {
             }
         },
         entryUrl: "https://members.iabc.com/my-account/my-profile/?tab=activememberships",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SixPaymentServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SixPaymentServicesCollector extends SketchCollector {
         version: "0",
         website: "https://mypayments.six-payment-services.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/71494.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SixPaymentServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mypayments.six-payment-services.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MatyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MatyCollector extends SketchCollector {
         version: "0",
         website: "https://www.maty.com/Identification?ReturnUrl=%2FEspaceClient%2FIndex",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122307.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MatyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.maty.com/Identification?ReturnUrl=%2FEspaceClient%2FIndex",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

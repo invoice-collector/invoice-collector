@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimandisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrimandisCollector extends SketchCollector {
         version: "0",
         website: "https://www.primandis.de/administration/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2727698.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrimandisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.primandis.de/administration/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

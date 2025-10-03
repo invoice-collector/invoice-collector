@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZinioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZinioCollector extends SketchCollector {
         version: "0",
         website: "https://www.zinio.com/gb/sign-in?redirect_to=%2Fmy-library",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123814.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZinioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.zinio.com/gb/sign-in?redirect_to=%2Fmy-library",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

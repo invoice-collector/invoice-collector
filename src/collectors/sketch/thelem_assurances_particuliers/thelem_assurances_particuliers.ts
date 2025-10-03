@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThelemAssurancesParticuliersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ThelemAssurancesParticuliersCollector extends SketchCollector {
         version: "0",
         website: "https://www.thelem-assurances.fr/#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/108148.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ThelemAssurancesParticuliersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.thelem-assurances.fr/#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

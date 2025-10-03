@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MainmetallCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MainmetallCollector extends SketchCollector {
         version: "0",
         website: "https://portal.mainmetall.de/hilfe/schnittstellen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/427329.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MainmetallCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.mainmetall.de/hilfe/schnittstellen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

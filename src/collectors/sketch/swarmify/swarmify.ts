@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwarmifyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwarmifyCollector extends SketchCollector {
         version: "0",
         website: "https://swarmcdn.recurly.com/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102485.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwarmifyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://swarmcdn.recurly.com/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

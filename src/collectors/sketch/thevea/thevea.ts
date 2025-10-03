@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheveaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheveaCollector extends SketchCollector {
         version: "0",
         website: "https://thevea.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4568620.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheveaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://thevea.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

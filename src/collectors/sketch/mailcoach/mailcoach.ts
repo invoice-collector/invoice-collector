@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailcoachCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MailcoachCollector extends SketchCollector {
         version: "0",
         website: "https://mailcoach.app/download",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2519921.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MailcoachCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mailcoach.app/download",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

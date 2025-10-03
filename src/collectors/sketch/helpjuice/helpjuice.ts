@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelpjuiceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HelpjuiceCollector extends SketchCollector {
         version: "0",
         website: "https://sdui.helpjuice.com/admin/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/516928.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HelpjuiceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sdui.helpjuice.com/admin/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

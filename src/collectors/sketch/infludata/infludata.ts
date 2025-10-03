@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfludataCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InfludataCollector extends SketchCollector {
         version: "0",
         website: "https://app.infludata.com/search",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/541213.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InfludataCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.infludata.com/search",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

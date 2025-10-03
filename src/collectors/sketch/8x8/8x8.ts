@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _8x8Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _8x8Collector extends SketchCollector {
         version: "0",
         website: "https://admin.8x8.vc/#/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1108442.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _8x8Collector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.8x8.vc/#/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

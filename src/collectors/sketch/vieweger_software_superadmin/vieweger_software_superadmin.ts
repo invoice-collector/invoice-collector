@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViewegerSoftwareSuperadminCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ViewegerSoftwareSuperadminCollector extends SketchCollector {
         version: "0",
         website: "https://www.superbike8.de/haendlerportal/admin/invoices/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1374738.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ViewegerSoftwareSuperadminCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.superbike8.de/haendlerportal/admin/invoices/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

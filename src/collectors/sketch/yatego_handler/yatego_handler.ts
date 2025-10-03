@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YategoHandlerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YategoHandlerCollector extends SketchCollector {
         version: "0",
         website: "https://www1.yatego.com/admin/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730016.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YategoHandlerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www1.yatego.com/admin/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

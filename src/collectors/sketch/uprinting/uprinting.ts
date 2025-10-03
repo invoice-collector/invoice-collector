@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UprintingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UprintingCollector extends SketchCollector {
         version: "0",
         website: "https://portal.uprinting.com/order",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4449796.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UprintingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.uprinting.com/order",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

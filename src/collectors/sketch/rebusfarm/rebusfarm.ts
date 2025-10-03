@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RebusfarmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RebusfarmCollector extends SketchCollector {
         version: "0",
         website: "https://de.rebusfarm.net/de/de-alternative-login?view=login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/41704.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RebusfarmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.rebusfarm.net/de/de-alternative-login?view=login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

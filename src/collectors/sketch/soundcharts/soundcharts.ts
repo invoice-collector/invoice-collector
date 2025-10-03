@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoundchartsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoundchartsCollector extends SketchCollector {
         version: "0",
         website: "https://app.soundcharts.com/app/team/jmendelsohn/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4569029.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoundchartsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.soundcharts.com/app/team/jmendelsohn/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

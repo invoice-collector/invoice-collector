@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CastrIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CastrIoCollector extends SketchCollector {
         version: "0",
         website: "https://castr.io/app/manage/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778097.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CastrIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://castr.io/app/manage/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YellowbrickDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YellowbrickDeCollector extends SketchCollector {
         version: "0",
         website: "https://my.yellowbrick.de/MyYellowbrick/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/31406.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YellowbrickDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.yellowbrick.de/MyYellowbrick/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

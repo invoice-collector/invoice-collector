@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostingsolutionsItCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HostingsolutionsItCollector extends SketchCollector {
         version: "0",
         website: "https://pdc.hostingsolutions.it/MasterCP/MasterLogin.pl",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8696.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HostingsolutionsItCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pdc.hostingsolutions.it/MasterCP/MasterLogin.pl",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

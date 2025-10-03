@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FawasGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FawasGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://www.fawas-shop.de/login.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/427331.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FawasGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fawas-shop.de/login.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

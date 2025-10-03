@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OfficeDiscountAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OfficeDiscountAtCollector extends SketchCollector {
         version: "0",
         website: "https://www.office-discount.at/UgsLoginView",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10089.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OfficeDiscountAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.office-discount.at/UgsLoginView",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

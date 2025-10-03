@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TechemCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class TechemCollector extends SketchCollector {
         version: "0",
         website: "https://techem.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Techem_Logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class TechemCollector extends SketchCollector {
             }
         },
         entryUrl: "https://client.techem.fr/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

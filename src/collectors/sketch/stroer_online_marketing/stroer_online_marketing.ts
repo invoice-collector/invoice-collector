@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StroerOnlineMarketingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StroerOnlineMarketingCollector extends SketchCollector {
         version: "0",
         website: "https://kundencenter.stroeer-online-marketing.de/accounting/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185146.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StroerOnlineMarketingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundencenter.stroeer-online-marketing.de/accounting/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

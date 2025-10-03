@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfSanfordCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfSanfordCollector extends SketchCollector {
         version: "0",
         website: "https://sanf-egov.aspgov.com/Click2GovCX/billingdetail.html?OWASP_CSRFTOKEN=OFY8-V7ON-VWPN-YQ6O-IFBE-SEQA-9CJU-AH1R&billingHistoryView=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2798730.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfSanfordCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sanf-egov.aspgov.com/Click2GovCX/billingdetail.html?OWASP_CSRFTOKEN=OFY8-V7ON-VWPN-YQ6O-IFBE-SEQA-9CJU-AH1R&billingHistoryView=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

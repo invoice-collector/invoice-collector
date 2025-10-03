@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PowerWattEnergyIslandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PowerWattEnergyIslandCollector extends SketchCollector {
         version: "0",
         website: "https://pwe.wolfcrm.es/intranet/#wrapper",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4486896.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PowerWattEnergyIslandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pwe.wolfcrm.es/intranet/#wrapper",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

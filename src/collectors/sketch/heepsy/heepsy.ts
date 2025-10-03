@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeepsyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HeepsyCollector extends SketchCollector {
         version: "0",
         website: "https://app.heepsy.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1079869.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HeepsyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.heepsy.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

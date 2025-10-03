@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SupermarketOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SupermarketOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://internetowysupermarket.pl/client-orders.php?display=closed",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200132.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SupermarketOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://internetowysupermarket.pl/client-orders.php?display=closed",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

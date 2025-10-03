@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxonautCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AxonautCollector extends SketchCollector {
         version: "0",
         website: "https://axonaut.com/account/rocket/creditList",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/428738.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AxonautCollector extends SketchCollector {
             }
         },
         entryUrl: "https://axonaut.com/account/rocket/creditList",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

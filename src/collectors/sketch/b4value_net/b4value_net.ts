@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class B4valueNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class B4valueNetCollector extends SketchCollector {
         version: "0",
         website: "http://www.b4value.net",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107276.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class B4valueNetCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.b4value.net",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

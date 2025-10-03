@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImValorisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ImValorisCollector extends SketchCollector {
         version: "0",
         website: "https://extranet2.ics.fr/V5/connexion-imvaloris.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2214179.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ImValorisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet2.ics.fr/V5/connexion-imvaloris.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

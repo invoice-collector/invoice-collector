@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PvnPeekAndCloppenburgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PvnPeekAndCloppenburgCollector extends SketchCollector {
         version: "0",
         website: "https://pvn.peek-cloppenburg.de/user-billings.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2589995.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PvnPeekAndCloppenburgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pvn.peek-cloppenburg.de/user-billings.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

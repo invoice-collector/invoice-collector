@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlternaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlternaCollector extends SketchCollector {
         version: "0",
         website: "https://portail.alterna-energie.fr/mon-compte/mes-factures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105702.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlternaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail.alterna-energie.fr/mon-compte/mes-factures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

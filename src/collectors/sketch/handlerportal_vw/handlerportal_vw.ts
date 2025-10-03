@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HandlerportalVwCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HandlerportalVwCollector extends SketchCollector {
         version: "0",
         website: "https://audi-vw-belegportal.inposia.com/inbox",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1881913.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HandlerportalVwCollector extends SketchCollector {
             }
         },
         entryUrl: "https://audi-vw-belegportal.inposia.com/inbox",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

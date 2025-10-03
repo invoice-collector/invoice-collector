@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpmlOrgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WpmlOrgCollector extends SketchCollector {
         version: "0",
         website: "https://wpml.org/view_order/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28612.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WpmlOrgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wpml.org/view_order/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

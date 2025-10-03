@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdiwinPortalByEdicomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EdiwinPortalByEdicomCollector extends SketchCollector {
         version: "0",
         website: "https://ediwin.edicomgroup.com/app#/docs/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3015305.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EdiwinPortalByEdicomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ediwin.edicomgroup.com/app#/docs/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

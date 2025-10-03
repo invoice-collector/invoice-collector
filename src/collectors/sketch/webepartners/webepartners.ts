@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebepartnersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WebepartnersCollector extends SketchCollector {
         version: "0",
         website: "https://panel.webepartners.pl/Account/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/229639.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WebepartnersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://panel.webepartners.pl/Account/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

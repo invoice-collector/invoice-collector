@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Versicherungscheck24Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Versicherungscheck24Collector extends SketchCollector {
         version: "0",
         website: "https://mvp.i-planner.cloud/app/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4605130.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Versicherungscheck24Collector extends SketchCollector {
             }
         },
         entryUrl: "https://mvp.i-planner.cloud/app/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

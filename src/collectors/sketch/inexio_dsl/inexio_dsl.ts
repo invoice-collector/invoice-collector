@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InexioDslCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InexioDslCollector extends SketchCollector {
         version: "0",
         website: "https://webmail.inexio.email/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/237939.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InexioDslCollector extends SketchCollector {
             }
         },
         entryUrl: "https://webmail.inexio.email/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

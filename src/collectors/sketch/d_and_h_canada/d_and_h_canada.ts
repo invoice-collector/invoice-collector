@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DAndHCanadaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DAndHCanadaCollector extends SketchCollector {
         version: "0",
         website: "https://www.dandh.ca/v4/view?pageReq=myOrders&int_cid=LP33&utm_campaign=OpenOrder",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/241844.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DAndHCanadaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dandh.ca/v4/view?pageReq=myOrders&int_cid=LP33&utm_campaign=OpenOrder",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

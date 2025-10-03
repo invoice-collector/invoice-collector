@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParcelProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ParcelProCollector extends SketchCollector {
         version: "0",
         website: "http://www.parcelpro.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/44823.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ParcelProCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.parcelpro.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

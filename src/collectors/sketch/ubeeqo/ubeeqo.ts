@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UbeeqoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UbeeqoCollector extends SketchCollector {
         version: "0",
         website: "https://www.ubeeqo.com/de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/76714.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UbeeqoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ubeeqo.com/de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

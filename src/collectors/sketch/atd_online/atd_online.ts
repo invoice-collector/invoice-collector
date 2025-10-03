@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtdOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AtdOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://atdonline.com/my-account/accounting/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4543222.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AtdOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://atdonline.com/my-account/accounting/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

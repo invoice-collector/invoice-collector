@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklModivoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MiraklModivoCollector extends SketchCollector {
         version: "0",
         website: "https://modivo.mirakl.net/sellerpayment/shop/accounting-document/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2973279.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MiraklModivoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://modivo.mirakl.net/sellerpayment/shop/accounting-document/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

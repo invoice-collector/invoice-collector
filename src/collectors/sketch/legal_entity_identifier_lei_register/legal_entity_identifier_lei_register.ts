@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LegalEntityIdentifierLeiRegisterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LegalEntityIdentifierLeiRegisterCollector extends SketchCollector {
         version: "0",
         website: "https://service.leireg.de/en/invoices?10",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2761410.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LegalEntityIdentifierLeiRegisterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.leireg.de/en/invoices?10",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

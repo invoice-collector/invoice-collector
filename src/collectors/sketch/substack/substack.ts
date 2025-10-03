@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SubstackCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SubstackCollector extends SketchCollector {
         version: "0",
         website: "https://substack.com/account/login?redirect=%2F&email=&with_password=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/416012.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SubstackCollector extends SketchCollector {
             }
         },
         entryUrl: "https://substack.com/account/login?redirect=%2F&email=&with_password=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VertbaudetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VertbaudetCollector extends SketchCollector {
         version: "0",
         website: "https://www.vertbaudet.com/fr/authentification.aspx?intnavid=s_mon-compte",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124021.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VertbaudetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vertbaudet.com/fr/authentification.aspx?intnavid=s_mon-compte",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

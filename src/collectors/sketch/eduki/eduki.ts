@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdukiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EdukiCollector extends SketchCollector {
         version: "0",
         website: "https://eduki.com/de/honorar",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4472569.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EdukiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eduki.com/de/honorar",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

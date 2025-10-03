@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TreeNationAsblCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TreeNationAsblCollector extends SketchCollector {
         version: "0",
         website: "https://tree-nation.com/userProfile/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778989.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TreeNationAsblCollector extends SketchCollector {
             }
         },
         entryUrl: "https://tree-nation.com/userProfile/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

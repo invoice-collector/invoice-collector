@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnstipeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnstipeCollector extends SketchCollector {
         version: "0",
         website: "https://onstipe.com/web/stipe",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1439534.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnstipeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onstipe.com/web/stipe",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

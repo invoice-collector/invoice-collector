@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HitechprosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HitechprosCollector extends SketchCollector {
         version: "0",
         website: "https://esn.hitechpros.com/mon-espace/parametres#!/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2120094.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HitechprosCollector extends SketchCollector {
             }
         },
         entryUrl: "https://esn.hitechpros.com/mon-espace/parametres#!/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

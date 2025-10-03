@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexylanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NexylanCollector extends SketchCollector {
         version: "0",
         website: "https://connect.nexylan.com/oauth2/authorize",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2698768.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NexylanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://connect.nexylan.com/oauth2/authorize",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

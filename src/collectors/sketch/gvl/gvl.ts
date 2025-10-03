@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GvlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GvlCollector extends SketchCollector {
         version: "0",
         website: "https://www.artsys.gvl.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/63948.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GvlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.artsys.gvl.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BundesanzeigerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BundesanzeigerCollector extends SketchCollector {
         version: "0",
         website: "https://publikations-plattform.de/sp/wexsservlet?page.navid=to_login_page&global_data.designmode=eb&dest=wexsservlet&global_data.language=de#b",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/5040.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BundesanzeigerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://publikations-plattform.de/sp/wexsservlet?page.navid=to_login_page&global_data.designmode=eb&dest=wexsservlet&global_data.language=de#b",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

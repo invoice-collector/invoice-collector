@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RaidboxesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RaidboxesCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.raidboxes.de/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19653.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RaidboxesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.raidboxes.de/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

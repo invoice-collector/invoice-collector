@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchunkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SchunkCollector extends SketchCollector {
         version: "0",
         website: "https://iseg.schunck.es/oskar/views/seg/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4484525.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SchunkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://iseg.schunck.es/oskar/views/seg/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

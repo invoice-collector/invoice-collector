@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeclercCarburantCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeclercCarburantCollector extends SketchCollector {
         version: "0",
         website: "https://espace.cartecarburant.leclerc/EnergeoSI/client/facture/lister.do?method=rechercher",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1421237.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeclercCarburantCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace.cartecarburant.leclerc/EnergeoSI/client/facture/lister.do?method=rechercher",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

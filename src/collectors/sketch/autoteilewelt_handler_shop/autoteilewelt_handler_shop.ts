@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutoteileweltHandlerShopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AutoteileweltHandlerShopCollector extends SketchCollector {
         version: "0",
         website: "https://shop.autoteilewelt.de/efa704/opencms/html/de/01_Division/X/Home/Haendlerbereich/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/388068.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AutoteileweltHandlerShopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.autoteilewelt.de/efa704/opencms/html/de/01_Division/X/Home/Haendlerbereich/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotionmailCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MotionmailCollector extends SketchCollector {
         version: "0",
         website: "https://motionmailapp.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11263.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MotionmailCollector extends SketchCollector {
             }
         },
         entryUrl: "https://motionmailapp.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

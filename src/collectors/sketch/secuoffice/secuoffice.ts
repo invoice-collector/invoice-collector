@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SecuofficeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SecuofficeCollector extends SketchCollector {
         version: "0",
         website: "https://secuoffice.com/#/M/MRC_W87B9BGFZX6B6V8FGYEUMY890ASCOP/card-processing/invoices?sorting[0][propName]=created&sorting[0][asc]=false&grid=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1664951.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SecuofficeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secuoffice.com/#/M/MRC_W87B9BGFZX6B6V8FGYEUMY890ASCOP/card-processing/invoices?sorting[0][propName]=created&sorting[0][asc]=false&grid=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

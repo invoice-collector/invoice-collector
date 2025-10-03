@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PricelabsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PricelabsCollector extends SketchCollector {
         version: "0",
         website: "https://pricelabs.co/billing/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70085.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PricelabsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pricelabs.co/billing/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

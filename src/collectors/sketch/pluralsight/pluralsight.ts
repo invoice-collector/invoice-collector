@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PluralsightCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PluralsightCollector extends SketchCollector {
         version: "0",
         website: "https://app.pluralsight.com/id",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/34942.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PluralsightCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.pluralsight.com/id",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

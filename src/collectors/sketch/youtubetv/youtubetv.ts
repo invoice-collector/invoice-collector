@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoutubetvCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YoutubetvCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.google.com/AccountChooser/signinchooser?service=youtube&uilel=0&hl=en&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26skip_identity_prompt%3DTrue%26hl%3Den%26next%3Dhttps%253A%252F%252Ftv.yo",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/52297.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YoutubetvCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.google.com/AccountChooser/signinchooser?service=youtube&uilel=0&hl=en&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26skip_identity_prompt%3DTrue%26hl%3Den%26next%3Dhttps%253A%252F%252Ftv.yo",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

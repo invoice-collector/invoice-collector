@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DerGrunePunktDualesSystemCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DerGrunePunktDualesSystemCollector extends SketchCollector {
         version: "0",
         website: "https://portal.gruener-punkt.de/onlinedsd/f?p=200:101:::NO:RP::",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/429771.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DerGrunePunktDualesSystemCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.gruener-punkt.de/onlinedsd/f?p=200:101:::NO:RP::",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

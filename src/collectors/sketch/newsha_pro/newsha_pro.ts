@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewshaProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NewshaProCollector extends SketchCollector {
         version: "0",
         website: "https://www.newsha.pro/bestellungen/meinerechnungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4213253.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NewshaProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.newsha.pro/bestellungen/meinerechnungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TreehouseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TreehouseCollector extends SketchCollector {
         version: "0",
         website: "https://teamtreehouse.com/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6824.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TreehouseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://teamtreehouse.com/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

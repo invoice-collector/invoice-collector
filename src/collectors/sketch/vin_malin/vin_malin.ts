@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VinMalinCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VinMalinCollector extends SketchCollector {
         version: "0",
         website: "https://www.vin-malin.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124847.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VinMalinCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vin-malin.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

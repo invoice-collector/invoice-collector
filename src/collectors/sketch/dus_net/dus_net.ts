@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DusNetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DusNetCollector extends SketchCollector {
         version: "0",
         website: "https://www.dus.net/de/kundenmenue/kundencenter/bookkeeping.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6534.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DusNetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dus.net/de/kundenmenue/kundencenter/bookkeeping.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeineVrmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeineVrmCollector extends SketchCollector {
         version: "0",
         website: "https://www.vrm-abo.de/profil/kundenlogin/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1266375.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeineVrmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vrm-abo.de/profil/kundenlogin/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

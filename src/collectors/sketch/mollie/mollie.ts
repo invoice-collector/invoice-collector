@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MollieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MollieCollector extends SketchCollector {
         version: "0",
         website: "https://www.mollie.com/dashboard/login?lang=en",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19864.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MollieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mollie.com/dashboard/login?lang=en",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

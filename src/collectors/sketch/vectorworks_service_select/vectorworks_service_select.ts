@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VectorworksServiceSelectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VectorworksServiceSelectCollector extends SketchCollector {
         version: "0",
         website: "https://sso.vectorworks.net/accounts/login/?next=https%3A//customers.vectorworks.net/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1604205.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VectorworksServiceSelectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sso.vectorworks.net/accounts/login/?next=https%3A//customers.vectorworks.net/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

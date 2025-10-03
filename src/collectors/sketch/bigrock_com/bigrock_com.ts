@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BigrockCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BigrockCollector extends SketchCollector {
         version: "0",
         website: "https://manage.bigrock.com/servlet/ListCustomerTransactionsServlet",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2193910.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BigrockCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manage.bigrock.com/servlet/ListCustomerTransactionsServlet",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

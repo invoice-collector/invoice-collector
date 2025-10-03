@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RelayAppCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RelayAppCollector extends SketchCollector {
         version: "0",
         website: "https://run.relay.app/dashboard#/settings/workspace/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4506757.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RelayAppCollector extends SketchCollector {
             }
         },
         entryUrl: "https://run.relay.app/dashboard#/settings/workspace/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

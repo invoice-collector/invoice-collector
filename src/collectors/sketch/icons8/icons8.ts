@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Icons8Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Icons8Collector extends SketchCollector {
         version: "0",
         website: "https://icons8.com/register/?back=https%3A%2F%2Ficons8.com%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/52190.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Icons8Collector extends SketchCollector {
             }
         },
         entryUrl: "https://icons8.com/register/?back=https%3A%2F%2Ficons8.com%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

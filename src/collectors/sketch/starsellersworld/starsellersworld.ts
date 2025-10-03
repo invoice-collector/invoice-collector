@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarsellersworldCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StarsellersworldCollector extends SketchCollector {
         version: "0",
         website: "https://ssl.starsellersworld.com/ssw/konto/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2841561.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StarsellersworldCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ssl.starsellersworld.com/ssw/konto/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

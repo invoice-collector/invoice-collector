@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VaillantCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VaillantCollector extends SketchCollector {
         version: "0",
         website: "https://www.vaillant.de/fachpartnernet/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/426730.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VaillantCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vaillant.de/fachpartnernet/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

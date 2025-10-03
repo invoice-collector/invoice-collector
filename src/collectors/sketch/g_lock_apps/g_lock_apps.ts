@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GLockAppsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GLockAppsCollector extends SketchCollector {
         version: "0",
         website: "https://app.glockapps.com/login?_ga=2.128968906.738088806.1523938159-636296687.1523938159",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11276.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GLockAppsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.glockapps.com/login?_ga=2.128968906.738088806.1523938159-636296687.1523938159",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

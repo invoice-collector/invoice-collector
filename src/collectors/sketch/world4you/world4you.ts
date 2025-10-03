@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class World4youCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class World4youCollector extends SketchCollector {
         version: "0",
         website: "https://my.world4you.com/verrechnung/download/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8728.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class World4youCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.world4you.com/verrechnung/download/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

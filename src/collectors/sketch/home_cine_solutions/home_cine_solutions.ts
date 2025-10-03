@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HomeCineSolutionsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HomeCineSolutionsCollector extends SketchCollector {
         version: "0",
         website: "https://www.homecinesolutions.fr/customer_session/new?return_to=%2Fcustomer",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/120454.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HomeCineSolutionsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.homecinesolutions.fr/customer_session/new?return_to=%2Fcustomer",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

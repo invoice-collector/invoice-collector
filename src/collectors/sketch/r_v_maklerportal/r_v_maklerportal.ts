@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RVMaklerportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RVMaklerportalCollector extends SketchCollector {
         version: "0",
         website: "https://online.ruv.de/makler/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226574.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RVMaklerportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://online.ruv.de/makler/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

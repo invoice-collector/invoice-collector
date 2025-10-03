@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeneraliAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeneraliAtCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.generali.at/iss/gui/kundenportal/login/login.seam?conversationId=16500",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2739335.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeneraliAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.generali.at/iss/gui/kundenportal/login/login.seam?conversationId=16500",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

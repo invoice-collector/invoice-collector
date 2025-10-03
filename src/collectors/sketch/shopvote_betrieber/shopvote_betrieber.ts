@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopvoteBetrieberCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShopvoteBetrieberCollector extends SketchCollector {
         version: "0",
         website: "https://www.shopvote.de/betreiber/index.php?site=invoice&shopid=22901",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3312246.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShopvoteBetrieberCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.shopvote.de/betreiber/index.php?site=invoice&shopid=22901",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

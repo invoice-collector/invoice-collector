@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrunweltEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GrunweltEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.gruenwelt.de/qpo/portal/waermestrom/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2515362.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GrunweltEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.gruenwelt.de/qpo/portal/waermestrom/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

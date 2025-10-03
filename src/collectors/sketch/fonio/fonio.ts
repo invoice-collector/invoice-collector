@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FonioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FonioCollector extends SketchCollector {
         version: "0",
         website: "https://app.fonio.ai/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4221011.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FonioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.fonio.ai/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

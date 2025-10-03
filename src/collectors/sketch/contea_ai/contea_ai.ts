@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConteaAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConteaAiCollector extends SketchCollector {
         version: "0",
         website: "https://app.contea.ai/user/plan",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2555359.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConteaAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.contea.ai/user/plan",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

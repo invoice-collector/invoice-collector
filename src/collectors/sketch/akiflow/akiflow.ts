@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AkiflowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AkiflowCollector extends SketchCollector {
         version: "0",
         website: "https://web.akiflow.com/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2985685.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AkiflowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://web.akiflow.com/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchindlerCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class SchindlerCollector extends SketchCollector {
         version: "0",
         website: "https://group.schindler.com",
         logo: "https://upload.wikimedia.org/wikipedia/de/0/04/Schindlerlogo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class SchindlerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://actionboard.schindler.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

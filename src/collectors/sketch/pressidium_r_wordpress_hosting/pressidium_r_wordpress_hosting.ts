@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PressidiumRWordpressHostingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PressidiumRWordpressHostingCollector extends SketchCollector {
         version: "0",
         website: "https://cp.pressidium.com/index.php?r=billing/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73832.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PressidiumRWordpressHostingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cp.pressidium.com/index.php?r=billing/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

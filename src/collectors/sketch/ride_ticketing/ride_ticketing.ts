@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RideTicketingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RideTicketingCollector extends SketchCollector {
         version: "0",
         website: "https://abo.ride-ticketing.de/management-dashboard/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3025542.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RideTicketingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://abo.ride-ticketing.de/management-dashboard/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

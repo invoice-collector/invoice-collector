@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FacebookCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class FacebookCollector extends SketchCollector {
         version: "0",
         website: "https://facebook.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/b/b9/2023_Facebook_icon.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class FacebookCollector extends SketchCollector {
             }
         },
         entryUrl: "https://facebook.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

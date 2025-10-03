@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrillantEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BrillantEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://portal.brillantenergie.de/auth/realms/brillant/protocol/openid-connect/auth?client_id=brillant-customer-portal-frontend&redirect_uri=https%3A%2F%2Fportal.brillantenergie.de%2Fbrillant-customer-portal-frontend%2F&state=eb2559e8-3118-44f8-a9c6-7ba21",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1060571.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BrillantEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.brillantenergie.de/auth/realms/brillant/protocol/openid-connect/auth?client_id=brillant-customer-portal-frontend&redirect_uri=https%3A%2F%2Fportal.brillantenergie.de%2Fbrillant-customer-portal-frontend%2F&state=eb2559e8-3118-44f8-a9c6-7ba21",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

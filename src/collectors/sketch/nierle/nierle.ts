@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NierleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NierleCollector extends SketchCollector {
         version: "0",
         website: "http://www.nierle.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122536.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NierleCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.nierle.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Check24HotelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Check24HotelCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.hotel.check24.de/hotel/70627928/accounting/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4553648.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Check24HotelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.hotel.check24.de/hotel/70627928/accounting/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

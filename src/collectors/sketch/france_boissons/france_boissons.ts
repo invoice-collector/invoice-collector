@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceBoissonsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FranceBoissonsCollector extends SketchCollector {
         version: "0",
         website: "https://www.myfranceboissons.fr/hfr/fr/EUR/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/222808.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FranceBoissonsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.myfranceboissons.fr/hfr/fr/EUR/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

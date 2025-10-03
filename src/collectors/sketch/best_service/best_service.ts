@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BestServiceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BestServiceCollector extends SketchCollector {
         version: "0",
         website: "https://account.bestservice.com/en/account/orders.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4545938.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BestServiceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.bestservice.com/en/account/orders.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

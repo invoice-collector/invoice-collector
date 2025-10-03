@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BusinessFacebookCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BusinessFacebookCollector extends SketchCollector {
         version: "0",
         website: "https://business.facebook.com/ads/manager/billing_history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1241521.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BusinessFacebookCollector extends SketchCollector {
             }
         },
         entryUrl: "https://business.facebook.com/ads/manager/billing_history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

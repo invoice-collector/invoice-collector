@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DistrokidCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DistrokidCollector extends SketchCollector {
         version: "0",
         website: "https://distrokid.com/receipts/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/120870.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DistrokidCollector extends SketchCollector {
             }
         },
         entryUrl: "https://distrokid.com/receipts/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

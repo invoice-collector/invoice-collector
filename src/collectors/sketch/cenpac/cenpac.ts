@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CenpacCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CenpacCollector extends SketchCollector {
         version: "0",
         website: "https://www.cenpac.fr/espace-client/mes-commandes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4446985.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CenpacCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cenpac.fr/espace-client/mes-commandes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

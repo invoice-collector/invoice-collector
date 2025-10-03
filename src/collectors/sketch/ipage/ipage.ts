@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpageCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IpageCollector extends SketchCollector {
         version: "0",
         website: "https://www1.ipage.com/secure/login.bml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9432.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IpageCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www1.ipage.com/secure/login.bml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

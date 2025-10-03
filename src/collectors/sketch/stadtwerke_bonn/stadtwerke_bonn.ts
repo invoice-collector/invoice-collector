@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBonnCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeBonnCollector extends SketchCollector {
         version: "0",
         website: "https://css.stadtwerke-bonn.de/portal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919258.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeBonnCollector extends SketchCollector {
             }
         },
         entryUrl: "https://css.stadtwerke-bonn.de/portal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGmcHennerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleGmcHennerCollector extends SketchCollector {
         version: "0",
         website: "https://welcome.henner.com/en/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/128482.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleGmcHennerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://welcome.henner.com/en/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

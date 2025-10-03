@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PqinaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PqinaCollector extends SketchCollector {
         version: "0",
         website: "https://app.pqina.nl/license/XXXX/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1754236.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PqinaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.pqina.nl/license/XXXX/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

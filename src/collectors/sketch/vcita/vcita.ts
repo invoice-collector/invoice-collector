@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VcitaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VcitaCollector extends SketchCollector {
         version: "0",
         website: "https://www.vcita.com/login?o=top_menu",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8562.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VcitaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vcita.com/login?o=top_menu",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

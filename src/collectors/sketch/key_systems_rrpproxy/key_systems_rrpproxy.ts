@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeySystemsRrpproxyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KeySystemsRrpproxyCollector extends SketchCollector {
         version: "0",
         website: "https://wi.rrpproxy.net",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/31075.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KeySystemsRrpproxyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wi.rrpproxy.net",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

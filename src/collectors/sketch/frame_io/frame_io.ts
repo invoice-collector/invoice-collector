@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrameIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FrameIoCollector extends SketchCollector {
         version: "0",
         website: "https://app.frame.io/welcome",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/37095.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FrameIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.frame.io/welcome",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

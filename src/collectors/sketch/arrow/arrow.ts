@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArrowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ArrowCollector extends SketchCollector {
         version: "0",
         website: "https://my.arrowecs.fr/partner-portal/invoices.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/883271.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ArrowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.arrowecs.fr/partner-portal/invoices.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

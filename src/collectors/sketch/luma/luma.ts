@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LumaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LumaCollector extends SketchCollector {
         version: "0",
         website: "https://lu.ma/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4175869.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LumaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://lu.ma/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

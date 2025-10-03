@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeGmbhBadKreuznachCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeGmbhBadKreuznachCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.stadtwerke-kh.de/powercommerce/csit3/fo/portal/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1723356.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeGmbhBadKreuznachCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.stadtwerke-kh.de/powercommerce/csit3/fo/portal/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookNDriveCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BookNDriveCollector extends SketchCollector {
         version: "0",
         website: "https://book-n-drive.dbcarsharing-buchung.de/kundenbuchung/process.php?proc=rechnung&f=5",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27063.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BookNDriveCollector extends SketchCollector {
             }
         },
         entryUrl: "https://book-n-drive.dbcarsharing-buchung.de/kundenbuchung/process.php?proc=rechnung&f=5",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

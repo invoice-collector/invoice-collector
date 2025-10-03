@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Water2businessCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Water2businessCollector extends SketchCollector {
         version: "0",
         website: "https://portal.water2business.co.uk/SignIn?returnUrl=/my-profile/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1863968.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Water2businessCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.water2business.co.uk/SignIn?returnUrl=/my-profile/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

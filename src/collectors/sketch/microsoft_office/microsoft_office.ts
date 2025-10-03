@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MicrosoftOfficeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MicrosoftOfficeCollector extends SketchCollector {
         version: "0",
         website: "https://admin.microsoft.com/Adminportal/Home?source=applauncher#/billoverview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/114134.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MicrosoftOfficeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.microsoft.com/Adminportal/Home?source=applauncher#/billoverview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

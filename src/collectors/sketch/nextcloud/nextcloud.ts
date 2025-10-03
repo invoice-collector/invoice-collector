@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextcloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NextcloudCollector extends SketchCollector {
         version: "0",
         website: "https://portal.nextcloud.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3080897.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NextcloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.nextcloud.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

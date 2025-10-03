@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeniuslinkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeniuslinkCollector extends SketchCollector {
         version: "0",
         website: "https://my.geni.us/account/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88371.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeniuslinkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.geni.us/account/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

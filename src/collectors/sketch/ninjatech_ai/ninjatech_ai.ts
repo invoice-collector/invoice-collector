@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NinjatechAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NinjatechAiCollector extends SketchCollector {
         version: "0",
         website: "https://myninja.ai/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4356156.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NinjatechAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myninja.ai/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BcaAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BcaAgCollector extends SketchCollector {
         version: "0",
         website: "https://diva.bca.de/#/Organizer/Postfach",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226576.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BcaAgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://diva.bca.de/#/Organizer/Postfach",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

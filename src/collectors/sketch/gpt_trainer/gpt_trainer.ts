@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GptTrainerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GptTrainerCollector extends SketchCollector {
         version: "0",
         website: "https://app.gpt-trainer.com/site/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4514178.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GptTrainerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.gpt-trainer.com/site/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

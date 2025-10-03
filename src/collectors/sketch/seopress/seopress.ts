@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeopressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SeopressCollector extends SketchCollector {
         version: "0",
         website: "https://www.seopress.org/checkout/purchase-history/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121136.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SeopressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.seopress.org/checkout/purchase-history/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

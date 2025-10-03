@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkyviaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SkyviaCollector extends SketchCollector {
         version: "0",
         website: "https://app.skyvia.com/#/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/435448.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SkyviaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.skyvia.com/#/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

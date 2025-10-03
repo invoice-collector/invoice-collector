@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwbCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwbCollector extends SketchCollector {
         version: "0",
         website: "https://gk-selfservice.swb.de/portal/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1863131.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwbCollector extends SketchCollector {
             }
         },
         entryUrl: "https://gk-selfservice.swb.de/portal/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

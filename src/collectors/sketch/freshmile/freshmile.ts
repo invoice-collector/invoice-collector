@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreshmileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FreshmileCollector extends SketchCollector {
         version: "0",
         website: "https://charge.freshmile.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/927151.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FreshmileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://charge.freshmile.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

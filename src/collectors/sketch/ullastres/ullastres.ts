@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UllastresCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UllastresCollector extends SketchCollector {
         version: "0",
         website: "https://oficinavirtual.ullastres.com/user/home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4396036.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UllastresCollector extends SketchCollector {
             }
         },
         entryUrl: "https://oficinavirtual.ullastres.com/user/home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

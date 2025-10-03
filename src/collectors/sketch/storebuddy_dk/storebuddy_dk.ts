@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StorebuddyDkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StorebuddyDkCollector extends SketchCollector {
         version: "0",
         website: "https://app.storebuddy.dk/konto/fakturarer",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124625.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StorebuddyDkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.storebuddy.dk/konto/fakturarer",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

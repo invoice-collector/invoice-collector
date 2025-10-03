@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GodaddyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GodaddyCollector extends SketchCollector {
         version: "0",
         website: "https://sso.godaddy.com/v1/?regionsite=de&path=%2f&realm=idp&marketid=de-DE",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1242.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GodaddyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sso.godaddy.com/v1/?regionsite=de&path=%2f&realm=idp&marketid=de-DE",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

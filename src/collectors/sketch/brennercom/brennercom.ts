@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrennercomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BrennercomCollector extends SketchCollector {
         version: "0",
         website: "https://mybcom.brennercom.it/de/mybcom/online-rechnung/rechnungen/111-0.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732662.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BrennercomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mybcom.brennercom.it/de/mybcom/online-rechnung/rechnungen/111-0.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

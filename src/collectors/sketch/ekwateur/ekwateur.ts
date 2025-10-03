@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EkwateurCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EkwateurCollector extends SketchCollector {
         version: "0",
         website: "https://ekwateur.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778920.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EkwateurCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ekwateur.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

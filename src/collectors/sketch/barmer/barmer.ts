@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BarmerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BarmerCollector extends SketchCollector {
         version: "0",
         website: "https://barmer-webmail.t-systems-service.com/Barmer/login/webmailLogin.xhtml?username=fibu@haus-im-warndt.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1329957.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BarmerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://barmer-webmail.t-systems-service.com/Barmer/login/webmailLogin.xhtml?username=fibu@haus-im-warndt.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

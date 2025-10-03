@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuromobilecompanyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EuromobilecompanyCollector extends SketchCollector {
         version: "0",
         website: "https://euromobilecompany.de/de/konto/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1801066.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EuromobilecompanyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://euromobilecompany.de/de/konto/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

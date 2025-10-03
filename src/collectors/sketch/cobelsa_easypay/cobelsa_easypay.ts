@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CobelsaEasypayCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CobelsaEasypayCollector extends SketchCollector {
         version: "0",
         website: "https://cobelsa-easyonline.easypay-group.com/doc/611/20240220/EXTRA_INFO_PERFORMSHEET_258933_00000894ENGINE014lnt_2024022012082741_R.pdf?rule=com.easypaygroup.global.control.basedata.document.util.GloDocumentUserRule",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2698826.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CobelsaEasypayCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cobelsa-easyonline.easypay-group.com/doc/611/20240220/EXTRA_INFO_PERFORMSHEET_258933_00000894ENGINE014lnt_2024022012082741_R.pdf?rule=com.easypaygroup.global.control.basedata.document.util.GloDocumentUserRule",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

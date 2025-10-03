@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JKonigCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JKonigCollector extends SketchCollector {
         version: "0",
         website: "https://shop.j-koenig.de/account/order",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1475990.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JKonigCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.j-koenig.de/account/order",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

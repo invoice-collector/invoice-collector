@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BayerischeIngenieurekammerBauCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BayerischeIngenieurekammerBauCollector extends SketchCollector {
         version: "0",
         website: "https://bayika.de/de/portal/intern/rechnungen/index.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4334787.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BayerischeIngenieurekammerBauCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bayika.de/de/portal/intern/rechnungen/index.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

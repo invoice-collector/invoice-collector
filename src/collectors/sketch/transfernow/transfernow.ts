@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransfernowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TransfernowCollector extends SketchCollector {
         version: "0",
         website: "https://jmestudio.transfernow.net/en/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2716236.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TransfernowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://jmestudio.transfernow.net/en/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfraFurthCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InfraFurthCollector extends SketchCollector {
         version: "0",
         website: "https://www.infra-fuerth.de/privatkunden/kontakt/kundenportal/einstieg/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4367846.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InfraFurthCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.infra-fuerth.de/privatkunden/kontakt/kundenportal/einstieg/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

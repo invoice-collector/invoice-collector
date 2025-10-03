@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeVelbertCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeVelbertCollector extends SketchCollector {
         version: "0",
         website: "https://meine.stadtwerke-velbert.de/privatkunden/meine-velbert/services",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445879.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeVelbertCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meine.stadtwerke-velbert.de/privatkunden/meine-velbert/services",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

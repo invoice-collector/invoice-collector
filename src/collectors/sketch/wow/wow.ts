@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WowCollector extends SketchCollector {
         version: "0",
         website: "https://www.wowtv.de/login?return=/konto/abrechnung",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1298828.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wowtv.de/login?return=/konto/abrechnung",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

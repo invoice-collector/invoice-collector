@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LosAngelesCountyWaterworksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LosAngelesCountyWaterworksCollector extends SketchCollector {
         version: "0",
         website: "https://dpw.lacounty.gov/mywam/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4176471.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LosAngelesCountyWaterworksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dpw.lacounty.gov/mywam/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

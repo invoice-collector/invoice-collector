@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _123elecCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _123elecCollector extends SketchCollector {
         version: "0",
         website: "https://www.123elec.com/customer/account/login/referer/aHR0cHM6Ly93d3cuMTIzZWxlYy5jb20v/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/984861.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _123elecCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.123elec.com/customer/account/login/referer/aHR0cHM6Ly93d3cuMTIzZWxlYy5jb20v/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

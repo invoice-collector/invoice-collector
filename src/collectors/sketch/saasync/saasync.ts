@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SaasyncCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SaasyncCollector extends SketchCollector {
         version: "0",
         website: "https://www.saasync.com/a/settings/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1360000.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SaasyncCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.saasync.com/a/settings/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

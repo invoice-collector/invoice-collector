@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GigahostDkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GigahostDkCollector extends SketchCollector {
         version: "0",
         website: "https://controlcenter.gigahost.dk/?module=login&lang=da",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9169.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GigahostDkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://controlcenter.gigahost.dk/?module=login&lang=da",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

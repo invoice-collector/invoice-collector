@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZiggoZakelijkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZiggoZakelijkCollector extends SketchCollector {
         version: "0",
         website: "https://factuur.ziggozakelijk.nl/ziggo/welcome.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/875950.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZiggoZakelijkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://factuur.ziggozakelijk.nl/ziggo/welcome.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

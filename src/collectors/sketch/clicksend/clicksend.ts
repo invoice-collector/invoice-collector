@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClicksendCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClicksendCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.clicksend.com/#/account/billing-recharge/transactions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/91850.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClicksendCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.clicksend.com/#/account/billing-recharge/transactions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

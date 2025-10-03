@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlexoffersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlexoffersCollector extends SketchCollector {
         version: "0",
         website: "https://publisherpro.flexoffers.com/PaymentHistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/202981.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlexoffersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://publisherpro.flexoffers.com/PaymentHistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

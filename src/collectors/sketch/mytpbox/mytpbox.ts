@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MytpboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MytpboxCollector extends SketchCollector {
         version: "0",
         website: "https://scoubidou26.mytpbox.com/TPBox?session=d6c8e0102748de2a2d0871f819df4259",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4397094.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MytpboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://scoubidou26.mytpbox.com/TPBox?session=d6c8e0102748de2a2d0871f819df4259",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortokasseDeutschePostCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PortokasseDeutschePostCollector extends SketchCollector {
         version: "0",
         website: "https://portokasse.deutschepost.de/portokasse/#!/journal",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/743794.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PortokasseDeutschePostCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portokasse.deutschepost.de/portokasse/#!/journal",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

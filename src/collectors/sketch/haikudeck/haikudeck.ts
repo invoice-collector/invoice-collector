@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HaikudeckCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HaikudeckCollector extends SketchCollector {
         version: "0",
         website: "https://www.haikudeck.com/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/419714.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HaikudeckCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.haikudeck.com/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

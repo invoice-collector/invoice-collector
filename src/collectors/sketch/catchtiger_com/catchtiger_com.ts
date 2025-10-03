@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CatchtigerComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CatchtigerComCollector extends SketchCollector {
         version: "0",
         website: "https://www.catchtiger.com/en/inloggen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/52868.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CatchtigerComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.catchtiger.com/en/inloggen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

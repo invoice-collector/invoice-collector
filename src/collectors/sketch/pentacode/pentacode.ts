@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PentacodeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PentacodeCollector extends SketchCollector {
         version: "0",
         website: "https://manage.pentacode.app/settings/billing?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2654161.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PentacodeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manage.pentacode.app/settings/billing?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

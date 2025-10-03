@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YbugCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YbugCollector extends SketchCollector {
         version: "0",
         website: "https://ybug.io/dashboard/teamaccount#billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/544924.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YbugCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ybug.io/dashboard/teamaccount#billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

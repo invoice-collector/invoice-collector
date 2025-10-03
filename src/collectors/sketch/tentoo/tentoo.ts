@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TentooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TentooCollector extends SketchCollector {
         version: "0",
         website: "https://my.tentoo.nl/login/?_ga=2.93198430.2110826057.1524058832-1623198614.1524058832",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32330.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TentooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.tentoo.nl/login/?_ga=2.93198430.2110826057.1524058832-1623198614.1524058832",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

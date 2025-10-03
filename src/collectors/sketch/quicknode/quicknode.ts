@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuicknodeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuicknodeCollector extends SketchCollector {
         version: "0",
         website: "https://www.quicknode.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2669952.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuicknodeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.quicknode.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyftpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EasyftpCollector extends SketchCollector {
         version: "0",
         website: "https://www.easyftp.io/[user-name-placeholder]/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1675299.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EasyftpCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.easyftp.io/[user-name-placeholder]/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

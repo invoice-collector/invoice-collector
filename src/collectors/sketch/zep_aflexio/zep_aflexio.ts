@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZepAflexioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZepAflexioCollector extends SketchCollector {
         version: "0",
         website: "https://www.zep-online.de/zepaflexiocom/view/login.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1863326.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZepAflexioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.zep-online.de/zepaflexiocom/view/login.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EngieEspaceClientCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EngieEspaceClientCollector extends SketchCollector {
         version: "0",
         website: "https://pro.engie.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/241849.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EngieEspaceClientCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pro.engie.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

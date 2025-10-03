@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaulsenGruppeOnlinePortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PaulsenGruppeOnlinePortalCollector extends SketchCollector {
         version: "0",
         website: "https://online.bfgruppe.de/v3/rechnungsarchiv.csp#/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919570.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PaulsenGruppeOnlinePortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://online.bfgruppe.de/v3/rechnungsarchiv.csp#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwmMagdeburgOnlinecenterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwmMagdeburgOnlinecenterCollector extends SketchCollector {
         version: "0",
         website: "https://onlinecenter.sw-magdeburg.de/onlineservice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203774.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwmMagdeburgOnlinecenterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlinecenter.sw-magdeburg.de/onlineservice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

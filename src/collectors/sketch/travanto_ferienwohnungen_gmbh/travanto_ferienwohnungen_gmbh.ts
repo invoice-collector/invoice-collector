@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravantoFerienwohnungenGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TravantoFerienwohnungenGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://login.travanto.de/vermieter/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2554609.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TravantoFerienwohnungenGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.travanto.de/vermieter/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

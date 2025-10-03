@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiniluDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MiniluDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.minilu.de/shop/de/fix/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/47500.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MiniluDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.minilu.de/shop/de/fix/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

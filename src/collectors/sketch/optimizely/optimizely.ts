@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptimizelyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OptimizelyCollector extends SketchCollector {
         version: "0",
         website: "https://app.optimizely.com/accountsettings/account/plan",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/545.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OptimizelyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.optimizely.com/accountsettings/account/plan",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

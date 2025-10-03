@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreenomComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FreenomComCollector extends SketchCollector {
         version: "0",
         website: "https://my.freenom.com/clientarea.php?action=invoices&language=english",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/409688.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FreenomComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.freenom.com/clientarea.php?action=invoices&language=english",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtlanticBroadbandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AtlanticBroadbandCollector extends SketchCollector {
         version: "0",
         website: "https://atlbb.convergentcare.com/atlbb/goToLogin.action?subClientId=2002#ContextMenu/documentView",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/80283.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AtlanticBroadbandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://atlbb.convergentcare.com/atlbb/goToLogin.action?subClientId=2002#ContextMenu/documentView",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

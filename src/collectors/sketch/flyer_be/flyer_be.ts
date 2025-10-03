@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlyerBeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlyerBeCollector extends SketchCollector {
         version: "0",
         website: "https://www.flyer.be/benl/myprintconnect/login?return=myprintconnect",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32358.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlyerBeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.flyer.be/benl/myprintconnect/login?return=myprintconnect",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

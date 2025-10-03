@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchwarzwaldSchwarzwaldcardCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SchwarzwaldSchwarzwaldcardCollector extends SketchCollector {
         version: "0",
         website: "https://tourist.avs.de/swc/index.php/de/1/onlineterminal/login/1/ef6e76a17beb2532cf529f3c0b75825b@2a6bfa5338301b34448c8cc8b1488f9f7c4598d73b2267c7db36ea851541f534",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/899500.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SchwarzwaldSchwarzwaldcardCollector extends SketchCollector {
             }
         },
         entryUrl: "https://tourist.avs.de/swc/index.php/de/1/onlineterminal/login/1/ef6e76a17beb2532cf529f3c0b75825b@2a6bfa5338301b34448c8cc8b1488f9f7c4598d73b2267c7db36ea851541f534",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

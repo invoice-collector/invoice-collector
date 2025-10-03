@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FundswareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FundswareCollector extends SketchCollector {
         version: "0",
         website: "https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2554839.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FundswareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fundsware.de/fwpro/content/investment_provisionsabrechnung",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

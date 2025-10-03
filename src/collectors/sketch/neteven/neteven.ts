@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetevenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NetevenCollector extends SketchCollector {
         version: "0",
         website: "https://evenmarketplaces.neteven.com/neteven",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/59711.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NetevenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://evenmarketplaces.neteven.com/neteven",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

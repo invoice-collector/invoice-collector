@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DalkiaCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class DalkiaCollector extends SketchCollector {
         version: "0",
         website: "https://dalkia.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_Dalkia.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class DalkiaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espace-clients.dalkia.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

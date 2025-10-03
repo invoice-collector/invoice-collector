@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PagecontentDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PagecontentDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.pagecontent.de/dashboard/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/424.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PagecontentDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pagecontent.de/dashboard/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

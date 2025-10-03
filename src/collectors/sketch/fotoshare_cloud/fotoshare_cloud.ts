@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotoshareCloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FotoshareCloudCollector extends SketchCollector {
         version: "0",
         website: "https://fotoshare.co/admin/licenses/fotoshare_cloud",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1207823.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FotoshareCloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fotoshare.co/admin/licenses/fotoshare_cloud",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

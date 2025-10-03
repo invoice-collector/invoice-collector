@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlteLeipzigerFin4uCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlteLeipzigerFin4uCollector extends SketchCollector {
         version: "0",
         website: "https://app.fin4u.de/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/385673.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlteLeipzigerFin4uCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.fin4u.de/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

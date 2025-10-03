@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BabyprofiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BabyprofiCollector extends SketchCollector {
         version: "0",
         website: "https://www.babyprofi.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19778.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BabyprofiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.babyprofi.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

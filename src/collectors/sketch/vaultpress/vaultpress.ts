@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VaultpressCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VaultpressCollector extends SketchCollector {
         version: "0",
         website: "https://vaultpress.com/login/?action=require_for&url=https%3A%2F%2Fdashboard.vaultpress.com%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11360.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VaultpressCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vaultpress.com/login/?action=require_for&url=https%3A%2F%2Fdashboard.vaultpress.com%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

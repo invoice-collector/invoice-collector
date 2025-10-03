@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EFactFacNissanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EFactFacNissanCollector extends SketchCollector {
         version: "0",
         website: "https://private.cegedim-demat.com/gis-frontoffice/home.do?mdpreset=ok",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1060695.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EFactFacNissanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://private.cegedim-demat.com/gis-frontoffice/home.do?mdpreset=ok",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

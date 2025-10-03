@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarfeelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MarfeelCollector extends SketchCollector {
         version: "0",
         website: "https://hub.marfeel.com/organization/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4554125.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MarfeelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hub.marfeel.com/organization/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

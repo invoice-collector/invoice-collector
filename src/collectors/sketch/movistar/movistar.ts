@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MovistarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MovistarCollector extends SketchCollector {
         version: "0",
         website: "https://www.movistar.es/Privada/DesafioUnico",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/49717.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MovistarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.movistar.es/Privada/DesafioUnico",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

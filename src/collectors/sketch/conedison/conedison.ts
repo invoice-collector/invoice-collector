@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConedisonCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConedisonCollector extends SketchCollector {
         version: "0",
         website: "https://www.coned.com/en/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8809.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConedisonCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.coned.com/en/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

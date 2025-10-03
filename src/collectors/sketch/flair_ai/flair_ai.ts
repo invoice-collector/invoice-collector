@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlairAiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlairAiCollector extends SketchCollector {
         version: "0",
         website: "https://app.flair.ai/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2973403.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlairAiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.flair.ai/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

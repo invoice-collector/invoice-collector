@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JivochatCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JivochatCollector extends SketchCollector {
         version: "0",
         website: "https://app.jivosite.com/login?dh=jivochat.com%2F&ewv=1&form_url=index&lang=en&pricelist_id=2104&utm_campaign=direct&utm_source=direct",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/741959.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JivochatCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.jivosite.com/login?dh=jivochat.com%2F&ewv=1&form_url=index&lang=en&pricelist_id=2104&utm_campaign=direct&utm_source=direct",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

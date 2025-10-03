@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrustpilotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrustpilotCollector extends SketchCollector {
         version: "0",
         website: "https://businessapp.b2b.trustpilot.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/844417.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrustpilotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://businessapp.b2b.trustpilot.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

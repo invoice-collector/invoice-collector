@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookingtimeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BookingtimeCollector extends SketchCollector {
         version: "0",
         website: "http://www.booking-time.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/25492.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BookingtimeCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.booking-time.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

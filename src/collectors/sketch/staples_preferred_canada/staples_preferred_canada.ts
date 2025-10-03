@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StaplesPreferredCanadaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StaplesPreferredCanadaCollector extends SketchCollector {
         version: "0",
         website: "https://www.staplespreferred.ca/pcam/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1108444.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StaplesPreferredCanadaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.staplespreferred.ca/pcam/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

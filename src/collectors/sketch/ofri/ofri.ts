@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OfriCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OfriCollector extends SketchCollector {
         version: "0",
         website: "https://www.ofri.ch/users/123580/account_balances",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2189603.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OfriCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ofri.ch/users/123580/account_balances",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

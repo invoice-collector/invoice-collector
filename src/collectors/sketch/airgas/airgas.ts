@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirgasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AirgasCollector extends SketchCollector {
         version: "0",
         website: "https://www.airgas.com/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4546680.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AirgasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.airgas.com/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

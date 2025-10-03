@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeetoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeetoCollector extends SketchCollector {
         version: "0",
         website: "https://app.leeto.co/admin/comptes/compte-asc",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4514176.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeetoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.leeto.co/admin/comptes/compte-asc",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

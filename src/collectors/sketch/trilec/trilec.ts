@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrilecCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TrilecCollector extends SketchCollector {
         version: "0",
         website: "https://www.triconnect.be/nl/Accountancy/InvoiceOverview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226686.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TrilecCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.triconnect.be/nl/Accountancy/InvoiceOverview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

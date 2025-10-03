@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnicefBoutiqueSolidaireCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UnicefBoutiqueSolidaireCollector extends SketchCollector {
         version: "0",
         website: "http://boutique-solidaire.com/unicef/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/123519.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UnicefBoutiqueSolidaireCollector extends SketchCollector {
             }
         },
         entryUrl: "http://boutique-solidaire.com/unicef/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

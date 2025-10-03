@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Printer4youCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Printer4youCollector extends SketchCollector {
         version: "0",
         website: "https://www.printer4you.com/de/customer/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/152574.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Printer4youCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.printer4you.com/de/customer/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

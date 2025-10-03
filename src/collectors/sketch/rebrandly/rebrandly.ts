@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RebrandlyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RebrandlyCollector extends SketchCollector {
         version: "0",
         website: "https://app.rebrandly.com/account/billing-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/126835.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RebrandlyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.rebrandly.com/account/billing-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

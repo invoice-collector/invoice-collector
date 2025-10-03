@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TecoTampaElectricCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TecoTampaElectricCollector extends SketchCollector {
         version: "0",
         website: "https://account.tecoenergy.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1035393.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TecoTampaElectricCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.tecoenergy.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

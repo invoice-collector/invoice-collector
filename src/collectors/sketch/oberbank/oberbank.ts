@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OberbankCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OberbankCollector extends SketchCollector {
         version: "0",
         website: "https://www.banking-oberbank.at/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/81960.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OberbankCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.banking-oberbank.at/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

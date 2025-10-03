@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyFleetHubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyFleetHubCollector extends SketchCollector {
         version: "0",
         website: "https://login.myfleethub.co.uk/Account/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32263.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyFleetHubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.myfleethub.co.uk/Account/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

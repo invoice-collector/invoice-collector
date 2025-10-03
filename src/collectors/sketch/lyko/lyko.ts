@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LykoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LykoCollector extends SketchCollector {
         version: "0",
         website: "https://lyko.com/de/meine-seite/bestellubersicht",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1217601.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LykoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://lyko.com/de/meine-seite/bestellubersicht",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

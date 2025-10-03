@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpotHitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpotHitCollector extends SketchCollector {
         version: "0",
         website: "https://www.spot-hit.fr/connexion",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777348.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpotHitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.spot-hit.fr/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

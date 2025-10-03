@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProginovCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProginovCollector extends SketchCollector {
         version: "0",
         website: "https://www.proginov.fr/ProginovDemat/liste-ged/xdoc-xclasschapfactures.html?keycnx=183-C-329613&variante=Vfactures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1034323.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProginovCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.proginov.fr/ProginovDemat/liste-ged/xdoc-xclasschapfactures.html?keycnx=183-C-329613&variante=Vfactures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

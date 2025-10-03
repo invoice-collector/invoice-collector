@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrundsteuerDigitalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GrundsteuerDigitalCollector extends SketchCollector {
         version: "0",
         website: "https://login.grundsteuer-digital.de/#/setting/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1233731.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GrundsteuerDigitalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.grundsteuer-digital.de/#/setting/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

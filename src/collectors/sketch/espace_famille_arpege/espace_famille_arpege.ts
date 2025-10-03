@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EspaceFamilleArpegeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EspaceFamilleArpegeCollector extends SketchCollector {
         version: "0",
         website: "https://espaceclients.arpege.fr/Accueil/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106550.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EspaceFamilleArpegeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceclients.arpege.fr/Accueil/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

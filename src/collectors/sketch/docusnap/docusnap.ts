@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DocusnapCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DocusnapCollector extends SketchCollector {
         version: "0",
         website: "https://www.docusnap.com/mydocusnap/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1132279.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DocusnapCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.docusnap.com/mydocusnap/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

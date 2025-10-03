@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DronCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DronCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.dron.com/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1421223.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DronCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.dron.com/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

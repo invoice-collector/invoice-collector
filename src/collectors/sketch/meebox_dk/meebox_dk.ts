@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeeboxDkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeeboxDkCollector extends SketchCollector {
         version: "0",
         website: "https://www.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9568.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeeboxDkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

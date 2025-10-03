@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WithoutaboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WithoutaboxCollector extends SketchCollector {
         version: "0",
         website: "https://www.withoutabox.com/index.php?cmd=public.login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19099.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WithoutaboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.withoutabox.com/index.php?cmd=public.login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

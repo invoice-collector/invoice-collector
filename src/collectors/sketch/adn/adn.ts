@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdnCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdnCollector extends SketchCollector {
         version: "0",
         website: "https://shop.adn.de/index.php?cl=account_order&lang=0&cl=account_order&lang=0",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/40754.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdnCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.adn.de/index.php?cl=account_order&lang=0&cl=account_order&lang=0",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

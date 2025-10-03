@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcquiaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AcquiaCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.acquia.com/account/1416806/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/416020.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AcquiaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.acquia.com/account/1416806/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

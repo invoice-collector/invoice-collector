@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NordvpnCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NordvpnCollector extends SketchCollector {
         version: "0",
         website: "https://ucp.nordvpn.com/dashboard/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/121219.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NordvpnCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ucp.nordvpn.com/dashboard/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

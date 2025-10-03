@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RegfishDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RegfishDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.regfish.de/my/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26389.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RegfishDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.regfish.de/my/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

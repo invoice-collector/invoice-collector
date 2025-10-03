@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuellePlanSantePersonnelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuellePlanSantePersonnelCollector extends SketchCollector {
         version: "0",
         website: "https://assure.plansante.com/assures/auth",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/130354.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuellePlanSantePersonnelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://assure.plansante.com/assures/auth",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

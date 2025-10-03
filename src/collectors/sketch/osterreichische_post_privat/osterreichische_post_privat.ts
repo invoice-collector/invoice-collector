@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OsterreichischePostPrivatCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OsterreichischePostPrivatCollector extends SketchCollector {
         version: "0",
         website: "https://www.post.at",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/773776.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OsterreichischePostPrivatCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.post.at",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

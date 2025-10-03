@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicketIOCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TicketIOCollector extends SketchCollector {
         version: "0",
         website: "https://backstage.ticket.io/payoff/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1534121.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TicketIOCollector extends SketchCollector {
             }
         },
         entryUrl: "https://backstage.ticket.io/payoff/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

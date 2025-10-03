@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReadwiseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReadwiseCollector extends SketchCollector {
         version: "0",
         website: "https://readwise.io/receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/781222.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReadwiseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://readwise.io/receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

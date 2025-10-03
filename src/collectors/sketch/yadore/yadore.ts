@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YadoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YadoreCollector extends SketchCollector {
         version: "0",
         website: "https://publisher.yadore.com/credit-notes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1303444.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YadoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://publisher.yadore.com/credit-notes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

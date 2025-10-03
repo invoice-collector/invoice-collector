@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeHerneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkeHerneCollector extends SketchCollector {
         version: "0",
         website: "https://service.stadtwerke-herne.de/online/postbox",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1232526.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkeHerneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.stadtwerke-herne.de/online/postbox",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

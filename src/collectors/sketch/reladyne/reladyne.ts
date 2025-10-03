@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReladyneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReladyneCollector extends SketchCollector {
         version: "0",
         website: "https://my.reladyne.com/invoices.asp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4449924.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReladyneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.reladyne.com/invoices.asp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

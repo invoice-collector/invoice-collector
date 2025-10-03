@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FulliCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FulliCollector extends SketchCollector {
         version: "0",
         website: "https://www.fulli.com/customer-space/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2695831.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FulliCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fulli.com/customer-space/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

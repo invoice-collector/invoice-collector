@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbayComAuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EbayComAuCollector extends SketchCollector {
         version: "0",
         website: "https://www.ebay.com.au/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/747281.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EbayComAuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ebay.com.au/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

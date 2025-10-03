@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TextbrokerUsaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TextbrokerUsaCollector extends SketchCollector {
         version: "0",
         website: "https://intern.textbroker.com/client/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/531890.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TextbrokerUsaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://intern.textbroker.com/client/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

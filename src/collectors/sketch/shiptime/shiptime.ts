@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShiptimeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShiptimeCollector extends SketchCollector {
         version: "0",
         website: "https://my.shiptime.com/shiptime.html?locale=en#nav.Invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/64961.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShiptimeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.shiptime.com/shiptime.html?locale=en#nav.Invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

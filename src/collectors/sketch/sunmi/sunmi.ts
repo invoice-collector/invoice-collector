@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SunmiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SunmiCollector extends SketchCollector {
         version: "0",
         website: "https://partner.sunmi.com/sunmi-wallet/invoice-management",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2715280.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SunmiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.sunmi.com/sunmi-wallet/invoice-management",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

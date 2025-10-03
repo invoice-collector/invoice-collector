@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerpetuaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PerpetuaCollector extends SketchCollector {
         version: "0",
         website: "https://app.perpetua.io/settings?geocompany=4544&selectedTab=3",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779014.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PerpetuaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.perpetua.io/settings?geocompany=4544&selectedTab=3",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

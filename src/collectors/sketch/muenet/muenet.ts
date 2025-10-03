@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MuenetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MuenetCollector extends SketchCollector {
         version: "0",
         website: "http://www.muenet.net",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9253.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MuenetCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.muenet.net",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

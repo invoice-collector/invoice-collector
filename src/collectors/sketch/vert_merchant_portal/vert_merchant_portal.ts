@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VertMerchantPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VertMerchantPortalCollector extends SketchCollector {
         version: "0",
         website: "https://www.vertmember.com/corporate-statements/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4472511.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VertMerchantPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.vertmember.com/corporate-statements/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

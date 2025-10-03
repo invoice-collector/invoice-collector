@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MorrisonsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MorrisonsCollector extends SketchCollector {
         version: "0",
         website: "https://groceries.morrisons.com/webshop/login.go?from=header",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/41854.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MorrisonsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://groceries.morrisons.com/webshop/login.go?from=header",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

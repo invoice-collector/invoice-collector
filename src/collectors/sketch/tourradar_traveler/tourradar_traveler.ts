@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TourradarTravelerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TourradarTravelerCollector extends SketchCollector {
         version: "0",
         website: "https://www.tourradar.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4560999.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TourradarTravelerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tourradar.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

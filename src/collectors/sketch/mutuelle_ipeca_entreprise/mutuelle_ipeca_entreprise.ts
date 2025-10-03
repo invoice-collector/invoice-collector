@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleIpecaEntrepriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleIpecaEntrepriseCollector extends SketchCollector {
         version: "0",
         website: "https://adherents.ipeca.fr/Entreprise/Pages/entreprise-home-actu.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129079.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleIpecaEntrepriseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://adherents.ipeca.fr/Entreprise/Pages/entreprise-home-actu.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

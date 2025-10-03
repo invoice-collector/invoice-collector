@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Xs4allCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Xs4allCollector extends SketchCollector {
         version: "0",
         website: "https://inloggen.xs4all.nl/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9473.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Xs4allCollector extends SketchCollector {
             }
         },
         entryUrl: "https://inloggen.xs4all.nl/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

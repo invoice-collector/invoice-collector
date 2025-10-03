@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AwistaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AwistaCollector extends SketchCollector {
         version: "0",
         website: "https://portal.awista.de/portal/invoice-duplicate",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4417149.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AwistaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.awista.de/portal/invoice-duplicate",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

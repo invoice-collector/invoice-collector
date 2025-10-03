@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParksterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ParksterCollector extends SketchCollector {
         version: "0",
         website: "https://www.parkster.com/mypages/paymentorders?page=1&size=10",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/883245.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ParksterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.parkster.com/mypages/paymentorders?page=1&size=10",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

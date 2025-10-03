@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SourcinboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SourcinboxCollector extends SketchCollector {
         version: "0",
         website: "https://app.sourcinbox.com/tickets/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1233806.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SourcinboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.sourcinbox.com/tickets/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

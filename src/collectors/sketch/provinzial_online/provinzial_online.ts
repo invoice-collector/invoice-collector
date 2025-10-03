@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProvinzialOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProvinzialOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://www.provinzial-online.de/content/privat/meine-provinzial/elektronisches-postfach/#!/elpo",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2077767.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProvinzialOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.provinzial-online.de/content/privat/meine-provinzial/elektronisches-postfach/#!/elpo",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

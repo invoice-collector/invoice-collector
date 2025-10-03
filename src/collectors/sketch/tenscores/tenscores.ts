@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TenscoresCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TenscoresCollector extends SketchCollector {
         version: "0",
         website: "https://app.tenscores.com/#/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778998.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TenscoresCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.tenscores.com/#/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

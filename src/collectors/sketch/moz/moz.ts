@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MozCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MozCollector extends SketchCollector {
         version: "0",
         website: "https://moz.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9348.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MozCollector extends SketchCollector {
             }
         },
         entryUrl: "https://moz.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

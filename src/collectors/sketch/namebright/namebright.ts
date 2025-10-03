@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NamebrightCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NamebrightCollector extends SketchCollector {
         version: "0",
         website: "https://www.namebright.com/Settings#Billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1336516.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NamebrightCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.namebright.com/Settings#Billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

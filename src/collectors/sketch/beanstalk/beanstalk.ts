@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeanstalkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeanstalkCollector extends SketchCollector {
         version: "0",
         website: "https://login.beanstalkapp.com/session/new",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8570.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeanstalkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.beanstalkapp.com/session/new",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

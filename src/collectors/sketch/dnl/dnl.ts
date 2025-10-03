@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DnlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DnlCollector extends SketchCollector {
         version: "0",
         website: "https://www.dnl.fr/moncompte_comptabilite_liste.do",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1674447.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DnlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dnl.fr/moncompte_comptabilite_liste.do",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

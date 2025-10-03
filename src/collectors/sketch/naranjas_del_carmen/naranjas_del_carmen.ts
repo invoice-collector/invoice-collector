@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NaranjasDelCarmenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NaranjasDelCarmenCollector extends SketchCollector {
         version: "0",
         website: "https://www.naranjasdelcarmen.com/mein-konto/pedidos",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4115075.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NaranjasDelCarmenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.naranjasdelcarmen.com/mein-konto/pedidos",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

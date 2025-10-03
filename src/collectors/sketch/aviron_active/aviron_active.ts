@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvironActiveCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AvironActiveCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.avironactive.com/login?redirect=https://accounts.avironactive.com/membership",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2131278.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AvironActiveCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.avironactive.com/login?redirect=https://accounts.avironactive.com/membership",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

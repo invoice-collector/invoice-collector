@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Gs1GermanyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Gs1GermanyCollector extends SketchCollector {
         version: "0",
         website: "https://www.gs1-germany.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18197.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Gs1GermanyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gs1-germany.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

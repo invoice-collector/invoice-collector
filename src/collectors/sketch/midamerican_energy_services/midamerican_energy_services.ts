@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MidamericanEnergyServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MidamericanEnergyServicesCollector extends SketchCollector {
         version: "0",
         website: "https://www.midamericanenergyservices.com/ema",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2387616.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MidamericanEnergyServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.midamericanenergyservices.com/ema",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrlandoUtilitiesCommissionOucCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OrlandoUtilitiesCommissionOucCollector extends SketchCollector {
         version: "0",
         website: "https://my.ouc.com/myouc/AccountSummary_Home",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2723384.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OrlandoUtilitiesCommissionOucCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.ouc.com/myouc/AccountSummary_Home",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

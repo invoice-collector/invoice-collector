@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostingDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HostingDeCollector extends SketchCollector {
         version: "0",
         website: "https://secure.hosting.de/billing/invoices/overview",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/37551.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HostingDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.hosting.de/billing/invoices/overview",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

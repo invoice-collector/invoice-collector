@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SonVideoComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SonVideoComCollector extends SketchCollector {
         version: "0",
         website: "https://www.son-video.com/mon-compte/connexion",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/976574.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SonVideoComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.son-video.com/mon-compte/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

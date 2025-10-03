@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HosteuropeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HosteuropeCollector extends SketchCollector {
         version: "0",
         website: "https://kis.hosteurope.de/kundenkonto/rechnungen/index.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/396.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HosteuropeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kis.hosteurope.de/kundenkonto/rechnungen/index.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DayusePartnersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DayusePartnersCollector extends SketchCollector {
         version: "0",
         website: "https://partners.dayuse.io/beta/invoicing/item/list/10989",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4510345.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DayusePartnersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partners.dayuse.io/beta/invoicing/item/list/10989",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

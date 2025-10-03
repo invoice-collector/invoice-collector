@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaptivateCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CaptivateCollector extends SketchCollector {
         version: "0",
         website: "https://my.captivate.fm/login?returnUrl=%2Fdashboard%2Fstart",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2520242.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CaptivateCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.captivate.fm/login?returnUrl=%2Fdashboard%2Fstart",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

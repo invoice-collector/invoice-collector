@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PreziCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PreziCollector extends SketchCollector {
         version: "0",
         website: "https://prezi.com/settings/license/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/18678.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PreziCollector extends SketchCollector {
             }
         },
         entryUrl: "https://prezi.com/settings/license/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

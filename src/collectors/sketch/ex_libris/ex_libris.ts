@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExLibrisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ExLibrisCollector extends SketchCollector {
         version: "0",
         website: "https://www.exlibris.ch/de/mein-konto/meine-rechnungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1221168.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ExLibrisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.exlibris.ch/de/mein-konto/meine-rechnungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

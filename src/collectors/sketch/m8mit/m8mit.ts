@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class M8mitCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class M8mitCollector extends SketchCollector {
         version: "0",
         website: "https://sae.m8mit.de/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4572211.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class M8mitCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sae.m8mit.de/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

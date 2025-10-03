@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdarchivOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EdarchivOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://login.edarchiv.de/recherche/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132495.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EdarchivOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.edarchiv.de/recherche/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

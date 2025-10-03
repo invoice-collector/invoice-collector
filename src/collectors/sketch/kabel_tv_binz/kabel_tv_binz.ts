@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KabelTvBinzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KabelTvBinzCollector extends SketchCollector {
         version: "0",
         website: "http://www.kabel-tv-binz.de/login/index/index.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9415.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KabelTvBinzCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.kabel-tv-binz.de/login/index/index.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

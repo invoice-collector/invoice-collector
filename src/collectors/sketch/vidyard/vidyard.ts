@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VidyardCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VidyardCollector extends SketchCollector {
         version: "0",
         website: "https://auth.vidyard.com/login?rid=x0blYo1AmZsKRA",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/832503.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VidyardCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auth.vidyard.com/login?rid=x0blYo1AmZsKRA",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

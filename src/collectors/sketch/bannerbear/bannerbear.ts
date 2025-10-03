@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BannerbearCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BannerbearCollector extends SketchCollector {
         version: "0",
         website: "https://app.bannerbear.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/792752.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BannerbearCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.bannerbear.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

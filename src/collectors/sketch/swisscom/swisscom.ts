@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwisscomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwisscomCollector extends SketchCollector {
         version: "0",
         website: "http://www.swisscom.ch",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/45439.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwisscomCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.swisscom.ch",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PcloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PcloudCollector extends SketchCollector {
         version: "0",
         website: "https://my.pcloud.com/#page=settings&settings=tab-finance",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94990.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PcloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.pcloud.com/#page=settings&settings=tab-finance",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

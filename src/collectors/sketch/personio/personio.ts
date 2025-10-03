@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PersonioCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PersonioCollector extends SketchCollector {
         version: "0",
         website: "https://www.personio.de/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26844.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PersonioCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.personio.de/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

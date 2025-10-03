@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OffenblendeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OffenblendeCollector extends SketchCollector {
         version: "0",
         website: "http://portal.offenblende.de/app/contacts/tasks_billing.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/134580.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OffenblendeCollector extends SketchCollector {
             }
         },
         entryUrl: "http://portal.offenblende.de/app/contacts/tasks_billing.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

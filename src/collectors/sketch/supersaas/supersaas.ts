@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SupersaasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SupersaasCollector extends SketchCollector {
         version: "0",
         website: "https://www.supersaas.de/accounts/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/759690.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SupersaasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.supersaas.de/accounts/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

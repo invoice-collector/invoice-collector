@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HgkHotelUndGastronomieKaufEgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HgkHotelUndGastronomieKaufEgCollector extends SketchCollector {
         version: "0",
         website: "https://www.h-g-k.de/belege_letzter_monat/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/752968.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HgkHotelUndGastronomieKaufEgCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.h-g-k.de/belege_letzter_monat/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StoreLocatorWidgetsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StoreLocatorWidgetsCollector extends SketchCollector {
         version: "0",
         website: "https://www.storelocatorwidgets.com/admin/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102720.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StoreLocatorWidgetsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.storelocatorwidgets.com/admin/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

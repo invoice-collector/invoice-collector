@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpRocketReseller2021Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WpRocketReseller2021Collector extends SketchCollector {
         version: "0",
         website: "https://wprocket.hpress.de/dashboard.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778004.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WpRocketReseller2021Collector extends SketchCollector {
             }
         },
         entryUrl: "https://wprocket.hpress.de/dashboard.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

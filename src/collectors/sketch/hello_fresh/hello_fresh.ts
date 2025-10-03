@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelloFreshCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HelloFreshCollector extends SketchCollector {
         version: "0",
         website: "https://www.hellofresh.de/customer/account/login/?redirectUrl=%2Faccount-settings%2Forder-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8035.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HelloFreshCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hellofresh.de/customer/account/login/?redirectUrl=%2Faccount-settings%2Forder-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

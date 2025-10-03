@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LidlFranceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LidlFranceCollector extends SketchCollector {
         version: "0",
         website: "https://www.lidl.fr/css/order-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445823.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LidlFranceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.lidl.fr/css/order-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

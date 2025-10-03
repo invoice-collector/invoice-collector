@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManituCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ManituCollector extends SketchCollector {
         version: "0",
         website: "http://www.manitu.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9426.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ManituCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.manitu.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

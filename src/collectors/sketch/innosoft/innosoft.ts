@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InnosoftCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InnosoftCollector extends SketchCollector {
         version: "0",
         website: "https://my.innosoft.at/bill",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7939.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InnosoftCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.innosoft.at/bill",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

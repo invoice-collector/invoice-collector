@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrystalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CrystalCollector extends SketchCollector {
         version: "0",
         website: "https://www.crystalknows.com/app/account/receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778999.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CrystalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.crystalknows.com/app/account/receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

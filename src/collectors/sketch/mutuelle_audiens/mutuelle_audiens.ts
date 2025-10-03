@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAudiensCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleAudiensCollector extends SketchCollector {
         version: "0",
         website: "https://www.audiens.org/accueil/espaces-securises.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/127366.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleAudiensCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.audiens.org/accueil/espaces-securises.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

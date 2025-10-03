@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AustraliaPostCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AustraliaPostCollector extends SketchCollector {
         version: "0",
         website: "https://auspost.com.au/auth/login?caller=ACCOUNT_GLOBAL_HEADER&product=MYPOST_CONSUMER&channel=WEB",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/395893.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AustraliaPostCollector extends SketchCollector {
             }
         },
         entryUrl: "https://auspost.com.au/auth/login?caller=ACCOUNT_GLOBAL_HEADER&product=MYPOST_CONSUMER&channel=WEB",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

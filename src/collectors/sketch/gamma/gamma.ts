@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GammaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GammaCollector extends SketchCollector {
         version: "0",
         website: "https://rechnung.hfo-telecom.de/Portal1/Rechnungen.cms?ActiveID=1013",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2128532.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GammaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rechnung.hfo-telecom.de/Portal1/Rechnungen.cms?ActiveID=1013",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

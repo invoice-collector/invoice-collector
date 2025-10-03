@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FondsdepotbankCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FondsdepotbankCollector extends SketchCollector {
         version: "0",
         website: "https://finanzportal.fondsdepotbank.de/fdb/abaxx-?$part=Home.content.Welcome.Dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/433439.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FondsdepotbankCollector extends SketchCollector {
             }
         },
         entryUrl: "https://finanzportal.fondsdepotbank.de/fdb/abaxx-?$part=Home.content.Welcome.Dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

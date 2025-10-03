@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmundiEpargneEntrepriseCompagnieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmundiEpargneEntrepriseCompagnieCollector extends SketchCollector {
         version: "0",
         website: "https://www.amundi-tc.com/ent/start.swe?SWECmd=Login&_sn=2fZ0SNaa7H9myYHE0wc8Iy1bTJpfx-wUrU-dHXRMgf0_&SWEHo=www.amundi-tc.com&SWETS=1550590900",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/109158.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmundiEpargneEntrepriseCompagnieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.amundi-tc.com/ent/start.swe?SWECmd=Login&_sn=2fZ0SNaa7H9myYHE0wc8Iy1bTJpfx-wUrU-dHXRMgf0_&SWEHo=www.amundi-tc.com&SWETS=1550590900",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

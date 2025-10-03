@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeTelegraafCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeTelegraafCollector extends SketchCollector {
         version: "0",
         website: "https://mijn.telegraaf.nl/abonnement/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4569009.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeTelegraafCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mijn.telegraaf.nl/abonnement/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

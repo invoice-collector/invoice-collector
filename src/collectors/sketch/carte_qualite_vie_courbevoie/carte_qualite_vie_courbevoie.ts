@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CarteQualiteVieCourbevoieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CarteQualiteVieCourbevoieCollector extends SketchCollector {
         version: "0",
         website: "https://www.ville-courbevoie.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105803.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CarteQualiteVieCourbevoieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ville-courbevoie.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

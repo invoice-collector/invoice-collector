@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReviewforestCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReviewforestCollector extends SketchCollector {
         version: "0",
         website: "https://app.reviewforest.org/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/239871.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReviewforestCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.reviewforest.org/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

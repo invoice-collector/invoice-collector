@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElectroDepotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ElectroDepotCollector extends SketchCollector {
         version: "0",
         website: "https://electrodepot.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/b/b7/Logo_d%27%C3%89lectro_d%C3%A9p%C3%B4t.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ElectroDepotCollector extends SketchCollector {
             }
         },
         entryUrl: "http://erreur.electrodepot.pictime.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

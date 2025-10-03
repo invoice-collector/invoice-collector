@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DolibarrKerlanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DolibarrKerlanCollector extends SketchCollector {
         version: "0",
         website: "https://dolibarr.kerlan-info.fr/compta/facture/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4418410.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DolibarrKerlanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dolibarr.kerlan-info.fr/compta/facture/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

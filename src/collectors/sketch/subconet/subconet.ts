@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SubconetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SubconetCollector extends SketchCollector {
         version: "0",
         website: "https://www.subconet.nl/subconet/mijn-subconet/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33382.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SubconetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.subconet.nl/subconet/mijn-subconet/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

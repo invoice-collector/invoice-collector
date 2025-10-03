@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreighthubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FreighthubCollector extends SketchCollector {
         version: "0",
         website: "https://ship.freighthub.com/shipments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/19509.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FreighthubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ship.freighthub.com/shipments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

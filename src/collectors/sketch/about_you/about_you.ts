@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AboutYouCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AboutYouCollector extends SketchCollector {
         version: "0",
         website: "https://www.aboutyou.de/a/orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8605.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AboutYouCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.aboutyou.de/a/orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

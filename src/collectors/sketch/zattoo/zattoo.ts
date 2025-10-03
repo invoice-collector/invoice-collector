@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZattooCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZattooCollector extends SketchCollector {
         version: "0",
         website: "https://zattoo.com/settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/7123.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZattooCollector extends SketchCollector {
             }
         },
         entryUrl: "https://zattoo.com/settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

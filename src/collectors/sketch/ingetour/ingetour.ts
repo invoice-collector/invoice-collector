@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IngetourCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IngetourCollector extends SketchCollector {
         version: "0",
         website: "https://ingetr.biz.mb3m.com/Piece",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4234079.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IngetourCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ingetr.biz.mb3m.com/Piece",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

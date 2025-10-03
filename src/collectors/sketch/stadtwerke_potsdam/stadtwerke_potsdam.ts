@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkePotsdamCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StadtwerkePotsdamCollector extends SketchCollector {
         version: "0",
         website: "https://service.swp-potsdam.de/powercommerce/swp/fo/portal/start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2729797.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StadtwerkePotsdamCollector extends SketchCollector {
             }
         },
         entryUrl: "https://service.swp-potsdam.de/powercommerce/swp/fo/portal/start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

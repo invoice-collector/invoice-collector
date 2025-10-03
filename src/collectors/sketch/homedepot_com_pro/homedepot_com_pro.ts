@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HomedepotComProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HomedepotComProCollector extends SketchCollector {
         version: "0",
         website: "https://www.homedepot.com/c/professional_contractor",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/811285.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HomedepotComProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.homedepot.com/c/professional_contractor",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

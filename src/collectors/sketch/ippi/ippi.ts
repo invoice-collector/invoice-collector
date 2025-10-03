@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IppiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IppiCollector extends SketchCollector {
         version: "0",
         website: "https://www.ippi.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/137041.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IppiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ippi.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

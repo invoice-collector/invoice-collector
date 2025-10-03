@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitalRiverDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigitalRiverDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.digitalriver.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/176819.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigitalRiverDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.digitalriver.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

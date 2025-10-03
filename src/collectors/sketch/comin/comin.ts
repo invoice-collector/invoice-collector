@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CominCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CominCollector extends SketchCollector {
         version: "0",
         website: "https://www2.purtel.com/res/res100260/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/534532.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CominCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www2.purtel.com/res/res100260/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

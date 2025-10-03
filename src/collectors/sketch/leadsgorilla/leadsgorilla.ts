@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadsgorillaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeadsgorillaCollector extends SketchCollector {
         version: "0",
         website: "https://app.leadsgorilla.io/settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2214168.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeadsgorillaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.leadsgorilla.io/settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

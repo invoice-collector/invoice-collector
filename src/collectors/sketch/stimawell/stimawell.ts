@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StimawellCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StimawellCollector extends SketchCollector {
         version: "0",
         website: "https://shop.schwa-medico.de/de/invoice/94613/download?check_logged_in=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2017534.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StimawellCollector extends SketchCollector {
             }
         },
         entryUrl: "https://shop.schwa-medico.de/de/invoice/94613/download?check_logged_in=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

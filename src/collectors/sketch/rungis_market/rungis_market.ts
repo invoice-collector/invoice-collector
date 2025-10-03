@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RungisMarketCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RungisMarketCollector extends SketchCollector {
         version: "0",
         website: "https://rungismarket.com/app/account/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4532284.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RungisMarketCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rungismarket.com/app/account/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

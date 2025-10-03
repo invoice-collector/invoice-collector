@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartconferenceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartconferenceCollector extends SketchCollector {
         version: "0",
         website: "https://portal.smartconference.de/private/billing/index.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/103571.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartconferenceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.smartconference.de/private/billing/index.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

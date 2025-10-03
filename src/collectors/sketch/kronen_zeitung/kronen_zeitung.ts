@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KronenZeitungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KronenZeitungCollector extends SketchCollector {
         version: "0",
         website: "https://www.krone.at/#/KRN/modify",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4564647.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KronenZeitungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.krone.at/#/KRN/modify",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

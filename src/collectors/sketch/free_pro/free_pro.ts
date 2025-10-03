@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreeProCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class FreeProCollector extends SketchCollector {
         version: "0",
         website: "https://pro.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4f/Free-pro.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class FreeProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pro.free.fr/espace-client/connexion/#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

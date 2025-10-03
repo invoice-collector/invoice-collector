@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TealNetworksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TealNetworksCollector extends SketchCollector {
         version: "0",
         website: "https://tealnetworks.freshbooks.com/showStatement",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/76576.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TealNetworksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://tealnetworks.freshbooks.com/showStatement",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

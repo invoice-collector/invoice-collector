@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrPetersGroupCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DrPetersGroupCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.dr-peters.de/meine-beteiligungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1863353.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DrPetersGroupCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.dr-peters.de/meine-beteiligungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

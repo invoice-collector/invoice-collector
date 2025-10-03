@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmiaPortalAdherentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmiaPortalAdherentCollector extends SketchCollector {
         version: "0",
         website: "https://portail.sante-travail.net/MesDocuments/MesFactures",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4503345.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmiaPortalAdherentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail.sante-travail.net/MesDocuments/MesFactures",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

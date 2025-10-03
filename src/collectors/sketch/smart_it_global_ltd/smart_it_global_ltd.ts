@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartItGlobalLtdCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartItGlobalLtdCollector extends SketchCollector {
         version: "0",
         website: "https://smartit.shop/de/18744/de/afl/report-onetime/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1307409.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartItGlobalLtdCollector extends SketchCollector {
             }
         },
         entryUrl: "https://smartit.shop/de/18744/de/afl/report-onetime/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

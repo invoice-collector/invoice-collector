@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeycaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HeycaterCollector extends SketchCollector {
         version: "0",
         website: "https://www.heycater.com/mein-catering/bestellungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/81666.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HeycaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.heycater.com/mein-catering/bestellungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

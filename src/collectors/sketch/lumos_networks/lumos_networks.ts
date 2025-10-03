@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LumosNetworksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LumosNetworksCollector extends SketchCollector {
         version: "0",
         website: "https://rsb.lumosnetworks.com/myaccount",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88462.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LumosNetworksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://rsb.lumosnetworks.com/myaccount",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

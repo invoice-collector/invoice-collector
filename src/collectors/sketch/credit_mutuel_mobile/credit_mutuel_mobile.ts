@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreditMutuelMobileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CreditMutuelMobileCollector extends SketchCollector {
         version: "0",
         website: "https://www.creditmutuel.fr/fr/authentification.html?utm_source=sitecmpros&utm_medium=redirection",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135338.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CreditMutuelMobileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.creditmutuel.fr/fr/authentification.html?utm_source=sitecmpros&utm_medium=redirection",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

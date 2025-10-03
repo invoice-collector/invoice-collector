@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobilcomDebitelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MobilcomDebitelCollector extends SketchCollector {
         version: "0",
         website: "https://www.freenet-mobilfunk.de/onlineservice/meine-rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/5780.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MobilcomDebitelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.freenet-mobilfunk.de/onlineservice/meine-rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

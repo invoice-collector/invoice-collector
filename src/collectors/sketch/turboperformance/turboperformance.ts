@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TurboperformanceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TurboperformanceCollector extends SketchCollector {
         version: "0",
         website: "https://fes.turboperformance.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/524642.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TurboperformanceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fes.turboperformance.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

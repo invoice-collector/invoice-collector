@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RexelFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RexelFrCollector extends SketchCollector {
         version: "0",
         website: "https://www.rexel.fr/frx/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/710098.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RexelFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.rexel.fr/frx/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

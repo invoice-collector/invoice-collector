@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PoleEmploiCourriersElectroniquesCandidatCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PoleEmploiCourriersElectroniquesCandidatCollector extends SketchCol
         version: "0",
         website: "https://www.pole-emploi.fr/region/ile-de-france/informations/candidat-@/region/ile-de-france/index.jspz?id=54125",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/108083.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PoleEmploiCourriersElectroniquesCandidatCollector extends SketchCol
             }
         },
         entryUrl: "https://www.pole-emploi.fr/region/ile-de-france/informations/candidat-@/region/ile-de-france/index.jspz?id=54125",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

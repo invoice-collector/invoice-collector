@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SugaroutfittersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SugaroutfittersCollector extends SketchCollector {
         version: "0",
         website: "https://www.sugaroutfitters.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32418.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SugaroutfittersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sugaroutfitters.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

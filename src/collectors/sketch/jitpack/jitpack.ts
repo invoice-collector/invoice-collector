@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JitpackCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JitpackCollector extends SketchCollector {
         version: "0",
         website: "https://jitpack.io/private/invoice?customer=cus_GnJ83OJPm0JO7n&id=in_1GbT6yHW6oMZPh38aYAQlBhn",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/239869.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JitpackCollector extends SketchCollector {
             }
         },
         entryUrl: "https://jitpack.io/private/invoice?customer=cus_GnJ83OJPm0JO7n&id=in_1GbT6yHW6oMZPh38aYAQlBhn",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

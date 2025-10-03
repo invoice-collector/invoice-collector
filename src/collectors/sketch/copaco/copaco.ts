@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CopacoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CopacoCollector extends SketchCollector {
         version: "0",
         website: "https://www.copaco.com/webshop/shop_paginas/cmsredirect.jsp?d=1&redir=https%3A%2F%2Fwww.copaco.com%2Fwelkom%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32302.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CopacoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.copaco.com/webshop/shop_paginas/cmsredirect.jsp?d=1&redir=https%3A%2F%2Fwww.copaco.com%2Fwelkom%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

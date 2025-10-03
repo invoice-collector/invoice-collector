@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnofficeDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnofficeDeCollector extends SketchCollector {
         version: "0",
         website: "https://smart.onoffice.de/smart/index.php?_ga=2.74610130.1155995631.1647524971-2123919288.1647524971",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1183354.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnofficeDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://smart.onoffice.de/smart/index.php?_ga=2.74610130.1155995631.1647524971-2123919288.1647524971",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

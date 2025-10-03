@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BerlinRecyclingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BerlinRecyclingCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.berlin-recycling.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26392.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BerlinRecyclingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.berlin-recycling.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

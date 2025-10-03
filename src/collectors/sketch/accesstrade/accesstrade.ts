@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccesstradeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AccesstradeCollector extends SketchCollector {
         version: "0",
         website: "https://publisher.accesstrade.co.id/#/sign-in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2785510.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AccesstradeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://publisher.accesstrade.co.id/#/sign-in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

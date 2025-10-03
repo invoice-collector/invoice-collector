@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FusionIotCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FusionIotCollector extends SketchCollector {
         version: "0",
         website: "https://portal.fusion-iot.de/sign/in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2550840.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FusionIotCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.fusion-iot.de/sign/in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

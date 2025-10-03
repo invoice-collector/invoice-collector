@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TockifyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TockifyCollector extends SketchCollector {
         version: "0",
         website: "https://tockify.com/i/site/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1101215.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TockifyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://tockify.com/i/site/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

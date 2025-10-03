@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UsFoodsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class UsFoodsCollector extends SketchCollector {
         version: "0",
         website: "https://www3.usfoods.com/order/faces/oracle/webcenter/portalapp/pages/invoice/invoiceInquiry.jspx?_adf.ctrl-state=c4yt4t9gs_4&_afrLoop=73457099228509#!",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1060692.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class UsFoodsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www3.usfoods.com/order/faces/oracle/webcenter/portalapp/pages/invoice/invoiceInquiry.jspx?_adf.ctrl-state=c4yt4t9gs_4&_afrLoop=73457099228509#!",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

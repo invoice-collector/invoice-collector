@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HomeBySfrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HomeBySfrCollector extends SketchCollector {
         version: "0",
         website: "https://boutique.home.sfr.fr/pdf-invoice.php?id_invoice=1684553",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/138777.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HomeBySfrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://boutique.home.sfr.fr/pdf-invoice.php?id_invoice=1684553",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

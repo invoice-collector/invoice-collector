@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SinchCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SinchCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.sinch.com/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778125.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SinchCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.sinch.com/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

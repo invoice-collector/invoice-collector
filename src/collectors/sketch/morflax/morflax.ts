@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MorflaxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MorflaxCollector extends SketchCollector {
         version: "0",
         website: "https://studio.morflax.com/dashboard/user/billing/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1412719.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MorflaxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://studio.morflax.com/dashboard/user/billing/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

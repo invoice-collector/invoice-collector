@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VimcarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VimcarCollector extends SketchCollector {
         version: "0",
         website: "https://id.vimcar.com/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9899.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VimcarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://id.vimcar.com/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

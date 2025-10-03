@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FideliLesGentlemenParticuliersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FideliLesGentlemenParticuliersCollector extends SketchCollector {
         version: "0",
         website: "https://www.gentlemen-demenagement.com/demenagement-particuliers/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118872.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FideliLesGentlemenParticuliersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gentlemen-demenagement.com/demenagement-particuliers/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

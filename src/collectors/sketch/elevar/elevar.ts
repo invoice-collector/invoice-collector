@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElevarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ElevarCollector extends SketchCollector {
         version: "0",
         website: "https://app.getelevar.com/auth/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153516.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ElevarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.getelevar.com/auth/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

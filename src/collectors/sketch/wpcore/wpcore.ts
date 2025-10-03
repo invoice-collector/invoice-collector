@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpcoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WpcoreCollector extends SketchCollector {
         version: "0",
         website: "https://wpcore.com/user/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/109846.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WpcoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wpcore.com/user/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

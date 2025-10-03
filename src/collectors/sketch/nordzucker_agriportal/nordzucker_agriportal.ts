@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NordzuckerAgriportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NordzuckerAgriportalCollector extends SketchCollector {
         version: "0",
         website: "https://agriportal.nordzucker.de/irj/portal/nordzucker/de?NavigationTarget=navurl://1a1036045e41dd5bf93fef0cc32b91c2",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3027606.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NordzuckerAgriportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://agriportal.nordzucker.de/irj/portal/nordzucker/de?NavigationTarget=navurl://1a1036045e41dd5bf93fef0cc32b91c2",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

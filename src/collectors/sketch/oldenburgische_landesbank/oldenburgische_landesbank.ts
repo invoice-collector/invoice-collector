@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OldenburgischeLandesbankCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OldenburgischeLandesbankCollector extends SketchCollector {
         version: "0",
         website: "https://hbciweb.olb.de/financebrowser5/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/96004.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OldenburgischeLandesbankCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hbciweb.olb.de/financebrowser5/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

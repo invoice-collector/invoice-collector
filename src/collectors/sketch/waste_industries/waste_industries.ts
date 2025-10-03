@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WasteIndustriesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WasteIndustriesCollector extends SketchCollector {
         version: "0",
         website: "https://wasteindustries.com/myaccount/login?ReturnUrl=%2fmyaccount%2fhome",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/88491.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WasteIndustriesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://wasteindustries.com/myaccount/login?ReturnUrl=%2fmyaccount%2fhome",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConsorsfinanzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ConsorsfinanzCollector extends SketchCollector {
         version: "0",
         website: "https://olb.consorsfinanz.de/web/homebanking/umsatze",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/178819.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ConsorsfinanzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://olb.consorsfinanz.de/web/homebanking/umsatze",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

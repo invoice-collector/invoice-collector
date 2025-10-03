@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkminkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LinkminkCollector extends SketchCollector {
         version: "0",
         website: "https://linkmink.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777332.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LinkminkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://linkmink.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

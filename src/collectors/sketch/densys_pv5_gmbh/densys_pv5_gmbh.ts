@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DensysPv5GmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DensysPv5GmbhCollector extends SketchCollector {
         version: "0",
         website: "https://densys-pv5.de/Account/Orders.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1368228.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DensysPv5GmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://densys-pv5.de/Account/Orders.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

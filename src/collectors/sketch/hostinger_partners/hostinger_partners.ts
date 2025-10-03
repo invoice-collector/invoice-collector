@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostingerPartnersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HostingerPartnersCollector extends SketchCollector {
         version: "0",
         website: "https://affiliates.hostinger.com/publisher/#!/billing?limit=50&page=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2189601.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HostingerPartnersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://affiliates.hostinger.com/publisher/#!/billing?limit=50&page=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

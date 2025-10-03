@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuixDslCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuixDslCollector extends SketchCollector {
         version: "0",
         website: "https://kundenportal.myquix.de/#/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9249.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuixDslCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundenportal.myquix.de/#/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

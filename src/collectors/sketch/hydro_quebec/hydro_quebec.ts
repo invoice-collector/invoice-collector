@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HydroQuebecCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HydroQuebecCollector extends SketchCollector {
         version: "0",
         website: "https://www.hydroquebec.com/portail/en/group/clientele/gerer-mon-compte",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8814.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HydroQuebecCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.hydroquebec.com/portail/en/group/clientele/gerer-mon-compte",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

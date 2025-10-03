@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrewagCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DrewagCollector extends SketchCollector {
         version: "0",
         website: "https://onlineservice.drewag.de/sap/bc/ui5_ui5/sap/zemc_ui/index.html?CompanyID=DREWAG&sap-client=630#/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2798002.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DrewagCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlineservice.drewag.de/sap/bc/ui5_ui5/sap/zemc_ui/index.html?CompanyID=DREWAG&sap-client=630#/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

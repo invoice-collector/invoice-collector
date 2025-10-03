@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonWorkdocsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonWorkdocsCollector extends SketchCollector {
         version: "0",
         website: "https://amazon-hub-payments-eu.awsapps.com/workdocs",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2378360.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonWorkdocsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://amazon-hub-payments-eu.awsapps.com/workdocs",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

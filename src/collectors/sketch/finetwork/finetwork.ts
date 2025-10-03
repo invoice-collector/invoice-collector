@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinetworkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinetworkCollector extends SketchCollector {
         version: "0",
         website: "https://mi.finetwork.com/#/inicio",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4426724.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinetworkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mi.finetwork.com/#/inicio",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

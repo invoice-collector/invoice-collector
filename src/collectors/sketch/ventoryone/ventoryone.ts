@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VentoryoneCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VentoryoneCollector extends SketchCollector {
         version: "0",
         website: "https://app.ventoryone.com/users/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/770490.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VentoryoneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.ventoryone.com/users/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

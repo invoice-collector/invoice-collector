@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShoreCollector extends SketchCollector {
         version: "0",
         website: "https://secure.shore.com/merchant/sign_in",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/35287.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.shore.com/merchant/sign_in",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

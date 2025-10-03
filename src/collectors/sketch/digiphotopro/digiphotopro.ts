@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigiphotoproCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigiphotoproCollector extends SketchCollector {
         version: "0",
         website: "https://digiphotopro.de/registrierung",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70692.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigiphotoproCollector extends SketchCollector {
             }
         },
         entryUrl: "https://digiphotopro.de/registrierung",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MediaMarktSuperSelectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MediaMarktSuperSelectCollector extends SketchCollector {
         version: "0",
         website: "https://www.super-select.de/kundencenter",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/203809.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MediaMarktSuperSelectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.super-select.de/kundencenter",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

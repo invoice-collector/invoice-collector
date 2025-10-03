@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeLageLandenLeasingGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeLageLandenLeasingGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://www.directinvoices.com/en/documents/1Q6qz2dO6ikfiMOivWyl",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1986233.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeLageLandenLeasingGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.directinvoices.com/en/documents/1Q6qz2dO6ikfiMOivWyl",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

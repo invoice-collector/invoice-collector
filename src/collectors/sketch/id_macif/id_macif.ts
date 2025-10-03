@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IdMacifCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IdMacifCollector extends SketchCollector {
         version: "0",
         website: "https://www.macif.fr/assurance/particuliers/vos-espaces-macif",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105875.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IdMacifCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.macif.fr/assurance/particuliers/vos-espaces-macif",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StructurizrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StructurizrCollector extends SketchCollector {
         version: "0",
         website: "https://structurizr.com/user/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4479618.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StructurizrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://structurizr.com/user/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

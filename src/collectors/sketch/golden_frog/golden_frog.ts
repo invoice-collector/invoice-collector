@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoldenFrogCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GoldenFrogCollector extends SketchCollector {
         version: "0",
         website: "https://www.goldenfrog.com/de/controlpanel/account/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8005.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GoldenFrogCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.goldenfrog.com/de/controlpanel/account/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

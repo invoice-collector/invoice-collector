@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PricefyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PricefyCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.pricefy.io/billing/profile",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4220079.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PricefyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.pricefy.io/billing/profile",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

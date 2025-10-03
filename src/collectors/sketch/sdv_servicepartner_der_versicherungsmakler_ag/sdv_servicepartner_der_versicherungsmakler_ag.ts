@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SdvServicepartnerDerVersicherungsmaklerAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SdvServicepartnerDerVersicherungsmaklerAgCollector extends SketchCo
         version: "0",
         website: "https://portal.sdv.ag:8443/faces/jsf/masken/mitarbeiter.jsp?conversationContext=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777324.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SdvServicepartnerDerVersicherungsmaklerAgCollector extends SketchCo
             }
         },
         entryUrl: "https://portal.sdv.ag:8443/faces/jsf/masken/mitarbeiter.jsp?conversationContext=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

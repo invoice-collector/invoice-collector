@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TauronCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TauronCollector extends SketchCollector {
         version: "0",
         website: "https://moj.tauron.pl/Home/Pages/Archiwum-dokumentow",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1881890.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TauronCollector extends SketchCollector {
             }
         },
         entryUrl: "https://moj.tauron.pl/Home/Pages/Archiwum-dokumentow",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

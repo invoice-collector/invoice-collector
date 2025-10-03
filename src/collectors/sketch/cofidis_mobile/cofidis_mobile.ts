@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CofidisMobileCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CofidisMobileCollector extends SketchCollector {
         version: "0",
         website: "https://www.cofidis.fr/fr/espace-client/identification.cgi",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135058.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CofidisMobileCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.cofidis.fr/fr/espace-client/identification.cgi",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

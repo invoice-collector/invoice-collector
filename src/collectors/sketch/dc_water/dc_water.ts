@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DcWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DcWaterCollector extends SketchCollector {
         version: "0",
         website: "https://www.mydcwater.com/DCWSSP/index.aspx?Logout=true",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2409464.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DcWaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mydcwater.com/DCWSSP/index.aspx?Logout=true",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

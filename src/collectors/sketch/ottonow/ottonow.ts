@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttonowCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OttonowCollector extends SketchCollector {
         version: "0",
         website: "https://ottonow.de/konto/vertraege/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/230796.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OttonowCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ottonow.de/konto/vertraege/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

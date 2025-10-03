@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GftCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GftCollector extends SketchCollector {
         version: "0",
         website: "https://www.gft-eg.de/de/startseite.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779116.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GftCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gft-eg.de/de/startseite.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

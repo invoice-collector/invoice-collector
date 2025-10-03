@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiSchuleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KiSchuleCollector extends SketchCollector {
         version: "0",
         website: "https://app.ki-hochschule.de/account/billing?tab=billingHistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4449712.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KiSchuleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.ki-hochschule.de/account/billing?tab=billingHistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

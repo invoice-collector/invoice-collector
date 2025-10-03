@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShieldSecurityProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ShieldSecurityProCollector extends SketchCollector {
         version: "0",
         website: "https://getshieldsecurity.com/account/purchase-history/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/745930.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ShieldSecurityProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://getshieldsecurity.com/account/purchase-history/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

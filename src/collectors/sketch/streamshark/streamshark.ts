@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StreamsharkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StreamsharkCollector extends SketchCollector {
         version: "0",
         website: "https://app.streamshark.io/account#invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730171.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StreamsharkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.streamshark.io/account#invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

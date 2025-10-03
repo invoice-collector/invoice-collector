@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelvetiaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HelvetiaCollector extends SketchCollector {
         version: "0",
         website: "https://ebusiness.helvetia.com/de/helvetianet/de/secure/showapp.html?app=vpk&page=message.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/69469.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HelvetiaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ebusiness.helvetia.com/de/helvetianet/de/secure/showapp.html?app=vpk&page=message.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

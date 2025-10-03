@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RemediaHomoeopathieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RemediaHomoeopathieCollector extends SketchCollector {
         version: "0",
         website: "https://remedia-homoeopathie.de/konto/meine-bestellungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4220603.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RemediaHomoeopathieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://remedia-homoeopathie.de/konto/meine-bestellungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

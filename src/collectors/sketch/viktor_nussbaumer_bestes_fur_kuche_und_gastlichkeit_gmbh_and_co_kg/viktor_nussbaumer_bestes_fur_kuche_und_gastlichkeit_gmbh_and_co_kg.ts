@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector e
         version: "0",
         website: "https://nussbaumer.servicebund.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1183319.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector e
             }
         },
         entryUrl: "https://nussbaumer.servicebund.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

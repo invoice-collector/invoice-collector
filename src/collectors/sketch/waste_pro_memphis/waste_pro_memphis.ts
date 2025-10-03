@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WasteProMemphisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WasteProMemphisCollector extends SketchCollector {
         version: "0",
         website: "https://etower.wasteprousa.com/T7Memphis/ViewInvoices.aspx?history=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732583.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WasteProMemphisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://etower.wasteprousa.com/T7Memphis/ViewInvoices.aspx?history=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

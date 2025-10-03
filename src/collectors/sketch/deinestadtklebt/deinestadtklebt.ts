@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeinestadtklebtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeinestadtklebtCollector extends SketchCollector {
         version: "0",
         website: "https://www.deinestadtklebt.de/kundenbereich/auftraege/abgeschlossene",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94250.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeinestadtklebtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.deinestadtklebt.de/kundenbereich/auftraege/abgeschlossene",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

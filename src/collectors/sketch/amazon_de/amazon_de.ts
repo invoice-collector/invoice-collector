@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.amazon.de/gp/css/order-history/ref=nav_youraccount_orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/394.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.amazon.de/gp/css/order-history/ref=nav_youraccount_orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

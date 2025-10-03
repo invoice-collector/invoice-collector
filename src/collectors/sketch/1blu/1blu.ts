@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1bluCollector extends SketchCollector {
 
@@ -10,6 +11,8 @@ export class _1bluCollector extends SketchCollector {
         version: "0",
         website: "https://login.1blu.de/login.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/667.jpg",
+        type: CollectorType.SKETCH,
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +28,7 @@ export class _1bluCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.1blu.de/login.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

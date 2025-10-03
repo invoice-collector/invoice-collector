@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MitgasMitteldeutscheGasversorgungGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MitgasMitteldeutscheGasversorgungGmbhCollector extends SketchCollec
         version: "0",
         website: "https://www.mitgas.de/privatkunden",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/90720.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MitgasMitteldeutscheGasversorgungGmbhCollector extends SketchCollec
             }
         },
         entryUrl: "https://www.mitgas.de/privatkunden",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickskeksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ClickskeksCollector extends SketchCollector {
         version: "0",
         website: "https://mein.clickskeks.at/domains",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2220338.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ClickskeksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.clickskeks.at/domains",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

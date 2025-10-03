@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuderelbeInkassoSiGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SuderelbeInkassoSiGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://luca.se-inkasso.de/invoice.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2691941.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SuderelbeInkassoSiGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://luca.se-inkasso.de/invoice.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

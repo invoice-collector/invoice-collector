@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenvpnIncCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpenvpnIncCollector extends SketchCollector {
         version: "0",
         website: "https://as-billing.openvpn.net/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/39456.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpenvpnIncCollector extends SketchCollector {
             }
         },
         entryUrl: "https://as-billing.openvpn.net/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

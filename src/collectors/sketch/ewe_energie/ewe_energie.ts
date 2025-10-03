@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EweEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EweEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://meine.ewe.de/strom#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/185159.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EweEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meine.ewe.de/strom#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

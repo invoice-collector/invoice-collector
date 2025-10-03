@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaldhausenReitsportCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WaldhausenReitsportCollector extends SketchCollector {
         version: "0",
         website: "https://www.waldhausen.com/b2binvoicelist",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2158082.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WaldhausenReitsportCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.waldhausen.com/b2binvoicelist",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

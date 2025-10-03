@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayoneIngenicoDrmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PayoneIngenicoDrmCollector extends SketchCollector {
         version: "0",
         website: "https://ger-drm.mc.ingenico.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1679607.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PayoneIngenicoDrmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ger-drm.mc.ingenico.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

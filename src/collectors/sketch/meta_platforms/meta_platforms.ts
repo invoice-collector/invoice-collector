@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetaPlatformsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MetaPlatformsCollector extends SketchCollector {
         version: "0",
         website: "https://adsmanager.facebook.com/ads/manager/billing_history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1880027.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MetaPlatformsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://adsmanager.facebook.com/ads/manager/billing_history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SodexoServicesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SodexoServicesCollector extends SketchCollector {
         version: "0",
         website: "https://essen-bei-sodexo.de/mein-essen.html#/login//plan",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27118.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SodexoServicesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://essen-bei-sodexo.de/mein-essen.html#/login//plan",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

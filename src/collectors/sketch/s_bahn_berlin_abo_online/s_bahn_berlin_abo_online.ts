@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SBahnBerlinAboOnlineCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SBahnBerlinAboOnlineCollector extends SketchCollector {
         version: "0",
         website: "https://www.abo-antrag.de/de/sites/Postfach/Default.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4438586.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SBahnBerlinAboOnlineCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.abo-antrag.de/de/sites/Postfach/Default.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

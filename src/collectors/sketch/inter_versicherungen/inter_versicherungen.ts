@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterVersicherungenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InterVersicherungenCollector extends SketchCollector {
         version: "0",
         website: "https://www.inter.de/postbox/documents?client=kunde",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/234225.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InterVersicherungenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.inter.de/postbox/documents?client=kunde",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

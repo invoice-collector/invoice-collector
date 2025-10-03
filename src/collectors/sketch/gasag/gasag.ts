@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GasagCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GasagCollector extends SketchCollector {
         version: "0",
         website: "https://www.gasag.de/meine-gasag/api/b2c/postbox/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14821.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GasagCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gasag.de/meine-gasag/api/b2c/postbox/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

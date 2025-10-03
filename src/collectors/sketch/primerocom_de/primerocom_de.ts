@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimerocomDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrimerocomDeCollector extends SketchCollector {
         version: "0",
         website: "https://mein.primerocom.de/Default.asp?rq_Lang=de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/40863.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrimerocomDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.primerocom.de/Default.asp?rq_Lang=de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

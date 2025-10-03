@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrowdfarmingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CrowdfarmingCollector extends SketchCollector {
         version: "0",
         website: "https://www.crowdfarming.com/de/private-zone/my-order/list",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4484302.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CrowdfarmingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.crowdfarming.com/de/private-zone/my-order/list",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

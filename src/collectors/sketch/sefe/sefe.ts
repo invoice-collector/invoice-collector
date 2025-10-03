@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SefeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SefeCollector extends SketchCollector {
         version: "0",
         website: "https://portail-client.sefe-energy.fr/CPVFP00_CustomLoginPage",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4179122.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SefeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portail-client.sefe-energy.fr/CPVFP00_CustomLoginPage",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

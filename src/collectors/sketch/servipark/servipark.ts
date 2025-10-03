@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServiparkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ServiparkCollector extends SketchCollector {
         version: "0",
         website: "https://www.servipark.com/de/shopping/AccountLogin.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/14254.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ServiparkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.servipark.com/de/shopping/AccountLogin.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

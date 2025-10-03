@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GtfImmobilierCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GtfImmobilierCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.gtf.fr/connexion",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200783.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GtfImmobilierCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.gtf.fr/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

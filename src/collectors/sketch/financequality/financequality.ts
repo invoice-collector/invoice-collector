@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinancequalityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinancequalityCollector extends SketchCollector {
         version: "0",
         website: "https://www.financequality.net/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/58324.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinancequalityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.financequality.net/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

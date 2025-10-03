@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QuisCollector extends SketchCollector {
         version: "0",
         website: "https://selfservice.billwerk.com/portal/account.html#/qDJCTyOil-M4x0BSFW2gxg",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1347362.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QuisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://selfservice.billwerk.com/portal/account.html#/qDJCTyOil-M4x0BSFW2gxg",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

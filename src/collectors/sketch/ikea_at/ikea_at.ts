@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IkeaAtCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IkeaAtCollector extends SketchCollector {
         version: "0",
         website: "https://www.ikea.com/at/de/purchases/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2310225.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IkeaAtCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ikea.com/at/de/purchases/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GUTOnlinePlusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GUTOnlinePlusCollector extends SketchCollector {
         version: "0",
         website: "https://www.gutonlineplus.de/#MainPage",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200616.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GUTOnlinePlusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gutonlineplus.de/#MainPage",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

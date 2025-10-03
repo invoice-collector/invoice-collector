@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdobeAcrobatCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdobeAcrobatCollector extends SketchCollector {
         version: "0",
         website: "https://acrobat.adobe.com/link/documents/files/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1769549.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdobeAcrobatCollector extends SketchCollector {
             }
         },
         entryUrl: "https://acrobat.adobe.com/link/documents/files/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

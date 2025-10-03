@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmenFrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmenFrCollector extends SketchCollector {
         version: "0",
         website: "https://controlpanel.amen.fr/welcome.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8913.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmenFrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://controlpanel.amen.fr/welcome.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

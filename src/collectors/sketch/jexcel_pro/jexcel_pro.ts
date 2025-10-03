@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JexcelProCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JexcelProCollector extends SketchCollector {
         version: "0",
         website: "https://jexcel.net/me/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/540823.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JexcelProCollector extends SketchCollector {
             }
         },
         entryUrl: "https://jexcel.net/me/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DiFmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DiFmCollector extends SketchCollector {
         version: "0",
         website: "https://www.di.fm/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/38313.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DiFmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.di.fm/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

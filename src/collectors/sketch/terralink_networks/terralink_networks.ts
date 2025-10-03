@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TerralinkNetworksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TerralinkNetworksCollector extends SketchCollector {
         version: "0",
         website: "https://www.terralink.de/dsl-festnetztarife-fuer-privatkunden.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9170.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TerralinkNetworksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.terralink.de/dsl-festnetztarife-fuer-privatkunden.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

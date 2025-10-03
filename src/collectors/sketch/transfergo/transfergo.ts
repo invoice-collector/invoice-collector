@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransfergoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TransfergoCollector extends SketchCollector {
         version: "0",
         website: "https://my.transfergo.com/en/user/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/778812.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TransfergoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.transfergo.com/en/user/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

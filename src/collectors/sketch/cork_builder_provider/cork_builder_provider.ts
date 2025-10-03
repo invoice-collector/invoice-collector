@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CorkBuilderProviderCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CorkBuilderProviderCollector extends SketchCollector {
         version: "0",
         website: "https://grafton.softco.com/CBP/Home/Detail/Monthly%20Transactions/Monthly%20Transactions/AR%20Invoices/5763827",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/401939.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CorkBuilderProviderCollector extends SketchCollector {
             }
         },
         entryUrl: "https://grafton.softco.com/CBP/Home/Detail/Monthly%20Transactions/Monthly%20Transactions/AR%20Invoices/5763827",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadinfoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LeadinfoCollector extends SketchCollector {
         version: "0",
         website: "https://portal.leadinfo.com/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2310226.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LeadinfoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.leadinfo.com/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

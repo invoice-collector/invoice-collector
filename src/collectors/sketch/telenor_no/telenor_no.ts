@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelenorNoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TelenorNoCollector extends SketchCollector {
         version: "0",
         website: "https://www.telenor.no/privat/mine-sider/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9575.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TelenorNoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.telenor.no/privat/mine-sider/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

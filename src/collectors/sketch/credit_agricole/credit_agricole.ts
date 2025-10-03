@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreditAgricoleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CreditAgricoleCollector extends SketchCollector {
         version: "0",
         website: "https://www.credit-agricole.fr/ca-anjou-maine/particulier/acceder-a-mes-comptes.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102330.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CreditAgricoleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.credit-agricole.fr/ca-anjou-maine/particulier/acceder-a-mes-comptes.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

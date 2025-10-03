@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoshCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoshCollector extends SketchCollector {
         version: "0",
         website: "https://espaceclientv3.orange.fr/?page=factures-accueil",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/26981.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoshCollector extends SketchCollector {
             }
         },
         entryUrl: "https://espaceclientv3.orange.fr/?page=factures-accueil",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

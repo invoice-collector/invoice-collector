@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSellerCentralEsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonSellerCentralEsCollector extends SketchCollector {
         version: "0",
         website: "https://sellercentral.amazon.es/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/527633.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonSellerCentralEsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sellercentral.amazon.es/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

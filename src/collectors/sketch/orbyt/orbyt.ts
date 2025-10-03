@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrbytCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OrbytCollector extends SketchCollector {
         version: "0",
         website: "https://seguro.orbyt.es/registro_nuevo/v3/?view=userArea",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4561900.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OrbytCollector extends SketchCollector {
             }
         },
         entryUrl: "https://seguro.orbyt.es/registro_nuevo/v3/?view=userArea",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

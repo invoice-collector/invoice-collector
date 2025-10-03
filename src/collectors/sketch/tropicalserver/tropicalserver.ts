@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TropicalserverCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TropicalserverCollector extends SketchCollector {
         version: "0",
         website: "https://clientes.tropicalserver.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/799474.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TropicalserverCollector extends SketchCollector {
             }
         },
         entryUrl: "https://clientes.tropicalserver.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

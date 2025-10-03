@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Ametra06Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Ametra06Collector extends SketchCollector {
         version: "0",
         website: "https://pst-ametra06.medtra.fr/liste-factures-adh.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4175744.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Ametra06Collector extends SketchCollector {
             }
         },
         entryUrl: "https://pst-ametra06.medtra.fr/liste-factures-adh.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

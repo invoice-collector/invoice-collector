@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlusnetFruherQscCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlusnetFruherQscCollector extends SketchCollector {
         version: "0",
         website: "https://one.plusnet.de/billing/invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/150638.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlusnetFruherQscCollector extends SketchCollector {
             }
         },
         entryUrl: "https://one.plusnet.de/billing/invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

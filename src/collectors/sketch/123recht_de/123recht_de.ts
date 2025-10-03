@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _123rechtDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class _123rechtDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.123recht.de/thick_register.asp?noiframe=1&goto=https%3A%2F%2Fwww%2E123recht%2Enet%2FDefault%2Easp%3F&ccheck=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/44821.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class _123rechtDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.123recht.de/thick_register.asp?noiframe=1&goto=https%3A%2F%2Fwww%2E123recht%2Enet%2FDefault%2Easp%3F&ccheck=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

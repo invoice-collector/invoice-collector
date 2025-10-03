@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExonetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ExonetCollector extends SketchCollector {
         version: "0",
         website: "https://www.exonet.nl/inloggen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/33135.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ExonetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.exonet.nl/inloggen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

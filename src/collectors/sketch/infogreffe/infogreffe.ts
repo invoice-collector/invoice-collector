@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfogreffeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InfogreffeCollector extends SketchCollector {
         version: "0",
         website: "https://www.infogreffe.fr",
         logo: "https://mma.prnewswire.com/media/2658130/Infogreffe_Logo.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InfogreffeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.infogreffe.fr",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

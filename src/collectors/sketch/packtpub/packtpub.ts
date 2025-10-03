@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PacktpubCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PacktpubCollector extends SketchCollector {
         version: "0",
         website: "https://subscription.packtpub.com/my-account/billing-details",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/556112.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PacktpubCollector extends SketchCollector {
             }
         },
         entryUrl: "https://subscription.packtpub.com/my-account/billing-details",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

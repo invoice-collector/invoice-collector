@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudmersiveCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CloudmersiveCollector extends SketchCollector {
         version: "0",
         website: "https://portal.cloudmersive.com/manageproduct?ProductSelection=6de154e2-31ef-4d69-b1b4-f1af413d69ea",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2098043.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CloudmersiveCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.cloudmersive.com/manageproduct?ProductSelection=6de154e2-31ef-4d69-b1b4-f1af413d69ea",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

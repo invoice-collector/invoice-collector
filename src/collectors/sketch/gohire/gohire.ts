@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GohireCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GohireCollector extends SketchCollector {
         version: "0",
         website: "https://app.gohire.io/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/516931.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GohireCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.gohire.io/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

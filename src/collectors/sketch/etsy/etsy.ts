@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EtsyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EtsyCollector extends SketchCollector {
         version: "0",
         website: "https://www.etsy.com/your/bill?ref=seller-platform-mcnav",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/52929.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EtsyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.etsy.com/your/bill?ref=seller-platform-mcnav",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

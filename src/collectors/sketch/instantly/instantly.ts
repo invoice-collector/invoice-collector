@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstantlyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InstantlyCollector extends SketchCollector {
         version: "0",
         website: "https://app.instantly.ai/app/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2284748.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InstantlyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.instantly.ai/app/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

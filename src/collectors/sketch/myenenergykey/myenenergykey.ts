@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyenenergykeyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyenenergykeyCollector extends SketchCollector {
         version: "0",
         website: "https://myenergykey.com/login?state=hKFo2SAzdFhxZWVMZy1pUXFDMF9BNjJ0SUNLdXc5Uk83UVY1VaFupWxvZ2luo3RpZNkgM0RrVDhJMUpuX1ViNHF2aHZ2ZllVd3M5b1o0dWpTLXCjY2lk2SBDcGJhTnRVTGtkRXlEajRtdUo5SjZ6d05vdTNtVEJyQQ&client=CpbaNtULkdEyDj4muJ9J6zwNou3mTBrA&protocol=oauth2&",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2027034.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyenenergykeyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myenergykey.com/login?state=hKFo2SAzdFhxZWVMZy1pUXFDMF9BNjJ0SUNLdXc5Uk83UVY1VaFupWxvZ2luo3RpZNkgM0RrVDhJMUpuX1ViNHF2aHZ2ZllVd3M5b1o0dWpTLXCjY2lk2SBDcGJhTnRVTGtkRXlEajRtdUo5SjZ6d05vdTNtVEJyQQ&client=CpbaNtULkdEyDj4muJ9J6zwNou3mTBrA&protocol=oauth2&",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

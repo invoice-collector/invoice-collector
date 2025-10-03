@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudiojungleCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AudiojungleCollector extends SketchCollector {
         version: "0",
         website: "https://audiojungle.net/user/thebuddies/statement",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4213323.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AudiojungleCollector extends SketchCollector {
             }
         },
         entryUrl: "https://audiojungle.net/user/thebuddies/statement",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LodgifyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LodgifyCollector extends SketchCollector {
         version: "0",
         website: "https://app.lodgify.com/billing/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2670141.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LodgifyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.lodgify.com/billing/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

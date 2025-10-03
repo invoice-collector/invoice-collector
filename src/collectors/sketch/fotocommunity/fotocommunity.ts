@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotocommunityCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FotocommunityCollector extends SketchCollector {
         version: "0",
         website: "https://www.fotocommunity.de/settings/premium",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/386523.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FotocommunityCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fotocommunity.de/settings/premium",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

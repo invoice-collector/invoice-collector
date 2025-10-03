@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OuiSncfCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OuiSncfCollector extends SketchCollector {
         version: "0",
         website: "https://www.oui.sncf/services-train/suivi-commande",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/35507.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OuiSncfCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.oui.sncf/services-train/suivi-commande",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

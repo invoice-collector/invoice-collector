@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgrizCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AgrizCollector extends SketchCollector {
         version: "0",
         website: "https://www.agriz.fr/connexion",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/816609.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AgrizCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.agriz.fr/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

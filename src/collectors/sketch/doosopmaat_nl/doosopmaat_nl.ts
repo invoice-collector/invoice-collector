@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DoosopmaatNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DoosopmaatNlCollector extends SketchCollector {
         version: "0",
         website: "https://www.doosopmaat.nl/inloggen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32649.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DoosopmaatNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.doosopmaat.nl/inloggen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

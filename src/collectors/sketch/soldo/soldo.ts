@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoldoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoldoCollector extends SketchCollector {
         version: "0",
         website: "https://manage.soldo.com/b/#/business/users/VIRTUAL_USER/GDHD5843-000003/118954/activity",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/131137.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoldoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manage.soldo.com/b/#/business/users/VIRTUAL_USER/GDHD5843-000003/118954/activity",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

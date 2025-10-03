@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlotplusDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlotplusDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.plotplus.de/mein-konto/user/invoice/your-invoice/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2131487.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlotplusDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.plotplus.de/mein-konto/user/invoice/your-invoice/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

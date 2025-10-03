@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ModelKarteiDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ModelKarteiDeCollector extends SketchCollector {
         version: "0",
         website: "https://www.model-kartei.de/vip/rechnung/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2066544.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ModelKarteiDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.model-kartei.de/vip/rechnung/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

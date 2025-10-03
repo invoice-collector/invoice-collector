@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColumbiaGasOfVirginiaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ColumbiaGasOfVirginiaCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.columbiagasva.com/bills",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2723644.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ColumbiaGasOfVirginiaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.columbiagasva.com/bills",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

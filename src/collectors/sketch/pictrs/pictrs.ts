@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PictrsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PictrsCollector extends SketchCollector {
         version: "0",
         website: "https://www.pictrs.com/shopadmin/my_bills#tab-shopfee",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32231.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PictrsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pictrs.com/shopadmin/my_bills#tab-shopfee",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

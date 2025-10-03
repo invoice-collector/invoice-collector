@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityMapCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityMapCollector extends SketchCollector {
         version: "0",
         website: "https://my.cmpowersite.com/intern/account/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1881826.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityMapCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.cmpowersite.com/intern/account/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

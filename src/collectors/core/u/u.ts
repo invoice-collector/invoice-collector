@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { USelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { CollectorState, Invoice } from '../../abstractCollector';
+import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 
 export class UCollector extends WebCollector {
 
@@ -12,6 +12,7 @@ export class UCollector extends WebCollector {
         version: "4",
         website: "https://www.coursesu.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",

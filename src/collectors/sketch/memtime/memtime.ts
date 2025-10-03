@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MemtimeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MemtimeCollector extends SketchCollector {
         version: "0",
         website: "https://portal.memtime.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3200049.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MemtimeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.memtime.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

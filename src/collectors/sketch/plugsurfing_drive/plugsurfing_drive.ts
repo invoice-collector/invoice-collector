@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlugsurfingDriveCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PlugsurfingDriveCollector extends SketchCollector {
         version: "0",
         website: "https://drive.plugsurfing.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1158502.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PlugsurfingDriveCollector extends SketchCollector {
             }
         },
         entryUrl: "https://drive.plugsurfing.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

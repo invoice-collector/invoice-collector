@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MuttisLadenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MuttisLadenCollector extends SketchCollector {
         version: "0",
         website: "https://muttis-laden.de/LogIn.action",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/210952.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MuttisLadenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://muttis-laden.de/LogIn.action",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

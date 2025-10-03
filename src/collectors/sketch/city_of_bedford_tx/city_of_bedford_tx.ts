@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfBedfordTxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CityOfBedfordTxCollector extends SketchCollector {
         version: "0",
         website: "https://bedford.dpnetbill.com/secure/customer/default.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/179856.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CityOfBedfordTxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bedford.dpnetbill.com/secure/customer/default.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

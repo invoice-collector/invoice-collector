@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransgourmetDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TransgourmetDeCollector extends SketchCollector {
         version: "0",
         website: "http://www.transgourmet.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/54754.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TransgourmetDeCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.transgourmet.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

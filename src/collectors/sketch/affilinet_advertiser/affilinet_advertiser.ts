@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AffilinetAdvertiserCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AffilinetAdvertiserCollector extends SketchCollector {
         version: "0",
         website: "https://advertiser.affili.net/Login.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/39657.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AffilinetAdvertiserCollector extends SketchCollector {
             }
         },
         entryUrl: "https://advertiser.affili.net/Login.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelpechCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DelpechCollector extends SketchCollector {
         version: "0",
         website: "https://pharmaciedelpech.fr/?page=Pharmacie:Accueil",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/501524.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DelpechCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pharmaciedelpech.fr/?page=Pharmacie:Accueil",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

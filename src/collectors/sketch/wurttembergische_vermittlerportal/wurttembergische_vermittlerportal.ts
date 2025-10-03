@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WurttembergischeVermittlerportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WurttembergischeVermittlerportalCollector extends SketchCollector {
         version: "0",
         website: "https://vertriebsportal.wuerttembergische.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102416.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WurttembergischeVermittlerportalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://vertriebsportal.wuerttembergische.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

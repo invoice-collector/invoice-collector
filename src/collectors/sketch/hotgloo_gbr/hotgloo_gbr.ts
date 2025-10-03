@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HotglooGbrCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HotglooGbrCollector extends SketchCollector {
         version: "0",
         website: "https://hotgloo.io/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/148970.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HotglooGbrCollector extends SketchCollector {
             }
         },
         entryUrl: "https://hotgloo.io/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

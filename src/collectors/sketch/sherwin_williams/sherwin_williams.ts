@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SherwinWilliamsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SherwinWilliamsCollector extends SketchCollector {
         version: "0",
         website: "https://www.sherwin-williams.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23339.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SherwinWilliamsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sherwin-williams.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

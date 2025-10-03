@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailfenceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MailfenceCollector extends SketchCollector {
         version: "0",
         website: "https://mailfence.com/flatx/index.jsp#tool=prefs&page=receipt",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1333279.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MailfenceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mailfence.com/flatx/index.jsp#tool=prefs&page=receipt",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

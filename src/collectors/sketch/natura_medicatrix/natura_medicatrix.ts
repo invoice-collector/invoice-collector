@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NaturaMedicatrixCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NaturaMedicatrixCollector extends SketchCollector {
         version: "0",
         website: "https://www.naturamedicatrix.fr/en/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122539.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NaturaMedicatrixCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.naturamedicatrix.fr/en/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

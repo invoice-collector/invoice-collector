@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartpricingCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmartpricingCollector extends SketchCollector {
         version: "0",
         website: "https://admin.smartpricing.it/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2846291.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmartpricingCollector extends SketchCollector {
             }
         },
         entryUrl: "https://admin.smartpricing.it/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreamloveCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DreamloveCollector extends SketchCollector {
         version: "0",
         website: "https://store.dreamlove.es/mf-1-53-mis_facturas/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2097923.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DreamloveCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store.dreamlove.es/mf-1-53-mis_facturas/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LesHarasNationauxParticulierCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LesHarasNationauxParticulierCollector extends SketchCollector {
         version: "0",
         website: "https://sso.haras-nationaux.fr/cas/login?service=https%3A%2F%2Fwww.haras-nationaux.fr%2Findex.php%3Fid%3D5809%26retour_url%3D%252Fespace-personnalise%252F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107138.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LesHarasNationauxParticulierCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sso.haras-nationaux.fr/cas/login?service=https%3A%2F%2Fwww.haras-nationaux.fr%2Findex.php%3Fid%3D5809%26retour_url%3D%252Fespace-personnalise%252F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

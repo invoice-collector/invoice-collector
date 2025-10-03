@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TcgPowertoolsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TcgPowertoolsCollector extends SketchCollector {
         version: "0",
         website: "https://app.tcgpowertools.com/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1186020.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TcgPowertoolsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.tcgpowertools.com/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

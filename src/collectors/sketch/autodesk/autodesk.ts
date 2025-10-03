@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutodeskCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AutodeskCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.autodesk.com/Authentication/LogOn#username",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32960.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AutodeskCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.autodesk.com/Authentication/LogOn#username",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PointPCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PointPCollector extends SketchCollector {
         version: "0",
         website: "https://www.pointp.fr/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122471.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PointPCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pointp.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

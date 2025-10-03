@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FontshopCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FontshopCollector extends SketchCollector {
         version: "0",
         website: "https://www.fontshop.com/buy/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1439564.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FontshopCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fontshop.com/buy/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

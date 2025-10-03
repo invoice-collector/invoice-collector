@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApplangaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ApplangaCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.applanga.com/#!/billings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/111681.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ApplangaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.applanga.com/#!/billings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

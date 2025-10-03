@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SynchronDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SynchronDeCollector extends SketchCollector {
         version: "0",
         website: "https://synchron.de/mein-konto.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11887.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SynchronDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://synchron.de/mein-konto.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

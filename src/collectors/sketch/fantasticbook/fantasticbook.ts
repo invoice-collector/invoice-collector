@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FantasticbookCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FantasticbookCollector extends SketchCollector {
         version: "0",
         website: "https://brocolis.fantasticbook.co/user/clients/bank/Qi1-NQ",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777349.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FantasticbookCollector extends SketchCollector {
             }
         },
         entryUrl: "https://brocolis.fantasticbook.co/user/clients/bank/Qi1-NQ",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

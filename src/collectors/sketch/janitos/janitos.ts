@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JanitosCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JanitosCollector extends SketchCollector {
         version: "0",
         website: "https://portal-a.janitos.de/std/module/such_module/suche_ib/vm_abrechnung_controller.html?RID=1673564465773&RWN=vermittlerabrechnung&posUrl=https://portal-a.janitos.de/global/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1668195.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JanitosCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal-a.janitos.de/std/module/such_module/suche_ib/vm_abrechnung_controller.html?RID=1673564465773&RWN=vermittlerabrechnung&posUrl=https://portal-a.janitos.de/global/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

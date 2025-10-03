@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MacprovideoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MacprovideoCollector extends SketchCollector {
         version: "0",
         website: "https://www.macprovideo.com/profile",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107059.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MacprovideoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.macprovideo.com/profile",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

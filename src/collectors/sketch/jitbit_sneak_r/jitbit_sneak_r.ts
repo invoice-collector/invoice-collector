@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JitbitSneakRCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JitbitSneakRCollector extends SketchCollector {
         version: "0",
         website: "https://sneakr.jitbit.com/Admin/Billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3118568.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JitbitSneakRCollector extends SketchCollector {
             }
         },
         entryUrl: "https://sneakr.jitbit.com/Admin/Billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

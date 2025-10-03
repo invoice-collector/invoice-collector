@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StollfussCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StollfussCollector extends SketchCollector {
         version: "0",
         website: "https://www.stollfuss.de/software-service.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/90390.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StollfussCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.stollfuss.de/software-service.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YellowPagesAustraliaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class YellowPagesAustraliaCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.sensis.com.au",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/119127.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class YellowPagesAustraliaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.sensis.com.au",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

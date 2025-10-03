@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZaDirektCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ZaDirektCollector extends SketchCollector {
         version: "0",
         website: "https://zadirekt.zaag.de/inbox/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1747432.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ZaDirektCollector extends SketchCollector {
             }
         },
         entryUrl: "https://zadirekt.zaag.de/inbox/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

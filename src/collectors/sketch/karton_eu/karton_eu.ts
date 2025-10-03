@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KartonEuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KartonEuCollector extends SketchCollector {
         version: "0",
         website: "https://www.karton.eu/jtl.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/5254.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KartonEuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.karton.eu/jtl.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

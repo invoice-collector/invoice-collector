@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EledoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EledoCollector extends SketchCollector {
         version: "0",
         website: "https://eledo.online/manage/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2175410.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EledoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://eledo.online/manage/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KpsysCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KpsysCollector extends SketchCollector {
         version: "0",
         website: "https://aff.kpsys.de/auszahlungen.cgi",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1722889.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KpsysCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aff.kpsys.de/auszahlungen.cgi",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

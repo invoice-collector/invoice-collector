@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenchoiceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GreenchoiceCollector extends SketchCollector {
         version: "0",
         website: "https://dossier.greenchoice.nl/?utm_source=greenchoicenl&utm_medium=button&utm_campaign=mdbuttongreenchoicenl",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/32716.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GreenchoiceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dossier.greenchoice.nl/?utm_source=greenchoicenl&utm_medium=button&utm_campaign=mdbuttongreenchoicenl",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

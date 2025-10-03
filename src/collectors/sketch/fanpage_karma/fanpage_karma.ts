@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FanpageKarmaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FanpageKarmaCollector extends SketchCollector {
         version: "0",
         website: "https://www.fanpagekarma.com/login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/11055.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FanpageKarmaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fanpagekarma.com/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

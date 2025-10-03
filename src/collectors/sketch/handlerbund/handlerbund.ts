@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HandlerbundCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HandlerbundCollector extends SketchCollector {
         version: "0",
         website: "https://www.haendlerbund.de/de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/25544.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HandlerbundCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.haendlerbund.de/de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

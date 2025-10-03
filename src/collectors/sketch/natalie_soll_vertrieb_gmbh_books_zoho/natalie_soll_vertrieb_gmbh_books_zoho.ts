@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NatalieSollVertriebGmbhBooksZohoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NatalieSollVertriebGmbhBooksZohoCollector extends SketchCollector {
         version: "0",
         website: "https://books.zoho.com/portal/soellvertrieb/index#/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/737690.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NatalieSollVertriebGmbhBooksZohoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://books.zoho.com/portal/soellvertrieb/index#/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

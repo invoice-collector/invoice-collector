@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuisaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SuisaCollector extends SketchCollector {
         version: "0",
         website: "https://www.suisa.ch/de/meta/mein-konto.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/552911.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SuisaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.suisa.ch/de/meta/mein-konto.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

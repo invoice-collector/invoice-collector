@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalesloftCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SalesloftCollector extends SketchCollector {
         version: "0",
         website: "https://accounts.salesloft.com/sign_in?return_to=https://app.salesloft.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/822013.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SalesloftCollector extends SketchCollector {
             }
         },
         entryUrl: "https://accounts.salesloft.com/sign_in?return_to=https://app.salesloft.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

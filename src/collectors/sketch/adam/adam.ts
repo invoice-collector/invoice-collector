@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdamCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdamCollector extends SketchCollector {
         version: "0",
         website: "https://myadam.io/profitability/dashboard",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4327194.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdamCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myadam.io/profitability/dashboard",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

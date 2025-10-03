@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrandLyonHabitatCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GrandLyonHabitatCollector extends SketchCollector {
         version: "0",
         website: "https://www.grandlyonhabitat.fr/extranet/tenant/avis-echeance",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2014887.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GrandLyonHabitatCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.grandlyonhabitat.fr/extranet/tenant/avis-echeance",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

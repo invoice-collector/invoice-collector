@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterworksCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InterworksCollector extends SketchCollector {
         version: "0",
         website: "https://bss.adncloud.de/ModulePages/Invoices/Invoices.aspx#v=689",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2003686.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InterworksCollector extends SketchCollector {
             }
         },
         entryUrl: "https://bss.adncloud.de/ModulePages/Invoices/Invoices.aspx#v=689",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

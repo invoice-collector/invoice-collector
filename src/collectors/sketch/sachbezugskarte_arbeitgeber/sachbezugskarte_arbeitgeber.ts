@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SachbezugskarteArbeitgeberCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SachbezugskarteArbeitgeberCollector extends SketchCollector {
         version: "0",
         website: "https://www.sachbezugskarte.eu/secure/reports/billingfiles/show",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4532211.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SachbezugskarteArbeitgeberCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sachbezugskarte.eu/secure/reports/billingfiles/show",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DupliCheckerCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DupliCheckerCollector extends SketchCollector {
         version: "0",
         website: "https://pro.duplichecker.com/account-settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4181714.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DupliCheckerCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pro.duplichecker.com/account-settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

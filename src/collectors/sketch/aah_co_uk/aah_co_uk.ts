@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AahCoUkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AahCoUkCollector extends SketchCollector {
         version: "0",
         website: "https://www.aah.co.uk/webapp/wcs/stores/servlet/LoginAccessWebsitesView?catalogId=10053&langId=44&storeId=20053",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/20247.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AahCoUkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.aah.co.uk/webapp/wcs/stores/servlet/LoginAccessWebsitesView?catalogId=10053&langId=44&storeId=20053",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

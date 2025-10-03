@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TotalBelgiqueCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TotalBelgiqueCollector extends SketchCollector {
         version: "0",
         website: "https://services.totalenergies.be/fr/mes-espaces-personnels",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1037334.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TotalBelgiqueCollector extends SketchCollector {
             }
         },
         entryUrl: "https://services.totalenergies.be/fr/mes-espaces-personnels",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

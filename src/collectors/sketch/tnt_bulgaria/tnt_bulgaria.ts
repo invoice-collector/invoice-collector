@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TntBulgariaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TntBulgariaCollector extends SketchCollector {
         version: "0",
         website: "https://efaktura.bg/?l=bul",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1153614.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TntBulgariaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://efaktura.bg/?l=bul",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

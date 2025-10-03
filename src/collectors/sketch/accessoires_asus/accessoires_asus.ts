@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccessoiresAsusCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AccessoiresAsusCollector extends SketchCollector {
         version: "0",
         website: "https://www.accessoires-asus.com/compte/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1526269.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AccessoiresAsusCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.accessoires-asus.com/compte/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

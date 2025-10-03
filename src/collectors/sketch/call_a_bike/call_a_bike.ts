@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CallABikeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CallABikeCollector extends SketchCollector {
         version: "0",
         website: "https://www.callabike.de/de/kundenbereich/rechnungsubersicht",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9656.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CallABikeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.callabike.de/de/kundenbereich/rechnungsubersicht",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

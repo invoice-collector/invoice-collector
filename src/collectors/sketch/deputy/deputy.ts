@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeputyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeputyCollector extends SketchCollector {
         version: "0",
         website: "https://once.deputy.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102634.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeputyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://once.deputy.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

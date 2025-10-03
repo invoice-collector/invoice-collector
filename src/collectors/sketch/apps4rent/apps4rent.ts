@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Apps4rentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Apps4rentCollector extends SketchCollector {
         version: "0",
         website: "https://billing.apps4rent.com/clientarea.php",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/89120.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Apps4rentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://billing.apps4rent.com/clientarea.php",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

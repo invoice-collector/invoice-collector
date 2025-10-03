@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupeOceaCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class GroupeOceaCollector extends SketchCollector {
         version: "0",
         website: "https://groupe-ocea.fr",
         logo: "https://www.ecobatiment-cluster.fr/app/uploads/Group-ocea-redimensionne.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class GroupeOceaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://isihabitat.ocea-sb.com/documents",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

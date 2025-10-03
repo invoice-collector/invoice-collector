@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FahrlehrerversicherungCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FahrlehrerversicherungCollector extends SketchCollector {
         version: "0",
         website: "https://www.fv.de/meine-fv/postfach/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2522873.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FahrlehrerversicherungCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.fv.de/meine-fv/postfach/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

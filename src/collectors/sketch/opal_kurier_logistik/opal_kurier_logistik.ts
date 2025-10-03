@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpalKurierLogistikCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OpalKurierLogistikCollector extends SketchCollector {
         version: "0",
         website: "https://opal-kurier.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/428152.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OpalKurierLogistikCollector extends SketchCollector {
             }
         },
         entryUrl: "https://opal-kurier.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeodisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeodisCollector extends SketchCollector {
         version: "0",
         website: "https://geodis.com/user/loginc",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1079846.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeodisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://geodis.com/user/loginc",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

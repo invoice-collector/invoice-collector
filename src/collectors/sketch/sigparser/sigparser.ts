@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SigparserCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SigparserCollector extends SketchCollector {
         version: "0",
         website: "https://app.sigparser.com/Account/App#/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/213230.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SigparserCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.sigparser.com/Account/App#/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

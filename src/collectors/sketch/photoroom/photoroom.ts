@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhotoroomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PhotoroomCollector extends SketchCollector {
         version: "0",
         website: "https://invoice.stripe.com/i/acct_1IVDi9El9AVRLibq/live_YWNjdF8xSVZEaTlFbDlBVlJMaWJxLF9RVkIxUXpOczdEOUFHalgzbGg4ZEhHTGRjM0JRVWg0LDExNDM1ODcyNA02009WInwBT6?s=il&locale=en-GB",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3111298.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PhotoroomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://invoice.stripe.com/i/acct_1IVDi9El9AVRLibq/live_YWNjdF8xSVZEaTlFbDlBVlJMaWJxLF9RVkIxUXpOczdEOUFHalgzbGg4ZEhHTGRjM0JRVWg0LDExNDM1ODcyNA02009WInwBT6?s=il&locale=en-GB",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColoauCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ColoauCollector extends SketchCollector {
         version: "0",
         website: "https://portal.coloau.com.au/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106540.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ColoauCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.coloau.com.au/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

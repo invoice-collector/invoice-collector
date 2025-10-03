@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeyondwordsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BeyondwordsCollector extends SketchCollector {
         version: "0",
         website: "https://dash.beyondwords.io/dashboard/profile/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1475969.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BeyondwordsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dash.beyondwords.io/dashboard/profile/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

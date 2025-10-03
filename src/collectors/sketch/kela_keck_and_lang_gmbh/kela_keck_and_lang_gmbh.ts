@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KelaKeckAndLangGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KelaKeckAndLangGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/413899.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KelaKeckAndLangGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

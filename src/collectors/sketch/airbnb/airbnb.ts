@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirbnbCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AirbnbCollector extends SketchCollector {
         version: "0",
         website: "https://www.airbnb.de/trips/upcoming",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6387.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AirbnbCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.airbnb.de/trips/upcoming",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixelzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PixelzCollector extends SketchCollector {
         version: "0",
         website: "https://login.pixelz.com/Account#billingStatement",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/104774.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PixelzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.pixelz.com/Account#billingStatement",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

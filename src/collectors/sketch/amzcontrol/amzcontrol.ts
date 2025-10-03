@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmzcontrolCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmzcontrolCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.amzcontrol.com/en/auth/login/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/45193.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmzcontrolCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.amzcontrol.com/en/auth/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

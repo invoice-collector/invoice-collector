@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProimageeditorsDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ProimageeditorsDeCollector extends SketchCollector {
         version: "0",
         website: "https://pigonline.proimageeditors.de/index.php?fuseaction=proimageCustomer.orderList",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/65930.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ProimageeditorsDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pigonline.proimageeditors.de/index.php?fuseaction=proimageCustomer.orderList",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

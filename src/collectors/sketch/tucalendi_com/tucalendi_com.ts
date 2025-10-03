@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TucalendiComCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TucalendiComCollector extends SketchCollector {
         version: "0",
         website: "https://account.tucalendi.com/account/plan_settings",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2130780.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TucalendiComCollector extends SketchCollector {
             }
         },
         entryUrl: "https://account.tucalendi.com/account/plan_settings",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

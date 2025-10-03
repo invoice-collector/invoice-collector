@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmunchShiverNebulaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmunchShiverNebulaCollector extends SketchCollector {
         version: "0",
         website: "https://my.smunch.co/invoices/company",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1918693.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmunchShiverNebulaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.smunch.co/invoices/company",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeotouchByQuadientCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NeotouchByQuadientCollector extends SketchCollector {
         version: "0",
         website: "https://we4.neotouch.quadient.com/ondemand/webaccess/CustomerLogon.aspx?server=W23&skin=NeoTouch&lang=fr&uid=7B756A4E7D503E5424256B523A6C&user=j0t0001&TestCookie=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1645326.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NeotouchByQuadientCollector extends SketchCollector {
             }
         },
         entryUrl: "https://we4.neotouch.quadient.com/ondemand/webaccess/CustomerLogon.aspx?server=W23&skin=NeoTouch&lang=fr&uid=7B756A4E7D503E5424256B523A6C&user=j0t0001&TestCookie=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

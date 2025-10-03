@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VnrVerlagFurDieDeutscheWirtschaftAgCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VnrVerlagFurDieDeutscheWirtschaftAgCollector extends SketchCollecto
         version: "0",
         website: "https://kunde.vnrag.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/860271.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VnrVerlagFurDieDeutscheWirtschaftAgCollector extends SketchCollecto
             }
         },
         entryUrl: "https://kunde.vnrag.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

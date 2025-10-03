@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CirculyCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CirculyCollector extends SketchCollector {
         version: "0",
         website: "https://app.circuly.io/cms/invoices?page=1&per_page=10&sort=created_at",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1428794.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CirculyCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.circuly.io/cms/invoices?page=1&per_page=10&sort=created_at",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

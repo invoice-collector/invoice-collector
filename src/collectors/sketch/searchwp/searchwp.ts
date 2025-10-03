@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SearchwpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SearchwpCollector extends SketchCollector {
         version: "0",
         website: "http://www.searchwp.com",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/70569.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SearchwpCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.searchwp.com",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwetelCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EwetelCollector extends SketchCollector {
         version: "0",
         website: "https://mein.ewe.de/ewetelcss/secure/billingOverview.xhtml",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1374753.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EwetelCollector extends SketchCollector {
             }
         },
         entryUrl: "https://mein.ewe.de/ewetelcss/secure/billingOverview.xhtml",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

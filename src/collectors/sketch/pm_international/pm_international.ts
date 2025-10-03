@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PmInternationalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PmInternationalCollector extends SketchCollector {
         version: "0",
         website: "https://office.pm-international.com/account/documents/?lang=de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2175534.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PmInternationalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://office.pm-international.com/account/documents/?lang=de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DocmorrisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DocmorrisCollector extends SketchCollector {
         version: "0",
         website: "https://www.docmorris.de/meindocmorris/anmelden",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/62553.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DocmorrisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.docmorris.de/meindocmorris/anmelden",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

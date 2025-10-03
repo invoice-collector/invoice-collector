@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SignrequestCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SignrequestCollector extends SketchCollector {
         version: "0",
         website: "https://signrequest.com/#/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/98914.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SignrequestCollector extends SketchCollector {
             }
         },
         entryUrl: "https://signrequest.com/#/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

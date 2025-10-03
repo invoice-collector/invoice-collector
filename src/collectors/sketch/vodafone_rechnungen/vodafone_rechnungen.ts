@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneRechnungenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class VodafoneRechnungenCollector extends SketchCollector {
         version: "0",
         website: "https://webbill.vodafone.de/vf/getInvoice.wb?singleBillIndex=001049733044000000368085913520221108",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1488431.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class VodafoneRechnungenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://webbill.vodafone.de/vf/getInvoice.wb?singleBillIndex=001049733044000000368085913520221108",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

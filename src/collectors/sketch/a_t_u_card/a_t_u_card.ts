@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ATUCardCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ATUCardCollector extends SketchCollector {
         version: "0",
         website: "https://www.atu.de/pages/service/atucard/persoenlicherzugang/kontouebersicht.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919601.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ATUCardCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.atu.de/pages/service/atucard/persoenlicherzugang/kontouebersicht.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

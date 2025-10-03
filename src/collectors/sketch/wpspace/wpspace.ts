@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpspaceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WpspaceCollector extends SketchCollector {
         version: "0",
         website: "https://cp.wp-space.de/clientarea.php?action=invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2588219.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WpspaceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cp.wp-space.de/clientarea.php?action=invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

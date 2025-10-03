@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WelcomeOfficeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WelcomeOfficeCollector extends SketchCollector {
         version: "0",
         website: "https://www.welcomeoffice.com/UserAccount_V3/Authentification.aspx",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/124011.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WelcomeOfficeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.welcomeoffice.com/UserAccount_V3/Authentification.aspx",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

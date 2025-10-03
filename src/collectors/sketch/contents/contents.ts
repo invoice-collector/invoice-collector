@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContentsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ContentsCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.contents.com/en/myprofile?tool=mybalance",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1799132.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ContentsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.contents.com/en/myprofile?tool=mybalance",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

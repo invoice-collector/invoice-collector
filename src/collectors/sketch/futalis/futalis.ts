@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FutalisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FutalisCollector extends SketchCollector {
         version: "0",
         website: "https://futalis.de/customer/account/index/#/bestellungen/378577?utm_campaign=systemmail&utm_medium=email&utm_source=system",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/170774.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FutalisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://futalis.de/customer/account/index/#/bestellungen/378577?utm_campaign=systemmail&utm_medium=email&utm_source=system",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

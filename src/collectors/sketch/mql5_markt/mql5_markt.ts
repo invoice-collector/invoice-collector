@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Mql5MarktCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Mql5MarktCollector extends SketchCollector {
         version: "0",
         website: "https://www.mql5.com/de/users/cbanalyse/accounting",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/779010.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Mql5MarktCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mql5.com/de/users/cbanalyse/accounting",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

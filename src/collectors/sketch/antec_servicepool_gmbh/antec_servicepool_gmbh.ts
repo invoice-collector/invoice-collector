@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AntecServicepoolGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AntecServicepoolGmbhCollector extends SketchCollector {
         version: "0",
         website: "https://webportal.antec-servicepool.de:1443/DocumentArc/DocumentArchive",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/654747.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AntecServicepoolGmbhCollector extends SketchCollector {
             }
         },
         entryUrl: "https://webportal.antec-servicepool.de:1443/DocumentArc/DocumentArchive",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

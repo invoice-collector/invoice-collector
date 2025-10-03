@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleSquadraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleSquadraCollector extends SketchCollector {
         version: "0",
         website: "http://www.mutuelle-et-assurance.net/tag/squadra/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/131083.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleSquadraCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.mutuelle-et-assurance.net/tag/squadra/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

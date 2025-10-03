@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitaloceanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DigitaloceanCollector extends SketchCollector {
         version: "0",
         website: "https://cloud.digitalocean.com/droplets",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/6598.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DigitaloceanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cloud.digitalocean.com/droplets",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

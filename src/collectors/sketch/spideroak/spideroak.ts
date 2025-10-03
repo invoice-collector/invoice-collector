@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpideroakCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SpideroakCollector extends SketchCollector {
         version: "0",
         website: "https://spideroak.com/user/history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/211115.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SpideroakCollector extends SketchCollector {
             }
         },
         entryUrl: "https://spideroak.com/user/history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

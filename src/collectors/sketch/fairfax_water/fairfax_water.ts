@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FairfaxWaterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FairfaxWaterCollector extends SketchCollector {
         version: "0",
         website: "https://fwcustomer.org/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2723588.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FairfaxWaterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fwcustomer.org/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

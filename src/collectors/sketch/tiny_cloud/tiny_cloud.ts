@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TinyCloudCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TinyCloudCollector extends SketchCollector {
         version: "0",
         website: "https://www.tiny.cloud/my-account/profile/subscription/1472988",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/775854.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TinyCloudCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tiny.cloud/my-account/profile/subscription/1472988",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

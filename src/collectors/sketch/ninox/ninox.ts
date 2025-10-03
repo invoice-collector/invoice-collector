@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NinoxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NinoxCollector extends SketchCollector {
         version: "0",
         website: "https://ninoxdb.de/de/subscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/150642.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NinoxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ninoxdb.de/de/subscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

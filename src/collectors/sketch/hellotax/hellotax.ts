@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HellotaxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class HellotaxCollector extends SketchCollector {
         version: "0",
         website: "https://app.hellotax.com/en/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/133319.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class HellotaxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.hellotax.com/en/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

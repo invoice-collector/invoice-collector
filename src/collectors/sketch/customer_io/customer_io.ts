@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CustomerIoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CustomerIoCollector extends SketchCollector {
         version: "0",
         website: "https://fly.customer.io/settings/receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/38439.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CustomerIoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://fly.customer.io/settings/receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

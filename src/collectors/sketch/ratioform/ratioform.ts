@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RatioformCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RatioformCollector extends SketchCollector {
         version: "0",
         website: "https://www.ratioform.de/webshop/vs=de/center/main.ipm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/30579.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RatioformCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.ratioform.de/webshop/vs=de/center/main.ipm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

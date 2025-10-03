@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsosMarketplaceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AsosMarketplaceCollector extends SketchCollector {
         version: "0",
         website: "https://marketplace.asos.com/authentication/logon?returnUrl=%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1121175.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AsosMarketplaceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://marketplace.asos.com/authentication/logon?returnUrl=%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

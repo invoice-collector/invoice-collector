@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinanzpartnernetzCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FinanzpartnernetzCollector extends SketchCollector {
         version: "0",
         website: "https://www2.finanzpartnernetz.de/auszahlungen.cgi",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/180770.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FinanzpartnernetzCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www2.finanzpartnernetz.de/auszahlungen.cgi",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

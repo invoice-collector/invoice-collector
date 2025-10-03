@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OsmozisCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OsmozisCollector extends SketchCollector {
         version: "0",
         website: "https://console.osmozis.com/fr/cccfc8ce9c/inc_invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/746547.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OsmozisCollector extends SketchCollector {
             }
         },
         entryUrl: "https://console.osmozis.com/fr/cccfc8ce9c/inc_invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JournalLaDepecheCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JournalLaDepecheCollector extends SketchCollector {
         version: "0",
         website: "https://abonnement.ladepeche.fr/site/ladepeche/default/fr/compte2/factures.html?scrollto=content",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1468006.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JournalLaDepecheCollector extends SketchCollector {
             }
         },
         entryUrl: "https://abonnement.ladepeche.fr/site/ladepeche/default/fr/compte2/factures.html?scrollto=content",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

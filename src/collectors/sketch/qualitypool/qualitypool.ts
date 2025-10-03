@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QualitypoolCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class QualitypoolCollector extends SketchCollector {
         version: "0",
         website: "https://extranet.asc-online.de/intern/Postkorb/Lieferung/B1A38EDB-45CB-4D7E-826D-AAF2CE8B8183",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1739892.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class QualitypoolCollector extends SketchCollector {
             }
         },
         entryUrl: "https://extranet.asc-online.de/intern/Postkorb/Lieferung/B1A38EDB-45CB-4D7E-826D-AAF2CE8B8183",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

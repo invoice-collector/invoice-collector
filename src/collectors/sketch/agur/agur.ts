@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgurCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AgurCollector extends SketchCollector {
         version: "0",
         website: "https://ael.agur.fr/#/facture",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4699797.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AgurCollector extends SketchCollector {
             }
         },
         entryUrl: "https://ael.agur.fr/#/facture",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

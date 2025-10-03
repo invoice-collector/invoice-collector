@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KoneCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class KoneCollector extends SketchCollector {
         version: "0",
         website: "https://kone.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Kone_Logo_2023.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -24,6 +26,7 @@ export class KoneCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure2.anachron.com/kone/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

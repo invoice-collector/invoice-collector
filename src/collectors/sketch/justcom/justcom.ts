@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JustcomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JustcomCollector extends SketchCollector {
         version: "0",
         website: "https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/487.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JustcomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

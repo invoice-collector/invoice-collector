@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LyonnaiseDesEauxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LyonnaiseDesEauxCollector extends SketchCollector {
         version: "0",
         website: "https://www.toutsurmoneau.fr/mon-compte-en-ligne/je-me-connecte",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27332.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LyonnaiseDesEauxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.toutsurmoneau.fr/mon-compte-en-ligne/je-me-connecte",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

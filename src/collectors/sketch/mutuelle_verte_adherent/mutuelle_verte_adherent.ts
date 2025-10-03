@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleVerteAdherentCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleVerteAdherentCollector extends SketchCollector {
         version: "0",
         website: "https://www.mutuelleverte.com/connexion/##a",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/130700.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleVerteAdherentCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.mutuelleverte.com/connexion/##a",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

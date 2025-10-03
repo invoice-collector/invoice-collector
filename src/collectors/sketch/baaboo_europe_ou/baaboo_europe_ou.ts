@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaabooEuropeOuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BaabooEuropeOuCollector extends SketchCollector {
         version: "0",
         website: "https://baaboo.shop/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/568098.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BaabooEuropeOuCollector extends SketchCollector {
             }
         },
         entryUrl: "https://baaboo.shop/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

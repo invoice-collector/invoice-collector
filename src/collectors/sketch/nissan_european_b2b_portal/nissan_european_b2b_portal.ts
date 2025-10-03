@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NissanEuropeanB2bPortalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NissanEuropeanB2bPortalCollector extends SketchCollector {
         version: "0",
         website: "https://login.eu.nissan.biz/nidp/idff/sso?id=B2B&sid=0&option=credential&sid=0&target=https%3A%2F%2Feu.nissan.biz%2F",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2131286.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NissanEuropeanB2bPortalCollector extends SketchCollector {
             }
         },
         entryUrl: "https://login.eu.nissan.biz/nidp/idff/sso?id=B2B&sid=0&option=credential&sid=0&target=https%3A%2F%2Feu.nissan.biz%2F",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

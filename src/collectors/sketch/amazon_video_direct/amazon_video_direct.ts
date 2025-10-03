@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonVideoDirectCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AmazonVideoDirectCollector extends SketchCollector {
         version: "0",
         website: "https://www.amazon.com/ap/signin?clientContext=135-5131242-6373120&openid.return_to=https%3A%2F%2Fvideodirect.amazon.com%2Fap-post-redirect&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_dv_cooper_u",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/162053.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AmazonVideoDirectCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.amazon.com/ap/signin?clientContext=135-5131242-6373120&openid.return_to=https%3A%2F%2Fvideodirect.amazon.com%2Fap-post-redirect&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_dv_cooper_u",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

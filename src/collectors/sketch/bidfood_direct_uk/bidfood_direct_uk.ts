@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BidfoodDirectUkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BidfoodDirectUkCollector extends SketchCollector {
         version: "0",
         website: "https://www.bidfooddirect.co.uk",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/573839.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BidfoodDirectUkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.bidfooddirect.co.uk",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

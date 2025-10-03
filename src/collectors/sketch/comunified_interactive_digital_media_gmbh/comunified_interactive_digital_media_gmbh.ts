@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ComunifiedInteractiveDigitalMediaGmbhCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ComunifiedInteractiveDigitalMediaGmbhCollector extends SketchCollec
         version: "0",
         website: "https://www.comunified.com/service/invoice.php?menu=8",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1723359.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ComunifiedInteractiveDigitalMediaGmbhCollector extends SketchCollec
             }
         },
         entryUrl: "https://www.comunified.com/service/invoice.php?menu=8",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

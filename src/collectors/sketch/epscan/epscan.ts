@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpscanCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EpscanCollector extends SketchCollector {
         version: "0",
         website: "https://www.epcan.de/kundenlogin/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9209.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EpscanCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.epcan.de/kundenlogin/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

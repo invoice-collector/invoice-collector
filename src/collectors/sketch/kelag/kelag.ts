@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KelagCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KelagCollector extends SketchCollector {
         version: "0",
         website: "https://services.kelag.at/ISS/Login.aspx?service=start",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1363242.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KelagCollector extends SketchCollector {
             }
         },
         entryUrl: "https://services.kelag.at/ISS/Login.aspx?service=start",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

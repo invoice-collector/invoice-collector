@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StardslCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StardslCollector extends SketchCollector {
         version: "0",
         website: "https://www.stardsl.net/anmeldung/servlet/Cif1?func=13&subc=show&template=202",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9156.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StardslCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.stardsl.net/anmeldung/servlet/Cif1?func=13&subc=show&template=202",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

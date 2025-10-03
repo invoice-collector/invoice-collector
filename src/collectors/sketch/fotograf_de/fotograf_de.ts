@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotografDeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FotografDeCollector extends SketchCollector {
         version: "0",
         website: "https://app.fotograf.de/config/index_invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9307.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FotografDeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.fotograf.de/config/index_invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailreachCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MailreachCollector extends SketchCollector {
         version: "0",
         website: "https://app.mailreach.co/dashboard/12497/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2732522.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MailreachCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.mailreach.co/dashboard/12497/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

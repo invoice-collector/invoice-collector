@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LobsterPlaceCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LobsterPlaceCollector extends SketchCollector {
         version: "0",
         website: "https://portal.lobsterplacewholesale.com/?txid=SSWOS",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2382655.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LobsterPlaceCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.lobsterplacewholesale.com/?txid=SSWOS",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

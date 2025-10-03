@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AndreasPaulsenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AndreasPaulsenCollector extends SketchCollector {
         version: "0",
         website: "https://www.paulsen-online.de/v3/rechnungsarchiv.csp",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/67847.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AndreasPaulsenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.paulsen-online.de/v3/rechnungsarchiv.csp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

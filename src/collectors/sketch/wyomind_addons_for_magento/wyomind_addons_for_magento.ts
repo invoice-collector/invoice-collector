@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WyomindAddonsForMagentoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WyomindAddonsForMagentoCollector extends SketchCollector {
         version: "0",
         website: "https://www.wyomind.com/customer/invoice/index",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/94987.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WyomindAddonsForMagentoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.wyomind.com/customer/invoice/index",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

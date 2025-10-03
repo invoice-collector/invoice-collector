@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RevenuecatCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RevenuecatCollector extends SketchCollector {
         version: "0",
         website: "https://app.revenuecat.com/settings/billing/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226579.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RevenuecatCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.revenuecat.com/settings/billing/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

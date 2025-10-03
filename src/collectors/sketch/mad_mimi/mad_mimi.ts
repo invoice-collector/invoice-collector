@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MadMimiCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MadMimiCollector extends SketchCollector {
         version: "0",
         website: "https://madmimi.com/user/edit?account_info_tabs=account_info_receipts",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/89375.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MadMimiCollector extends SketchCollector {
             }
         },
         entryUrl: "https://madmimi.com/user/edit?account_info_tabs=account_info_receipts",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

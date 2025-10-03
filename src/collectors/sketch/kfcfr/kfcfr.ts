@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KfcFrCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class KfcFrCollector extends SketchCollector {
         version: "0",
         website: "https://kfc.fr",
         logo: "https://upload.wikimedia.org/wikipedia/sco/b/bf/KFC_logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class KfcFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kfc.fr/mon-compte/connexion"
+        entryUrl: "https://www.kfc.fr/mon-compte/connexion",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

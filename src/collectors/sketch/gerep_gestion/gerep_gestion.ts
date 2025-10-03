@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GerepGestionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GerepGestionCollector extends SketchCollector {
         version: "0",
         website: "https://services.gerep.fr/particuliers",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/106536.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GerepGestionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://services.gerep.fr/particuliers",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

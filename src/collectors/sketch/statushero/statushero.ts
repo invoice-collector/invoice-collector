@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StatusheroCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StatusheroCollector extends SketchCollector {
         version: "0",
         website: "https://statushero.com/signin",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/211148.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StatusheroCollector extends SketchCollector {
             }
         },
         entryUrl: "https://statushero.com/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

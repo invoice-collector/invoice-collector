@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TricomaSupportCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TricomaSupportCollector extends SketchCollector {
         version: "0",
         website: "https://support.tricoma.de/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132281.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TricomaSupportCollector extends SketchCollector {
             }
         },
         entryUrl: "https://support.tricoma.de/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

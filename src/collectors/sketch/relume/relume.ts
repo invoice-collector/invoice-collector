@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RelumeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RelumeCollector extends SketchCollector {
         version: "0",
         website: "https://library.relume.io/dashboard#/ms/profile",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1980330.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RelumeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://library.relume.io/dashboard#/ms/profile",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

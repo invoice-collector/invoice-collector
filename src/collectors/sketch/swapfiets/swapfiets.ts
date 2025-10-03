@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwapfietsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SwapfietsCollector extends SketchCollector {
         version: "0",
         website: "https://identity.swapfiets.com/Account/Login",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3083169.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SwapfietsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://identity.swapfiets.com/Account/Login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

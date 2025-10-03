@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WestfalenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WestfalenCollector extends SketchCollector {
         version: "0",
         website: "https://www.westfalen-services.eu/default.asp?rq_AppGuid=0435AFC26C6EDDE278F4A1D3522934C10219803F&rq_TargetPageGuid=0C26109FEC6632976B939BE6F38FBB8795DC9612&rq_Layout=Westfalen-AG_Register&rq_MenuGuid=A7EAA24A978E6962C3219CE355E91CCF57BCFBD8&rq_TemplateKe",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/167020.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WestfalenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.westfalen-services.eu/default.asp?rq_AppGuid=0435AFC26C6EDDE278F4A1D3522934C10219803F&rq_TargetPageGuid=0C26109FEC6632976B939BE6F38FBB8795DC9612&rq_Layout=Westfalen-AG_Register&rq_MenuGuid=A7EAA24A978E6962C3219CE355E91CCF57BCFBD8&rq_TemplateKe",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

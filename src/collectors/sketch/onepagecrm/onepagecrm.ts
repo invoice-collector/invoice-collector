@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnepagecrmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OnepagecrmCollector extends SketchCollector {
         version: "0",
         website: "https://secure.onepagecrm.com/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/24447.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OnepagecrmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://secure.onepagecrm.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

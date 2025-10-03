@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArtgridCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ArtgridCollector extends SketchCollector {
         version: "0",
         website: "https://artgrid.io/my-account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/759118.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ArtgridCollector extends SketchCollector {
             }
         },
         entryUrl: "https://artgrid.io/my-account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

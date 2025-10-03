@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptisignsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class OptisignsCollector extends SketchCollector {
         version: "0",
         website: "https://app.optisigns.com/app/s/payment-history",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2797988.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class OptisignsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.optisigns.com/app/s/payment-history",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

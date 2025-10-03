@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleIrpAutoEntrepriseCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MutuelleIrpAutoEntrepriseCollector extends SketchCollector {
         version: "0",
         website: "https://www.irp-auto.com/acces-votre-compte-entreprise",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/129077.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MutuelleIrpAutoEntrepriseCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.irp-auto.com/acces-votre-compte-entreprise",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

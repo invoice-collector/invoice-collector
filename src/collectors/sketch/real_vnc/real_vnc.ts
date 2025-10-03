@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RealVncCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class RealVncCollector extends SketchCollector {
         version: "0",
         website: "https://manage.realvnc.com/en/?",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1040949.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class RealVncCollector extends SketchCollector {
             }
         },
         entryUrl: "https://manage.realvnc.com/en/?",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

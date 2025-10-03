@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrintsmarterCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrintsmarterCollector extends SketchCollector {
         version: "0",
         website: "https://www.printsmarter.de/mein-benutzerkonto/bestellungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/153984.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrintsmarterCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.printsmarter.de/mein-benutzerkonto/bestellungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

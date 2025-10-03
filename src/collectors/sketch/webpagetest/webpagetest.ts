@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebpagetestCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WebpagetestCollector extends SketchCollector {
         version: "0",
         website: "https://iowpt.catchpoint.com/auth/WptAccount/Login?ReturnUrl=https://www.webpagetest.org/cpauth",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3083200.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WebpagetestCollector extends SketchCollector {
             }
         },
         entryUrl: "https://iowpt.catchpoint.com/auth/WptAccount/Login?ReturnUrl=https://www.webpagetest.org/cpauth",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

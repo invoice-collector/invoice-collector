@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Fliphtml5Collector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class Fliphtml5Collector extends SketchCollector {
         version: "0",
         website: "https://fliphtml5.com/de/center/billing/#Billing-Cycle",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2727894.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class Fliphtml5Collector extends SketchCollector {
             }
         },
         entryUrl: "https://fliphtml5.com/de/center/billing/#Billing-Cycle",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

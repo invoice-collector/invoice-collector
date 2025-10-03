@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KvbKolnerVerkehrsbetriebeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KvbKolnerVerkehrsbetriebeCollector extends SketchCollector {
         version: "0",
         website: "https://kvb.mobilesticket.de/ticketportal/#",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/738651.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KvbKolnerVerkehrsbetriebeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kvb.mobilesticket.de/ticketportal/#",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

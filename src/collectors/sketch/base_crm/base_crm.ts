@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaseCrmCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BaseCrmCollector extends SketchCollector {
         version: "0",
         website: "https://core.futuresimple.com/sales/users/login?__hstc=102910175.3dc3dad61841786b8d73a5a4670b1527.1516721944299.1516721944299.1516721944299.1&__hssc=102910175.1.1516721944299&__hsfp=26496145",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8557.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BaseCrmCollector extends SketchCollector {
             }
         },
         entryUrl: "https://core.futuresimple.com/sales/users/login?__hstc=102910175.3dc3dad61841786b8d73a5a4670b1527.1516721944299.1516721944299.1516721944299.1&__hssc=102910175.1.1516721944299&__hsfp=26496145",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

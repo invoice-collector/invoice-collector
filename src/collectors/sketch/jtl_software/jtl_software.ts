@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JtlSoftwareCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JtlSoftwareCollector extends SketchCollector {
         version: "0",
         website: "https://kundencenter.jtl-software.de/rechnungen",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/10796.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JtlSoftwareCollector extends SketchCollector {
             }
         },
         entryUrl: "https://kundencenter.jtl-software.de/rechnungen",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

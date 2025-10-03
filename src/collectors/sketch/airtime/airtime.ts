@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirtimeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AirtimeCollector extends SketchCollector {
         version: "0",
         website: "https://airtame.cloud/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1475998.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AirtimeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://airtame.cloud/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReliantCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ReliantCollector extends SketchCollector {
         version: "0",
         website: "https://www.reliant.com/public/altLogon.htm",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8833.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ReliantCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.reliant.com/public/altLogon.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TophostCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TophostCollector extends SketchCollector {
         version: "0",
         website: "https://www.tophost.it/co/accesso",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8737.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TophostCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.tophost.it/co/accesso",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

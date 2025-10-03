@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaulCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class PaulCollector extends SketchCollector {
         version: "0",
         website: "https://paul.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Paul.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -23,7 +25,8 @@ export class PaulCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.paul.fr/customer/account/login/"
+        entryUrl: "https://www.paul.fr/customer/account/login/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

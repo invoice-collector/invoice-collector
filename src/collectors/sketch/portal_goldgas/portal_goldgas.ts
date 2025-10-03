@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortalGoldgasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PortalGoldgasCollector extends SketchCollector {
         version: "0",
         website: "https://portal.goldgas.de/registrierung",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1525069.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PortalGoldgasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://portal.goldgas.de/registrierung",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

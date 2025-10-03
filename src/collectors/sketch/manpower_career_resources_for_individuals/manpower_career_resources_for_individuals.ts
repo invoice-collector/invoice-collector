@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollec
         version: "0",
         website: "https://www.manpower.com/wps/portal/ManpowerUSA/career-resources",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/107841.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollec
             }
         },
         entryUrl: "https://www.manpower.com/wps/portal/ManpowerUSA/career-resources",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

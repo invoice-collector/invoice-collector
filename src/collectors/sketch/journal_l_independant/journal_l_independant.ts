@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JournalLIndependantCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class JournalLIndependantCollector extends SketchCollector {
         version: "0",
         website: "https://abonnement.lindependant.fr/site/lindependantv2/default/fr/compte3/mes-factures.html",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4480032.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class JournalLIndependantCollector extends SketchCollector {
             }
         },
         entryUrl: "https://abonnement.lindependant.fr/site/lindependantv2/default/fr/compte3/mes-factures.html",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

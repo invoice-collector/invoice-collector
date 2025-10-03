@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheBahnDokumentenAndRechnungsportalCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DeutscheBahnDokumentenAndRechnungsportalCollector extends SketchCol
         version: "0",
         website: "https://documentportal.deutschebahn.com/Logon",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1060565.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DeutscheBahnDokumentenAndRechnungsportalCollector extends SketchCol
             }
         },
         entryUrl: "https://documentportal.deutschebahn.com/Logon",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

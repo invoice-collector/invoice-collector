@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PresseboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PresseboxCollector extends SketchCollector {
         version: "0",
         website: "https://www.pressebox.de/mybox",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/102719.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PresseboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.pressebox.de/mybox",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

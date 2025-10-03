@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimelineSolutionsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PrimelineSolutionsCollector extends SketchCollector {
         version: "0",
         website: "https://www.primeline-solutions.com/de/customer/invoice/all/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/192204.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PrimelineSolutionsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.primeline-solutions.com/de/customer/invoice/all/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

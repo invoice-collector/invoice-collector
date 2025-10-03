@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StunningCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StunningCollector extends SketchCollector {
         version: "0",
         website: "https://stunning.co/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/746532.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StunningCollector extends SketchCollector {
             }
         },
         entryUrl: "https://stunning.co/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

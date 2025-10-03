@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CompagnieParisienneDeChauffageUrbainCpcuCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CompagnieParisienneDeChauffageUrbainCpcuCollector extends SketchCol
         version: "0",
         website: "https://cpcu-ec.dsa-prod.myoddcloud.com/my/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2382499.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CompagnieParisienneDeChauffageUrbainCpcuCollector extends SketchCol
             }
         },
         entryUrl: "https://cpcu-ec.dsa-prod.myoddcloud.com/my/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

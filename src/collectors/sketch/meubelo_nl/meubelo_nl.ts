@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeubeloNlCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MeubeloNlCollector extends SketchCollector {
         version: "0",
         website: "https://partner.meubelo.nl/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/819972.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MeubeloNlCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partner.meubelo.nl/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

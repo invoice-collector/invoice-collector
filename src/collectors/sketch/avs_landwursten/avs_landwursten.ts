@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvsLandwurstenCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AvsLandwurstenCollector extends SketchCollector {
         version: "0",
         website: "https://meldeschein.avs.de/landwursten/auswert3Rechnungseinsicht.do?init=yes",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4487732.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AvsLandwurstenCollector extends SketchCollector {
             }
         },
         entryUrl: "https://meldeschein.avs.de/landwursten/auswert3Rechnungseinsicht.do?init=yes",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

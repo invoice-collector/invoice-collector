@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdvastoreCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AdvastoreCollector extends SketchCollector {
         version: "0",
         website: "https://merchant.advastore.com/my-storage/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2785613.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AdvastoreCollector extends SketchCollector {
             }
         },
         entryUrl: "https://merchant.advastore.com/my-storage/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

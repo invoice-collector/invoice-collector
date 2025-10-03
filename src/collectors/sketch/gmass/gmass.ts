@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GmassCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GmassCollector extends SketchCollector {
         version: "0",
         website: "https://www.gmass.co",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1876256.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GmassCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.gmass.co",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

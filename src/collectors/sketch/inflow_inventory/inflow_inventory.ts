@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InflowInventoryCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class InflowInventoryCollector extends SketchCollector {
         version: "0",
         website: "https://app.inflowinventory.com/options/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/153979.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class InflowInventoryCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.inflowinventory.com/options/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

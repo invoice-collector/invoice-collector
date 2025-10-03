@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IngramMicroCloudBeCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class IngramMicroCloudBeCollector extends SketchCollector {
         version: "0",
         website: "https://cp.be.eu.cloud.im/ccp/v/pa/ccp-billing/history-invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2842030.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class IngramMicroCloudBeCollector extends SketchCollector {
             }
         },
         entryUrl: "https://cp.be.eu.cloud.im/ccp/v/pa/ccp-billing/history-invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

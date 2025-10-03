@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlinkCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class FlinkCollector extends SketchCollector {
         version: "0",
         website: "https://www.goflink.com/de-DE/account/order-details/ea933e44-7ecc-4fbc-9790-ecd9e700d016/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1881830.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class FlinkCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.goflink.com/de-DE/account/order-details/ea933e44-7ecc-4fbc-9790-ecd9e700d016/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteamCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SteamCollector extends SketchCollector {
         version: "0",
         website: "https://store.steampowered.com//login/?redir=",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/42725.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SteamCollector extends SketchCollector {
             }
         },
         entryUrl: "https://store.steampowered.com//login/?redir=",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

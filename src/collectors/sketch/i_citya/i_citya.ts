@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ICityaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ICityaCollector extends SketchCollector {
         version: "0",
         website: "https://www.citya.com/i-citya/coproprietaire",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/108557.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ICityaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.citya.com/i-citya/coproprietaire",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

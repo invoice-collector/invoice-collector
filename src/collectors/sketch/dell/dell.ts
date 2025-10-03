@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DellCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DellCollector extends SketchCollector {
         version: "0",
         website: "https://www.dell.com/de-de/myaccount",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8846.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DellCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dell.com/de-de/myaccount",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

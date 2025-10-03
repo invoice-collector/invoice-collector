@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmabtpCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SmabtpCollector extends SketchCollector {
         version: "0",
         website: "https://www.services-smabtp.net/monespace/#/documents/contrats",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730405.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SmabtpCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.services-smabtp.net/monespace/#/documents/contrats",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

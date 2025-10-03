@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexmoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NexmoCollector extends SketchCollector {
         version: "0",
         website: "https://dashboard.nexmo.com/billing-and-payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/16789.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NexmoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://dashboard.nexmo.com/billing-and-payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheMakeryCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class TheMakeryCollector extends SketchCollector {
         version: "0",
         website: "https://redesign.themakery.de/workshopprovider/payments",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/161943.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class TheMakeryCollector extends SketchCollector {
             }
         },
         entryUrl: "https://redesign.themakery.de/workshopprovider/payments",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

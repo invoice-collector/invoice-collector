@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KickboxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KickboxCollector extends SketchCollector {
         version: "0",
         website: "https://app.kickbox.com/accounts/ls4oBBrK/settings/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/429289.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KickboxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.kickbox.com/accounts/ls4oBBrK/settings/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

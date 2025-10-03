@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishTelecomCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class BritishTelecomCollector extends SketchCollector {
         version: "0",
         website: "https://my.bt.com/s/apps/appsmybt/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/71234.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class BritishTelecomCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.bt.com/s/apps/appsmybt/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

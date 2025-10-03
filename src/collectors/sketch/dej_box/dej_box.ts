@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DejBoxCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class DejBoxCollector extends SketchCollector {
         version: "0",
         website: "https://www.dejbox.fr/account.jsp?to=solde",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/943602.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class DejBoxCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.dejbox.fr/account.jsp?to=solde",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssemblaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AssemblaCollector extends SketchCollector {
         version: "0",
         website: "https://www.assembla.com/login#transactionsList",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/515.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AssemblaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.assembla.com/login#transactionsList",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

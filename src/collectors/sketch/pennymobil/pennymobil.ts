@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PennymobilCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class PennymobilCollector extends SketchCollector {
         version: "0",
         website: "https://pennymobil.congstar.de/mein-pennymobil/meine-rechnungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/132487.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class PennymobilCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pennymobil.congstar.de/mein-pennymobil/meine-rechnungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

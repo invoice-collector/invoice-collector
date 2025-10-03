@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyServiceOttawaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MyServiceOttawaCollector extends SketchCollector {
         version: "0",
         website: "https://myservice.ottawa.ca/profile/account/login?lang=en",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/23368.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MyServiceOttawaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myservice.ottawa.ca/profile/account/login?lang=en",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

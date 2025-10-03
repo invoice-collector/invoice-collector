@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CleverElementsCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class CleverElementsCollector extends SketchCollector {
         version: "0",
         website: "https://www.sendcockpit.com/appl/ce/software/code/DoorLogin.php?&b=cleverelements&bid=?&bid=1",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/29317.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class CleverElementsCollector extends SketchCollector {
             }
         },
         entryUrl: "https://www.sendcockpit.com/appl/ce/software/code/DoorLogin.php?&b=cleverelements&bid=?&bid=1",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

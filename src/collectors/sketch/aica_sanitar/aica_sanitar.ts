@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AicaSanitarCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AicaSanitarCollector extends SketchCollector {
         version: "0",
         website: "https://aicasanitaer.de/index.php?main_page=login&zenid=e316295ad37676f25a2fd9cf004c4799",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2225191.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AicaSanitarCollector extends SketchCollector {
             }
         },
         entryUrl: "https://aicasanitaer.de/index.php?main_page=login&zenid=e316295ad37676f25a2fd9cf004c4799",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

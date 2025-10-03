@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaingauEnergieCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class MaingauEnergieCollector extends SketchCollector {
         version: "0",
         website: "https://onlineservice.service-rz.de/?act=login&werknr=52&tid=19739fd31cbf3f5fe3764e6b03128f5e#email",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/28835.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class MaingauEnergieCollector extends SketchCollector {
             }
         },
         entryUrl: "https://onlineservice.service-rz.de/?act=login&werknr=52&tid=19739fd31cbf3f5fe3764e6b03128f5e#email",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

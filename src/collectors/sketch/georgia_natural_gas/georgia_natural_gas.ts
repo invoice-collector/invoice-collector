@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeorgiaNaturalGasCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GeorgiaNaturalGasCollector extends SketchCollector {
         version: "0",
         website: "https://myaccount.gng.com/BillHistory",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/240021.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GeorgiaNaturalGasCollector extends SketchCollector {
             }
         },
         entryUrl: "https://myaccount.gng.com/BillHistory",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

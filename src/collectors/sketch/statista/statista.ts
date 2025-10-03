@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StatistaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class StatistaCollector extends SketchCollector {
         version: "0",
         website: "https://de.statista.com/profil/rechnungen/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/56749.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class StatistaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://de.statista.com/profil/rechnungen/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

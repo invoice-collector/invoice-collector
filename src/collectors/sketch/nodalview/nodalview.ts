@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NodalviewCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class NodalviewCollector extends SketchCollector {
         version: "0",
         website: "https://app.nodalview.com/fr/organisation/invoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2153461.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class NodalviewCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.nodalview.com/fr/organisation/invoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

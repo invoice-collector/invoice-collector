@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LesplaisirsfruitesCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class LesplaisirsfruitesCollector extends SketchCollector {
         version: "0",
         website: "https://app.lesplaisirsfruites.com/myInvoices",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4397099.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class LesplaisirsfruitesCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.lesplaisirsfruites.com/myInvoices",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

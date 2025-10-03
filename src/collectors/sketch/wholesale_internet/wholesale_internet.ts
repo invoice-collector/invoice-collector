@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WholesaleInternetCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class WholesaleInternetCollector extends SketchCollector {
         version: "0",
         website: "https://my.wholesaleinternet.net/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/52185.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class WholesaleInternetCollector extends SketchCollector {
             }
         },
         entryUrl: "https://my.wholesaleinternet.net/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

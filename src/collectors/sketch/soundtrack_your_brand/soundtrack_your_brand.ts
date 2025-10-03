@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoundtrackYourBrandCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class SoundtrackYourBrandCollector extends SketchCollector {
         version: "0",
         website: "https://business.soundtrackyourbrand.com/accounts/QWNjb3VudCwsMWxpd3g5bzJ4MzQv/settings/billing",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/708709.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class SoundtrackYourBrandCollector extends SketchCollector {
             }
         },
         entryUrl: "https://business.soundtrackyourbrand.com/accounts/QWNjb3VudCwsMWxpd3g5bzJ4MzQv/settings/billing",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

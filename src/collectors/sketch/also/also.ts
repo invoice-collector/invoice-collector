@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlsoCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AlsoCollector extends SketchCollector {
         version: "0",
         website: "https://weblogin.also.com/auth/realms/also-customers/protocol/openid-connect/auth?response_type=code&scope=edit&client_id=pegasos-shop-1010&kc_locale=de&redirect_uri=https%3A%2F%2Fwww.also.com%2Fec%2Fcms5%2Fde_1010%2F1010%2Finformationen%2Fneukundenanmeld",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27054.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AlsoCollector extends SketchCollector {
             }
         },
         entryUrl: "https://weblogin.also.com/auth/realms/also-customers/protocol/openid-connect/auth?response_type=code&scope=edit&client_id=pegasos-shop-1010&kc_locale=de&redirect_uri=https%3A%2F%2Fwww.also.com%2Fec%2Fcms5%2Fde_1010%2F1010%2Finformationen%2Fneukundenanmeld",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

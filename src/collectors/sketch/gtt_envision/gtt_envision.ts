@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GttEnvisionCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class GttEnvisionCollector extends SketchCollector {
         version: "0",
         website: "https://envision.gtt.net/billing-invoice",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4472530.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class GttEnvisionCollector extends SketchCollector {
             }
         },
         entryUrl: "https://envision.gtt.net/billing-invoice",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

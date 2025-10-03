@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XperityPartnersCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class XperityPartnersCollector extends SketchCollector {
         version: "0",
         website: "https://partners.xperity.de/auszahlungen.cgi",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/773298.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class XperityPartnersCollector extends SketchCollector {
             }
         },
         entryUrl: "https://partners.xperity.de/auszahlungen.cgi",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

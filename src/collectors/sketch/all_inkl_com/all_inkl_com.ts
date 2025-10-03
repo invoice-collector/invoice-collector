@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllInklCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class AllInklCollector extends SketchCollector {
         version: "0",
         website: "https://all-inkl.com/members/",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/3074.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class AllInklCollector extends SketchCollector {
             }
         },
         entryUrl: "https://all-inkl.com/members/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KartonaraCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class KartonaraCollector extends SketchCollector {
         version: "0",
         website: "http://www.kartonara.de",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/108011.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class KartonaraCollector extends SketchCollector {
             }
         },
         entryUrl: "http://www.kartonara.de",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

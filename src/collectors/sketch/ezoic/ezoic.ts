@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EzoicCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class EzoicCollector extends SketchCollector {
         version: "0",
         website: "https://pubdash.ezoic.com/account/payments/subscriptions",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2730015.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class EzoicCollector extends SketchCollector {
             }
         },
         entryUrl: "https://pubdash.ezoic.com/account/payments/subscriptions",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

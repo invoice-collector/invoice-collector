@@ -1,5 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChrometaCollector extends SketchCollector {
 
@@ -10,6 +11,7 @@ export class ChrometaCollector extends SketchCollector {
         version: "0",
         website: "https://app.chrometa.com/account",
         logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/78867.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -25,6 +27,7 @@ export class ChrometaCollector extends SketchCollector {
             }
         },
         entryUrl: "https://app.chrometa.com/account",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
