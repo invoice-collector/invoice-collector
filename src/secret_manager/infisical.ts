@@ -19,6 +19,7 @@ export class Infisical extends AbstractSecretManager {
     path: string;
     client: InfisicalSDK;
     private connectionReady: Promise<void>;
+    private ensuredPath: boolean = false;
 
     constructor() {
         super();
@@ -53,6 +54,7 @@ export class Infisical extends AbstractSecretManager {
     async addSecret(key: string, secret: Secret): Promise<string> {
         try {
             await this.connectionReady;
+            await this.ensureFolderIfNeeded();
             const stringSecret: string = JSON.stringify(secret);
             await this.client.secrets().createSecret(key, {
                 projectId: this.projectId,
@@ -148,6 +150,45 @@ export class Infisical extends AbstractSecretManager {
     private isNotFoundError(err: unknown): boolean {
         const anyErr = err as any;
         return anyErr?.status === 404 || anyErr?.response?.status === 404 || anyErr?.code === 404 || anyErr?.code === "NotFound";
+    }
+
+    private async ensureFolderIfNeeded(): Promise<void> {
+        if (this.ensuredPath) {
+            return;
+        }
+        if (!this.path || this.path === "/") {
+            this.ensuredPath = true;
+            return;
+        }
+        const segments = this.path.split('/').filter(Boolean);
+        if (segments.length === 0) {
+            this.ensuredPath = true;
+            return;
+        }
+        const name = segments[segments.length - 1];
+        const parent = '/' + segments.slice(0, -1).join('/');
+        try {
+            await this.client.folders().listFolders({
+                environment: this.environment,
+                projectId: this.projectId,
+                path: this.path,
+                recursive: false
+            });
+            this.ensuredPath = true;
+        } catch (err) {
+            const anyErr = err as any;
+            if (anyErr?.response?.status === 404 || anyErr?.status === 404) {
+                await this.client.folders().create({
+                    name,
+                    path: parent === '//' ? '/' : (parent || '/'),
+                    projectId: this.projectId,
+                    environment: this.environment
+                });
+                this.ensuredPath = true;
+                return;
+            }
+            throw err;
+        }
     }
 }
 
