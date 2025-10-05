@@ -18,6 +18,7 @@ export class Infisical extends AbstractSecretManager {
     environment: string;
     path: string;
     client: InfisicalSDK;
+    private connectionReady: Promise<void>;
 
     constructor() {
         super();
@@ -29,7 +30,7 @@ export class Infisical extends AbstractSecretManager {
         this.client = new InfisicalSDK({ siteUrl: this.apiUrl });
         // Set access token for SDK
         this.client.auth().accessToken(this.token);
-        this.connect();
+        this.connectionReady = this.connect();
     }
 
     async connect(): Promise<void> {
@@ -43,7 +44,7 @@ export class Infisical extends AbstractSecretManager {
             console.log("Connected successfully to Infisical");
         }
         catch (err) {
-            console.error("Connection to Infisical failed", err);
+            throw new Error("Connection to Infisical failed", { cause: err as Error });
         }
     }
 
@@ -51,6 +52,7 @@ export class Infisical extends AbstractSecretManager {
 
     async addSecret(key: string, secret: Secret): Promise<string> {
         try {
+            await this.connectionReady;
             const stringSecret: string = JSON.stringify(secret);
             await this.client.secrets().createSecret(key, {
                 projectId: this.projectId,
@@ -70,6 +72,7 @@ export class Infisical extends AbstractSecretManager {
 
     async getSecret(id: string): Promise<Secret | null> {
         try {
+            await this.connectionReady;
             const { key } = this.parseId(id);
             const res = await this.client.secrets().getSecret({
                 projectId: this.projectId,
@@ -85,12 +88,16 @@ export class Infisical extends AbstractSecretManager {
             return JSON.parse(value);
         }
         catch (err) {
+            if (this.isNotFoundError(err)) {
+                return null;
+            }
             throw new Error(`Failed to get secret ${id}`, { cause: err as Error });
         }
     }
 
     async updateSecret(id: string, key: string, secret: Secret): Promise<string> {
         try {
+            await this.connectionReady;
             const stringSecret: string = JSON.stringify(secret);
             await this.client.secrets().updateSecret(key, {
                 projectId: this.projectId,
@@ -113,6 +120,7 @@ export class Infisical extends AbstractSecretManager {
 
     async deleteSecrets(ids: string[]): Promise<void> {
         try {
+            await this.connectionReady;
             const secretNames = ids.map((id) => this.parseId(id).key);
             await Promise.all(secretNames.map((name) => this.client.secrets().deleteSecret(name, {
                 projectId: this.projectId,
@@ -135,6 +143,11 @@ export class Infisical extends AbstractSecretManager {
         const parts = id.split(":");
         const key = parts.slice(3).join(":");
         return { key };
+    }
+
+    private isNotFoundError(err: unknown): boolean {
+        const anyErr = err as any;
+        return anyErr?.status === 404 || anyErr?.response?.status === 404 || anyErr?.code === 404 || anyErr?.code === "NotFound";
     }
 }
 
