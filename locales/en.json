@@ -32,6 +32,8 @@
   "i18n.collectors.amazon_business.company": "Company name",
   "i18n.collectors.amazon_business.company.placeholder": "Name of the company as displayed on the Amazon website",
   "i18n.collectors.amazon_business.description": "Amazon Business is an online marketplace for professionals.",
+  "i18n.collectors.ameli.description": "Ameli is the official portal for French health insurance.",
+  "i18n.collectors.ameli.identifier.placeholder": "13-digit Social Security number",
   "i18n.collectors.antargaz.description": "Antargaz is a French supplier of propane and butane gas for domestic and professional use.",
   "i18n.collectors.bmstores.description": "B&M is a retail chain offering a variety of home goods and groceries.",
   "i18n.collectors.bouyguestelecom.description": "Bouygues Telecom is a major French telecommunications provider offering mobile, internet, and TV services.",
