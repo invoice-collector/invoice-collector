@@ -126,6 +126,7 @@
   "i18n.views.manage.sketch.hit": "I need this collector to be developed!",
   "i18n.views.manage.sketch.hit.done": "Thank you for your feedback! We have been informed and will try to add it as soon as possible.",
   "i18n.views.manage.success": "Credential successfully added! New invoices will be sent to your email address.",
+  "i18n.views.manage.collected": "A new collect has been successfully completed.",
   "i18n.views.manage.terms_conditions": "Terms of Use",
   "i18n.views.manage.terms_conditions.read": "I acknowledge that I have read and accept the",
   "i18n.views.manage.unknown": "Oops! Something went wrong... We will try again later.",
