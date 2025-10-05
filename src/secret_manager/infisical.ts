@@ -1,0 +1,141 @@
+import { AbstractSecretManager, Secret } from "./abstractSecretManager";
+import * as utils from "../utils";
+import { InfisicalSDK, SecretType } from "@infisical/sdk";
+
+type InfisicalSecretResponse = {
+    secretName: string,
+    secretValue: string,
+    secretComment?: string,
+    version?: number,
+    id?: string
+}
+
+export class Infisical extends AbstractSecretManager {
+
+    apiUrl: string;
+    token: string;
+    projectId: string;
+    environment: string;
+    path: string;
+    client: InfisicalSDK;
+
+    constructor() {
+        super();
+        this.apiUrl = utils.getEnvVar("SECRET_MANAGER_INFISICAL_API_URI");
+        this.token = utils.getEnvVar("SECRET_MANAGER_INFISICAL_TOKEN");
+        this.projectId = utils.getEnvVar("SECRET_MANAGER_INFISICAL_PROJECT_ID");
+        this.environment = utils.getEnvVar("SECRET_MANAGER_INFISICAL_ENVIRONMENT");
+        this.path = utils.getEnvVar("SECRET_MANAGER_INFISICAL_PATH", "/");
+        this.client = new InfisicalSDK({ siteUrl: this.apiUrl });
+        // Set access token for SDK
+        this.client.auth().accessToken(this.token);
+        this.connect();
+    }
+
+    async connect(): Promise<void> {
+        try {
+            // Lightweight connectivity check: list one variable (SDK)
+            await this.client.secrets().listSecrets({
+                projectId: this.projectId,
+                environment: this.environment,
+                secretPath: this.path
+            });
+            console.log("Connected successfully to Infisical");
+        }
+        catch (err) {
+            console.error("Connection to Infisical failed", err);
+        }
+    }
+
+    // SECRETS
+
+    async addSecret(key: string, secret: Secret): Promise<string> {
+        try {
+            const stringSecret: string = JSON.stringify(secret);
+            await this.client.secrets().createSecret(key, {
+                projectId: this.projectId,
+                environment: this.environment,
+                secretPath: this.path,
+                type: SecretType.Shared,
+                secretValue: stringSecret,
+                skipMultilineEncoding: true
+            });
+            // Infisical identifies by name+path; we compose an id consistent for later retrieval
+            return this.composeId(key);
+        }
+        catch (err) {
+            throw new Error(`Failed to add secret ${key}`, { cause: err as Error });
+        }
+    }
+
+    async getSecret(id: string): Promise<Secret | null> {
+        try {
+            const { key } = this.parseId(id);
+            const res = await this.client.secrets().getSecret({
+                projectId: this.projectId,
+                environment: this.environment,
+                secretPath: this.path,
+                secretName: key,
+                type: SecretType.Shared
+            });
+            const value = (res as any)?.secretValue ?? (res as any)?.secret?.secretValue;
+            if (value == null) {
+                return null;
+            }
+            return JSON.parse(value);
+        }
+        catch (err) {
+            throw new Error(`Failed to get secret ${id}`, { cause: err as Error });
+        }
+    }
+
+    async updateSecret(id: string, key: string, secret: Secret): Promise<string> {
+        try {
+            const stringSecret: string = JSON.stringify(secret);
+            await this.client.secrets().updateSecret(key, {
+                projectId: this.projectId,
+                environment: this.environment,
+                secretPath: this.path,
+                secretValue: stringSecret,
+                type: SecretType.Shared,
+                skipMultilineEncoding: true
+            });
+            return this.composeId(key);
+        }
+        catch (err) {
+            throw new Error(`Failed to update secret ${id}`, { cause: err as Error });
+        }
+    }
+
+    async deleteSecret(id: string): Promise<void> {
+        await this.deleteSecrets([id]);
+    }
+
+    async deleteSecrets(ids: string[]): Promise<void> {
+        try {
+            const secretNames = ids.map((id) => this.parseId(id).key);
+            await Promise.all(secretNames.map((name) => this.client.secrets().deleteSecret(name, {
+                projectId: this.projectId,
+                environment: this.environment,
+                secretPath: this.path,
+                type: SecretType.Shared
+            })));
+        }
+        catch (err) {
+            throw new Error(`Failed to delete secrets ${ids}`, { cause: err as Error });
+        }
+    }
+
+    private composeId(key: string): string {
+        // Stable identifier within Infisical namespace
+        return `${this.projectId}:${this.environment}:${this.path}:${key}`;
+    }
+
+    private parseId(id: string): { key: string } {
+        const parts = id.split(":");
+        const key = parts.slice(3).join(":");
+        return { key };
+    }
+}
+
+
