@@ -27,6 +27,14 @@ export const IntermarcheSelectors = {
         selector: "#kc-form-inner",
         info: "login form"
     },
+    INPUT_EMAIL: {
+        selector: "#username_display",
+        info: "email input"
+    },
+    INPUT_PASSWORD: {
+        selector: "#password",
+        info: "password input"
+    },
     CONTAINER_ERROR_EMAIL: {
         selector: "#error-email:not(.hidden)",
         info: "email error"
@@ -34,5 +42,13 @@ export const IntermarcheSelectors = {
     CONTAINER_ERROR_PASSWORD: {
         selector: "#error-label:not(.hidden)",
         info: "password error"
+    },
+    CHECKBOX_REMEMBER_ME: {
+        selector: "#rememberMe",
+        info: "remember me checkbox"
+    },
+    BUTTON_SUBMIT: {
+        selector: "#kc-login",
+        info: "submit button"
     },
 }
