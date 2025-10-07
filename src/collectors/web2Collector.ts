@@ -54,7 +54,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
         try {
             // Open entry url
-            await driver.goto(this.config.entryUrl);
+            await driver.goto(this.config.entryUrl || this.config.loginUrl);
 
             // Check if user needs to login
             const needLogin = await this.needLogin(driver)

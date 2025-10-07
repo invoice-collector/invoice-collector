@@ -11,7 +11,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "10",
+        version: "11",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leroy_Merlin.svg",
         type: CollectorType.WEB,
@@ -29,6 +29,7 @@ export class LeroyMerlinCollector extends WebCollector {
                 mandatory: true,
             }
         },
+        loginUrl: "https://www.leroymerlin.fr/login.html",
         entryUrl: "https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?auth-mode=login",
         captcha: CollectorCaptcha.DATADOME
     }

@@ -12,7 +12,8 @@ import * as utils from '../utils';
 
 
 export type WebConfig = Config & {
-    entryUrl: string,
+    loginUrl: string,
+    entryUrl?: string,
     useProxy?: boolean,
     captcha?: CollectorCaptcha,
     loadImages?: boolean,
@@ -57,7 +58,7 @@ export abstract class WebCollector extends V1Collector<WebConfig> {
 
         try {
             // Open entry url
-            await this.driver.goto(this.config.entryUrl);
+            await this.driver.goto(this.config.entryUrl || this.config.loginUrl);
             
             // Check if website is in maintenance
             const is_in_maintenance = await this.is_in_maintenance(this.driver)

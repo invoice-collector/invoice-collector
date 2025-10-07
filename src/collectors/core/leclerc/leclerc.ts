@@ -1,5 +1,5 @@
 import { Driver } from '../../../driver/driver';
-import { CollectorState, Invoice } from '../../abstractCollector';
+import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import { WebCollector } from '../../webCollector';
 import { LeclercSelectors } from './selectors';
 
@@ -9,9 +9,10 @@ export class LeclercCollector extends WebCollector {
         id: "leclerc",
         name: "E.Leclerc",
         description: "i18n.collectors.leclerc.description",
-        version: "3",
+        version: "4",
         website: "https://www.e.leclerc/",
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_E.Leclerc_Sans_le_texte.svg",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",
@@ -26,7 +27,8 @@ export class LeclercCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.e.leclerc/auth",
+        loginUrl: "https://www.e.leclerc/auth",
+        entryUrl: "https://www.e.leclerc/espace-client/commandes/commandes",
         state: CollectorState.DEVELOPMENT
     }
 

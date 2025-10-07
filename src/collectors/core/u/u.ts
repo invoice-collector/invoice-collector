@@ -9,7 +9,7 @@ export class UCollector extends WebCollector {
         id: "u",
         name: "U Courses",
         description: "i18n.collectors.u.description",
-        version: "4",
+        version: "5",
         website: "https://www.coursesu.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
         type: CollectorType.WEB,
@@ -27,7 +27,8 @@ export class UCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.magasins-u.com/",
+        loginUrl: "https://www.coursesu.com/connexion",
+        entryUrl: "https://www.coursesu.com/mon-compte/mes-commandes",
         state: CollectorState.DEVELOPMENT
     }
 
@@ -41,7 +42,7 @@ export class UCollector extends WebCollector {
 
         // Go to login page
         // Note: The login page is not the entryUrl to avoid datadom detection
-        await driver.goto('https://www.coursesu.com/connexion');
+        await driver.goto(this.config.loginUrl);
 
         // Refuse cookies
         await driver.leftClick(USelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
