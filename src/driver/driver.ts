@@ -578,6 +578,10 @@ export class Element {
         await this.element.click();
     }
 
+    async middleClick(): Promise<void> {
+        await this.element.click({ button: 'middle' });
+    }
+
     async inputText(text: string, {
         tries = 5
     } = {}): Promise<void> {
@@ -603,5 +607,9 @@ export class Element {
 
     async dropdownSelect(value: string): Promise<void> {
         await this.element.select(value);
+    }
+
+    async innerHTML(): Promise<string> {
+        return this.element.evaluate(el => el.innerHTML);
     }
 }
