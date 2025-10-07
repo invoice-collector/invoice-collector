@@ -1,7 +1,7 @@
 import * as crypto from 'crypto';
 import { AxiosInstance } from "axios";
 import { ApiCollector } from '../../apiCollector';
-import { DownloadedInvoice } from '../../abstractCollector';
+import { CollectorType, DownloadedInvoice } from '../../abstractCollector';
 import { AuthenticationError } from '../../../error';
 
 export class OvhCollector extends ApiCollector {
@@ -14,6 +14,7 @@ export class OvhCollector extends ApiCollector {
         version: "2",
         website: "https://www.ovh.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Logo_OVH.svg",
+        type: CollectorType.API,
         params: {
             app_key: {
                 type: "string",

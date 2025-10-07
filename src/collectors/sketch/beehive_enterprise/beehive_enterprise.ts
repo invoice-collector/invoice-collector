@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class BeehiveEnterpriseCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "beehive_enterprise",
+        name: "Beehive Enterprise",
+        description: "i18n.collectors.beehive_enterprise.description",
+        version: "0",
+        website: "https://enterprise.beehive.work/invoices",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1919716.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://enterprise.beehive.work/invoices",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(BeehiveEnterpriseCollector.CONFIG);
+    }
+}

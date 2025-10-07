@@ -1,5 +1,5 @@
 import axios, { AxiosInstance } from "axios";
-import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha } from "./abstractCollector";
+import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha, Config } from "./abstractCollector";
 import { V1Collector } from "./v1Collector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { mimetypeFromBase64 } from '../utils';
@@ -10,28 +10,12 @@ import { State } from "../model/state";
 import * as utils from '../utils';
 
 
-export type ApiConfig = {
-    id: string,
-    name: string,
-    description: string,
-    instructions?: string,
-    version: string,
-    website: string,
-    logo: string,
-    params: {
-        [key: string]: {
-            type: string,
-            name: string,
-            placeholder: string,
-            mandatory: boolean
-        }
-    },
+export type ApiConfig = Config & {
     state?: CollectorState,
-    baseUrl: string,
-    useProxy?: boolean,
+    baseUrl: string
 }
 
-export abstract class ApiCollector extends V1Collector {
+export abstract class ApiCollector extends V1Collector<ApiConfig> {
 
     instance: AxiosInstance | null;
 
@@ -39,10 +23,7 @@ export abstract class ApiCollector extends V1Collector {
         super({
             ...config,
             type: CollectorType.API,
-            useProxy: config.useProxy === undefined ? false : config.useProxy,
-            state: config.state || CollectorState.ACTIVE,
-            loadImages: false, // API collectors do not need to load images
-            autoLogin: {}   // No auto login by default
+            state: config.state || CollectorState.ACTIVE
     });
         this.instance = null;
     }
@@ -53,7 +34,7 @@ export abstract class ApiCollector extends V1Collector {
         // Initialise axios instance
         this.instance = axios.create({
             baseURL: this.config.baseUrl,
-            timeout: 1000
+            timeout: 10000
         });
 
         try {

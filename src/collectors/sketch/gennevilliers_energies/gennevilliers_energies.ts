@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GennevilliersEnergiesCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class GennevilliersEnergiesCollector extends SketchCollector {
         version: "0",
         website: "https://www.ville-gennevilliers.fr/94-27063/cadre-de-vie/economie-et-commerces/annuaire-des-entreprises/ficheAnnu/gennevilliers-energie.htm",
         logo: "https://www.rezomee.fr/images/2021-06-25-09-28-51_9416287.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class GennevilliersEnergiesCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.ville-gennevilliers.fr/94-27063/cadre-de-vie/economie-et-commerces/annuaire-des-entreprises/ficheAnnu/gennevilliers-energie.htm",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

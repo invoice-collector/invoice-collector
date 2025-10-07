@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PicotyGazCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class PicotyGazCollector extends SketchCollector {
         version: "0",
         website: "https://gaz.picoty.fr",
         logo: "https://gaz.picoty.fr/wp-content/uploads/2020/03/logo-1.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class PicotyGazCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://wap.picoty.fr/igaz/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

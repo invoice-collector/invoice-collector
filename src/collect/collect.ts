@@ -1,5 +1,5 @@
 import { CallbackHandler } from "../callback/callback";
-import { AbstractCollector } from "../collectors/abstractCollector";
+import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
 import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential } from "../model/credential";
@@ -26,7 +26,7 @@ export class Collect {
         let credential: IcCredential|null = null;
         let user: User|null = null;
         let secret: Secret|null = null;
-        let collector: AbstractCollector|null = null;
+        let collector: AbstractCollector<Config>|null = null;
         let customer: Customer|null = null;
 
         try {
@@ -55,7 +55,7 @@ export class Collect {
             secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
 
             // Get collector from collector_id
-            collector = CollectorLoader.get(credential.collector_id);
+            collector = await CollectorLoader.get(credential.collector_id);
 
             // Check if collector not found
             if(collector == null) {
@@ -108,6 +108,9 @@ export class Collect {
                 // Sort invoices
                 credential.sortInvoices();
             }
+
+            // Set progress step to done
+            credential.state.update(State._7_DONE);
 
             // Log success
             RegistryServer.getInstance().logSuccess(collector);

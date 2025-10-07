@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class ValentinsCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "valentins",
+        name: "Valentins",
+        description: "i18n.collectors.valentins.description",
+        version: "0",
+        website: "https://www.valentins.de/onlineshop/account/meinebestellungen/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/245916.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.valentins.de/onlineshop/account/meinebestellungen/",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(ValentinsCollector.CONFIG);
+    }
+}

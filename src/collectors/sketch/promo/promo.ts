@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class PromoCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "promo",
+        name: "Promo",
+        description: "i18n.collectors.promo.description",
+        version: "0",
+        website: "https://promo.com/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/228722.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://promo.com/",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(PromoCollector.CONFIG);
+    }
+}

@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SikkensSolutionsCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class SikkensSolutionsCollector extends SketchCollector {
         version: "0",
         website: "https://sikkens-solutions.fr",
         logo: "https://www.sikkens-solutions.fr/content/files/fr/LOGO/SikkensSolutionsVertical.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class SikkensSolutionsCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.sikkens-solutions.fr/profile/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

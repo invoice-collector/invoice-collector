@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class MacCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "mac",
+        name: "mac",
+        description: "i18n.collectors.mac.description",
+        version: "0",
+        website: "http://www.artfiles.de/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/457.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "http://www.artfiles.de/",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(MacCollector.CONFIG);
+    }
+}

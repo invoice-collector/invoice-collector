@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class BritishGasCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "british_gas",
+        name: "British Gas",
+        description: "i18n.collectors.british_gas.description",
+        version: "0",
+        website: "https://www.britishgas.co.uk/identity/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8648.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.britishgas.co.uk/identity/",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(BritishGasCollector.CONFIG);
+    }
+}

@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class DentaurumCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "dentaurum",
+        name: "Dentaurum",
+        description: "i18n.collectors.dentaurum.description",
+        version: "0",
+        website: "https://shop.dentaurum.de/login.php?source=&ch=c12a5c",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2445901.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://shop.dentaurum.de/login.php?source=&ch=c12a5c",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(DentaurumCollector.CONFIG);
+    }
+}

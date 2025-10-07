@@ -3,7 +3,7 @@ import { fullStackTrace, LoggableError } from './error'
 import * as utils from './utils'
 import { TermsConditions } from './model/user';
 import { Server } from './server';
-import { AbstractCollector } from './collectors/abstractCollector';
+import { AbstractCollector, Config } from './collectors/abstractCollector';
 
 export class RegistryServer {
 
@@ -45,7 +45,7 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    logSuccess(collector: AbstractCollector) {
+    logSuccess(collector: AbstractCollector<Config>) {
         this.client.post("/log/success", {
             collector: collector.config.id,
             version: collector.config.version,

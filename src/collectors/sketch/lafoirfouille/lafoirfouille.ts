@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaFoirFouilleCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class LaFoirFouilleCollector extends SketchCollector {
         version: "0",
         website: "https://lafoirfouille.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Logo_La_Foir%27Fouille_2021.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class LaFoirFouilleCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.lafoirfouille.fr/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { CarrefourSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { CollectorCaptcha, DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 
 export class CarrefourCollector extends WebCollector {
@@ -13,6 +13,7 @@ export class CarrefourCollector extends WebCollector {
         version: "9",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",

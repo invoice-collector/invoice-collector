@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrenkeCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class GrenkeCollector extends SketchCollector {
         version: "0",
         website: "https://grenke.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c3/Grenke_Logo_Black_2024.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class GrenkeCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://customerportal.grenke.net/en_uk/login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

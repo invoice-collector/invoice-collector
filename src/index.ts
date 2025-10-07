@@ -469,7 +469,9 @@ app.use((req, res, next) => {
     res.status(404).end(JSON.stringify({type: "error", reason: "Endpoint not found"}));
 });
 
-// Start
-app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}`)
+// Start server
+server.start().then(() => {
+    app.listen(PORT, () => {
+        console.log(`App listening on port ${PORT}`)
+    });
 });

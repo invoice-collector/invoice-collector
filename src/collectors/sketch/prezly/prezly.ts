@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class PrezlyCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "prezly",
+        name: "Prezly",
+        description: "i18n.collectors.prezly.description",
+        version: "0",
+        website: "https://rock.prezly.com/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4196283.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://rock.prezly.com/",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(PrezlyCollector.CONFIG);
+    }
+}

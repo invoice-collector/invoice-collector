@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class OttoOfficeCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "otto_office",
+        name: "Otto Office",
+        description: "i18n.collectors.otto_office.description",
+        version: "0",
+        website: "https://www.otto-office.com/de/app/account/statement/main",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/417.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.otto-office.com/de/app/account/statement/main",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(OttoOfficeCollector.CONFIG);
+    }
+}
