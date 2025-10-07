@@ -30,29 +30,32 @@ export class Server {
     uiTokens: { [key: string]: User };
     resetTokens: { [key: string]: string };
     uiBearers: { [key: string]: string };
-    secret_manager: AbstractSecretManager;
     collect_task: CollectTask;
 
     constructor() {
         this.uiTokens = {};
         this.resetTokens = {};
         this.uiBearers = {};
+        this.collect_task = new CollectTask();
+	}
 
+    async start(){
         // Load all collectors
-        CollectorLoader.load();
+        await CollectorLoader.load();
 
         // Connect to database
-        DatabaseFactory.getDatabase().connect();
+        await DatabaseFactory.getDatabase().connect();
 
         // Connect to secret manager
-        this.secret_manager = SecretManagerFactory.getSecretManager();
+        await SecretManagerFactory.getSecretManager();
 
         // Check if registery server is reachable
         RegistryServer.getInstance().ping();
 
-        // Start collect task
-        this.collect_task = new CollectTask();
-	}
+        // Start cron job for invoice collection
+        this.collect_task.start();
+    }
+
     // ---------- GENERAL ENDPOINTS ----------
 
     // TOKEN AUTHENTICATION
@@ -326,7 +329,7 @@ export class Server {
         }
 
         if (subscribedCollectors) {
-            customer.setSubscribedCollectors(subscribedCollectors);
+            await customer.setSubscribedCollectors(subscribedCollectors);
         }
 
         if (typeof isSubscribedToAll === 'boolean') {
@@ -589,9 +592,9 @@ export class Server {
         let credentials = await user.getCredentials();
 
         // Build response 
-        return credentials.map((credential) => {
+        return await Promise.all(credentials.map(async credential => {
             // Get collector from id
-            const collector = CollectorLoader.get(credential.collector_id);
+            const collector = await CollectorLoader.get(credential.collector_id);
 
             // Get current collect
             const collect = CollectPool.getInstance().get(credential.id);
@@ -617,7 +620,7 @@ export class Server {
                 invoices: credential.invoices,
                 collector: collector.config,
             }
-        });
+        }));
     }
 
     // TOKEN AUTHENTICATION
@@ -662,7 +665,7 @@ export class Server {
         await user.checkTermsConditions();
 
         // Get collector from id
-        const collector = CollectorLoader.get(collector_id);
+        const collector = await CollectorLoader.get(collector_id);
 
         // Get customer from user
         const customer = await user.getCustomer();
@@ -706,7 +709,7 @@ export class Server {
             cookies: null,
             localStorage: null
         }
-        const secret_manager_id = await this.secret_manager.addSecret(`${user.customer_id}_${user.id}_${collector.config.id}`, secret);
+        const secret_manager_id = await SecretManagerFactory.getSecretManager().addSecret(`${user.customer_id}_${user.id}_${collector.config.id}`, secret);
 
         // Create credential
         const now = Date.now();
@@ -793,7 +796,7 @@ export class Server {
         }
 
         // Get collector from id
-        const collector = CollectorLoader.get(credential.collector_id);
+        const collector = await CollectorLoader.get(credential.collector_id);
 
         // Get current collect
         const collect = CollectPool.getInstance().get(credential.id);
@@ -849,7 +852,7 @@ export class Server {
         }
 
         // Delete credential from Secure Storage
-        await this.secret_manager.deleteSecret(credential.secret_manager_id);
+        await SecretManagerFactory.getSecretManager().deleteSecret(credential.secret_manager_id);
 
         // Delete credential
         await credential.delete();
@@ -976,23 +979,23 @@ export class Server {
             throw new StatusError(`Locale "${locale}" not supported. Available locales are: ${I18n.LOCALES.join(", ")}.`, 400);
         }
 
-        return CollectorLoader.getAll()
-            .filter((collector: AbstractCollector) => isSubscribedToAll || subscribedCollectors.includes(collector.config.id))
-            .filter((collector: AbstractCollector) => collector.config.type !== CollectorType.SKETCH || displaySketchCollectors)
-            .map((collector: AbstractCollector): Config => {
-                const name: string = I18n.get(collector.config.name, locale);
-                const description: string = I18n.get(collector.config.description, locale);
-                const instructions: string = I18n.get(collector.config.instructions, locale);
-                const params = Object.keys(collector.config.params).reduce((acc, key) => {
+        return (await CollectorLoader.getAll())
+            .filter((config: Config) => isSubscribedToAll || subscribedCollectors.includes(config.id))
+            .filter((config: Config) => config.type !== CollectorType.SKETCH || displaySketchCollectors)
+            .map((config: Config): Config => {
+                const name: string = I18n.get(config.name, locale);
+                const description: string = I18n.get(config.description, locale);
+                const instructions: string = I18n.get(config.instructions, locale);
+                const params = Object.keys(config.params).reduce((acc, key) => {
                     acc[key] = {
-                        ...collector.config.params[key],
-                        name: I18n.get(collector.config.params[key].name, locale),
-                        placeholder: I18n.get(collector.config.params[key].placeholder, locale)
+                        ...config.params[key],
+                        name: I18n.get(config.params[key].name, locale),
+                        placeholder: I18n.get(config.params[key].placeholder, locale)
                     };
                     return acc;
                 }, {});
                 return {
-                    ...collector.config,
+                    ...config,
                     name,
                     description,
                     instructions,

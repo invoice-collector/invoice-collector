@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class SigparserCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "sigparser",
+        name: "Sigparser",
+        description: "i18n.collectors.sigparser.description",
+        version: "0",
+        website: "https://app.sigparser.com/Account/App#/billing",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/213230.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.sigparser.com/Account/App#/billing",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(SigparserCollector.CONFIG);
+    }
+}

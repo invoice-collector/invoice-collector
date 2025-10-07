@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EndesaCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class EndesaCollector extends SketchCollector {
         version: "0",
         website: "https://endesa.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/3/3c/Endesa.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class EndesaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.portail-endesa.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

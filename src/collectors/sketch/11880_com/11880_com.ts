@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class _11880ComCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "11880_com",
+        name: "11880.com",
+        description: "i18n.collectors.11880_com.description",
+        version: "0",
+        website: "https://my.11880.com/login?callbackUrl=https%3A%2F%2Fwww.11880.com%2F",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/39868.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://my.11880.com/login?callbackUrl=https%3A%2F%2Fwww.11880.com%2F",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(_11880ComCollector.CONFIG);
+    }
+}

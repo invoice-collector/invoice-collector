@@ -1,16 +1,18 @@
-import fs from 'fs';
 import path from 'path';
-import { AbstractCollector } from './abstractCollector';
+import glob from 'glob';
+import fs from 'fs';
+import { AbstractCollector, CollectorCaptcha, CollectorType, Config } from './abstractCollector';
 import { StatusError } from '../error';
+import { CollectorState } from './abstractCollector';
 
 export class CollectorLoader {
-    private static collectors: Map<string, any> = new Map();
+    private static collectors: Map<string, {config: Config, file: string}> = new Map();
 
-    static load(filter: string | null = null): Map<string, any> {
-        this.loadFolders("sketch", filter)
-        this.loadFolders("community", filter)
-        this.loadFolders("core", filter)
-        this.loadFolders("premium", filter)
+    static async load(filter: string | null = null): Promise<Map<string, {config: Config, file: string}>> {
+        await this.loadFolders("sketch", "sketch", filter)
+        await this.loadFolders("community", "community", filter)
+        await this.loadFolders("core", "core", filter)
+        await this.loadFolders("premium", "../premium/collectors", filter)
 
         //Order collectors by id
         CollectorLoader.collectors = new Map([...CollectorLoader.collectors.entries()]
@@ -20,77 +22,81 @@ export class CollectorLoader {
         return CollectorLoader.collectors
     }
 
-    private static loadFolders(folder: string, filter: string | null) {
-        let collectors: string[] = [];
+    private static async loadFolders(name: string, folder: string, filter: string | null) {
+        const strPattern = filter ? `./${folder}/${filter}/*.ts` : `./${folder}/*/*.ts`;
+        const pattern = path.join(__dirname, strPattern);
 
-        // Compute path to folder
-        const fullPath = path.join(__dirname, folder)
-
-        // Dynamically import all collectors
-        const folders = fs.readdirSync(fullPath, { withFileTypes: true });
-
-        console.log(`Loading ${folder} collectors from ${fullPath}`);
-        // List all folders in the directory
-        for (const folder of folders) {
-            // Skip if not a directory
-            if (!folder.isDirectory()) {
-                continue;
+        await new Promise<void>((resolve, reject) => {
+            glob(pattern, (err, files) => {
+            console.log(`Loading ${name} collectors...`);
+            if (err) {
+                console.error('Error finding files:', err);
+                reject(err);
             }
+            let nbFFilesLoaded = 0;
+            for (const file of files) {
+                if(file.endsWith('selectors.ts')) {
+                    continue; // Skip selectors files
+                }
 
-            // Log a warning if the folder name contains spaces or hyphens
-            if (folder.name.includes(' ') || folder.name.includes('-')) {
-                console.warn(`Folder name "${folder.name}" contains spaces or hyphens. Please rename the folder and use underscrores instead`);
-                continue;
-            }
+                // Read the file content
+                const content = fs.readFileSync(file, 'utf8');
 
-            // Skip if a filter is provided and the folder name does not match the filter
-            if (filter && folder.name !== filter) {
-                continue;
-            }
+                const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?})\s*constructor/);
+                if (configMatch) {
+                try {
+                    // Replace enum references with their values before eval
+                    let configStr = configMatch[1]
+                    .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
+                    .replace("CollectorState.DEVELOPMENT", `"${CollectorState.DEVELOPMENT.toString()}"`)
+                    .replace("CollectorState.MAINTENANCE", `"${CollectorState.MAINTENANCE.toString()}"`)
+                    .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
+                    .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)
+                    .replace("CollectorType.WEB", `"${CollectorType.WEB.toString()}"`)
+                    .replace("CollectorType.AGENT", `"${CollectorType.AGENT.toString()}"`)
+                    .replace("CollectorType.API", `"${CollectorType.API.toString()}"`)
+                    .replace("CollectorType.EMAIL", `"${CollectorType.EMAIL.toString()}"`)
+                    .replace("CollectorType.SKETCH", `"${CollectorType.SKETCH.toString()}"`)
 
-            // Build the file path
-            const file = path.join(fullPath, folder.name, folder.name + ".ts");
+                    // Evaluate the config object
+                    const config = eval('(' + configStr + ')');
 
-            // Check if the file exists
-            if (!fs.existsSync(file)) {
-                console.warn(`File "${file}" does not exist`);
-                continue;
-            }
+                    // Set config.state to default if not set
+                    if (!config.state) {
+                        config.state = CollectorState.ACTIVE;
+                    }
 
-            // Load file
-            const importedModule = require(file);
-            // For each class in the file
-            for (const classKey of Object.keys(importedModule)) {
-                // Check if the class is a collector
-                if (typeof importedModule[classKey] === 'function' && classKey.endsWith('Collector')) {
-                    // Instanciate the collector
-                    let collector = importedModule[classKey];
-                    // Set the id of the collector to the folder name
-                    const collectorInstance = new collector();
-                    // Add it to the set
-                    CollectorLoader.collectors.set(collectorInstance.config.id, collector);
-                    // Add it to the list
-                    collectors.push(collectorInstance.config.id);
+                    if (config && config.id) {
+                    CollectorLoader.collectors.set(config.id.toLowerCase(), { config, file });
+                    nbFFilesLoaded++;
+                    }
+                } catch (e) {
+                    reject(new Error(`Failed to parse CONFIG in ${file}: ${e}`));
+                }
+                }
+                else {
+                reject(new Error(`No CONFIG found in ${file}`));
                 }
             }
-        }
-
-        console.log(`${collectors.length} ${folder} collectors loaded: ${collectors.join(', ')}`);
+            console.log(`${nbFFilesLoaded} ${name} collectors loaded`);
+            resolve();
+            });
+        });
     }
 
-    public static getAll(): AbstractCollector[] {
+    public static async getAll(): Promise<Config[]> {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size == 0) {
-            CollectorLoader.load();
+            await CollectorLoader.load();
         }
         // Return all collectors
-        return Array.from(CollectorLoader.collectors.values()).map((collector: any) => new collector());
+        return Array.from(CollectorLoader.collectors.values()).map((collector) => collector.config);
     }
 
-    public static get(id: string): AbstractCollector {
+    public static async get(id: string): Promise<AbstractCollector<Config>> {
         //Check if collectors are loaded
         if (CollectorLoader.collectors.size == 0) {
-            CollectorLoader.load();
+            await CollectorLoader.load();
         }
         // Find the collector with the id
         const collector = CollectorLoader.collectors.get(id.toLowerCase())
@@ -98,7 +104,20 @@ export class CollectorLoader {
         if(collector === undefined) {
             throw new StatusError(`No collector with id "${id}" found.`, 400);
         }
-        // Return the collector, or null if not found
-        return new collector()
+        
+        // Load the collector class
+        const collectorModule = await import(collector.file);
+        // For each export in the module
+        for (const classKey of Object.keys(collectorModule)) {
+            // Check if the class is a collector
+            if (typeof collectorModule[classKey] === 'function' && classKey.endsWith('Collector')) {
+                // Instanciate the collector
+                let collector = collectorModule[classKey];
+                // Set the id of the collector to the folder name
+                return new collector();
+            }
+        }
+        // Throw error if no collector class found
+        throw new StatusError(`Unable to load collector "${id}".`, 400);
     }
 }

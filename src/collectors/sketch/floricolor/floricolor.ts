@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class FloricolorCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "floricolor",
+        name: "Floricolor",
+        description: "i18n.collectors.floricolor.description",
+        version: "0",
+        website: "https://fos3.floricolor.pt/orderhistory",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/68439.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://fos3.floricolor.pt/orderhistory",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(FloricolorCollector.CONFIG);
+    }
+}

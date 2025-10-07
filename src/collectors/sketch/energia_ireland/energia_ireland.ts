@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class EnergiaIrelandCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "energia_ireland",
+        name: "Energia - Ireland",
+        description: "i18n.collectors.energia_ireland.description",
+        version: "0",
+        website: "https://energyonline.energia.ie",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/89498.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://energyonline.energia.ie",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(EnergiaIrelandCollector.CONFIG);
+    }
+}

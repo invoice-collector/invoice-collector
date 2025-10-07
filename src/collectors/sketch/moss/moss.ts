@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class MossCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "moss",
+        name: "Moss",
+        description: "i18n.collectors.moss.description",
+        version: "0",
+        website: "https://getmoss.com/de",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/777335.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://getmoss.com/de",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(MossCollector.CONFIG);
+    }
+}

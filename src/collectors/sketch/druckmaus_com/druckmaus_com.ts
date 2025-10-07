@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class DruckmausComCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "druckmaus_com",
+        name: "Druckmaus.com",
+        description: "i18n.collectors.druckmaus_com.description",
+        version: "0",
+        website: "http://www.druckmaus.com",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/31671.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "http://www.druckmaus.com",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(DruckmausComCollector.CONFIG);
+    }
+}

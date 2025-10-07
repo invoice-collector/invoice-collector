@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { Invoice, DownloadedInvoice, CollectorCaptcha } from '../../abstractCollector';
+import { Invoice, DownloadedInvoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 
@@ -14,6 +14,7 @@ export class LeroyMerlinCollector extends WebCollector {
         version: "10",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/d/d4/Leroy_Merlin.svg",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",

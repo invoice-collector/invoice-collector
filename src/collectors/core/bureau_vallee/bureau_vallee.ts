@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { CollectorState, Invoice } from '../../abstractCollector';
+import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 
 export class BureauValleeCollector extends WebCollector {
 
@@ -12,6 +12,7 @@ export class BureauValleeCollector extends WebCollector {
         version: "3",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",

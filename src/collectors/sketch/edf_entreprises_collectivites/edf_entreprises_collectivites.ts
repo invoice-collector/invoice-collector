@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdfEntreprisesCollectivitesCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class EdfEntreprisesCollectivitesCollector extends SketchCollector {
         version: "1",
         website: "https://www.edf.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/%C3%89lectricit%C3%A9_de_France_logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class EdfEntreprisesCollectivitesCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://entreprises-collectivites.edf.fr/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

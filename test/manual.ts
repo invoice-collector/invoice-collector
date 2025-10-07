@@ -14,7 +14,7 @@ import assert from 'assert';
 import * as crypto from 'crypto';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
-import { AbstractCollector } from '../src/collectors/abstractCollector';
+import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
     await DatabaseFactory.getDatabase().connect();
@@ -89,10 +89,10 @@ function getHashFromSecret(secret: Secret): string {
         // ---------- PART 2 : GET COLLECTOR AND SECRET ----------
 
         // Load collectors
-        const loadedCollectors = CollectorLoader.load(id);
+        const loadedCollectors = await CollectorLoader.load(id);
 
         // If collector loaded, it means it is a credential
-        let collector: AbstractCollector;
+        let collector: AbstractCollector<Config>;
         if(loadedCollectors.size == 0) {
             console.log(`No collector found with id "${id}", trying to find credential...`);
             // Get credential
@@ -100,9 +100,9 @@ function getHashFromSecret(secret: Secret): string {
             // Get secret
             secret = await getSecretFromCredential(credential);
             // Load collectors
-            CollectorLoader.load(credential.collector_id);
+            await CollectorLoader.load(credential.collector_id);
             // Get collector
-            collector = CollectorLoader.get(credential.collector_id);
+            collector = await CollectorLoader.get(credential.collector_id);
 
             // Mock the collector so that if login method is triggered, it raise an error
             (collector as any).login = async () => {
@@ -112,7 +112,7 @@ function getHashFromSecret(secret: Secret): string {
         // If collector is found, build the secret
         else {
             // Get collector
-            collector = CollectorLoader.get(id);
+            collector = await CollectorLoader.get(id);
 
             // Build secret
             secret = {

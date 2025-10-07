@@ -2,11 +2,11 @@ import { Location } from '../proxy/abstractProxy';
 import { Secret } from '../secret_manager/abstractSecretManager';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
-import { AbstractCollector, CompleteInvoice, Config, Invoice } from './abstractCollector';
+import { AbstractCollector, CompleteInvoice, Config } from './abstractCollector';
 
-export abstract class V2Collector extends AbstractCollector {
+export abstract class V2Collector<C extends Config> extends AbstractCollector<C> {
 
-    constructor(config: Config) {
+    constructor(config: C) {
         super(config);
     }
 

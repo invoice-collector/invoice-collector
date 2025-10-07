@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GegCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class GegCollector extends SketchCollector {
         version: "0",
         website: "https://geg.fr",
         logo: "https://www.geg.fr/img/logo-GEG.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class GegCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://monagence.geg.fr/aelPROD/jsp/arc/habilitation/login.jsp",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

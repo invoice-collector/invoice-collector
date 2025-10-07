@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class IpbaseComCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "ipbase_com",
+        name: "ipbase.com",
+        description: "i18n.collectors.ipbase_com.description",
+        version: "0",
+        website: "https://app.ipbase.com/invoice",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1339506.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://app.ipbase.com/invoice",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(IpbaseComCollector.CONFIG);
+    }
+}

@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CastoramaCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class CastoramaCollector extends SketchCollector {
         version: "0",
         website: "https://castorama.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Castorama_Logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class CastoramaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.castorama.fr/customer/signin",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

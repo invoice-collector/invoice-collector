@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IkeaCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class IkeaCollector extends SketchCollector {
         version: "0",
         website: "https://ikea.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Ikea_logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class IkeaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.ikea.com/fr/fr/profile/login?itm_campaign=wlo-user-slider-logged-out&itm_element=customer-service&itm_content=login",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

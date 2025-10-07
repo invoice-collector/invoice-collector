@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class OrbytCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "orbyt",
+        name: "Orbyt",
+        description: "i18n.collectors.orbyt.description",
+        version: "0",
+        website: "https://seguro.orbyt.es/registro_nuevo/v3/?view=userArea",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4561900.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://seguro.orbyt.es/registro_nuevo/v3/?view=userArea",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(OrbytCollector.CONFIG);
+    }
+}

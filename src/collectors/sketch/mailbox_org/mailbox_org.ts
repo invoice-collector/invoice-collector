@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailboxOrgCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class MailboxOrgCollector extends SketchCollector {
         version: "0",
         website: "https://mailbox.org",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Mailbox.org_logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class MailboxOrgCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://login.mailbox.org/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

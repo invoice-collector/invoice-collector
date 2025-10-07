@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcertaCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class AcertaCollector extends SketchCollector {
         version: "0",
         website: "https://acerta.be",
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/ec/ACERTA_Logo.jpg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class AcertaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://signin.acerta.be/am/XUI/?realm=/alpha&locale=en#/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

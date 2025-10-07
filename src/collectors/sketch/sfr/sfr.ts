@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SfrCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class SfrCollector extends SketchCollector {
         version: "0",
         website: "https://sfr.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/97/SFR-2022-logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class SfrCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.sfr.fr/mon-espace-client/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

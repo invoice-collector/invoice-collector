@@ -12,6 +12,7 @@ export enum CollectorState {
 
 export enum CollectorType {
     WEB = 'web',
+    AGENT = 'agent',
     API = 'api',
     EMAIL = 'email',
     SKETCH = 'sketch'
@@ -24,14 +25,13 @@ export enum CollectorCaptcha {
 
 export type Config = {
     id: string,
-    type: CollectorType,
     name: string,
     description: string,
     instructions?: string,
     version: string,
     website: string,
     logo: string,
-    useProxy: boolean,
+    type: CollectorType,
     params: {
         [key: string]: {
             type: string,
@@ -40,15 +40,7 @@ export type Config = {
             mandatory: boolean
         }
     },
-    state: CollectorState
-    entryUrl?: string,
-    baseUrl?: string,
-    captcha?: CollectorCaptcha,
-    loadImages: boolean,
-    autoLogin: {
-        cookieNames?: string[],
-        localStorageKeys?: string[]
-    }
+    state?: CollectorState
 }
 
 export type Invoice = {
@@ -73,10 +65,10 @@ export type CompleteInvoice = Invoice & {
     metadata: Record<string, any>,
 }
 
-export abstract class AbstractCollector {
-    config: Config;
+export abstract class AbstractCollector<C extends Config> {
+    config: C;
 
-    constructor(config: Config) {
+    constructor(config: C) {
         this.config = config;
     }
 

@@ -138,7 +138,7 @@ describe('Check locale keys are in alphabetical order', () => {
             const sortedKeys = [...keys].sort();
 
             if (JSON.stringify(keys) !== JSON.stringify(sortedKeys)) {
-                errors.push(`Locale "${locale}" keys are not in alphabetical order. Use the devscript "order_locales.js" to fix this.`);
+                errors.push(`Locale "${locale}" keys are not in alphabetical order. Run "node devscripts/order_locales.js" to fix this.`);
             }
             if (errors.length > 0) {
                 throw new Error(`Errors in code i18n:\n${errors.join('\n')}`);

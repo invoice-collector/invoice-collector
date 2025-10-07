@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class NocrmCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "nocrm",
+        name: "noCRM",
+        description: "i18n.collectors.nocrm.description",
+        version: "0",
+        website: "https://digitalanders.nocrm.io/admin/invoices",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2765219.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://digitalanders.nocrm.io/admin/invoices",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(NocrmCollector.CONFIG);
+    }
+}

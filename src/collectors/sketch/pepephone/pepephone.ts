@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class PepephoneCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "pepephone",
+        name: "Pepephone",
+        description: "i18n.collectors.pepephone.description",
+        version: "0",
+        website: "https://www.pepephone.com/mipepephone",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/60439.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.pepephone.com/mipepephone",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(PepephoneCollector.CONFIG);
+    }
+}

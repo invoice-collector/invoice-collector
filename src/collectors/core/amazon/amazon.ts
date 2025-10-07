@@ -1,5 +1,5 @@
 import { Driver } from '../../../driver/driver';
-import { DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { WebCollector } from '../../webCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
@@ -11,11 +11,12 @@ export class AmazonCollector extends WebCollector {
 
     static CONFIG = {
         id: "amazon",
-        name: "Amazon FR",
+        name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
         version: "16",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",

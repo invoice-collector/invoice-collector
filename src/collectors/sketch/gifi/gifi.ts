@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GifiCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class GifiCollector extends SketchCollector {
         version: "0",
         website: "https://gifi.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1c/Logo_gifi_2020.png",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class GifiCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://www.gifi.fr/connexion-compte",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

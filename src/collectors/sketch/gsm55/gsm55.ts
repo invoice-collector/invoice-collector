@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class Gsm55Collector extends SketchCollector {
+
+    static CONFIG = {
+        id: "gsm55",
+        name: "GSM55",
+        description: "i18n.collectors.gsm55.description",
+        version: "0",
+        website: "https://www.gsm55.com/",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/118614.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://www.gsm55.com/",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(Gsm55Collector.CONFIG);
+    }
+}

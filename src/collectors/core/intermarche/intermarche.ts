@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { IntermarcheSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorState, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 
 export class IntermarcheCollector extends WebCollector {
 
@@ -12,6 +12,7 @@ export class IntermarcheCollector extends WebCollector {
         version: "5",
         website: "https://www.intermarche.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",

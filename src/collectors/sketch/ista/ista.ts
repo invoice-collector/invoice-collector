@@ -1,4 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IstaCollector extends SketchCollector {
 
@@ -9,6 +10,7 @@ export class IstaCollector extends SketchCollector {
         version: "0",
         website: "https://ista.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/45/Ista-logo.svg",
+        type: CollectorType.SKETCH,
         params: {
             email: {
                 type: "email",
@@ -22,7 +24,9 @@ export class IstaCollector extends SketchCollector {
                 placeholder: "i18n.collectors.all.password.placeholder",
                 mandatory: true
             }
-        }
+        },
+        entryUrl: "https://portal.ista.com/",
+        state: CollectorState.DEVELOPMENT
     }
 
     constructor() {

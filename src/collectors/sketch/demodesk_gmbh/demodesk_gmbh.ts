@@ -1,0 +1,36 @@
+
+import { SketchCollector } from '../../sketchCollector';
+import { CollectorState, CollectorType } from '../../abstractCollector';
+
+export class DemodeskGmbhCollector extends SketchCollector {
+
+    static CONFIG = {
+        id: "demodesk_gmbh",
+        name: "Demodesk GmbH",
+        description: "i18n.collectors.demodesk_gmbh.description",
+        version: "0",
+        website: "https://demodesk.com/manage/settings/company/billing",
+        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/748586.jpg",
+        type: CollectorType.SKETCH,
+        params: {
+            email: {
+                type: "email",
+                name: "i18n.collectors.all.email",
+                placeholder: "i18n.collectors.all.email.placeholder",
+                mandatory: true
+            },
+            password: {
+                type: "password",
+                name: "i18n.collectors.all.password",
+                placeholder: "i18n.collectors.all.password.placeholder",
+                mandatory: true
+            }
+        },
+        entryUrl: "https://demodesk.com/manage/settings/company/billing",
+        state: CollectorState.DEVELOPMENT
+    }
+
+    constructor() {
+        super(DemodeskGmbhCollector.CONFIG);
+    }
+}

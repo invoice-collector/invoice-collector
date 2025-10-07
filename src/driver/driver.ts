@@ -7,7 +7,9 @@ import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { Options } from './puppeteer/browser';
-import { AbstractCollector, CollectorCaptcha } from '../collectors/abstractCollector';
+import { AbstractCollector, CollectorCaptcha, Config } from '../collectors/abstractCollector';
+import { WebCollector as OldWebCollector} from '../collectors/webCollector';
+import { WebCollector } from '../collectors/web2Collector';
 
 export class Driver {
 
@@ -54,13 +56,13 @@ export class Driver {
         }
     };
 
-    collector: AbstractCollector;
+    collector: OldWebCollector | WebCollector;
     browser: Browser | null;
     page: PageWithCursor | null;
     downloadPath: string;
     puppeteerConfig: Options;
 
-    constructor(collector: AbstractCollector) {
+    constructor(collector: OldWebCollector | WebCollector) {
         this.collector = collector;
         this.browser = null;
         this.page = null;
