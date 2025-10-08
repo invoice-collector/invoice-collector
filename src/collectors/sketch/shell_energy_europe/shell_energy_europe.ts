@@ -8,9 +8,9 @@ export class ShellEnergyEuropeCollector extends SketchCollector {
         id: "shell_energy_europe",
         name: "Shell Energy Europe",
         description: "i18n.collectors.shell_energy_europe.description",
-        version: "0",
+        version: "1",
         website: "https://energyeurope.shell.com/s/invoices",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/4420599.jpg",
+        logo: "https://cdn.worldvectorlogo.com/logos/shell-energy.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

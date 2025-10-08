@@ -8,9 +8,9 @@ export class BouyguesTelecomCollector extends SketchCollector {
         id: "bouygues_telecom",
         name: "Bouygues Telecom",
         description: "i18n.collectors.bouygues_telecom.description",
-        version: "0",
+        version: "1",
         website: "https://www.bouyguestelecom.fr/mon-compte/mes-factures",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/9042.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Bouygues_Telecom_201x_logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

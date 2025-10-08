@@ -8,9 +8,9 @@ export class RexelCollector extends SketchCollector {
         id: "rexel",
         name: "Rexel",
         description: "i18n.collectors.rexel.description",
-        version: "0",
+        version: "1",
         website: "https://www.rexel.de/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/163751.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/9/90/Rexel_logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
