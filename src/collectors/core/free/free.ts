@@ -9,7 +9,7 @@ export class FreeCollector extends WebCollector {
         id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "6",
+        version: "7",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         type: CollectorType.WEB,
@@ -27,6 +27,7 @@ export class FreeCollector extends WebCollector {
                 mandatory: true,
             }
         },
+        loginUrl: "https://subscribe.free.fr/login/",
         entryUrl: "https://adsl.free.fr/facture_liste.pl",
         useProxy: false, // TODO: Proxy is not compatible with Free
     }

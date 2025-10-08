@@ -54,7 +54,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
         try {
             // Open entry url
-            await driver.goto(this.config.entryUrl);
+            await driver.goto(this.config.entryUrl || this.config.loginUrl);
 
             // Check if user needs to login
             const needLogin = await this.needLogin(driver)
@@ -236,7 +236,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         // Assume the collector does not implement 2FA
     }
 
-    async navigate(driver: Driver, params: any): Promise<Invoice[] | void> {
+    async navigate(driver: Driver, params: any): Promise<void> {
         // Assume the collector does not need to navigate
     }
 
