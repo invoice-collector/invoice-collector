@@ -8,9 +8,9 @@ export class EasyjetCollector extends SketchCollector {
         id: "easyjet",
         name: "easyJet",
         description: "i18n.collectors.easyjet.description",
-        version: "0",
+        version: "1",
         website: "https://www.easyjet.com/DE/secure/MyEasyJet.mvc/ViewBooking",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1218.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1b/EasyJet_logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

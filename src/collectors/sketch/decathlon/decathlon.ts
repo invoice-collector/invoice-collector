@@ -8,9 +8,9 @@ export class DecathlonCollector extends SketchCollector {
         id: "decathlon",
         name: "DECATHLON",
         description: "i18n.collectors.decathlon.description",
-        version: "0",
+        version: "1",
         website: "https://www.decathlon.de/login",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27571.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Decathlon_-_logo_%28France%2C_2024%29.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
