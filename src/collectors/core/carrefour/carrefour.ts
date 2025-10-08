@@ -10,7 +10,7 @@ export class CarrefourCollector extends WebCollector {
         id: "carrefour",
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "9",
+        version: "10",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         type: CollectorType.WEB,
@@ -28,6 +28,7 @@ export class CarrefourCollector extends WebCollector {
                 mandatory: true,
             }
         },
+        loginUrl: "https://moncompte.carrefour.fr/iam/XUI/#login/",
         entryUrl: "https://www.carrefour.fr/mon-compte/mes-achats/en-ligne",
         captcha: CollectorCaptcha.CLOUDFLARE
     }

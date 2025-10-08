@@ -1,7 +1,7 @@
 import { WebCollector } from '../../webCollector';
 import { OpenaiSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 
 export class OpenaiCollector extends WebCollector {
@@ -10,7 +10,7 @@ export class OpenaiCollector extends WebCollector {
         id: "openai",
         name: "OpenAI",
         description: "i18n.collectors.openai.description",
-        version: "1",
+        version: "2",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -28,6 +28,7 @@ export class OpenaiCollector extends WebCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://auth.openai.com/log-in",
         entryUrl: "https://platform.openai.com/settings/organization/billing/history",
         autoLogin: {
             localStorageKeys: ['@@auth0spajs@@']

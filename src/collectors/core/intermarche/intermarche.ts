@@ -9,7 +9,7 @@ export class IntermarcheCollector extends WebCollector {
         id: "intermarche",
         name: "Intermarché",
         description: "i18n.collectors.intermarche.description",
-        version: "5",
+        version: "6",
         website: "https://www.intermarche.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg",
         type: CollectorType.WEB,
@@ -27,7 +27,8 @@ export class IntermarcheCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://www.intermarche.com/",
+        loginUrl: "https://www.intermarche.com/",
+        entryUrl: "https://www.intermarche.com/gestion-de-compte/mes-courses",
         captcha: CollectorCaptcha.DATADOME,
         state: CollectorState.DEVELOPMENT
     }
@@ -44,18 +45,16 @@ export class IntermarcheCollector extends WebCollector {
         await driver.leftClick(IntermarcheSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 
         // Connect with email
-        await driver.leftClick(IntermarcheSelectors.BUTTON_LOGIN);
-        await driver.leftClick(IntermarcheSelectors.BUTTON_CONNECT_WITH_EMAIL);
+        //await driver.leftClick(IntermarcheSelectors.BUTTON_LOGIN);
+        //await driver.leftClick(IntermarcheSelectors.BUTTON_CONNECT_WITH_EMAIL);
 
         // Wait for login form
         await driver.getElement(IntermarcheSelectors.CONTAINER_FORM);
 
         // Input email and password
-        await driver.press('Tab');
-        await driver.type(params.id);
-        await driver.press('Tab');
-        await driver.type(params.password);
-        
+        await driver.inputText(IntermarcheSelectors.INPUT_EMAIL, params.id);
+        await driver.inputText(IntermarcheSelectors.INPUT_PASSWORD, params.password);
+
         // Check if email error exists
         const error_email = await driver.getElement(IntermarcheSelectors.CONTAINER_ERROR_EMAIL, { raiseException: false, timeout: 1000 })
         if (error_email) {
@@ -68,9 +67,11 @@ export class IntermarcheCollector extends WebCollector {
             return await error_password.textContent("i18n.collectors.all.password.error");
         }
 
+        // Check if remember me checkbox exists
+        await driver.leftClick(IntermarcheSelectors.CHECKBOX_REMEMBER_ME, { raiseException: false, timeout: 100 })
+
         // Submit form
-        await driver.press('Tab', 3);
-        await driver.press('Enter');
+        await driver.leftClick(IntermarcheSelectors.BUTTON_SUBMIT);
 
         // Check if login error exists
         const error_login = await driver.getElement(IntermarcheSelectors.CONTAINER_ERROR_PASSWORD, { raiseException: false, timeout: 2000 })
