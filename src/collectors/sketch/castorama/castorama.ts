@@ -7,9 +7,9 @@ export class CastoramaCollector extends SketchCollector {
         id: "castorama",
         name: "Castorama",
         description: "i18n.collectors.castorama.description",
-        version: "0",
+        version: "1",
         website: "https://castorama.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/f/f0/Castorama_Logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/8/89/Castorama_-_logo_%28France%2C_2014-%29.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
