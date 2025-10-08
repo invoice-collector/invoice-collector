@@ -10,7 +10,7 @@ export class DecathlonFacturesCarteFideliteCollector extends SketchCollector {
         description: "i18n.collectors.decathlon_factures_carte_fidelite.description",
         version: "1",
         website: "https://www.decathlon.fr/fr/loginPage",
-        logo: "https://fr.m.wikipedia.org/wiki/Fichier:Decathlon_-_logo_%28France,_2024%29.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/b/bc/Decathlon_-_logo_%28France%2C_2024%29.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
