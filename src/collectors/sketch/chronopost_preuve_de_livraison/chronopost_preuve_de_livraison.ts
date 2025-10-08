@@ -8,9 +8,9 @@ export class ChronopostPreuveDeLivraisonCollector extends SketchCollector {
         id: "chronopost_preuve_de_livraison",
         name: "Chronopost - Preuve de livraison",
         description: "i18n.collectors.chronopost_preuve_de_livraison.description",
-        version: "0",
+        version: "1",
         website: "https://www.chronopost.fr/fr/aide/faq/livraison-de-vos-envois/comment-obtenir-la-preuve-de-livraison-de-mon-colis",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/105806.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/fr/d/d0/Chronopost-logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

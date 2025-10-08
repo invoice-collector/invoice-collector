@@ -8,9 +8,9 @@ export class ManomanoCollector extends SketchCollector {
         id: "manomano",
         name: "ManoMano",
         description: "i18n.collectors.manomano.description",
-        version: "0",
+        version: "1",
         website: "https://www.manomano.fr/se-connecter",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/122300.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png",
         type: CollectorType.SKETCH,
         params: {
             email: {

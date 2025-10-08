@@ -8,9 +8,9 @@ export class VinciAutoroutesCollector extends SketchCollector {
         id: "vinci_autoroutes",
         name: "VINCI Autoroutes",
         description: "i18n.collectors.vinci_autoroutes.description",
-        version: "0",
+        version: "1",
         website: "https://espaceabonnes.vinci-autoroutes.com",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/27509.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/fr/9/9c/Logo_Vinci-Autoroutes.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
