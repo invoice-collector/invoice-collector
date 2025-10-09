@@ -58,12 +58,13 @@ You are still able to use the product but some features may not work as expected
         });
     }
 
-    logError(email: string, err: LoggableError) {
+    logError(email: string, remoteId: string, err: LoggableError) {
         this.client.post("/log/error", {
             email,
             collector: err.collector_id,
             name: err.collector_name,
             version: err.collector_version,
+            remoteId,
             url: err.url,
             error: err.name,
             traceback: fullStackTrace(err),
