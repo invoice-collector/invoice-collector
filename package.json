@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@bitwarden/sdk-napi": "^1.0.0",
+    "@mistralai/mistralai": "^1.10.0",
     "axios": "^1.7.9",
     "chrome-launcher": "^1.1.2",
     "cron": "^3.5.0",
@@ -22,6 +23,7 @@
     "express": "^4.21.2",
     "ghost-cursor": "^1.3.0",
     "i18n": "^0.15.1",
+    "image-size": "^2.0.2",
     "mongodb": "^6.12.0",
     "pdf-lib": "^1.17.1",
     "praisonai": "^1.0.19",
