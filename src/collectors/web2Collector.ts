@@ -10,8 +10,13 @@ import { State } from "../model/state";
 import * as utils from '../utils';
 import { WebConfig } from "./webCollector";
 import { V2Collector } from "./v2Collector";
+import { WebSocketServer } from "../websocket/webSocketServer";
+import { MessageClick, MessageKeypress, MessageText } from "../websocket/message";
+import { KeyInput } from "rebrowser-puppeteer-core";
 
 export abstract class WebCollector extends V2Collector<WebConfig> {
+
+    static LOGIN_TIMEOUT_MS = 2 * 60 * 1000; // 2 minutes
 
     driver: Driver | null;
 
@@ -33,6 +38,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     async _collect(
         state: State,
         twofa_promise: TwofaPromise,
+        webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
@@ -63,9 +69,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             if (needLogin) {
                 // Set progress step to logging in
                 state.update(State._2_LOGGING_IN);
+                webSocketServer?.sendState(State._2_LOGGING_IN);
 
                 console.log("User is not logged in, logging in...")
-                const login_error = await this.login(driver, secret.params)
+                const login_error = await this.login(driver, secret.params, webSocketServer)
 
                 // Check if not authenticated
                 if (login_error) {
@@ -83,12 +90,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             if (needTwofa) {
                 // Set progress step to 2fa waiting
                 state.update(State._3_2FA_WAITING, needTwofa);
+                webSocketServer?.sendState(State._3_2FA_WAITING, needTwofa);
 
                 // Set instructions for UI
                 await twofa_promise.setInstructions(needTwofa);
 
                 console.log("2FA is required, performing 2FA...")
-                const twofa_error = await this.twofa(driver, secret.params, twofa_promise)
+                const twofa_error = await this.twofa(driver, secret.params, twofa_promise, webSocketServer)
 
                 // Check if 2fa error
                 if (twofa_error) {
@@ -106,6 +114,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // Set progress step to collecting
             state.update(State._5_COLLECTING);
+            webSocketServer?.sendState(State._5_COLLECTING);
 
             // Navigate to invoices
             await this.navigate(driver, secret.params)
@@ -144,6 +153,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                             if (firstDownload) {
                                 // Set progress step to downloading
                                 state.update(State._6_DOWNLOADING);
+                                webSocketServer?.sendState(State._6_DOWNLOADING);
                                 firstDownload = false;
                             }
 
@@ -187,13 +197,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         } catch (error) {
             // Get url, source code and screenshot
             const url = driver.url();
-            const source_code = await driver.sourceCode();
-            const screenshot = await driver.screenshot();
 
             if (error instanceof LoggableError) {
                 error.url = url;
-                error.source_code = source_code;
-                error.screenshot = screenshot;
+                error.source_code = await driver.sourceCode();
+                error.screenshot = await driver.screenshot();
             }
             if (error instanceof CollectorError) {
                 throw error;
@@ -206,8 +214,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 { cause: error }
             );
             loggableError.url = url;
-            loggableError.source_code = source_code;
-            loggableError.screenshot = screenshot;
+            loggableError.source_code = await driver.sourceCode();
+            loggableError.screenshot = await driver.screenshot();
             throw loggableError;
         }
     }
@@ -226,13 +234,74 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         return driver.url() !== this.config.entryUrl;
     }
 
-    abstract login(driver: Driver, params: any): Promise<string | void>;
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>{
+        // If login is called with a WebSocketServer to undefined, it means that the session has expired
+        if (!webSocketServer) {
+            throw new AuthenticationError('i18n.collectors.all.login.expired', this);
+        }
+
+        let screenshotInterval;
+        const promise = new Promise<void>((resolve, reject) => {
+            setTimeout(() => {
+                //webSocketServer.close();
+                reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
+            }, WebCollector.LOGIN_TIMEOUT_MS)
+
+            if (webSocketServer) {
+                // Take screenshot and send it to the client every 50 ms
+                screenshotInterval = setInterval(async () => {
+                    try {
+                        const screenshot = await driver.screenshot();
+                        webSocketServer?.sendScreenshot(screenshot, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+                    } catch (error) {}
+                }, 50);
+
+                // Define what to do on click event
+                webSocketServer.onClick = async (event: MessageClick) => {
+                    await driver.page?.mouse.click(event.x, event.y);
+                };
+                // Define what to do on keypress event
+                webSocketServer.onKeypress = async (event: MessageKeypress) => {
+                    await driver.page?.keyboard.press(event.key as KeyInput);
+                };
+                // Define what to do on text event
+                webSocketServer.onText = async (event: MessageText) => {
+                    await driver.page?.keyboard.type(event.text);
+                };
+                // Define what to do on close event
+                webSocketServer.onClose = async (event) => {
+                    switch(event.reason) {
+                        case 'ok':
+                            resolve();
+                            break;
+                        case 'cancel':
+                            reject(new AuthenticationError("i18n.collectors.all.login.cancel", this));
+                            break;
+                        case 'report':
+                            reject(new LoggableError("A user reported an issue on this collector", this));
+                            break;
+                        default:
+                            console.error('Unknown close reason:', event.reason);
+                            break;
+                    }
+                };
+            }
+        });
+
+        try {
+            await promise;
+        } finally {
+            if (screenshotInterval) {
+                clearInterval(screenshotInterval);
+            }
+        }
+    }
 
     async needTwofa(driver: Driver): Promise<string | void>{
         // Assume the collector does not implement 2FA
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Assume the collector does not implement 2FA
     }
 

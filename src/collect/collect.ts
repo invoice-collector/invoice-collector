@@ -10,16 +10,19 @@ import { RegistryServer } from "../registryServer";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { TwofaPromise } from "./twofaPromise";
+import { WebSocketServer } from '../websocket/webSocketServer';
 
 export class Collect {
 
     credential_id: string;
     state: State|undefined;
     twofa_promise: TwofaPromise;
+    webSocketServer: WebSocketServer | undefined;
 
-    constructor(credential_id: string) {
+    constructor(credential_id: string, wss: WebSocketServer | undefined) {
         this.credential_id = credential_id;
         this.twofa_promise = new TwofaPromise();
+        this.webSocketServer = wss;
     }
 
     async start(): Promise<void> {
@@ -41,6 +44,7 @@ export class Collect {
             
             // Set progress step to preparing
             credential.state.update(State._1_PREPARING);
+            this.webSocketServer?.sendState(State._1_PREPARING);
 
             // Set state from credential
             this.state = credential.state;
@@ -75,7 +79,7 @@ export class Collect {
             const previousInvoices = credential.invoices.map((inv) => inv.id);
 
             // Collect invoices
-            const newInvoices = await collector.collect_new_invoices(this.state, this.twofa_promise, secret, credential.download_from_timestamp, previousInvoices, user.location);
+            const newInvoices = await collector.collect_new_invoices(this.state, this.twofa_promise, this.webSocketServer, secret, credential.download_from_timestamp, previousInvoices, user.location);
 
             console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
@@ -111,6 +115,7 @@ export class Collect {
 
             // Set progress step to done
             credential.state.update(State._7_DONE);
+            this.webSocketServer?.sendState(State._7_DONE);
 
             // Log success
             RegistryServer.getInstance().logSuccess(collector);
@@ -131,6 +136,7 @@ export class Collect {
                 if (credential) {
                     // Update credential
                     credential.state.update(State._7_DONE);
+                    this.webSocketServer?.sendState(State._7_DONE);
 
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
@@ -149,6 +155,7 @@ export class Collect {
                 if (credential) {
                     // Update credential
                     credential.state.update(State._0_UNKNOWN);
+                    this.webSocketServer?.sendState(State._0_UNKNOWN);
 
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
@@ -163,15 +170,17 @@ export class Collect {
                 if (credential && user && customer) {
                     // If error occurs and previous collect was successful, update state to disconnected
                     if (credential.state.index >= credential.state.max) {
+                        // Update credential to disconnected
+                        credential.state.update(State._2_DISCONNECTED);
+                        this.webSocketServer?.sendState(State._2_DISCONNECTED);
                         // Send disconnected notification to callback
                         const callback = new CallbackHandler(customer);
                         await callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
-                        // Update credential to disconnected
-                        credential.state.update(State._2_DISCONNECTED);
                     }
                     else {
                         // Update credential to error
                         credential.state.update(State._1_ERROR, err.message);
+                        this.webSocketServer?.sendState(State._1_ERROR, err.message);
                     }
 
                     // Update last collect
@@ -187,6 +196,7 @@ export class Collect {
                 if (credential) {
                     // Update credential
                     credential.state.update(State._0_UNKNOWN);
+                    this.webSocketServer?.sendState(State._0_UNKNOWN);
 
                     // Update last collect
                     credential.last_collect_timestamp = Date.now();
@@ -202,6 +212,7 @@ export class Collect {
                 if (credential) {
                     // Update credential
                     credential.state.update(State._0_UNKNOWN);
+                    this.webSocketServer?.sendState(State._0_UNKNOWN);
                 }
             }
         }

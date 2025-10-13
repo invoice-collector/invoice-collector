@@ -22,7 +22,7 @@ export class CollectTask {
                     // Check if a collect is in progress for this credential
                     if (!CollectPool.getInstance().has(credential_id)) {
                         try {
-                            const collect = new Collect(credential_id);
+                            const collect = new Collect(credential_id, undefined);
                         
                             // Register collect in progress
                             CollectPool.getInstance().registerCollect(credential_id, collect);

@@ -3,6 +3,7 @@ import { Location } from '../proxy/abstractProxy';
 import { Secret } from '../secret_manager/abstractSecretManager';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
+import { WebSocketServer } from '../websocket/webSocketServer';
 
 export enum CollectorState {
     DEVELOPMENT = 'development',
@@ -87,6 +88,7 @@ export abstract class AbstractCollector<C extends Config> {
     abstract collect_new_invoices(
         state: State,
         twofa_promise: TwofaPromise,
+        webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],

@@ -423,10 +423,11 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/collect', async (req, 
     try {
         // Post collect
         console.log(`POST collect ${req.params.credential_id}`);
-        await server.post_credential_collect(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id);
+        const response = await server.post_credential_collect(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id);
 
         // Build response
-        res.end()
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -437,10 +438,11 @@ app.post('/api/v1/credential/:credential_id/collect', async (req, res) => {
     try {
         // Post collect
         console.log(`POST collect ${req.params.credential_id}`);
-        await server.post_credential_collect(undefined, undefined, req.query.token, req.params.credential_id);
+        const response = await server.post_credential_collect(undefined, undefined, req.query.token, req.params.credential_id);
 
         // Build response
-        res.end()
+        res.setHeader('Content-Type', 'application/json');
+        res.end(JSON.stringify(response));
     } catch (e) {
         handle_error(e, req, res);
     }
@@ -471,7 +473,10 @@ app.use((req, res, next) => {
 
 // Start server
 server.start().then(() => {
-    app.listen(PORT, () => {
+    const httpServer = app.listen(PORT, () => {
         console.log(`App listening on port ${PORT}`)
     });
+
+    // Set http server to server instance to be able to use websockets
+    server.httpServer = httpServer;
 });

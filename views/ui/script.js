@@ -183,7 +183,6 @@ function showForm(company) {
     document.getElementById('progress-container').hidden = true;
     document.getElementById('feedback-container').hidden = true;
 
-    console.log(company);
     // If the collector is not a sketch, show form
     if(company.type != "sketch") {
         // Show form, hide sketch button
@@ -270,11 +269,11 @@ async function addCredential(event) {
         showCredentials();
     }
     else {
-        showProgress(content.id);
+        showProgress(content.id, content.wsPath);
     }
 }
 
-async function showProgress(credential_id) {
+async function showProgress(credential_id, wsPath) {
     // Get the elements
     const progressText = document.getElementById('progress-text');
     const progressBar = document.getElementById('progress-bar');
@@ -283,9 +282,9 @@ async function showProgress(credential_id) {
     const responseError = document.getElementById('progress-response-error');
     const responseErrorText = document.getElementById('progress-response-error-text');
     const container2FA = document.getElementById('send-2fa-container');
+    const containerCanvas = document.getElementById('canvas-container');
     const form2fa = document.getElementById('send-2fa-form');
     const form2faInstructions = document.getElementById('send-2fa-instructions');
-    
 
     // Reset values
     progressText.textContent = '';
@@ -295,6 +294,7 @@ async function showProgress(credential_id) {
     responseUnknown.hidden = true;
     responseError.hidden = true;
     container2FA.hidden = true;
+    containerCanvas.hidden = true;
     form2fa.reset();
     form2faInstructions.textContent = '';
 
@@ -305,22 +305,87 @@ async function showProgress(credential_id) {
     document.getElementById('progress-container').hidden = false;
     document.getElementById('feedback-container').hidden = true;
 
-    // Set the onsudmit event for the 2fa form
+    // Set the on submit event for the 2fa form
     form2fa.addEventListener('submit', async (event) => {
         container2FA.hidden = true;
         event.preventDefault();
         await post2FA(credential_id, event.target["code"].value);
     });
 
-    let response;
-    let previous_state, current_state;
-    
-    do {
-        response = await fetch(`credential/${credential_id}?token=${token}`);
-        current_state = (await response.json()).state;
+    // WebSocket to get real-time updates - NEW WAY
+    let finished = false;
+    const ws = new WebSocket(wsPath);
+    ws.onopen = () => {
+        console.log('WebSocket connection opened');
 
-        // Check if the response is ok
-        if (current_state.index > 0) {
+        const canvas = document.getElementById('canvas');
+        const canvasOkButton = document.getElementById('canvas-ok');
+        const canvasCancelButton = document.getElementById('canvas-cancel');
+
+        canvas.addEventListener('click', function(event) {
+            const rect = canvas.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            ws.send(JSON.stringify({ type: 'click', x: x / canvas.width, y: y / canvas.height }));
+        });
+
+        canvas.addEventListener('keydown', function(event) {
+            if (event.ctrlKey) {
+                if (event.key.toLowerCase() === 'v') {
+                    navigator.clipboard.readText().then(text => {
+                        ws.send(JSON.stringify({ type: 'type', content: text }));
+                    }).catch(err => {
+                        console.error('Clipboard read failed:', err);
+                    });
+                }
+            }
+            else {
+                ws.send(JSON.stringify({ type: 'keydown', key: event.key, code: event.code }));
+            }
+        });
+
+        // To ensure canvas receives keyboard events, set tabindex and focus
+        canvas.setAttribute('tabindex', '0');
+        canvas.focus();
+
+        // Handle OK button
+        canvasOkButton.onclick = function() {
+            finished = true;
+            containerCanvas.hidden = true;
+            ws.send(JSON.stringify({ type: 'close', reason: 'ok' }));
+        };
+
+        // Handle Cancel button
+        canvasCancelButton.onclick = function() {
+            finished = true;
+            containerCanvas.hidden = true;
+            ws.send(JSON.stringify({ type: 'close', reason: 'cancel' }));
+        };
+    };
+
+    let previous_state, current_state;
+    ws.onmessage = async function(event) {
+        const parsedData = JSON.parse(event.data);
+
+        if(parsedData.type == "screenshot") {
+            const arrayBuffer = Uint8Array.from(atob(parsedData.screenshot), c => c.charCodeAt(0)).buffer;
+            const blob = new Blob([new Uint8Array(arrayBuffer)], { type: 'image/png' });
+            const url = URL.createObjectURL(blob);
+
+            const img = new Image(parsedData.width, parsedData.height);
+            img.onload = function() {
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                ctx.scale(1, 1);
+            };
+            img.src = url;
+
+            // Display canvas
+            containerCanvas.hidden = finished;
+        }
+        else if(parsedData.type == "state") {
+            current_state = parsedData.state;
             if (previous_state && previous_state.index !== current_state.index) {
                 // Update progress bar and text
                 progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
@@ -350,16 +415,68 @@ async function showProgress(credential_id) {
                 // Wait 1 second before polling again
                 await new Promise(resolve => setTimeout(resolve, 1000));
             }
+            previous_state = current_state;
         }
-        previous_state = current_state;
-    } while (0 < current_state.index && current_state.index < current_state.max);
+    };
 
-    // Display error or success message
-    container2FA.hidden = true;
-    responseErrorText.textContent = current_state.message;
-    responseSuccess.hidden = !(current_state.index >= current_state.max);
-    responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
-    responseError.hidden = !(current_state.index < 0);
+    ws.onclose = (event) => {
+        console.log('WebSocket connection closed');
+
+        // Display error or success message
+        container2FA.hidden = true;
+        containerCanvas.hidden = true;
+        responseErrorText.textContent = current_state.message;
+        responseSuccess.hidden = !(current_state.index >= current_state.max);
+        responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
+        responseError.hidden = !(current_state.index < 0);
+    }
+
+    // Poll the credential state every second - OLD WAY
+    /*let response;
+    let previous_state_OLD, current_state_OLD;
+    
+    do {
+        response = await fetch(`credential/${credential_id}?token=${token}`);
+        current_state_OLD = (await response.json()).state;
+
+        // Check if the response is ok
+        if (current_state_OLD.index > 0) {
+            if (previous_state_OLD && previous_state_OLD.index !== current_state_OLD.index) {
+                // Update progress bar and text
+                progressBar.style.width = `${current_state_OLD.index / current_state_OLD.max * 100}%`;
+
+                // Update progress text with fade effect
+                progressText.classList.add('fade');
+                await new Promise(resolve => setTimeout(resolve, 500));
+                progressText.textContent = current_state_OLD.title;
+                progressText.classList.remove('fade');
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                // Display 2fa code if needed
+                if (current_state_OLD.index === 3) {
+                    container2FA.hidden = false;
+                    form2faInstructions.textContent = current_state_OLD.message;
+                }
+            }
+            else {
+                if (previous_state_OLD === undefined) {
+                    // Update progress bar and text
+                    progressBar.style.width = `${current_state_OLD.index / current_state_OLD.max * 100}%`;
+
+                    // Update progress text with fade effect
+                    progressText.textContent = current_state_OLD.title;
+                    progressText.classList.remove('fade');
+                }
+                // Wait 1 second before polling again
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+        previous_state_OLD = current_state_OLD;
+    } while (0 < current_state_OLD.index && current_state_OLD.index < current_state_OLD.max);
+
+
+    // Close the WebSocket connection
+    ws.close();*/
 }
 
 async function post2FA(credential_id, code) {

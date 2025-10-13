@@ -271,6 +271,12 @@ input, textarea, select {
     width: 10%;
 }
 
+/* CANVAS */
+
+#canvas-container {
+    text-align: center;
+}
+
 /* FEEDBACK */
 
 #feedback-form > textarea {

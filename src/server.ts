@@ -1,5 +1,5 @@
 import { DatabaseFactory } from './database/databaseFactory';
-import { AbstractSecretManager, Secret } from './secret_manager/abstractSecretManager';
+import { Secret } from './secret_manager/abstractSecretManager';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
 import { generate_token } from './utils';
@@ -9,7 +9,7 @@ import { Customer, Stats } from './model/customer';
 import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
-import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
+import { CollectorType, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
 import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
@@ -18,6 +18,7 @@ import { Collect } from './collect/collect';
 import { I18n } from './i18n';
 import { Plan } from './model/plan';
 import { State } from './model/state';
+import { WebSocketServer } from './websocket/webSocketServer';
 
 export class Server {
 
@@ -31,6 +32,7 @@ export class Server {
     resetTokens: { [key: string]: string };
     uiBearers: { [key: string]: string };
     collect_task: CollectTask;
+    httpServer: any;
 
     constructor() {
         this.uiTokens = {};
@@ -641,7 +643,8 @@ export class Server {
         next_collect_timestamp: number,
         invoices: any[],
         state: State,
-        collector: Config
+        collector: Config,
+        wsPath: string
     }> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
@@ -728,8 +731,12 @@ export class Server {
         // Create credential in database
         await credential.commit();
 
+        // Start web socket server and get token
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale);
+        const wsPath = webSocketServer.start();
+
         // Start collect
-        const collect = new Collect(credential.id)
+        const collect = new Collect(credential.id, webSocketServer)
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -742,6 +749,8 @@ export class Server {
         .finally(() => {
             // Unregister collect in progress
             CollectPool.getInstance().unregisterCollect(credential.id);
+            // Close web socket server
+            webSocketServer.close();
         });
 
         // Return credential
@@ -756,6 +765,7 @@ export class Server {
             invoices: credential.invoices,
             state: credential.state,
             collector: collector.config,
+            wsPath: wsPath
         };
     }
 
@@ -911,7 +921,9 @@ export class Server {
         user_id: string | undefined,
         token: any,
         credential_id: string
-    ): Promise<void> {
+    ): Promise<{
+        wsPath: string
+    }> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
@@ -931,8 +943,12 @@ export class Server {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
+        // Start web socket server and get token
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale);
+        const wsPath = webSocketServer.start();
+
         // Start collect
-        const collect = new Collect(credential.id)
+        const collect = new Collect(credential.id, webSocketServer)
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -945,7 +961,11 @@ export class Server {
         .finally(() => {
             // Unregister collect in progress
             CollectPool.getInstance().unregisterCollect(credential.id);
+            // Close web socket server
+            webSocketServer.close();
         });
+
+        return { wsPath };
     }
 
     // ---------- COLLECTOR ENDPOINTS ----------

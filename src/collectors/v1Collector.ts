@@ -3,6 +3,7 @@ import { Secret } from '../secret_manager/abstractSecretManager';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { AbstractCollector, CompleteInvoice, Config, Invoice } from './abstractCollector';
+import { WebSocketServer } from '../websocket/webSocketServer';
 
 export abstract class V1Collector<C extends Config> extends AbstractCollector<C> {
 
@@ -13,6 +14,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
     async collect_new_invoices(
         state: State,
         twofa_promise: TwofaPromise,
+        webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
@@ -48,6 +50,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
 
                 // Set progress step to downloading
                 state.update(State._6_DOWNLOADING);
+                webSocketServer?.sendState(State._6_DOWNLOADING);
 
                 // For each new invoice
                 for(let newInvoice of newInvoices) {
