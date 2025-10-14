@@ -17,8 +17,8 @@ export type MessageClick = AbstractMessage & {
     y: number;
 }
 
-export type MessageKeypress = AbstractMessage & {
-    type: 'keypress';
+export type MessageKeydown = AbstractMessage & {
+    type: 'keydown';
     key: string;
 }
 

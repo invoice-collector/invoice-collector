@@ -1,7 +1,7 @@
 import { Server, WebSocket } from 'ws';
 import http from 'http';
-import * as utils from '../utils'; // Adjust path as needed
-import { MessageClick, MessageClose, MessageKeypress, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
+import * as utils from '../utils';
+import { MessageClick, MessageClose, MessageKeydown, MessageScreenshot, MessageState, MessageText, MessageTwofa } from './message';
 import { State } from '../model/state';
 import { Driver } from '../driver/driver';
 import { I18n } from '../i18n';
@@ -17,7 +17,7 @@ export class WebSocketServer {
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
     public onClick: ((event: MessageClick) => void) | undefined;
-    public onKeypress: ((event: MessageKeypress) => void) | undefined;
+    public onKeydown: ((event: MessageKeydown) => void) | undefined;
     public onText: ((event: MessageText) => void) | undefined;
     public onClose: ((event: MessageClose) => void) | undefined;
 
@@ -48,8 +48,8 @@ export class WebSocketServer {
                         data.y = Driver.VIEWPORT_HEIGHT * data.y;
                         this.onClick(data as MessageClick);
                     }
-                    else if (data.type === 'keydown' && data.key && this.onKeypress) {
-                        this.onKeypress(data as MessageKeypress);
+                    else if (data.type === 'keydown' && data.key && this.onKeydown) {
+                        this.onKeydown(data as MessageKeydown);
                     }
                     else if (data.type === 'type' && data.text && this.onText) {
                         this.onText(data as MessageText);

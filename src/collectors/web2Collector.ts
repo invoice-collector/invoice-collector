@@ -11,7 +11,7 @@ import * as utils from '../utils';
 import { WebConfig } from "./webCollector";
 import { V2Collector } from "./v2Collector";
 import { WebSocketServer } from "../websocket/webSocketServer";
-import { MessageClick, MessageKeypress, MessageText } from "../websocket/message";
+import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
 import { KeyInput } from "rebrowser-puppeteer-core";
 
 export abstract class WebCollector extends V2Collector<WebConfig> {
@@ -260,8 +260,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 webSocketServer.onClick = async (event: MessageClick) => {
                     await driver.page?.mouse.click(event.x, event.y);
                 };
-                // Define what to do on keypress event
-                webSocketServer.onKeypress = async (event: MessageKeypress) => {
+                // Define what to do on keydown event
+                webSocketServer.onKeydown = async (event: MessageKeydown) => {
                     await driver.page?.keyboard.press(event.key as KeyInput);
                 };
                 // Define what to do on text event
