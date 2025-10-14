@@ -23,7 +23,6 @@ function orderLocales() {
                     obj[key] = jsonContent[key];
                     return obj;
                 }, {});
-                console.log(sortedContent);
 
             // Write the sorted content back to the file
             fs.writeFileSync(filePath, JSON.stringify(sortedContent, null, 2), 'utf-8');
