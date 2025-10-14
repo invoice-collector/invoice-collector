@@ -429,54 +429,7 @@ async function showProgress(credential_id, wsPath) {
         responseSuccess.hidden = !(current_state.index >= current_state.max);
         responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
         responseError.hidden = !(current_state.index < 0);
-    }
-
-    // Poll the credential state every second - OLD WAY
-    /*let response;
-    let previous_state_OLD, current_state_OLD;
-    
-    do {
-        response = await fetch(`credential/${credential_id}?token=${token}`);
-        current_state_OLD = (await response.json()).state;
-
-        // Check if the response is ok
-        if (current_state_OLD.index > 0) {
-            if (previous_state_OLD && previous_state_OLD.index !== current_state_OLD.index) {
-                // Update progress bar and text
-                progressBar.style.width = `${current_state_OLD.index / current_state_OLD.max * 100}%`;
-
-                // Update progress text with fade effect
-                progressText.classList.add('fade');
-                await new Promise(resolve => setTimeout(resolve, 500));
-                progressText.textContent = current_state_OLD.title;
-                progressText.classList.remove('fade');
-                await new Promise(resolve => setTimeout(resolve, 500));
-
-                // Display 2fa code if needed
-                if (current_state_OLD.index === 3) {
-                    container2FA.hidden = false;
-                    form2faInstructions.textContent = current_state_OLD.message;
-                }
-            }
-            else {
-                if (previous_state_OLD === undefined) {
-                    // Update progress bar and text
-                    progressBar.style.width = `${current_state_OLD.index / current_state_OLD.max * 100}%`;
-
-                    // Update progress text with fade effect
-                    progressText.textContent = current_state_OLD.title;
-                    progressText.classList.remove('fade');
-                }
-                // Wait 1 second before polling again
-                await new Promise(resolve => setTimeout(resolve, 1000));
-            }
-        }
-        previous_state_OLD = current_state_OLD;
-    } while (0 < current_state_OLD.index && current_state_OLD.index < current_state_OLD.max);
-
-
-    // Close the WebSocket connection
-    ws.close();*/
+    };
 }
 
 async function post2FA(credential_id, code) {
