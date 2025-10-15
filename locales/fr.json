@@ -462,6 +462,8 @@
   "i18n.collectors.ambetter_health.description": "Un fournisseur d'assurance maladie proposant des plans abordables via la Place de Marché d'Assurance Maladie.",
   "i18n.collectors.ambit_energy.description": "Un fournisseur d'énergie de détail proposant des services d'électricité et de gaz naturel dans plusieurs États américains.",
   "i18n.collectors.amboss.description": "Une plateforme d'apprentissage médical en ligne complète pour les étudiants et les médecins.",
+  "i18n.collectors.ameli.description": "Ameli est le portail officiel de l'Assurance Maladie.",
+  "i18n.collectors.ameli.identifier.placeholder": "Numéro de sécurité sociale sur 13 chiffres",
   "i18n.collectors.amen_fr.description": "Un fournisseur français d'hébergement web et d'enregistrement de noms de domaine.",
   "i18n.collectors.american_dream.description": "Un service en ligne proposant une variété de produits et d'expériences culturelles sur le thème américain.",
   "i18n.collectors.american_water.description": "Un principal fournisseur de services d'eau et d'assainissement aux États-Unis.",
