@@ -2,12 +2,12 @@ import path from 'path';
 import fs from 'fs';
 import { connect } from './puppeteer/browser';
 import type { PageWithCursor } from "./puppeteer/pageController";
-import { Browser, DownloadPolicy, ElementHandle, KeyInput } from "rebrowser-puppeteer-core";
+import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { Options } from './puppeteer/browser';
-import { AbstractCollector, CollectorCaptcha, Config } from '../collectors/abstractCollector';
+import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/web2Collector';
 
@@ -247,7 +247,7 @@ export class Driver {
         }
         try {
             const element = await this.page.waitForSelector(selector.selector, {timeout});
-            return element ? new Element(element) : null;
+            return element ? new Element(element, this) : null;
         }
         catch (err) {
             if (raiseException) {
@@ -257,19 +257,46 @@ export class Driver {
         }
     }
 
-    async getElementCoordinates(x: number, y: number): Promise<Element | null> {
-        if (this.page === null) {
-            throw new Error('Page is not initialized.');
+    async getElementCoordinates(x: number, y: number, context: PageWithCursor | Frame | null = null): Promise<Element | null> {
+        if (context == null) {
+            if (this.page === null) {
+                throw new Error('Page is not initialized.');
+            }
+            context = this.page;
         }
-        const element = await this.page.evaluateHandle((x, y) => {
+
+        const elementHandle = await context.evaluateHandle((x, y) => {
             return document.elementFromPoint(x, y);
         }, x, y);
 
-        // Only return if element is an ElementHandle
-        if (element && element.constructor.name === 'ElementHandle') {
-            return new Element(element as ElementHandle);
+        if (!elementHandle) {
+            return null;
         }
-        return null;
+
+        // Check if the element is an iframe
+        const isIframe = await context.evaluate((el) => {
+            return el !== null && el.tagName === 'IFRAME';
+        }, elementHandle);
+
+        if (isIframe) {
+            const frameElement = await (elementHandle as ElementHandle);
+            const frame = await frameElement.contentFrame();
+            if (frame) {
+                // Get iframe bounding box
+                const frameBoundingBox = await frameElement.boundingBox();
+
+                // If bounding box x and y are not defined
+                if (!frameBoundingBox?.x || !frameBoundingBox?.y) {
+                    throw new Error("Iframe bounding box x or y is not defined");
+                }
+
+                // Recursively call the function inside the iframe and remove iframe coordinates
+                return this.getElementCoordinates(x - frameBoundingBox?.x, y - frameBoundingBox?.y, frame);
+            }
+        }
+
+        // If not an iframe, return the element
+        return new Element(elementHandle as ElementHandle, this);
     }
 
     async getElements(selector, {
@@ -280,7 +307,7 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         await this.getElement(selector, { raiseException, timeout });
-        return (await this.page.$$(selector.selector)).map(element => new Element(element));
+        return (await this.page.$$(selector.selector)).map(element => new Element(element, this) );
     }
 
     async getAttribute(selector, attributeName, {
@@ -555,9 +582,11 @@ export class Driver {
 export class Element {
 
     element: ElementHandle;
+    driver: Driver;
 
-    constructor(element: ElementHandle) {
+    constructor(element: ElementHandle, driver: Driver) {
         this.element = element;
+        this.driver = driver;
     }
 
     /**
@@ -567,7 +596,7 @@ export class Element {
      */
     async getElement(selector: any): Promise<Element | null> {
         const elementHandle = await this.element.$(selector.selector);
-        return elementHandle ? new Element(elementHandle) : null;
+        return elementHandle ? new Element(elementHandle, this.driver) : null;
     }
 
     /**
@@ -580,8 +609,19 @@ export class Element {
         return this.element.evaluate(el => el.textContent ?? _default);
     }
 
-    async click(): Promise<void> {
+    async click({
+        timeout = Driver.DEFAULT_TIMEOUT,
+        delay = Driver.DEFAULT_DELAY,
+        navigation = true
+    } = {}): Promise<void> {
         await this.element.click();
+        await utils.delay(delay);
+        if(navigation === true) {
+            try {
+                await this.driver.page?.waitForNavigation({timeout});
+            }
+            catch {}
+        }
     }
 
     async middleClick(): Promise<void> {
@@ -617,5 +657,32 @@ export class Element {
 
     async innerHTML(): Promise<string> {
         return this.element.evaluate(el => el.innerHTML);
+    }
+
+    async xpath(): Promise<string> {
+        return await this.element.evaluate(element => {
+            function getXPath(element) {
+                if (element.id) {
+                    return `//*[@id="${element.id}"]`;
+                }
+                if (element === document.body) {
+                    return '/html/body';
+                }
+
+                let ix = 0;
+                const siblings = element.parentNode.childNodes;
+                for (let i = 0; i < siblings.length; i++) {
+                    const sibling = siblings[i];
+                    if (sibling === element) {
+                        return `${getXPath(element.parentNode)}/${element.tagName.toLowerCase()}[${ix + 1}]`;
+                    }
+                    if (sibling.nodeType === 1 && sibling.tagName === element.tagName) {
+                        ix++;
+                    }
+                }
+            }
+            console.log("I am", element.tagName)
+            return getXPath(element);
+        });
     }
 }
