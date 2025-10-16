@@ -10,6 +10,7 @@ import { Options } from './puppeteer/browser';
 import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/web2Collector';
+import { Action, ActionEnum } from '../model/action';
 
 export class Driver {
 
@@ -577,6 +578,61 @@ export class Driver {
         }
     }
 
+    // ACTIONS
+
+    async executeAction(action: Action, params: any): Promise<string | void> {
+        let element;
+        // If we have cssSelector, use it
+        if (action.cssSelector) {
+            // Get element from cssSelector
+            element = await this.getElement({
+                selector: action.cssSelector,
+                info: action.description
+            })
+        }
+        // If we have coordinates, but no cssSelector
+        else if (action.x && action.y && !action.cssSelector) {
+            // Get element from coordinates
+            element = await this.getElementCoordinates(action.x!, action.y!);
+            if (!element) {
+                throw new Error(`No element found at coordinates (${action.x}, ${action.y})`);
+            }
+            action.cssSelector = await element.cssSelector();
+        }
+        else {
+            throw new Error('No way to locate element (no cssSelector or coordinates)');
+        }
+
+        // Execute action
+        switch (action.action) {
+            case ActionEnum.LEFT_CLICK:
+                await element.click();
+                break;
+            case ActionEnum.INPUT_TEXT:
+                // If parameter exists
+                if(!params.hasOwnProperty(action.parameter)) {
+                    throw new Error(`Parameter ${action.parameter} not found in params`);
+                }
+                // Input text
+                await element.inputText(params[action.parameter]);
+                break;
+            /*case ActionEnum.INPUT_2FA_CODE:
+                await element.inputText();
+                break;*/
+            default:
+                throw new Error(`Unknown action: ${action.action}`);
+        }
+    }
+
+    async executeActions(actions: Action[], params: any): Promise<string | void> {
+        for(const action of actions) {
+            const result = await this.executeAction(action, params);
+            if (result) {
+                return result;
+            }
+        }
+        return;
+    }
 }
 
 export class Element {

@@ -14,7 +14,7 @@ import assert from 'assert';
 import * as crypto from 'crypto';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
-import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
+import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
     await DatabaseFactory.getDatabase().connect();
@@ -149,6 +149,11 @@ function getHashFromSecret(secret: Secret): string {
         secretHash = await getHashFromSecret(secret);
 
         // ---------- PART 3 : PERFORM COLLECT ----------
+
+        // Connect to database if is agent collector
+        if(collector.config.type === CollectorType.AGENT) {
+            await DatabaseFactory.getDatabase().connect();
+        }
 
         // Collect invoices
         const collect = new Collect("")

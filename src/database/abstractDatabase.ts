@@ -1,6 +1,7 @@
 import { Customer, Stats } from "../model/customer";
 import { User } from "../model/user";
 import { IcCredential } from "../model/credential";
+import { CollectorMemory } from "../model/collectorMemory";
 
 export abstract class AbstractDatabase {
     constructor() {
@@ -62,4 +63,12 @@ export abstract class AbstractDatabase {
     abstract deleteCredential(user_id: string, credential_id: string): Promise<void>;
 
     abstract deleteCredentials(user_id: string): Promise<void>;
+    
+    // COLLECTOR MEMORY
+    
+    abstract getCollectorMemory(name: string): Promise<CollectorMemory | null>;
+
+    abstract createCollectorMemory(collectorMemory: CollectorMemory): Promise<CollectorMemory>;
+
+    abstract updateCollectorMemory(collectorMemory: CollectorMemory): Promise<void>;
 }
