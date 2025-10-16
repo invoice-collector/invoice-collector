@@ -247,20 +247,20 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        try {
-            const element = await Promise.race(
-                this.page.frames().map(frame => 
-                    frame.waitForSelector(selector.selector, {timeout})
-                )
-            );
-            return element ? new Element(element, this) : null;
+        // Wait for first element matching selector in any frame, null if all timed out
+        const element = await Promise.any(
+            this.page.frames().map(frame =>
+                frame.waitForSelector(selector.selector, { timeout })
+            )
+        ).catch(() => null);
+
+        if (element == null && raiseException) {
+            throw new ElementNotFoundError(this.collector, selector, {
+                cause: `No element matching selector "${selector.selector}"`
+            })
         }
-        catch (err) {
-            if (raiseException) {
-                throw new ElementNotFoundError(this.collector, selector, { cause: err })
-            }
-            return null;
-        }
+
+        return element ? new Element(element, this) : null;
     }
 
     async getElementCoordinates(x: number, y: number, context: PageWithCursor | Frame | null = null): Promise<Element | null> {
