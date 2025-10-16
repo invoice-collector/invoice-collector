@@ -11,6 +11,7 @@ import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/web2Collector';
 import { Action, ActionEnum } from '../model/action';
+import { TwofaPromise } from '../collect/twofaPromise';
 
 export class Driver {
 
@@ -247,7 +248,11 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         try {
-            const element = await this.page.waitForSelector(selector.selector, {timeout});
+            const element = await Promise.race(
+                this.page.frames().map(frame => 
+                    frame.waitForSelector(selector.selector, {timeout})
+                )
+            );
             return element ? new Element(element, this) : null;
         }
         catch (err) {
@@ -580,8 +585,8 @@ export class Driver {
 
     // ACTIONS
 
-    async executeAction(action: Action, params: any): Promise<string | void> {
-        let element;
+    async executeAction(action: Action, params: any, twofaPromise: TwofaPromise | null): Promise<string | void> {
+        let element: Element | null;
         // If we have cssSelector, use it
         if (action.cssSelector) {
             // Get element from cssSelector
@@ -603,6 +608,11 @@ export class Driver {
             throw new Error('No way to locate element (no cssSelector or coordinates)');
         }
 
+        // If no element found, throw error
+        if (!element) {
+            throw new Error(`Element not found for action ${action}`);
+        }
+
         // Execute action
         switch (action.action) {
             case ActionEnum.LEFT_CLICK:
@@ -616,17 +626,30 @@ export class Driver {
                 // Input text
                 await element.inputText(params[action.parameter]);
                 break;
-            /*case ActionEnum.INPUT_2FA_CODE:
-                await element.inputText();
-                break;*/
+            case ActionEnum.INPUT_2FA_CODE:
+                if (twofaPromise == null) {
+                    throw new Error("TwofaPromise is null");
+                }
+                // Await the 2FA code
+                const twofa_code = await twofaPromise.code();
+                // Input 2FA code with only one try
+                await element.inputText(twofa_code, { tries: 1 });
+                // Some input may trigger navigation
+                try {
+                    await this.page?.waitForNavigation({timeout: 5000});
+                }
+                catch {}
+                break;
+            case ActionEnum.GET_TEXT_CONTENT:
+                return await element.textContent("");
             default:
                 throw new Error(`Unknown action: ${action.action}`);
         }
     }
 
-    async executeActions(actions: Action[], params: any): Promise<string | void> {
+    async executeActions(actions: Action[], params: any, twofaPromise: TwofaPromise | null): Promise<string | void> {
         for(const action of actions) {
-            const result = await this.executeAction(action, params);
+            const result = await this.executeAction(action, params, twofaPromise);
             if (result) {
                 return result;
             }

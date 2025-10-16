@@ -2,7 +2,8 @@ export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
     LEFT_CLICK = 'leftClick',
     INPUT_TEXT = 'inputText',
-    INPUT_2FA_CODE = 'input2FACode'
+    INPUT_2FA_CODE = 'input2FACode',
+    GET_TEXT_CONTENT = 'getTextContent'
 }
 
 export class Action {
