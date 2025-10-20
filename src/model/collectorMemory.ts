@@ -10,15 +10,15 @@ export class CollectorMemory {
 
     id: string;
     name: string;
-    actions: { [key: string]: Action[] };
+    actions: { [key: string]: Action<unknown>[] };
 
-    constructor(name: string, actions: { [key: string]: Action[] } = {}) {
+    constructor(name: string, actions: { [key: string]: Action<unknown>[] } = {}) {
         this.id = "";
         this.name = name;
         this.actions = actions;
     }
 
-    getActionsFor(key: string): Action[] | null {
+    getActionsFor(key: string): Action<unknown>[] | null {
         return this.actions.hasOwnProperty(key) ? this.actions[key] : null;
     }
 
