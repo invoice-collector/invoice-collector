@@ -13,9 +13,9 @@ export enum ActionEnum  {
     EXTRACT_INVOICE_DATA = 'extractInvoiceData'
 }
 
-export abstract class Action<ResultType> {
+export abstract class Action<Context, Result> {
 
-    static fromObject(obj: any): Action<any> {
+    static fromObject(obj: any): Action<any, any> {
         switch (obj.action) {
             case ActionEnum.LEFT_CLICK:
                 return new LeftClickAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
@@ -34,9 +34,9 @@ export abstract class Action<ResultType> {
         }
     }
 
-    static async performActions(actions: Action<any>[], driver: Driver, params: any, twofaPromise: TwofaPromise | null): Promise<any> {
+    static async performActions(actions: Action<any, any>[], context: any): Promise<any> {
         for(const action of actions) {
-            const result = await action.perform(driver, params, twofaPromise);
+            const result = await action.perform(context);
             if (result) {
                 return result;
             }
@@ -93,14 +93,19 @@ export abstract class Action<ResultType> {
         return element;
     }
 
-    abstract perform(driver: Driver, params: any, twofaPromise: TwofaPromise | null): Promise<ResultType>;
+    abstract perform(context: Context): Promise<Result>;
 
     toString(): string {
         return `Action: ${this.action}, Description: ${this.description}`;
     }
 }
 
-export class LeftClickAction extends Action<void> {
+export type LeftClickContext = {
+    driver: Driver;
+}
+
+export class LeftClickAction extends Action<LeftClickContext, void> {
+
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
         // args should have 'navigation' field
         if(!args.hasOwnProperty('navigation')) {
@@ -110,8 +115,8 @@ export class LeftClickAction extends Action<void> {
         super(ActionEnum.LEFT_CLICK, description, location, args, x, y, cssSelector);
     }
 
-    async perform(driver: Driver, params: any, twofaPromise: TwofaPromise | null): Promise<void> {
-        let element: Element = await this.getElement(driver);
+    async perform(context: LeftClickContext): Promise<void> {
+        let element: Element = await this.getElement(context.driver);
         await element.click({
             navigation: this.args.navigation
         });
@@ -122,7 +127,12 @@ export class LeftClickAction extends Action<void> {
     }
 }
 
-export class InputTextAction extends Action<void> {
+export type InputTextContext = {
+    driver: Driver;
+    params: any;
+}
+
+export class InputTextAction extends Action<InputTextContext, void> {
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
         // args should have 'text' field
         if(!args.hasOwnProperty('text')) {
@@ -132,14 +142,14 @@ export class InputTextAction extends Action<void> {
         super(ActionEnum.INPUT_TEXT, description, location, args, x, y, cssSelector);
     }
 
-    async perform(driver: Driver, params: any, twofaPromise: TwofaPromise | null): Promise<void> {
+    async perform(context: InputTextContext): Promise<void> {
         // If parameter exists
-        if(!params.hasOwnProperty(this.args.text)) {
+        if(!context.params.hasOwnProperty(this.args.text)) {
             throw new Error(`Parameter ${this.args.text} not found in params`);
         }
 
-        let element: Element = await this.getElement(driver);
-        await element.inputText(params[this.args.text], this.args);
+        let element: Element = await this.getElement(context.driver);
+        await element.inputText(context.params[this.args.text], this.args);
     }
 
     toString(): string {
@@ -147,7 +157,11 @@ export class InputTextAction extends Action<void> {
     }
 }
 
-export class GetTextContentAction extends Action<string> {
+export type GetTextContentContext = {
+    driver: Driver;
+}
+
+export class GetTextContentAction extends Action<GetTextContentContext, string> {
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
@@ -157,8 +171,8 @@ export class GetTextContentAction extends Action<string> {
         super(ActionEnum.GET_TEXT_CONTENT, description, location, args, x, y, cssSelector);
     }
 
-    async perform(driver: Driver, params: any, twofaPromise: TwofaPromise | null): Promise<string> {
-        let element: Element = await this.getElement(driver);
+    async perform(context: GetTextContentContext): Promise<string> {
+        let element: Element = await this.getElement(context.driver);
         return await element.textContent(this.args.default);
     }
 
@@ -167,16 +181,21 @@ export class GetTextContentAction extends Action<string> {
     }
 }
 
-export class InputTwofaAction extends Action<void> {
+export type InputTwofaContext = {
+    driver: Driver;
+    twofaPromise: TwofaPromise;
+}
+
+export class InputTwofaAction extends Action<InputTwofaContext, void> {
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
         super(ActionEnum.INPUT_2FA_CODE, description, location, args, x, y, cssSelector);
     }
 
-    async perform(driver: Driver, params: any, twofaPromise: TwofaPromise): Promise<void> {
+    async perform(context: InputTwofaContext): Promise<void> {
         // Get 2fa code
-        const code = await twofaPromise.code();
+        const code = await context.twofaPromise.code();
 
-        let element: Element = await this.getElement(driver);
+        let element: Element = await this.getElement(context.driver);
         await element.inputText(code, this.args);
     }
 
@@ -185,7 +204,11 @@ export class InputTwofaAction extends Action<void> {
     }
 }
 
-export class GetTwofaInstructionsAction extends Action<string> {
+export type GetTwofaInstructionsContext = {
+    driver: Driver;
+}
+
+export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsContext, string> {
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
@@ -195,8 +218,8 @@ export class GetTwofaInstructionsAction extends Action<string> {
         super(ActionEnum.GET_TWOFA_INSTRUCTIONS, description, location, args, x, y, cssSelector);
     }
 
-    async perform(driver: Driver, params: any, twofaPromise: TwofaPromise | null): Promise<string> {
-        let element: Element = await this.getElement(driver);
+    async perform(context: GetTwofaInstructionsContext): Promise<string> {
+        let element: Element = await this.getElement(context.driver);
         return await element.textContent(this.args.default);
     }
 

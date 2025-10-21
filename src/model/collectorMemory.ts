@@ -19,8 +19,8 @@ export class CollectorMemory {
         this.actions = actions;
     }
 
-    getActionsFor(key: string): Action<unknown>[] | null {
-        return this.actions.hasOwnProperty(key) ? this.actions[key] as Action<unknown>[] : null;
+    getActionsFor(key: string): Action<unknown, unknown>[] | null {
+        return this.actions.hasOwnProperty(key) ? this.actions[key] as Action<unknown, unknown>[] : null;
     }
 
     async commit() {
