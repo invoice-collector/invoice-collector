@@ -1,5 +1,7 @@
 import { Driver, Element } from "../driver/driver";
 import { TwofaPromise } from "../collect/twofaPromise";
+import * as utils from '../utils';
+import { Invoice } from "../collectors/abstractCollector";
 
 export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
@@ -7,7 +9,8 @@ export enum ActionEnum  {
     INPUT_TEXT = 'inputText',
     GET_TEXT_CONTENT = 'getTextContent',
     INPUT_2FA_CODE = 'input2FACode',
-    GET_TWOFA_INSTRUCTIONS = 'get2FAInstructions'
+    GET_TWOFA_INSTRUCTIONS = 'get2FAInstructions',
+    EXTRACT_INVOICE_DATA = 'extractInvoiceData'
 }
 
 export abstract class Action<ResultType> {
@@ -24,6 +27,8 @@ export abstract class Action<ResultType> {
                 return new InputTwofaAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             case ActionEnum.GET_TWOFA_INSTRUCTIONS:
                 return new GetTwofaInstructionsAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+            //case ActionEnum.EXTRACT_INVOICE_DATA:
+            //    return new extractInvoiceDataAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             default:
                 throw new Error(`Action ${obj.action} not implemented`);
         }
@@ -134,7 +139,7 @@ export class InputTextAction extends Action<void> {
         }
 
         let element: Element = await this.getElement(driver);
-        await element.inputText(params[this.args.text]);
+        await element.inputText(params[this.args.text], this.args);
     }
 
     toString(): string {
@@ -164,11 +169,6 @@ export class GetTextContentAction extends Action<string> {
 
 export class InputTwofaAction extends Action<void> {
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
-        // args should have 'tries' field
-        if(!args.hasOwnProperty('tries')) {
-            throw new Error('InputTwofaAction requires args to have a "tries" field');
-        }
-
         super(ActionEnum.INPUT_2FA_CODE, description, location, args, x, y, cssSelector);
     }
 
@@ -177,7 +177,7 @@ export class InputTwofaAction extends Action<void> {
         const code = await twofaPromise.code();
 
         let element: Element = await this.getElement(driver);
-        await element.inputText(code, this.args.tries);
+        await element.inputText(code, this.args);
     }
 
     toString(): string {
@@ -204,3 +204,52 @@ export class GetTwofaInstructionsAction extends Action<string> {
         return `Get 2fa instructions text ${this.description}`;
     }
 }
+
+/*export class extractInvoiceDataAction extends Action<Invoice> {
+    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+        // args should have 'css_selector_date' field
+        if(!args.hasOwnProperty('css_selector_date')) {
+            throw new Error('InputTwofaAction requires args to have a "css_selector_date" field');
+        }
+        // args should have 'css_selector_amount' field
+        if(!args.hasOwnProperty('css_selector_amount')) {
+            throw new Error('InputTwofaAction requires args to have a "css_selector_amount" field');
+        }
+        // args should have 'css_selector_download' field
+        if(!args.hasOwnProperty('css_selector_download')) {
+            throw new Error('InputTwofaAction requires args to have a "css_selector_download" field');
+        }
+        // args should have 'date_format' field
+        if(!args.hasOwnProperty('date_format')) {
+            throw new Error('InputTwofaAction requires args to have a "date_format" field');
+        }
+        // args should have 'date_locale' field
+        if(!args.hasOwnProperty('date_locale')) {
+            throw new Error('InputTwofaAction requires args to have a "date_locale" field');
+        }
+
+        super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, x, y, cssSelector);
+    }
+
+    async perform(driver: Driver, params: any, twofaPromise: TwofaPromise | null): Promise<Invoice> {
+        const link = await driver.url();
+        const date = await element.getAttribute(this.args.css_selector_date, "textContent");
+        const amount = await element.getAttribute(this.args.css_selector_amount, "textContent");
+        const downloadElement = await element.getElement(this.args.css_selector_download);
+        const timestamp = utils.timestampFromString(date, this.args.date_format, this.args.date_locale || 'en');
+
+        return {
+            id: utils.hash_string(`${date}${amount}`),
+            link,
+            timestamp,
+            amount,
+            downloadData: {
+                element: downloadElement
+            }
+        }
+    }
+
+    toString(): string {
+        return `Extract invoice data`;
+    }
+}*/

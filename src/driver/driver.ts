@@ -10,8 +10,6 @@ import { Options } from './puppeteer/browser';
 import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/web2Collector';
-import { Action, ActionEnum } from '../model/action';
-import { TwofaPromise } from '../collect/twofaPromise';
 
 export class Driver {
 
@@ -634,7 +632,9 @@ export class Element {
     }
 
     async inputText(text: string, {
-        tries = 5
+        tries = 5,
+        timeout = Driver.DEFAULT_TIMEOUT,
+        navigation = false
     } = {}): Promise<void> {
         if (tries > 0) {
             let currentValue = null;
@@ -649,6 +649,12 @@ export class Element {
         else {
             await this.element.click({ clickCount: 3 });    // Select all text
             await this.element.type(text);                  // Replace
+        }
+        if(navigation === true) {
+            try {
+                await this.driver.page?.waitForNavigation({timeout});
+            }
+            catch {}
         }
     }
 
