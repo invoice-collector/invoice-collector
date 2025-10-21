@@ -1,25 +1,26 @@
 import { DatabaseFactory } from "../database/databaseFactory";
 import { Action } from "./action";
+import { Actions } from "./actions";
 
 export class CollectorMemory {
 
     static async fromName(name: string): Promise<CollectorMemory> {    
         // Get collector memory from name or create new one
-        return await DatabaseFactory.getDatabase().getCollectorMemory(name) || new CollectorMemory(name);
+        return await DatabaseFactory.getDatabase().getCollectorMemory(name) || new CollectorMemory(name, new Actions());
     }
 
     id: string;
     name: string;
-    actions: { [key: string]: Action<unknown>[] };
+    actions: Actions;
 
-    constructor(name: string, actions: { [key: string]: Action<unknown>[] } = {}) {
+    constructor(name: string, actions: Actions) {
         this.id = "";
         this.name = name;
         this.actions = actions;
     }
 
     getActionsFor(key: string): Action<unknown>[] | null {
-        return this.actions.hasOwnProperty(key) ? this.actions[key] : null;
+        return this.actions.hasOwnProperty(key) ? this.actions[key] as Action<unknown>[] : null;
     }
 
     async commit() {

@@ -7,6 +7,7 @@ import * as utils from "../utils";
 import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
+import { Actions } from "../model/actions";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -448,7 +449,7 @@ export class MongoDB extends AbstractDatabase {
         }
         const collectorMemory = new CollectorMemory(
             document.name,
-            document.actions
+            Actions.fromObject(document.actions)
         );
         collectorMemory.id = document._id.toString();
         return collectorMemory;
