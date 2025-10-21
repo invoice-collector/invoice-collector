@@ -27,8 +27,8 @@ export abstract class Action<Context, Result> {
                 return new InputTwofaAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             case ActionEnum.GET_TWOFA_INSTRUCTIONS:
                 return new GetTwofaInstructionsAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
-            //case ActionEnum.EXTRACT_INVOICE_DATA:
-            //    return new extractInvoiceDataAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+            case ActionEnum.EXTRACT_INVOICE_DATA:
+                return new ExtractInvoiceDataAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             default:
                 throw new Error(`Action ${obj.action} not implemented`);
         }
@@ -228,7 +228,12 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
     }
 }
 
-/*export class extractInvoiceDataAction extends Action<Invoice> {
+export type ExtractInvoiceDataContext = {
+    driver: Driver;
+    element: Element;
+}
+
+export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, Invoice> {
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
         // args should have 'css_selector_date' field
         if(!args.hasOwnProperty('css_selector_date')) {
@@ -254,12 +259,13 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
         super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, x, y, cssSelector);
     }
 
-    async perform(driver: Driver, params: any, twofaPromise: TwofaPromise | null): Promise<Invoice> {
-        const link = await driver.url();
-        const date = await element.getAttribute(this.args.css_selector_date, "textContent");
-        const amount = await element.getAttribute(this.args.css_selector_amount, "textContent");
-        const downloadElement = await element.getElement(this.args.css_selector_download);
+    async perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
+        const link = await context.driver.url();
+        const date = await context.element.getAttribute(this.args.css_selector_date, "textContent");
         const timestamp = utils.timestampFromString(date, this.args.date_format, this.args.date_locale || 'en');
+        const amount = await context.element.getAttribute(this.args.css_selector_amount, "textContent");
+        utils.checkAmountContainsCurrencySymbol(amount);
+        const downloadElement = await context.element.getElement(this.args.css_selector_download);
 
         return {
             id: utils.hash_string(`${date}${amount}`),
@@ -275,4 +281,4 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
     toString(): string {
         return `Extract invoice data`;
     }
-}*/
+}
