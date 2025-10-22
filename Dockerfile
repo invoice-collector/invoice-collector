@@ -28,6 +28,9 @@ COPY package*.json ./
 RUN npm update
 RUN npm install
 
+# Switch to node user
+USER node
+
 # Copy the rest of the application code
 COPY tsconfig.json ./tsconfig.json
 COPY src/ ./src/
@@ -36,8 +39,7 @@ COPY data/ ./data/
 COPY test/ ./test/
 COPY locales/ ./locales/
 COPY jest.config.js ./jest.config.js
-RUN mkdir media/ log/
-    #&& sed -i 's/let \[page\] = await browser.pages();/let page = await browser.newPage();/g' node_modules/puppeteer-real-browser/lib/cjs/index.js
+COPY media/ ./media/
 
 # Expose the port your app runs on
 EXPOSE 8080
