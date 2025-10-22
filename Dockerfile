@@ -28,9 +28,6 @@ COPY package*.json ./
 RUN npm update
 RUN npm install
 
-# Switch to node user
-#USER node
-
 # Copy the rest of the application code
 COPY tsconfig.json ./tsconfig.json
 COPY src/ ./src/
@@ -40,6 +37,12 @@ COPY test/ ./test/
 COPY locales/ ./locales/
 COPY jest.config.js ./jest.config.js
 COPY media/ ./media/
+
+# Change ownership so node user can write
+RUN chown -R node:node media/
+
+# Switch to node user
+USER node
 
 # Expose the port your app runs on
 EXPOSE 8080
