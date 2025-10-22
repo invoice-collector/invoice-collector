@@ -16,13 +16,13 @@ export class CallbackHandler {
             
             // Check if response is successful
             if (response.status !== 200) {
-                throw new StatusError(`Callback request failed with status code ${response.status}`, 500);
+                throw new Error(`Callback request failed with status code ${response.status}`);
             }
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                throw new StatusError(`Callback request failed with status code ${error.status}`, 500, { cause: error });
+                throw new Error(`Callback request failed with status code ${error.code}. Make sure the callback URL is correct and accessible.`);
             }
-            throw new StatusError(`Callback request failed: ${error}`, 500, { cause: error });
+            throw new Error(`Callback request failed: ${error}. Make sure the callback URL is correct and accessible`, { cause: error });
         }
     }
 
@@ -46,7 +46,7 @@ export class CallbackHandler {
             console.log(`Callback ${this.callback} successfully reached, invoice sent`);
         }
         else {
-            console.warn("Callback URL not defined by customer, skipping invoice request");
+            throw new Error("Callback URL not defined by customer, skipping invoice request");
         }
     }
 
@@ -63,7 +63,7 @@ export class CallbackHandler {
             console.log(`Callback ${this.callback} successfully reached, disconnected notification sent`);
         }
         else {
-            console.warn("Callback URL not defined by customer, skipping disconnected notification request");
+            throw new Error("Callback URL not defined by customer, skipping disconnected notification request");
         }
     }
 }
