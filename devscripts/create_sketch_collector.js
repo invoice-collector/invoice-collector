@@ -149,7 +149,11 @@ async function createSketchCollector() {
     const collectorPath = `src/collectors/sketch/${collector.id}`;
     const collectorFile = `${collectorPath}/${collector.id}.ts`;
     if (fs.existsSync(collectorPath)) {
-        throw new Error(`Collector with id '${collector.id}' already exists at path ${collectorPath}. Aborting.`);
+        // Check if folder is not empty
+        const files = fs.readdirSync(collectorPath);
+        if (files.length > 0) {
+            throw new Error(`Collector with id '${collector.id}' already exists at path ${collectorPath}. Aborting.`);
+        }
     }
 
     // 6. Create the collector directory and write the collector.json file
