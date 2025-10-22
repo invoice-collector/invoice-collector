@@ -1,5 +1,4 @@
 const prompt = require('prompt-sync')();
-const https = require('https');
 const fetch = require('node-fetch');
 const fs = require('fs');
 require('dotenv').config();
@@ -12,31 +11,27 @@ function askUser(instructions, mandatory) {
     return response;
 }
 
-function checkUrl(url, mimetype){
-    return new Promise((resolve, reject) => {
-        try {
-            const options = {
-                headers: {
-                    'User-Agent': 'Mozilla/5.0'
-                }
-            };
-            https.get(url, options, (res) => {
-                const contentType = res.headers['content-type'];
+async function checkUrl(url, mimetype){
+    try {
+        const options = {
+            headers: {
+                'User-Agent': 'Mozilla/5.0'
+            }
+        };
+        const res = await fetch(url, options);
+        const contentType = res.headers.get('content-type');
 
-                if (res.statusCode < 200 || res.statusCode >= 400) {
-                    return reject(new Error(`Request to url ${url} failed. Status Code: ${res.statusCode}`));
-                }
-
-                if (!contentType || !contentType.includes(mimetype)) {
-                    return reject(new Error(`Invalid content-type. Expected ${mimetype} but received ${contentType}`));
-                }
-
-                resolve(true);
-            });
-        } catch (error) {
-            reject(new Error(`Invalid url: ${url}`));
+        if (res.status < 200 || res.status >= 400) {
+            throw new Error(`Request to url ${url} failed. Status Code: ${res.status}`);
         }
-    });
+
+        if (!contentType || !contentType.includes(mimetype)) {
+            throw new Error(`Invalid content-type. Expected ${mimetype} but received ${contentType}`);
+        }
+
+    } catch (error) {
+        throw new Error(`Invalid url: ${url}`);
+    }
 }
 
 async function callLlm(website, messageToLlm) {
