@@ -29,7 +29,7 @@ RUN npm update
 RUN npm install
 
 # Switch to node user
-USER node
+#USER node
 
 # Copy the rest of the application code
 COPY tsconfig.json ./tsconfig.json
