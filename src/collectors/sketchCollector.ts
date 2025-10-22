@@ -6,7 +6,6 @@ import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 
 export type SketchConfig = Config & {
-    entryUrl: string
 }
 
 export abstract class SketchCollector extends V2Collector<SketchConfig> {
