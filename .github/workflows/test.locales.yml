@@ -1,6 +1,7 @@
 name: Check locales i18n
 
 on:
+  workflow_dispatch:
   pull_request:
     paths:
       - 'locales/**'
