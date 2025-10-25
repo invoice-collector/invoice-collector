@@ -118,6 +118,11 @@ async function showCredentials() {
                         </div>
                     </td>
                     <td class="table-column-center">
+                        <button class="button collect-button" onclick="collectCredential('${credential.id}')">
+                            <img src="/views/icons/reload.png" alt="Collect">
+                        </button>
+                    </td>
+                    <td class="table-column-center">
                         <button class="button delete-button" onclick="deleteCredential('${credential.id}')">
                             <img src="/views/icons/delete.png" alt="Delete">
                         </button>
@@ -274,11 +279,12 @@ async function addCredential(event) {
     }
 }
 
-async function showProgress(credential_id) {
+async function showProgress(credential_id, new_credential = true) {
     // Get the elements
     const progressText = document.getElementById('progress-text');
     const progressBar = document.getElementById('progress-bar');
     const responseSuccess = document.getElementById('progress-response-success');
+    const responseCollected = document.getElementById('progress-response-collected');
     const responseUnknown = document.getElementById('progress-response-unknown');
     const responseError = document.getElementById('progress-response-error');
     const responseErrorText = document.getElementById('progress-response-error-text');
@@ -292,6 +298,7 @@ async function showProgress(credential_id) {
     progressText.classList.add('fade');
     progressBar.style.width = `0%`;
     responseSuccess.hidden = true;
+    responseCollected.hidden = true;
     responseUnknown.hidden = true;
     responseError.hidden = true;
     container2FA.hidden = true;
@@ -357,7 +364,8 @@ async function showProgress(credential_id) {
     // Display error or success message
     container2FA.hidden = true;
     responseErrorText.textContent = current_state.message;
-    responseSuccess.hidden = !(current_state.index >= current_state.max);
+    responseSuccess.hidden = !(new_credential && current_state.index >= current_state.max);
+    responseCollected.hidden = !(!new_credential && current_state.index >= current_state.max);
     responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
     responseError.hidden = !(current_state.index < 0);
 }
@@ -372,6 +380,18 @@ async function post2FA(credential_id, code) {
             'Content-Type': 'application/json'
         }
     });
+}
+
+async function collectCredential(id) {
+    await fetch(`credential/${id}/collect?token=${token}`, {
+        method: 'POST',
+        body: JSON.stringify({}),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    showProgress(id, false);
 }
 
 async function deleteCredential(id) {

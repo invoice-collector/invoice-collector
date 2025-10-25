@@ -15,6 +15,12 @@
     --return-border: 1px solid #ccc;
     --return-border-radius: 4px;
 
+    --collect-color: #007BFF;
+    --collect-color-hover: #0056b3;
+    --collect-color-text: #fff;
+    --collect-border: none;
+    --collect-border-radius: 4px;
+
     --delete-color: #cf1f25;
     --delete-color-hover: #a81e23;
     --delete-color-text: #fff;
