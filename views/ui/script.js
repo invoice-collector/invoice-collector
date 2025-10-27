@@ -333,7 +333,7 @@ async function showProgress(credential_id, wsPath) {
             if (event.ctrlKey) {
                 if (event.key.toLowerCase() === 'v') {
                     navigator.clipboard.readText().then(text => {
-                        ws.send(JSON.stringify({ type: 'type', content: text }));
+                        ws.send(JSON.stringify({ type: 'type', text: text }));
                     }).catch(err => {
                         console.error('Clipboard read failed:', err);
                     });
