@@ -21,19 +21,19 @@ if (!id) {
 }
 else {
     console.info(`Loading collector with id: ${id}`);
-    const loadedCollectors = CollectorLoader.load(id);
+    const loadedCollectors = await CollectorLoader.load(id);
     if (loadedCollectors.size === 0) {
         throw new Error(`No collectors found with id: ${id}`);
     }
 }
 
 // For each collector
-for (const collector of CollectorLoader.getAll()) {
-    const id: string = collector.config.id;
+for (const collectorConfig of await CollectorLoader.getAll()) {
+    const collector = await CollectorLoader.get(collectorConfig.id);
 
     // If collector is WebCollector
     if (collector instanceof WebCollector) {
-        describe(`${id} tests`, () => {
+        describe(`${collectorConfig.id} tests`, () => {
             it('Login with incorrect email format', async () => {
                 const secret: Secret = {
                     params: {
@@ -45,9 +45,17 @@ for (const collector of CollectorLoader.getAll()) {
                 };
 
                 // Collect invoices
-                const collect = new Collect("")
+                const collect = new Collect("", undefined)
                 collect.state = State.DEFAULT_STATE;
-                await expect(collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null))
+                await expect(collector.collect_new_invoices(
+                    collect.state,
+                    collect.twofa_promise,
+                    undefined,
+                    secret,
+                    Date.UTC(2000, 0, 1),
+                    [],
+                    null
+                ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
@@ -62,9 +70,17 @@ for (const collector of CollectorLoader.getAll()) {
                 };
 
                 // Collect invoices
-                const collect = new Collect("")
+                const collect = new Collect("", undefined)
                 collect.state = State.DEFAULT_STATE;
-                await expect(collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null))
+                await expect(collector.collect_new_invoices(
+                    collect.state,
+                    collect.twofa_promise,
+                    undefined,
+                    secret,
+                    Date.UTC(2000, 0, 1),
+                    [],
+                    null
+                ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
@@ -79,9 +95,17 @@ for (const collector of CollectorLoader.getAll()) {
                 };
 
                 // Collect invoices
-                const collect = new Collect("")
+                const collect = new Collect("", undefined)
                 collect.state = State.DEFAULT_STATE;
-                await expect(collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null))
+                await expect(collector.collect_new_invoices(
+                    collect.state,
+                    collect.twofa_promise,
+                    undefined,
+                    secret,
+                    Date.UTC(2000, 0, 1),
+                    [],
+                    null
+                ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
 
@@ -98,7 +122,7 @@ for (const collector of CollectorLoader.getAll()) {
                 };
 
                 // Collect invoices
-                const collect = new Collect("")
+                const collect = new Collect("", undefined)
                 collect.state = State.DEFAULT_STATE;
 
                 // Define what to do on 2FA
@@ -107,7 +131,15 @@ for (const collector of CollectorLoader.getAll()) {
                     collect.twofa_promise.setCode(twofa_code);
                 });
 
-                await collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null);
+                await collector.collect_new_invoices(
+                    collect.state,
+                    collect.twofa_promise,
+                    undefined,
+                    secret,
+                    Date.UTC(2000, 0, 1),
+                    [],
+                    null
+                );
 
                 // Assert cookies are not null
                 expect(secret.cookies).not.toBeNull();
@@ -126,9 +158,17 @@ for (const collector of CollectorLoader.getAll()) {
                 }
 
                 // Collect invoices
-                const collect = new Collect("")
+                const collect = new Collect("", undefined)
                 collect.state = State.DEFAULT_STATE;
-                await collector.collect_new_invoices(collect.state, collect.twofa_promise, testSecret, Date.UTC(2000, 0, 1), [], null);
+                await collector.collect_new_invoices(
+                    collect.state,
+                    collect.twofa_promise,
+                    undefined,
+                    testSecret,
+                    Date.UTC(2000, 0, 1),
+                    [],
+                    null
+                );
             }, TWO_MINUTES);
         });
     }

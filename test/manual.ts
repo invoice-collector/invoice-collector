@@ -151,7 +151,7 @@ function getHashFromSecret(secret: Secret): string {
         // ---------- PART 3 : PERFORM COLLECT ----------
 
         // Collect invoices
-        const collect = new Collect("")
+        const collect = new Collect("", undefined)
         collect.state = State.DEFAULT_STATE;
 
         // Define what to do on 2FA
@@ -160,7 +160,15 @@ function getHashFromSecret(secret: Secret): string {
             collect.twofa_promise.setCode(twofa_code);
         });
 
-        const newInvoices = await collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null);
+        const newInvoices = await collector.collect_new_invoices(
+            collect.state,
+            collect.twofa_promise,
+            undefined,
+            secret,
+            Date.UTC(2000, 0, 1),
+            [],
+            null
+        );
         console.log(`${newInvoices.length} invoices downloaded`);
 
         // ---------- PART 4 : SAVE INVOICES ----------
