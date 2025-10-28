@@ -3,6 +3,11 @@ const prompt = promptSync({});
 import dotenv from 'dotenv';
 dotenv.config();
 import fs from 'fs';
+import assert from 'assert';
+import * as crypto from 'crypto';
+import WebSocket from 'ws';
+import readline from 'readline';
+
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
@@ -10,11 +15,12 @@ import { Collect } from '../src/collect/collect';
 import { IcCredential } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
-import assert from 'assert';
-import * as crypto from 'crypto';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
 import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
+import { WebSocketServer } from '../src/websocket/webSocketServer';
+import * as utils from '../src/utils';
+import { WebCollector } from '../src/collectors/web2Collector';
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
     await DatabaseFactory.getDatabase().connect();
@@ -72,6 +78,12 @@ function getHashFromSecret(secret: Secret): string {
         }
         DatabaseFactory.getDatabase().disconnect();
         process.exit();
+    });
+
+    // Start readline interface for async prompt
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
     });
 
     try {
@@ -160,10 +172,41 @@ function getHashFromSecret(secret: Secret): string {
             collect.twofa_promise.setCode(twofa_code);
         });
 
+        // Instanciate web socket server
+        const webSocketServer = new WebSocketServer(undefined, I18n.DEFAULT_LOCALE);
+        const webSocketPath = webSocketServer.start();
+
+        // Connect to web socket server
+        WebCollector.SCREENSHOT_INTERVAL_MS = 1000 * 10; // 10 seconds
+        const webSocketClient = new WebSocket(`ws://localhost:${utils.getEnvVar('PORT')}${webSocketPath}`);
+        webSocketClient.addEventListener('open', () => {
+            let isFirstScreenshot = true;
+            webSocketClient.addEventListener('message', async (message) => {
+                const parsedData = JSON.parse(message.data.toString());
+                if(parsedData.type == "screenshot") {
+                    if(isFirstScreenshot) {
+                        isFirstScreenshot = false;
+
+                        console.log("Login to the website and press Enter to continue...");
+
+                        // Listen for user input asynchronously
+                        rl.on('line', (input) => {
+                            // Send close message to server
+                            webSocketClient.send(JSON.stringify({ type: 'close', reason: 'ok' }));
+                            // Close readline interface
+                            rl.close();
+                        });
+                    }
+                }
+            });
+        });
+
+
+        // Collect new invoices
         const newInvoices = await collector.collect_new_invoices(
             collect.state,
             collect.twofa_promise,
-            undefined,
+            webSocketServer,
             secret,
             Date.UTC(2000, 0, 1),
             [],
@@ -218,6 +261,9 @@ function getHashFromSecret(secret: Secret): string {
         }
     }
     finally {
+        // Close readline interface
+        rl.close();
+        // Update secret if needed
         await updateSecret(credential, secret, secretHash);
 
         // Try to disconnect from the database
