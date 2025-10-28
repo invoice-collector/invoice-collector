@@ -21,11 +21,12 @@ export class WebSocketServer {
     public onText: ((event: MessageText) => void) | undefined;
     public onClose: ((event: MessageClose) => void) | undefined;
 
-    constructor(httpServer: http.Server, locale: string) {
+    constructor(httpServer: http.Server | undefined, locale: string) {
         this.path = `${WebSocketServer.PATH}${utils.generate_token()}`;
         this.server = new Server({
             server: httpServer,
             path: this.path,
+            port: httpServer ? undefined : parseInt(utils.getEnvVar("PORT"))
         });
         this.locale = locale
     }
