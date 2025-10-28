@@ -1,13 +1,12 @@
 import path from 'path';
 import fs from 'fs';
 import { connect } from './puppeteer/browser';
-import type { PageWithCursor } from "./puppeteer/pageController";
-import { Browser, DownloadPolicy, ElementHandle, KeyInput } from "rebrowser-puppeteer-core";
+import { Browser, DownloadPolicy, ElementHandle, KeyInput, Page, Target } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { Options } from './puppeteer/browser';
-import { AbstractCollector, CollectorCaptcha, Config } from '../collectors/abstractCollector';
+import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/web2Collector';
 
@@ -61,7 +60,7 @@ export class Driver {
 
     collector: OldWebCollector | WebCollector;
     browser: Browser | null;
-    page: PageWithCursor | null;
+    page: Page | null;
     downloadPath: string;
     puppeteerConfig: Options;
 
@@ -250,7 +249,7 @@ export class Driver {
         }
         try {
             const element = await this.page.waitForSelector(selector.selector, {timeout});
-            return element ? new Element(element) : null;
+            return element ? new Element(element, this) : null;
         }
         catch (err) {
             if (raiseException) {
@@ -270,7 +269,7 @@ export class Driver {
 
         // Only return if element is an ElementHandle
         if (element && element.constructor.name === 'ElementHandle') {
-            return new Element(element as ElementHandle);
+            return new Element(element as ElementHandle, this);
         }
         return null;
     }
@@ -283,7 +282,7 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         await this.getElement(selector, { raiseException, timeout });
-        return (await this.page.$$(selector.selector)).map(element => new Element(element));
+        return (await this.page.$$(selector.selector)).map(element => new Element(element, this));
     }
 
     async getAttribute(selector, attributeName, {
@@ -558,9 +557,11 @@ export class Driver {
 export class Element {
 
     element: ElementHandle;
+    driver: Driver;
 
-    constructor(element: ElementHandle) {
+    constructor(element: ElementHandle, driver: Driver) {
         this.element = element;
+        this.driver = driver;
     }
 
     /**
@@ -570,7 +571,7 @@ export class Element {
      */
     async getElement(selector: any): Promise<Element | null> {
         const elementHandle = await this.element.$(selector.selector);
-        return elementHandle ? new Element(elementHandle) : null;
+        return elementHandle ? new Element(elementHandle, this.driver) : null;
     }
 
     /**
@@ -587,8 +588,31 @@ export class Element {
         await this.element.click();
     }
 
-    async middleClick(): Promise<void> {
+    async middleClick(): Promise<Driver> {
+        // Get number of opened pages before middle click
+        const numberOfPagesBefore = (await this.pages()).length;
+        // Perform middle click
         await this.element.click({ button: 'middle' });
+        // Wait for the new tab to open
+        await utils.delay(5000);
+        // Get number of opened pages after middle click
+        const pages = await this.pages();
+
+        const numberOfPagesAfter = pages.length;
+        // If no new page opened
+        if (numberOfPagesAfter == numberOfPagesBefore) {
+            throw new LoggableError(`Middle click did not open a new tab`, this.driver.collector);
+        }
+        // Bring latest page to front
+        const newPage = pages[pages.length - 1];
+        await newPage.bringToFront();
+
+        const driver = new Driver(this.driver.collector);
+        driver.browser = this.driver.browser;
+        driver.page = newPage;
+        driver.downloadPath = this.driver.downloadPath;
+        driver.puppeteerConfig = this.driver.puppeteerConfig;
+        return driver;
     }
 
     async inputText(text: string, {
@@ -620,5 +644,25 @@ export class Element {
 
     async innerHTML(): Promise<string> {
         return this.element.evaluate(el => el.innerHTML);
+    }
+
+    async pages(): Promise<Page[]> {
+        if (this.driver.browser === null) {
+            throw new Error('Browser is not initialized.');
+        }
+        /*return Promise.all(
+            this.driver.browser.targets()
+                .filter(target => target.type() === 'page')
+                .map(target => target.asPage())
+        );*/
+        const targets: Target[] = this.driver.browser.targets();
+        const pages: Page[] = [];
+        for (const target of targets) {
+            if (target.type() === 'page') {
+                const page = await target.asPage();
+                pages.push(page);
+            }
+        }
+        return pages;
     }
 }
