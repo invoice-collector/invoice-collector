@@ -1,6 +1,6 @@
-import { Driver } from '../../../driver/driver';
-import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
-import { WebCollector } from '../../webCollector';
+import { Driver, Element } from '../../../driver/driver';
+import { CollectorType, Invoice } from '../../../collectors/abstractCollector';
+import { WebCollector } from '../../../collectors/web2Collector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
@@ -13,12 +13,12 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "17",
+        version: "18",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
         params: {
-            id: {
+            /*id: {
                 type: "string",
                 name: "i18n.collectors.all.email_or_number",
                 placeholder: "i18n.collectors.all.email_or_number.placeholder",
@@ -57,14 +57,14 @@ export class AmazonCollector extends WebCollector {
             }*/
         },
         loginUrl: "https://www.amazon.fr/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.fr%2Fgp%2Fcss%2Fyour-account-access%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=frflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0",
-        entryUrl: "https://www.amazon.fr/your-orders/orders?timeFilter=months-3&ref_=ppx_yo2ov_dt_b_filter_all_m3"
+        entryUrl: "https://www.amazon.fr/your-orders/orders"
     }
 
     constructor() {
         super(AmazonCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    /*async login(driver: Driver, params: any): Promise<string | void> {
         const useOtherAccountButton = await driver.getElement(AmazonSelectors.BUTTON_USE_OTHER_ACCOUNT, { raiseException: false, timeout: 2000 });
 
         // If use other account button no visible
@@ -98,9 +98,12 @@ export class AmazonCollector extends WebCollector {
         }
     }
 
-    async isTwofa(driver: Driver): Promise<string | void> {
+    async needTwofa(driver: Driver): Promise<string | void> {
+        // Select default 2FA method if displayed
+        await driver.leftClick(AmazonSelectors.BUTTON_2FA_METHOD, { raiseException: false, timeout: 1000 });
+
         // Check if 2FA is required
-        const twofa_instruction = await driver.getElement(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
+        const twofa_instruction = await driver.getElement(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 1000 });
         if (twofa_instruction) {
             return await twofa_instruction.textContent("i18n.collectors.all.2fa.instruction");
         }
@@ -120,94 +123,86 @@ export class AmazonCollector extends WebCollector {
         if (twofa_alert) {
             return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
         }
-    }
+    }*/
 
-    async collect(driver: Driver, params: any): Promise<Invoice[]> {
+    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
         const currentYear = new Date().getFullYear();
 
-        // Collect invoices from last year
-        let invoices: Invoice[] = await this.collectYear(driver, currentYear);
+        for (let year = currentYear; year >= currentYear - 1; year--) {
+            // Go to the orders page 1 for the specified year
+            await driver.goto(`https://www.amazon.fr/your-orders/orders?timeFilter=year-${year}`);
+            // Collect invoices
+            await next();
 
-        // Add invoices from last year
-        invoices = invoices.concat(await this.collectYear(driver, currentYear - 1));
+            // Get other pages links
+            const pages = await driver.getAttributes(AmazonSelectors.BUTTON_PAGE, "href", { raiseException: false, timeout: 100 }) ?? [];
 
-        // Return all collected invoices
-        return invoices;
-    }
-
-    private async collectYear(driver: Driver, year: number): Promise<Invoice[]> {
-        // Go to the orders page for the specified year
-        await driver.goto(`https://www.amazon.fr/your-orders/orders?timeFilter=year-${year}`);
-    
-        // Collect invoices on the current page
-        let invoices: Invoice[] = await this.collectInvoicesOnScreen(driver);
-
-        // Get other pages links
-        const pages = await driver.getAttributes(AmazonSelectors.BUTTON_PAGE, "href", { raiseException: false, timeout: 100 }) ?? [];
-
-        // For each other page
-        for (const page of pages) {
-            // Go to the page
-            await driver.goto(driver.origin() + page);
-            // Collect invoices on the current page
-            invoices = invoices.concat(await this.collectInvoicesOnScreen(driver));
+            // For each other page
+            for (const page of pages) {
+                // Go to the page
+                await driver.goto(driver.origin() + page);
+                // Collect invoices
+                await next();
+            }
         }
-
-        return invoices;
     }
 
-    private async collectInvoicesOnScreen(driver: Driver): Promise<Invoice[]> {
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        // Get order elements
+        return await driver.getElements(AmazonSelectors.CONTAINER_ORDER, { raiseException: false, timeout: 5000 });
+    }
+
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
         // Get UI language
         const language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
+        // Get dats
+        const id = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
+        const amount = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+        const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
+        const downloadElement = await element.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK);
+        const link = driver.origin() + await element.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
+        const timestamp = timestampFromString(date, 'd MMMM yyyy', language);
 
-        // Get order elements
-        const orderElements = await driver.getElements(AmazonSelectors.CONTAINER_ORDER, { raiseException: false, timeout: 5000 });
-
-        // Get orders
-        const orders = await Promise.all(
-            orderElements.map(async (order) => {
-                const id = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
-                const amount = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
-                const date = await order.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
-                const link = driver.origin() + await order.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
-                const timestamp = timestampFromString(date, 'd MMMM yyyy', language);
-
-                return {
-                    id,
-                    timestamp,
-                    amount,
-                    link
-                };
-            })
-        );
-
-        // Return orders older than 2 days
-        return orders.filter(order => order.timestamp < Date.now() - AmazonCollector.TWO_DAYS_IN_MS);
-    }
-
-    async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        const origin = driver.origin();
-
-        // Go to invoice link
-        await driver.goto(invoice.link);
-
-        // Get order link
-        const orderLink = origin + await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
-
-        // Get invoices link
-        const invoicesLink = await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
-
-        let documents: string[] = [
-            await this.download_webpage(driver, orderLink)
-        ];
-
-        for (const invoiceLink of invoicesLink) {
-            documents.push(await this.download_link(driver, origin + invoiceLink));
+        // Cancel invoice if more recent than 2 days
+        if (timestamp > Date.now() - AmazonCollector.TWO_DAYS_IN_MS){
+            return null;
         }
 
         return {
-            ...invoice,
-            documents
+            id,
+            timestamp,
+            amount,
+            link,
+            downloadData:{element: downloadElement}
         };
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        let documents: string[] = [];
+
+        // Get origin
+        const origin = driver.origin();
+
+        // Open invoice link
+        const newPage: Driver = await invoice.downloadData?.element.middleClick();
+
+        // Get order link
+        const orderLink = await newPage.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
+
+        // Get invoices link
+        const invoicesLink = await newPage.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
+
+        // Download invoices
+        for (const invoiceLink of invoicesLink) {
+            documents.push(await this.download_link(newPage, origin + invoiceLink));
+        }
+
+        // Download order
+        documents.push(await this.download_webpage(newPage, origin + orderLink));
+
+        // Close the page
+        await newPage.page?.close();
+
+        return documents;
     }
 }

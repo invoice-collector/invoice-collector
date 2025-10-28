@@ -40,6 +40,10 @@ export const AmazonSelectors = {
 
     // 2FA PAGE
     
+    BUTTON_2FA_METHOD: {
+        selector: "#auth-select-device-form .a-button",
+        info: "2fa method button"
+    },    
     CONTAINER_2FA_INSTRUCTIONS: {
         selector: "#auth-mfa-form p, #channelDetailsForOtp span",
         info: "2fa instructions container"
