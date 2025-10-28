@@ -133,7 +133,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 const invoiceElements = await this.getInvoices(driver, secret.params);
                 for (const element of invoiceElements) {
                     // Get invoice data
-                    let invoice: Invoice = await this.data(driver, secret.params, element);
+                    let invoice: Invoice | null = await this.data(driver, secret.params, element);
+
+                    // Ignore if null
+                    if (invoice === null) {
+                        continue;
+                    }
 
                     // Sanitize invoice
                     invoice = {
@@ -321,7 +326,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
     abstract getInvoices(driver: Driver, params: any): Promise<Element[]>;
 
-    abstract data(driver: Driver, params: any, element: Element): Promise<Invoice>;
+    abstract data(driver: Driver, params: any, element: Element): Promise<Invoice | null>;
 
     abstract download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]>;
 
