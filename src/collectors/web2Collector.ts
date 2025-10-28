@@ -17,6 +17,7 @@ import { KeyInput } from "rebrowser-puppeteer-core";
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 2 * 60 * 1000; // 2 minutes
+    static SCREENSHOT_INTERVAL_MS = 50; // 50 ms
 
     driver: Driver | null;
 
@@ -259,7 +260,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         const screenshot = await driver.screenshot();
                         webSocketServer?.sendScreenshot(screenshot, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
                     } catch (error) {}
-                }, 50);
+                }, WebCollector.SCREENSHOT_INTERVAL_MS);
 
                 // Define what to do on click event
                 webSocketServer.onClick = async (event: MessageClick) => {
