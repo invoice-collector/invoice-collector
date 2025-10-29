@@ -28,6 +28,8 @@ export abstract class Action<Context, Result> {
                 return new InputTwofaAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             case ActionEnum.GET_TWOFA_INSTRUCTIONS:
                 return new GetTwofaInstructionsAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+            case ActionEnum.GET_INVOICES:
+                return new GetInvoicesAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             case ActionEnum.EXTRACT_INVOICE_DATA:
                 return new ExtractInvoiceDataAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             default:
@@ -235,11 +237,14 @@ export type GetInvoicesContext = {
 
 export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
-        super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, x, y, cssSelector);
+        super(ActionEnum.GET_INVOICES, description, location, args, x, y, cssSelector);
     }
 
     async perform(context: GetInvoicesContext): Promise<Element[]> {
-        return await context.driver.getElements(this.cssSelector);
+        return await context.driver.getElements({
+            selector: this.cssSelector,
+            info: this.description
+        });
     }
 
     toString(): string {
