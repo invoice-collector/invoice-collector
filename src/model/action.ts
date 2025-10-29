@@ -10,6 +10,7 @@ export enum ActionEnum  {
     GET_TEXT_CONTENT = 'getTextContent',
     INPUT_2FA_CODE = 'input2FACode',
     GET_TWOFA_INSTRUCTIONS = 'get2FAInstructions',
+    GET_INVOICES = 'getInvoices',
     EXTRACT_INVOICE_DATA = 'extractInvoiceData'
 }
 
@@ -225,6 +226,24 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
 
     toString(): string {
         return `Get 2fa instructions text ${this.description}`;
+    }
+}
+
+export type GetInvoicesContext = {
+    driver: Driver;
+}
+
+export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
+    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+        super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, x, y, cssSelector);
+    }
+
+    async perform(context: GetInvoicesContext): Promise<Element[]> {
+        return await context.driver.getElements(this.cssSelector);
+    }
+
+    toString(): string {
+        return `Get invoices elements`;
     }
 }
 
