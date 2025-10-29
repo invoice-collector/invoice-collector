@@ -673,9 +673,9 @@ export class Element {
     async cssSelector(): Promise<string> {
         return await this.element.evaluate(element => {
             function getCssSelector(element): string {
-                if (element.id) {
+                /*if (element.id) {
                     return `#${element.id}`;
-                }
+                }*/
                 if (element === document.body) {
                     return 'body';
                 }
