@@ -1,8 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { connect } from './puppeteer/browser';
-import type { PageWithCursor } from "./puppeteer/pageController";
-import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput } from "rebrowser-puppeteer-core";
+import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput, Page, Target } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
@@ -58,7 +57,7 @@ export class Driver {
 
     collector: OldWebCollector | WebCollector;
     browser: Browser | null;
-    page: PageWithCursor | null;
+    page: Page | null;
     downloadPath: string;
     puppeteerConfig: Options;
 
@@ -93,9 +92,9 @@ export class Driver {
             this.page.on("request", (request) => {
                 if (!request.isInterceptResolutionHandled()) {
                     if (request.resourceType() === "image" && this.collector.config.loadImages === false) {
-                        request.abort();
+                        request.abort('aborted', 0);
                     } else {
-                        request.continue();
+                        request.continue(request.continueRequestOverrides(), 0);
                     }
                 }
             });
@@ -128,6 +127,13 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         return new URL(this.page.url()).origin;
+    }
+
+    async pages(): Promise<Page[]> {
+        if (this.browser === null) {
+            throw new Error('Browser is not initialized.');
+        }
+        return this.browser.pages();
     }
 
     // GOTO
@@ -261,7 +267,7 @@ export class Driver {
         return element ? new Element(element, this) : null;
     }
 
-    async getElementCoordinates(x: number, y: number, context: PageWithCursor | Frame | null = null): Promise<Element | null> {
+    async getElementCoordinates(x: number, y: number, context: Page | Frame | null = null): Promise<Element | null> {
         if (context == null) {
             if (this.page === null) {
                 throw new Error('Page is not initialized.');
@@ -627,8 +633,61 @@ export class Element {
         }
     }
 
-    async middleClick(): Promise<void> {
+    async middleClick(): Promise<Driver> {
+        const baseUrl = new URL(this.driver.url() || "").origin;
+        // Get number of opened pages before middle click
+        const numberOfPagesBefore = (await this.driver.pages()).length;
+        // Perform middle click
         await this.element.click({ button: 'middle' });
+        // Wait for the new tab to open
+        await utils.delay(5000);
+        // Get number of opened pages after middle click
+        const pages = await this.driver.pages();
+        let newPage: Page;
+
+        const numberOfPagesAfter = pages.length;
+        // If no new page opened
+        if (numberOfPagesAfter == numberOfPagesBefore) {
+            await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
+            await this.driver.page?.setRequestInterception(true);
+            const urlPromise = new Promise<string>((resolve, reject) => {
+                setTimeout(() => reject(new Error(`Unable to intercept request for middle click`)), 10000);
+                this.driver.page?.on('request', (request) => {
+                    if (
+                        !request.isInterceptResolutionHandled() &&
+                        request.url().includes(baseUrl) &&
+                        request.method() === 'GET'
+                    ) {
+                        request.abort('aborted', 5);
+                        resolve(request.url());
+                    }
+                });
+            });
+            // Perform simple click to intercept URL
+            await this.element.click();
+            // Wait for the intercepted URL
+            const interceptedUrl = await urlPromise;
+
+            if (!this.driver.browser) {
+                throw new Error('Browser is not initialized.');
+            }
+
+            newPage = await this.driver.browser.newPage();
+            await newPage.bringToFront();
+            await newPage.goto(interceptedUrl, { waitUntil: 'networkidle0' });
+        }
+        else {
+            // Bring latest page to front
+            newPage = pages[pages.length - 1];
+            await newPage.bringToFront();
+        }
+
+        const driver = new Driver(this.driver.collector);
+        driver.browser = this.driver.browser;
+        driver.page = newPage;
+        driver.downloadPath = this.driver.downloadPath;
+        driver.puppeteerConfig = this.driver.puppeteerConfig;
+        return driver;
     }
 
     async inputText(text: string, {
@@ -697,4 +756,20 @@ export class Element {
             return getCssSelector(element);
         });
     }
+
+    /*async pages(): Promise<Page[]> {
+        if (this.driver.browser === null) {
+            throw new Error('Browser is not initialized.');
+        }
+
+        const targets: Target[] = this.driver.browser.targets();
+        const pages: Page[] = [];
+        for (const target of targets) {
+            if (target.type() === 'page') {
+                const page = await target.asPage();
+                pages.push(page);
+            }
+        }
+        return pages;
+    }*/
 }
