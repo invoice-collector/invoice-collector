@@ -6,6 +6,7 @@ import { Invoice } from "../collectors/abstractCollector";
 export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
     LEFT_CLICK = 'leftClick',
+    MIDDLE_CLICK = 'middleClick',
     INPUT_TEXT = 'inputText',
     GET_TEXT_CONTENT = 'getTextContent',
     INPUT_2FA_CODE = 'input2FACode',
@@ -20,6 +21,8 @@ export abstract class Action<Context, Result> {
         switch (obj.action) {
             case ActionEnum.LEFT_CLICK:
                 return new LeftClickAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+            case ActionEnum.MIDDLE_CLICK:
+                return new MiddleClickAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             case ActionEnum.INPUT_TEXT:
                 return new InputTextAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
             case ActionEnum.GET_TEXT_CONTENT:
@@ -105,6 +108,7 @@ export abstract class Action<Context, Result> {
 
 export type LeftClickContext = {
     driver: Driver;
+    element?: Element;
 }
 
 export class LeftClickAction extends Action<LeftClickContext, void> {
@@ -119,7 +123,7 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
     }
 
     async perform(context: LeftClickContext): Promise<void> {
-        let element: Element = await this.getElement(context.driver);
+        let element: Element = context.element || await this.getElement(context.driver);
         await element.click({
             navigation: this.args.navigation
         });
@@ -127,6 +131,26 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
 
     toString(): string {
         return `Left click on ${this.description}`;
+    }
+}
+
+export type MiddleClickContext = {
+    driver: Driver;
+    element?: Element;
+}
+
+export class MiddleClickAction extends Action<MiddleClickContext, void> {
+    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+        super(ActionEnum.MIDDLE_CLICK, description, location, args, x, y, cssSelector);
+    }
+
+    async perform(context: MiddleClickContext): Promise<void> {
+        let element: Element = context.element || await this.getElement(context.driver);
+        await element.middleClick();
+    }
+
+    toString(): string {
+        return `Middle click on ${this.description}`;
     }
 }
 
