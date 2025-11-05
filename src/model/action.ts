@@ -2,6 +2,7 @@ import { Driver, Element } from "../driver/driver";
 import { TwofaPromise } from "../collect/twofaPromise";
 import * as utils from '../utils';
 import { Invoice } from "../collectors/abstractCollector";
+import { ElementNotFoundError } from "../error";
 
 export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
@@ -235,7 +236,7 @@ export type GetTwofaInstructionsContext = {
     driver: Driver;
 }
 
-export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsContext, string> {
+export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsContext, string | void> {
     constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
@@ -245,9 +246,16 @@ export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsConte
         super(ActionEnum.GET_TWOFA_INSTRUCTIONS, description, location, args, x, y, cssSelector);
     }
 
-    async perform(context: GetTwofaInstructionsContext): Promise<string> {
-        let element: Element = await this.getElement(context.driver);
-        return await element.textContent(this.args.default);
+    async perform(context: GetTwofaInstructionsContext): Promise<string | void> {
+        try {
+            let element: Element = await this.getElement(context.driver);
+            return await element.textContent(this.args.default);
+        } catch (e) {
+            if (e instanceof ElementNotFoundError) {
+                return;
+            }
+            throw e;
+        }
     }
 
     toString(): string {
