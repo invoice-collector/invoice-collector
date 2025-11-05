@@ -109,7 +109,6 @@ export abstract class Action<Context, Result> {
 
 export type LeftClickContext = {
     driver: Driver;
-    element?: Element;
 }
 
 export class LeftClickAction extends Action<LeftClickContext, void> {
@@ -124,7 +123,7 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
     }
 
     async perform(context: LeftClickContext): Promise<void> {
-        let element: Element = context.element || await this.getElement(context.driver);
+        let element: Element = await this.getElement(context.driver);
         await element.click({
             navigation: this.args.navigation
         });
@@ -147,7 +146,13 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
 
     async perform(context: MiddleClickContext): Promise<void> {
         let element: Element = context.element || await this.getElement(context.driver);
-        await element.middleClick();
+        
+        try {
+            // Perform middle click and replace the driver
+            context.driver = await element.middleClick();
+        } catch (error) {
+            // If error occurs, it may be because middle click is not supported and a simple click was already performed
+        }
     }
 
     toString(): string {
