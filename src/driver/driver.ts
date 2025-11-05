@@ -136,6 +136,19 @@ export class Driver {
         return this.browser.pages();
     }
 
+    async closeExtraPages(): Promise<void> {
+        const pages = await this.pages();
+        // If has more than one page
+        if(pages.length > 1) {
+            // Close all pages except the main one
+            for (const page of pages) {
+                if (page !== this.page) {
+                    await page.close();
+                }
+            }
+        }
+    }
+
     // GOTO
 
     async goto(url, network_request: string = ""): Promise<{requestBody: any, responseBody: any}> {
@@ -650,9 +663,10 @@ export class Element {
         if (numberOfPagesAfter == numberOfPagesBefore) {
             await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
             await this.driver.page?.setRequestInterception(true);
+            let handler;
             const urlPromise = new Promise<string>((resolve, reject) => {
                 setTimeout(() => reject(new Error(`Unable to intercept request for middle click`)), 10000);
-                this.driver.page?.on('request', (request) => {
+                handler = (request) => {
                     if (
                         !request.isInterceptResolutionHandled() &&
                         request.url().includes(baseUrl) &&
@@ -661,7 +675,8 @@ export class Element {
                         request.abort('aborted', 5);
                         resolve(request.url());
                     }
-                });
+                };
+                this.driver.page?.on('request', handler);
             });
             // Perform simple click to intercept URL
             await this.element.click();
@@ -675,6 +690,9 @@ export class Element {
             newPage = await this.driver.browser.newPage();
             await newPage.bringToFront();
             await newPage.goto(interceptedUrl, { waitUntil: 'networkidle0' });
+
+            // Remove request handler
+            this.driver.page?.off('request', handler);
         }
         else {
             // Bring latest page to front

@@ -151,6 +151,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                             const documents = await this.download(driver, secret.params, element, invoice);
                             console.log(`Invoice ${invoice.id} successfully downloaded`);
 
+                            // Close extra pages opened during download
+                            await driver.closeExtraPages();
+
                             let data;
                             // If one document downloaded
                             if (documents.length === 1) {
