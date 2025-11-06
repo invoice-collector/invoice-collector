@@ -9,7 +9,7 @@ export class Plastit35Collector extends SketchCollector {
         description: "i18n.collectors.plastit_com.description",
         version: "0",
         website: "https://plastit35.com",
-        logo: "https://plastit35.com/wp-content/uploads/2017/02/LOGO-PLASTIT.png",
+        logo: "https://www.pixenli.com/image/XmdFGIO8",
         type: CollectorType.SKETCH,
         params: {
             email: {
