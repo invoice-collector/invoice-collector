@@ -1,11 +1,11 @@
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class LaboVidaCollector extends SketchCollector {
+export class LaBovidaCollector extends SketchCollector {
 
     static CONFIG = {
         id: "labovida",
-        name: "LaboVida",
+        name: "La Bovida",
         description: "i18n.collectors.labovida.description",
         version: "0",
         website: "https://www.labovida.com",
@@ -29,6 +29,6 @@ export class LaboVidaCollector extends SketchCollector {
     }
 
     constructor() {
-        super(LaboVidaCollector.CONFIG);
+        super(LaBovidaCollector.CONFIG);
     }
 }
