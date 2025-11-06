@@ -1,10 +1,9 @@
-import fs from 'fs';
 import { WebCollector } from '../../webCollector';
 import { FreeMobileSelectors } from './selectors';
 import { Driver } from '../../../driver/driver';
-import { DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
-import { timestampFromString } from '../../../utils';
+import * as utils from '../../../utils';
 
 export class FreeMobileCollector extends WebCollector {
 
@@ -14,7 +13,8 @@ export class FreeMobileCollector extends WebCollector {
         description: "i18n.collectors.freemobile.description",
         version: "0",
         website: "https://mobile.free.fr",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
+        type: CollectorType.WEB,
         params: {
             id: {
                 type: "string",
@@ -29,7 +29,8 @@ export class FreeMobileCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        entryUrl: "https://mobile.free.fr/account/v2"
+        loginUrl: "https://mobile.free.fr/account",
+        entryUrl: "https://mobile.free.fr/account"
     }
 
     constructor() {
@@ -95,7 +96,7 @@ export class FreeMobileCollector extends WebCollector {
         // Show invoices
         await driver.leftClick(FreeMobileSelectors.BUTTON_SHOW_INVOICES, { navigation: false });
 
-        // Show more invoices
+        // Show more invoices while possible
         while((await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false })) != null) {}
 
         let invoices: Invoice[] = [];
@@ -105,7 +106,7 @@ export class FreeMobileCollector extends WebCollector {
 
         if (first_invoice != null) {
         
-            const link = await first_invoice.getAttribute(FreeMobileSelectors.C0NTAINER_INVOICE_LINK, "href");
+            const link = await first_invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
             const date = await first_invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
             const amount = await first_invoice.getAttribute(FreeMobileSelectors.CONTAINER_FIRST_INVOICE_AMOUNT, "textContent");
 
@@ -113,7 +114,7 @@ export class FreeMobileCollector extends WebCollector {
             if (!id) {
                 throw new Error(`Cannot extract id from ${link}`);
             }
-            const timestamp = timestampFromString((date.split(' - ').pop() || date), 'MMMM yyyy', 'fr');
+            const timestamp = utils.timestampFromString((date.split(' - ').pop() || date), 'MMMM yyyy', 'fr');
 
             invoices.push({
                 id,
@@ -129,7 +130,7 @@ export class FreeMobileCollector extends WebCollector {
         
         // Build return array
         const next_invoices = await Promise.all(next_invoices_raw.map(async invoice => {
-            const link = await invoice.getAttribute(FreeMobileSelectors.C0NTAINER_INVOICE_LINK, "href");
+            const link = await invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
             const date = await invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
             const amount = await invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
     
@@ -137,7 +138,7 @@ export class FreeMobileCollector extends WebCollector {
             if (!id) {
                 throw new Error(`Cannot extract id from ${link}`);
             }
-            const timestamp = timestampFromString(date, 'MMMM yyyy', 'fr');
+            const timestamp = utils.timestampFromString(date, 'MMMM yyyy', 'fr');
 
             return {
                 id,

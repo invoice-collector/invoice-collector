@@ -66,7 +66,7 @@ export const FreeMobileSelectors = {
         selector: "#invoices li",
         info: "invoice container"
     },
-    C0NTAINER_INVOICE_LINK: {
+    CONTAINER_INVOICE_LINK: {
         selector: "a.group\\/link",
         info: "invoice link container"
     },
