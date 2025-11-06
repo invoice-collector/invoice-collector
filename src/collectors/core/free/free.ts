@@ -1,7 +1,7 @@
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { FreeSelectors } from './selectors';
-import { Driver } from '../../../driver/driver';
-import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { Driver, Element } from '../../../driver/driver';
+import { CollectorType, Invoice } from '../../abstractCollector';
 
 export class FreeCollector extends WebCollector {
 
@@ -9,7 +9,7 @@ export class FreeCollector extends WebCollector {
         id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "7",
+        version: "8",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         type: CollectorType.WEB,
@@ -29,7 +29,7 @@ export class FreeCollector extends WebCollector {
         },
         loginUrl: "https://subscribe.free.fr/login/",
         entryUrl: "https://adsl.free.fr/facture_liste.pl",
-        useProxy: false, // TODO: Proxy is not compatible with Free
+        useProxy: false
     }
 
     constructor() {
@@ -54,47 +54,43 @@ export class FreeCollector extends WebCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<Invoice[]> {
+    async navigate( driver: Driver, params: any ): Promise<void> {
         // Go to invoices
         await driver.leftClick(FreeSelectors.BUTTON_INVOICES);
-
-        // Get invoices
-        const invoices = await driver.getElements(FreeSelectors.CONTAINER_INVOICE, { raiseException: false, timeout: 5000 });
-
-        // Build return array
-        return await Promise.all(invoices.map(async invoice => {
-            const link = await invoice.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, "href");
-            const amount = await invoice.getAttribute(FreeSelectors.CONTAINER_AMOUNT, "textContent");
-
-            let search_params = new URLSearchParams(link);
-            const id = search_params.get("no_facture");
-            const date_string = search_params.get("mois");
-            if (!id) {
-                throw new Error(`Field 'no_facture' is missing in the link ${link}`);
-            }
-            if (!date_string) {
-                throw new Error(`Field 'mois' is missing in the link ${link}`);
-            }
-
-            const year = parseInt(date_string.slice(0, 4));
-            const month = parseInt(date_string.slice(4, 6)) - 1; // Months in JavaScript are indexed from 0 to 11
-            const timestamp = Date.UTC(year, month);
-
-            return {
-                id: id,
-                timestamp,
-                link,
-                amount
-            };
-        }));
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        return await driver.getElements(FreeSelectors.CONTAINER_INVOICE);
+    }
+
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice> {
+        const link = await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, "href");
+        const amount = await element.getAttribute(FreeSelectors.CONTAINER_AMOUNT, "textContent");
+
+        let search_params = new URLSearchParams(link);
+        const id = search_params.get("no_facture");
+        if (!id) {
+            throw new Error(`Field 'no_facture' is missing in the link ${link}`);
+        }
+
+        const date_string = search_params.get("mois");
+        if (!date_string) {
+            throw new Error(`Field 'mois' is missing in the link ${link}`);
+        }
+
+        const year = parseInt(date_string.slice(0, 4));
+        const month = parseInt(date_string.slice(4, 6)) - 1; // Months in JavaScript are indexed from 0 to 11
+        const timestamp = Date.UTC(year, month);
+
         return {
-            ...invoice,
-            documents: [
-                await this.download_link(driver, invoice.link)
-            ]
+            id: id,
+            timestamp,
+            link,
+            amount
         };
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        return [await this.download_link(driver, invoice.link)];
     }
 }

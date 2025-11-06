@@ -508,8 +508,15 @@ export class Driver {
     clearDownloadFolder(): void {
         // Remove all files in the download folder
         if (fs.existsSync(this.downloadPath)) {
-            fs.readdirSync(this.downloadPath).forEach(file => {
-                fs.unlinkSync(path.join(this.downloadPath, file));
+            fs.readdirSync(this.downloadPath).forEach(async file => {
+                const filePath = path.join(this.downloadPath, file);
+                try {
+                    fs.unlinkSync(filePath);
+                } catch (error) {
+                    // If file is still locked by the OS, wait and try one last time
+                    await utils.delay(100);
+                    fs.unlinkSync(filePath);
+                }
             });
         }
     }

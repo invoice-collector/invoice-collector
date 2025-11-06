@@ -13,7 +13,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "19",
+        version: "20",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -72,10 +72,10 @@ export class AmazonCollector extends WebCollector {
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
-        const useOtherAccountButton = await driver.getElement(AmazonSelectors.BUTTON_USE_OTHER_ACCOUNT, { raiseException: false, timeout: 2000 });
+        const fieldPassword = await driver.getElement(AmazonSelectors.FIELD_PASSWORD, { raiseException: false, timeout: 2000 });
 
-        // If use other account button no visible
-        if (!useOtherAccountButton) {
+        // If password field is not visible
+        if (!fieldPassword) {
             // Input email
             await driver.inputText(AmazonSelectors.FIELD_EMAIL, params.id);
             await driver.leftClick(AmazonSelectors.BUTTON_CONTINUE);
