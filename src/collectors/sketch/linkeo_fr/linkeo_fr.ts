@@ -1,15 +1,15 @@
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class Plastit35Collector extends SketchCollector {
+export class LinkeoFrCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "plastit_com",
-        name: "Plast'It",
-        description: "i18n.collectors.plastit_com.description",
+        id: "linkeo_fr",
+        name: "Linkeo",
+        description: "i18n.collectors.linkeo_fr.description",
         version: "0",
-        website: "https://plastit35.com",
-        logo: "https://www.pixenli.com/image/XmdFGIO8",
+        website: "https://www.linkeo.com",
+        logo: "https://cdn.jaimelesstartups.fr/wp-content/uploads/2021/02/Logo%20de%20la%20startup%20Linkeo.png",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -29,6 +29,6 @@ export class Plastit35Collector extends SketchCollector {
     }
 
     constructor() {
-        super(Plastit35Collector.CONFIG);
+        super(LinkeoFrCollector.CONFIG);
     }
 }
