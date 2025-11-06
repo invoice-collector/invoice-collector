@@ -30,7 +30,11 @@ async function checkUrl(url, mimetype){
         }
 
     } catch (error) {
-        throw new Error(`Invalid url: ${url}`);
+        console.log(error);
+        const force = askUser("URL check failed. Do you want to force the value? (Y/N)", false);
+        if (!force || force.trim().toUpperCase() !== "Y") {
+            throw new Error(`Invalid url: ${url}`, { cause: error });
+        }
     }
 }
 
