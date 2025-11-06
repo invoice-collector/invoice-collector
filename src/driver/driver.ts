@@ -1,13 +1,12 @@
 import path from 'path';
 import fs from 'fs';
 import { connect } from './puppeteer/browser';
-import type { PageWithCursor } from "./puppeteer/pageController";
-import { Browser, DownloadPolicy, ElementHandle, KeyInput } from "rebrowser-puppeteer-core";
+import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput, Page, Target } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { Options } from './puppeteer/browser';
-import { AbstractCollector, CollectorCaptcha, Config } from '../collectors/abstractCollector';
+import { CollectorCaptcha } from '../collectors/abstractCollector';
 import { WebCollector as OldWebCollector} from '../collectors/webCollector';
 import { WebCollector } from '../collectors/web2Collector';
 
@@ -58,7 +57,7 @@ export class Driver {
 
     collector: OldWebCollector | WebCollector;
     browser: Browser | null;
-    page: PageWithCursor | null;
+    page: Page | null;
     downloadPath: string;
     puppeteerConfig: Options;
 
@@ -93,9 +92,9 @@ export class Driver {
             this.page.on("request", (request) => {
                 if (!request.isInterceptResolutionHandled()) {
                     if (request.resourceType() === "image" && this.collector.config.loadImages === false) {
-                        request.abort();
+                        request.abort('aborted', 0);
                     } else {
-                        request.continue();
+                        request.continue(request.continueRequestOverrides(), 0);
                     }
                 }
             });
@@ -128,6 +127,26 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         return new URL(this.page.url()).origin;
+    }
+
+    async pages(): Promise<Page[]> {
+        if (this.browser === null) {
+            throw new Error('Browser is not initialized.');
+        }
+        return this.browser.pages();
+    }
+
+    async closeExtraPages(): Promise<void> {
+        const pages = await this.pages();
+        // If has more than one page
+        if(pages.length > 1) {
+            // Close all pages except the main one
+            for (const page of pages) {
+                if (page !== this.page) {
+                    await page.close();
+                }
+            }
+        }
     }
 
     // GOTO
@@ -245,31 +264,62 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        try {
-            const element = await this.page.waitForSelector(selector.selector, {timeout});
-            return element ? new Element(element) : null;
+        // Wait for first element matching selector in any frame, null if all timed out
+        const element = await Promise.any(
+            this.page.frames().map(frame =>
+                frame.waitForSelector(selector.selector, { timeout })
+            )
+        ).catch(() => null);
+
+        if (element == null && raiseException) {
+            throw new ElementNotFoundError(this.collector, selector, {
+                cause: `No element matching selector "${selector.selector}"`
+            })
         }
-        catch (err) {
-            if (raiseException) {
-                throw new ElementNotFoundError(this.collector, selector, { cause: err })
-            }
-            return null;
-        }
+
+        return element ? new Element(element, this) : null;
     }
 
-    async getElementCoordinates(x: number, y: number): Promise<Element | null> {
-        if (this.page === null) {
-            throw new Error('Page is not initialized.');
+    async getElementCoordinates(x: number, y: number, context: Page | Frame | null = null): Promise<Element | null> {
+        if (context == null) {
+            if (this.page === null) {
+                throw new Error('Page is not initialized.');
+            }
+            context = this.page;
         }
-        const element = await this.page.evaluateHandle((x, y) => {
+
+        const elementHandle = await context.evaluateHandle((x, y) => {
             return document.elementFromPoint(x, y);
         }, x, y);
 
-        // Only return if element is an ElementHandle
-        if (element && element.constructor.name === 'ElementHandle') {
-            return new Element(element as ElementHandle);
+        if (!elementHandle) {
+            return null;
         }
-        return null;
+
+        // Check if the element is an iframe
+        const isIframe = await context.evaluate((el) => {
+            return el !== null && el.tagName === 'IFRAME';
+        }, elementHandle);
+
+        if (isIframe) {
+            const frameElement = await (elementHandle as ElementHandle);
+            const frame = await frameElement.contentFrame();
+            if (frame) {
+                // Get iframe bounding box
+                const frameBoundingBox = await frameElement.boundingBox();
+
+                // If bounding box x and y are not defined
+                if (!frameBoundingBox?.x || !frameBoundingBox?.y) {
+                    throw new Error("Iframe bounding box x or y is not defined");
+                }
+
+                // Recursively call the function inside the iframe and remove iframe coordinates
+                return this.getElementCoordinates(x - frameBoundingBox?.x, y - frameBoundingBox?.y, frame);
+            }
+        }
+
+        // If not an iframe, return the element
+        return new Element(elementHandle as ElementHandle, this);
     }
 
     async getElements(selector, {
@@ -280,7 +330,7 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         await this.getElement(selector, { raiseException, timeout });
-        return (await this.page.$$(selector.selector)).map(element => new Element(element));
+        return (await this.page.$$(selector.selector)).map(element => new Element(element, this) );
     }
 
     async getAttribute(selector, attributeName, {
@@ -549,15 +599,16 @@ export class Driver {
             }, data);
         }
     }
-
 }
 
 export class Element {
 
     element: ElementHandle;
+    driver: Driver;
 
-    constructor(element: ElementHandle) {
+    constructor(element: ElementHandle, driver: Driver) {
         this.element = element;
+        this.driver = driver;
     }
 
     /**
@@ -567,7 +618,7 @@ export class Element {
      */
     async getElement(selector: any): Promise<Element | null> {
         const elementHandle = await this.element.$(selector.selector);
-        return elementHandle ? new Element(elementHandle) : null;
+        return elementHandle ? new Element(elementHandle, this.driver) : null;
     }
 
     /**
@@ -580,16 +631,87 @@ export class Element {
         return this.element.evaluate(el => el.textContent ?? _default);
     }
 
-    async click(): Promise<void> {
+    async click({
+        timeout = Driver.DEFAULT_TIMEOUT,
+        delay = Driver.DEFAULT_DELAY,
+        navigation = true
+    } = {}): Promise<void> {
         await this.element.click();
+        await utils.delay(delay);
+        if(navigation === true) {
+            try {
+                await this.driver.page?.waitForNavigation({timeout});
+            }
+            catch {}
+        }
     }
 
-    async middleClick(): Promise<void> {
+    async middleClick(): Promise<Driver> {
+        const baseUrl = new URL(this.driver.url() || "").origin;
+        // Get number of opened pages before middle click
+        const numberOfPagesBefore = (await this.driver.pages()).length;
+        // Perform middle click
         await this.element.click({ button: 'middle' });
+        // Wait for the new tab to open
+        await utils.delay(5000);
+        // Get number of opened pages after middle click
+        const pages = await this.driver.pages();
+        let newPage: Page;
+
+        const numberOfPagesAfter = pages.length;
+        // If no new page opened
+        if (numberOfPagesAfter == numberOfPagesBefore) {
+            await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
+            await this.driver.page?.setRequestInterception(true);
+            let handler;
+            const urlPromise = new Promise<string>((resolve, reject) => {
+                setTimeout(() => reject(new Error(`Unable to intercept request for middle click`)), 10000);
+                handler = (request) => {
+                    if (
+                        !request.isInterceptResolutionHandled() &&
+                        request.url().includes(baseUrl) &&
+                        request.method() === 'GET'
+                    ) {
+                        request.abort('aborted', 5);
+                        resolve(request.url());
+                    }
+                };
+                this.driver.page?.on('request', handler);
+            });
+            // Perform simple click to intercept URL
+            await this.element.click();
+            // Wait for the intercepted URL
+            const interceptedUrl = await urlPromise;
+
+            if (!this.driver.browser) {
+                throw new Error('Browser is not initialized.');
+            }
+
+            newPage = await this.driver.browser.newPage();
+            await newPage.bringToFront();
+            await newPage.goto(interceptedUrl, { waitUntil: 'networkidle0' });
+
+            // Remove request handler
+            this.driver.page?.off('request', handler);
+        }
+        else {
+            // Bring latest page to front
+            newPage = pages[pages.length - 1];
+            await newPage.bringToFront();
+        }
+
+        const driver = new Driver(this.driver.collector);
+        driver.browser = this.driver.browser;
+        driver.page = newPage;
+        driver.downloadPath = this.driver.downloadPath;
+        driver.puppeteerConfig = this.driver.puppeteerConfig;
+        return driver;
     }
 
     async inputText(text: string, {
-        tries = 5
+        tries = 5,
+        timeout = Driver.DEFAULT_TIMEOUT,
+        navigation = false
     } = {}): Promise<void> {
         if (tries > 0) {
             let currentValue = null;
@@ -605,6 +727,12 @@ export class Element {
             await this.element.click({ clickCount: 3 });    // Select all text
             await this.element.type(text);                  // Replace
         }
+        if(navigation === true) {
+            try {
+                await this.driver.page?.waitForNavigation({timeout});
+            }
+            catch {}
+        }
     }
 
     async getAttribute(selector, attribute: string): Promise<string> {
@@ -618,4 +746,48 @@ export class Element {
     async innerHTML(): Promise<string> {
         return this.element.evaluate(el => el.innerHTML);
     }
+
+    async cssSelector(): Promise<string> {
+        return await this.element.evaluate(element => {
+            function getCssSelector(element): string {
+                /*if (element.id) {
+                    return `#${element.id}`;
+                }*/
+                if (element === document.body) {
+                    return 'body';
+                }
+                let selector = element.tagName.toLowerCase();
+                if (element.className && typeof element.className === 'string') {
+                    const classes = element.className.trim().split(/\s+/).filter(Boolean);
+                    if (classes.length) {
+                        selector += '.' + classes.join('.');
+                    }
+                }
+                let sibling = element;
+                let nth = 1;
+                while ((sibling = sibling.previousElementSibling)) {
+                    if (sibling.tagName === element.tagName) nth++;
+                }
+                selector += `:nth-of-type(${nth})`;
+                return getCssSelector(element.parentElement!) + ' > ' + selector;
+            }
+            return getCssSelector(element);
+        });
+    }
+
+    /*async pages(): Promise<Page[]> {
+        if (this.driver.browser === null) {
+            throw new Error('Browser is not initialized.');
+        }
+
+        const targets: Target[] = this.driver.browser.targets();
+        const pages: Page[] = [];
+        for (const target of targets) {
+            if (target.type() === 'page') {
+                const page = await target.asPage();
+                pages.push(page);
+            }
+        }
+        return pages;
+    }*/
 }

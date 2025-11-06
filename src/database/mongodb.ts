@@ -6,12 +6,15 @@ import { IcCredential } from "../model/credential";
 import * as utils from "../utils";
 import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
+import { CollectorMemory } from "../model/collectorMemory";
+import { Actions } from "../model/actions";
 
 export class MongoDB extends AbstractDatabase {
 
     static CUSTOMER_COLLECTION = 'customers';
     static USER_COLLECTION = 'users';
     static CREDENTIAL_COLLECTION = 'credentials';
+    static COLLECTOR_MEMORY_COLLECTION = 'collector_memories';
 
     client: MongoClient;
     db_name: string;
@@ -34,6 +37,7 @@ export class MongoDB extends AbstractDatabase {
             await this.db.createCollection(MongoDB.CUSTOMER_COLLECTION);
             await this.db.createCollection(MongoDB.USER_COLLECTION);
             await this.db.createCollection(MongoDB.CREDENTIAL_COLLECTION);
+            await this.db.createCollection(MongoDB.COLLECTOR_MEMORY_COLLECTION);
 
             // Create default customer if no customer found
             const nbCustomers = await this.countCustomers();
@@ -431,5 +435,48 @@ export class MongoDB extends AbstractDatabase {
         await this.db.collection(MongoDB.CREDENTIAL_COLLECTION).deleteMany({
             user_id: new ObjectId(user_id)
         });
+    }
+
+    // COLLECTOR MEMORY
+
+    async getCollectorMemory(name: string): Promise<CollectorMemory | null> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).findOne({ name });
+        if (!document) {
+            return null;
+        }
+        const collectorMemory = new CollectorMemory(
+            document.name,
+            Actions.fromObject(document.actions)
+        );
+        collectorMemory.id = document._id.toString();
+        return collectorMemory;
+    }
+
+    async createCollectorMemory(collectorMemory: CollectorMemory): Promise<CollectorMemory> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        const document = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).insertOne({
+            name: collectorMemory.name,
+            actions: collectorMemory.actions
+        });
+        collectorMemory.id = document.insertedId.toString();
+        return collectorMemory;
+    }
+
+    async updateCollectorMemory(collectorMemory: CollectorMemory): Promise<void> {
+        if (!this.db) {
+            throw new Error("Database is not connected");
+        }
+        await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).updateOne(
+            { _id: new ObjectId(collectorMemory.id) },
+            { $set: {
+                name: collectorMemory.name,
+                actions: collectorMemory.actions
+            }}
+        );
     }
 }
