@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class TotalCardsOnlineCollector extends SketchCollector {
+export class LaBovidaCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "total_cards_online",
-        name: "Total Cards Online",
-        description: "i18n.collectors.total_cards_online.description",
+        id: "labovida",
+        name: "La Bovida",
+        description: "i18n.collectors.labovida.description",
         version: "0",
-        website: "https://cardsonline.totalenergies.de/secure/accueil.do",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1540060.jpg",
+        website: "https://www.labovida.com",
+        logo: "https://www.labovida.com/themes/axome/assets/img//svg/logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class TotalCardsOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cardsonline.totalenergies.de/secure/accueil.do",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(TotalCardsOnlineCollector.CONFIG);
+        super(LaBovidaCollector.CONFIG);
     }
 }

@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class TotalBelgiqueCollector extends SketchCollector {
+export class Plastit35Collector extends SketchCollector {
 
     static CONFIG = {
-        id: "total_belgique",
-        name: "Total Belgique",
-        description: "i18n.collectors.total_belgique.description",
+        id: "plastit_com",
+        name: "Plast'It",
+        description: "i18n.collectors.plastit_com.description",
         version: "0",
-        website: "https://services.totalenergies.be/fr/mes-espaces-personnels",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1037334.jpg",
+        website: "https://plastit35.com",
+        logo: "https://plastit35.com/wp-content/uploads/2017/02/LOGO-PLASTIT.png",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class TotalBelgiqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://services.totalenergies.be/fr/mes-espaces-personnels",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(TotalBelgiqueCollector.CONFIG);
+        super(Plastit35Collector.CONFIG);
     }
 }

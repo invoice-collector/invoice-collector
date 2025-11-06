@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class TotalIleDeLaReunionCollector extends SketchCollector {
+export class UnFotradeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "total_ile_de_la_reunion",
-        name: "Total ile de la reunion",
-        description: "i18n.collectors.total_ile_de_la_reunion.description",
+        id: "1fotrade",
+        name: "1Fotrade",
+        description: "i18n.collectors.1fotrade.description",
         version: "0",
-        website: "https://www.mytotalfuelcard.com/Client/app/index.html#!download",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1440785.jpg",
+        website: "https://www.1fotrade.com",
+        logo: "https://www.1fotrade.com/ressources/infotrade/img/logo__700.webp",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class TotalIleDeLaReunionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mytotalfuelcard.com/Client/app/index.html#!download",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(TotalIleDeLaReunionCollector.CONFIG);
+        super(UnFotradeCollector.CONFIG);
     }
 }

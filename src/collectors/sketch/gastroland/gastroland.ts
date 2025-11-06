@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class TotalFrGrOnlineCollector extends SketchCollector {
+export class GastrolandCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "total_fr_gr_online",
-        name: "Total.fr - GR Online",
-        description: "i18n.collectors.total_fr_gr_online.description",
+        id: "gastroland",
+        name: "Gastroland",
+        description: "i18n.collectors.gastroland.description",
         version: "0",
-        website: "https://gronline.total.fr/secure/clients/factures/recherche.do",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/37597.jpg",
+        website: "https://www.gastroland.fr",
+        logo: "https://www.gastroland.fr/img/logo-1649749041.jpg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class TotalFrGrOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gronline.total.fr/secure/clients/factures/recherche.do",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(TotalFrGrOnlineCollector.CONFIG);
+        super(GastrolandCollector.CONFIG);
     }
 }

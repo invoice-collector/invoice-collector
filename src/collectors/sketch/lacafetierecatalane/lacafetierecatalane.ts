@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class TotalEnergiesEspanaCollector extends SketchCollector {
+export class LaCafetiereCatalaneCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "total_energies_espana",
-        name: "Total Energies Espana",
-        description: "i18n.collectors.total_energies_espana.description",
+        id: "lacafetierecatalane",
+        name: "La Cafetière Catalane",
+        description: "i18n.collectors.lacafetierecatalane.description",
         version: "0",
-        website: "https://clientes.totalenergies.es/area-online/facturacion",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/2781397.jpg",
+        website: "https://www.lacafetierecatalane.com",
+        logo: "https://www.lacafetierecatalane.com/img/m/1.jpg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class TotalEnergiesEspanaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clientes.totalenergies.es/area-online/facturacion",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(TotalEnergiesEspanaCollector.CONFIG);
+        super(LaCafetiereCatalaneCollector.CONFIG);
     }
 }
