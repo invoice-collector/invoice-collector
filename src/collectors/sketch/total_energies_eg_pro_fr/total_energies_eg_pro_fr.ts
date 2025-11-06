@@ -2,15 +2,15 @@
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class TotalEnergiesProB2cCollector extends SketchCollector {
+export class TotalEnergiesEgProFrCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "total_energies_pro_b2c",
-        name: "Total Energies Pro B2C",
-        description: "i18n.collectors.total_energies_pro_b2c.description",
+        id: "total_energies_eg_pro_fr",
+        name: "i18n.collectors.total_energies_eg_pro_fr.name",
+        description: "i18n.collectors.total_energies_eg_pro_fr.description",
         version: "0",
         website: "https://pro.totalenergies.fr/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1128311.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/fr/f/f7/Logo_TotalEnergies.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -31,6 +31,6 @@ export class TotalEnergiesProB2cCollector extends SketchCollector {
     }
 
     constructor() {
-        super(TotalEnergiesProB2cCollector.CONFIG);
+        super(TotalEnergiesEgProFrCollector.CONFIG);
     }
 }
