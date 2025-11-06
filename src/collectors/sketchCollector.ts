@@ -1,16 +1,14 @@
 import { Invoice, CompleteInvoice, CollectorType, CollectorState, Config } from "./abstractCollector";
-import { V1Collector } from "./v1Collector";
-import { UnfinishedCollectorError } from '../error';
+import { V2Collector } from "./v2Collector";
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 
 export type SketchConfig = Config & {
-    entryUrl: string
 }
 
-export abstract class SketchCollector extends V1Collector<SketchConfig> {
+export abstract class SketchCollector extends V2Collector<SketchConfig> {
 
     constructor(config: SketchConfig) {
         super({
@@ -20,15 +18,19 @@ export abstract class SketchCollector extends V1Collector<SketchConfig> {
         });
     }
 
-    async _collect(state: State, secret: Secret, location: Location | null, twofa_promise: TwofaPromise): Promise<Invoice[]> {
-        throw new UnfinishedCollectorError(this);
-    }
-
-    async _download(invoice: Invoice): Promise<CompleteInvoice> {
-        throw new UnfinishedCollectorError(this);
+    async _collect(
+        state: State,
+        twofa_promise: TwofaPromise,
+        secret: Secret,
+        download_from_timestamp: number,
+        previousInvoices: any[],
+        location: Location | null
+    ): Promise<CompleteInvoice[]> {
+        // Return an empty array as this is just a sketch collector
+        return [];
     }
 
     async _close(): Promise<void> {
-        // Assume the collector does not need to close anything
+        // Nothing to close
     }
 }

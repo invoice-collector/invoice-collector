@@ -83,7 +83,7 @@ function getHashFromSecret(secret: Secret): string {
             console.log(`collector id / credential id: ${id}`)
         }
         else {
-            id = prompt('collector id / credential id: ');
+            id = prompt('collector id / credential id: ').trim();
         }
 
         // ---------- PART 2 : GET COLLECTOR AND SECRET ----------
@@ -161,7 +161,7 @@ function getHashFromSecret(secret: Secret): string {
 
         // Define what to do on 2FA
         collect.twofa_promise.instructions().then((twofa_instruction) => {
-            const twofa_code = prompt(`${twofa_instruction}: `);
+            const twofa_code = prompt(`${twofa_instruction}: `).trim();
             collect.twofa_promise.setCode(twofa_code);
         });
 
