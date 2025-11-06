@@ -1,5 +1,12 @@
 export const AmazonSelectors = {
-    //LOGIN PAGE
+    //NEED LOGIN
+
+    CONTAINER_LOGGEDIN_ACCOUNT: {
+        selector: ".cvf-account-switcher-spacing-base:has([action='/ap/removeaccount']) img",
+        info: "select loggedin account"
+    },
+
+    // LOGIN PAGE
 
     BUTTON_USE_OTHER_ACCOUNT: {
         selector: "#ap_switch_account_link",

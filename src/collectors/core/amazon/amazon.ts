@@ -13,7 +13,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "18",
+        version: "19",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -62,6 +62,13 @@ export class AmazonCollector extends WebCollector {
 
     constructor() {
         super(AmazonCollector.CONFIG);
+    }
+
+    async needLogin(driver: Driver): Promise<boolean> {
+        // Select loggedin account if displayed
+        await driver.leftClick(AmazonSelectors.CONTAINER_LOGGEDIN_ACCOUNT, { raiseException: false, timeout: 1000, delay: 2000 });
+        // If user is logged in, the URL should be equal to the entry URL
+        return driver.url() !== this.config.entryUrl;
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
