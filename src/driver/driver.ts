@@ -231,6 +231,25 @@ export class Driver {
         return data;
     }
 
+    async newPage(url: string): Promise<Driver> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        // Create new page
+        const newPage = await this.page.browser().newPage();
+
+        // Create new driver
+        const driver = new Driver(this.collector);
+        driver.browser = this.browser;
+        driver.page = newPage;
+        driver.downloadPath = this.downloadPath;
+        driver.puppeteerConfig = this.puppeteerConfig;
+
+        // Navigate to URL
+        await driver.goto(url);
+        return driver;
+    }
+
     // WAIT
 
     private async waitFor(
