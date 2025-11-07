@@ -13,7 +13,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "20",
+        version: "21",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -133,7 +133,7 @@ export class AmazonCollector extends WebCollector {
     }
 
     async navigate(driver: Driver, params: any): Promise<void>{
-        // Get UI language
+        // Wait for UI language element
         await driver.getElement(AmazonSelectors.CONTAINER_LANGUAGE);
     }
 
@@ -167,18 +167,19 @@ export class AmazonCollector extends WebCollector {
     async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
         // Get UI language
         const language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
-        // Get data
-        const id = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
-        const amount = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
-        const downloadElement = await element.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK);
-        const link = driver.origin() + await element.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
         const timestamp = timestampFromString(date, 'd MMMM yyyy', language);
 
         // Cancel invoice if more recent than 2 days
         if (timestamp > Date.now() - AmazonCollector.TWO_DAYS_IN_MS){
             return null;
         }
+
+        // Get data
+        const id = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
+        const amount = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+        const link = driver.origin() + await element.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
+        const downloadElement = await element.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK);
 
         return {
             id,

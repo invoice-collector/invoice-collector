@@ -9,8 +9,11 @@
 Invoice Collector is a free Docker image designed to retrieve invoices and receipts from suppliers. It seamlessly connects to customer portals, APIs, and email inboxes to automatically gather invoices.
 
 <p align="center">
-  <a href="https://invoice-collector.com/demo" target="_blank">
-    <img width="150px" src="https://img.shields.io/badge/Try%20the%20Demo-2e8555?style=for-the-badge" />
+  <a href="https://app.invoice-collector.com/login" target="_blank">
+    <img height="35px" src="https://img.shields.io/badge/Login-2e8555?style=for-the-badge" />
+  </a>
+  <a href="https://app.invoice-collector.com/signup" target="_blank">
+    <img height="35px" src="https://img.shields.io/badge/Sign%20Up%20for%20free-ebedf0?style=for-the-badge" />
   </a>
 </p>
 
