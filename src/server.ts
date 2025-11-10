@@ -670,6 +670,11 @@ export class Server {
         // Get customer from user
         const customer = await user.getCustomer();
 
+        // Check if customer has define a callback URL
+        if(!customer.callback) {
+            throw new StatusError(`No callback url defined for the customer. Please define a callback URL first.`, 400);
+        }
+
         // Check if customer has subscribed to the collector
         if (!customer.isSubscribedToAll && !customer.subscribedCollectors.includes(collector.config.id)) {
             throw new StatusError(`Customer has not subscribed to collector "${collector.config.id}". Available collectors are: ${customer.subscribedCollectors.join(", ")}.`, 400);
