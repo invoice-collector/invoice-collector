@@ -83,7 +83,7 @@ export const AmazonSelectors = {
         info: "other page button"
     },
     CONTAINER_ORDER: {
-        selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a)",
+        selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a):has(.a-col-left div.a-column:nth-child(2) div:last-of-type span)",
         info: "order container"
     },
     CONTAINER_ORDER_DATE: {
