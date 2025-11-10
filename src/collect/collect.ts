@@ -186,6 +186,13 @@ export class Collect {
 
                     // Cancel next collect
                     credential.next_collect_timestamp = Number.NaN;
+
+                    // If secret exists
+                    if (secret) {
+                        // Reset cookies and localStorage
+                        secret.cookies = null;
+                        secret.localStorage = null;
+                    }
                 }
             }
             else if (err instanceof MaintenanceError) {
