@@ -21,21 +21,21 @@ export abstract class Action<Context, Result> {
     static fromObject(obj: any): Action<any, any> {
         switch (obj.action) {
             case ActionEnum.LEFT_CLICK:
-                return new LeftClickAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+                return new LeftClickAction(obj.description, obj.location, obj.args, obj.cssSelector);
             case ActionEnum.MIDDLE_CLICK:
-                return new MiddleClickAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+                return new MiddleClickAction(obj.description, obj.location, obj.args, obj.cssSelector);
             case ActionEnum.INPUT_TEXT:
-                return new InputTextAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+                return new InputTextAction(obj.description, obj.location, obj.args, obj.cssSelector);
             case ActionEnum.GET_TEXT_CONTENT:
-                return new GetTextContentAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+                return new GetTextContentAction(obj.description, obj.location, obj.args, obj.cssSelector);
             case ActionEnum.INPUT_2FA_CODE:
-                return new InputTwofaAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+                return new InputTwofaAction(obj.description, obj.location, obj.args, obj.cssSelector);
             case ActionEnum.GET_TWOFA_INSTRUCTIONS:
-                return new GetTwofaInstructionsAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+                return new GetTwofaInstructionsAction(obj.description, obj.location, obj.args, obj.cssSelector);
             case ActionEnum.GET_INVOICES:
-                return new GetInvoicesAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+                return new GetInvoicesAction(obj.description, obj.location, obj.args, obj.cssSelector);
             case ActionEnum.EXTRACT_INVOICE_DATA:
-                return new ExtractInvoiceDataAction(obj.description, obj.location, obj.args, obj.x, obj.y, obj.cssSelector);
+                return new ExtractInvoiceDataAction(obj.description, obj.location, obj.args, obj.cssSelector);
             default:
                 throw new Error(`Action ${obj.action} not implemented`);
         }
@@ -55,17 +55,13 @@ export abstract class Action<Context, Result> {
     description: string;
     location: string;
     args: any;
-    x?: number;
-    y?: number;
     cssSelector?: string;
 
-    constructor(action: ActionEnum, description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+    constructor(action: ActionEnum, description: string, location: string, args: any, cssSelector?: string) {
         this.action = action;
         this.description = description;
         this.location = location;
         this.args = args;
-        this.x = x;
-        this.y = y;
         this.cssSelector = cssSelector;
     }
 
@@ -79,17 +75,8 @@ export abstract class Action<Context, Result> {
                 info: this.description
             })
         }
-        // If we have coordinates, but no cssSelector
-        else if (this.x && this.y && !this.cssSelector) {
-            // Get element from coordinates
-            element = await driver.getElementCoordinates(this.x!, this.y!);
-            if (!element) {
-                throw new Error(`No element found at coordinates (${this.x}, ${this.y})`);
-            }
-            this.cssSelector = await element.cssSelector();
-        }
         else {
-            throw new Error('No way to locate element (no cssSelector or coordinates)');
+            throw new Error('No way to locate element, no cssSelector provided');
         }
 
         // If no element found, throw error
@@ -113,13 +100,13 @@ export type LeftClickContext = {
 
 export class LeftClickAction extends Action<LeftClickContext, void> {
 
-    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'navigation' field
         if(!args.hasOwnProperty('navigation')) {
             throw new Error('LeftClickAction requires args to have a "navigation" field');
         }
 
-        super(ActionEnum.LEFT_CLICK, description, location, args, x, y, cssSelector);
+        super(ActionEnum.LEFT_CLICK, description, location, args, cssSelector);
     }
 
     async perform(context: LeftClickContext): Promise<void> {
@@ -140,8 +127,8 @@ export type MiddleClickContext = {
 }
 
 export class MiddleClickAction extends Action<MiddleClickContext, void> {
-    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
-        super(ActionEnum.MIDDLE_CLICK, description, location, args, x, y, cssSelector);
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
+        super(ActionEnum.MIDDLE_CLICK, description, location, args, cssSelector);
     }
 
     async perform(context: MiddleClickContext): Promise<void> {
@@ -166,13 +153,17 @@ export type InputTextContext = {
 }
 
 export class InputTextAction extends Action<InputTextContext, void> {
-    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'text' field
         if(!args.hasOwnProperty('text')) {
             throw new Error('InputTextAction requires args to have a "text" field');
         }
+        // Check if cssSelector is provided
+        if (!cssSelector) {
+            throw new Error('InputTextAction requires a cssSelector to locate the element');
+        }
 
-        super(ActionEnum.INPUT_TEXT, description, location, args, x, y, cssSelector);
+        super(ActionEnum.INPUT_TEXT, description, location, args, cssSelector);
     }
 
     async perform(context: InputTextContext): Promise<void> {
@@ -195,13 +186,17 @@ export type GetTextContentContext = {
 }
 
 export class GetTextContentAction extends Action<GetTextContentContext, string> {
-    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
             throw new Error('GetTextContentAction requires args to have a "default" field');
         }
+        // Check if cssSelector is provided
+        if (!cssSelector) {
+            throw new Error('GetTextContentAction requires a cssSelector to locate the element');
+        }
 
-        super(ActionEnum.GET_TEXT_CONTENT, description, location, args, x, y, cssSelector);
+        super(ActionEnum.GET_TEXT_CONTENT, description, location, args, cssSelector);
     }
 
     async perform(context: GetTextContentContext): Promise<string> {
@@ -220,8 +215,12 @@ export type InputTwofaContext = {
 }
 
 export class InputTwofaAction extends Action<InputTwofaContext, void> {
-    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
-        super(ActionEnum.INPUT_2FA_CODE, description, location, args, x, y, cssSelector);
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
+        // Check if cssSelector is provided
+        if (!cssSelector) {
+            throw new Error('InputTwofaAction requires a cssSelector to locate the element');
+        }
+        super(ActionEnum.INPUT_2FA_CODE, description, location, args, cssSelector);
     }
 
     async perform(context: InputTwofaContext): Promise<void> {
@@ -242,13 +241,17 @@ export type GetTwofaInstructionsContext = {
 }
 
 export class GetTwofaInstructionsAction extends Action<GetTwofaInstructionsContext, string | void> {
-    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'default' field
         if(!args.hasOwnProperty('default')) {
             throw new Error('InputTwofaAction requires args to have a "default" field');
         }
+        // Check if cssSelector is provided
+        if (!cssSelector) {
+            throw new Error('GetTwofaInstructionsAction requires a cssSelector to locate the element');
+        }
 
-        super(ActionEnum.GET_TWOFA_INSTRUCTIONS, description, location, args, x, y, cssSelector);
+        super(ActionEnum.GET_TWOFA_INSTRUCTIONS, description, location, args, cssSelector);
     }
 
     async perform(context: GetTwofaInstructionsContext): Promise<string | void> {
@@ -273,8 +276,12 @@ export type GetInvoicesContext = {
 }
 
 export class GetInvoicesAction extends Action<GetInvoicesContext, Element[]> {
-    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
-        super(ActionEnum.GET_INVOICES, description, location, args, x, y, cssSelector);
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
+        // Check if cssSelector is provided
+        if (!cssSelector) {
+            throw new Error('GetInvoicesAction requires a cssSelector to locate the element');
+        }
+        super(ActionEnum.GET_INVOICES, description, location, args, cssSelector);
     }
 
     async perform(context: GetInvoicesContext): Promise<Element[]> {
@@ -295,7 +302,7 @@ export type ExtractInvoiceDataContext = {
 }
 
 export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, Invoice> {
-    constructor(description: string, location: string, args: any, x: number, y: number, cssSelector?: string) {
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
         // args should have 'css_selector_date' field
         if(!args.hasOwnProperty('css_selector_date')) {
             throw new Error('InputTwofaAction requires args to have a "css_selector_date" field');
@@ -317,7 +324,7 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
             throw new Error('InputTwofaAction requires args to have a "date_locale" field');
         }
 
-        super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, x, y, cssSelector);
+        super(ActionEnum.EXTRACT_INVOICE_DATA, description, location, args, cssSelector);
     }
 
     async perform(context: ExtractInvoiceDataContext): Promise<Invoice> {
