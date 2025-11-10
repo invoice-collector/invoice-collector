@@ -11,7 +11,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "1",
+        version: "2",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -56,10 +56,10 @@ export class FreeMobileCollector extends WebCollector {
 
     async isTwofa(driver: Driver): Promise<string | void> {
         // Check if 2FA is required
-        if (driver.url() === this.config.entryUrl) return;
-
-        const two_factor_auth = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_INSTRUCTIONS, { timeout: 2000 });
-        return await two_factor_auth?.textContent("i18n.collectors.all.2fa.instruction") || "i18n.collectors.all.2fa.instruction";
+        const twofaInstructions = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
+        if (twofaInstructions) {
+            return await twofaInstructions.textContent("i18n.collectors.all.2fa.instruction");
+        }
     }
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
