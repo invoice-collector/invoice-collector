@@ -2,7 +2,7 @@ import { Driver, Element } from "../driver/driver";
 import { TwofaPromise } from "../collect/twofaPromise";
 import * as utils from '../utils';
 import { Invoice } from "../collectors/abstractCollector";
-import { ElementNotFoundError } from "../error";
+import { AuthenticationError, ElementNotFoundError } from "../error";
 
 export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
@@ -13,7 +13,8 @@ export enum ActionEnum  {
     INPUT_2FA_CODE = 'input2FACode',
     GET_TWOFA_INSTRUCTIONS = 'get2FAInstructions',
     GET_INVOICES = 'getInvoices',
-    EXTRACT_INVOICE_DATA = 'extractInvoiceData'
+    EXTRACT_INVOICE_DATA = 'extractInvoiceData',
+    RAISE_ERROR_IF_DISPLAYED = 'raiseErrorIfDisplayed',
 }
 
 export abstract class Action<Context, Result> {
@@ -36,6 +37,8 @@ export abstract class Action<Context, Result> {
                 return new GetInvoicesAction(obj.description, obj.location, obj.args, obj.cssSelector);
             case ActionEnum.EXTRACT_INVOICE_DATA:
                 return new ExtractInvoiceDataAction(obj.description, obj.location, obj.args, obj.cssSelector);
+            case ActionEnum.RAISE_ERROR_IF_DISPLAYED:
+                return new RaiseErrorIfDisplayed(obj.description, obj.location, obj.args, obj.cssSelector);
             default:
                 throw new Error(`Action ${obj.action} not implemented`);
         }
@@ -343,6 +346,43 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
             downloadData: {
                 element: downloadElement
             }
+        }
+    }
+
+    toString(): string {
+        return `Extract invoice data`;
+    }
+}
+
+export type RaiseErrorContext = {
+    driver: Driver;
+}
+
+export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
+    constructor(description: string, location: string, args: any, cssSelector?: string) {
+        // args should have 'default' field
+        if(!args.hasOwnProperty('default')) {
+            throw new Error('RaiseError requires args to have a "default" field');
+        }
+        // Check if cssSelector is provided
+        if (!cssSelector) {
+            throw new Error('RaiseErrorIfDisplayed requires a cssSelector to locate the element');
+        }
+        super(ActionEnum.RAISE_ERROR_IF_DISPLAYED, description, location, args, cssSelector);
+    }
+
+    async perform(context: RaiseErrorContext): Promise<void> {   
+        // Get element from cssSelector
+        const element = await context.driver.getElement({
+            selector: this.cssSelector,
+            info: this.description
+        }, {
+            raiseException: false,
+            ...this.args
+        })
+        // If element found, raise error
+        if (element) {
+            throw new AuthenticationError(await element.textContent(this.args.default), context.driver.collector);
         }
     }
 
