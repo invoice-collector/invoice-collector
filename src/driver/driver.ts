@@ -783,12 +783,12 @@ export class Element {
                     return 'body';
                 }
                 let selector = element.tagName.toLowerCase();
-                if (element.className && typeof element.className === 'string') {
+                /*if (element.className && typeof element.className === 'string') {
                     const classes = element.className.trim().split(/\s+/).filter(Boolean);
                     if (classes.length) {
                         selector += '.' + classes.join('.');
                     }
-                }
+                }*/
                 let sibling = element;
                 let nth = 1;
                 while ((sibling = sibling.previousElementSibling)) {
@@ -800,20 +800,4 @@ export class Element {
             return getCssSelector(element);
         });
     }
-
-    /*async pages(): Promise<Page[]> {
-        if (this.driver.browser === null) {
-            throw new Error('Browser is not initialized.');
-        }
-
-        const targets: Target[] = this.driver.browser.targets();
-        const pages: Page[] = [];
-        for (const target of targets) {
-            if (target.type() === 'page') {
-                const page = await target.asPage();
-                pages.push(page);
-            }
-        }
-        return pages;
-    }*/
 }
