@@ -5,6 +5,10 @@ export const AmazonSelectors = {
         selector: ".cvf-account-switcher-spacing-base:has([action='/ap/removeaccount']) img",
         info: "select loggedin account"
     },
+    CONTAINER_PERSONAL_ACCOUNT: {
+        selector: "div[data-test-id='switchableAccounts'] > div > a:has(div.cvf-account-switcher-personal-account-icon)",
+        info: "select personal account"
+    },
 
     // LOGIN PAGE
 
