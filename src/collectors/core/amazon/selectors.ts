@@ -5,6 +5,10 @@ export const AmazonSelectors = {
         selector: ".cvf-account-switcher-spacing-base:has([action='/ap/removeaccount']) img",
         info: "select loggedin account"
     },
+    CONTAINER_PERSONAL_ACCOUNT: {
+        selector: "div[data-test-id='switchableAccounts'] > div > a:has(div.cvf-account-switcher-personal-account-icon)",
+        info: "select personal account"
+    },
 
     // LOGIN PAGE
 
@@ -83,7 +87,7 @@ export const AmazonSelectors = {
         info: "other page button"
     },
     CONTAINER_ORDER: {
-        selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a)",
+        selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a):has(.a-col-left div.a-column:nth-child(2) div:last-of-type span)",
         info: "order container"
     },
     CONTAINER_ORDER_DATE: {

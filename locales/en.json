@@ -332,6 +332,7 @@
   "i18n.collectors.all.2fa.error": "2FA code is incorrect",
   "i18n.collectors.all.2fa.instruction": "Enter the 2FA code sent by email or SMS",
   "i18n.collectors.all.2fa.timeout": "No 2FA code provided within the alloteted time. Please try again.",
+  "i18n.collectors.all.captcha": "Cannot continue because a captcha has been detected. Please reconnect the account.",
   "i18n.collectors.all.email": "Email",
   "i18n.collectors.all.email.error": "Incorrect email",
   "i18n.collectors.all.email.placeholder": "Email of the account",

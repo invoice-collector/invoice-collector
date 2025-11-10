@@ -13,7 +13,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "21",
+        version: "22",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -66,7 +66,10 @@ export class AmazonCollector extends WebCollector {
 
     async needLogin(driver: Driver): Promise<boolean> {
         // Select loggedin account if displayed
-        await driver.leftClick(AmazonSelectors.CONTAINER_LOGGEDIN_ACCOUNT, { raiseException: false, timeout: 1000, delay: 2000 });
+        await driver.leftClick(AmazonSelectors.CONTAINER_LOGGEDIN_ACCOUNT, { raiseException: false, timeout: 1000 });
+        // Select personnal account if displayed
+        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 100, delay: 1000 });
+
         // If user is logged in, the URL should be equal to the entry URL
         return driver.url() !== this.config.entryUrl;
     }
@@ -103,6 +106,9 @@ export class AmazonCollector extends WebCollector {
         if (captcha_element) {
             return "i18n.collectors.all.password.error";
         }
+
+        // Select personnal account if displayed
+        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 1000 });
     }
 
     async needTwofa(driver: Driver): Promise<string | void> {
