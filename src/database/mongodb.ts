@@ -449,7 +449,8 @@ export class MongoDB extends AbstractDatabase {
         }
         const collectorMemory = new CollectorMemory(
             document.name,
-            Actions.fromObject(document.actions)
+            Actions.fromObject(document.actions),
+            document.entryUrl
         );
         collectorMemory.id = document._id.toString();
         return collectorMemory;
@@ -461,7 +462,8 @@ export class MongoDB extends AbstractDatabase {
         }
         const document = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).insertOne({
             name: collectorMemory.name,
-            actions: collectorMemory.actions
+            actions: collectorMemory.actions,
+            entryUrl: collectorMemory.entryUrl
         });
         collectorMemory.id = document.insertedId.toString();
         return collectorMemory;
@@ -475,7 +477,8 @@ export class MongoDB extends AbstractDatabase {
             { _id: new ObjectId(collectorMemory.id) },
             { $set: {
                 name: collectorMemory.name,
-                actions: collectorMemory.actions
+                actions: collectorMemory.actions,
+                entryUrl: collectorMemory.entryUrl
             }}
         );
     }
