@@ -79,7 +79,7 @@ export class Collect {
 
                 // Collect invoices
                 const newInvoices = await collector.collect_new_invoices(this.state, this.twofa_promise, secret, credential.download_from_timestamp, previousInvoices, user.location);
-                console.log(`Found ${newInvoices.length} new invoices`);
+                console.log(`Found ${previousInvoices.length + newInvoices.length} invoices and ${newInvoices.length} new`);
                 console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
                 // If at least one new invoice has been downloaded
