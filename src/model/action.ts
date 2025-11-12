@@ -113,10 +113,10 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
     }
 
     async perform(context: LeftClickContext): Promise<void> {
-        let element: Element = await this.getElement(context.driver);
-        await element.click({
-            navigation: this.args.navigation
-        });
+        await context.driver.leftClick({
+                selector: this.cssSelector,
+                info: this.description
+            }, this.args);
     }
 
     toString(): string {
