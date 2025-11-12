@@ -461,18 +461,37 @@ export class Driver {
 
     // SOURCE CODE
 
-    async sourceCode(base64: boolean = true): Promise<string> {
+    async sourceCode(base64: boolean, includeIframes: boolean): Promise<string> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        const sourceCode = (await this.page.content())
-        const cleanedSourceCode = sourceCode
-            .replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, '')
-            .replace(/<svg\b[^>]*>([\s\S]*?)<\/svg>/gi, '')
-            .replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, '')
-            .replace(/<head\b[^>]*>([\s\S]*?)<\/head>/gi, '')
-            .replace(/<iframe\b[^>]*>([\s\S]*?)<\/iframe>/gi, '');
-        return base64 ? Buffer.from(cleanedSourceCode).toString('base64') : cleanedSourceCode;
+    
+        let frames;
+        // If not including iframes
+        if (!includeIframes) {
+            // Use only the main frame
+            frames = [this.page.mainFrame()];
+        }
+        else {
+            // Use all frames
+            frames = this.page.frames();
+        }
+
+        // Get source code of all frames, removing scripts, svgs, styles, heads and iframes
+        const framesSourceCode = await Promise.all(
+            frames.map(async frame => {
+                const sourceCode = (await frame.content())
+                return sourceCode
+                    .replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, '')
+                    .replace(/<svg\b[^>]*>([\s\S]*?)<\/svg>/gi, '')
+                    .replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, '')
+                    .replace(/<head\b[^>]*>([\s\S]*?)<\/head>/gi, '')
+                    .replace(/<iframe\b[^>]*>([\s\S]*?)<\/iframe>/gi, '');
+                })
+        );
+
+        const fullSourceCode = framesSourceCode.join('\n/* ========== FRAME SEPARATOR ========== */\n');
+        return base64 ? Buffer.from(fullSourceCode).toString('base64') : fullSourceCode;
     }
 
     // SCREENSHOT
