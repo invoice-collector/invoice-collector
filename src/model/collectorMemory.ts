@@ -12,11 +12,13 @@ export class CollectorMemory {
     id: string;
     name: string;
     actions: Actions;
+    entryUrl?: string;
 
-    constructor(name: string, actions: Actions) {
+    constructor(name: string, actions: Actions, entryUrl?: string) {
         this.id = "";
         this.name = name;
         this.actions = actions;
+        this.entryUrl = entryUrl;
     }
 
     getActionsFor(key: string): Action<unknown, unknown>[] | null {
