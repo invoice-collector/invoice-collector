@@ -686,6 +686,7 @@ export class Element {
 
         const numberOfPagesAfter = pages.length;
         // If no new page opened
+        let driver: Driver;
         if (numberOfPagesAfter == numberOfPagesBefore) {
             await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
             await this.driver.page?.setRequestInterception(true);
@@ -696,6 +697,7 @@ export class Element {
                     if (
                         !request.isInterceptResolutionHandled() &&
                         request.url().includes(baseUrl) &&
+                        request.resourceType() === 'document' &&
                         request.method() === 'GET'
                     ) {
                         request.abort('aborted', 5);
@@ -715,7 +717,14 @@ export class Element {
 
             newPage = await this.driver.browser.newPage();
             await newPage.bringToFront();
-            await newPage.goto(interceptedUrl, { waitUntil: 'networkidle0' });
+
+            driver = new Driver(this.driver.collector);
+            driver.browser = this.driver.browser;
+            driver.page = newPage;
+            driver.downloadPath = this.driver.downloadPath;
+            driver.puppeteerConfig = this.driver.puppeteerConfig;
+
+            await driver.goto(interceptedUrl);
 
             // Remove request handler
             this.driver.page?.off('request', handler);
@@ -724,13 +733,14 @@ export class Element {
             // Bring latest page to front
             newPage = pages[pages.length - 1];
             await newPage.bringToFront();
+
+            driver = new Driver(this.driver.collector);
+            driver.browser = this.driver.browser;
+            driver.page = newPage;
+            driver.downloadPath = this.driver.downloadPath;
+            driver.puppeteerConfig = this.driver.puppeteerConfig;
         }
 
-        const driver = new Driver(this.driver.collector);
-        driver.browser = this.driver.browser;
-        driver.page = newPage;
-        driver.downloadPath = this.driver.downloadPath;
-        driver.puppeteerConfig = this.driver.puppeteerConfig;
         return driver;
     }
 
