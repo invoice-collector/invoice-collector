@@ -205,7 +205,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         } catch (error) {
             // Get url, source code and screenshot
             const url = driver.url();
-            const source_code = await driver.sourceCode();
+            const source_code = await driver.sourceCode(true, true);
             const screenshot = await driver.screenshot();
 
             if (error instanceof LoggableError) {
