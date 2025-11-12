@@ -4396,6 +4396,7 @@
   "i18n.collectors.languagetool.description": "A free online grammar, style, and spell checker for multiple languages.",
   "i18n.collectors.lano.description": "Lano is an online platform offering global payroll, compliance, and contractor management solutions for businesses.",
   "i18n.collectors.laposte.description": "La Poste is a French postal service provider.",
+  "i18n.collectors.laposte_colissimo.description": "La Poste Colissimo is a French postal service offering domestic and international shipping solutions.",
   "i18n.collectors.lara_jobs.description": "A job board specialized in Laravel and PHP developer positions.",
   "i18n.collectors.laracasts_com.description": "A learning platform offering high-quality video tutorials for Laravel and modern PHP development.",
   "i18n.collectors.laravel_forge.description": "A server management and deployment tool for PHP applications with seamless Laravel integration.",
