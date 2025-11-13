@@ -739,7 +739,7 @@ export class Server {
         await credential.commit();
 
         // Start web socket server and get token
-        const webSocketServer = new WebSocketServer(this.httpServer, user.locale);
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
         const wsPath = webSocketServer.start();
 
         // Start collect
@@ -952,8 +952,11 @@ export class Server {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
+        // Get collector from id
+        const collector = await CollectorLoader.get(credential.collector_id);
+
         // Start web socket server and get token
-        const webSocketServer = new WebSocketServer(this.httpServer, user.locale);
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
         const wsPath = webSocketServer.start();
 
         // Start collect

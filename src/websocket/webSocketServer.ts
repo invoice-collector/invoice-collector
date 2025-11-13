@@ -5,15 +5,19 @@ import { MessageClick, MessageClose, MessageKeydown, MessageScreenshot, MessageS
 import { State } from '../model/state';
 import { Driver } from '../driver/driver';
 import { I18n } from '../i18n';
+import { AuthenticationError } from '../error';
+import { AbstractCollector, Config } from '../collectors/abstractCollector';
 
 export class WebSocketServer {
 
     public static PATH = '/api/v1/ws/';
+    static TWOFA_TIMEOUT_MS = 1000 * 60 * 3; // 3 minutes
 
     private path: string;
     private server: Server;
     private ws: WebSocket | null = null
     private locale: string;
+    private collector: AbstractCollector<Config>;
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
     public onClick: ((event: MessageClick) => void) | undefined;
@@ -21,7 +25,7 @@ export class WebSocketServer {
     public onText: ((event: MessageText) => void) | undefined;
     public onClose: ((event: MessageClose) => void) | undefined;
 
-    constructor(httpServer: http.Server | undefined, locale: string) {
+    constructor(httpServer: http.Server | undefined, locale: string, collector: AbstractCollector<Config>) {
         this.path = `${WebSocketServer.PATH}${utils.generate_token()}`;
         this.server = new Server({
             server: httpServer,
@@ -29,6 +33,7 @@ export class WebSocketServer {
             port: httpServer ? undefined : parseInt(utils.getEnvVar("PORT"))
         });
         this.locale = locale
+        this.collector = collector;
     }
 
     public start(): string {
@@ -106,5 +111,14 @@ export class WebSocketServer {
             state: state
         };
         this.sendMessage(message);
+    }
+
+    public getTwofa(): Promise<string> {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => reject(new AuthenticationError('i18n.collectors.all.2fa.timeout', this.collector)), WebSocketServer.TWOFA_TIMEOUT_MS)
+            this.onTwofa = (event: MessageTwofa) => {
+                resolve(event.twofa);
+            }
+        });
     }
 }
