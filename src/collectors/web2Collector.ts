@@ -233,14 +233,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         }
     }
 
-    //NOT IMPLEMENTED
-
-    async needLogin(driver: Driver): Promise<boolean>{
-        // If user is logged in, the URL should be equal to the entry URL
-        return driver.url() !== this.config.entryUrl;
-    }
-
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>{
+    protected async loginWithCanvas(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
         // If login is called with a WebSocketServer to undefined, it means that the session has expired
         if (!webSocketServer) {
             throw new AuthenticationError('i18n.collectors.all.login.expired', this);
@@ -302,6 +295,15 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             }
         }
     }
+
+    //NOT IMPLEMENTED
+
+    async needLogin(driver: Driver): Promise<boolean>{
+        // If user is logged in, the URL should be equal to the entry URL
+        return driver.url() !== this.config.entryUrl;
+    }
+
+    abstract login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
 
     async needTwofa(driver: Driver): Promise<string | void>{
         // Assume the collector does not implement 2FA
