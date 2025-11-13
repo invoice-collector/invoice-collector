@@ -1,6 +1,6 @@
 import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
 import { Driver, Element } from '../driver/driver';
-import { AuthenticationError, CollectorError, LoggableError } from '../error';
+import { AuthenticationError, CollectorError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -60,6 +60,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         await driver.setLocalStorage(secret.localStorage);
 
         try {
+            // Pre actions
+            await this.pre(driver);
+
             // Open entry url
             await driver.goto(this.config.entryUrl || this.config.loginUrl);
 
@@ -96,7 +99,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 // Set instructions for UI
                 await twofa_promise.setInstructions(needTwofa);
 
-                console.log("2FA is required, performing 2FA...")
+                console.log(`2FA is required, performing 2FA... (${needTwofa})`)
                 const twofa_error = await this.twofa(driver, secret.params, twofa_promise, webSocketServer)
 
                 // Check if 2fa error
@@ -132,6 +135,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             await this.forEachPage(driver, secret.params, async () => {
                 // For each invoice on the page
                 const invoiceElements = await this.getInvoices(driver, secret.params);
+                
+                // If invoice elements is empty, collector may be broken
+                if (invoiceElements.length === 0) {
+                    throw new NoInvoiceFoundError(this);
+                }
+
+                // For each invoice element
                 for (const element of invoiceElements) {
                     // Get invoice data
                     let invoice: Invoice | null = await this.data(driver, secret.params, element);
@@ -166,6 +176,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                             // Download invoice
                             const documents = await this.download(driver, secret.params, element, invoice);
                             console.log(`Invoice ${invoice.id} successfully downloaded`);
+
+                            // Close extra pages opened during download
+                            await driver.closeExtraPages();
 
                             let data;
                             // If one document downloaded
@@ -203,11 +216,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         } catch (error) {
             // Get url, source code and screenshot
             const url = driver.url();
+            const source_code = await driver.sourceCode(true, true);
+            const screenshot = await driver.screenshot();
 
             if (error instanceof LoggableError) {
                 error.url = url;
-                error.source_code = await driver.sourceCode();
-                error.screenshot = await driver.screenshot();
+                error.source_code = source_code;
+                error.screenshot = screenshot;
             }
             if (error instanceof CollectorError) {
                 throw error;
@@ -220,8 +235,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 { cause: error }
             );
             loggableError.url = url;
-            loggableError.source_code = await driver.sourceCode();
-            loggableError.screenshot = await driver.screenshot();
+            loggableError.source_code = source_code;
+            loggableError.screenshot = screenshot;
             throw loggableError;
         }
     }
@@ -297,6 +312,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     }
 
     //NOT IMPLEMENTED
+    async pre(driver: Driver): Promise<void> {
+        // Assume the collector does not need pre actions
+    }
 
     async needLogin(driver: Driver): Promise<boolean>{
         // If user is logged in, the URL should be equal to the entry URL

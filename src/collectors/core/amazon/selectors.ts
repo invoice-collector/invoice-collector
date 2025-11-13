@@ -1,5 +1,16 @@
 export const AmazonSelectors = {
-    //LOGIN PAGE
+    //NEED LOGIN
+
+    CONTAINER_LOGGEDIN_ACCOUNT: {
+        selector: ".cvf-account-switcher-spacing-base:has([action='/ap/removeaccount']) img",
+        info: "select loggedin account"
+    },
+    CONTAINER_PERSONAL_ACCOUNT: {
+        selector: "div[data-test-id='switchableAccounts'] > div > a:has(div.cvf-account-switcher-personal-account-icon)",
+        info: "select personal account"
+    },
+
+    // LOGIN PAGE
 
     BUTTON_USE_OTHER_ACCOUNT: {
         selector: "#ap_switch_account_link",
@@ -39,11 +50,11 @@ export const AmazonSelectors = {
     },
 
     // 2FA PAGE
-    
+
     BUTTON_2FA_METHOD: {
         selector: "#auth-select-device-form .a-button",
         info: "2fa method button"
-    },    
+    }, 
     CONTAINER_2FA_INSTRUCTIONS: {
         selector: "#auth-mfa-form p, #channelDetailsForOtp span",
         info: "2fa instructions container"
@@ -76,7 +87,7 @@ export const AmazonSelectors = {
         info: "other page button"
     },
     CONTAINER_ORDER: {
-        selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a)",
+        selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a):has(.a-col-left div.a-column:nth-child(2) div:last-of-type span)",
         info: "order container"
     },
     CONTAINER_ORDER_DATE: {

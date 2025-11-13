@@ -10,6 +10,7 @@
     "test.fingerprints": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/fingerprints.spec.ts",
     "test.antibot": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/antibots.spec.ts",
     "test.cicd.locales": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit test/cicd/locales.spec.ts",
+    "test.cicd.compilation": "tsc --noEmit",
     "debug": "nodemon --inspect=0.0.0.0:9229 --signal SIGINT --nolazy -L src/index.ts"
   },
   "dependencies": {

@@ -21,7 +21,7 @@ export class Customer {
     static DEFAULT_EMAIL = "";
     static DEFAULT_PASSWORD = "";
     static DEFAULT_NAME = "default";
-    static DEFAULT_CALLBACK = "https://path.to/callback";
+    static DEFAULT_CALLBACK = "";
     static DEFAULT_REMOTE_ID = "";
     static DEFAULT_SUBSCRIBED_COLLECTORS: string[] = [];
     static DEFAULT_IS_SUBSCRIBED_TO_ALL = true;

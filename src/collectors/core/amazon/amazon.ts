@@ -13,7 +13,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "18",
+        version: "22",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -98,18 +98,19 @@ export class AmazonCollector extends WebCollector {
     async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
         // Get UI language
         const language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
-        // Get dats
-        const id = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
-        const amount = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
-        const downloadElement = await element.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK);
-        const link = driver.origin() + await element.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
         const timestamp = timestampFromString(date, 'd MMMM yyyy', language);
 
         // Cancel invoice if more recent than 2 days
         if (timestamp > Date.now() - AmazonCollector.TWO_DAYS_IN_MS){
             return null;
         }
+
+        // Get data
+        const id = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_ID, "textContent");
+        const amount = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+        const link = driver.origin() + await element.getAttribute(AmazonSelectors.CONTAINER_DOCUMENTS_LINK, "href");
+        const downloadElement = await element.getElement(AmazonSelectors.CONTAINER_DOCUMENTS_LINK);
 
         return {
             id,
@@ -141,10 +142,7 @@ export class AmazonCollector extends WebCollector {
         }
 
         // Download order
-        documents.push(await this.download_webpage(newPage, origin + orderLink));
-
-        // Close the page
-        await newPage.page?.close();
+        documents.unshift(await this.download_webpage(newPage, origin + orderLink));
 
         return documents;
     }

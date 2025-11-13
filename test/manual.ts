@@ -17,10 +17,11 @@ import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
-import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
 import * as utils from '../src/utils';
 import { WebCollector } from '../src/collectors/web2Collector';
+import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
+
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
     await DatabaseFactory.getDatabase().connect();
@@ -95,7 +96,7 @@ function getHashFromSecret(secret: Secret): string {
             console.log(`collector id / credential id: ${id}`)
         }
         else {
-            id = prompt('collector id / credential id: ');
+            id = prompt('collector id / credential id: ').trim();
         }
 
         // ---------- PART 2 : GET COLLECTOR AND SECRET ----------
@@ -162,13 +163,18 @@ function getHashFromSecret(secret: Secret): string {
 
         // ---------- PART 3 : PERFORM COLLECT ----------
 
+        // Connect to database if is agent collector
+        if(collector.config.type === CollectorType.AGENT) {
+            await DatabaseFactory.getDatabase().connect();
+        }
+
         // Collect invoices
         const collect = new Collect("", undefined)
         collect.state = State.DEFAULT_STATE;
 
         // Define what to do on 2FA
         collect.twofa_promise.instructions().then((twofa_instruction) => {
-            const twofa_code = prompt(`${twofa_instruction}: `);
+            const twofa_code = prompt(`${twofa_instruction}: `).trim();
             collect.twofa_promise.setCode(twofa_code);
         });
 

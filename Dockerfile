@@ -36,8 +36,13 @@ COPY data/ ./data/
 COPY test/ ./test/
 COPY locales/ ./locales/
 COPY jest.config.js ./jest.config.js
-RUN mkdir media/ log/
-    #&& sed -i 's/let \[page\] = await browser.pages();/let page = await browser.newPage();/g' node_modules/puppeteer-real-browser/lib/cjs/index.js
+COPY media/ ./media/
+
+# Change ownership so node user can write
+RUN chown -R node:node media/
+
+# Switch to node user
+USER node
 
 # Expose the port your app runs on
 EXPOSE 8080

@@ -141,7 +141,7 @@ export abstract class WebCollector extends V1Collector<WebConfig> {
         } catch (error) {
             // Get url, source code and screenshot
             const url = this.driver.url();
-            const source_code = await this.driver.sourceCode();
+            const source_code = await this.driver.sourceCode(true, true);
             const screenshot = await this.driver.screenshot();
 
             if (error instanceof LoggableError) {
@@ -203,7 +203,7 @@ export abstract class WebCollector extends V1Collector<WebConfig> {
         } catch (error) {
             // Get url, source code and screenshot
             const url = this.driver.url();
-            const source_code = await this.driver.sourceCode();
+            const source_code = await this.driver.sourceCode(true, true);
             const screenshot = await this.driver.screenshot();
 
             if (error instanceof LoggableError) {

@@ -194,3 +194,16 @@ export function createFakeNotificationDisconnected(): {
         remote_id: "R121439",
     };
 }
+
+export function checkAmountContainsCurrencySymbol(amount: string): void {
+    // Check if amount is empty
+    if (!amount || amount.trim() === "") {
+        throw new Error("Amount is empty.");
+    }
+
+    // Check if amount contains a currency symbol
+    const currencySymbolRegex = /[^\d.,\s]/;
+    if (!currencySymbolRegex.test(amount)) {
+        throw new Error(`Amount "${amount}" does not contain a currency symbol.`);
+    }
+}
