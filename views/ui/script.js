@@ -305,13 +305,6 @@ async function showProgress(credential_id, wsPath) {
     document.getElementById('progress-container').hidden = false;
     document.getElementById('feedback-container').hidden = true;
 
-    // Set the on submit event for the 2fa form
-    form2fa.addEventListener('submit', async (event) => {
-        container2FA.hidden = true;
-        event.preventDefault();
-        await post2FA(credential_id, event.target["code"].value);
-    });
-
     // WebSocket to get real-time updates - NEW WAY
     let finished = false;
     const ws = new WebSocket(wsPath);
@@ -430,17 +423,12 @@ async function showProgress(credential_id, wsPath) {
         responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
         responseError.hidden = !(current_state.index < 0);
     };
-}
 
-async function post2FA(credential_id, code) {
-    await fetch(`credential/${credential_id}/2fa?token=${token}`, {
-        method: 'POST',
-        body: JSON.stringify({
-            code
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+    // Set the on submit event for the 2fa form
+    form2fa.addEventListener('submit', async (event) => {
+        container2FA.hidden = true;
+        event.preventDefault();
+        ws.send(JSON.stringify({ type: 'twofa', twofa: event.target["code"].value }));
     });
 }
 
