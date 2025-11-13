@@ -697,13 +697,11 @@ export class Element {
     async middleClick(): Promise<Driver> {const baseUrl = new URL(this.driver.url() || "").origin;
         // Get number of opened pages before middle click
         const numberOfPagesBefore = (await this.driver.pages()).length;
-
         // Perform middle click
         await this.element.click({ button: 'middle' });
         // Wait for the new tab to open
         await utils.delay(5000);
         // Get number of opened pages after middle click
-
         const pages = await this.driver.pages();
         let newPage: Page;
 
@@ -804,26 +802,6 @@ export class Element {
 
     async innerHTML(): Promise<string> {
         return this.element.evaluate(el => el.innerHTML);
-    }
-
-    async pages(): Promise<Page[]> {
-        if (this.driver.browser === null) {
-            throw new Error('Browser is not initialized.');
-        }
-        /*return Promise.all(
-            this.driver.browser.targets()
-                .filter(target => target.type() === 'page')
-                .map(target => target.asPage())
-        );*/
-        const targets: Target[] = this.driver.browser.targets();
-        const pages: Page[] = [];
-        for (const target of targets) {
-            if (target.type() === 'page') {
-                const page = await target.asPage();
-                pages.push(page);
-            }
-        }
-        return pages;
     }
 
     async cssSelector(): Promise<string> {

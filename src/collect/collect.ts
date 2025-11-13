@@ -41,10 +41,6 @@ export class Collect {
             if (!credential) {
                 throw new Error(`Credential with id "${this.credential_id}" not found.`);
             }
-            
-            // Set progress step to preparing
-            credential.state.update(State._1_PREPARING);
-            this.webSocketServer?.sendState(State._1_PREPARING);
 
             // Set state from credential
             this.state = credential.state;
@@ -60,6 +56,7 @@ export class Collect {
             
                 // Set progress step to preparing
                 credential.state.update(State._1_PREPARING);
+                this.webSocketServer?.sendState(State._1_PREPARING);
 
                 // Get secret from secret_manager_id
                 secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
@@ -121,6 +118,7 @@ export class Collect {
 
                 // Set progress step to done
                 credential.state.update(State._7_DONE);
+                this.webSocketServer?.sendState(State._7_DONE);
 
                 // Log success
                 RegistryServer.getInstance().logSuccess(collector);
@@ -128,10 +126,6 @@ export class Collect {
             else {
                 console.warn(`Customer ${customer.id} has no valid callback, skipping collect for credential ${this.credential_id} and planning next collect`);
             }
-
-            // Set progress step to done
-            credential.state.update(State._7_DONE);
-            this.webSocketServer?.sendState(State._7_DONE);
 
             // Update last collect
             credential.last_collect_timestamp = Date.now();
@@ -183,12 +177,12 @@ export class Collect {
                 if (credential && user && customer) {
                     // If error occurs and previous collect was successful, update state to disconnected
                     if (credential.state.index >= credential.state.max) {
-                        // Update credential to disconnected
-                        credential.state.update(State._2_DISCONNECTED);
-                        this.webSocketServer?.sendState(State._2_DISCONNECTED);
                         // Send disconnected notification to callback
                         const callback = new CallbackHandler(customer);
                         await callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
+                        // Update credential to disconnected
+                        credential.state.update(State._2_DISCONNECTED);
+                        this.webSocketServer?.sendState(State._2_DISCONNECTED);
                     }
                     else {
                         // Update credential to error
