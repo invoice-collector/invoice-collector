@@ -1,6 +1,7 @@
-import { Driver } from '../../../driver/driver';
+import { Driver, Element } from '../../../driver/driver';
+import { UnfinishedCollectorError } from '../../../error';
 import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { LeclercSelectors } from './selectors';
 
 export class LeclercCollector extends WebCollector {
@@ -9,7 +10,7 @@ export class LeclercCollector extends WebCollector {
         id: "leclerc",
         name: "E.Leclerc",
         description: "i18n.collectors.leclerc.description",
-        version: "4",
+        version: "5",
         website: "https://www.e.leclerc/",
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_E.Leclerc_Sans_le_texte.svg",
         type: CollectorType.WEB,
@@ -67,12 +68,20 @@ export class LeclercCollector extends WebCollector {
             }
     }
 
-    async collect(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver, params: any): Promise<void> {
         await driver.goto("https://www.e.leclerc/espace-client/commandes/commandes");
         // TODO : Implement the rest of the collector
     }
+     
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        throw new UnfinishedCollectorError(this);
+    }
 
-    async download(driver: Driver, invoice: Invoice): Promise<void> {
-        // TODO : Implement the downloader
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        throw new UnfinishedCollectorError(this);
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        throw new UnfinishedCollectorError(this);
     }
 }

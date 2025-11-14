@@ -1,7 +1,8 @@
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { IntermarcheSelectors } from './selectors';
-import { Driver } from '../../../driver/driver';
+import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { UnfinishedCollectorError } from '../../../error';
 
 export class IntermarcheCollector extends WebCollector {
 
@@ -9,7 +10,7 @@ export class IntermarcheCollector extends WebCollector {
         id: "intermarche",
         name: "Intermarché",
         description: "i18n.collectors.intermarche.description",
-        version: "6",
+        version: "7",
         website: "https://www.intermarche.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Intermarch%C3%A9_logo_2009_classic.svg",
         type: CollectorType.WEB,
@@ -80,12 +81,19 @@ export class IntermarcheCollector extends WebCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver, params: any): Promise<void> {
         await driver.leftClick(IntermarcheSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
-        // TODO : Implement the rest of the collector
+    }
+     
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        throw new UnfinishedCollectorError(this);
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<void> {
-        // TODO : Implement the downloader
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        throw new UnfinishedCollectorError(this);
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        throw new UnfinishedCollectorError(this);
     }
 }

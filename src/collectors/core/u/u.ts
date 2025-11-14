@@ -1,7 +1,8 @@
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { USelectors } from './selectors';
-import { Driver } from '../../../driver/driver';
+import { Driver, Element } from '../../../driver/driver';
 import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { UnfinishedCollectorError } from '../../../error';
 
 export class UCollector extends WebCollector {
 
@@ -9,7 +10,7 @@ export class UCollector extends WebCollector {
         id: "u",
         name: "U Courses",
         description: "i18n.collectors.u.description",
-        version: "5",
+        version: "6",
         website: "https://www.coursesu.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
         type: CollectorType.WEB,
@@ -67,7 +68,7 @@ export class UCollector extends WebCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver, params: any): Promise<void> {
         // Go to orders page
         await driver.goto('https://www.coursesu.com/mon-compte/mes-commandes');
 
@@ -76,8 +77,16 @@ export class UCollector extends WebCollector {
 
         // TODO : Implement the rest of the collector
     }
+     
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        throw new UnfinishedCollectorError(this);
+    }
 
-    async download(driver: Driver, invoice: Invoice): Promise<void> {
-        // TODO : Implement the downloader
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        throw new UnfinishedCollectorError(this);
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        throw new UnfinishedCollectorError(this);
     }
 }
