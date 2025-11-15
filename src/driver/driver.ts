@@ -661,8 +661,16 @@ export class Element {
      *
      * @returns A promise that resolves to the ElementHandle of the associated element, or null if the element is not found.
      */
-    async getElement(selector: any): Promise<Element | null> {
+    async getElement(selector: any, {
+        raiseException = true
+    } = {}): Promise<Element | null> {
         const elementHandle = await this.element.$(selector.selector);
+        // If element not found and must raise exception
+        if (!elementHandle && raiseException) {
+            throw new ElementNotFoundError(this.driver.collector, selector, {
+                cause: `No element matching selector "${selector.selector}"`
+            });
+        }
         return elementHandle ? new Element(elementHandle, this.driver) : null;
     }
 
