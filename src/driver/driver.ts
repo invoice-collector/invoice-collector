@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import { connect } from './puppeteer/browser';
-import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput, Page, Target } from "rebrowser-puppeteer-core";
+import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
@@ -707,7 +707,7 @@ export class Element {
         // If no new page opened
         let driver: Driver;
         if (numberOfPagesAfter == numberOfPagesBefore) {
-            await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
+            /*await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
             await this.driver.page?.setRequestInterception(true);
             let handler;
             const urlPromise = new Promise<string>((resolve, reject) => {
@@ -728,7 +728,7 @@ export class Element {
             // Perform simple click to intercept URL
             await this.element.click();
             // Wait for the intercepted URL
-            const interceptedUrl = await urlPromise;
+            const interceptedUrl = await urlPromise;*/
 
             if (!this.driver.browser) {
                 throw new Error('Browser is not initialized.');
@@ -743,10 +743,15 @@ export class Element {
             driver.downloadPath = this.driver.downloadPath;
             driver.puppeteerConfig = this.driver.puppeteerConfig;
 
-            await driver.goto(interceptedUrl);
+            await driver.goto(this.driver.url());
 
             // Remove request handler
-            this.driver.page?.off('request', handler);
+            //this.driver.page?.off('request', handler);
+
+            await driver.leftClick({
+                selector: await this.cssSelector(),
+                info: ""
+            });
         }
         else {
             // Bring latest page to front
