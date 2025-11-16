@@ -13,7 +13,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "22",
+        version: "23",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -167,7 +167,7 @@ export class AmazonCollector extends WebCollector {
 
     async getInvoices(driver: Driver, params: any): Promise<Element[]> {
         // Get order elements
-        return await driver.getElements(AmazonSelectors.CONTAINER_ORDER, { raiseException: false, timeout: 5000 });
+        return await driver.getElements(AmazonSelectors.CONTAINER_ORDER);
     }
 
     async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
