@@ -490,7 +490,7 @@ export class Driver {
                 })
         );
 
-        const fullSourceCode = framesSourceCode.join('\n/* ========== FRAME SEPARATOR ========== */\n');
+        const fullSourceCode = framesSourceCode.join('\n<!-- ========== FRAME SEPARATOR ========== -->\n');
         return base64 ? Buffer.from(fullSourceCode).toString('base64') : fullSourceCode;
     }
 
