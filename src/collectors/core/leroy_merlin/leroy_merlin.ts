@@ -11,7 +11,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "14",
+        version: "15",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
         type: CollectorType.WEB,
@@ -125,7 +125,7 @@ export class LeroyMerlinCollector extends WebCollector {
 
         // Return invoice
         return {
-            id: id.replace('N° ', ''),
+            id: id.replace('N°', ''),
             timestamp,
             link: link,
             amount,
