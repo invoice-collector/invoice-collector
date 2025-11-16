@@ -3,7 +3,6 @@ import { CollectorType, Invoice } from '../../../collectors/abstractCollector';
 import { WebCollector } from '../../../collectors/web2Collector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
-import { TwofaPromise } from '../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class AmazonCollector extends WebCollector {
@@ -11,8 +10,8 @@ export class AmazonCollector extends WebCollector {
     static TWO_DAYS_IN_MS = 2 * 24 * 60 * 60 * 1000;
 
     static CONFIG = {
-        id: "amazon",
-        name: "Amazon (.fr)",
+        id: "amazon_ws",
+        name: "Amazon (.fr) with iframe",
         description: "i18n.collectors.amazon.description",
         version: "23",
         website: "https://www.amazon.fr",
@@ -65,83 +64,8 @@ export class AmazonCollector extends WebCollector {
         super(AmazonCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver): Promise<boolean> {
-        // Select loggedin account if displayed
-        await driver.leftClick(AmazonSelectors.CONTAINER_LOGGEDIN_ACCOUNT, { raiseException: false, timeout: 1000 });
-        // Select personnal account if displayed
-        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 100, delay: 1000 });
-
-        // If user is logged in, the URL should be equal to the entry URL
-        return driver.url() !== this.config.entryUrl;
-    }
-
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        const fieldPassword = await driver.getElement(AmazonSelectors.FIELD_PASSWORD, { raiseException: false, timeout: 2000 });
-
-        // If password field is not visible
-        if (!fieldPassword) {
-            // Input email
-            await driver.inputText(AmazonSelectors.FIELD_EMAIL, params.id);
-            await driver.leftClick(AmazonSelectors.BUTTON_CONTINUE);
-
-            // Check if email is incorrect
-            const email_alert = await driver.getElement(AmazonSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
-            if (email_alert) {
-                return await email_alert.textContent("i18n.collectors.all.email.error");
-            }
-        }
-
-        // Input password
-        await driver.inputText(AmazonSelectors.FIELD_PASSWORD, params.password);
-        await driver.leftClick(AmazonSelectors.CHECKBOX_REMEMBER_ME, { raiseException: false, timeout: 100, navigation: false });
-        await driver.leftClick(AmazonSelectors.BUTTON_SUBMIT);
-
-        // Check if password is incorrect
-        const password_alert = await driver.getElement(AmazonSelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
-        if (password_alert) {
-            return await password_alert.textContent("i18n.collectors.all.password.error");
-        }
-
-        // Check if captcha is required
-        const captcha_element = await driver.getElement(AmazonSelectors.CONTAINER_CAPTCHA, { raiseException: false, timeout: 2000 });
-        if (captcha_element) {
-            return "i18n.collectors.all.password.error";
-        }
-
-        // Select personnal account if displayed
-        await driver.leftClick(AmazonSelectors.CONTAINER_PERSONAL_ACCOUNT, { raiseException: false, timeout: 1000 });
-    }
-
-    async needTwofa(driver: Driver): Promise<string | void> {
-        // Select default 2FA method if displayed
-        await driver.leftClick(AmazonSelectors.BUTTON_2FA_METHOD, { raiseException: false, timeout: 1000 });
-
-        // Check if 2FA is required
-        const twofa_instruction = await driver.getElement(AmazonSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 1000 });
-        if (twofa_instruction) {
-            return await twofa_instruction.textContent("i18n.collectors.all.2fa.instruction");
-        }
-    }
-
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
-        // Wait for 2fa code from UI
-        const twofa_code = await twofa_promise.code();
-
-        // Input 2fa code
-        await driver.inputText(AmazonSelectors.FIELD_2FA_CODE, twofa_code);
-        await driver.leftClick(AmazonSelectors.BUTTON_2FA_DO_NOT_ASK, {raiseException: false, timeout: 100, navigation: false});
-        await driver.leftClick(AmazonSelectors.BUTTON_2FA_SUBMIT);
-
-        // Check if 2fa code is incorrect
-        const twofa_alert = await driver.getElement(AmazonSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
-        if (twofa_alert) {
-            return await twofa_alert.textContent("i18n.collectors.all.2fa.error");
-        }
-    }
-
-    async navigate(driver: Driver, params: any): Promise<void>{
-        // Wait for UI language element
-        await driver.getElement(AmazonSelectors.CONTAINER_LANGUAGE);
+        return this.loginWithCanvas(driver, params, webSocketServer);
     }
 
     async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
