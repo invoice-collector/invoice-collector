@@ -68,6 +68,13 @@ export class BureauValleeCollector extends WebCollector {
         }
     }
 
+    async navigate(driver: Driver, params: any): Promise<void> {
+        // Wait for profile container
+        await driver.getElement(BureauValleeSelectors.CONTAINER_PROFIL)
+        // Go to invoices page
+        await driver.goto(this.config.entryUrl);
+    }
+
     async isEmpty(driver: Driver): Promise<boolean> {
         return await driver.getElement(BureauValleeSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }

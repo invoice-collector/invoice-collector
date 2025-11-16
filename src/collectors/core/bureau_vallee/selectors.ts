@@ -41,6 +41,13 @@ export const BureauValleeSelectors = {
         info: "password alert container"
     },
 
+    // HOME PAGE
+
+    CONTAINER_PROFIL: {
+        selector: "#js-welcome__item[href]",
+        info: "profile container"
+    },
+
     // INVOICES PAGE
 
     CONTAINER_NO_INVOICE: {
