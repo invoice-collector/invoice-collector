@@ -40,4 +40,18 @@ export const BureauValleeSelectors = {
         selector: "#messages-container:not([style*='display']) .message.error div[data-bind*='html']",
         info: "password alert container"
     },
+
+    // HOME PAGE
+
+    CONTAINER_PROFIL: {
+        selector: "#js-welcome__item[href]",
+        info: "profile container"
+    },
+
+    // INVOICES PAGE
+
+    CONTAINER_NO_INVOICE: {
+        selector: ".c-accountPage div.c-box > div.c-box__content > div.u-text-center > p",
+        info: "no invoice container"
+    }
 }

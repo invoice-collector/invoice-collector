@@ -1,7 +1,8 @@
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { BureauValleeSelectors } from './selectors';
-import { Driver } from '../../../driver/driver';
+import { Driver, Element } from '../../../driver/driver';
 import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { UnfinishedCollectorError } from '../../../error';
 
 export class BureauValleeCollector extends WebCollector {
 
@@ -9,7 +10,7 @@ export class BureauValleeCollector extends WebCollector {
         id: "bureau_vallee",
         name: "Bureau Vallee",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "4",
+        version: "6",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
@@ -67,11 +68,26 @@ export class BureauValleeCollector extends WebCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<void> {
-        // TODO : Implement the rest of the collector
+    async navigate(driver: Driver, params: any): Promise<void> {
+        // Wait for profile container
+        await driver.getElement(BureauValleeSelectors.CONTAINER_PROFIL)
+        // Go to invoices page
+        await driver.goto(this.config.entryUrl);
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<void> {
-        // TODO : Implement the downloader
+    async isEmpty(driver: Driver): Promise<boolean> {
+        return await driver.getElement(BureauValleeSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
+    }
+ 
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        throw new UnfinishedCollectorError(this);
+    }
+
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        throw new UnfinishedCollectorError(this);
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        throw new UnfinishedCollectorError(this);
     }
 }

@@ -36,8 +36,11 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
                 index === self.findIndex((i) => i.id === inv.id)
             );
 
+            // Get previous invoice ids
+            const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
+
             // Get new invoices only
-            const newInvoices = uniqueInvoices.filter((inv) => !previousInvoices.includes(inv.id));
+            const newInvoices = uniqueInvoices.filter((inv) => !previousInvoiceIds.includes(inv.id));
 
             // Count number of invoices to download only
             const invoicesToDownload = uniqueInvoices.filter((inv) => inv.timestamp >= download_from_timestamp).length;

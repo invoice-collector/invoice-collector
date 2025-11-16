@@ -1,13 +1,13 @@
 import path from 'path';
 import fs from 'fs';
 import { connect } from './puppeteer/browser';
-import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput, Page, Target } from "rebrowser-puppeteer-core";
+import { Browser, DownloadPolicy, ElementHandle, Frame, KeyInput, Page } from "rebrowser-puppeteer-core";
 import { ElementNotFoundError, LoggableError } from '../error';
 import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { Options } from './puppeteer/browser';
 import { CollectorCaptcha } from '../collectors/abstractCollector';
-import { WebCollector as OldWebCollector} from '../collectors/webCollector';
+import { WebCollector as OldWebCollector} from '../collectors/web2Collector';
 import { WebCollector } from '../collectors/web2Collector';
 
 export class Driver {
@@ -493,7 +493,7 @@ export class Driver {
                 })
         );
 
-        const fullSourceCode = framesSourceCode.join('\n/* ========== FRAME SEPARATOR ========== */\n');
+        const fullSourceCode = framesSourceCode.join('\n<!-- ========== FRAME SEPARATOR ========== -->\n');
         return base64 ? Buffer.from(fullSourceCode).toString('base64') : fullSourceCode;
     }
 
@@ -664,8 +664,16 @@ export class Element {
      *
      * @returns A promise that resolves to the ElementHandle of the associated element, or null if the element is not found.
      */
-    async getElement(selector: any): Promise<Element | null> {
+    async getElement(selector: any, {
+        raiseException = true
+    } = {}): Promise<Element | null> {
         const elementHandle = await this.element.$(selector.selector);
+        // If element not found and must raise exception
+        if (!elementHandle && raiseException) {
+            throw new ElementNotFoundError(this.driver.collector, selector, {
+                cause: `No element matching selector "${selector.selector}"`
+            });
+        }
         return elementHandle ? new Element(elementHandle, this.driver) : null;
     }
 
@@ -709,7 +717,7 @@ export class Element {
         // If no new page opened
         let driver: Driver;
         if (numberOfPagesAfter == numberOfPagesBefore) {
-            await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
+            /*await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
             await this.driver.page?.setRequestInterception(true);
             let handler;
             const urlPromise = new Promise<string>((resolve, reject) => {
@@ -730,7 +738,7 @@ export class Element {
             // Perform simple click to intercept URL
             await this.element.click();
             // Wait for the intercepted URL
-            const interceptedUrl = await urlPromise;
+            const interceptedUrl = await urlPromise;*/
 
             if (!this.driver.browser) {
                 throw new Error('Browser is not initialized.');
@@ -745,10 +753,15 @@ export class Element {
             driver.downloadPath = this.driver.downloadPath;
             driver.puppeteerConfig = this.driver.puppeteerConfig;
 
-            await driver.goto(interceptedUrl);
+            await driver.goto(this.driver.url());
 
             // Remove request handler
-            this.driver.page?.off('request', handler);
+            //this.driver.page?.off('request', handler);
+
+            await driver.leftClick({
+                selector: await this.cssSelector(),
+                info: ""
+            });
         }
         else {
             // Bring latest page to front

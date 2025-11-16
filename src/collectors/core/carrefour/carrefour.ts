@@ -1,6 +1,6 @@
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { CarrefourSelectors } from './selectors';
-import { Driver } from '../../../driver/driver';
+import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 
@@ -10,7 +10,7 @@ export class CarrefourCollector extends WebCollector {
         id: "carrefour",
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "10",
+        version: "11",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         type: CollectorType.WEB,
@@ -55,7 +55,7 @@ export class CarrefourCollector extends WebCollector {
         }
     }
 
-    async isTwofa(driver: Driver): Promise<string | void> {
+    async needTwofa(driver: Driver): Promise<string | void> {
         // Check if 2FA is required
         const two_factor_auth = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (two_factor_auth) {
@@ -93,46 +93,59 @@ export class CarrefourCollector extends WebCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<Invoice[]> {
+    async navigate(driver: Driver, params: any): Promise<void> {
         // Refuse cookies
         await driver.leftClick(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 10000});
-
-        // Get invoices
-        const online_orders = await driver.getElements(CarrefourSelectors.CONTAINER_ORDER, { raiseException: false, timeout: 20000 });
-        
-        // Build return array
-        return await Promise.all(online_orders.map(async invoice => {
-            const order_link = await invoice.getAttribute(CarrefourSelectors.CONTAINER_LINK, "href");
-            const date = await invoice.getAttribute(CarrefourSelectors.CONTAINER_ORDER_DATE, "textContent");
-            const amount = await invoice.getAttribute(CarrefourSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
-    
-            const id = order_link.split("/").pop();
-            if (!id) {
-                throw new Error(`Cannot extract id from ${order_link}`);
-            }
-            const date_part = date.split('/');
-            let year = parseInt(date_part[2]);
-            year = year < 100 ? year + 2000 : year; // Convert to 4 digits
-            const month = parseInt(date_part[1]) - 1;
-            const day = parseInt(date_part[0]);
-            const timestamp = Date.UTC(year, month, day);
-            const link = `https://www.carrefour.fr/mon-compte/mes-achats/facture/${id}?invoiceType=Invoice`;
-
-            return {
-                id,
-                link,
-                timestamp,
-                amount
-            };
-        }));
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
+    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+        // Get years elements
+        const numberOfYears = (await driver.getElements(CarrefourSelectors.OPTION_YEARS)).length;
+        // For each year
+        for (let year=1; year <= numberOfYears; year++) {
+            // Click on period selector
+            await driver.leftClick(CarrefourSelectors.OPTION_SELECTOR, { navigation: false });
+            // Click on year
+            await driver.leftClick(CarrefourSelectors.OPTION_YEAR(year), { timeout: 4000 });
+            // Collect invoices
+            await next();
+        }
+    }
+
+    async isEmpty(driver: Driver): Promise<boolean>{
+        return await driver.getElement(CarrefourSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
+    }
+             
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        return await driver.getElements(CarrefourSelectors.CONTAINER_ORDER);
+    }
+
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        const order_link = await element.getAttribute(CarrefourSelectors.CONTAINER_LINK, "href");
+        const date = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_DATE, "textContent");
+        const amount = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+
+        const id = order_link.split("/").pop();
+        if (!id) {
+            throw new Error(`Cannot extract id from ${order_link}`);
+        }
+        const date_part = date.split('/');
+        let year = parseInt(date_part[2]);
+        year = year < 100 ? year + 2000 : year; // Convert to 4 digits
+        const month = parseInt(date_part[1]) - 1;
+        const day = parseInt(date_part[0]);
+        const timestamp = Date.UTC(year, month, day);
+        const link = `https://www.carrefour.fr/mon-compte/mes-achats/facture/${id}?invoiceType=Invoice`;
+
         return {
-            ...invoice,
-            documents: [
-                await this.download_link(driver, invoice.link)
-            ]
+            id,
+            link,
+            timestamp,
+            amount
         };
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        return [await this.download_link(driver, invoice.link)];
     }
 }

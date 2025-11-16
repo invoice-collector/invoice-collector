@@ -60,6 +60,26 @@ export const LeroyMerlinSelectors = {
 
     // ORDER PAGE
 
+    CONTAINER_ORDER: {
+        selector: "div.order-list > section > div.order-summary",
+        info: "order container"
+    },
+    CONTAINER_ORDER_ID: {
+        selector: "span.order-summary__subtitle-order-number",
+        info: "order id container"
+    },
+    CONTAINER_ORDER_DATE: {
+        selector: "::-p-xpath(../h2)",
+        info: "order date container"
+    },
+    CONTAINER_ORDER_AMOUNT: {
+        selector: ".order-summary__total-amount",
+        info: "order amount container"
+    },
+    BUTTON_ORDER_DETAILS: {
+        selector: "button.order-summary__link",
+        info: "order details button"
+    },
     BUTTON_DOWNLOAD: {
         selector: "#download-button",
         info: "download button"
