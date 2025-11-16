@@ -113,12 +113,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             // Navigate to invoices
             await this.navigate(driver, secret.params)
 
-            // Check if the user does not have any invoices displayed
-            const isEmpty = await this.isEmpty(driver);
-            if (isEmpty) {
-                return [];
-            }
-
             // Get previous invoice ids
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
 
@@ -131,79 +125,86 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             let invoices: CompleteInvoice[] = [];
             let firstDownload = true;
             await this.forEachPage(driver, secret.params, async () => {
-                // For each invoice on the page
-                const invoiceElements = await this.getInvoices(driver, secret.params);
-                
-                // If invoice elements is empty, collector may be broken
-                if (invoiceElements.length === 0) {
-                    throw new NoInvoiceFoundError(this);
-                }
+                // Check if no invoices are present on the page
+                const isEmpty = await this.isEmpty(driver);
 
-                // For each invoice element
-                for (const element of invoiceElements) {
-                    // Get invoice data
-                   let invoice: Invoice | null = await this.data(driver, secret.params, element);
+                // Continue only if invoices are present
+                if (isEmpty == false) {
 
-                    // Ignore if null
-                    if (invoice === null) {
-                        continue;
+                    // For each invoice on the page
+                    const invoiceElements = await this.getInvoices(driver, secret.params);
+                    
+                    // If invoice elements is empty, collector may be broken
+                    if (invoiceElements.length === 0) {
+                        throw new NoInvoiceFoundError(this);
                     }
 
-                    // Sanitize invoice
-                    invoice = {
-                        id: invoice.id.trim().replace(/[/\\?%*:|"<>]/g, '-'),
-                        timestamp: invoice.timestamp,
-                        amount: invoice.amount?.trim(),
-                        link: invoice.link?.trim(),
-                        metadata: invoice.metadata || {},
-                        downloadData: invoice.downloadData || {}
-                    }
+                    // For each invoice element
+                    for (const element of invoiceElements) {
+                        // Get invoice data
+                    let invoice: Invoice | null = await this.data(driver, secret.params, element);
 
-                    // If invoice is more recent or equal to most recent timestamp and id is not in previousInvoiceIds
-                    if (invoice.timestamp >= mostRecentTimestamp && !previousInvoiceIds.includes(invoice.id)){
-                        // If invoice is more recent than the download_from_timestamp
-                        if (download_from_timestamp <= invoice.timestamp) {
-                            // If this is the first invoice to download, set progress step to downloading
-                            if (firstDownload) {
-                                // Set progress step to downloading
-                                state.update(State._6_DOWNLOADING);
-                                firstDownload = false;
-                            }
+                        // Ignore if null
+                        if (invoice === null) {
+                            continue;
+                        }
 
-                            // Download invoice
-                            const documents = await this.download(driver, secret.params, element, invoice);
-                            console.log(`Invoice ${invoice.id} successfully downloaded`);
+                        // Sanitize invoice
+                        invoice = {
+                            id: invoice.id.trim().replace(/[/\\?%*:|"<>]/g, '-'),
+                            timestamp: invoice.timestamp,
+                            amount: invoice.amount?.trim(),
+                            link: invoice.link?.trim(),
+                            metadata: invoice.metadata || {},
+                            downloadData: invoice.downloadData || {}
+                        }
 
-                            // Close extra pages opened during download
-                            await driver.closeExtraPages();
+                        // If invoice is more recent or equal to most recent timestamp and id is not in previousInvoiceIds
+                        if (invoice.timestamp >= mostRecentTimestamp && !previousInvoiceIds.includes(invoice.id)){
+                            // If invoice is more recent than the download_from_timestamp
+                            if (download_from_timestamp <= invoice.timestamp) {
+                                // If this is the first invoice to download, set progress step to downloading
+                                if (firstDownload) {
+                                    // Set progress step to downloading
+                                    state.update(State._6_DOWNLOADING);
+                                    firstDownload = false;
+                                }
 
-                            let data;
-                            // If one document downloaded
-                            if (documents.length === 1) {
-                                data = documents[0];
+                                // Download invoice
+                                const documents = await this.download(driver, secret.params, element, invoice);
+                                console.log(`Invoice ${invoice.id} successfully downloaded`);
+
+                                // Close extra pages opened during download
+                                await driver.closeExtraPages();
+
+                                let data;
+                                // If one document downloaded
+                                if (documents.length === 1) {
+                                    data = documents[0];
+                                }
+                                else {
+                                    data = await utils.mergePdfDocuments(documents);
+                                }
+                    
+                                invoices.push({
+                                    ...invoice,
+                                    data,
+                                    mimetype: mimetypeFromBase64(data),
+                                    collected_timestamp: Date.now(),
+                                    metadata: invoice.metadata || {}
+                                });
                             }
                             else {
-                                data = await utils.mergePdfDocuments(documents);
+                                // Add invoice without downloading it
+                                invoices.push({
+                                    ...invoice,
+                                    data: null,
+                                    mimetype: null,
+                                    collected_timestamp: null,
+                                    metadata: {},
+                                    downloadData: {}
+                                });
                             }
-                
-                            invoices.push({
-                                ...invoice,
-                                data,
-                                mimetype: mimetypeFromBase64(data),
-                                collected_timestamp: Date.now(),
-                                metadata: invoice.metadata || {}
-                            });
-                        }
-                        else {
-                            // Add invoice without downloading it
-                            invoices.push({
-                                ...invoice,
-                                data: null,
-                                mimetype: null,
-                                collected_timestamp: null,
-                                metadata: {},
-                                downloadData: {}
-                            });
                         }
                     }
                 }
