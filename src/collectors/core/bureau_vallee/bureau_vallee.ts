@@ -10,7 +10,7 @@ export class BureauValleeCollector extends WebCollector {
         id: "bureau_vallee",
         name: "Bureau Vallee",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "5",
+        version: "6",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
@@ -66,6 +66,17 @@ export class BureauValleeCollector extends WebCollector {
         if (password_alert) {
             return await password_alert.textContent("i18n.collectors.all.password.error");
         }
+    }
+
+    async navigate(driver: Driver, params: any): Promise<void> {
+        // Wait for profile container
+        await driver.getElement(BureauValleeSelectors.CONTAINER_PROFIL)
+        // Go to invoices page
+        await driver.goto(this.config.entryUrl);
+    }
+
+    async isEmpty(driver: Driver): Promise<boolean> {
+        return await driver.getElement(BureauValleeSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) !== null;
     }
  
     async getInvoices(driver: Driver, params: any): Promise<Element[]> {
