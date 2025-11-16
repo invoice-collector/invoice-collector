@@ -1,4 +1,4 @@
-import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState } from "./abstractCollector";
+import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState, Config } from "./abstractCollector";
 import { Driver, Element } from '../driver/driver';
 import { AuthenticationError, CollectorError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
@@ -8,8 +8,19 @@ import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 import * as utils from '../utils';
-import { WebConfig } from "./webCollector";
 import { V2Collector } from "./v2Collector";
+
+export type WebConfig = Config & {
+    loginUrl: string,
+    entryUrl?: string,
+    useProxy?: boolean,
+    captcha?: CollectorCaptcha,
+    loadImages?: boolean,
+    autoLogin?: {
+        cookieNames?: string[],
+        localStorageKeys?: string[]
+    }
+}
 
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
