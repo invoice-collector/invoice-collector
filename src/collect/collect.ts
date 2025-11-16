@@ -74,19 +74,16 @@ export class Collect {
                     throw new DesynchronizationError(credential.id, collector);
                 }
 
-                // Get previous invoices
-                const previousInvoices = credential.invoices.map((inv) => inv.id);
-
                 // Collect invoices
-                const newInvoices = await collector.collect_new_invoices(this.state, this.twofa_promise, secret, credential.download_from_timestamp, previousInvoices, user.location);
-                console.log(`Found ${previousInvoices.length + newInvoices.length} invoices and ${newInvoices.length} new`);
+                const newInvoices = await collector.collect_new_invoices(this.state, this.twofa_promise, secret, credential.download_from_timestamp, credential.invoices, user.location);
+                console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
                 console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 
                 // If at least one new invoice has been downloaded
                 if(newInvoices.length > 0) {
                     // Loop through invoices
                     for (const [index, invoice] of newInvoices.entries()) {
-                        // If data downloaded and invoice is more recent than the credential creation date
+                        // If data downloaded and invoice is more recent than the download_from_timestamp
                         if (invoice.data && credential.download_from_timestamp <= invoice.timestamp) {
                             console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 

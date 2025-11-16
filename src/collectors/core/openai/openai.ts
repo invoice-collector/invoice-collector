@@ -1,8 +1,9 @@
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { OpenaiSelectors } from './selectors';
-import { Driver } from '../../../driver/driver';
+import { Driver, Element } from '../../../driver/driver';
 import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
+import * as utils from '../../../utils';
 
 export class OpenaiCollector extends WebCollector {
 
@@ -10,7 +11,7 @@ export class OpenaiCollector extends WebCollector {
         id: "openai",
         name: "OpenAI",
         description: "i18n.collectors.openai.description",
-        version: "2",
+        version: "3",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -39,9 +40,8 @@ export class OpenaiCollector extends WebCollector {
         super(OpenaiCollector.CONFIG);
     }
 
-    async is_logged_in(driver: Driver): Promise<boolean> {
-        const loginOrOups = await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 10000 });
-        return loginOrOups == null;
+    async needLogin(driver: Driver): Promise<boolean> {
+        return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 10000 }) != null;
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
@@ -69,7 +69,7 @@ export class OpenaiCollector extends WebCollector {
         }
     }
 
-    async isTwofa(driver: Driver): Promise<string | void> {
+    async needTwofa(driver: Driver): Promise<string | void> {
         // Check if 2FA instructions container is displayed
         const twofaInstructions = await driver.getElement(OpenaiSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (twofaInstructions) {
@@ -92,29 +92,51 @@ export class OpenaiCollector extends WebCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<Invoice[]> {
-        // Get invoices
-        const data = await driver.goto(OpenaiCollector.CONFIG.entryUrl, "https://api.openai.com/dashboard/billing/invoices?system=api");
-
-        // Build return array
-        return data.responseBody.data
-            .filter(object => object.object == "invoice")
-            .map(invoice => {
-                return {
-                    id: invoice.number,
-                    timestamp: invoice.created * 1000,
-                    link: invoice.pdf_url,
-                    amount: `$${invoice.amount_due / 100}`
-                };
-            });
+    async navigate(driver: Driver, params: any): Promise<void> {
+        // Wait for organisation to be visible
+        await driver.getElement(OpenaiSelectors.CONTAINER_ORGANIZATION, { timeout: 5000 });
+        // Go to invoices page
+        await driver.goto(OpenaiCollector.CONFIG.entryUrl);
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICE);
+    }
+
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        // Get url before map
+        const link = driver.url();
+
+        // Compute timestamp
+        const dateTime = await element.getAttribute(OpenaiSelectors.CONTAINER_DATE, "textContent");
+        let timestamp;
+        try {
+            timestamp = utils.timestampFromString(dateTime, "d MMM yyyy',' HH':'mm", 'fr');
+        } catch (error) {
+            timestamp = utils.timestampFromString(dateTime, "MMM d',' yyyy',' hh':'mm a", 'en');
+        }
+
+        // Get other data
+        const id = await element.getAttribute(OpenaiSelectors.CONTAINER_ID, "textContent");
+        const amount = await element.getAttribute(OpenaiSelectors.CONTAINER_AMOUNT, "textContent");
+        const viewInvoice = await element.getElement(OpenaiSelectors.BUTTON_VIEW);
+
+        // Return invoice
         return {
-            ...invoice,
-            documents: [
-                await this.download_link(driver, invoice.link)
-            ]
+            id,
+            timestamp,
+            link: link,
+            amount,
+            downloadData: {element: viewInvoice}
         };
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        // Open invoice in new tab
+        const newPage = await invoice.downloadData?.element.middleClick();
+        // Download PDF
+        await newPage.leftClick(OpenaiSelectors.BUTTON_DOWNLOAD);
+        // Return downloaded file
+        return [await this.download_from_file(driver)];
     }
 }

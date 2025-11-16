@@ -49,10 +49,40 @@ export const OpenaiSelectors = {
         info: "2FA error container"
     },
 
+    // HOME PAGE
+
+    CONTAINER_ORGANIZATION: {
+        selector: "span[id*='select-trigger']",
+        info: "organization container"
+    },
+
     // CONTAINER INVOICE
 
     CONTAINER_INVOICE: {
         selector: "table tbody tr",
         info: "invoice container"
+    },
+    CONTAINER_ID: {
+        selector: "td:nth-child(1)",
+        info: "invoice id container"
+    },
+    CONTAINER_AMOUNT: {
+        selector: "td:nth-child(3)",
+        info: "invoice amount container"
+    },
+    CONTAINER_DATE: {
+        selector: "td:nth-child(4)",
+        info: "invoice date container"
+    },
+    BUTTON_VIEW: {
+        selector: "td:nth-child(5) a",
+        info: "invoice date container"
+    },
+
+    // DOWNLOAD PAGE
+
+    BUTTON_DOWNLOAD: {
+        selector: "button[data-testid='download-invoice-receipt-pdf-button']",
+        info: "invoice date container"
     }
 }

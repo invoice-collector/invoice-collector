@@ -1,6 +1,6 @@
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { LeroyMerlinSelectors } from './selectors';
-import { Driver } from '../../../driver/driver';
+import { Driver, Element } from '../../../driver/driver';
 import { Invoice, DownloadedInvoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
@@ -11,7 +11,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "12",
+        version: "13",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
         type: CollectorType.WEB,
@@ -38,11 +38,11 @@ export class LeroyMerlinCollector extends WebCollector {
         super(LeroyMerlinCollector.CONFIG);
     }
 
-    async is_logged_in(driver: Driver): Promise<boolean>{
+    async needLogin(driver: Driver): Promise<boolean>{
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
         // If user is logged in, the URL should be equal to the entry URL
-        return driver.url() === this.config.entryUrl;
+        return driver.url() !== this.config.entryUrl;
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
@@ -74,7 +74,7 @@ export class LeroyMerlinCollector extends WebCollector {
         }
     }
 
-    async isTwofa(driver: Driver): Promise<string | void>{
+    async needTwofa(driver: Driver): Promise<string | void>{
         // Check if 2FA is required
         const two_factor_auth = await driver.getElement(LeroyMerlinSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (two_factor_auth) {
@@ -106,30 +106,42 @@ export class LeroyMerlinCollector extends WebCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<Invoice[]> {    
-        const data = await driver.goToJson('https://www.leroymerlin.fr/order-followup/backend/v2/orders?customerNumber=null');
-        return data.map(order => {
-            return {
-                id: order.orderPartNumber,
-                amount: `${order.price.totalAmount}${order.currencyCode}`,
-                timestamp: utils.timestampFromString(order.parentOrder.createdAt, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", 'fr'),
-                link: `https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?orderId=${order.orderPartNumber}&storeNumber=${order.storeCode}&customerNumber=${order.customer.id}`
-            }
-        });
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        return await driver.getElements(LeroyMerlinSelectors.CONTAINER_ORDER);
+    }
+
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        // Get url before map
+        const link = driver.url();
+
+        // Get timestamp
+        const date = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_DATE, "textContent");
+        const timestamp = utils.timestampFromString(date, "dd MMMM yyyy", 'fr');
+
+        // Get data
+        const id = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_ID, "textContent");
+        const amount = await element.getAttribute(LeroyMerlinSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
+        const detailsButton = await element.getElement(LeroyMerlinSelectors.BUTTON_ORDER_DETAILS);
+
+        // Return invoice
+        return {
+            id: id.replace('N° ', ''),
+            timestamp,
+            link: link,
+            amount,
+            downloadData: {element: detailsButton}
+        };
     }
 
     // Define custom method to download invoice
-    async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
-        await driver.goto(invoice.link);
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        // Open details in a new page
+        const newPage = await invoice.downloadData?.element.middleClick();
         // If the order is from a third party provider, clicking on the button will ask leroy merlin to request the invoice from the provider.
         // It can take few hours for the invoice to be available.
         // Next time the button will be clicked, the invoice will be effectively downloaded.
-        await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD);
-        return {
-            ...invoice,
-            documents: [
-                await this.download_from_file(driver)
-            ]
-        };
+        await newPage.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD);
+        // Return downloaded file
+        return [await this.download_from_file(driver)];
     }
 }

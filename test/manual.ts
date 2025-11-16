@@ -193,9 +193,13 @@ function getHashFromSecret(secret: Secret): string {
         // ---------- PART 5 : CHECK INVOICES ----------
 
         for (const invoice of newInvoices) {
-            assert(invoice.id.length > 0, `Invoice id is empty`);
-            assert(invoice.timestamp > 0, `Timestamp ${invoice.timestamp} is not greater than 0`);
+            assert(invoice.id, `Invoice id is not defined`);
+            assert(invoice.link, `Invoice link is not defined`);
             assert(!isNaN(invoice.timestamp), `Timestamp ${invoice.timestamp} is NaN`);
+            assert(invoice.timestamp >= Date.UTC(2000, 0, 1), `Invoice timestamp ${invoice.timestamp} is before year 2000. Did you forget to set the year in the date format?`);
+            assert(invoice.amount, `Invoice amount is not defined`);
+            assert(invoice.data, `Invoice data is not defined`);
+            assert(invoice.mimetype, `Invoice mimetype is not defined`);
         }
     } catch (error) {
         if (error instanceof Error) {

@@ -5,10 +5,10 @@ const prompt = promptSync({});
 import { expect, describe } from '@jest/globals';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { AuthenticationError } from '../src/error';
-import { WebCollector } from '../src/collectors/webCollector';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { Collect } from '../src/collect/collect';
 import { State } from '../src/model/state';
+import { CollectorType } from '../src/collectors/abstractCollector';
 
 const id = process.argv[4] || null;
 const ONE_MINUTE = 60 * 1000;       // 1 minute in milliseconds
@@ -21,18 +21,21 @@ if (!id) {
 }
 else {
     console.info(`Loading collector with id: ${id}`);
-    const loadedCollectors = CollectorLoader.load(id);
+    const loadedCollectors = await CollectorLoader.load(id);
     if (loadedCollectors.size === 0) {
         throw new Error(`No collectors found with id: ${id}`);
     }
 }
 
 // For each collector
-for (const collector of CollectorLoader.getAll()) {
-    const id: string = collector.config.id;
+for (const collectorConfig of await CollectorLoader.getAll()) {
+    const id: string = collectorConfig.id;
 
     // If collector is WebCollector
-    if (collector instanceof WebCollector) {
+    if (collectorConfig.type == CollectorType.WEB) {
+        // Get collector
+        const collector = await CollectorLoader.get(id);
+
         describe(`${id} tests`, () => {
             it('Login with incorrect email format', async () => {
                 const secret: Secret = {

@@ -64,9 +64,27 @@ export const CarrefourSelectors = {
         info: "2fa code input"
     },
 
+    // FOR EACH
+
+    OPTION_SELECTOR: {
+        selector: "#pl-selector-button-onlineOrderSelectedDate",
+        info: "period selector"
+    },
+    OPTION_YEARS: {
+        selector: ".pl-selector__list li[value^='last'][value$='year']",
+        info: "year option"
+    },
+    OPTION_YEAR: (year: number) => ({
+        selector: `.pl-selector__list li[value='last${year}year']`,
+        info: "year option"
+    }),
 
     // ORDERS PAGE
 
+    CONTAINER_NO_ORDERS: {
+        selector: "p.order-summary-page__empty",
+        info: "no orders container"
+    },    
     CONTAINER_ORDER: {
         selector: ".online-order-item__wrapper",
         info: "order container"
