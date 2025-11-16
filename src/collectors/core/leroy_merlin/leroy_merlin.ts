@@ -1,7 +1,7 @@
 import { WebCollector } from '../../web2Collector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { Invoice, DownloadedInvoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
+import { Invoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 
@@ -11,7 +11,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "13",
+        version: "14",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
         type: CollectorType.WEB,
@@ -41,8 +41,8 @@ export class LeroyMerlinCollector extends WebCollector {
     async needLogin(driver: Driver): Promise<boolean>{
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
-        // If user is logged in, the URL should be equal to the entry URL
-        return driver.url() !== this.config.entryUrl;
+        // If login is needed, the url contains /login.html
+        return driver.url().includes(this.config.loginUrl);
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
