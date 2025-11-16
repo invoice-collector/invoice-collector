@@ -110,8 +110,7 @@ export class OpenaiCollector extends WebCollector {
         // Compute timestamp
         const dateTime = await element.getAttribute(OpenaiSelectors.CONTAINER_DATE, "textContent");
         const date = dateTime.split(',')[0];
-        const [day, month, year] = date.split(' ');
-        const timestamp = utils.timestampFromString(`${day} ${month.substring(0, 3)} ${year}`, "d MMM yyyy", 'fr');
+        const timestamp = utils.timestampFromString(date, "d MMM yyyy", 'fr');
 
         // Get other data
         const id = await element.getAttribute(OpenaiSelectors.CONTAINER_ID, "textContent");
