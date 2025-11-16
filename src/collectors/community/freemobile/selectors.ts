@@ -40,9 +40,8 @@ export const FreeMobileSelectors = {
         selector: "#auth-2FA-validate",
         info: "2fa submit button"
     },
-    
 
-    // INVOICES PAGE
+    // NAVIGATION
 
     BUTTON_SHOW_INVOICES: {
         selector: "button[aria-controls='invoices']",
@@ -53,18 +52,11 @@ export const FreeMobileSelectors = {
         info: "more invoices button"
     },
 
-    CONTAINER_FIRST_INVOICE: {
-        selector: "#invoices div.border",
-        info: "first invoice container"
-    },
-    CONTAINER_FIRST_INVOICE_AMOUNT: {
-        selector: "p",
-        info: "first invoice amount container"
-    },
+    // INVOICES PAGE
 
-    CONTAINER_INVOICE: {
-        selector: "#invoices li",
-        info: "invoice container"
+    CONTAINER_INVOICES: {
+        selector: "#invoices li, #invoices div.border",
+        info: "first invoice container"
     },
     CONTAINER_INVOICE_LINK: {
         selector: "a.group\\/link",
@@ -75,7 +67,7 @@ export const FreeMobileSelectors = {
         info: "invoice date container"
     },
     CONTAINER_INVOICE_AMOUNT: {
-        selector: "span",
+        selector: "span, p",
         info: "invoice amount container"
     }
 }

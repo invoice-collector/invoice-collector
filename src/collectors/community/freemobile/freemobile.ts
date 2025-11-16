@@ -1,6 +1,6 @@
-import { WebCollector } from '../../webCollector';
+import { WebCollector } from '../../web2Collector';
 import { FreeMobileSelectors } from './selectors';
-import { Driver } from '../../../driver/driver';
+import { Driver, Element } from '../../../driver/driver';
 import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
@@ -11,7 +11,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "2",
+        version: "3",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -39,7 +39,6 @@ export class FreeMobileCollector extends WebCollector {
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
-
         // Input id and password
         await driver.inputText(FreeMobileSelectors.FIELD_IDENTIFIER, params.id);
         await driver.inputText(FreeMobileSelectors.FIELD_PASSWORD, params.password);
@@ -54,7 +53,7 @@ export class FreeMobileCollector extends WebCollector {
         }
     }
 
-    async isTwofa(driver: Driver): Promise<string | void> {
+    async needTwofa(driver: Driver): Promise<string | void> {
         // Check if 2FA is required
         const twofaInstructions = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
         if (twofaInstructions) {
@@ -93,73 +92,38 @@ export class FreeMobileCollector extends WebCollector {
         }
     }
 
-    async collect(driver: Driver, params: any): Promise<Invoice[]> {
+    async navigate(driver: Driver, params: any): Promise<void>{
         // Show invoices
         await driver.leftClick(FreeMobileSelectors.BUTTON_SHOW_INVOICES, { navigation: false });
 
         // Show more invoices while possible
         while((await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false })) != null) {}
-
-        let invoices: Invoice[] = [];
-
-        // Get last invoice
-        const first_invoice = await driver.getElement(FreeMobileSelectors.CONTAINER_FIRST_INVOICE, { raiseException: false });
-
-        if (first_invoice != null) {
-        
-            const link = await first_invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
-            const date = await first_invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
-            const amount = await first_invoice.getAttribute(FreeMobileSelectors.CONTAINER_FIRST_INVOICE_AMOUNT, "textContent");
-
-            const id = link.split("/").pop();
-            if (!id) {
-                throw new Error(`Cannot extract id from ${link}`);
-            }
-            const timestamp = utils.timestampFromString((date.split(' - ').pop() || date), 'MMMM yyyy', 'fr');
-
-            invoices.push({
-                id,
-                link: `https://mobile.free.fr${link}`,
-                timestamp,
-                amount: `${amount.replace('€',',')}€`
-            });
-
-        }
-
-        // Get invoices
-        const next_invoices_raw = await driver.getElements(FreeMobileSelectors.CONTAINER_INVOICE, { raiseException: false });
-        
-        // Build return array
-        const next_invoices = await Promise.all(next_invoices_raw.map(async invoice => {
-            const link = await invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
-            const date = await invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
-            const amount = await invoice.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
+    }
     
-            const id = link.split("/").pop();
-            if (!id) {
-                throw new Error(`Cannot extract id from ${link}`);
-            }
-            const timestamp = utils.timestampFromString(date, 'MMMM yyyy', 'fr');
-
-            return {
-                id,
-                link: `https://mobile.free.fr${link}`,
-                timestamp,
-                amount
-            };
-        }));
-
-        invoices = invoices.concat(next_invoices);
-
-        return invoices;
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+        return await driver.getElements(FreeMobileSelectors.CONTAINER_INVOICES);
     }
 
-    async download(driver: Driver, invoice: Invoice): Promise<DownloadedInvoice> {
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
+        const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
+        const date = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
+        const amount = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
+
+        const id = link.split("/").pop();
+        if (!id) {
+            throw new Error(`Cannot extract id from ${link}`);
+        }
+        const timestamp = utils.timestampFromString(date, 'MMMM yyyy', 'fr');
+
         return {
-            ...invoice,
-            documents: [
-                await this.download_link(driver, invoice.link)
-            ]
+            id,
+            link: `https://mobile.free.fr${link}`,
+            timestamp,
+            amount
         };
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        return [await this.download_link(driver, invoice.link)];
     }
 }
