@@ -51,9 +51,9 @@ export const OpenaiSelectors = {
 
     // HOME PAGE
 
-    CONTAINER_ORGANIZATION: {
-        selector: "span[id*='select-trigger']",
-        info: "organization container"
+    BUTTON_BILLING: {
+        selector: "a[href='/settings/organization/billing']",
+        info: "billing button"
     },
 
     // CONTAINER INVOICE
