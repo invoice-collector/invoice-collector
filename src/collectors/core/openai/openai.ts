@@ -109,8 +109,12 @@ export class OpenaiCollector extends WebCollector {
 
         // Compute timestamp
         const dateTime = await element.getAttribute(OpenaiSelectors.CONTAINER_DATE, "textContent");
-        const date = dateTime.split(',')[0];
-        const timestamp = utils.timestampFromString(date, "d MMM yyyy", 'fr');
+        let timestamp;
+        try {
+            timestamp = utils.timestampFromString(dateTime, "d MMM yyyy',' HH':'mm", 'fr');
+        } catch (error) {
+            timestamp = utils.timestampFromString(dateTime, "MMM d',' yyyy',' hh':'mm a", 'en');
+        }
 
         // Get other data
         const id = await element.getAttribute(OpenaiSelectors.CONTAINER_ID, "textContent");
