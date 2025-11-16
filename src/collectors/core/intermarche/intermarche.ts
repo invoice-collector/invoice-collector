@@ -3,6 +3,7 @@ import { IntermarcheSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class IntermarcheCollector extends WebCollector {
 
@@ -38,7 +39,7 @@ export class IntermarcheCollector extends WebCollector {
         super(IntermarcheCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for Datadome captcha
         await driver.waitForDatadomeCaptcha();
 

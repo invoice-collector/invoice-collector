@@ -3,6 +3,7 @@ import { CarrefourSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class CarrefourCollector extends WebCollector {
 
@@ -37,7 +38,7 @@ export class CarrefourCollector extends WebCollector {
         super(CarrefourCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Wait for captcha to be successful
         await driver.waitForCloudflareTurnstile()
 

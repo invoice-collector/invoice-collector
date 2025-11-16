@@ -1,9 +1,10 @@
 import { WebCollector } from '../../web2Collector';
 import { FreeMobileSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorType, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class FreeMobileCollector extends WebCollector {
 
@@ -38,7 +39,7 @@ export class FreeMobileCollector extends WebCollector {
         super(FreeMobileCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Input id and password
         await driver.inputText(FreeMobileSelectors.FIELD_IDENTIFIER, params.id);
         await driver.inputText(FreeMobileSelectors.FIELD_PASSWORD, params.password);

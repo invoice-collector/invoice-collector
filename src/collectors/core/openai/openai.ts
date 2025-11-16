@@ -4,6 +4,7 @@ import { Driver, Element } from '../../../driver/driver';
 import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class OpenaiCollector extends WebCollector {
 
@@ -44,7 +45,7 @@ export class OpenaiCollector extends WebCollector {
         return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 10000 }) != null;
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto("https://platform.openai.com/login");
 

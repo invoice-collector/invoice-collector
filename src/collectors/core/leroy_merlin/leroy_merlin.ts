@@ -4,6 +4,7 @@ import { Driver, Element } from '../../../driver/driver';
 import { Invoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class LeroyMerlinCollector extends WebCollector {
 
@@ -45,7 +46,7 @@ export class LeroyMerlinCollector extends WebCollector {
         return driver.url().includes(this.config.loginUrl);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, navigation: false });
 

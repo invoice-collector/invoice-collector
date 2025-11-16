@@ -3,6 +3,7 @@ import { USelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class UCollector extends WebCollector {
 
@@ -37,7 +38,7 @@ export class UCollector extends WebCollector {
         super(UCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(USelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 
