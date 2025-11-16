@@ -11,7 +11,7 @@ export class OpenaiCollector extends WebCollector {
         id: "openai",
         name: "OpenAI",
         description: "i18n.collectors.openai.description",
-        version: "3",
+        version: "4",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -97,6 +97,10 @@ export class OpenaiCollector extends WebCollector {
         await driver.getElement(OpenaiSelectors.CONTAINER_ORGANIZATION, { timeout: 5000 });
         // Go to invoices page
         await driver.goto(OpenaiCollector.CONFIG.entryUrl);
+    }
+
+    async isEmpty(driver: Driver): Promise<boolean> {
+        return await driver.getElement(OpenaiSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) != null;
     }
 
     async getInvoices(driver: Driver, params: any): Promise<Element[]> {

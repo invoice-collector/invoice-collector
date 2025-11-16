@@ -58,6 +58,10 @@ export const OpenaiSelectors = {
 
     // CONTAINER INVOICE
 
+    CONTAINER_NO_INVOICE: {
+        selector: "main > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > span:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1)",
+        info: "no invoice container"
+    },
     CONTAINER_INVOICE: {
         selector: "table tbody tr",
         info: "invoice container"
