@@ -19,7 +19,7 @@ export class AmazonCollector extends WebCollector {
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
         params: {
-            /*id: {
+            id: {
                 type: "string",
                 name: "i18n.collectors.all.email_or_number",
                 placeholder: "i18n.collectors.all.email_or_number.placeholder",
