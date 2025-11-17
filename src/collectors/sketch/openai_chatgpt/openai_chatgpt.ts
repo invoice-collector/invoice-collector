@@ -6,9 +6,9 @@ export class OpenaiChatgptCollector extends SketchCollector {
 
     static CONFIG = {
         id: "openai_chatgpt",
-        name: "ChatGPT",
+        name: "OpenAI (ChatGPT Plus)",
         description: "i18n.collectors.openai_chatgpt.description",
-        version: "0",
+        version: "1",
         website: "https://chatgpt.com",
         logo: "https://pngimg.com/uploads/chatgpt/chatgpt_PNG2.png",
         type: CollectorType.SKETCH,
