@@ -263,8 +263,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     }
 
     async needLogin(driver: Driver): Promise<boolean>{
-        // If user is logged in, the URL should be equal to the entry URL
-        return driver.url() !== this.config.entryUrl;
+        // User is not logged in if:
+        // - entryUrl is not defined = always need go through login process
+        // - current URL does not contain entryUrl
+        return this.config.entryUrl == undefined || !driver.url().includes(this.config.entryUrl);
     }
 
     abstract login(driver: Driver, params: any): Promise<string | void>;
