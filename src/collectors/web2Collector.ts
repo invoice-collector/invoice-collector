@@ -22,7 +22,14 @@ export type WebConfig = Config & {
     }
 }
 
+export enum DocumentsStrategy {
+    SPLIT = "split",
+    MERGE = "merge"
+}
+
 export abstract class WebCollector extends V2Collector<WebConfig> {
+
+    static DOCUMENTS_STRATEGY = DocumentsStrategy.SPLIT;
 
     driver: Driver | null;
 
@@ -153,7 +160,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     // For each invoice element
                     for (const element of invoiceElements) {
                         // Get invoice data
-                    let invoice: Invoice | null = await this.data(driver, secret.params, element);
+                        let invoice: Invoice | null = await this.data(driver, secret.params, element);
 
                         // Ignore if null
                         if (invoice === null) {
@@ -182,28 +189,27 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 }
 
                                 // Download invoice
-                                const documents = await this.download(driver, secret.params, element, invoice);
-                                console.log(`Invoice ${invoice.id} successfully downloaded`);
+                                let documents = await this.download(driver, secret.params, element, invoice);
 
                                 // Close extra pages opened during download
                                 await driver.closeExtraPages();
 
-                                let data;
                                 // If one document downloaded
-                                if (documents.length === 1) {
-                                    data = documents[0];
+                                if (WebCollector.DOCUMENTS_STRATEGY == DocumentsStrategy.MERGE && documents.length > 1) {
+                                    documents = [await utils.mergePdfDocuments(documents)];
                                 }
-                                else {
-                                    data = await utils.mergePdfDocuments(documents);
-                                }
+                                console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
                     
-                                invoices.push({
-                                    ...invoice,
-                                    data,
-                                    mimetype: mimetypeFromBase64(data),
-                                    collected_timestamp: Date.now(),
-                                    metadata: invoice.metadata || {}
-                                });
+                                for (const [index, document] of documents.entries()) {
+                                    invoices.push({
+                                        ...invoice,
+                                        id: `${invoice.id}${documents.length > 1 ? `-part${index + 1}` : ''}`,
+                                        data: document,
+                                        mimetype: mimetypeFromBase64(document),
+                                        collected_timestamp: Date.now(),
+                                        metadata: invoice.metadata || {}
+                                    });
+                                }
                             }
                             else {
                                 // Add invoice without downloading it
