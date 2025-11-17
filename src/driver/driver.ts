@@ -480,14 +480,18 @@ export class Driver {
         // Get source code of all frames, removing scripts, svgs, styles, heads and iframes
         const framesSourceCode = await Promise.all(
             frames.map(async frame => {
-                const sourceCode = (await frame.content())
-                return sourceCode
-                    .replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, '')
-                    .replace(/<svg\b[^>]*>([\s\S]*?)<\/svg>/gi, '')
-                    .replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, '')
-                    .replace(/<head\b[^>]*>([\s\S]*?)<\/head>/gi, '')
-                    .replace(/<iframe\b[^>]*>([\s\S]*?)<\/iframe>/gi, '');
-                })
+                try {
+                    const sourceCode = (await frame.content())
+                    return sourceCode
+                        .replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, '')
+                        .replace(/<svg\b[^>]*>([\s\S]*?)<\/svg>/gi, '')
+                        .replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, '')
+                        .replace(/<head\b[^>]*>([\s\S]*?)<\/head>/gi, '')
+                        .replace(/<iframe\b[^>]*>([\s\S]*?)<\/iframe>/gi, '');
+                } catch (error) {
+                    return `<!-- Unable to retrieve frame content. Error: ${error} -->`;
+                }
+            })
         );
 
         const fullSourceCode = framesSourceCode.join('\n<!-- ========== FRAME SEPARATOR ========== -->\n');
@@ -500,6 +504,7 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
+        this.page.bringToFront();
         return await this.page.screenshot({encoding: 'base64'});
     }
 
