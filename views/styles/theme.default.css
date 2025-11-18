@@ -1,0 +1,66 @@
+/* ===================================
+   THEME: DEFAULT (Invoice Collector)
+   =================================== */
+
+html[data-theme="default"],
+html:not([data-theme]) {
+  /* Couleurs de base */
+  --bg: #f8f9fa;
+  --text: #1e293b;
+  --text-secondary: #475569;
+  --muted: #64748b;
+  --placeholder: #94a3b8;
+
+  /* Couleurs primaires - Bleu Invoice Collector */
+  --primary: #2563eb;
+  --primary-hover: #3b82f6;
+  --primary-focus: rgba(59, 130, 246, 0.15);
+
+  /* Couleurs secondaires */
+  --secondary: #f1f5f9;
+  --secondary-hover: #e2e8f0;
+
+  /* Cards */
+  --card: #ffffff;
+  --card-border: #e2e8f0;
+  --card-special: #f8fafc;
+  --card-special-hover: #eff6ff;
+
+  /* Status colors - Inspirés d'Invoice Collector */
+  --success: #10b981;
+  --success-hover: #059669;
+  --success-bg: #d1fae5;
+
+  --warning: #f59e0b;
+  --warning-hover: #d97706;
+  --warning-bg: #fef3c7;
+
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --danger-bg: #fee2e2;
+
+  --info: #3b82f6;
+  --info-hover: #2563eb;
+  --info-bg: #dbeafe;
+
+  /* Forms */
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
+  --disabled-bg: #f8fafc;
+
+  /* Progress */
+  --progress-bg: #e2e8f0;
+
+  /* Spinner */
+  --spinner-bg: #e2e8f0;
+
+  /* Shadows - Plus douces */
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  /* Border radius - Plus arrondi comme Invoice Collector */
+  --radius: 4px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+}

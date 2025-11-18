@@ -2,16 +2,22 @@ const token = new URLSearchParams(window.location.search).get('token');
 let companies = [];
 let ip = null;
 let hit = []
+// Variable globale pour le datepicker
+let datepickerSince = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
-    showCredentials();
+    // CHANGEMENT: On démarre directement sur showCompanies() au lieu de showCredentials()
+    showCompanies();
+    
     document.getElementById('add-credential-form').addEventListener('submit', addCredential);
     document.getElementById('feedback-form').addEventListener('submit', sendFeedback);
-
+    
     getCollectors()
         .then(c => {
             console.log(c.length, 'companies loaded');
             companies = c;
+            // Refresh companies list once loaded
+            showCompanies();
         }).catch(error => {
             console.error('Error getting the companies:', error);
         });
@@ -20,6 +26,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 async function getCollectors() {
     const response = await fetch(`collectors?locale=${locale}&token=${token}`);
     return await response.json();
+}
+
+function closeIframe() {
+    // Post message au parent pour fermer l'iframe
+    window.parent.postMessage({ type: 'invoice-collector-close' }, '*');
 }
 
 function buildCredentialFooter(credential) {
@@ -69,16 +80,19 @@ function buildCredentialStatus(credential) {
 }
 
 async function showCredentials() {
+    // Hide all modals and show credentials table
+    document.getElementById('credentials-container').hidden = false;
+    document.getElementById('companies-container').classList.add('ic-hidden');
+    document.getElementById('form-container').classList.add('ic-hidden');
+    document.getElementById('progress-container').classList.add('ic-hidden');
+    document.getElementById('feedback-container').classList.add('ic-hidden');
+    
+    // Restore body scroll
+    document.body.style.overflow = '';
+
     // Get the elements
     const credentialsEmpty = document.getElementById('credentials-empty');
     const credentialsList = document.getElementById('credentials-list');
-
-    // Hide other containers
-    document.getElementById('credentials-container').hidden = false;
-    document.getElementById('companies-container').hidden = true;
-    document.getElementById('form-container').hidden = true;
-    document.getElementById('progress-container').hidden = true;
-    document.getElementById('feedback-container').hidden = true;
 
     // Get the credentials
     const response = await fetch(`credentials?token=${token}`);
@@ -94,7 +108,7 @@ async function showCredentials() {
             const credentialItem = `
                 <tr class="credential">
                     <td class="table-column-center">
-                        <img class="credential-logo" src="${credential.collector.logo}" alt="${credential.collector.name}">
+                        <img class="credential-logo" src="${credential.collector.logo}" alt="${credential.collector.name}" style="width: 48px; height: 48px; border-radius: 8px;">
                     </td>
                     <td>
                         ${credential.note ? credential.note : '--'}
@@ -118,116 +132,144 @@ async function showCredentials() {
                         </div>
                     </td>
                     <td class="table-column-center">
-                        <button class="button delete-button" onclick="deleteCredential('${credential.id}')">
+                        <button class="ic-button ic-button--danger ic-button--icon" onclick="deleteCredential('${credential.id}')">
                             <img src="/views/icons/delete.png" alt="Delete">
                         </button>
                     </td>
                 </tr>`;
             
-                credentialsList_innerHTML += credentialItem;
+            credentialsList_innerHTML += credentialItem;
         });
     }
     credentialsList.innerHTML = credentialsList_innerHTML;
 }
 
 async function showCompanies() {
-    // Get elements
-    const companyList = document.getElementById('companies-list');
-
-    // Reset values
-    companyList.innerHTML = '';
-
-    // Hide other containers
-    document.getElementById('credentials-container').hidden = true;
-    document.getElementById('companies-container').hidden = false;
-    document.getElementById('form-container').hidden = true;
-    document.getElementById('progress-container').hidden = true;
-    document.getElementById('feedback-container').hidden = true;
-
-    companies.forEach(company => {
-        const companyItem = document.createElement('li');
-        companyItem.className = 'company-item company-item-selectable';
-        companyItem.innerHTML = `
-            <img src="${company.logo}" alt="${company.name}" class="companies-logo">
-            <div>
-                <bold>${company.name}</bold>
-            </div>
-        `;
-        companyItem.addEventListener('click', () => showForm(company));
-        companyList.appendChild(companyItem);
-    });
+    // Hide all containers and show companies
+    document.getElementById('companies-container').classList.remove('ic-hidden');
+    document.getElementById('form-container').classList.add('ic-hidden');
+    document.getElementById('progress-container').classList.add('ic-hidden');
+    document.getElementById('feedback-container').classList.add('ic-hidden');
+    
+    // Block body scroll (modal is open)
+    document.body.style.overflow = 'hidden';
+    
+    // Reset search field
+    const searchInput = document.getElementById('search-collectors');
+    if (searchInput) {
+        searchInput.value = '';
+    }
+    
+    // Render all companies (cette fonction gère tout l'affichage)
+    renderCompanies(companies);
 }
 
 function showForm(company) {
+    // Hide other containers
+    document.getElementById('companies-container').classList.add('ic-hidden');
+    document.getElementById('form-container').classList.remove('ic-hidden');
+    document.getElementById('progress-container').classList.add('ic-hidden');
+    document.getElementById('feedback-container').classList.add('ic-hidden');
+
+    // Update form header
+    document.getElementById('form-logo').src = company.logo;
+    document.getElementById('form-name').textContent = company.name;
+    document.getElementById('form-description').textContent = company.description;
+    document.getElementById('form-title').textContent = `Configure ${company.name}`;
+    
+    const badge = document.getElementById('form-badge');
+    if(company.state === 'development') {
+        badge.className = 'ic-badge ic-badge--info';
+        badge.textContent = 'Development';
+    }
+    else if(company.state === 'active') {
+        badge.className = 'ic-badge ic-badge--stable';
+        badge.textContent = 'Active';
+    }
+    else if(company.state === 'maintenance') {
+        badge.className = 'ic-badge ic-badge--beta';
+        badge.textContent = 'Maintenance';
+    }
+    
+    // Update instructions
+    const instructionsDiv = document.getElementById('add-credential-instructions');
+    if (company.instructions) {
+        instructionsDiv.classList.remove('ic-hidden');
+        document.getElementById('instructions-text').innerHTML = company.instructions;
+    } else {
+        instructionsDiv.classList.add('ic-hidden');
+    }
+
     // Get elements
     const formParams = document.getElementById('add-credential-form-params');
     const form = document.getElementById('add-credential-form');
     const hitSketch = document.getElementById('hit-sketch');
     const hitSketchButton = document.getElementById('hit-sketch-button');
     
-    // Update the form with the company's information
-    document.getElementById('form-logo').src = company.logo;
-    document.getElementById('form-name').textContent = company.name;
-    document.getElementById('form-description').textContent = company.description;
-    document.querySelector('#add-credential-instructions').hidden = !company.instructions;
-    document.querySelector('#add-credential-instructions p').innerHTML = company.instructions;
-
-    // Reset values
-    formParams.innerHTML = ''; // Clear any existing fields
+    // Reset form
+    formParams.innerHTML = '';
     form.dataset.collector = company.id;
+    document.getElementById('form-error').classList.add('ic-hidden');
 
-    // Hide other containers
-    document.getElementById('credentials-container').hidden = true;
-    document.getElementById('companies-container').hidden = true;
-    document.getElementById('form-container').hidden = false;
-    document.getElementById('progress-container').hidden = true;
-    document.getElementById('feedback-container').hidden = true;
+    // Détruire l'ancien datepicker si existant
+    if (datepickerSince) {
+        datepickerSince.destroy();
+        datepickerSince = null;
+    }
 
-    // If the collector is not a sketch, show form
+    // If NOT a sketch collector, show form
     if(company.type != "sketch") {
-        // Show form, hide sketch button
-        form.style.removeProperty("display");
-        hitSketch.hidden = true;
-
+        form.style.display = 'block';
+        hitSketch.classList.add('ic-hidden');
+        
+        // Build form fields dynamically
         Object.keys(company.params).forEach(key => {
-            // Get the parameter
             const param = company.params[key];
-
-            // Add label
+            
+            // Create form group
+            const formGroup = document.createElement('div');
+            formGroup.className = 'ic-form-group';
+            
+            // Create label
             const label = document.createElement('label');
-            label.textContent = param.name;
-
+            label.className = 'ic-label';
             if (param.mandatory) {
-                const required = document.createElement('span');
-                required.textContent = ' *';
-                required.style.color = 'red';
-                label.appendChild(required);
+                label.className += ' ic-label--required';
             }
-
-            // Add input
+            label.textContent = param.name;
+            
+            // Create input
             const input = document.createElement('input');
-            if (param.type === 'password') {
-                input.setAttribute('type', 'password');
-            } else {
-                input.setAttribute('type', 'text');
-            }
-            input.setAttribute('name', key);
+            input.className = 'ic-input';
+            input.type = param.type === 'password' ? 'password' : 'text';
+            input.name = key;
             input.placeholder = param.placeholder;
             input.required = param.mandatory;
+            
+            // Append to form group
+            formGroup.appendChild(label);
+            formGroup.appendChild(input);
+            formParams.appendChild(formGroup);
+        });
 
-            formParams.appendChild(label);
-            formParams.appendChild(input);
+        // Initialiser le datepicker
+        datepickerSince = createDatepicker('#datepicker-since', {
+            format: 'yyyy-MM-dd',
+            placeholder: 'jj / mm / aaaa',
+            onChange: (date, formattedDate) => {
+                console.log('Date selected:', formattedDate);
+            }
         });
     }
+    // If sketch collector, show sketch section
     else {
-        // Show sketch button, hide form
-        form.style.display="none"
-        hitSketch.hidden = false;
-        document.getElementById('hit-sketch-success').hidden = true;
-
-        // Set the onclick event for the sketch button
+        form.style.display = 'none';
+        hitSketch.classList.add('ic-hidden');
+        document.getElementById('hit-sketch-success').classList.add('ic-hidden');
+        
+        // Set onclick for sketch button
         hitSketchButton.onclick = async() => {
-            document.getElementById('hit-sketch-success').hidden = false;
+            document.getElementById('hit-sketch-success').classList.remove('ic-hidden');
             if (!hit.includes(company.id)) {
                 await post_send_feedback({
                     type: 'sketch',
@@ -241,14 +283,28 @@ function showForm(company) {
 
 async function addCredential(event) {
     event.preventDefault();
-
+    
     // Convert form data to object
     const formData = new FormData(event.target);
     let params = {};
     formData.forEach((value, key) => {
         params[key] = value;
     });
-
+    
+    // Vérifier que le datepicker a une valeur (champ obligatoire)
+    if (!datepickerSince || !datepickerSince.getValue()) {
+        document.getElementById('form-error').classList.remove('ic-hidden');
+        // Mettre le focus sur le datepicker
+        document.getElementById('datepicker-since').focus();
+        return;
+    }
+    
+    // Ajouter la date du datepicker
+    params.since = datepickerSince.formatDate(datepickerSince.getValue());
+    
+    document.getElementById('form-error').classList.add('ic-hidden');
+    
+    // Send request
     const response = await fetch(`credential?token=${token}`, {
         method: 'POST',
         body: JSON.stringify({
@@ -259,14 +315,14 @@ async function addCredential(event) {
             'Content-Type': 'application/json'
         }
     });
-
+    
     const content = await response.json();
     document.getElementById('add-credential-form').reset();
-
+    
     if (!response.ok) {
         console.error('Error adding credential:', content);
         alert(`Error: ${content.message || 'An error occurred while adding the credential.'}`);
-        showCredentials();
+        showCompanies();
     }
     else {
         showProgress(content.id, content.wsPath);
@@ -299,15 +355,15 @@ async function showProgress(credential_id, wsPath) {
     form2faInstructions.textContent = '';
 
     // Hide other containers
-    document.getElementById('credentials-container').hidden = true;
-    document.getElementById('companies-container').hidden = true;
-    document.getElementById('form-container').hidden = true;
-    document.getElementById('progress-container').hidden = false;
-    document.getElementById('feedback-container').hidden = true;
+    document.getElementById('companies-container').classList.add('ic-hidden');
+    document.getElementById('form-container').classList.add('ic-hidden');
+    document.getElementById('progress-container').classList.remove('ic-hidden');
+    document.getElementById('feedback-container').classList.add('ic-hidden');
 
-    // WebSocket to get real-time updates - NEW WAY
+    // WebSocket to get real-time updates
     let finished = false;
     const ws = new WebSocket(wsPath);
+    
     ws.onopen = () => {
         console.log('WebSocket connection opened');
 
@@ -316,13 +372,34 @@ async function showProgress(credential_id, wsPath) {
         const canvasCancelButton = document.getElementById('canvas-cancel');
 
         canvas.addEventListener('click', function(event) {
+            console.log("CLICK");
             const rect = canvas.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
-            ws.send(JSON.stringify({ type: 'click', x: x / canvas.width, y: y / canvas.height }));
+            const canvasDisplayWidth = rect.width;
+            const canvasDisplayHeight = rect.height;
+
+            // Ratio d'affichage du canvas
+            const scaleX = canvas.width / canvasDisplayWidth;
+            const scaleY = canvas.height / canvasDisplayHeight;
+            
+            // Position du clic relative au canvas affiché
+            const clickX = event.clientX - rect.left;
+            const clickY = event.clientY - rect.top;
+            
+            // Coordonnées normalisées (0-1)
+            const normalizedX = (clickX * scaleX) / canvas.width;
+            const normalizedY = (clickY * scaleY) / canvas.height;
+            
+            console.log(`Click at: ${normalizedX}, ${normalizedY}`);
+            
+            ws.send(JSON.stringify({ 
+                type: 'click', 
+                x: normalizedX, 
+                y: normalizedY 
+            }));
         });
 
         canvas.addEventListener('keydown', function(event) {
+            console.log("KEYDOWN");
             if (event.ctrlKey) {
                 if (event.key.toLowerCase() === 'v') {
                     navigator.clipboard.readText().then(text => {
@@ -337,14 +414,16 @@ async function showProgress(credential_id, wsPath) {
             }
         });
 
-        // To ensure canvas receives keyboard events, set tabindex and focus
+        // To ensure canvas receives keyboard events
         canvas.setAttribute('tabindex', '0');
         canvas.focus();
 
-        // Handle OK button
+        // Handle OK button (I'm logged in)
         canvasOkButton.onclick = function() {
             finished = true;
             containerCanvas.hidden = true;
+            // Réafficher le progress container
+            document.getElementById('progress-container').classList.remove('ic-hidden');
             ws.send(JSON.stringify({ type: 'close', reason: 'ok' }));
         };
 
@@ -353,6 +432,7 @@ async function showProgress(credential_id, wsPath) {
             finished = true;
             containerCanvas.hidden = true;
             ws.send(JSON.stringify({ type: 'close', reason: 'cancel' }));
+            showCompanies();
         };
     };
 
@@ -360,22 +440,26 @@ async function showProgress(credential_id, wsPath) {
     ws.onmessage = async function(event) {
         const parsedData = JSON.parse(event.data);
 
+        // Dans ws.onmessage, partie screenshot
         if(parsedData.type == "screenshot") {
             const arrayBuffer = Uint8Array.from(atob(parsedData.screenshot), c => c.charCodeAt(0)).buffer;
             const blob = new Blob([new Uint8Array(arrayBuffer)], { type: 'image/png' });
             const url = URL.createObjectURL(blob);
 
-            const img = new Image(parsedData.width, parsedData.height);
+            const img = new Image();
             img.onload = function() {
                 const canvas = document.getElementById('canvas');
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                ctx.scale(1, 1);
+                URL.revokeObjectURL(url); // Libérer la mémoire
             };
             img.src = url;
 
-            // Display canvas
-            containerCanvas.hidden = finished;
+            // Afficher le canvas en plein écran
+            if (!finished) {
+                containerCanvas.hidden = false;
+                document.getElementById('progress-container').classList.add('ic-hidden');
+            }
         }
         else if(parsedData.type == "state") {
             current_state = parsedData.state;
@@ -398,14 +482,10 @@ async function showProgress(credential_id, wsPath) {
             }
             else {
                 if (previous_state === undefined) {
-                    // Update progress bar and text
                     progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
-
-                    // Update progress text with fade effect
                     progressText.textContent = current_state.title;
                     progressText.classList.remove('fade');
                 }
-                // Wait 1 second before polling again
                 await new Promise(resolve => setTimeout(resolve, 1000));
             }
             previous_state = current_state;
@@ -415,16 +495,18 @@ async function showProgress(credential_id, wsPath) {
     ws.onclose = (event) => {
         console.log('WebSocket connection closed');
 
-        // Display error or success message
+        // Cacher le canvas et afficher le progress avec le résultat
         container2FA.hidden = true;
         containerCanvas.hidden = true;
+        document.getElementById('progress-container').classList.remove('ic-hidden');
+        
         responseErrorText.textContent = current_state.message;
         responseSuccess.hidden = !(current_state.index >= current_state.max);
         responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
         responseError.hidden = !(current_state.index < 0);
     };
 
-    // Set the on submit event for the 2fa form
+    // 2FA form submit
     form2fa.addEventListener('submit', async (event) => {
         container2FA.hidden = true;
         event.preventDefault();
@@ -441,36 +523,45 @@ async function deleteCredential(id) {
 }
 
 async function showFeedback(type) {
-    document.getElementById('credentials-container').hidden = true;
-    document.getElementById('companies-container').hidden = true;
-    document.getElementById('form-container').hidden = true;
-    document.getElementById('progress-container').hidden = true;
-    document.getElementById('feedback-container').hidden = false;
-    document.getElementById('feedback-response-success').hidden = true;
-    document.getElementById('feedback-response-error').hidden = true;
+    document.getElementById('companies-container').classList.add('ic-hidden');
+    document.getElementById('form-container').classList.add('ic-hidden');
+    document.getElementById('progress-container').classList.add('ic-hidden');
+    document.getElementById('feedback-container').classList.remove('ic-hidden');
+    
+    document.getElementById('feedback-response-success').classList.add('ic-hidden');
+    document.getElementById('feedback-response-error').classList.add('ic-hidden');
     document.querySelector('#feedback-form input[name="type"]').value = type;
 }
 
 async function sendFeedback(event) {
     event.preventDefault();
-
+    
     // Convert form data to object
     const formData = new FormData(event.target);
     let params = {};
     formData.forEach((value, key) => {
         params[key] = value;
     });
-
-    const response = await post_send_feedback({...params});
-
+    
+    // Construire le message pour l'API
+    const feedbackBody = {
+        type: 'new_collector',
+        message: params.website_url,
+        email: ''
+    };
+    
+    const response = await post_send_feedback(feedbackBody);
     document.getElementById('feedback-form').reset();
-
+    document.querySelector('#feedback-form input[name="type"]').value = 'new_collector';
+    
     // Check if the response is ok
     if (!response.ok) {
-        document.getElementById('feedback-response-error').hidden = false;
+        document.getElementById('feedback-response-error').classList.remove('ic-hidden');
+        document.getElementById('feedback-response-success').classList.add('ic-hidden');
     }
     else {
-        document.getElementById('feedback-response-success').hidden = false;
+        document.getElementById('feedback-response-success').classList.remove('ic-hidden');
+        document.getElementById('feedback-response-error').classList.add('ic-hidden');
     }
 }
 
@@ -482,4 +573,93 @@ async function post_send_feedback(body) {
             'Content-Type': 'application/json'
         }
     });
+}
+
+// Fonction de recherche avec score
+function searchCollectorsWithScore(collectors, searchTerm) {
+    if (!searchTerm || searchTerm.length < 1) return collectors.slice(0, 100);
+    
+    // Compute a score for each collector based on search term match
+    const computeCollectorScore = (collector, term) => {
+        if (!term || term.length < 1) return 0;
+        
+        // Remove accents/diacritics for better matching
+        const normalize = (str) => str.normalize('NFD')
+            .replace(/[^a-zA-Z]/g, '').toLowerCase();
+        
+        const name = normalize(collector.name);
+        const termLower = normalize(term);
+        
+        let score = 0;
+        if (name === termLower) score += 8;
+        else if (name.startsWith(termLower)) score += 4;
+        else if (name.includes(termLower)) score += 2;
+        
+        return score;
+    };
+    
+    return collectors
+        .map(collector => ({
+            collector,
+            score: computeCollectorScore(collector, searchTerm)
+        }))
+        .filter(({ score }) => score > 0)
+        .sort((a, b) => b.score - a.score)
+        .map(({ collector }) => collector)
+        .slice(0, 100);
+}
+// Fonction pour filtrer les companies
+function filterCompanies(searchTerm) {
+    const filteredCompanies = searchCollectorsWithScore(companies, searchTerm);
+    renderCompanies(filteredCompanies);
+}
+
+// Fonction pour afficher les companies
+function renderCompanies(companiesToRender) {
+    const companyList = document.getElementById('companies-list');
+    companyList.innerHTML = '';
+    
+    // Build cards for each company
+    companiesToRender.forEach(company => {
+        const companyCard = document.createElement('div');
+        companyCard.className = 'ic-card';
+        companyCard.innerHTML = `
+            <div class="ic-card-header">
+                <img src="${company.logo}" alt="${company.name}" class="ic-card-logo">
+                <div>
+                    <h3 class="ic-card-title">${company.name}</h3>
+                </div>
+            </div>
+            <p class="ic-card-description">${company.description}</p>
+            <div class="ic-card-footer">
+                <div class="ic-card-meta">
+                    <span>${Object.keys(company.params).length} champs requis</span>
+                </div>
+                ${company.state === 'development' ? '<span class="ic-badge ic-badge--info">Development</span>' : ''}
+                ${company.state === 'active' ? '<span class="ic-badge ic-badge--stable">Active</span>' : ''}
+                ${company.state === 'maintenance' ? '<span class="ic-badge ic-badge--beta">Maintenance</span>' : ''}
+            </div>
+        `;
+        companyCard.addEventListener('click', () => showForm(company));
+        companyList.appendChild(companyCard);
+    });
+    
+    // Ajouter la card "Collecteur introuvable"
+    const specialCard = document.createElement('div');
+    specialCard.className = 'ic-card ic-card--special';
+    specialCard.innerHTML = `
+        <div class="ic-card-header">
+            <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
+                ➕
+            </div>
+            <div>
+                <h3 class="ic-card-title">Can't find your collector?</h3>
+            </div>
+        </div>
+        <p class="ic-card-description">
+            Let us know and we'll add it for you!
+        </p>
+    `;
+    specialCard.addEventListener('click', () => showFeedback('new_collector'));
+    companyList.appendChild(specialCard);
 }
