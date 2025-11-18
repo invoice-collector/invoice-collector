@@ -331,6 +331,8 @@ async function addCredential(event) {
 
 async function showProgress(credential_id, wsPath) {
     // Get the elements
+    const progressLoading = document.getElementById('progress-loading');
+    const progressBarSection = document.getElementById('progress-bar-section');
     const progressText = document.getElementById('progress-text');
     const progressBar = document.getElementById('progress-bar');
     const responseSuccess = document.getElementById('progress-response-success');
@@ -341,8 +343,10 @@ async function showProgress(credential_id, wsPath) {
     const containerCanvas = document.getElementById('canvas-container');
     const form2fa = document.getElementById('send-2fa-form');
     const form2faInstructions = document.getElementById('send-2fa-instructions');
-
+    
     // Reset values
+    progressLoading.hidden = false;
+    progressBarSection.hidden = false;
     progressText.textContent = '';
     progressText.classList.add('fade');
     progressBar.style.width = `0%`;
@@ -353,39 +357,58 @@ async function showProgress(credential_id, wsPath) {
     containerCanvas.hidden = true;
     form2fa.reset();
     form2faInstructions.textContent = '';
-
+    
     // Hide other containers
     document.getElementById('companies-container').classList.add('ic-hidden');
     document.getElementById('form-container').classList.add('ic-hidden');
     document.getElementById('progress-container').classList.remove('ic-hidden');
     document.getElementById('feedback-container').classList.add('ic-hidden');
-
+    
+    // Fonction pour afficher le résultat final
+    function showFinalResult(state) {
+        // Cacher les éléments de progression
+        progressLoading.hidden = true;
+        progressBarSection.hidden = true;
+        container2FA.hidden = true;
+        containerCanvas.hidden = true;
+        
+        // Afficher le résultat approprié
+        if (state.index >= state.max) {
+            responseSuccess.hidden = false;
+            responseUnknown.hidden = true;
+            responseError.hidden = true;
+        } else if (state.index >= 0) {
+            responseSuccess.hidden = true;
+            responseUnknown.hidden = false;
+            responseError.hidden = true;
+        } else {
+            responseSuccess.hidden = true;
+            responseUnknown.hidden = true;
+            responseError.hidden = false;
+            responseErrorText.textContent = state.message;
+        }
+    }
+    
     // WebSocket to get real-time updates
     let finished = false;
+    let cancelled = false; // Nouvelle variable pour savoir si on a annulé
     const ws = new WebSocket(wsPath);
     
     ws.onopen = () => {
         console.log('WebSocket connection opened');
-
         const canvas = document.getElementById('canvas');
         const canvasOkButton = document.getElementById('canvas-ok');
         const canvasCancelButton = document.getElementById('canvas-cancel');
-
+        
         canvas.addEventListener('click', function(event) {
             console.log("CLICK");
             const rect = canvas.getBoundingClientRect();
             const canvasDisplayWidth = rect.width;
             const canvasDisplayHeight = rect.height;
-
-            // Ratio d'affichage du canvas
             const scaleX = canvas.width / canvasDisplayWidth;
             const scaleY = canvas.height / canvasDisplayHeight;
-            
-            // Position du clic relative au canvas affiché
             const clickX = event.clientX - rect.left;
             const clickY = event.clientY - rect.top;
-            
-            // Coordonnées normalisées (0-1)
             const normalizedX = (clickX * scaleX) / canvas.width;
             const normalizedY = (clickY * scaleY) / canvas.height;
             
@@ -397,7 +420,7 @@ async function showProgress(credential_id, wsPath) {
                 y: normalizedY 
             }));
         });
-
+        
         canvas.addEventListener('keydown', function(event) {
             console.log("KEYDOWN");
             if (event.ctrlKey) {
@@ -408,79 +431,79 @@ async function showProgress(credential_id, wsPath) {
                         console.error('Clipboard read failed:', err);
                     });
                 }
-            }
-            else {
+            } else {
                 ws.send(JSON.stringify({ type: 'keydown', key: event.key, code: event.code }));
             }
         });
-
-        // To ensure canvas receives keyboard events
+        
         canvas.setAttribute('tabindex', '0');
         canvas.focus();
-
-        // Handle OK button (I'm logged in)
+        
         canvasOkButton.onclick = function() {
             finished = true;
             containerCanvas.hidden = true;
-            // Réafficher le progress container
             document.getElementById('progress-container').classList.remove('ic-hidden');
             ws.send(JSON.stringify({ type: 'close', reason: 'ok' }));
         };
-
-        // Handle Cancel button
+        
         canvasCancelButton.onclick = function() {
             finished = true;
+            cancelled = true; // Marquer comme annulé
             containerCanvas.hidden = true;
             ws.send(JSON.stringify({ type: 'close', reason: 'cancel' }));
             showCompanies();
         };
     };
-
+    
     let previous_state, current_state;
+    
     ws.onmessage = async function(event) {
         const parsedData = JSON.parse(event.data);
-
-        // Dans ws.onmessage, partie screenshot
-        if(parsedData.type == "screenshot") {
+        
+        if (parsedData.type == "screenshot") {
             const arrayBuffer = Uint8Array.from(atob(parsedData.screenshot), c => c.charCodeAt(0)).buffer;
             const blob = new Blob([new Uint8Array(arrayBuffer)], { type: 'image/png' });
             const url = URL.createObjectURL(blob);
-
             const img = new Image();
             img.onload = function() {
                 const canvas = document.getElementById('canvas');
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                URL.revokeObjectURL(url); // Libérer la mémoire
+                URL.revokeObjectURL(url);
             };
             img.src = url;
-
-            // Afficher le canvas en plein écran
+            
             if (!finished) {
                 containerCanvas.hidden = false;
                 document.getElementById('progress-container').classList.add('ic-hidden');
             }
         }
-        else if(parsedData.type == "state") {
+        else if (parsedData.type == "state") {
             current_state = parsedData.state;
+            
+            // Vérifier si on a atteint la fin (succès ou erreur)
+            if (current_state.index >= current_state.max || current_state.index < 0) {
+                // Ne pas afficher si annulé
+                if (!cancelled) {
+                    showFinalResult(current_state);
+                }
+                return;
+            }
+            
             if (previous_state && previous_state.index !== current_state.index) {
-                // Update progress bar and text
                 progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
-
-                // Update progress text with fade effect
+                
                 progressText.classList.add('fade');
                 await new Promise(resolve => setTimeout(resolve, 500));
                 progressText.textContent = current_state.title;
                 progressText.classList.remove('fade');
                 await new Promise(resolve => setTimeout(resolve, 500));
-
-                // Display 2fa code if needed
+                
                 if (current_state.index === 3) {
                     container2FA.hidden = false;
                     form2faInstructions.textContent = current_state.message;
                 }
-            }
-            else {
+            } else {
                 if (previous_state === undefined) {
                     progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
                     progressText.textContent = current_state.title;
@@ -491,21 +514,23 @@ async function showProgress(credential_id, wsPath) {
             previous_state = current_state;
         }
     };
-
+    
     ws.onclose = (event) => {
         console.log('WebSocket connection closed');
-
-        // Cacher le canvas et afficher le progress avec le résultat
-        container2FA.hidden = true;
         containerCanvas.hidden = true;
+        
+        // Ne pas afficher le résultat si on a annulé
+        if (cancelled) {
+            return;
+        }
+        
         document.getElementById('progress-container').classList.remove('ic-hidden');
         
-        responseErrorText.textContent = current_state.message;
-        responseSuccess.hidden = !(current_state.index >= current_state.max);
-        responseUnknown.hidden = !(0 <= current_state.index && current_state.index < current_state.max);
-        responseError.hidden = !(current_state.index < 0);
+        if (current_state) {
+            showFinalResult(current_state);
+        }
     };
-
+    
     // 2FA form submit
     form2fa.addEventListener('submit', async (event) => {
         container2FA.hidden = true;

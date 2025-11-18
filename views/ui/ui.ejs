@@ -109,8 +109,8 @@
 
     <!-- PROGRESS CONTAINER -->
     <div id="progress-container" class="ic-container ic-hidden">
-        <!-- TITLE -->
-        <div class="ic-text-center">
+        <!-- TITLE (à cacher quand résultat affiché) -->
+        <div id="progress-loading" class="ic-text-center">
             <div class="ic-loader">
                 <div class="ic-spinner ic-spinner--large"></div>
             </div>
@@ -120,9 +120,9 @@
             </h1>
             <p class="ic-header-subtitle" id="progress-subtitle">Collecte des données...</p>
         </div>
-
-        <!-- PROGRESS BAR -->
-        <div class="ic-progress" style="margin-top: 2rem;">
+        
+        <!-- PROGRESS BAR (à cacher quand résultat affiché) -->
+        <div id="progress-bar-section" class="ic-progress" style="margin-top: 2rem;">
             <div class="ic-progress-label">
                 <span id="progress-text"></span>
             </div>
@@ -130,9 +130,9 @@
                 <div class="ic-progress-fill" id="progress-bar" style="width: 0%"></div>
             </div>
         </div>
-
+        
         <!-- 2FA FORM -->
-        <div id="send-2fa-container">
+        <div id="send-2fa-container" hidden>
             <form id="send-2fa-form" style="margin-top: 2rem;">
                 <div class="ic-form-group">
                     <label class="ic-label ic-label--required" id="send-2fa-instructions"></label>
@@ -148,21 +148,22 @@
                 </button>
             </form>
         </div>
-
+        
         <!-- RESPONSE SUCCESS -->
         <div id="progress-response-success" class="progress-response" hidden>
             <div class="ic-text-center">
                 <div style="font-size: 4rem; margin-bottom: 1rem; color: var(--success);">✓</div>
                 <h1 class="ic-header-title" style="color: var(--success); margin-bottom: 0.5rem;">
-                    <%= __('i18n.views.manage.success') %>
+                    Collection Complete
                 </h1>
-                <p class="ic-header-subtitle">Collecte terminée avec succès</p>
-                <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem;">
-                    <%= __('i18n.views.manage.continue') %>
+                <div class="ic-badge ic-badge--stable" style="margin-bottom: 1rem;">Successfully collected</div>
+                <p class="ic-header-subtitle">Status: Complete</p>
+                <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                    Close
                 </button>
             </div>
         </div>
-
+        
         <!-- RESPONSE UNKNOWN -->
         <div id="progress-response-unknown" class="progress-response" hidden>
             <div class="ic-text-center">
@@ -171,22 +172,23 @@
                     <%= __('i18n.views.manage.unknown') %>
                 </h1>
                 <p class="ic-header-subtitle">La collecte est en cours...</p>
-                <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem;">
-                    <%= __('i18n.views.manage.continue') %>
+                <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                    Close
                 </button>
             </div>
         </div>
-
+        
         <!-- RESPONSE ERROR -->
         <div id="progress-response-error" class="progress-response" hidden>
             <div class="ic-text-center">
                 <div style="font-size: 4rem; margin-bottom: 1rem; color: var(--danger);">✕</div>
                 <h1 class="ic-header-title" style="color: var(--danger); margin-bottom: 0.5rem;">
-                    Erreur
+                    Collection Failed
                 </h1>
-                <p class="ic-header-subtitle" id="progress-response-error-text">Une erreur est survenue</p>
-                <button class="ic-button ic-button--danger" onclick="closeIframe()" style="margin-top: 2rem;">
-                    <%= __('i18n.views.manage.return') %>
+                <p class="ic-header-subtitle" id="progress-response-error-text">Identifiant ou mot de passe incorrect</p>
+                <p style="margin-top: 0.5rem; color: var(--muted);">Status: Failed</p>
+                <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                    Close
                 </button>
             </div>
         </div>
