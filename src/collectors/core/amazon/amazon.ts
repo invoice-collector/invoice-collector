@@ -13,7 +13,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "23",
+        version: "24",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -217,7 +217,7 @@ export class AmazonCollector extends WebCollector {
         }
 
         // Download order
-        documents.unshift(await this.download_webpage(newPage, origin + orderLink));
+        //documents.unshift(await this.download_webpage(newPage, origin + orderLink));
 
         return documents;
     }
