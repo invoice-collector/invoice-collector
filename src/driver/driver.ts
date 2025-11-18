@@ -504,7 +504,6 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        this.page.bringToFront();
         return await this.page.screenshot({encoding: 'base64'});
     }
 
