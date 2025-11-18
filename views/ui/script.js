@@ -30,6 +30,7 @@ async function getCollectors() {
 
 function closeIframe() {
     // Post message au parent pour fermer l'iframe
+    console.log('iframe closed');
     window.parent.postMessage({ type: 'invoice-collector-close' }, '*');
 }
 
@@ -640,6 +641,7 @@ function filterCompanies(searchTerm) {
 }
 
 // Fonction pour afficher les companies
+// Fonction pour afficher les companies
 function renderCompanies(companiesToRender) {
     const companyList = document.getElementById('companies-list');
     companyList.innerHTML = '';
@@ -648,6 +650,9 @@ function renderCompanies(companiesToRender) {
     companiesToRender.forEach(company => {
         const companyCard = document.createElement('div');
         companyCard.className = 'ic-card';
+        const paramsCount = Object.keys(company.params).length;
+        const fieldsText = paramsCount === 1 ? i18n.fieldRequired : i18n.fieldsRequired;
+        
         companyCard.innerHTML = `
             <div class="ic-card-header">
                 <img src="${company.logo}" alt="${company.name}" class="ic-card-logo">
@@ -660,7 +665,7 @@ function renderCompanies(companiesToRender) {
             </div>
             <div class="ic-card-footer">
                 <div class="ic-card-meta">
-                    <span>${Object.keys(company.params).length} champs requis</span>
+                    <span>${paramsCount} ${fieldsText}</span>
                 </div>
                 ${company.state === 'development' ? '<span class="ic-badge ic-badge--info">Development</span>' : ''}
                 ${company.state === 'active' ? '<span class="ic-badge ic-badge--stable">Active</span>' : ''}
@@ -677,17 +682,16 @@ function renderCompanies(companiesToRender) {
     specialCard.innerHTML = `
         <div class="ic-card-header">
             <img src="/views/styles/icons/plus.svg" alt="Add" class="ic-card-logo">
-            
             <div>
-                <h3 class="ic-card-title">Can't find your collector?</h3>
+                <h3 class="ic-card-title">${i18n.cantFindCollector}</h3>
             </div>
         </div>
         <div class="ic-card-body">
-            <p class="ic-card-description">Let us know and we'll add it for you!</p>
+            <p class="ic-card-description">${i18n.letUsKnow}</p>
         </div>
         <div class="ic-card-footer">
             <div class="ic-card-meta">
-                <span>Request new</span>
+                <span>${i18n.requestNew}</span>
             </div>
         </div>
     `;

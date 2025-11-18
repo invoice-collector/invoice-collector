@@ -71,7 +71,7 @@ class Datepicker {
     // Icône calendrier
     const icon = document.createElement('span');
     icon.className = 'ic-datepicker-icon';
-    icon.innerHTML = '📅';
+    icon.innerHTML = '<img src="/views/styles/icons/calendar.svg" alt="Calendar">';
     
     // Modal overlay
     this.modalOverlay = document.createElement('div');
