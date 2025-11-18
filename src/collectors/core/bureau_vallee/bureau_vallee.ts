@@ -2,7 +2,7 @@ import { WebCollector } from '../../web2Collector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
-import { UnfinishedCollectorError } from '../../../error';
+import * as utils from '../../../utils';
 
 export class BureauValleeCollector extends WebCollector {
 
@@ -10,7 +10,7 @@ export class BureauValleeCollector extends WebCollector {
         id: "bureau_vallee",
         name: "Bureau Vallee",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "6",
+        version: "7",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
@@ -80,14 +80,30 @@ export class BureauValleeCollector extends WebCollector {
     }
  
     async getInvoices(driver: Driver, params: any): Promise<Element[]> {
-        throw new UnfinishedCollectorError(this);
+        return await driver.getElements(BureauValleeSelectors.CONTAINER_INVOICE);
     }
 
     async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
-        throw new UnfinishedCollectorError(this);
+        // Get data
+        const date = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_DATE, "textContent");
+        const timestamp = utils.timestampFromString(date, "dd'/'MM'/'yyyy", 'fr');
+        const amount = await element.getAttribute(BureauValleeSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
+        const downloadElement = await element.getElement(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD);
+        const link = await element.getAttribute(BureauValleeSelectors.BUTTON_INVOICE_DOWNLOAD, "href");
+
+        return {
+            id: utils.hash_string(`${date}${amount}`),
+            timestamp,
+            amount,
+            link,
+            downloadData: { element: downloadElement }
+        };
     }
 
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
-        throw new UnfinishedCollectorError(this);
+        // Click on element
+        await invoice.downloadData?.element.click();
+        // Wait for the invoice to be downloaded
+        return [await this.download_from_file(driver)];
     }
 }
