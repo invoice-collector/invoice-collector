@@ -9246,5 +9246,9 @@
   "i18n.views.manage.request_new": "Demander",
   "i18n.views.manage.fields_required": "champs requis",
   "i18n.views.manage.field_required": "champ requis",
-  "i18n.views.manage.date_placeholder": "jj / mm / aaaa"
+  "i18n.views.manage.date_placeholder": "jj / mm / aaaa",
+  "i18n.views.manage.collection_success_message": "Vos factures ont été collectées avec succès",
+  "i18n.views.manage.processing": "Traitement en cours",
+  "i18n.views.manage.collection_in_progress": "La collecte est toujours en cours",
+  "i18n.views.manage.invalid_credentials": "Identifiants invalides"
 }

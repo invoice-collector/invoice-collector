@@ -1,7 +1,6 @@
 /* ===================================
    THEME: OCEAN (Inspiré Axonaut)
    =================================== */
-
 html[data-theme="ocean"] {
   /* Couleurs de base - Bleu marine foncé type Axonaut */
   --bg: #1e3a5f;
@@ -9,57 +8,129 @@ html[data-theme="ocean"] {
   --text-secondary: #b8d4f1;
   --muted: #8ba9c9;
   --placeholder: #5a7a9d;
-
+  
   /* Couleurs primaires - Bleu clair/cyan */
   --primary: #2D95F8;
   --primary-hover: #3b9dff;
   --primary-focus: rgba(59, 157, 255, 0.2);
-
+  
   /* Couleurs secondaires */
   --secondary: #2c4e73;
   --secondary-hover: #3a5f88;
-
+  
   /* Cards - Bleu marine plus clair */
   --card: #2a4d6e;
   --card-border: #3a5f88;
   --card-special: #243d5c;
   --card-special-hover: #2c4e73;
-
-  /* Status colors */
-  --success: #4caf50;
-  --success-hover: #45a049;
-  --success-bg: rgba(76, 175, 80, 0.15);
-
-  --warning: #ff9800;
-  --warning-hover: #fb8c00;
-  --warning-bg: rgba(255, 152, 0, 0.15);
-
-  --danger: #f44336;
-  --danger-hover: #e53935;
-  --danger-bg: rgba(244, 67, 54, 0.15);
-
-  --info: #3b9dff;
-  --info-hover: #2b8de8;
-  --info-bg: rgba(59, 157, 255, 0.15);
-
+  
+  /* Status colors - Plus visibles sur fond sombre */
+  --success: #34d399;
+  --success-hover: #10b981;
+  --success-bg: rgba(52, 211, 153, 0.15);
+  
+  --warning: #fbbf24;
+  --warning-hover: #f59e0b;
+  --warning-bg: rgba(251, 191, 36, 0.15);
+  
+  --danger: #f87171;
+  --danger-hover: #ef4444;
+  --danger-bg: rgba(248, 113, 113, 0.15);
+  
+  --info: #60a5fa;
+  --info-hover: #3b82f6;
+  --info-bg: rgba(96, 165, 250, 0.15);
+  
   /* Forms */
   --input-bg: #243d5c;
   --input-border: #3a5f88;
   --disabled-bg: #1e3550;
-
+  
   /* Progress */
   --progress-bg: #3a5f88;
-
+  
   /* Spinner */
   --spinner-bg: #3a5f88;
-
+  
   /* Shadows - Plus douces pour le thème sombre */
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.5);
-
+  
   /* Border radius */
-  --radius: 16px;
+  --radius: 8px;
   --radius-lg: 16px;
   --radius-full: 9999px;
+  
+  /* Fond des logos - Plus clair pour le contraste */
+  --logo-bg: #3a5f88;
+}
+
+/* ===================================
+   OCEAN THEME - Icon Fixes
+   =================================== */
+html[data-theme="ocean"] .ic-alert-icon,
+html[data-theme="ocean"] .ic-back-icon img,
+html[data-theme="ocean"] .ic-canvas-toolbar-back img,
+html[data-theme="ocean"] .ic-canvas-toolbar-icon img,
+html[data-theme="ocean"] .ic-input-icon {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+/* Couleurs spécifiques pour les alertes ocean */
+html[data-theme="ocean"] .ic-alert--error .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(1352%) hue-rotate(325deg) brightness(101%) contrast(96%);
+}
+
+html[data-theme="ocean"] .ic-alert--success .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(76%) sepia(47%) saturate(459%) hue-rotate(107deg) brightness(96%) contrast(91%);
+}
+
+html[data-theme="ocean"] .ic-alert--info .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(66%) sepia(52%) saturate(667%) hue-rotate(188deg) brightness(102%) contrast(97%);
+}
+
+html[data-theme="ocean"] .ic-alert--warning .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(83%) sepia(49%) saturate(684%) hue-rotate(354deg) brightness(103%) contrast(97%);
+}
+
+/* Response icons pour ocean */
+html[data-theme="ocean"] .ic-response-icon--success {
+  box-shadow: 0 0 0 8px rgba(52, 211, 153, 0.15);
+}
+
+html[data-theme="ocean"] .ic-response-icon--success img {
+  filter: brightness(0) saturate(100%) invert(76%) sepia(47%) saturate(459%) hue-rotate(107deg) brightness(96%) contrast(91%);
+}
+
+html[data-theme="ocean"] .ic-response-icon--warning {
+  box-shadow: 0 0 0 8px rgba(251, 191, 36, 0.15);
+}
+
+html[data-theme="ocean"] .ic-response-icon--warning img {
+  filter: brightness(0) saturate(100%) invert(83%) sepia(49%) saturate(684%) hue-rotate(354deg) brightness(103%) contrast(97%);
+}
+
+html[data-theme="ocean"] .ic-response-icon--danger {
+  box-shadow: 0 0 0 8px rgba(248, 113, 113, 0.15);
+}
+
+html[data-theme="ocean"] .ic-response-icon--danger img {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(1352%) hue-rotate(325deg) brightness(101%) contrast(96%);
+}
+
+/* Logo background pour ocean - plus clair */
+html[data-theme="ocean"] .ic-card-logo {
+  background: var(--logo-bg);
+}
+
+html[data-theme="ocean"] .ic-collector-info-logo {
+  background: var(--logo-bg);
+}
+
+/* Special card icon - blanc sur ocean */
+html[data-theme="ocean"] .ic-card--special .ic-card-logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
 }

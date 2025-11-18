@@ -564,21 +564,25 @@ body {
 
 .ic-progress {
   margin-bottom: 1.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ic-progress-label {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   font-size: 0.875rem;
-  color: var(--text);
+  color: var(--muted);
   font-weight: 500;
+  min-height: 1.5rem;
 }
 
 .ic-progress-bar {
   width: 100%;
-  height: 8px;
+  height: 6px;
   background: var(--progress-bg);
   border-radius: 9999px;
   overflow: hidden;
@@ -586,9 +590,32 @@ body {
 
 .ic-progress-fill {
   height: 100%;
-  background: var(--primary);
+  background: linear-gradient(90deg, var(--primary), var(--primary-hover));
   border-radius: 9999px;
-  transition: width 0.3s ease;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+/* Animation subtile sur la barre */
+.ic-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
 /* ===================================
@@ -658,11 +685,16 @@ body {
     transition: all 0.2s ease;
 }
 
-/* L'image SVG à l'intérieur */
+/* Back button icon */
 .ic-back-icon img {
-    width: 16px;       /* Taille de l'icône */
-    height: 16px;
-    display: block;
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+/* Input search icon */
+.ic-input-icon {
+  opacity: 0.5;
 }
 
 /* --- Effets au survol (Hover) --- */
@@ -968,7 +1000,7 @@ body {
   flex-shrink: 0;
 }
 
-/* Colorer les SVG selon le type d'alerte */
+/* Pour le thème par défaut (clair) */
 .ic-alert--error .ic-alert-icon {
   filter: brightness(0) saturate(100%) invert(27%) sepia(94%) saturate(2255%) hue-rotate(347deg) brightness(91%) contrast(93%);
 }
@@ -985,22 +1017,37 @@ body {
   filter: brightness(0) saturate(100%) invert(67%) sepia(65%) saturate(497%) hue-rotate(2deg) brightness(103%) contrast(104%);
 }
 
+/* Canvas toolbar icons */
+.ic-canvas-toolbar-back img,
+.ic-canvas-toolbar-icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+}
+
+.ic-canvas-toolbar-icon img {
+  width: 24px;
+  height: 24px;
+}
+
 /* Response icons (gros icons dans les résultats) */
 .ic-response-icon {
-  width: 80px;
-  height: 80px;
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.5rem;
+  position: relative;
 }
 
 .ic-response-icon img {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
 }
 
+/* Success */
 .ic-response-icon--success {
   background: var(--success-bg);
 }
@@ -1009,6 +1056,7 @@ body {
   filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(382%) hue-rotate(93deg) brightness(95%) contrast(92%);
 }
 
+/* Warning */
 .ic-response-icon--warning {
   background: var(--warning-bg);
 }
@@ -1017,12 +1065,37 @@ body {
   filter: brightness(0) saturate(100%) invert(67%) sepia(65%) saturate(497%) hue-rotate(2deg) brightness(103%) contrast(104%);
 }
 
+/* Danger */
 .ic-response-icon--danger {
   background: var(--danger-bg);
 }
 
 .ic-response-icon--danger img {
   filter: brightness(0) saturate(100%) invert(27%) sepia(94%) saturate(2255%) hue-rotate(347deg) brightness(91%) contrast(93%);
+}
+
+/* Response container styling */
+.progress-response {
+  padding: 2rem 1rem;
+}
+
+.progress-response .ic-header-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-response .ic-header-subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* Status text styling */
+.ic-status-text {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Canvas toolbar icons */
@@ -1060,4 +1133,92 @@ body {
   .ic-canvas-btn-text {
     display: none;
   }
+}
+/* ===================================
+   PROGRESS SCREEN (Card centered)
+   =================================== */
+.ic-progress-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+}
+
+.ic-progress-card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+    padding: 3rem 2rem;
+    min-width: 500px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.ic-progress-divider {
+    height: 1px;
+    background: var(--card-border);
+    margin: 1.5rem 0;
+}
+
+.ic-progress-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+}
+
+.ic-progress-card-title--danger {
+    color: var(--danger);
+}
+
+.ic-progress-card-subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Large response icons (80px with shadow) */
+.ic-response-icon-large {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+}
+
+.ic-response-icon-large img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.ic-response-icon-large--success {
+    background: var(--success);
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+}
+
+.ic-response-icon-large--warning {
+    background: var(--warning);
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+}
+
+.ic-response-icon-large--danger {
+    background: var(--danger);
+    box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* Responsive for progress card */
+@media (max-width: 639px) {
+    .ic-progress-card {
+        min-width: auto;
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .ic-progress-card-title {
+        font-size: 1.25rem;
+    }
 }

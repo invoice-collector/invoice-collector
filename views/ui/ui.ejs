@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="<%= theme %>">
+<html lang="en" data-theme="<%= theme %>"> 
+<!--<html lang="en" data-theme="default">-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice-Collector - <%= __('i18n.views.manage.my_collectors') %></title>
     <link rel="stylesheet" href="/views/styles/base.css">
     <link rel="stylesheet" href="/views/styles/theme.<%= theme %>.css">
+    <!-- <link rel="stylesheet" href="/views/styles/theme.default.css"> -->
     <link rel="stylesheet" href="/views/styles/datepicker.css">
     <link rel="icon" href="/views/icons/favicon.ico" type="image/x-icon">
     <script src="/views/utils/datepicker.js"></script>
@@ -103,96 +105,106 @@
     </div>
     <!-- PROGRESS CONTAINER -->
     <div id="progress-container" class="ic-container ic-hidden">
-        <!-- TITLE (à cacher quand résultat affiché) -->
-        <div id="progress-loading" class="ic-text-center">
-            <div class="ic-loader">
-                <div class="ic-spinner ic-spinner--large"></div>
-            </div>
-            
-            <h1 class="ic-header-title" style="margin-bottom: 0.5rem;">
-                <%= __('i18n.views.manage.adding_collector') %>
-            </h1>
-            <p class="ic-header-subtitle" id="progress-subtitle"><%= __('i18n.views.manage.collecting_data') %></p>
-        </div>
-        
-        <!-- PROGRESS BAR (à cacher quand résultat affiché) -->
-        <div id="progress-bar-section" class="ic-progress" style="margin-top: 2rem;">
-            <div class="ic-progress-label">
-                <span id="progress-text"></span>
-            </div>
-            <div class="ic-progress-bar" id="progress-bar-container">
-                <div class="ic-progress-fill" id="progress-bar" style="width: 0%"></div>
-            </div>
-        </div>
-        
-        <!-- 2FA FORM -->
-        <div id="send-2fa-container" hidden>
-            <form id="send-2fa-form" style="margin-top: 2rem;">
-                <div class="ic-form-group">
-                    <label class="ic-label ic-label--required" id="send-2fa-instructions"></label>
-                    <input 
-                        type="text" 
-                        name="code" 
-                        class="ic-input" 
-                        placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>"
-                    >
+        <div class="ic-progress-screen">
+            <div class="ic-progress-card">
+                
+                <!-- LOADING STATE -->
+                <div id="progress-loading">
+                    <div class="ic-loader">
+                        <div class="ic-spinner ic-spinner--large"></div>
+                    </div>
+                    
+                    <h1 class="ic-header-title" style="margin-bottom: 0.5rem;">
+                        <%= __('i18n.views.manage.adding_collector') %>
+                    </h1>
+                    <p class="ic-header-subtitle" id="progress-subtitle"><%= __('i18n.views.manage.collecting_data') %></p>
+                    
+                    <div class="ic-progress-divider"></div>
+                    
+                    <!-- PROGRESS BAR -->
+                    <div id="progress-bar-section" class="ic-progress">
+                        <div class="ic-progress-label">
+                            <span id="progress-text"></span>
+                        </div>
+                        <div class="ic-progress-bar" id="progress-bar-container">
+                            <div class="ic-progress-fill" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2FA FORM -->
+                    <div id="send-2fa-container" hidden>
+                        <form id="send-2fa-form" style="margin-top: 1.5rem;">
+                            <div class="ic-form-group">
+                                <label class="ic-label ic-label--required" id="send-2fa-instructions"></label>
+                                <input 
+                                    type="text" 
+                                    name="code" 
+                                    class="ic-input" 
+                                    placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>"
+                                >
+                            </div>
+                            <button type="submit" class="ic-button ic-button--primary" style="width: 100%;">
+                                <%= __('i18n.views.manage.continue') %>
+                            </button>
+                        </form>
+                    </div>
                 </div>
-                <button type="submit" class="ic-button ic-button--primary" style="width: 100%;">
-                    <%= __('i18n.views.manage.continue') %>
-                </button>
-            </form>
-        </div>
-        
-        <!-- RESPONSE SUCCESS -->
-        <div id="progress-response-success" class="progress-response" hidden>
-            <div class="ic-text-center">
-                <div class="ic-response-icon ic-response-icon--success">
-                    <img src="/views/styles/icons/check.svg" alt="Success">
+                
+                <!-- RESPONSE SUCCESS -->
+                <div id="progress-response-success" class="progress-response" hidden>
+                    <div class="ic-response-icon-large ic-response-icon-large--success">
+                        <img src="/views/styles/icons/check.svg" alt="Success">
+                    </div>
+                    <h1 class="ic-progress-card-title">
+                        <%= __('i18n.views.manage.collection_complete') || 'Collection Complete' %>
+                    </h1>
+                    <div class="ic-progress-divider"></div>
+                    <p class="ic-progress-card-subtitle">
+                        <%= __('i18n.views.manage.collection_success_message') || 'Your invoices have been collected successfully' %>
+                    </p>
+                    <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                        <%= __('i18n.views.manage.close') || 'Close' %>
+                    </button>
                 </div>
-                <h1 class="ic-header-title" style="color: var(--success); margin-bottom: 0.5rem;">
-                    <%= __('i18n.views.manage.collection_complete') %>
-                </h1>
-                <div class="ic-badge ic-badge--stable" style="margin-bottom: 1rem;"><%= __('i18n.views.manage.successfully_collected') %></div>
-                <p class="ic-header-subtitle"><%= __('i18n.views.manage.status_complete') %></p>
-                <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
-                    <%= __('i18n.views.manage.close') %>
-                </button>
-            </div>
-        </div>
-        
-        <!-- RESPONSE UNKNOWN -->
-        <div id="progress-response-unknown" class="progress-response" hidden>
-            <div class="ic-text-center">
-                <div class="ic-response-icon ic-response-icon--warning">
-                    <img src="/views/styles/icons/circle-question-mark.svg" alt="Unknown">
+                
+                <!-- RESPONSE UNKNOWN -->
+                <div id="progress-response-unknown" class="progress-response" hidden>
+                    <div class="ic-response-icon-large ic-response-icon-large--warning">
+                        <img src="/views/styles/icons/circle-question-mark.svg" alt="Unknown">
+                    </div>
+                    <h1 class="ic-progress-card-title">
+                        <%= __('i18n.views.manage.processing') || 'Processing' %>
+                    </h1>
+                    <div class="ic-progress-divider"></div>
+                    <p class="ic-progress-card-subtitle">
+                        <%= __('i18n.views.manage.collection_in_progress') || 'Collection is still in progress' %>
+                    </p>
+                    <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                        <%= __('i18n.views.manage.close') || 'Close' %>
+                    </button>
                 </div>
-                <h1 class="ic-header-title" style="color: var(--warning); margin-bottom: 0.5rem;">
-                    <%= __('i18n.views.manage.unknown') %>
-                </h1>
-                <p class="ic-header-subtitle"><%= __('i18n.views.manage.collecting_data') %></p>
-                <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
-                    <%= __('i18n.views.manage.close') %>
-                </button>
-            </div>
-        </div>
-        
-        <!-- RESPONSE ERROR -->
-        <div id="progress-response-error" class="progress-response" hidden>
-            <div class="ic-text-center">
-                <div class="ic-response-icon ic-response-icon--danger">
-                    <img src="/views/styles/icons/x.svg" alt="Error">
+                
+                <!-- RESPONSE ERROR -->
+                <div id="progress-response-error" class="progress-response" hidden>
+                    <div class="ic-response-icon-large ic-response-icon-large--danger">
+                        <img src="/views/styles/icons/x.svg" alt="Error">
+                    </div>
+                    <h1 class="ic-progress-card-title ic-progress-card-title--danger">
+                        <%= __('i18n.views.manage.collection_failed') || 'Collection Failed' %>
+                    </h1>
+                    <div class="ic-progress-divider"></div>
+                    <p class="ic-progress-card-subtitle" id="progress-response-error-text">
+                        <%= __('i18n.views.manage.invalid_credentials') || 'Invalid credentials' %>
+                    </p>
+                    <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                        <%= __('i18n.views.manage.close') || 'Close' %>
+                    </button>
                 </div>
-                <h1 class="ic-header-title" style="color: var(--danger); margin-bottom: 0.5rem;">
-                    <%= __('i18n.views.manage.collection_failed') %>
-                </h1>
-                <p class="ic-header-subtitle" id="progress-response-error-text"></p>
-                <p style="margin-top: 0.5rem; color: var(--muted);"><%= __('i18n.views.manage.status_failed') %></p>
-                <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
-                    <%= __('i18n.views.manage.close') %>
-                </button>
+                
             </div>
         </div>
     </div>
+
     <!-- CANVAS CONTAINER (plein écran) -->
     <div id="canvas-container" class="ic-canvas-fullscreen" hidden>
         <!-- Barre de menu supérieure -->

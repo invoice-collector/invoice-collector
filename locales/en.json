@@ -9246,5 +9246,9 @@
   "i18n.views.manage.request_new": "Request new",
   "i18n.views.manage.fields_required": "fields required",
   "i18n.views.manage.field_required": "field required",
-  "i18n.views.manage.date_placeholder": "dd / mm / yyyy"
+  "i18n.views.manage.date_placeholder": "dd / mm / yyyy",
+  "i18n.views.manage.collection_success_message": "Your invoices have been collected successfully",
+  "i18n.views.manage.processing": "Processing",
+  "i18n.views.manage.collection_in_progress": "Collection is still in progress",
+  "i18n.views.manage.invalid_credentials": "Invalid credentials"
 }
