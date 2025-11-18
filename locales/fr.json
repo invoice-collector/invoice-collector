@@ -5724,7 +5724,7 @@
   "i18n.collectors.opal_kurier_logistik.description": "Un prestataire de services de messagerie et de logistique allemand proposant des solutions fiables de livraison de colis et de fret.",
   "i18n.collectors.open_drive.description": "Un service de stockage cloud proposant le partage de fichiers, la sauvegarde et des outils de collaboration pour un usage personnel et professionnel.",
   "i18n.collectors.open_telekom_cloud.description": "Une plateforme cloud sécurisée et évolutive de Deutsche Telekom pour les entreprises et les développeurs.",
-  "i18n.collectors.openai.description": "OpenAI est une organisation de recherche et une entreprise qui développe des technologies d'intelligence artificielle. Utilisez ce collecteur pour les souscriptions API d'OpenAI.",
+  "i18n.collectors.openai_api.description": "OpenAI est une organisation de recherche et une entreprise qui développe des technologies d'intelligence artificielle. Utilisez ce collecteur pour les souscriptions API d'OpenAI.",
   "i18n.collectors.openai_chatgpt.description": "ChatGPT est un modèle de langage avancé développé par OpenAI, capable de comprendre et de générer du texte naturel. Utilisez ce collecteur pour les souscriptions ChatGPT Plus.",
   "i18n.collectors.opencart.description": "Une plateforme e-commerce open-source pour créer et gérer des boutiques en ligne.",
   "i18n.collectors.openexchangerates.description": "Fournit des taux de change (FX) en temps réel et historiques via une API JSON simple.",

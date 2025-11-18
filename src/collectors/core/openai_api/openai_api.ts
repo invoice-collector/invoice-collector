@@ -1,16 +1,16 @@
 import { WebCollector } from '../../web2Collector';
 import { OpenaiSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorType, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
 
-export class OpenaiCollector extends WebCollector {
+export class OpenaiApiCollector extends WebCollector {
 
     static CONFIG = {
-        id: "openai",
-        name: "OpenAI",
-        description: "i18n.collectors.openai.description",
+        id: "openai_api",
+        name: "OpenAI (API)",
+        description: "i18n.collectors.openai_api.description",
         version: "5",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
@@ -37,7 +37,7 @@ export class OpenaiCollector extends WebCollector {
     }
 
     constructor() {
-        super(OpenaiCollector.CONFIG);
+        super(OpenaiApiCollector.CONFIG);
     }
 
     async needLogin(driver: Driver): Promise<boolean> {
@@ -96,7 +96,7 @@ export class OpenaiCollector extends WebCollector {
         // Wait for billing button
         await driver.getElement(OpenaiSelectors.BUTTON_BILLING, { timeout: 5000 });
         // Go to invoices page
-        await driver.goto(OpenaiCollector.CONFIG.entryUrl);
+        await driver.goto(OpenaiApiCollector.CONFIG.entryUrl);
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {

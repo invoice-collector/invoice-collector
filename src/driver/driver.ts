@@ -205,7 +205,11 @@ export class Driver {
 
             // Check if response is 404
             if (response && response.status() == 404) {
-                throw new LoggableError(`Failed to navigate to ${url}, page not found 404`, this.collector);
+                const error = new LoggableError(`Failed to navigate to ${url}, page not found 404`, this.collector);
+                error.url = url;
+                error.source_code = await this.sourceCode(true, true);
+                error.screenshot = await this.screenshot();
+                throw error;
             }
             return {requestBody: null, responseBody: null};
         }
@@ -269,7 +273,11 @@ export class Driver {
         }
 
         if (raiseException) {
-            throw new LoggableError(error_message, this.collector);
+            const error = new LoggableError(error_message, this.collector);
+            error.url = this.url();
+            error.source_code = await this.sourceCode(true, true);
+            error.screenshot = await this.screenshot();
+            throw error;
         }
         return null;
     }
@@ -291,9 +299,13 @@ export class Driver {
         ).catch(() => null);
 
         if (element == null && raiseException) {
-            throw new ElementNotFoundError(this.collector, selector, {
+            const error = new ElementNotFoundError(this.collector, selector, {
                 cause: `No element matching selector "${selector.selector}"`
             })
+            error.url = this.url();
+            error.source_code = await this.sourceCode(true, true);
+            error.screenshot = await this.screenshot();
+            throw error;
         }
 
         return element ? new Element(element, this) : null;
@@ -362,7 +374,11 @@ export class Driver {
         const element = await this.getElement(selector, { raiseException, timeout });
         if (element == null) {
             if (raiseException) {
-                throw new ElementNotFoundError(this.collector, selector);
+                const error = new ElementNotFoundError(this.collector, selector);
+                error.url = this.url();
+                error.source_code = await this.sourceCode(true, true);
+                error.screenshot = await this.screenshot();
+                throw error;
             }
             return '';
         }
@@ -480,14 +496,18 @@ export class Driver {
         // Get source code of all frames, removing scripts, svgs, styles, heads and iframes
         const framesSourceCode = await Promise.all(
             frames.map(async frame => {
-                const sourceCode = (await frame.content())
-                return sourceCode
-                    .replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, '')
-                    .replace(/<svg\b[^>]*>([\s\S]*?)<\/svg>/gi, '')
-                    .replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, '')
-                    .replace(/<head\b[^>]*>([\s\S]*?)<\/head>/gi, '')
-                    .replace(/<iframe\b[^>]*>([\s\S]*?)<\/iframe>/gi, '');
-                })
+                try {
+                    const sourceCode = (await frame.content())
+                    return sourceCode
+                        .replace(/<script\b[^>]*>([\s\S]*?)<\/script>/gi, '')
+                        .replace(/<svg\b[^>]*>([\s\S]*?)<\/svg>/gi, '')
+                        .replace(/<style\b[^>]*>([\s\S]*?)<\/style>/gi, '')
+                        .replace(/<head\b[^>]*>([\s\S]*?)<\/head>/gi, '')
+                        .replace(/<iframe\b[^>]*>([\s\S]*?)<\/iframe>/gi, '');
+                } catch (error) {
+                    return `<!-- Unable to retrieve frame content. Error: ${error} -->`;
+                }
+            })
         );
 
         const fullSourceCode = framesSourceCode.join('\n<!-- ========== FRAME SEPARATOR ========== -->\n');
@@ -531,7 +551,11 @@ export class Driver {
 
         // Check if no file found
         if (file === null) {
-            throw new LoggableError(`No file downloaded after ${Driver.DEFAULT_DOWNLOAD_TIMEOUT}ms`, this.collector);
+            const error = new LoggableError(`No file downloaded after ${Driver.DEFAULT_DOWNLOAD_TIMEOUT}ms`, this.collector);
+            error.url = this.url();
+            error.source_code = await this.sourceCode(true, true);
+            error.screenshot = await this.screenshot();
+            throw error;
         }
 
         // Read the file
@@ -667,9 +691,13 @@ export class Element {
         const elementHandle = await this.element.$(selector.selector);
         // If element not found and must raise exception
         if (!elementHandle && raiseException) {
-            throw new ElementNotFoundError(this.driver.collector, selector, {
+            const error = new ElementNotFoundError(this.driver.collector, selector, {
                 cause: `No element matching selector "${selector.selector}"`
             });
+            error.url = this.driver.url();
+            error.source_code = await this.driver.sourceCode(true, true);
+            error.screenshot = await this.driver.screenshot();
+            throw error;
         }
         return elementHandle ? new Element(elementHandle, this.driver) : null;
     }
