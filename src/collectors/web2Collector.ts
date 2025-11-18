@@ -22,14 +22,14 @@ export type WebConfig = Config & {
     }
 }
 
-export enum DocumentsStrategy {
+export enum DocumentStrategy {
     SPLIT = "split",
     MERGE = "merge"
 }
 
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
-    static DOCUMENTS_STRATEGY = DocumentsStrategy.SPLIT;
+    static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
     driver: Driver | null;
 
@@ -195,7 +195,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 await driver.closeExtraPages();
 
                                 // If one document downloaded
-                                if (WebCollector.DOCUMENTS_STRATEGY == DocumentsStrategy.MERGE && documents.length > 1) {
+                                if (WebCollector.DEFAULT_DOCUMENT_STRATEGY == DocumentStrategy.MERGE && documents.length > 1) {
                                     documents = [await utils.mergePdfDocuments(documents)];
                                 }
                                 console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
