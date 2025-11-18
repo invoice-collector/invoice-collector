@@ -229,15 +229,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             return invoices;
         } catch (error) {
-            // Get url, source code and screenshot
-            const url = driver.url();
-            const source_code = await driver.sourceCode(true, true);
-            const screenshot = await driver.screenshot();
-
             if (error instanceof LoggableError) {
-                error.url = url;
-                error.source_code = source_code;
-                error.screenshot = screenshot;
+                if (!error.url) error.url = driver.url();
+                if (!error.source_code) error.source_code = await driver.sourceCode(true, true);
+                if (!error.screenshot) error.screenshot = await driver.screenshot();
             }
             if (error instanceof CollectorError) {
                 throw error;
@@ -249,9 +244,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 this,
                 { cause: error }
             );
-            loggableError.url = url;
-            loggableError.source_code = source_code;
-            loggableError.screenshot = screenshot;
+            loggableError.url = driver.url();
+            loggableError.source_code = await driver.sourceCode(true, true);
+            loggableError.screenshot = await driver.screenshot();
             throw loggableError;
         }
     }
