@@ -21,7 +21,7 @@
         <!-- Champ de recherche -->
         <div class="ic-form-group" style="margin-bottom: 2rem;">
             <div style="position: relative;">
-                <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted);">🔍</span>
+                <img src="/views/styles/icons/search.svg" alt="Search" class="ic-input-icon">
                 <input 
                     type="text" 
                     id="search-collectors" 
@@ -40,9 +40,11 @@
     <!-- FORM CONTAINER -->
     <div id="form-container" class="ic-container ic-hidden">
         <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
+            <span class="ic-back-icon">
+                <img src="/views/styles/icons/move-left.svg" alt="Back">
+            </span>
             <%= __('i18n.views.manage.return') %>
         </a>
-
         <div class="ic-header">
             <h1 class="ic-header-title" id="form-title"><%= __('i18n.views.manage.add_collectors') %></h1>
             <p class="ic-header-subtitle" id="form-subtitle">Connectez votre compte pour commencer à collecter les factures</p>
@@ -60,7 +62,7 @@
 
         <!-- Instructions -->
         <div class="ic-alert ic-alert--info ic-hidden" id="add-credential-instructions">
-            <span>ℹ</span>
+            <img src="/views/styles/icons/circle-question-mark.svg" alt="Info" class="ic-alert-icon">
             <div>
                 <strong><%= __('i18n.views.manage.instructions') %>:</strong>
                 <p id="instructions-text"></p>
@@ -80,8 +82,9 @@
                 </span>
             </div>
 
+            <!-- Form error alert -->
             <div class="ic-alert ic-alert--error ic-hidden" id="form-error">
-                <span>✕</span>
+                <img src="/views/styles/icons/x.svg" alt="Error" class="ic-alert-icon">
                 <div>
                     <strong>Erreur</strong> Veuillez remplir tous les champs obligatoires.
                 </div>
@@ -101,7 +104,7 @@
                 <%= __('i18n.views.manage.sketch.hit') %>
             </button>
             <div id="hit-sketch-success" class="ic-alert ic-alert--success ic-hidden" style="margin-top: 1rem;">
-                <span>✓</span>
+                <img src="/views/styles/icons/check.svg" alt="Success" class="ic-alert-icon">
                 <div><%= __('i18n.views.manage.sketch.hit.done') %></div>
             </div>
         </div>
@@ -152,7 +155,9 @@
         <!-- RESPONSE SUCCESS -->
         <div id="progress-response-success" class="progress-response" hidden>
             <div class="ic-text-center">
-                <div style="font-size: 4rem; margin-bottom: 1rem; color: var(--success);">✓</div>
+                <div class="ic-response-icon ic-response-icon--success">
+                    <img src="/views/styles/icons/check.svg" alt="Success">
+                </div>
                 <h1 class="ic-header-title" style="color: var(--success); margin-bottom: 0.5rem;">
                     Collection Complete
                 </h1>
@@ -167,7 +172,9 @@
         <!-- RESPONSE UNKNOWN -->
         <div id="progress-response-unknown" class="progress-response" hidden>
             <div class="ic-text-center">
-                <div style="font-size: 4rem; margin-bottom: 1rem; color: var(--warning);">⏱</div>
+                <div class="ic-response-icon ic-response-icon--warning">
+                    <img src="/views/styles/icons/circle-question-mark.svg" alt="Unknown">
+                </div>
                 <h1 class="ic-header-title" style="color: var(--warning); margin-bottom: 0.5rem;">
                     <%= __('i18n.views.manage.unknown') %>
                 </h1>
@@ -181,7 +188,9 @@
         <!-- RESPONSE ERROR -->
         <div id="progress-response-error" class="progress-response" hidden>
             <div class="ic-text-center">
-                <div style="font-size: 4rem; margin-bottom: 1rem; color: var(--danger);">✕</div>
+                <div class="ic-response-icon ic-response-icon--danger">
+                    <img src="/views/styles/icons/x.svg" alt="Error">
+                </div>
                 <h1 class="ic-header-title" style="color: var(--danger); margin-bottom: 0.5rem;">
                     Collection Failed
                 </h1>
@@ -199,17 +208,19 @@
         <!-- Barre de menu supérieure -->
         <div class="ic-canvas-toolbar">
             <button class="ic-canvas-toolbar-back" onclick="showCompanies()">
-                ←
+                <img src="/views/styles/icons/move-left.svg" alt="Back">
             </button>
-            <span class="ic-canvas-toolbar-icon">🔑</span>
+            <span class="ic-canvas-toolbar-icon">
+                <img src="/views/styles/icons/key-round.svg" alt="Key">
+            </span>
             <span class="ic-canvas-toolbar-text">Connect your account below, and then confirm your connection.</span>
             <div class="ic-canvas-toolbar-actions">
                 <button id="canvas-ok" class="ic-button ic-button--primary">
-                    <span class="ic-canvas-btn-icon">✓</span>
+                    <img src="/views/styles/icons/check.svg" alt="OK" class="ic-canvas-btn-icon">
                     <span class="ic-canvas-btn-text">I'm logged in</span>
                 </button>
                 <button id="canvas-cancel" class="ic-button ic-button--ghost">
-                    <span class="ic-canvas-btn-icon">✕</span>
+                    <img src="/views/styles/icons/x.svg" alt="Cancel" class="ic-canvas-btn-icon">
                     <span class="ic-canvas-btn-text">Cancel</span>
                 </button>
             </div>
@@ -224,6 +235,9 @@
     <!-- REQUEST COLLECTOR CONTAINER -->
     <div id="feedback-container" class="ic-container ic-hidden">
         <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
+            <span class="ic-back-icon">
+                <img src="/views/styles/icons/move-left.svg" alt="Back">
+            </span>
             <%= __('i18n.views.manage.return') %>
         </a>
         
@@ -240,12 +254,12 @@
             </div>
             
             <div class="ic-alert ic-alert--success ic-hidden" id="feedback-response-success">
-                <span>✓</span>
+                <img src="/views/styles/icons/check.svg" alt="Success" class="ic-alert-icon">
                 <div>Your request has been submitted successfully!</div>
             </div>
             
             <div class="ic-alert ic-alert--error ic-hidden" id="feedback-response-error">
-                <span>✕</span>
+                <img src="/views/styles/icons/x.svg" alt="Error" class="ic-alert-icon">
                 <div>An error occurred. Please try again.</div>
             </div>
             

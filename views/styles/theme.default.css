@@ -23,8 +23,8 @@ html:not([data-theme]) {
   /* Cards */
   --card: #ffffff;
   --card-border: #e2e8f0;
-  --card-special: #f8fafc;
-  --card-special-hover: #eff6ff;
+  --card-special: #ffffff;
+  --card-special-hover: #e2e8f0;
 
   /* Status colors - Inspirés d'Invoice Collector */
   --success: #10b981;

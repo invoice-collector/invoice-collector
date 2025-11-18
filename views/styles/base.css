@@ -103,7 +103,6 @@ body {
 /* ===================================
    CARDS
    =================================== */
-
 .ic-card {
   background: var(--card);
   border-radius: var(--radius);
@@ -112,6 +111,10 @@ body {
   border: 1px solid var(--card-border);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  /* Flexbox pour aligner le footer en bas */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .ic-card:hover {
@@ -141,6 +144,7 @@ body {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1rem;
+  flex-shrink: 0;
 }
 
 .ic-card-logo {
@@ -154,17 +158,61 @@ body {
 }
 
 .ic-card-title {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--text);
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ic-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .ic-card-description {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: var(--muted);
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0;
+  /* Limiter à 2 lignes avec ellipsis */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Hauteur fixe pour 2 lignes */
+  min-height: calc(1.5em * 2);
+  max-height: calc(1.5em * 2);
+  /* Pour le tooltip */
+  position: relative;
+  cursor: default;
+  margin-bottom: 0.5rem;
+}
+
+/* Tooltip au hover pour la description complète */
+.ic-card-description[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  max-width: 300px;
+  width: max-content;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  white-space: normal;
+  -webkit-line-clamp: unset;
+  display: block;
 }
 
 .ic-card-footer {
@@ -173,15 +221,16 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid var(--card-border);
+  flex-shrink: 0;
 }
 
 .ic-card-meta {
   display: flex;
   gap: 1rem;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--muted);
 }
 
@@ -390,7 +439,9 @@ body {
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--muted);
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
   pointer-events: none;
 }
 
@@ -583,24 +634,49 @@ body {
    =================================== */
 
 .ic-back-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  padding: 0.5rem 0;
-  transition: color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem; /* Un peu plus d'espace entre l'icône et le texte */
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 0;
+    transition: color 0.2s ease;
 }
 
+/* Le conteneur rond (le span) */
+.ic-back-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;       /* Taille du cercle */
+    height: 32px;      /* Taille du cercle */
+    border-radius: 50%; /* Rendre parfaitement rond */
+    background: var(--card); /* Fond blanc/gris selon le thème */
+    border: 1px solid var(--card-border); /* Le contour */
+    transition: all 0.2s ease;
+}
+
+/* L'image SVG à l'intérieur */
+.ic-back-icon img {
+    width: 16px;       /* Taille de l'icône */
+    height: 16px;
+    display: block;
+}
+
+/* --- Effets au survol (Hover) --- */
+
+/* Quand on survole le lien global */
 .ic-back-button:hover {
-  color: var(--primary);
+    color: var(--primary);
 }
 
-.ic-back-button::before {
-  content: "←";
-  font-size: 1.25rem;
+/* Changement de style du cercle au survol */
+.ic-back-button:hover .ic-back-icon {
+    border-color: var(--primary);
+    background: var(--bg);
+    transform: translateX(-2px); /* Petit mouvement vers la gauche */
 }
 
 /* ===================================
@@ -880,5 +956,108 @@ body {
 
   .ic-modal-footer .ic-button {
     width: 100%;
+  }
+}
+
+/* ===================================
+   ICON UTILITIES
+   =================================== */
+.ic-alert-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Colorer les SVG selon le type d'alerte */
+.ic-alert--error .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(94%) saturate(2255%) hue-rotate(347deg) brightness(91%) contrast(93%);
+}
+
+.ic-alert--success .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(382%) hue-rotate(93deg) brightness(95%) contrast(92%);
+}
+
+.ic-alert--info .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(45%) sepia(98%) saturate(1447%) hue-rotate(196deg) brightness(97%) contrast(95%);
+}
+
+.ic-alert--warning .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(65%) saturate(497%) hue-rotate(2deg) brightness(103%) contrast(104%);
+}
+
+/* Response icons (gros icons dans les résultats) */
+.ic-response-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.ic-response-icon img {
+  width: 40px;
+  height: 40px;
+}
+
+.ic-response-icon--success {
+  background: var(--success-bg);
+}
+
+.ic-response-icon--success img {
+  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(382%) hue-rotate(93deg) brightness(95%) contrast(92%);
+}
+
+.ic-response-icon--warning {
+  background: var(--warning-bg);
+}
+
+.ic-response-icon--warning img {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(65%) saturate(497%) hue-rotate(2deg) brightness(103%) contrast(104%);
+}
+
+.ic-response-icon--danger {
+  background: var(--danger-bg);
+}
+
+.ic-response-icon--danger img {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(94%) saturate(2255%) hue-rotate(347deg) brightness(91%) contrast(93%);
+}
+
+/* Canvas toolbar icons */
+.ic-canvas-toolbar-back img {
+  width: 20px;
+  height: 20px;
+}
+
+.ic-canvas-toolbar-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.ic-canvas-btn-icon {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+/* Boutons canvas - colorer les icônes */
+.ic-button--primary .ic-canvas-btn-icon {
+  filter: brightness(0) invert(1);
+}
+
+.ic-button--ghost .ic-canvas-btn-icon {
+  filter: none;
+}
+
+/* Responsive - petits écrans : afficher les icônes */
+@media (max-width: 600px) {
+  .ic-canvas-btn-icon {
+    display: block;
+  }
+  
+  .ic-canvas-btn-text {
+    display: none;
   }
 }

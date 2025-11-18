@@ -23,9 +23,16 @@
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--danger);
   pointer-events: none;
-  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ic-datepicker-icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
 }
 
 .ic-datepicker-clear {
@@ -42,6 +49,10 @@
   font-size: 1rem;
   line-height: 1;
   transition: color 0.2s ease;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 .ic-datepicker-clear:hover {
@@ -49,11 +60,11 @@
 }
 
 .ic-datepicker-wrapper.has-value .ic-datepicker-clear {
-  display: block;
+  display: flex;
 }
 
-.ic-datepicker-wrapper.has-value .ic-datepicker-icon {
-  right: 4.5rem;
+.ic-datepicker-wrapper.has-value .ic-datepicker-input {
+  padding-right: 5rem;
 }
 
 /* Overlay modal */

@@ -655,7 +655,9 @@ function renderCompanies(companiesToRender) {
                     <h3 class="ic-card-title">${company.name}</h3>
                 </div>
             </div>
-            <p class="ic-card-description">${company.description}</p>
+            <div class="ic-card-body">
+                <p class="ic-card-description" title="${company.description}">${company.description}</p>
+            </div>
             <div class="ic-card-footer">
                 <div class="ic-card-meta">
                     <span>${Object.keys(company.params).length} champs requis</span>
@@ -674,16 +676,20 @@ function renderCompanies(companiesToRender) {
     specialCard.className = 'ic-card ic-card--special';
     specialCard.innerHTML = `
         <div class="ic-card-header">
-            <div style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 2rem;">
-                ➕
-            </div>
+            <img src="/views/styles/icons/plus.svg" alt="Add" class="ic-card-logo">
+            
             <div>
                 <h3 class="ic-card-title">Can't find your collector?</h3>
             </div>
         </div>
-        <p class="ic-card-description">
-            Let us know and we'll add it for you!
-        </p>
+        <div class="ic-card-body">
+            <p class="ic-card-description">Let us know and we'll add it for you!</p>
+        </div>
+        <div class="ic-card-footer">
+            <div class="ic-card-meta">
+                <span>Request new</span>
+            </div>
+        </div>
     `;
     specialCard.addEventListener('click', () => showFeedback('new_collector'));
     companyList.appendChild(specialCard);
