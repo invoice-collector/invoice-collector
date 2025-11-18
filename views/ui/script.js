@@ -4,6 +4,10 @@ let ip = null;
 let hit = []
 // Variable globale pour le datepicker
 let datepickerSince = null;
+// Variables pour gérer l'état des requêtes
+let isSubmitting = false;
+// Variable globale pour le WebSocket
+let currentWebSocket = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
     // CHANGEMENT: On démarre directement sur showCompanies() au lieu de showCredentials()
@@ -90,15 +94,12 @@ async function showCredentials() {
     
     // Restore body scroll
     document.body.style.overflow = '';
-
     // Get the elements
     const credentialsEmpty = document.getElementById('credentials-empty');
     const credentialsList = document.getElementById('credentials-list');
-
     // Get the credentials
     const response = await fetch(`credentials?token=${token}`);
     const credentials = await response.json();
-
     let credentialsList_innerHTML = '';
     if (credentials.length === 0) {
         credentialsEmpty.hidden = false;
@@ -171,7 +172,6 @@ function showForm(company) {
     document.getElementById('form-container').classList.remove('ic-hidden');
     document.getElementById('progress-container').classList.add('ic-hidden');
     document.getElementById('feedback-container').classList.add('ic-hidden');
-
     // Update form header
     document.getElementById('form-logo').src = company.logo;
     document.getElementById('form-name').textContent = company.name;
@@ -200,7 +200,6 @@ function showForm(company) {
     } else {
         instructionsDiv.classList.add('ic-hidden');
     }
-
     // Get elements
     const formParams = document.getElementById('add-credential-form-params');
     const form = document.getElementById('add-credential-form');
@@ -211,13 +210,18 @@ function showForm(company) {
     formParams.innerHTML = '';
     form.dataset.collector = company.id;
     document.getElementById('form-error').classList.add('ic-hidden');
-
+    
+    // Réactiver le bouton submit (au cas où il était disabled)
+    const submitButton = form.querySelector('button[type="submit"]');
+    if (submitButton) {
+        submitButton.disabled = false;
+    }
+    
     // Détruire l'ancien datepicker si existant
     if (datepickerSince) {
         datepickerSince.destroy();
         datepickerSince = null;
     }
-
     // If NOT a sketch collector, show form
     if(company.type != "sketch") {
         form.style.display = 'block';
@@ -252,7 +256,6 @@ function showForm(company) {
             formGroup.appendChild(input);
             formParams.appendChild(formGroup);
         });
-
         // Initialiser le datepicker
         datepickerSince = createDatepicker('#datepicker-since', {
             format: 'yyyy-MM-dd',
@@ -265,7 +268,7 @@ function showForm(company) {
     // If sketch collector, show sketch section
     else {
         form.style.display = 'none';
-        hitSketch.classList.add('ic-hidden');
+        hitSketch.classList.remove('ic-hidden');
         document.getElementById('hit-sketch-success').classList.add('ic-hidden');
         
         // Set onclick for sketch button
@@ -285,8 +288,14 @@ function showForm(company) {
 async function addCredential(event) {
     event.preventDefault();
     
+    // Empêcher les soumissions multiples
+    if (isSubmitting) return;
+    
+    const form = event.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    
     // Convert form data to object
-    const formData = new FormData(event.target);
+    const formData = new FormData(form);
     let params = {};
     formData.forEach((value, key) => {
         params[key] = value;
@@ -300,33 +309,61 @@ async function addCredential(event) {
         return;
     }
     
+    // Vérifier que tous les champs required sont remplis
+    const requiredInputs = form.querySelectorAll('input[required]');
+    let allFilled = true;
+    requiredInputs.forEach(input => {
+        if (!input.value.trim()) {
+            allFilled = false;
+        }
+    });
+    
+    if (!allFilled) {
+        document.getElementById('form-error').classList.remove('ic-hidden');
+        return;
+    }
+    
     // Ajouter la date du datepicker
     params.since = datepickerSince.formatDate(datepickerSince.getValue());
     
     document.getElementById('form-error').classList.add('ic-hidden');
     
-    // Send request
-    const response = await fetch(`credential?token=${token}`, {
-        method: 'POST',
-        body: JSON.stringify({
-            collector: event.target.dataset.collector,
-            params
-        }),
-        headers: {
-            'Content-Type': 'application/json'
+    // Désactiver le bouton et marquer comme en cours de soumission
+    isSubmitting = true;
+    submitButton.disabled = true;
+    
+    try {
+        // Send request
+        const response = await fetch(`credential?token=${token}`, {
+            method: 'POST',
+            body: JSON.stringify({
+                collector: form.dataset.collector,
+                params
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        const content = await response.json();
+        form.reset();
+        
+        if (!response.ok) {
+            console.error('Error adding credential:', content);
+            alert(`Error: ${content.message || 'An error occurred while adding the credential.'}`);
+            showCompanies();
         }
-    });
-    
-    const content = await response.json();
-    document.getElementById('add-credential-form').reset();
-    
-    if (!response.ok) {
-        console.error('Error adding credential:', content);
-        alert(`Error: ${content.message || 'An error occurred while adding the credential.'}`);
+        else {
+            showProgress(content.id, content.wsPath);
+        }
+    } catch (error) {
+        console.error('Error adding credential:', error);
+        alert('An error occurred while adding the credential.');
         showCompanies();
-    }
-    else {
-        showProgress(content.id, content.wsPath);
+    } finally {
+        // Réactiver le bouton
+        isSubmitting = false;
+        submitButton.disabled = false;
     }
 }
 
@@ -390,16 +427,31 @@ async function showProgress(credential_id, wsPath) {
         }
     }
     
+    // Fonction pour annuler et fermer le WebSocket
+    function cancelAndClose() {
+        finished = true;
+        cancelled = true;
+        containerCanvas.hidden = true;
+        if (currentWebSocket && currentWebSocket.readyState === WebSocket.OPEN) {
+            currentWebSocket.send(JSON.stringify({ type: 'close', reason: 'cancel' }));
+            currentWebSocket.close();
+        }
+        currentWebSocket = null;
+        showCompanies();
+    }
+    
     // WebSocket to get real-time updates
     let finished = false;
-    let cancelled = false; // Nouvelle variable pour savoir si on a annulé
+    let cancelled = false;
     const ws = new WebSocket(wsPath);
+    currentWebSocket = ws; // Stocker la référence globale
     
     ws.onopen = () => {
         console.log('WebSocket connection opened');
         const canvas = document.getElementById('canvas');
         const canvasOkButton = document.getElementById('canvas-ok');
         const canvasCancelButton = document.getElementById('canvas-cancel');
+        const canvasBackButton = document.getElementById('canvas-back');
         
         canvas.addEventListener('click', function(event) {
             console.log("CLICK");
@@ -447,13 +499,11 @@ async function showProgress(credential_id, wsPath) {
             ws.send(JSON.stringify({ type: 'close', reason: 'ok' }));
         };
         
-        canvasCancelButton.onclick = function() {
-            finished = true;
-            cancelled = true; // Marquer comme annulé
-            containerCanvas.hidden = true;
-            ws.send(JSON.stringify({ type: 'close', reason: 'cancel' }));
-            showCompanies();
-        };
+        // Handler pour le bouton Cancel
+        canvasCancelButton.onclick = cancelAndClose;
+        
+        // Handler pour le bouton Back (même comportement que Cancel)
+        canvasBackButton.onclick = cancelAndClose;
     };
     
     let previous_state, current_state;
@@ -519,6 +569,7 @@ async function showProgress(credential_id, wsPath) {
     ws.onclose = (event) => {
         console.log('WebSocket connection closed');
         containerCanvas.hidden = true;
+        currentWebSocket = null;
         
         // Ne pas afficher le résultat si on a annulé
         if (cancelled) {
@@ -540,11 +591,11 @@ async function showProgress(credential_id, wsPath) {
     });
 }
 
+
 async function deleteCredential(id) {
     await fetch(`credential/${id}?token=${token}`, {
         method: 'DELETE'
     });
-
     showCredentials();
 }
 
@@ -557,17 +608,37 @@ async function showFeedback(type) {
     document.getElementById('feedback-response-success').classList.add('ic-hidden');
     document.getElementById('feedback-response-error').classList.add('ic-hidden');
     document.querySelector('#feedback-form input[name="type"]').value = type;
+    
+    // Réactiver le bouton submit
+    const feedbackForm = document.getElementById('feedback-form');
+    const submitButton = feedbackForm.querySelector('button[type="submit"]');
+    if (submitButton) {
+        submitButton.disabled = false;
+    }
 }
 
 async function sendFeedback(event) {
     event.preventDefault();
     
+    // Empêcher les soumissions multiples
+    if (isSubmitting) return;
+    
+    const form = event.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    
     // Convert form data to object
-    const formData = new FormData(event.target);
+    const formData = new FormData(form);
     let params = {};
     formData.forEach((value, key) => {
         params[key] = value;
     });
+    
+    // Vérifier que l'URL est remplie
+    if (!params.website_url || !params.website_url.trim()) {
+        document.getElementById('feedback-response-error').classList.remove('ic-hidden');
+        document.getElementById('feedback-response-success').classList.add('ic-hidden');
+        return;
+    }
     
     // Construire le message pour l'API
     const feedbackBody = {
@@ -576,18 +647,32 @@ async function sendFeedback(event) {
         email: ''
     };
     
-    const response = await post_send_feedback(feedbackBody);
-    document.getElementById('feedback-form').reset();
-    document.querySelector('#feedback-form input[name="type"]').value = 'new_collector';
+    // Désactiver le bouton et marquer comme en cours de soumission
+    isSubmitting = true;
+    submitButton.disabled = true;
     
-    // Check if the response is ok
-    if (!response.ok) {
+    try {
+        const response = await post_send_feedback(feedbackBody);
+        form.reset();
+        document.querySelector('#feedback-form input[name="type"]').value = 'new_collector';
+        
+        // Check if the response is ok
+        if (!response.ok) {
+            document.getElementById('feedback-response-error').classList.remove('ic-hidden');
+            document.getElementById('feedback-response-success').classList.add('ic-hidden');
+        }
+        else {
+            document.getElementById('feedback-response-success').classList.remove('ic-hidden');
+            document.getElementById('feedback-response-error').classList.add('ic-hidden');
+        }
+    } catch (error) {
+        console.error('Error sending feedback:', error);
         document.getElementById('feedback-response-error').classList.remove('ic-hidden');
         document.getElementById('feedback-response-success').classList.add('ic-hidden');
-    }
-    else {
-        document.getElementById('feedback-response-success').classList.remove('ic-hidden');
-        document.getElementById('feedback-response-error').classList.add('ic-hidden');
+    } finally {
+        // Réactiver le bouton
+        isSubmitting = false;
+        submitButton.disabled = false;
     }
 }
 
@@ -634,13 +719,13 @@ function searchCollectorsWithScore(collectors, searchTerm) {
         .map(({ collector }) => collector)
         .slice(0, 100);
 }
+
 // Fonction pour filtrer les companies
 function filterCompanies(searchTerm) {
     const filteredCompanies = searchCollectorsWithScore(companies, searchTerm);
     renderCompanies(filteredCompanies);
 }
 
-// Fonction pour afficher les companies
 // Fonction pour afficher les companies
 function renderCompanies(companiesToRender) {
     const companyList = document.getElementById('companies-list');

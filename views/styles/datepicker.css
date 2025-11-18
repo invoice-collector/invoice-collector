@@ -244,15 +244,6 @@
   font-weight: 600;
 }
 
-.ic-datepicker-day.weekend {
-  color: var(--danger);
-}
-
-.ic-datepicker-day.weekend.other-month {
-  color: var(--danger);
-  opacity: 0.4;
-}
-
 .ic-datepicker-day:disabled {
   opacity: 0.2;
   cursor: not-allowed;

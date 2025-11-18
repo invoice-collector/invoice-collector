@@ -63,7 +63,7 @@ html[data-theme="ocean"] {
   --radius-full: 9999px;
   
   /* Fond des logos - Plus clair pour le contraste */
-  --logo-bg: #3a5f88;
+  --logo-bg: #f2f6ff;
 }
 
 /* ===================================
@@ -128,9 +128,79 @@ html[data-theme="ocean"] .ic-card-logo {
 html[data-theme="ocean"] .ic-collector-info-logo {
   background: var(--logo-bg);
 }
-
-/* Special card icon - blanc sur ocean */
-html[data-theme="ocean"] .ic-card--special .ic-card-logo {
+/* ===================================
+   OCEAN THEME - Calendar Icon
+   =================================== */
+/* Icône calendar en blanc pour ocean */
+html[data-theme="ocean"] .ic-datepicker-icon img {
   filter: brightness(0) invert(1);
-  opacity: 0.8;
+  opacity: 0.6;
+}
+
+/* ===================================
+   OCEAN THEME - Special Card
+   =================================== */
+/* Le fond du logo de la special card doit être gris avec le + en bleu */
+html[data-theme="ocean"] .ic-card--special .ic-card-logo {
+  filter: none;
+  opacity: 1;
+  background: var(--logo-bg);
+  padding: 0.75rem;
+}
+
+/* ===================================
+   OCEAN THEME - Weekend Colors
+   =================================== */
+/* Weekends en bleu clair pour ocean */
+html[data-theme="ocean"] .ic-datepicker-day.weekend {
+  color: #60a5fa;
+}
+
+html[data-theme="ocean"] .ic-datepicker-day.weekend.other-month {
+  color: #60a5fa;
+  opacity: 0.4;
+}
+
+/* ===================================
+   OCEAN THEME - Canvas Toolbar Icons Fix
+   =================================== */
+/* Uniformiser la taille des icônes dans le toolbar */
+html[data-theme="ocean"] .ic-canvas-toolbar-back img {
+  width: 20px;
+  height: 20px;
+}
+
+html[data-theme="ocean"] .ic-canvas-toolbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html[data-theme="ocean"] .ic-canvas-toolbar-icon img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Icônes des boutons canvas en blanc pour ocean */
+html[data-theme="ocean"] .ic-canvas-btn-icon {
+  filter: brightness(0) invert(1);
+}
+
+html[data-theme="ocean"] .ic-button--ghost .ic-canvas-btn-icon {
+  filter: brightness(0) invert(1);
+}
+
+/* ===================================
+   OCEAN THEME - Large Response Icons
+   =================================== */
+html[data-theme="ocean"] .ic-response-icon-large--success {
+  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.4);
+}
+
+html[data-theme="ocean"] .ic-response-icon-large--warning {
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+}
+
+html[data-theme="ocean"] .ic-response-icon-large--danger {
+  box-shadow: 0 4px 20px rgba(248, 113, 113, 0.4);
 }

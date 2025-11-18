@@ -64,3 +64,32 @@ html:not([data-theme]) {
   --radius-lg: 16px;
   --radius-full: 9999px;
 }
+
+/* ===================================
+   DEFAULT THEME - Weekend Colors
+   =================================== */
+/* Weekends en bleu foncé pour default */
+html[data-theme="default"] .ic-datepicker-day.weekend,
+html:not([data-theme]) .ic-datepicker-day.weekend {
+  color: #3b82f6;
+}
+
+html[data-theme="default"] .ic-datepicker-day.weekend.other-month,
+html:not([data-theme]) .ic-datepicker-day.weekend.other-month {
+  color: #3b82f6;
+  opacity: 0.4;
+}
+
+/* ===================================
+   DEFAULT THEME - Logo Background
+   =================================== */
+/* Fond gris clair pour les logos des cards */
+html[data-theme="default"] .ic-card-logo,
+html:not([data-theme]) .ic-card-logo {
+  background: #f1f5f9;
+}
+
+html[data-theme="default"] .ic-collector-info-logo,
+html:not([data-theme]) .ic-collector-info-logo {
+  background: #f1f5f9;
+}

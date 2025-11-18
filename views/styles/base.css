@@ -152,7 +152,6 @@ body {
   height: 48px;
   border-radius: 10px;
   object-fit: contain;
-  background: var(--bg);
   padding: 0.5rem;
   flex-shrink: 0;
 }
@@ -783,7 +782,6 @@ body {
   background: transparent;
   border: none;
   color: var(--text);
-  font-size: 1.25rem;
   cursor: pointer;
   padding: 0.5rem;
   border-radius: var(--radius);
@@ -792,6 +790,8 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
 }
 
 .ic-canvas-toolbar-back:hover {
@@ -799,8 +799,20 @@ body {
 }
 
 .ic-canvas-toolbar-icon {
-  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+/* Uniformiser toutes les icônes du toolbar à 20px */
+.ic-canvas-toolbar-back img,
+.ic-canvas-toolbar-icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
 }
 
 .ic-canvas-toolbar-text {
@@ -818,21 +830,35 @@ body {
   display: flex;
   gap: 0.5rem;
   flex-shrink: 0;
+  margin-left: auto;
 }
 
-/* Boutons avec icône + texte */
+/* Boutons avec icône + texte - Toujours afficher les icônes */
 .ic-canvas-btn-icon {
-  display: none;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex-shrink: 0;
 }
 
 .ic-canvas-btn-text {
   display: inline;
 }
 
+/* Boutons canvas - colorer les icônes */
+.ic-button--primary .ic-canvas-btn-icon {
+  filter: brightness(0) invert(1);
+}
+
+.ic-button--ghost .ic-canvas-btn-icon {
+  filter: none;
+  opacity: 0.8;
+}
+
 .ic-canvas-content {
   flex: 1;
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: center;
   padding: 1rem;
   overflow: hidden;
@@ -867,11 +893,7 @@ body {
     font-size: 0.75rem;
   }
   
-  /* Afficher seulement les icônes sur les boutons */
-  .ic-canvas-btn-icon {
-    display: inline;
-  }
-  
+  /* Cacher le texte des boutons, garder les icônes */
   .ic-canvas-btn-text {
     display: none;
   }
@@ -882,10 +904,15 @@ body {
   }
 }
 
-/* Très petits écrans */
+/* Très petits écrans - cacher le texte central */
 @media (max-width: 400px) {
   .ic-canvas-toolbar-text {
     display: none;
+  }
+  
+  /* Garder les boutons à droite même sans le texte central */
+  .ic-canvas-toolbar-actions {
+    margin-left: auto;
   }
 }
 
@@ -1017,17 +1044,38 @@ body {
   filter: brightness(0) saturate(100%) invert(67%) sepia(65%) saturate(497%) hue-rotate(2deg) brightness(103%) contrast(104%);
 }
 
-/* Canvas toolbar icons */
+/* Canvas toolbar icons - Uniformisés */
+.ic-canvas-toolbar-back {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.ic-canvas-toolbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+/* Uniformiser toutes les icônes du toolbar à 20px */
 .ic-canvas-toolbar-back img,
 .ic-canvas-toolbar-icon img {
   width: 20px;
   height: 20px;
   opacity: 0.8;
-}
-
-.ic-canvas-toolbar-icon img {
-  width: 24px;
-  height: 24px;
 }
 
 /* Response icons (gros icons dans les résultats) */
@@ -1098,42 +1146,7 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* Canvas toolbar icons */
-.ic-canvas-toolbar-back img {
-  width: 20px;
-  height: 20px;
-}
 
-.ic-canvas-toolbar-icon img {
-  width: 24px;
-  height: 24px;
-}
-
-.ic-canvas-btn-icon {
-  width: 16px;
-  height: 16px;
-  display: none;
-}
-
-/* Boutons canvas - colorer les icônes */
-.ic-button--primary .ic-canvas-btn-icon {
-  filter: brightness(0) invert(1);
-}
-
-.ic-button--ghost .ic-canvas-btn-icon {
-  filter: none;
-}
-
-/* Responsive - petits écrans : afficher les icônes */
-@media (max-width: 600px) {
-  .ic-canvas-btn-icon {
-    display: block;
-  }
-  
-  .ic-canvas-btn-text {
-    display: none;
-  }
-}
 /* ===================================
    PROGRESS SCREEN (Card centered)
    =================================== */
@@ -1222,3 +1235,4 @@ body {
         font-size: 1.25rem;
     }
 }
+

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="<%= theme %>"> 
-<!--<html lang="en" data-theme="default">-->
+<!-- <html lang="en" data-theme="<%= theme %>"> -->
+<html lang="en" data-theme="default">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice-Collector - <%= __('i18n.views.manage.my_collectors') %></title>
     <link rel="stylesheet" href="/views/styles/base.css">
-    <link rel="stylesheet" href="/views/styles/theme.<%= theme %>.css">
-    <!-- <link rel="stylesheet" href="/views/styles/theme.default.css"> -->
+    <!-- <link rel="stylesheet" href="/views/styles/theme.<%= theme %>.css"> -->
+    <link rel="stylesheet" href="/views/styles/theme.default.css">
     <link rel="stylesheet" href="/views/styles/datepicker.css">
     <link rel="icon" href="/views/icons/favicon.ico" type="image/x-icon">
     <script src="/views/utils/datepicker.js"></script>
@@ -204,12 +204,12 @@
             </div>
         </div>
     </div>
-
+    
     <!-- CANVAS CONTAINER (plein écran) -->
     <div id="canvas-container" class="ic-canvas-fullscreen" hidden>
         <!-- Barre de menu supérieure -->
         <div class="ic-canvas-toolbar">
-            <button class="ic-canvas-toolbar-back" onclick="showCompanies()">
+            <button id="canvas-back" class="ic-canvas-toolbar-back">
                 <img src="/views/styles/icons/move-left.svg" alt="Back">
             </button>
             <span class="ic-canvas-toolbar-icon">
@@ -273,12 +273,41 @@
     <script>
         console.log("<%= theme %>");
         const locale = "<%= locale %>";
+        console.log(locale);
         const i18n = {
             cantFindCollector: "<%= __('i18n.views.manage.cant_find_collector') %>",
             letUsKnow: "<%= __('i18n.views.manage.let_us_know') %>",
             requestNew: "<%= __('i18n.views.manage.request_new') %>",
             fieldsRequired: "<%= __('i18n.views.manage.fields_required') %>",
-            fieldRequired: "<%= __('i18n.views.manage.field_required') %>"
+            fieldRequired: "<%= __('i18n.views.manage.field_required') %>",
+        // Datepicker i18n
+        datepicker: {
+            clear: "<%= __('i18n.views.manage.datepicker_clear') %>",
+            placeholder: "<%= __('i18n.views.manage.datepicker_placeholder') %>",
+            months: [
+                "<%= __('i18n.views.manage.datepicker.months.january') %>",
+                "<%= __('i18n.views.manage.datepicker.months.february') %>",
+                "<%= __('i18n.views.manage.datepicker.months.march') %>",
+                "<%= __('i18n.views.manage.datepicker.months.april') %>",
+                "<%= __('i18n.views.manage.datepicker.months.may') %>",
+                "<%= __('i18n.views.manage.datepicker.months.june') %>",
+                "<%= __('i18n.views.manage.datepicker.months.july') %>",
+                "<%= __('i18n.views.manage.datepicker.months.august') %>",
+                "<%= __('i18n.views.manage.datepicker.months.september') %>",
+                "<%= __('i18n.views.manage.datepicker.months.october') %>",
+                "<%= __('i18n.views.manage.datepicker.months.november') %>",
+                "<%= __('i18n.views.manage.datepicker.months.december') %>"
+            ],
+            weekdays: [
+                "<%= __('i18n.views.manage.datepicker.weekdays.mon') %>",
+                "<%= __('i18n.views.manage.datepicker.weekdays.tue') %>",
+                "<%= __('i18n.views.manage.datepicker.weekdays.wed') %>",
+                "<%= __('i18n.views.manage.datepicker.weekdays.thu') %>",
+                "<%= __('i18n.views.manage.datepicker.weekdays.fri') %>",
+                "<%= __('i18n.views.manage.datepicker.weekdays.sat') %>",
+                "<%= __('i18n.views.manage.datepicker.weekdays.sun') %>"
+            ]
+        }
         };
     </script>
     <script src="/views/proto/datepicker/datepicker.js"></script>

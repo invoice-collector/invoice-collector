@@ -2,22 +2,28 @@
  * Datepicker vanilla JavaScript
  * Calendrier élégant sans dépendances externes
  */
-const MONTHS = [
-  'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
-  'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
-];
-
-const WEEKDAYS = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
 
 class Datepicker {
   constructor(inputElement, options = {}) {
     this.input = inputElement;
+    
+    // Utiliser les traductions de i18n global ou fallback
+    this.i18n = (window.i18n && window.i18n.datepicker) ? window.i18n.datepicker : {
+      months: [
+        'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+        'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+      ],
+      weekdays: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'],
+      clear: 'Effacer',
+      placeholder: 'Sélectionnez une date'
+    };
+    
     this.options = {
       format: options.format || 'yyyy-MM-dd',
       minDate: options.minDate || null,
       maxDate: options.maxDate || null,
       onChange: options.onChange || null,
-      placeholder: options.placeholder || 'Sélectionnez une date',
+      placeholder: options.placeholder || this.i18n.placeholder,
     };
 
     this.selectedDate = null;
@@ -66,7 +72,7 @@ class Datepicker {
     this.clearButton.className = 'ic-datepicker-clear';
     this.clearButton.innerHTML = '×';
     this.clearButton.type = 'button';
-    this.clearButton.title = 'Effacer';
+    this.clearButton.title = this.i18n.clear;
     
     // Icône calendrier
     const icon = document.createElement('span');
@@ -129,7 +135,7 @@ class Datepicker {
       years.push(y);
     }
     
-    const monthOptions = MONTHS.map((month, index) => 
+    const monthOptions = this.i18n.months.map((month, index) => 
       `<option value="${index}" ${index === this.currentMonth ? 'selected' : ''}>${month}</option>`
     ).join('');
     
@@ -151,7 +157,7 @@ class Datepicker {
       
       <div class="ic-datepicker-calendar">
         <div class="ic-datepicker-weekdays">
-          ${WEEKDAYS.map(day => `<div class="ic-datepicker-weekday">${day}</div>`).join('')}
+          ${this.i18n.weekdays.map(day => `<div class="ic-datepicker-weekday">${day}</div>`).join('')}
         </div>
         <div class="ic-datepicker-days">
           ${this.generateDays()}
@@ -159,7 +165,7 @@ class Datepicker {
       </div>
       
       <div class="ic-datepicker-footer">
-        <button type="button" class="ic-datepicker-footer-button clear" data-action="clear">Effacer</button>
+        <button type="button" class="ic-datepicker-footer-button clear" data-action="clear">${this.i18n.clear}</button>
       </div>
     `;
     
@@ -200,9 +206,6 @@ class Datepicker {
     const daysInMonth = lastDay.getDate();
     const prevDaysInMonth = prevLastDay.getDate();
     
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
     let html = '';
     
     // Jours du mois précédent
@@ -231,10 +234,6 @@ class Datepicker {
   }
 
   renderDay(day, date, isOtherMonth) {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
-    const isToday = date.getTime() === today.getTime();
     const isSelected = this.selectedDate && date.getTime() === this.selectedDate.getTime();
     const isDisabled = this.isDateDisabled(date);
     const isWeekend = date.getDay() === 0 || date.getDay() === 6;
@@ -242,7 +241,6 @@ class Datepicker {
     const classes = [
       'ic-datepicker-day',
       isOtherMonth && 'other-month',
-      isToday && 'today',
       isSelected && 'selected',
       isWeekend && 'weekend',
     ].filter(Boolean).join(' ');
@@ -260,7 +258,7 @@ class Datepicker {
         ${day}
       </button>
     `;
-  }
+}
 
   isDateDisabled(date) {
     if (this.options.minDate && date < this.options.minDate) {
