@@ -11,7 +11,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "3",
+        version: "4",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -29,13 +29,17 @@ export class FreeMobileCollector extends WebCollector {
                 mandatory: true,
             }
         },
-        loginUrl: "https://mobile.free.fr/account",
+        loginUrl: "https://mobile.free.fr/account/v2/login",
         entryUrl: "https://mobile.free.fr/account",
         useProxy: false
     }
 
     constructor() {
         super(FreeMobileCollector.CONFIG);
+    }
+
+    async needLogin(driver: Driver): Promise<boolean> {
+        return driver.url().includes("login") || driver.url().includes("otp");
     }
 
     async login(driver: Driver, params: any): Promise<string | void> {
