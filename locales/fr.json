@@ -557,6 +557,7 @@
   "i18n.collectors.apple_business_manager.description": "Un portail en ligne pour les administrateurs informatiques afin de déployer des appareils, applications et livres Apple dans les organisations.",
   "i18n.collectors.apple_company_account.description": "Gérez votre identifiant Apple et les paramètres de votre compte pour les services Apple.",
   "i18n.collectors.apple_developer_programm.description": "Un programme offrant des outils et des ressources pour développer, distribuer et gérer des applications sur les plateformes Apple.",
+  "i18n.collectors.apple_icloud.description": "iCloud est un service de stockage et de calcul en nuage d'Apple Inc.",
   "i18n.collectors.apple_itunes_store.description": "Un magasin de médias numériques pour acheter et télécharger de la musique, des films, des émissions de télévision et plus.",
   "i18n.collectors.apple_search_ads.description": "Promouvez vos applications directement dans les résultats de recherche de l'App Store pour toucher des utilisateurs à forte intention.",
   "i18n.collectors.apple_volume_purchase_programm.description": "Un programme permettant aux entreprises et aux établissements scolaires d'acheter et de distribuer des applications en gros.",
