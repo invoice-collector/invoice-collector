@@ -1069,6 +1069,7 @@ body {
   width: 20px;
   height: 20px;
   opacity: 0.6;
+  filter: brightness(0) saturate(100%);
 }
 
 .ic-datepicker-clear {
