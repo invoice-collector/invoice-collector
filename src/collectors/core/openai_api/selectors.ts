@@ -51,9 +51,9 @@ export const OpenaiSelectors = {
 
     // HOME PAGE
 
-    BUTTON_BILLING: {
-        selector: "a[href='/settings/organization/billing']",
-        info: "billing button"
+    BUTTON_SETTINGS: {
+        selector: "a[href='/settings']",
+        info: "settings button"
     },
 
     // CONTAINER INVOICE
