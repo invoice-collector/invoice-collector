@@ -8,9 +8,9 @@ export class LaPosteProCollector extends SketchCollector {
         id: "la_poste_pro",
         name: "La Poste Pro",
         description: "i18n.collectors.la_poste_pro.description",
-        version: "0",
+        version: "1",
         website: "https://www.laposte.fr/professionnel/espaceclient/factures",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/73829.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/fr/0/0d/La_Poste_2022.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
