@@ -69,7 +69,7 @@ async function callLlm(website, messageToLlm) {
             json_schema: {
                 schema: {
                     properties: {
-                        id: { type: "string", description: "id of the supplier in lowercase (eg.: openai). It cannot contain hyphen (-)." },
+                        id: { type: "string", description: "id of the supplier in lowercase (eg.: openai). It cannot contain hyphen (-) but it can contains underscore (_)." },
                         id_camel_case: { type: "string", description: "id of the supplier in CamelCase (eg.: OpenAI)" },
                         name: { type: "string", description: "Simple name of the supplier. First letter must be uppercase." },
                         description_en: { type: "string", description: "English description of the service in one small sentence." },
