@@ -6,7 +6,7 @@ export class LaPosteProCollector extends SketchCollector {
 
     static CONFIG = {
         id: "la_poste_pro",
-        name: "La Poste pro",
+        name: "La Poste Pro",
         description: "i18n.collectors.la_poste_pro.description",
         version: "0",
         website: "https://www.laposte.fr/professionnel/espaceclient/factures",
