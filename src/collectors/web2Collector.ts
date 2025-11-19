@@ -14,7 +14,7 @@ export type WebConfig = Config & {
     loginUrl: string,
     entryUrl?: string,
     useProxy?: boolean,
-    captcha?: CollectorCaptcha,
+    captcha: CollectorCaptcha,
     loadImages?: boolean,
     autoLogin?: {
         cookieNames?: string[],
@@ -37,7 +37,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         super({
             ...config,
             type: config.type || CollectorType.WEB,
-            useProxy: config.useProxy === undefined ? true : config.useProxy,
+            useProxy: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
             state: config.state || CollectorState.ACTIVE,
             loadImages: config.loadImages === undefined ? config.captcha == CollectorCaptcha.CLOUDFLARE : config.loadImages,
             autoLogin: config.autoLogin || {

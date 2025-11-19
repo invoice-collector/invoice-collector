@@ -1,7 +1,7 @@
 import { WebCollector } from '../../web2Collector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import * as utils from '../../../utils';
 
 export class BureauValleeCollector extends WebCollector {
@@ -10,7 +10,7 @@ export class BureauValleeCollector extends WebCollector {
         id: "bureau_vallee",
         name: "Bureau Vallee",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "7",
+        version: "8",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
@@ -30,6 +30,7 @@ export class BureauValleeCollector extends WebCollector {
         },
         loginUrl: "https://www.bureau-vallee.fr/customer/account/login/",
         entryUrl: "https://www.bureau-vallee.fr/invoice/invoice/",
+        captcha: CollectorCaptcha.NONE,
         state: CollectorState.DEVELOPMENT
     }
 
