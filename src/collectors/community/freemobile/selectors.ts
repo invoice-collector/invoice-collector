@@ -59,7 +59,7 @@ export const FreeMobileSelectors = {
         info: "first invoice container"
     },
     CONTAINER_INVOICE_LINK: {
-        selector: "a.group\/link[href*='/invoice/']",
+        selector: "a.cursor-pointer[href*='/invoice/']",
         info: "invoice link container"
     },
     CONTAINER_INVOICE_DATE: {
