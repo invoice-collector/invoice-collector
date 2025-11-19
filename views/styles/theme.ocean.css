@@ -1,206 +1,1464 @@
 /* ===================================
-   THEME: OCEAN (Inspiré Axonaut)
+   THEME: OCEAN (Dark Blue - Axonaut Style)
+   Dark theme with marine blue colors
    =================================== */
-html[data-theme="ocean"] {
-  /* Couleurs de base - Bleu marine foncé type Axonaut */
+
+/* ===================================
+   CSS VARIABLES - Theme Colors
+   =================================== */
+:root {
+  /* Background & Text */
   --bg: #1e3a5f;
   --text: #ffffff;
   --text-secondary: #b8d4f1;
   --muted: #8ba9c9;
   --placeholder: #5a7a9d;
-  
-  /* Couleurs primaires - Bleu clair/cyan */
+
+  /* Primary - Cyan Blue */
   --primary: #2D95F8;
   --primary-hover: #3b9dff;
   --primary-focus: rgba(59, 157, 255, 0.2);
-  
-  /* Couleurs secondaires */
+
+  /* Secondary */
   --secondary: #2c4e73;
   --secondary-hover: #3a5f88;
-  
-  /* Cards - Bleu marine plus clair */
+
+  /* Cards */
   --card: #2a4d6e;
   --card-border: #3a5f88;
   --card-special: #243d5c;
   --card-special-hover: #2c4e73;
-  
-  /* Status colors - Plus visibles sur fond sombre */
+
+  /* Status - Success */
   --success: #34d399;
   --success-hover: #10b981;
   --success-bg: rgba(52, 211, 153, 0.15);
-  
+
+  /* Status - Warning */
   --warning: #fbbf24;
   --warning-hover: #f59e0b;
   --warning-bg: rgba(251, 191, 36, 0.15);
-  
+
+  /* Status - Danger */
   --danger: #f87171;
   --danger-hover: #ef4444;
   --danger-bg: rgba(248, 113, 113, 0.15);
-  
+
+  /* Status - Info */
   --info: #60a5fa;
   --info-hover: #3b82f6;
   --info-bg: rgba(96, 165, 250, 0.15);
-  
+
   /* Forms */
   --input-bg: #243d5c;
   --input-border: #3a5f88;
   --disabled-bg: #1e3550;
-  
-  /* Progress */
+
+  /* Progress & Spinner */
   --progress-bg: #3a5f88;
-  
-  /* Spinner */
   --spinner-bg: #3a5f88;
-  
-  /* Shadows - Plus douces pour le thème sombre */
+
+  /* Shadows */
   --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.5);
-  
-  /* Border radius */
+
+  /* Border Radius */
   --radius: 8px;
   --radius-lg: 16px;
   --radius-full: 9999px;
-  
-  /* Fond des logos - Plus clair pour le contraste */
+
+  /* Logo background - Light for contrast */
   --logo-bg: #f2f6ff;
 }
 
+
 /* ===================================
-   OCEAN THEME - Icon Fixes
+   RESET & BASE STYLES
    =================================== */
-html[data-theme="ocean"] .ic-alert-icon,
-html[data-theme="ocean"] .ic-back-icon img,
-html[data-theme="ocean"] .ic-canvas-toolbar-back img,
-html[data-theme="ocean"] .ic-canvas-toolbar-icon img,
-html[data-theme="ocean"] .ic-input-icon {
-  filter: brightness(0) invert(1);
-  opacity: 0.8;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Couleurs spécifiques pour les alertes ocean */
-html[data-theme="ocean"] .ic-alert--error .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(1352%) hue-rotate(325deg) brightness(101%) contrast(96%);
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-html[data-theme="ocean"] .ic-alert--success .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(76%) sepia(47%) saturate(459%) hue-rotate(107deg) brightness(96%) contrast(91%);
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-html[data-theme="ocean"] .ic-alert--info .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(66%) sepia(52%) saturate(667%) hue-rotate(188deg) brightness(102%) contrast(97%);
+
+/* ===================================
+   LAYOUT - Container & Header
+   =================================== */
+.ic-container {
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--bg);
 }
 
-html[data-theme="ocean"] .ic-alert--warning .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(83%) sepia(49%) saturate(684%) hue-rotate(354deg) brightness(103%) contrast(97%);
+.ic-container::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Response icons pour ocean */
-html[data-theme="ocean"] .ic-response-icon--success {
-  box-shadow: 0 0 0 8px rgba(52, 211, 153, 0.15);
+.ic-container::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: var(--radius);
 }
 
-html[data-theme="ocean"] .ic-response-icon--success img {
-  filter: brightness(0) saturate(100%) invert(76%) sepia(47%) saturate(459%) hue-rotate(107deg) brightness(96%) contrast(91%);
+.ic-container::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: var(--radius);
 }
 
-html[data-theme="ocean"] .ic-response-icon--warning {
-  box-shadow: 0 0 0 8px rgba(251, 191, 36, 0.15);
+.ic-container::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
 }
 
-html[data-theme="ocean"] .ic-response-icon--warning img {
-  filter: brightness(0) saturate(100%) invert(83%) sepia(49%) saturate(684%) hue-rotate(354deg) brightness(103%) contrast(97%);
+.ic-header {
+  margin-bottom: 2rem;
 }
 
-html[data-theme="ocean"] .ic-response-icon--danger {
-  box-shadow: 0 0 0 8px rgba(248, 113, 113, 0.15);
+.ic-header-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
 }
 
-html[data-theme="ocean"] .ic-response-icon--danger img {
-  filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(1352%) hue-rotate(325deg) brightness(101%) contrast(96%);
+.ic-header-subtitle {
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 400;
 }
 
-/* Logo background pour ocean - plus clair */
-html[data-theme="ocean"] .ic-card-logo {
+
+/* ===================================
+   GRID SYSTEM
+   =================================== */
+.ic-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .ic-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .ic-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ===================================
+   CARDS
+   =================================== */
+.ic-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--card-border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.ic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--primary);
+}
+
+.ic-card:active {
+  transform: translateY(-2px);
+}
+
+.ic-card--special {
+  border: 2px dashed var(--card-border);
+  background: var(--card-special);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ic-card--special:hover {
+  border-color: var(--primary);
+  background: var(--card-special-hover);
+  transform: translateY(-4px);
+}
+
+.ic-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-shrink: 0;
+}
+
+.ic-card-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  object-fit: contain;
+  padding: 0.5rem;
+  flex-shrink: 0;
   background: var(--logo-bg);
 }
 
-html[data-theme="ocean"] .ic-collector-info-logo {
-  background: var(--logo-bg);
-}
-/* ===================================
-   OCEAN THEME - Calendar Icon
-   =================================== */
-/* Icône calendar en blanc pour ocean */
-html[data-theme="ocean"] .ic-datepicker-icon img {
-  filter: brightness(0) invert(1);
-  opacity: 0.6;
+.ic-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* ===================================
-   OCEAN THEME - Special Card
-   =================================== */
-/* Le fond du logo de la special card doit être gris avec le + en bleu */
-html[data-theme="ocean"] .ic-card--special .ic-card-logo {
+.ic-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ic-card-description {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(1.5em * 2);
+  max-height: calc(1.5em * 2);
+  position: relative;
+  cursor: default;
+}
+
+.ic-card-description[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  max-width: 300px;
+  width: max-content;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  white-space: normal;
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.ic-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--card-border);
+  flex-shrink: 0;
+}
+
+.ic-card-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Special card logo styling */
+.ic-card--special .ic-card-logo {
   filter: none;
   opacity: 1;
   background: var(--logo-bg);
   padding: 0.75rem;
 }
 
-/* ===================================
-   OCEAN THEME - Weekend Colors
-   =================================== */
-/* Weekends en bleu clair pour ocean */
-html[data-theme="ocean"] .ic-datepicker-day.weekend {
-  color: #60a5fa;
-}
-
-html[data-theme="ocean"] .ic-datepicker-day.weekend.other-month {
-  color: #60a5fa;
-  opacity: 0.4;
-}
 
 /* ===================================
-   OCEAN THEME - Canvas Toolbar Icons Fix
+   BADGES
    =================================== */
-/* Uniformiser la taille des icônes dans le toolbar */
-html[data-theme="ocean"] .ic-canvas-toolbar-back img {
+.ic-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ic-badge--stable {
+  background: var(--success-bg);
+  color: var(--success);
+}
+
+.ic-badge--beta {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.ic-badge--alpha {
+  background: var(--danger-bg);
+  color: var(--danger);
+}
+
+.ic-badge--info {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+
+/* ===================================
+   BUTTONS
+   =================================== */
+.ic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  font-family: inherit;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ic-button--primary {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ic-button--primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.ic-button--primary:active {
+  transform: translateY(0);
+}
+
+.ic-button--secondary {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ic-button--secondary:hover {
+  background: var(--secondary);
+  border-color: var(--muted);
+}
+
+.ic-button--ghost {
+  background: transparent;
+  color: var(--text);
+}
+
+.ic-button--ghost:hover {
+  background: var(--secondary);
+}
+
+.ic-button--danger {
+  background: var(--danger);
+  color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.ic-button--danger:hover {
+  background: var(--danger-hover);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+
+.ic-button--icon {
+  padding: 0.5rem;
+  width: 34px;
+  height: 34px;
+}
+
+.ic-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+
+/* ===================================
+   FORM ELEMENTS - Inputs & Labels
+   =================================== */
+.ic-form-group {
+  margin-bottom: 1.5rem;
+}
+
+.ic-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.ic-label--required::after {
+  content: " *";
+  color: var(--danger);
+}
+
+.ic-input,
+.ic-textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.ic-input:focus,
+.ic-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+.ic-input::placeholder,
+.ic-textarea::placeholder {
+  color: var(--placeholder);
+}
+
+.ic-input:disabled,
+.ic-textarea:disabled {
+  background: var(--disabled-bg);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ic-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.ic-input-helper {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.ic-input-error {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--danger);
+  margin-top: 0.5rem;
+}
+
+.ic-form-group.error .ic-input,
+.ic-form-group.error .ic-textarea {
+  border-color: var(--danger);
+}
+
+/* Input with icon */
+.ic-input-wrapper {
+  position: relative;
+}
+
+.ic-input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.5;
+  pointer-events: none;
+  filter: brightness(0) invert(1);
+}
+
+
+/* ===================================
+   ALERTS / MESSAGES
+   =================================== */
+.ic-alert {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-left: 4px solid;
+}
+
+.ic-alert--error {
+  background: var(--danger-bg);
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.ic-alert--success {
+  background: var(--success-bg);
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.ic-alert--info {
+  background: var(--info-bg);
+  border-color: var(--info);
+  color: var(--info);
+}
+
+.ic-alert--warning {
+  background: var(--warning-bg);
+  border-color: var(--warning);
+  color: var(--warning);
+}
+
+.ic-alert-icon {
   width: 20px;
   height: 20px;
+  flex-shrink: 0;
 }
 
-html[data-theme="ocean"] .ic-canvas-toolbar-icon {
+/* Alert icon colors - Ocean theme specific */
+.ic-alert--error .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(1352%) hue-rotate(325deg) brightness(101%) contrast(96%);
+}
+
+.ic-alert--success .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(76%) sepia(47%) saturate(459%) hue-rotate(107deg) brightness(96%) contrast(91%);
+}
+
+.ic-alert--info .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(66%) sepia(52%) saturate(667%) hue-rotate(188deg) brightness(102%) contrast(97%);
+}
+
+.ic-alert--warning .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(83%) sepia(49%) saturate(684%) hue-rotate(354deg) brightness(103%) contrast(97%);
+}
+
+
+/* ===================================
+   PROGRESS BAR
+   =================================== */
+.ic-progress {
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ic-progress-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--muted);
+  font-weight: 500;
+  min-height: 1.5rem;
+}
+
+.ic-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--progress-bg);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.ic-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-hover));
+  border-radius: 9999px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.ic-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+
+/* ===================================
+   LOADER / SPINNER
+   =================================== */
+.ic-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.ic-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--spinner-bg);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.ic-spinner--small {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.ic-spinner--large {
+  width: 60px;
+  height: 60px;
+  border-width: 6px;
+}
+
+
+/* ===================================
+   BACK BUTTON
+   =================================== */
+.ic-back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+}
+
+.ic-back-button:hover {
+  color: var(--primary);
+}
+
+.ic-back-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  transition: all 0.2s ease;
+}
+
+.ic-back-icon img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+  filter: brightness(0) invert(1);
+}
+
+.ic-back-button:hover .ic-back-icon {
+  border-color: var(--primary);
+  background: var(--bg);
+  transform: translateX(-2px);
+}
+
+
+/* ===================================
+   COLLECTOR INFO BLOCK
+   =================================== */
+.ic-collector-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 1px solid var(--card-border);
+  margin-bottom: 2rem;
+}
+
+.ic-collector-info-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: var(--logo-bg);
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+
+.ic-collector-info-content {
+  flex: 1;
+}
+
+.ic-collector-info-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.ic-collector-info-description {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+/* ===================================
+   PROGRESS SCREEN - Card Centered
+   =================================== */
+.ic-progress-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.ic-progress-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  min-width: 500px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ic-progress-divider {
+  height: 1px;
+  background: var(--card-border);
+  margin: 1.5rem 0;
+}
+
+.ic-progress-card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.ic-progress-card-title--danger {
+  color: var(--danger);
+}
+
+.ic-progress-card-subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+
+/* ===================================
+   RESPONSE ICONS - Large
+   =================================== */
+.ic-response-icon-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.ic-response-icon-large img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.ic-response-icon-large--success {
+  background: var(--success);
+  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.4);
+}
+
+.ic-response-icon-large--warning {
+  background: var(--warning);
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+}
+
+.ic-response-icon-large--danger {
+  background: var(--danger);
+  box-shadow: 0 4px 20px rgba(248, 113, 113, 0.4);
+}
+
+/* Response container styling */
+.progress-response {
+  padding: 2rem 1rem;
+}
+
+.progress-response .ic-header-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.progress-response .ic-header-subtitle {
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+
+/* ===================================
+   CANVAS FULLSCREEN MODE
+   =================================== */
+.ic-canvas-fullscreen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+.ic-canvas-fullscreen[hidden] {
+  display: none;
+}
+
+/* Canvas Toolbar */
+.ic-canvas-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--card);
+  border-bottom: 1px solid var(--card-border);
+  flex-shrink: 0;
+}
+
+.ic-canvas-toolbar-back {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.ic-canvas-toolbar-back:hover {
+  background: var(--secondary);
+}
+
+.ic-canvas-toolbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.ic-canvas-toolbar-back img,
+.ic-canvas-toolbar-icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  filter: brightness(0) invert(1);
+}
+
+.ic-canvas-toolbar-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.ic-canvas-toolbar-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Canvas button icons */
+.ic-canvas-btn-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.ic-canvas-btn-text {
+  display: inline;
+}
+
+/* All canvas button icons should be white in ocean theme */
+.ic-button--primary .ic-canvas-btn-icon,
+.ic-button--ghost .ic-canvas-btn-icon {
+  filter: brightness(0) invert(1) !important;
+  opacity: 1;
+}
+
+/* Canvas content area */
+.ic-canvas-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow: hidden;
+  background: var(--secondary);
+}
+
+.ic-canvas-content canvas {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  background: white;
+}
+
+
+/* ===================================
+   MODAL
+   =================================== */
+.ic-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ic-modal {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ic-modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.ic-modal-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ic-modal-body {
+  padding: 1.5rem;
+}
+
+.ic-modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+
+/* ===================================
+   DATEPICKER / CALENDAR
+   =================================== */
+.ic-datepicker-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.ic-datepicker-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ic-datepicker-input {
+  cursor: pointer;
+  padding-right: 3rem;
+}
+
+.ic-datepicker-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-html[data-theme="ocean"] .ic-canvas-toolbar-icon img {
+.ic-datepicker-icon img {
   width: 20px;
   height: 20px;
-}
-
-/* Icônes des boutons canvas en blanc pour ocean */
-html[data-theme="ocean"] .ic-canvas-btn-icon {
+  opacity: 0.6;
   filter: brightness(0) invert(1);
 }
 
-html[data-theme="ocean"] .ic-button--ghost .ic-canvas-btn-icon {
-  filter: brightness(0) invert(1);
+.ic-datepicker-clear {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: none;
+  font-size: 1rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
 }
+
+.ic-datepicker-clear:hover {
+  color: var(--text);
+}
+
+.ic-datepicker-wrapper.has-value .ic-datepicker-clear {
+  display: flex;
+}
+
+.ic-datepicker-wrapper.has-value .ic-datepicker-input {
+  padding-right: 5rem;
+}
+
+/* Datepicker Modal Overlay */
+.ic-datepicker-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.ic-datepicker-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Datepicker Modal */
+.ic-datepicker-modal {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 400px;
+  width: 100%;
+  padding: 1.5rem;
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+}
+
+.ic-datepicker-modal-overlay.active .ic-datepicker-modal {
+  transform: scale(1);
+}
+
+/* Datepicker Header */
+.ic-datepicker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+}
+
+.ic-datepicker-nav-button {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  font-size: 1.25rem;
+  line-height: 1;
+  width: 36px;
+  height: 36px;
+}
+
+.ic-datepicker-nav-button:hover {
+  background: var(--secondary);
+}
+
+.ic-datepicker-nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Month/Year Select Dropdowns */
+.ic-datepicker-month-year-select {
+  flex: 1;
+  position: relative;
+}
+
+.ic-datepicker-month-year-select select {
+  width: 100%;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.2s ease;
+}
+
+.ic-datepicker-month-year-select select:hover {
+  border-color: var(--primary);
+}
+
+.ic-datepicker-month-year-select select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+.ic-datepicker-month-year-select::after {
+  content: '▼';
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+/* Calendar Grid */
+.ic-datepicker-calendar {
+  width: 100%;
+}
+
+.ic-datepicker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.ic-datepicker-weekday {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.5rem 0;
+  text-transform: lowercase;
+}
+
+.ic-datepicker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.ic-datepicker-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  font-size: 0.875rem;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 400;
+  position: relative;
+}
+
+.ic-datepicker-day:hover:not(:disabled):not(.selected):not(.other-month) {
+  background: var(--secondary);
+}
+
+.ic-datepicker-day.other-month {
+  color: var(--placeholder);
+  opacity: 0.4;
+}
+
+.ic-datepicker-day.today:not(.selected) {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.ic-datepicker-day.selected {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.ic-datepicker-day:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.ic-datepicker-day:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+/* Weekend days - Light blue for ocean theme */
+.ic-datepicker-day.weekend {
+  color: #60a5fa;
+}
+
+.ic-datepicker-day.weekend.other-month {
+  color: #60a5fa;
+  opacity: 0.4;
+}
+
+/* Datepicker Footer */
+.ic-datepicker-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.ic-datepicker-footer-button {
+  padding: 0.625rem 1.5rem;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--card);
+  color: var(--text);
+  min-width: 100px;
+}
+
+.ic-datepicker-footer-button:hover {
+  background: var(--secondary);
+  border-color: var(--primary);
+}
+
+.ic-datepicker-footer-button.clear {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.ic-datepicker-footer-button.clear:hover {
+  background: var(--danger-bg);
+  border-color: var(--danger);
+}
+
 
 /* ===================================
-   OCEAN THEME - Large Response Icons
+   UTILITY CLASSES
    =================================== */
-html[data-theme="ocean"] .ic-response-icon-large--success {
-  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.4);
+
+/* Text */
+.ic-text-center { text-align: center; }
+.ic-text-muted { color: var(--muted); }
+
+/* Margins */
+.ic-mb-1 { margin-bottom: 0.5rem; }
+.ic-mb-2 { margin-bottom: 1rem; }
+.ic-mb-3 { margin-bottom: 1.5rem; }
+.ic-mb-4 { margin-bottom: 2rem; }
+.ic-mt-1 { margin-top: 0.5rem; }
+.ic-mt-2 { margin-top: 1rem; }
+.ic-mt-3 { margin-top: 1.5rem; }
+.ic-mt-4 { margin-top: 2rem; }
+
+/* Flexbox */
+.ic-flex { display: flex; }
+.ic-flex-center { display: flex; align-items: center; justify-content: center; }
+.ic-flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+/* Gap */
+.ic-gap-1 { gap: 0.5rem; }
+.ic-gap-2 { gap: 1rem; }
+.ic-gap-3 { gap: 1.5rem; }
+
+/* Display */
+.ic-hidden { display: none; }
+
+
+/* ===================================
+   RESPONSIVE BREAKPOINTS
+   =================================== */
+
+/* Small screens (< 640px) */
+@media (max-width: 639px) {
+  .ic-container {
+    padding: 1rem;
+  }
+
+  .ic-header-title {
+    font-size: 1.5rem;
+  }
+
+  .ic-card {
+    padding: 1rem;
+  }
+
+  .ic-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .ic-modal-footer .ic-button {
+    width: 100%;
+  }
+
+  .ic-progress-card {
+    min-width: auto;
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .ic-progress-card-title {
+    font-size: 1.25rem;
+  }
+
+  .ic-datepicker-modal {
+    max-width: calc(100vw - 2rem);
+    padding: 1.25rem;
+  }
+
+  .ic-datepicker-footer {
+    flex-direction: column;
+  }
+
+  .ic-datepicker-footer-button {
+    width: 100%;
+  }
 }
 
-html[data-theme="ocean"] .ic-response-icon-large--warning {
-  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+/* Canvas toolbar responsive */
+@media (max-width: 900px) {
+  .ic-canvas-toolbar-text {
+    font-size: 0.8rem;
+  }
 }
 
-html[data-theme="ocean"] .ic-response-icon-large--danger {
-  box-shadow: 0 4px 20px rgba(248, 113, 113, 0.4);
+@media (max-width: 600px) {
+  .ic-canvas-toolbar {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .ic-canvas-toolbar-text {
+    font-size: 0.75rem;
+  }
+
+  .ic-canvas-btn-text {
+    display: none;
+  }
+
+  .ic-canvas-toolbar-actions .ic-button {
+    padding: 0.5rem;
+    min-width: 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ic-canvas-toolbar-text {
+    display: none;
+  }
+
+  .ic-canvas-toolbar-actions {
+    margin-left: auto;
+  }
 }
