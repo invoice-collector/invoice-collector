@@ -1,7 +1,7 @@
 import { WebCollector } from '../../web2Collector';
 import { FreeMobileSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
 
@@ -11,7 +11,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "4",
+        version: "5",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -31,6 +31,7 @@ export class FreeMobileCollector extends WebCollector {
         },
         loginUrl: "https://mobile.free.fr/account/v2/login",
         entryUrl: "https://mobile.free.fr/account",
+        captcha: CollectorCaptcha.NONE,
         useProxy: false
     }
 
