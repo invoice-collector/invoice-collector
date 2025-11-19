@@ -55,7 +55,7 @@ export const FreeMobileSelectors = {
     // INVOICES PAGE
 
     CONTAINER_INVOICES: {
-        selector: "#invoices li, #invoices div.border",
+        selector: "#invoices li, #invoices div.border:has(> h3)",
         info: "first invoice container"
     },
     CONTAINER_INVOICE_LINK: {
