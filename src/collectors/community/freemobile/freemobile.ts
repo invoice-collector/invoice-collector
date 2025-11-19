@@ -11,7 +11,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "6",
+        version: "7",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,

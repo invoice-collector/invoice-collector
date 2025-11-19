@@ -59,7 +59,7 @@ export const FreeMobileSelectors = {
         info: "first invoice container"
     },
     CONTAINER_INVOICE_LINK: {
-        selector: "a.group\\/link",
+        selector: "a.group\/link[href*='/invoice/']",
         info: "invoice link container"
     },
     CONTAINER_INVOICE_DATE: {
@@ -67,7 +67,7 @@ export const FreeMobileSelectors = {
         info: "invoice date container"
     },
     CONTAINER_INVOICE_AMOUNT: {
-        selector: "span, p",
+        selector: "div > span, p:nth-of-type(1)",
         info: "invoice amount container"
     }
 }
