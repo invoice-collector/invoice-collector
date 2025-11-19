@@ -1,7 +1,7 @@
 import { WebCollector } from '../../web2Collector';
 import { USelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
 
 export class UCollector extends WebCollector {
@@ -10,7 +10,7 @@ export class UCollector extends WebCollector {
         id: "u",
         name: "U Courses",
         description: "i18n.collectors.u.description",
-        version: "6",
+        version: "7",
         website: "https://www.coursesu.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
         type: CollectorType.WEB,
@@ -30,6 +30,7 @@ export class UCollector extends WebCollector {
         },
         loginUrl: "https://www.coursesu.com/connexion",
         entryUrl: "https://www.coursesu.com/mon-compte/mes-commandes",
+        captcha: CollectorCaptcha.NONE,
         state: CollectorState.DEVELOPMENT
     }
 

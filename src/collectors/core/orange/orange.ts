@@ -1,7 +1,7 @@
 import { WebCollector } from '../../../collectors/web2Collector';
 import { OrangeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorType, DownloadedInvoice, Invoice } from '../../../collectors/abstractCollector';
+import { CollectorCaptcha, CollectorType, DownloadedInvoice, Invoice } from '../../../collectors/abstractCollector';
 import * as utils from '../../../utils';
 import { AuthenticationError } from '../../../error';
 
@@ -11,7 +11,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "16",
+        version: "17",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -31,6 +31,7 @@ export class OrangeCollector extends WebCollector {
         },
         loginUrl: "https://login.orange.fr/?return_url=https%3A%2F%2Fwww.orange.fr%2Fportail",
         entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
+        captcha: CollectorCaptcha.NONE,
         useProxy: false, // TODO: Proxy is not compatible with Orange
         loadImages: true
     }
