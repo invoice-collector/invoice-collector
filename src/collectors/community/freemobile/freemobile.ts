@@ -11,7 +11,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "5",
+        version: "6",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -111,7 +111,8 @@ export class FreeMobileCollector extends WebCollector {
 
     async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
         const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
-        const date = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
+        const stringDate = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
+        const date = stringDate.replace("Ma dernière facture - ", "").trim();
         const amount = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_AMOUNT, "textContent");
 
         const id = link.split("/").pop();
