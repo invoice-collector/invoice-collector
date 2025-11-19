@@ -11,7 +11,7 @@ export class OpenaiApiCollector extends WebCollector {
         id: "openai_api",
         name: "OpenAI (API)",
         description: "i18n.collectors.openai_api.description",
-        version: "6",
+        version: "7",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -95,7 +95,7 @@ export class OpenaiApiCollector extends WebCollector {
 
     async navigate(driver: Driver, params: any): Promise<void> {
         // Wait for billing button
-        await driver.getElement(OpenaiSelectors.BUTTON_BILLING, { timeout: 5000 });
+        await driver.getElement(OpenaiSelectors.BUTTON_SETTINGS, { timeout: 5000 });
         // Go to invoices page
         await driver.goto(OpenaiApiCollector.CONFIG.entryUrl);
     }
