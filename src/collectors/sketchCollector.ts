@@ -1,9 +1,10 @@
-import { Invoice, CompleteInvoice, CollectorType, CollectorState, Config } from "./abstractCollector";
+import { CompleteInvoice, CollectorType, CollectorState, Config } from "./abstractCollector";
 import { V2Collector } from "./v2Collector";
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
+import { WebSocketServer } from "../websocket/webSocketServer";
 
 export type SketchConfig = Config & {
 }
@@ -21,6 +22,7 @@ export abstract class SketchCollector extends V2Collector<SketchConfig> {
     async _collect(
         state: State,
         twofa_promise: TwofaPromise,
+        webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
