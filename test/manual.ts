@@ -179,7 +179,7 @@ function getHashFromSecret(secret: Secret): string {
         });
 
         // Instanciate web socket server
-        const webSocketServer = new WebSocketServer(undefined, I18n.DEFAULT_LOCALE);
+        const webSocketServer = new WebSocketServer(undefined, I18n.DEFAULT_LOCALE, collector);
         const webSocketPath = webSocketServer.start();
 
         // Connect to web socket server
