@@ -68,6 +68,7 @@ async function deleteCredential(id) {
 
 function closeIframe() {
     window.parent.postMessage({ type: 'invoice-collector-close' }, '*');
+    showCompanies();
 }
 
 async function showCompanies() {
@@ -83,7 +84,7 @@ async function showCompanies() {
         searchInput.value = '';
     }
     
-    renderCompanies(companies);
+    renderCompanies(companies.slice(0, 100));
 }
 
 function showFeedback(type) {
