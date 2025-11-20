@@ -262,7 +262,7 @@ function showForm(company) {
             const param = company.params[key];
             
             const formGroup = document.createElement('div');
-            formGroup.className = 'ic-form-group';
+            formGroup.className = 'ic-form-group ic-form-group--floating';
             
             const label = document.createElement('label');
             label.className = 'ic-label';
