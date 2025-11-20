@@ -255,40 +255,40 @@ function showForm(company) {
         datepickerSince = null;
     }
     
-    if (company.type !== 'sketch') {
-        form.style.display = 'block';
-        hitSketch.classList.add('ic-hidden');
+    //if (company.type !== 'sketch') {
+    form.style.display = 'block';
+    hitSketch.classList.add('ic-hidden');
+    
+    Object.keys(company.params).forEach(key => {
+        const param = company.params[key];
         
-        Object.keys(company.params).forEach(key => {
-            const param = company.params[key];
-            
-            const formGroup = document.createElement('div');
-            formGroup.className = 'ic-form-group';
-            
-            const label = document.createElement('label');
-            label.className = 'ic-label';
-            if (param.mandatory) {
-                label.className += ' ic-label--required';
-            }
-            label.textContent = param.name;
-            
-            const input = document.createElement('input');
-            input.className = 'ic-input';
-            input.type = param.type === 'password' ? 'password' : 'text';
-            input.name = key;
-            input.placeholder = param.placeholder;
-            input.required = param.mandatory;
-            
-            formGroup.appendChild(label);
-            formGroup.appendChild(input);
-            formParams.appendChild(formGroup);
-        });
+        const formGroup = document.createElement('div');
+        formGroup.className = 'ic-form-group';
         
-        datepickerSince = createDatepicker('#datepicker-since', {
-            format: 'yyyy-MM-dd',
-            placeholder: 'jj / mm / aaaa'
-        });
-    } else {
+        const label = document.createElement('label');
+        label.className = 'ic-label';
+        if (param.mandatory) {
+            label.className += ' ic-label--required';
+        }
+        label.textContent = param.name;
+        
+        const input = document.createElement('input');
+        input.className = 'ic-input';
+        input.type = param.type === 'password' ? 'password' : 'text';
+        input.name = key;
+        input.placeholder = param.placeholder;
+        input.required = param.mandatory;
+        
+        formGroup.appendChild(label);
+        formGroup.appendChild(input);
+        formParams.appendChild(formGroup);
+    });
+    
+    datepickerSince = createDatepicker('#datepicker-since', {
+        format: 'yyyy-MM-dd',
+        placeholder: 'jj / mm / aaaa'
+    });
+    /*} else {
         form.style.display = 'none';
         hitSketch.classList.remove('ic-hidden');
         document.getElementById('hit-sketch-success').classList.add('ic-hidden');
@@ -303,7 +303,7 @@ function showForm(company) {
                 hit.push(company.id);
             }
         };
-    }
+    }*/
 }
 
 async function addCredential(event) {
