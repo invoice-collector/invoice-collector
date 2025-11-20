@@ -159,7 +159,7 @@ function renderCompanies(companiesToRender) {
             <div class="ic-card-header">
                 <img src="${company.logo}" alt="${company.name}" class="ic-card-logo">
                 <div>
-                    <h3 class="ic-card-title">${company.name}</h3>
+                    <label class="ic-card-title">${company.name}</label>
                 </div>
             </div>
             <div class="ic-card-body">
@@ -184,7 +184,7 @@ function renderCompanies(companiesToRender) {
         <div class="ic-card-header">
             <img src="/views/icons/plus.svg" alt="Add" class="ic-card-logo">
             <div>
-                <h3 class="ic-card-title">${i18n.cantFindCollector}</h3>
+                <label class="ic-card-title">${i18n.cantFindCollector}</label>
             </div>
         </div>
         <div class="ic-card-body">

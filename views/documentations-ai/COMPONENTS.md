@@ -11,7 +11,7 @@ Ce document détaille tous les composants UI disponibles avec leur HTML, leurs c
     <div class="ic-card-header">
         <img src="logo.png" alt="Logo" class="ic-card-logo">
         <div>
-            <h3 class="ic-card-title">Titre</h3>
+            <label class="ic-card-title">Titre</label>
         </div>
     </div>
     <div class="ic-card-body">
@@ -33,7 +33,7 @@ Ce document détaille tous les composants UI disponibles avec leur HTML, leurs c
     <div class="ic-card-header">
         <img src="/views/icons/plus.svg" alt="Add" class="ic-card-logo">
         <div>
-            <h3 class="ic-card-title">Collecteur introuvable ?</h3>
+            <label class="ic-card-title">Collecteur introuvable ?</label>
         </div>
     </div>
     <div class="ic-card-body">

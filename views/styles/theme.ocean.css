@@ -182,18 +182,27 @@ body {
 .ic-grid {
   display: grid;
   gap: 1.5rem;
+  max-width: 56rem;
   grid-template-columns: 1fr;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 500px) {
   .ic-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 750px) {
   .ic-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .ic-grid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -204,9 +213,7 @@ body {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
   padding: 24px;
-  box-shadow: var(--shadow);
   border: 1px dashed var(--card-border);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -216,25 +223,16 @@ body {
 }
 
 .ic-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
-  border-color: var(--primary-hover);
-}
-
-.ic-card:active {
-  transform: translateY(-2px);
+  border: 2px solid var(--primary-hover);
 }
 
 .ic-card--special {
   border: 1px dashed var(--card-border);
   background: var(--card-special);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ic-card--special:hover {
-  border-color: var(--primary-hover);
-  background: var(--card-special-hover);
-  transform: translateY(-4px);
+  border: 2px solid var(--primary-hover);
 }
 
 .ic-card-header {
@@ -244,11 +242,14 @@ body {
   margin-bottom: 4px;
   flex-shrink: 0;
   flex-direction: column;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .ic-card-logo {
-  width: 48px;
-  height: 48px;
+  max-width: 150px;
+  max-height: 80px;
   border-radius: var(--radius-lg);
   object-fit: contain;
   flex-shrink: 0;
@@ -256,18 +257,16 @@ body {
 
 .ic-card-title {
   font-family: 'Montserrat', 'Open Sans', sans-serif;
-  font-size: 1.125rem;
-  font-weight: 600;
+  font-size: 0.9rem;
   color: var(--primary);
   margin-bottom: 0;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .ic-card-body {
   flex: 1;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
@@ -309,7 +308,7 @@ body {
 }
 
 .ic-card-footer {
-  display: flex;
+  display: none;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
@@ -464,7 +463,10 @@ body {
    =================================== */
 .ic-form-group {
   margin-bottom: 1.5rem;
+  max-width: 56rem;
   position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Floating label container */
