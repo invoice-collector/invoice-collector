@@ -1,77 +1,98 @@
 /* ===================================
-   THEME: OCEAN (Dark Blue - Axonaut Style)
-   Dark theme with marine blue colors
+   THEME: OCEAN (Light - Axonaut Style)
+   Light theme with marine blue accents
    =================================== */
+
+/* ===================================
+   GOOGLE FONTS - Montserrat
+   =================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
 
 /* ===================================
    CSS VARIABLES - Theme Colors
    =================================== */
 :root {
   /* Background & Text */
-  --bg: #1e3a5f;
-  --text: #ffffff;
-  --text-secondary: #b8d4f1;
-  --muted: #8ba9c9;
-  --placeholder: #5a7a9d;
+  --bg: #ffffff;
+  --text: #333333;
+  --text-secondary: #333333;
+  --muted: #666666;
+  --placeholder: #999999;
 
-  /* Primary - Cyan Blue */
+  /* Primary - Ocean Blue */
   --primary: #2D95F8;
-  --primary-hover: #3b9dff;
-  --primary-focus: rgba(59, 157, 255, 0.2);
+  --primary-hover: #35A5F6;
+  --primary-gradient: #40BCF5;
+  --primary-focus: rgba(45, 149, 248, 0.2);
+  --label-focus: #35A5F6;
 
   /* Secondary */
-  --secondary: #2c4e73;
-  --secondary-hover: #3a5f88;
+  --secondary: #f5f5f5;
+  --secondary-hover: #e8e8e8;
+
+  /* Accent - Dark Blue */
+  --accent: #21406b;
+  --accent-light: #35A5F6;
 
   /* Cards */
-  --card: #2a4d6e;
-  --card-border: #3a5f88;
-  --card-special: #243d5c;
-  --card-special-hover: #2c4e73;
+  --card: #ffffff;
+  --card-border: #00f;
+  --card-border-default: rgba(0, 0, 0, 0.2);
+  --card-special: rgba(208, 235, 253, 0.1);
+  --card-special-hover: rgba(208, 235, 253, 0.2);
+  --card-bg: rgba(208, 235, 253, 0.1);
 
   /* Status - Success */
-  --success: #34d399;
-  --success-hover: #10b981;
-  --success-bg: rgba(52, 211, 153, 0.15);
+  --success: #28a745;
+  --success-hover: #218838;
+  --success-bg: rgba(40, 167, 69, 0.1);
+  --success-text: #155724;
 
   /* Status - Warning */
-  --warning: #fbbf24;
-  --warning-hover: #f59e0b;
-  --warning-bg: rgba(251, 191, 36, 0.15);
+  --warning: #ffc107;
+  --warning-hover: #e0a800;
+  --warning-bg: rgba(255, 193, 7, 0.1);
+  --warning-text: #856404;
 
   /* Status - Danger */
-  --danger: #f87171;
-  --danger-hover: #ef4444;
-  --danger-bg: rgba(248, 113, 113, 0.15);
+  --danger: #dc3545;
+  --danger-hover: #c82333;
+  --danger-bg: rgba(220, 53, 69, 0.1);
+  --danger-text: #721c24;
 
   /* Status - Info */
-  --info: #60a5fa;
-  --info-hover: #3b82f6;
-  --info-bg: rgba(96, 165, 250, 0.15);
+  --info: #2D95F8;
+  --info-hover: #35A5F6;
+  --info-bg: rgba(45, 149, 248, 0.1);
+  --info-text: #21406b;
 
   /* Forms */
-  --input-bg: #243d5c;
-  --input-border: #3a5f88;
-  --disabled-bg: #1e3550;
+  --input-bg: #ffffff;
+  --input-border: rgba(0, 0, 0, 0.2);
+  --input-background-hover: #C4E2FF;
+  --disabled-bg: #f5f5f5;
 
   /* Progress & Spinner */
-  --progress-bg: #3a5f88;
-  --spinner-bg: #3a5f88;
+  --progress-bg: #e0e0e0;
+  --spinner-bg: #e0e0e0;
+
+  /* Icons */
+  --icon-color: #494d55;
 
   /* Shadows */
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  --shadow-hover: 0 8px 16px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 16px 32px rgba(0, 0, 0, 0.5);
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
 
   /* Border Radius */
   --radius: 8px;
-  --radius-lg: 16px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
   --radius-full: 9999px;
 
-  /* Logo background - Light for contrast */
-  --logo-bg: #f2f6ff;
+  /* Font size */
+  --text-base: 14px;
 }
-
 
 /* ===================================
    RESET & BASE STYLES
@@ -89,14 +110,14 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
+  line-height: 1.42857143;
+  font-size: var(--text-base);
   background-color: var(--bg);
   color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 /* ===================================
    LAYOUT - Container & Header
@@ -121,12 +142,12 @@ body {
 }
 
 .ic-container::-webkit-scrollbar-thumb {
-  background: var(--muted);
+  background: #cccccc;
   border-radius: var(--radius);
 }
 
 .ic-container::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+  background: #999999;
 }
 
 .ic-header {
@@ -134,18 +155,26 @@ body {
 }
 
 .ic-header-title {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
   color: var(--text);
   margin-bottom: 0.5rem;
 }
 
 .ic-header-subtitle {
-  font-size: 1rem;
-  color: var(--muted);
+  display: block;
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 0.8;
   font-weight: 400;
+  color: var(--text);
 }
 
+.ic-header-subtitle-separator {
+  padding-top: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
 
 /* ===================================
    GRID SYSTEM
@@ -168,27 +197,28 @@ body {
   }
 }
 
-
 /* ===================================
    CARDS
    =================================== */
 .ic-card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 1.5rem;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 24px;
   box-shadow: var(--shadow);
-  border: 1px solid var(--card-border);
+  border: 1px dashed var(--card-border);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   height: 100%;
 }
 
 .ic-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
-  border-color: var(--primary);
+  border-color: var(--primary-hover);
 }
 
 .ic-card:active {
@@ -196,13 +226,13 @@ body {
 }
 
 .ic-card--special {
-  border: 2px dashed var(--card-border);
+  border: 1px dashed var(--card-border);
   background: var(--card-special);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ic-card--special:hover {
-  border-color: var(--primary);
+  border-color: var(--primary-hover);
   background: var(--card-special-hover);
   transform: translateY(-4px);
 }
@@ -210,25 +240,25 @@ body {
 .ic-card-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
+  margin-bottom: 4px;
   flex-shrink: 0;
+  flex-direction: column;
 }
 
 .ic-card-logo {
   width: 48px;
   height: 48px;
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
   object-fit: contain;
-  padding: 0.5rem;
   flex-shrink: 0;
-  background: var(--logo-bg);
 }
 
 .ic-card-title {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text);
+  color: var(--primary);
   margin-bottom: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -242,9 +272,9 @@ body {
 }
 
 .ic-card-description {
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.42857143;
   margin-bottom: 0.5rem;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -286,8 +316,9 @@ body {
   gap: 0.5rem;
   margin-top: auto;
   padding-top: 1rem;
-  border-top: 1px solid var(--card-border);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   flex-shrink: 0;
+  width: 100%;
 }
 
 .ic-card-meta {
@@ -305,7 +336,6 @@ body {
   padding: 0.75rem;
 }
 
-
 /* ===================================
    BADGES
    =================================== */
@@ -322,24 +352,23 @@ body {
 
 .ic-badge--stable {
   background: var(--success-bg);
-  color: var(--success);
+  color: var(--success-text);
 }
 
 .ic-badge--beta {
   background: var(--warning-bg);
-  color: var(--warning);
+  color: var(--warning-text);
 }
 
 .ic-badge--alpha {
   background: var(--danger-bg);
-  color: var(--danger);
+  color: var(--danger-text);
 }
 
 .ic-badge--info {
   background: var(--info-bg);
-  color: var(--info);
+  color: var(--info-text);
 }
-
 
 /* ===================================
    BUTTONS
@@ -350,8 +379,7 @@ body {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border: none;
-  border-radius: var(--radius);
+  border-radius: var(--radius-xl);
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -364,14 +392,17 @@ body {
 
 .ic-button--primary {
   background: var(--primary);
+  background: linear-gradient(70deg, var(--primary), var(--primary-gradient));
   color: white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
 }
 
 .ic-button--primary:hover {
-  background: var(--primary-hover);
+  background: var(--primary);
+  background: linear-gradient(70deg, var(--primary), var(--primary-gradient));
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(45, 149, 248, 0.4);
 }
 
 .ic-button--primary:active {
@@ -380,19 +411,23 @@ body {
 
 .ic-button--secondary {
   background: var(--card);
-  color: var(--text);
-  border: 1px solid var(--card-border);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background: linear-gradient(70deg, var(--card), var(--card));
+  color: var(--muted);
+  border: 1px solid var(--muted);
+  box-shadow: var(--shadow);
 }
 
 .ic-button--secondary:hover {
-  background: var(--secondary);
-  border-color: var(--muted);
+  background: #C4E2FF;
+  background: linear-gradient(70deg, #C4E2FF, #C4E2FF);
+  color: #319DF7;
+  border: 1px solid #319DF7;
 }
 
 .ic-button--ghost {
   background: transparent;
   color: var(--text);
+  border: none;
 }
 
 .ic-button--ghost:hover {
@@ -402,12 +437,13 @@ body {
 .ic-button--danger {
   background: var(--danger);
   color: white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
 }
 
 .ic-button--danger:hover {
   background: var(--danger-hover);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
 }
 
 .ic-button--icon {
@@ -423,17 +459,55 @@ body {
   box-shadow: none !important;
 }
 
-
 /* ===================================
-   FORM ELEMENTS - Inputs & Labels
+   FORM ELEMENTS - Floating Label Inputs
    =================================== */
 .ic-form-group {
   margin-bottom: 1.5rem;
+  position: relative;
 }
 
+/* Floating label container */
+.ic-form-group--floating {
+  position: relative;
+}
+
+.ic-form-group--floating .ic-input,
+.ic-form-group--floating .ic-textarea {
+  padding: 10px 15px 10px 15px;
+}
+
+.ic-form-group--floating .ic-label {
+  position: absolute;
+  left: 12px;
+  top: -10px;
+  background: var(--bg);
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+/* Label turns blue when input is focused */
+.ic-form-group--floating .ic-input:focus ~ .ic-label,
+.ic-form-group--floating .ic-textarea:focus ~ .ic-label,
+.ic-form-group--floating:focus-within .ic-label {
+  color: var(--label-focus);
+}
+
+/* Required asterisk in red */
+.ic-form-group--floating .ic-label--required::after {
+  content: " *";
+  color: var(--danger);
+}
+
+/* Standard label (non-floating) */
 .ic-label {
   display: block;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   font-weight: 500;
   color: var(--text);
   margin-bottom: 0.5rem;
@@ -444,16 +518,26 @@ body {
   color: var(--danger);
 }
 
+.ic-label-hidden{
+  display: none !important;
+}
+
+/* Input styles */
 .ic-input,
 .ic-textarea {
+  display: inline-block;
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 10px 15px;
   border: 1px solid var(--input-border);
   border-radius: var(--radius);
   background: var(--input-bg);
   color: var(--text);
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-family: inherit;
+  line-height: 18px;
+  vertical-align: middle;
+  height: unset;
+  margin: 0;
   transition: all 0.2s ease;
 }
 
@@ -483,14 +567,14 @@ body {
 
 .ic-input-helper {
   display: block;
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   color: var(--muted);
   margin-top: 0.5rem;
 }
 
 .ic-input-error {
   display: block;
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   color: var(--danger);
   margin-top: 0.5rem;
 }
@@ -498,6 +582,10 @@ body {
 .ic-form-group.error .ic-input,
 .ic-form-group.error .ic-textarea {
   border-color: var(--danger);
+}
+
+.ic-form-group.error .ic-label {
+  color: var(--danger);
 }
 
 /* Input with icon */
@@ -512,11 +600,14 @@ body {
   transform: translateY(-50%);
   width: 18px;
   height: 18px;
-  opacity: 0.5;
+  opacity: 0.6;
   pointer-events: none;
-  filter: brightness(0) invert(1);
+  color: var(--icon-color);
 }
 
+.ic-input-wrapper .ic-input {
+  padding-left: 2.75rem;
+}
 
 /* ===================================
    ALERTS / MESSAGES
@@ -534,25 +625,25 @@ body {
 .ic-alert--error {
   background: var(--danger-bg);
   border-color: var(--danger);
-  color: var(--danger);
+  color: var(--danger-text);
 }
 
 .ic-alert--success {
   background: var(--success-bg);
   border-color: var(--success);
-  color: var(--success);
+  color: var(--success-text);
 }
 
 .ic-alert--info {
   background: var(--info-bg);
   border-color: var(--info);
-  color: var(--info);
+  color: var(--info-text);
 }
 
 .ic-alert--warning {
   background: var(--warning-bg);
   border-color: var(--warning);
-  color: var(--warning);
+  color: var(--warning-text);
 }
 
 .ic-alert-icon {
@@ -561,23 +652,22 @@ body {
   flex-shrink: 0;
 }
 
-/* Alert icon colors - Ocean theme specific */
+/* Alert icon colors */
 .ic-alert--error .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(67%) sepia(85%) saturate(1352%) hue-rotate(325deg) brightness(101%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(2000%) hue-rotate(340deg) brightness(90%) contrast(100%);
 }
 
 .ic-alert--success .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(76%) sepia(47%) saturate(459%) hue-rotate(107deg) brightness(96%) contrast(91%);
+  filter: brightness(0) saturate(100%) invert(30%) sepia(100%) saturate(500%) hue-rotate(100deg) brightness(90%) contrast(100%);
 }
 
 .ic-alert--info .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(66%) sepia(52%) saturate(667%) hue-rotate(188deg) brightness(102%) contrast(97%);
+  filter: brightness(0) saturate(100%) invert(40%) sepia(100%) saturate(1000%) hue-rotate(200deg) brightness(100%) contrast(100%);
 }
 
 .ic-alert--warning .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(83%) sepia(49%) saturate(684%) hue-rotate(354deg) brightness(103%) contrast(97%);
+  filter: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(500%) hue-rotate(10deg) brightness(100%) contrast(100%);
 }
-
 
 /* ===================================
    PROGRESS BAR
@@ -594,7 +684,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 0.75rem;
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   color: var(--muted);
   font-weight: 500;
   min-height: 1.5rem;
@@ -604,14 +694,14 @@ body {
   width: 100%;
   height: 6px;
   background: var(--progress-bg);
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
 .ic-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--primary-hover));
-  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-gradient));
+  border-radius: var(--radius-full);
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
@@ -631,7 +721,6 @@ body {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
-
 
 /* ===================================
    LOADER / SPINNER
@@ -668,51 +757,45 @@ body {
   border-width: 6px;
 }
 
-
 /* ===================================
    BACK BUTTON
    =================================== */
 .ic-back-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   color: var(--text);
   text-decoration: none;
   font-weight: 500;
   margin-bottom: 1.5rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem;
   transition: color 0.2s ease;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--input-border);
+  width: fit-content;
+}
+
+.ic-back-button span {
+  display: flex;
 }
 
 .ic-back-button:hover {
-  color: var(--primary);
-}
-
-.ic-back-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  transition: all 0.2s ease;
+  color: var(--primary-hover);
+  background-color: var(--input-background-hover);
+  border-color: var(--info-hover);
 }
 
 .ic-back-icon img {
   width: 16px;
   height: 16px;
   opacity: 0.7;
-  filter: brightness(0) invert(1);
+  color: var(--icon-color);
 }
 
-.ic-back-button:hover .ic-back-icon {
-  border-color: var(--primary);
-  background: var(--bg);
-  transform: translateX(-2px);
+.ic-back-button:hover img {
+  color: var(--primary-hover);
 }
-
 
 /* ===================================
    COLLECTOR INFO BLOCK
@@ -724,14 +807,14 @@ body {
   padding: 1.5rem;
   background: var(--card);
   border-radius: var(--radius);
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--input-border);
   margin-bottom: 2rem;
 }
 
 .ic-collector-info-logo {
   width: 56px;
   height: 56px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   object-fit: contain;
   background: var(--logo-bg);
   padding: 0.5rem;
@@ -743,17 +826,21 @@ body {
 }
 
 .ic-collector-info-name {
-  font-size: 1.25rem;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 22px;
   font-weight: 600;
-  color: var(--text);
+  color: var(--primary);
   margin-bottom: 0.25rem;
 }
 
 .ic-collector-info-description {
-  font-size: 0.95rem;
-  color: var(--muted);
+  display: block;
+  font-size: var(--text-base);
+  line-height: 16px;
+  opacity: 0.8;
+  font-weight: 400;
+  color: var(--text);
 }
-
 
 /* ===================================
    PROGRESS SCREEN - Card Centered
@@ -767,7 +854,7 @@ body {
 
 .ic-progress-card {
   background: var(--card);
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--input-border);
   border-radius: var(--radius);
   padding: 3rem 2rem;
   min-width: 500px;
@@ -778,12 +865,13 @@ body {
 
 .ic-progress-divider {
   height: 1px;
-  background: var(--card-border);
+  background: rgba(0, 0, 0, 0.1);
   margin: 1.5rem 0;
 }
 
 .ic-progress-card-title {
-  font-size: 1.5rem;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 22px;
   font-weight: 600;
   color: var(--text);
   margin-bottom: 0.5rem;
@@ -794,11 +882,14 @@ body {
 }
 
 .ic-progress-card-subtitle {
-  color: var(--muted);
-  font-size: 0.95rem;
+  display: block;
+  font-size: var(--text-base);
+  line-height: 16px;
+  opacity: 0.8;
+  font-weight: 400;
+  color: var(--text);
   margin: 0;
 }
-
 
 /* ===================================
    RESPONSE ICONS - Large
@@ -821,17 +912,17 @@ body {
 
 .ic-response-icon-large--success {
   background: var(--success);
-  box-shadow: 0 4px 20px rgba(52, 211, 153, 0.4);
+  box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
 }
 
 .ic-response-icon-large--warning {
   background: var(--warning);
-  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 4px 20px rgba(255, 193, 7, 0.4);
 }
 
 .ic-response-icon-large--danger {
   background: var(--danger);
-  box-shadow: 0 4px 20px rgba(248, 113, 113, 0.4);
+  box-shadow: 0 4px 20px rgba(220, 53, 69, 0.4);
 }
 
 /* Response container styling */
@@ -840,15 +931,15 @@ body {
 }
 
 .progress-response .ic-header-title {
-  font-size: 1.5rem;
+  font-size: 22px;
   margin-bottom: 0.5rem;
 }
 
 .progress-response .ic-header-subtitle {
-  font-size: 0.95rem;
+  font-size: var(--text-base);
+  line-height: 16px;
   margin-bottom: 0;
 }
-
 
 /* ===================================
    CANVAS FULLSCREEN MODE
@@ -873,7 +964,7 @@ body {
   gap: 0.75rem;
   padding: 0.75rem 1rem;
   background: var(--card);
-  border-bottom: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--input-border);
   flex-shrink: 0;
 }
 
@@ -911,12 +1002,12 @@ body {
   width: 20px;
   height: 20px;
   opacity: 0.8;
-  filter: brightness(0) invert(1);
+  color: var(--icon-color);
 }
 
 .ic-canvas-toolbar-text {
   flex: 1;
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   color: var(--text);
   text-align: center;
   white-space: nowrap;
@@ -944,11 +1035,14 @@ body {
   display: inline;
 }
 
-/* All canvas button icons should be white in ocean theme */
-.ic-button--primary .ic-canvas-btn-icon,
-.ic-button--ghost .ic-canvas-btn-icon {
-  filter: brightness(0) invert(1) !important;
+.ic-button--primary .ic-canvas-btn-icon {
+  filter: brightness(0) invert(1);
   opacity: 1;
+}
+
+.ic-button--ghost .ic-canvas-btn-icon {
+  filter: none;
+  opacity: 0.8;
 }
 
 /* Canvas content area */
@@ -971,7 +1065,6 @@ body {
   box-shadow: var(--shadow-lg);
   background: white;
 }
-
 
 /* ===================================
    MODAL
@@ -1018,11 +1111,12 @@ body {
 
 .ic-modal-header {
   padding: 1.5rem;
-  border-bottom: 1px solid var(--card-border);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .ic-modal-title {
-  font-size: 1.5rem;
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 22px;
   font-weight: 600;
   color: var(--text);
 }
@@ -1033,12 +1127,11 @@ body {
 
 .ic-modal-footer {
   padding: 1.5rem;
-  border-top: 1px solid var(--card-border);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
 }
-
 
 /* ===================================
    DATEPICKER / CALENDAR
@@ -1074,7 +1167,7 @@ body {
   width: 20px;
   height: 20px;
   opacity: 0.6;
-  filter: brightness(0) invert(1);
+  color: var(--icon-color);
 }
 
 .ic-datepicker-clear {
@@ -1194,7 +1287,7 @@ body {
   border-radius: var(--radius);
   background: var(--input-bg);
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   font-weight: 500;
   cursor: pointer;
   appearance: none;
@@ -1257,7 +1350,7 @@ body {
   background: transparent;
   border: none;
   border-radius: 50%;
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   color: var(--text);
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1295,13 +1388,13 @@ body {
   transform: scale(0.9);
 }
 
-/* Weekend days - Light blue for ocean theme */
+/* Weekend days - Ocean blue */
 .ic-datepicker-day.weekend {
-  color: #60a5fa;
+  color: var(--primary);
 }
 
 .ic-datepicker-day.weekend.other-month {
-  color: #60a5fa;
+  color: var(--primary);
   opacity: 0.4;
 }
 
@@ -1309,7 +1402,7 @@ body {
 .ic-datepicker-footer {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid var(--card-border);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   gap: 0.75rem;
   justify-content: center;
@@ -1317,20 +1410,21 @@ body {
 
 .ic-datepicker-footer-button {
   padding: 0.625rem 1.5rem;
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--muted);
   border-radius: var(--radius);
-  font-size: 0.9rem;
+  font-size: var(--text-base);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   background: var(--card);
-  color: var(--text);
+  color: var(--muted);
   min-width: 100px;
 }
 
 .ic-datepicker-footer-button:hover {
-  background: var(--secondary);
-  border-color: var(--primary);
+  background: #C4E2FF;
+  border-color: #319DF7;
+  color: #319DF7;
 }
 
 .ic-datepicker-footer-button.clear {
@@ -1343,11 +1437,9 @@ body {
   border-color: var(--danger);
 }
 
-
 /* ===================================
    UTILITY CLASSES
    =================================== */
-
 /* Text */
 .ic-text-center { text-align: center; }
 .ic-text-muted { color: var(--muted); }
@@ -1375,11 +1467,9 @@ body {
 /* Display */
 .ic-hidden { display: none; }
 
-
 /* ===================================
    RESPONSIVE BREAKPOINTS
    =================================== */
-
 /* Small screens (< 640px) */
 @media (max-width: 639px) {
   .ic-container {
@@ -1387,11 +1477,11 @@ body {
   }
 
   .ic-header-title {
-    font-size: 1.5rem;
+    font-size: 22px;
   }
 
   .ic-card {
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .ic-modal-footer {
@@ -1403,13 +1493,13 @@ body {
   }
 
   .ic-progress-card {
-    min-width: auto;
+    min-width: 100%;
     padding: 2rem 1.5rem;
     margin: 0 1rem;
   }
 
   .ic-progress-card-title {
-    font-size: 1.25rem;
+    font-size: 18px;
   }
 
   .ic-datepicker-modal {

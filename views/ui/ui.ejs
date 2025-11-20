@@ -21,6 +21,7 @@
         <div class="ic-header">
             <h1 class="ic-header-title"><%= __('i18n.views.manage.add_collectors') %></h1>
             <p class="ic-header-subtitle"><%= __('i18n.views.manage.select_collector') %></p>
+            <div class="ic-header-subtitle-separator"></div>
         </div>
         
         <!-- Search Input -->
@@ -61,6 +62,7 @@
         <div class="ic-header">
             <h1 class="ic-header-title" id="form-title"><%= __('i18n.views.manage.add_collectors') %></h1>
             <p class="ic-header-subtitle" id="form-subtitle"><%= __('i18n.views.manage.connect_account') %></p>
+            <div class="ic-header-subtitle-separator"></div>
         </div>
         
         <!-- Collector Info Card -->
@@ -89,7 +91,7 @@
             <div id="add-credential-form-params"></div>
             
             <!-- Date Picker - Collection Start Date -->
-            <div class="ic-form-group">
+            <div class="ic-form-group  ic-form-group--floating">
                 <label class="ic-label ic-label--required"><%= __('i18n.views.manage.download_since') %></label>
                 <input 
                     type="text" 
@@ -175,7 +177,7 @@
                     <div id="send-2fa-container" hidden>
                         <form id="send-2fa-form" style="margin-top: 1.5rem;">
                             <div class="ic-form-group">
-                                <label class="ic-label ic-label--required" id="send-2fa-instructions"></label>
+                                <label class="ic-label ic-label--required ic-label-hidden" id="send-2fa-instructions"></label>
                                 <input 
                                     type="text" 
                                     name="code" 
@@ -315,7 +317,7 @@
             <input type="text" name="type" value="new_collector" required hidden>
             
             <!-- Website URL Field -->
-            <div class="ic-form-group">
+            <div class="ic-form-group ic-form-group--floating">
                 <label class="ic-label ic-label--required"><%= __('i18n.views.manage.website_url') %></label>
                 <input 
                     type="url" 
