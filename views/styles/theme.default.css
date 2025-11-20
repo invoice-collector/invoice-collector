@@ -1,6 +1,7 @@
 /* ===================================
    THEME: DEFAULT (Invoice Collector)
    Light theme with blue primary colors
+   Tailwind-inspired design
    =================================== */
 
 /* ===================================
@@ -9,66 +10,69 @@
 :root {
   /* Background & Text */
   --bg: #f8f9fa;
-  --text: #1e293b;
-  --text-secondary: #475569;
-  --muted: #64748b;
-  --placeholder: #94a3b8;
+  --text: #111827;           /* gray-900 */
+  --text-secondary: #4b5563; /* gray-600 */
+  --muted: #6b7280;          /* gray-500 */
+  --placeholder: #9ca3af;    /* gray-400 */
 
   /* Primary - Blue */
-  --primary: #2563eb;
-  --primary-hover: #3b82f6;
-  --primary-focus: rgba(59, 130, 246, 0.15);
+  --primary: #2563eb;        /* blue-600 */
+  --primary-hover: #3b82f6;  /* blue-500 */
+  --primary-focus: rgba(59, 130, 246, 0.5); /* ring-2 ring-blue-500 */
 
   /* Secondary */
-  --secondary: #f1f5f9;
-  --secondary-hover: #e2e8f0;
+  --secondary: #f3f4f6;      /* gray-100 */
+  --secondary-hover: #e5e7eb; /* gray-200 */
 
   /* Cards */
   --card: #ffffff;
-  --card-border: #e2e8f0;
+  --card-border: #e5e7eb;    /* gray-200 */
   --card-special: #ffffff;
-  --card-special-hover: #e2e8f0;
+  --card-special-hover: #f3f4f6;
 
   /* Status - Success */
-  --success: #10b981;
-  --success-hover: #059669;
-  --success-bg: #d1fae5;
+  --success: #059669;        /* green-600 */
+  --success-hover: #047857;  /* green-700 */
+  --success-bg: #dcfce7;     /* green-100 */
+  --success-text: #166534;   /* green-800 */
 
   /* Status - Warning */
-  --warning: #f59e0b;
-  --warning-hover: #d97706;
-  --warning-bg: #fef3c7;
+  --warning: #d97706;        /* amber-600 */
+  --warning-hover: #b45309;  /* amber-700 */
+  --warning-bg: #fef3c7;     /* amber-100 */
+  --warning-text: #92400e;   /* amber-800 */
 
   /* Status - Danger */
-  --danger: #ef4444;
-  --danger-hover: #dc2626;
-  --danger-bg: #fee2e2;
+  --danger: #dc2626;         /* red-600 */
+  --danger-hover: #b91c1c;   /* red-700 */
+  --danger-bg: #fee2e2;      /* red-100 */
+  --danger-text: #991b1b;    /* red-800 */
 
   /* Status - Info */
-  --info: #3b82f6;
-  --info-hover: #2563eb;
-  --info-bg: #dbeafe;
+  --info: #2563eb;           /* blue-600 */
+  --info-hover: #1d4ed8;     /* blue-700 */
+  --info-bg: #dbeafe;        /* blue-100 */
+  --info-text: #1e40af;      /* blue-800 */
 
   /* Forms */
   --input-bg: #ffffff;
-  --input-border: #e2e8f0;
-  --disabled-bg: #f8fafc;
+  --input-border: #d1d5db;   /* gray-300 */
+  --disabled-bg: #f9fafb;    /* gray-50 */
 
   /* Progress & Spinner */
-  --progress-bg: #e2e8f0;
-  --spinner-bg: #e2e8f0;
+  --progress-bg: #e5e7eb;
+  --spinner-bg: #e5e7eb;
 
   /* Shadows */
-  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
-  --shadow-hover: 0 4px 12px -2px rgba(0, 0, 0, 0.12), 0 2px 6px -1px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+  --shadow-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
 
   /* Border Radius */
-  --radius: 4px;
-  --radius-lg: 16px;
-  --radius-full: 9999px;
+  --radius: 0.5rem;          /* rounded-lg */
+  --radius-xl: 0.75rem;      /* rounded-xl */
+  --radius-full: 9999px;     /* rounded-full */
 }
-
 
 /* ===================================
    RESET & BASE STYLES
@@ -86,14 +90,12 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  line-height: 1.5;
   background-color: var(--bg);
   color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
 
 /* ===================================
    LAYOUT - Container & Header
@@ -131,18 +133,20 @@ body {
 }
 
 .ic-header-title {
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
   color: var(--text);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .ic-header-subtitle {
   font-size: 1rem;
-  color: var(--muted);
+  line-height: 1.5rem;
+  color: var(--text-secondary);
   font-weight: 400;
+  margin-top: 0.5rem;
 }
-
 
 /* ===================================
    GRID SYSTEM
@@ -165,13 +169,12 @@ body {
   }
 }
 
-
 /* ===================================
    CARDS
    =================================== */
 .ic-card {
   background: var(--card);
-  border-radius: var(--radius);
+  border-radius: var(--radius-xl);
   padding: 1.5rem;
   box-shadow: var(--shadow);
   border: 1px solid var(--card-border);
@@ -194,13 +197,12 @@ body {
 
 .ic-card--special {
   border: 2px dashed var(--card-border);
-  background: var(--card-special);
+  background: var(--card);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ic-card--special:hover {
   border-color: var(--primary);
-  background: var(--card-special-hover);
   transform: translateY(-4px);
 }
 
@@ -215,11 +217,11 @@ body {
 .ic-card-logo {
   width: 48px;
   height: 48px;
-  border-radius: 10px;
+  border-radius: var(--radius);
   object-fit: contain;
   padding: 0.5rem;
   flex-shrink: 0;
-  background: #f1f5f9;
+  background: var(--secondary);
 }
 
 .ic-card-title {
@@ -240,7 +242,7 @@ body {
 
 .ic-card-description {
   font-size: 0.875rem;
-  color: var(--muted);
+  color: var(--text-secondary);
   line-height: 1.5;
   margin-bottom: 0.5rem;
   display: -webkit-box;
@@ -262,7 +264,7 @@ body {
   margin-top: 0.5rem;
   padding: 0.75rem 1rem;
   background: var(--text);
-  color: var(--bg);
+  color: var(--card);
   border-radius: var(--radius);
   font-size: 0.8rem;
   line-height: 1.4;
@@ -294,7 +296,6 @@ body {
   color: var(--muted);
 }
 
-
 /* ===================================
    BADGES
    =================================== */
@@ -302,33 +303,32 @@ body {
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.75rem;
-  border-radius: var(--radius);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .ic-badge--stable {
   background: var(--success-bg);
-  color: var(--success);
+  color: var(--success-text);
 }
 
 .ic-badge--beta {
   background: var(--warning-bg);
-  color: var(--warning);
+  color: var(--warning-text);
 }
 
 .ic-badge--alpha {
   background: var(--danger-bg);
-  color: var(--danger);
+  color: var(--danger-text);
 }
 
 .ic-badge--info {
   background: var(--info-bg);
-  color: var(--info);
+  color: var(--info-text);
 }
-
 
 /* ===================================
    BUTTONS
@@ -342,25 +342,25 @@ body {
   border: none;
   border-radius: var(--radius);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   text-decoration: none;
   font-family: inherit;
-  line-height: 1;
+  line-height: 1.5;
   white-space: nowrap;
 }
 
 .ic-button--primary {
   background: var(--primary);
   color: white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
 }
 
 .ic-button--primary:hover {
   background: var(--primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  box-shadow: var(--shadow-hover);
 }
 
 .ic-button--primary:active {
@@ -371,12 +371,12 @@ body {
   background: var(--card);
   color: var(--text);
   border: 1px solid var(--card-border);
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
 }
 
 .ic-button--secondary:hover {
   background: var(--secondary);
-  border-color: var(--muted);
+  border-color: var(--input-border);
 }
 
 .ic-button--ghost {
@@ -391,12 +391,12 @@ body {
 .ic-button--danger {
   background: var(--danger);
   color: white;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
 }
 
 .ic-button--danger:hover {
   background: var(--danger-hover);
-  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+  box-shadow: var(--shadow-hover);
 }
 
 .ic-button--icon {
@@ -412,7 +412,6 @@ body {
   box-shadow: none !important;
 }
 
-
 /* ===================================
    FORM ELEMENTS - Inputs & Labels
    =================================== */
@@ -422,9 +421,9 @@ body {
 
 .ic-label {
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text);
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
 
@@ -436,7 +435,7 @@ body {
 .ic-input,
 .ic-textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.5rem 1rem;
   border: 1px solid var(--input-border);
   border-radius: var(--radius);
   background: var(--input-bg);
@@ -449,8 +448,8 @@ body {
 .ic-input:focus,
 .ic-textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--primary-focus);
+  border-color: var(--primary-hover);
+  box-shadow: 0 0 0 2px var(--primary-focus);
 }
 
 .ic-input::placeholder,
@@ -496,20 +495,19 @@ body {
 
 .ic-input-icon {
   position: absolute;
-  left: 1rem;
+  left: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
+  width: 1.25rem;
+  height: 1.25rem;
   opacity: 0.5;
   pointer-events: none;
   filter: brightness(0) saturate(100%);
 }
 
 .ic-input-wrapper .ic-input {
-  padding-left: 3rem;
+  padding-left: 2.5rem;
 }
-
 
 /* ===================================
    ALERTS / MESSAGES
@@ -527,25 +525,25 @@ body {
 .ic-alert--error {
   background: var(--danger-bg);
   border-color: var(--danger);
-  color: var(--danger);
+  color: var(--danger-text);
 }
 
 .ic-alert--success {
   background: var(--success-bg);
   border-color: var(--success);
-  color: var(--success);
+  color: var(--success-text);
 }
 
 .ic-alert--info {
   background: var(--info-bg);
   border-color: var(--info);
-  color: var(--info);
+  color: var(--info-text);
 }
 
 .ic-alert--warning {
   background: var(--warning-bg);
   border-color: var(--warning);
-  color: var(--warning);
+  color: var(--warning-text);
 }
 
 .ic-alert-icon {
@@ -556,21 +554,20 @@ body {
 
 /* Alert icon colors */
 .ic-alert--error .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(27%) sepia(94%) saturate(2255%) hue-rotate(347deg) brightness(91%) contrast(93%);
+  filter: brightness(0) saturate(100%) invert(14%) sepia(89%) saturate(4197%) hue-rotate(354deg) brightness(92%) contrast(93%);
 }
 
 .ic-alert--success .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(48%) sepia(79%) saturate(382%) hue-rotate(93deg) brightness(95%) contrast(92%);
+  filter: brightness(0) saturate(100%) invert(23%) sepia(89%) saturate(1057%) hue-rotate(120deg) brightness(96%) contrast(93%);
 }
 
 .ic-alert--info .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(45%) sepia(98%) saturate(1447%) hue-rotate(196deg) brightness(97%) contrast(95%);
+  filter: brightness(0) saturate(100%) invert(21%) sepia(89%) saturate(1686%) hue-rotate(215deg) brightness(92%) contrast(92%);
 }
 
 .ic-alert--warning .ic-alert-icon {
-  filter: brightness(0) saturate(100%) invert(67%) sepia(65%) saturate(497%) hue-rotate(2deg) brightness(103%) contrast(104%);
+  filter: brightness(0) saturate(100%) invert(30%) sepia(98%) saturate(1535%) hue-rotate(24deg) brightness(94%) contrast(95%);
 }
-
 
 /* ===================================
    PROGRESS BAR
@@ -597,14 +594,14 @@ body {
   width: 100%;
   height: 6px;
   background: var(--progress-bg);
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   overflow: hidden;
 }
 
 .ic-progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--primary), var(--primary-hover));
-  border-radius: 9999px;
+  border-radius: var(--radius-full);
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
 }
@@ -624,7 +621,6 @@ body {
   0% { transform: translateX(-100%); }
   100% { transform: translateX(100%); }
 }
-
 
 /* ===================================
    LOADER / SPINNER
@@ -660,7 +656,6 @@ body {
   height: 60px;
   border-width: 6px;
 }
-
 
 /* ===================================
    BACK BUTTON
@@ -706,7 +701,6 @@ body {
   transform: translateX(-2px);
 }
 
-
 /* ===================================
    COLLECTOR INFO BLOCK
    =================================== */
@@ -716,7 +710,7 @@ body {
   gap: 1rem;
   padding: 1.5rem;
   background: var(--card);
-  border-radius: var(--radius);
+  border-radius: var(--radius-xl);
   border: 1px solid var(--card-border);
   margin-bottom: 2rem;
 }
@@ -724,9 +718,9 @@ body {
 .ic-collector-info-logo {
   width: 56px;
   height: 56px;
-  border-radius: 8px;
+  border-radius: var(--radius);
   object-fit: contain;
-  background: #f1f5f9;
+  background: var(--secondary);
   padding: 0.5rem;
   flex-shrink: 0;
 }
@@ -743,10 +737,9 @@ body {
 }
 
 .ic-collector-info-description {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   color: var(--muted);
 }
-
 
 /* ===================================
    PROGRESS SCREEN - Card Centered
@@ -761,7 +754,7 @@ body {
 .ic-progress-card {
   background: var(--card);
   border: 1px solid var(--card-border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-xl);
   padding: 3rem 2rem;
   min-width: 500px;
   max-width: 600px;
@@ -788,10 +781,9 @@ body {
 
 .ic-progress-card-subtitle {
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   margin: 0;
 }
-
 
 /* ===================================
    RESPONSE ICONS - Large
@@ -814,17 +806,17 @@ body {
 
 .ic-response-icon-large--success {
   background: var(--success);
-  box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 4px 20px rgba(5, 150, 105, 0.4);
 }
 
 .ic-response-icon-large--warning {
   background: var(--warning);
-  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 4px 20px rgba(217, 119, 6, 0.4);
 }
 
 .ic-response-icon-large--danger {
   background: var(--danger);
-  box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 4px 20px rgba(220, 38, 38, 0.4);
 }
 
 /* Response container styling */
@@ -838,10 +830,9 @@ body {
 }
 
 .progress-response .ic-header-subtitle {
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   margin-bottom: 0;
 }
-
 
 /* ===================================
    CANVAS FULLSCREEN MODE
@@ -909,7 +900,7 @@ body {
 
 .ic-canvas-toolbar-text {
   flex: 1;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--text);
   text-align: center;
   white-space: nowrap;
@@ -967,7 +958,6 @@ body {
   background: white;
 }
 
-
 /* ===================================
    MODAL
    =================================== */
@@ -991,7 +981,7 @@ body {
 
 .ic-modal {
   background: var(--card);
-  border-radius: var(--radius);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   max-width: 500px;
   width: 100%;
@@ -1033,7 +1023,6 @@ body {
   justify-content: flex-end;
   gap: 1rem;
 }
-
 
 /* ===================================
    DATEPICKER / CALENDAR
@@ -1128,7 +1117,7 @@ body {
 /* Datepicker Modal */
 .ic-datepicker-modal {
   background: var(--card);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
   max-width: 400px;
   width: 100%;
@@ -1189,7 +1178,7 @@ body {
   border-radius: var(--radius);
   background: var(--input-bg);
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   appearance: none;
@@ -1202,8 +1191,8 @@ body {
 
 .ic-datepicker-month-year-select select:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--primary-focus);
+  border-color: var(--primary-hover);
+  box-shadow: 0 0 0 2px var(--primary-focus);
 }
 
 .ic-datepicker-month-year-select::after {
@@ -1292,11 +1281,11 @@ body {
 
 /* Weekend days - Blue for default theme */
 .ic-datepicker-day.weekend {
-  color: #3b82f6;
+  color: var(--primary-hover);
 }
 
 .ic-datepicker-day.weekend.other-month {
-  color: #3b82f6;
+  color: var(--primary-hover);
   opacity: 0.4;
 }
 
@@ -1311,10 +1300,10 @@ body {
 }
 
 .ic-datepicker-footer-button {
-  padding: 0.625rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border: 1px solid var(--card-border);
   border-radius: var(--radius);
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1338,11 +1327,9 @@ body {
   border-color: var(--danger);
 }
 
-
 /* ===================================
    UTILITY CLASSES
    =================================== */
-
 /* Text */
 .ic-text-center { text-align: center; }
 .ic-text-muted { color: var(--muted); }
@@ -1370,11 +1357,9 @@ body {
 /* Display */
 .ic-hidden { display: none; }
 
-
 /* ===================================
    RESPONSIVE BREAKPOINTS
    =================================== */
-
 /* Small screens (< 640px) */
 @media (max-width: 639px) {
   .ic-container {
@@ -1383,6 +1368,7 @@ body {
 
   .ic-header-title {
     font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .ic-card {
