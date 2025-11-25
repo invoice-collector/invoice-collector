@@ -6,11 +6,13 @@
 /* ===================================
    GOOGLE FONTS - Montserrat
    =================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
 
 /* ===================================
    CSS VARIABLES - Theme Colors
    =================================== */
+
 :root {
   /* Background & Text */
   --bg: #ffffff;
@@ -97,6 +99,7 @@
 /* ===================================
    RESET & BASE STYLES
    =================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -122,8 +125,9 @@ body {
 /* ===================================
    LAYOUT - Container & Header
    =================================== */
+
 .ic-container {
-  max-height: 100vh;
+  height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
   padding: 2rem;
@@ -179,6 +183,15 @@ body {
 /* ===================================
    GRID SYSTEM
    =================================== */
+
+.ic-search-bar {
+  margin-bottom: 1.5rem;
+  max-width: 56rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .ic-grid {
   display: grid;
   gap: 1.5rem;
@@ -209,6 +222,7 @@ body {
 /* ===================================
    CARDS
    =================================== */
+
 .ic-card {
   background: var(--card-bg);
   border-radius: var(--radius-lg);
@@ -338,8 +352,9 @@ body {
 /* ===================================
    BADGES
    =================================== */
+
 .ic-badge {
-  display: inline-flex;
+  display: none;
   align-items: center;
   padding: 0.25rem 0.75rem;
   border-radius: var(--radius);
@@ -372,6 +387,7 @@ body {
 /* ===================================
    BUTTONS
    =================================== */
+
 .ic-button {
   display: inline-flex;
   align-items: center;
@@ -461,12 +477,16 @@ body {
 /* ===================================
    FORM ELEMENTS - Floating Label Inputs
    =================================== */
-.ic-form-group {
-  margin-bottom: 1.5rem;
+
+.add-credential-form {
   max-width: 56rem;
   position: relative;
   margin-left: auto;
   margin-right: auto;
+}
+
+.ic-form-group {
+  margin-bottom: 1.5rem;
 }
 
 /* Floating label container */
@@ -614,6 +634,7 @@ body {
 /* ===================================
    ALERTS / MESSAGES
    =================================== */
+
 .ic-alert {
   padding: 1rem 1.25rem;
   border-radius: var(--radius);
@@ -674,6 +695,7 @@ body {
 /* ===================================
    PROGRESS BAR
    =================================== */
+
 .ic-progress {
   margin-bottom: 1.5rem;
   max-width: 400px;
@@ -727,6 +749,7 @@ body {
 /* ===================================
    LOADER / SPINNER
    =================================== */
+
 .ic-loader {
   display: flex;
   align-items: center;
@@ -762,6 +785,7 @@ body {
 /* ===================================
    BACK BUTTON
    =================================== */
+
 .ic-back-button {
   display: flex;
   align-items: center;
@@ -802,6 +826,7 @@ body {
 /* ===================================
    COLLECTOR INFO BLOCK
    =================================== */
+
 .ic-collector-info {
   display: flex;
   align-items: center;
@@ -811,6 +836,10 @@ body {
   border-radius: var(--radius);
   border: 1px solid var(--input-border);
   margin-bottom: 2rem;
+  max-width: 56rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .ic-collector-info-logo {
@@ -847,11 +876,14 @@ body {
 /* ===================================
    PROGRESS SCREEN - Card Centered
    =================================== */
+
 .ic-progress-screen {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 60vh;
+  height: 100%;
+  min-width: 40vh;
 }
 
 .ic-progress-card {
@@ -861,7 +893,7 @@ body {
   padding: 3rem 2rem;
   min-width: 500px;
   max-width: 600px;
-  margin: 0 auto;
+  margin: auto auto;
   text-align: center;
 }
 
@@ -896,6 +928,7 @@ body {
 /* ===================================
    RESPONSE ICONS - Large
    =================================== */
+
 .ic-response-icon-large {
   width: 80px;
   height: 80px;
@@ -946,6 +979,7 @@ body {
 /* ===================================
    CANVAS FULLSCREEN MODE
    =================================== */
+
 .ic-canvas-fullscreen {
   position: fixed;
   inset: 0;
@@ -965,7 +999,7 @@ body {
   align-items: center;
   gap: 0.75rem;
   padding: 0.75rem 1rem;
-  background: var(--card);
+  background: var(--card-bg);
   border-bottom: 1px solid var(--input-border);
   flex-shrink: 0;
 }
@@ -1053,9 +1087,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   overflow: hidden;
-  background: var(--secondary);
+  background: var(--bg);
 }
 
 .ic-canvas-content canvas {
@@ -1064,13 +1097,13 @@ body {
   width: auto;
   height: auto;
   border-radius: var(--radius);
-  box-shadow: var(--shadow-lg);
-  background: white;
+  background:  var(--bg);
 }
 
 /* ===================================
    MODAL
    =================================== */
+
 .ic-modal-overlay {
   position: fixed;
   inset: 0;
@@ -1138,6 +1171,7 @@ body {
 /* ===================================
    DATEPICKER / CALENDAR
    =================================== */
+
 .ic-datepicker-wrapper {
   position: relative;
   width: 100%;
@@ -1442,6 +1476,7 @@ body {
 /* ===================================
    UTILITY CLASSES
    =================================== */
+
 /* Text */
 .ic-text-center { text-align: center; }
 .ic-text-muted { color: var(--muted); }
@@ -1472,6 +1507,7 @@ body {
 /* ===================================
    RESPONSIVE BREAKPOINTS
    =================================== */
+
 /* Small screens (< 640px) */
 @media (max-width: 639px) {
   .ic-container {
