@@ -41,6 +41,7 @@ export class WebSocketServer {
             console.log(`WebSocket connection established on ${this.path}`);
             this.ws = ws;
 
+            // Define message handlers
             ws.on('message', (message) => {
                 try {
                     const data = JSON.parse(message.toString());
@@ -70,6 +71,8 @@ export class WebSocketServer {
                     console.error('Error parsing message:', error);
                 }
             });
+
+            // Define close handler
             ws.on('close', () => {
                 console.log(`WebSocket connection closed on ${this.path}`);
             });
@@ -110,7 +113,17 @@ export class WebSocketServer {
             type: 'state',
             state: state
         };
-        this.sendMessage(message);
+
+        // Check if WebSocket is connected
+        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
+            // Wait for connection before sending the state
+            this.server.on('connection', () => {
+                this.sendMessage(message);
+            });
+        }
+        else {
+            this.sendMessage(message);
+        }
     }
 
     public getTwofa(): Promise<string> {

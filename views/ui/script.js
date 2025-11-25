@@ -456,7 +456,6 @@ async function showProgress(credential_id, wsPath) {
     progressLoading.hidden = false;
     progressBarSection.hidden = false;
     progressText.textContent = '';
-    progressText.classList.add('fade');
     progressBar.style.width = '0%';
     responseSuccess.hidden = true;
     responseUnknown.hidden = true;
@@ -591,26 +590,14 @@ async function showProgress(credential_id, wsPath) {
                 return;
             }
             
-            if (previous_state && previous_state.index !== current_state.index) {
+            if (previous_state == undefined || previous_state.index !== current_state.index) {
                 progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
-                
-                progressText.classList.add('fade');
-                await new Promise(resolve => setTimeout(resolve, 500));
                 progressText.textContent = current_state.title;
-                progressText.classList.remove('fade');
-                await new Promise(resolve => setTimeout(resolve, 500));
-                
+
                 if (current_state.index === 3) {
                     container2FA.hidden = false;
                     form2faInstructions.textContent = current_state.message;
                 }
-            } else {
-                if (previous_state === undefined) {
-                    progressBar.style.width = `${current_state.index / current_state.max * 100}%`;
-                    progressText.textContent = current_state.title;
-                    progressText.classList.remove('fade');
-                }
-                await new Promise(resolve => setTimeout(resolve, 1000));
             }
             previous_state = current_state;
         }
