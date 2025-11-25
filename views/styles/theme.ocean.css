@@ -1266,7 +1266,7 @@ body {
   box-shadow: var(--shadow-lg);
   max-width: 400px;
   width: 100%;
-  padding: 1.5rem;
+  padding: 0.5rem;
   transform: scale(0.95);
   transition: transform 0.2s ease;
 }
@@ -1277,32 +1277,37 @@ body {
 
 /* Datepicker Header */
 .ic-datepicker-header {
+  background: var(--primary);
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.5rem;
   gap: 0.5rem;
+  width: 100%;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem; 
+  border-radius: var(--radius);
 }
 
 .ic-datepicker-nav-button {
   background: transparent;
   border: none;
-  color: var(--text);
+  color: var(--bg);
   cursor: pointer;
   padding: 0.5rem;
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease;
+  transition: all 0.5s ease-in-out;
   font-size: 1.25rem;
   line-height: 1;
-  width: 36px;
-  height: 36px;
+  width: 26px;
+  height: 26px;
 }
 
 .ic-datepicker-nav-button:hover {
-  background: var(--secondary);
+  border-radius: 26px;
+  border: 1px solid var(--bg);
 }
 
 .ic-datepicker-nav-button:disabled {
@@ -1310,19 +1315,25 @@ body {
   cursor: not-allowed;
 }
 
+.ic-datepicker-month-year {
+  color: var(--bg);
+  font-weight: bold;
+}
+
 /* Month/Year Select Dropdowns */
 .ic-datepicker-month-year-select {
   flex: 1;
   position: relative;
+  display: none;
 }
 
 .ic-datepicker-month-year-select select {
   width: 100%;
-  padding: 0.5rem 2rem 0.5rem 0.75rem;
-  border: 1px solid var(--input-border);
+  padding: 0.5rem 0rem 0.5rem 0rem;
+  border: 0px solid var(--input-border);
   border-radius: var(--radius);
-  background: var(--input-bg);
-  color: var(--text);
+  background: transparent;
+  color: var(--bg);
   font-size: var(--text-base);
   font-weight: 500;
   cursor: pointer;
@@ -1387,20 +1398,22 @@ body {
   border: none;
   border-radius: 50%;
   font-size: var(--text-base);
-  color: var(--text);
+  color: #AAA;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-weight: 400;
+  font-weight: 600;
   position: relative;
 }
 
 .ic-datepicker-day:hover:not(:disabled):not(.selected):not(.other-month) {
-  background: var(--secondary);
+  color: var(--text);
+  border: 1px solid var(--primary);
 }
 
 .ic-datepicker-day.other-month {
   color: var(--placeholder);
   opacity: 0.4;
+  visibility: hidden;
 }
 
 .ic-datepicker-day.today:not(.selected) {
@@ -1412,7 +1425,7 @@ body {
 .ic-datepicker-day.selected {
   background: var(--primary);
   color: white;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .ic-datepicker-day:disabled {
@@ -1426,12 +1439,13 @@ body {
 
 /* Weekend days - Ocean blue */
 .ic-datepicker-day.weekend {
-  color: var(--primary);
+  color: #AAA;
 }
 
 .ic-datepicker-day.weekend.other-month {
-  color: var(--primary);
+  color: #AAA;
   opacity: 0.4;
+  visibility: hidden;
 }
 
 /* Datepicker Footer */
@@ -1543,6 +1557,7 @@ body {
   .ic-datepicker-modal {
     max-width: calc(100vw - 2rem);
     padding: 1.25rem;
+    min-width: 40vh;
   }
 
   .ic-datepicker-footer {

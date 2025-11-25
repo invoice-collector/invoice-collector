@@ -676,12 +676,12 @@ class Datepicker {
         this.input.placeholder = this.options.placeholder;
         this.addEventListeners();
         
-        if (this.input.value) {
-            this.selectedDate = this.parseDate(this.input.value);
-            if (this.selectedDate) {
-                this.currentMonth = this.selectedDate.getMonth();
-                this.currentYear = this.selectedDate.getFullYear();
-            }
+        this.input.value = this.formatDate(new Date());
+        this.selectedDate = this.parseDate(this.input.value);
+
+        if (this.selectedDate) {
+            this.currentMonth = this.selectedDate.getMonth();
+            this.currentYear = this.selectedDate.getFullYear();
         }
         
         this.render();
@@ -746,7 +746,7 @@ class Datepicker {
     render() {
         const currentYear = new Date().getFullYear();
         const years = [];
-        for (let y = currentYear - 10; y <= currentYear + 10; y++) {
+        for (let y = currentYear; y >= currentYear - 5; y--) {
             years.push(y);
         }
         
@@ -766,6 +766,9 @@ class Datepicker {
                 </div>
                 <div class="ic-datepicker-month-year-select">
                     <select data-action="change-year">${yearOptions}</select>
+                </div>
+                <div class="ic-datepicker-month-year">
+                    ${this.i18n.months[this.currentMonth]} ${this.currentYear}
                 </div>
                 <button type="button" class="ic-datepicker-nav-button" data-action="next-month">›</button>
             </div>
