@@ -8,16 +8,63 @@ import { I18n } from '../i18n';
 import { AuthenticationError } from '../error';
 import { AbstractCollector, Config } from '../collectors/abstractCollector';
 
+// Singleton WebSocket server manager
+class WebSocketServerManager {
+    private static instance: WebSocketServerManager | null = null;
+    private wss: Server | null = null;
+    private handlers: Map<string, WebSocketServer> = new Map();
+
+    private constructor() {}
+
+    public static getInstance(): WebSocketServerManager {
+        if (!WebSocketServerManager.instance) {
+            WebSocketServerManager.instance = new WebSocketServerManager();
+        }
+        return WebSocketServerManager.instance;
+    }
+
+    public initialize(httpServer: http.Server) {
+        if (this.wss) {
+            return; // Already initialized
+        }
+
+        this.wss = new Server({ noServer: true });
+
+        // Handle upgrade event manually
+        httpServer.on('upgrade', (request, socket, head) => {
+            const pathname = request.url;
+            if (pathname && this.handlers.has(pathname)) {
+                this.wss!.handleUpgrade(request, socket, head, (ws) => {
+                    const handler = this.handlers.get(pathname);
+                    if (handler) {
+                        handler.handleConnection(ws);
+                    }
+                });
+            } else {
+                socket.destroy();
+            }
+        });
+    }
+
+    public registerHandler(path: string, handler: WebSocketServer) {
+        this.handlers.set(path, handler);
+    }
+
+    public unregisterHandler(path: string) {
+        this.handlers.delete(path);
+    }
+}
+
 export class WebSocketServer {
 
     public static PATH = '/api/v1/ws/';
     static TWOFA_TIMEOUT_MS = 1000 * 60 * 3; // 3 minutes
 
     private path: string;
-    private server: Server;
-    private ws: WebSocket | null = null
+    private ws: WebSocket | null = null;
     private locale: string;
     private collector: AbstractCollector<Config>;
+    private defaultState : State | null = null;
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
     public onClick: ((event: MessageClick) => void) | undefined;
@@ -27,61 +74,70 @@ export class WebSocketServer {
 
     constructor(httpServer: http.Server | undefined, locale: string, collector: AbstractCollector<Config>) {
         this.path = `${WebSocketServer.PATH}${utils.generate_token()}`;
-        this.server = new Server({
-            server: httpServer,
-            path: this.path,
-            port: httpServer ? undefined : parseInt(utils.getEnvVar("PORT"))
-        });
         this.locale = locale
         this.collector = collector;
+
+        // Initialize the singleton WebSocket server manager
+        if (httpServer) {
+            WebSocketServerManager.getInstance().initialize(httpServer);
+        }
     }
 
     public start(): string {
-        this.server.on('connection', (ws) => {
-            console.log(`WebSocket connection established on ${this.path}`);
-            this.ws = ws;
-
-            // Define message handlers
-            ws.on('message', (message) => {
-                try {
-                    const data = JSON.parse(message.toString());
-
-                    if (data.type === 'twofa' && data.twofa && this.onTwofa) {
-                        this.sendState(State._4_2FA_PROCEEDING);
-                        this.onTwofa(data as MessageTwofa);
-                    }
-                    else if (data.type === 'click' && data.x !== undefined && data.y !== undefined && this.onClick) {
-                        data.x = Driver.VIEWPORT_WIDTH * data.x;
-                        data.y = Driver.VIEWPORT_HEIGHT * data.y;
-                        this.onClick(data as MessageClick);
-                    }
-                    else if (data.type === 'keydown' && data.key && this.onKeydown) {
-                        this.onKeydown(data as MessageKeydown);
-                    }
-                    else if (data.type === 'type' && data.text && this.onText) {
-                        this.onText(data as MessageText);
-                    }
-                    else if (data.type === 'close' && data.reason && this.onClose) {
-                        this.onClose(data as MessageClose);
-                    }
-                    else {
-                        console.warn('Unknown message type or missing fields:', data);
-                    }
-                } catch (error) {
-                    console.error('Error parsing message:', error);
-                }
-            });
-
-            // Define close handler
-            ws.on('close', () => {
-                console.log(`WebSocket connection closed on ${this.path}`);
-            });
-        });
+        // Register this handler with the manager
+        WebSocketServerManager.getInstance().registerHandler(this.path, this);
         return this.path;
     }
 
+    public handleConnection(ws: WebSocket) {
+        console.log(`WebSocket connection established on ${this.path}`);
+        this.ws = ws;
+
+        // Send initial state if exists
+        if (this.defaultState) {
+            this.sendState(this.defaultState);
+        }
+
+        // Define message handlers
+        ws.on('message', (message) => {
+            try {
+                const data = JSON.parse(message.toString());
+
+                if (data.type === 'twofa' && data.twofa && this.onTwofa) {
+                    this.sendState(State._4_2FA_PROCEEDING);
+                    this.onTwofa(data as MessageTwofa);
+                }
+                else if (data.type === 'click' && data.x !== undefined && data.y !== undefined && this.onClick) {
+                    data.x = Driver.VIEWPORT_WIDTH * data.x;
+                    data.y = Driver.VIEWPORT_HEIGHT * data.y;
+                    this.onClick(data as MessageClick);
+                }
+                else if (data.type === 'keydown' && data.key && this.onKeydown) {
+                    this.onKeydown(data as MessageKeydown);
+                }
+                else if (data.type === 'type' && data.text && this.onText) {
+                    this.onText(data as MessageText);
+                }
+                else if (data.type === 'close' && data.reason && this.onClose) {
+                    this.onClose(data as MessageClose);
+                }
+                else {
+                    console.warn('Unknown message type or missing fields:', data);
+                }
+            } catch (error) {
+                console.error('Error parsing message:', error);
+            }
+        });
+
+        // Define close handler
+        ws.on('close', () => {
+            console.log(`WebSocket connection closed on ${this.path}`);
+        });
+    }
+
     public close() {
-        this.server.close();
+        // Unregister this handler from the manager
+        WebSocketServerManager.getInstance().unregisterHandler(this.path);
         this.ws?.close();
         this.ws = null;
     }
@@ -109,19 +165,16 @@ export class WebSocketServer {
         state.title = I18n.get(state.title, this.locale);
         state.message = I18n.get(state.message, this.locale);
 
-        const message: MessageState = {
-            type: 'state',
-            state: state
-        };
-
         // Check if WebSocket is connected
         if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
-            // Wait for connection before sending the state
-            this.server.on('connection', () => {
-                this.sendMessage(message);
-            });
+            // Define default state to be send on connection
+            this.defaultState = state;
         }
         else {
+            const message: MessageState = {
+                type: 'state',
+                state: state
+            };
             this.sendMessage(message);
         }
     }
