@@ -1,18 +1,18 @@
 import { WebCollector } from '../../web2Collector';
 import { OpenaiSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorType, DownloadedInvoice, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
-export class OpenaiCollector extends WebCollector {
+export class OpenaiApiCollector extends WebCollector {
 
     static CONFIG = {
-        id: "openai",
-        name: "OpenAI",
-        description: "i18n.collectors.openai.description",
-        version: "5",
+        id: "openai_api",
+        name: "OpenAI (API)",
+        description: "i18n.collectors.openai_api.description",
+        version: "7",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -32,13 +32,14 @@ export class OpenaiCollector extends WebCollector {
         },
         loginUrl: "https://auth.openai.com/log-in",
         entryUrl: "https://platform.openai.com/settings/organization/billing/history",
+        captcha: CollectorCaptcha.NONE,
         autoLogin: {
             localStorageKeys: ['@@auth0spajs@@']
         }
     }
 
     constructor() {
-        super(OpenaiCollector.CONFIG);
+        super(OpenaiApiCollector.CONFIG);
     }
 
     async needLogin(driver: Driver): Promise<boolean> {
@@ -95,9 +96,9 @@ export class OpenaiCollector extends WebCollector {
 
     async navigate(driver: Driver, params: any): Promise<void> {
         // Wait for billing button
-        await driver.getElement(OpenaiSelectors.BUTTON_BILLING, { timeout: 5000 });
+        await driver.getElement(OpenaiSelectors.BUTTON_SETTINGS, { timeout: 5000 });
         // Go to invoices page
-        await driver.goto(OpenaiCollector.CONFIG.entryUrl);
+        await driver.goto(OpenaiApiCollector.CONFIG.entryUrl);
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {

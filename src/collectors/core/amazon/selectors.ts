@@ -114,7 +114,7 @@ export const AmazonSelectors = {
         info: "order link"
     },
     CONTAINER_INVOICES: {
-        selector: "a[href^='/documents/download']",
+        selector: "a[href*='/documents/download']",
         info: "invoices link"
     }
 }

@@ -1,7 +1,7 @@
 import { Driver, Element } from '../../../driver/driver';
 import { UnfinishedCollectorError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
-import { CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import { WebCollector } from '../../web2Collector';
 import { LeclercSelectors } from './selectors';
 
@@ -11,7 +11,7 @@ export class LeclercCollector extends WebCollector {
         id: "leclerc",
         name: "E.Leclerc",
         description: "i18n.collectors.leclerc.description",
-        version: "5",
+        version: "7",
         website: "https://www.e.leclerc/",
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_E.Leclerc_Sans_le_texte.svg",
         type: CollectorType.WEB,
@@ -31,6 +31,7 @@ export class LeclercCollector extends WebCollector {
         },
         loginUrl: "https://www.e.leclerc/auth",
         entryUrl: "https://www.e.leclerc/espace-client/commandes/commandes",
+        captcha: CollectorCaptcha.NONE,
         state: CollectorState.DEVELOPMENT
     }
 
@@ -70,7 +71,8 @@ export class LeclercCollector extends WebCollector {
     }
 
     async navigate(driver: Driver, params: any): Promise<void> {
-        await driver.goto("https://www.e.leclerc/espace-client/commandes/commandes");
+        throw new UnfinishedCollectorError(this);
+        //await driver.goto(this.config.entryUrl);
         // TODO : Implement the rest of the collector
     }
      

@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class OpenaiChatgptCollector extends SketchCollector {
+export class ZuiverCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "openai_chatgpt",
-        name: "OpenAI (ChatGPT Plus)",
-        description: "i18n.collectors.openai_chatgpt.description",
-        version: "1",
-        website: "https://chatgpt.com",
-        logo: "https://pngimg.com/uploads/chatgpt/chatgpt_PNG2.png",
+        id: "zuiver",
+        name: "Zuiver",
+        description: "i18n.collectors.zuiver.description",
+        version: "0",
+        website: "https://www.zuiver.com",
+        logo: "https://www.zuiver.com/static/version1762859140/frontend/Zuiver/default/nl_NL/images/logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class OpenaiChatgptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chatgpt.com/#settings/Account",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(OpenaiChatgptCollector.CONFIG);
+        super(ZuiverCollector.CONFIG);
     }
 }

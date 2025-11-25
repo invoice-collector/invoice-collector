@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class ZimmerRohdeComCollector extends SketchCollector {
+export class DolceGustoFrCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "zimmer_rohde_com",
-        name: "Zimmer + Rohde",
-        description: "i18n.collectors.zimmer_rohde_com.description",
+        id: "dolce_gusto_fr",
+        name: "Dolce Gusto",
+        description: "i18n.collectors.dolce_gusto_fr.description",
         version: "0",
-        website: "https://www.zimmer-rohde.com/en/",
-        logo: "https://vectorseek.com/wp-content/uploads/2024/01/Zimmer-Rohde-Logo-Vector.svg--263x300.png",
+        website: "https://www.dolce-gusto.fr",
+        logo: "https://www.dolce-gusto.fr/media/logo/stores/1/Dolce-Gusto-logo_1.png",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class ZimmerRohdeComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.zimmer-rohde.com/fr/Login/",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(ZimmerRohdeComCollector.CONFIG);
+        super(DolceGustoFrCollector.CONFIG);
     }
 }

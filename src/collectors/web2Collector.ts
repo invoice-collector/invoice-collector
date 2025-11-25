@@ -17,7 +17,7 @@ export type WebConfig = Config & {
     loginUrl: string,
     entryUrl?: string,
     useProxy?: boolean,
-    captcha?: CollectorCaptcha,
+    captcha: CollectorCaptcha,
     loadImages?: boolean,
     autoLogin?: {
         cookieNames?: string[],
@@ -25,10 +25,16 @@ export type WebConfig = Config & {
     }
 }
 
+export enum DocumentStrategy {
+    SPLIT = "split",
+    MERGE = "merge"
+}
+
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
     static SCREENSHOT_INTERVAL_MS = 50; // 50 ms
+    static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
     driver: Driver | null;
 
@@ -36,7 +42,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         super({
             ...config,
             type: config.type || CollectorType.WEB,
-            useProxy: config.useProxy === undefined ? true : config.useProxy,
+            useProxy: config.useProxy === undefined ? config.captcha !== CollectorCaptcha.NONE : config.useProxy,
             state: config.state || CollectorState.ACTIVE,
             loadImages: config.loadImages === undefined ? config.captcha == CollectorCaptcha.CLOUDFLARE : config.loadImages,
             autoLogin: config.autoLogin || {
@@ -198,28 +204,27 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 }
 
                                 // Download invoice
-                                const documents = await this.download(driver, secret.params, element, invoice);
-                                console.log(`Invoice ${invoice.id} successfully downloaded`);
+                                let documents = await this.download(driver, secret.params, element, invoice);
 
                                 // Close extra pages opened during download
                                 await driver.closeExtraPages();
 
-                                let data;
                                 // If one document downloaded
-                                if (documents.length === 1) {
-                                    data = documents[0];
+                                if (WebCollector.DEFAULT_DOCUMENT_STRATEGY == DocumentStrategy.MERGE && documents.length > 1) {
+                                    documents = [await utils.mergePdfDocuments(documents)];
                                 }
-                                else {
-                                    data = await utils.mergePdfDocuments(documents);
-                                }
+                                console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
                     
-                                invoices.push({
-                                    ...invoice,
-                                    data,
-                                    mimetype: mimetypeFromBase64(data),
-                                    collected_timestamp: Date.now(),
-                                    metadata: invoice.metadata || {}
-                                });
+                                for (const [index, document] of documents.entries()) {
+                                    invoices.push({
+                                        ...invoice,
+                                        id: `${invoice.id}${documents.length > 1 ? `-part${index + 1}` : ''}`,
+                                        data: document,
+                                        mimetype: mimetypeFromBase64(document),
+                                        collected_timestamp: Date.now(),
+                                        metadata: invoice.metadata || {}
+                                    });
+                                }
                             }
                             else {
                                 // Add invoice without downloading it
@@ -239,15 +244,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             return invoices;
         } catch (error) {
-            // Get url, source code and screenshot
-            const url = driver.url();
-            const source_code = await driver.sourceCode(true, true);
-            const screenshot = await driver.screenshot();
-
             if (error instanceof LoggableError) {
-                error.url = url;
-                error.source_code = source_code;
-                error.screenshot = screenshot;
+                if (!error.url) error.url = driver.url();
+                if (!error.source_code) error.source_code = await driver.sourceCode(true, true);
+                if (!error.screenshot) error.screenshot = await driver.screenshot();
             }
             if (error instanceof CollectorError) {
                 throw error;
@@ -259,9 +259,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 this,
                 { cause: error }
             );
-            loggableError.url = url;
-            loggableError.source_code = source_code;
-            loggableError.screenshot = screenshot;
+            loggableError.url = driver.url();
+            loggableError.source_code = await driver.sourceCode(true, true);
+            loggableError.screenshot = await driver.screenshot();
             throw loggableError;
         }
     }
@@ -348,8 +348,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     }
 
     async needLogin(driver: Driver): Promise<boolean>{
-        // If user is logged in, the URL should be equal to the entry URL
-        return driver.url() !== this.config.entryUrl;
+        // User is not logged in if:
+        // - entryUrl is not defined = always need go through login process
+        // - current URL does not contain entryUrl
+        return this.config.entryUrl == undefined || !driver.url().includes(this.config.entryUrl);
     }
 
     abstract login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;

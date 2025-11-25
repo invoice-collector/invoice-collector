@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class OpenaiChatgptCollector extends SketchCollector {
+export class ArteInternationalCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "openai_chatgpt",
-        name: "OpenAI (ChatGPT Plus)",
-        description: "i18n.collectors.openai_chatgpt.description",
-        version: "1",
-        website: "https://chatgpt.com",
-        logo: "https://pngimg.com/uploads/chatgpt/chatgpt_PNG2.png",
+        id: "arte_international",
+        name: "Arte International",
+        description: "i18n.collectors.arte_international.description",
+        version: "0",
+        website: "https://www.arte-international.com",
+        logo: "https://www.amershamdesigns.co.uk/uploads/images/products/large/amershamdesigns_artewallcoverings_artesymbolwallcovering_1527087006ARTElogoLR.jpg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class OpenaiChatgptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chatgpt.com/#settings/Account",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(OpenaiChatgptCollector.CONFIG);
+        super(ArteInternationalCollector.CONFIG);
     }
 }

@@ -1,7 +1,7 @@
 import { WebCollector } from '../../web2Collector';
 import { FreeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class FreeCollector extends WebCollector {
@@ -10,7 +10,7 @@ export class FreeCollector extends WebCollector {
         id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "8",
+        version: "9",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         type: CollectorType.WEB,
@@ -30,6 +30,7 @@ export class FreeCollector extends WebCollector {
         },
         loginUrl: "https://subscribe.free.fr/login/",
         entryUrl: "https://adsl.free.fr/facture_liste.pl",
+        captcha: CollectorCaptcha.NONE,
         useProxy: false
     }
 

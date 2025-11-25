@@ -20,8 +20,10 @@ export enum CollectorType {
 }
 
 export enum CollectorCaptcha {
+    NONE = 'none',
     DATADOME = 'datadome',
     CLOUDFLARE = 'cloudflare',
+    OTHER = 'other'
 }
 
 export type Config = {

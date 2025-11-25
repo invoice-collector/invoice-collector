@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorState, CollectorType } from '../../abstractCollector';
 
-export class LaPosteEspaceClientCollector extends SketchCollector {
+export class AppleIcloudCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "la_poste_espace_client",
-        name: "La Poste - Espace Client",
-        description: "i18n.collectors.la_poste_espace_client.description",
+        id: "apple_icloud",
+        name: "Apple iCloud",
+        description: "i18n.collectors.apple_icloud.description",
         version: "0",
-        website: "https://moncompte.laposte.fr/",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1750704.jpg",
+        website: "https://www.icloud.com",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/1/1c/ICloud_logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,11 +25,10 @@ export class LaPosteEspaceClientCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://moncompte.laposte.fr/",
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(LaPosteEspaceClientCollector.CONFIG);
+        super(AppleIcloudCollector.CONFIG);
     }
 }

@@ -55,11 +55,11 @@ export const FreeMobileSelectors = {
     // INVOICES PAGE
 
     CONTAINER_INVOICES: {
-        selector: "#invoices li, #invoices div.border",
+        selector: "#invoices li, #invoices div.border:has(> h3)",
         info: "first invoice container"
     },
     CONTAINER_INVOICE_LINK: {
-        selector: "a.group\\/link",
+        selector: "a.cursor-pointer[href*='/invoice/']",
         info: "invoice link container"
     },
     CONTAINER_INVOICE_DATE: {
@@ -67,7 +67,7 @@ export const FreeMobileSelectors = {
         info: "invoice date container"
     },
     CONTAINER_INVOICE_AMOUNT: {
-        selector: "span, p",
+        selector: "div > span, p:nth-of-type(1)",
         info: "invoice amount container"
     }
 }
