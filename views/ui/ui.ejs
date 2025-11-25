@@ -199,11 +199,11 @@
                         <img src="/views/icons/check.svg" alt="Success">
                     </div>
                     <h1 class="ic-progress-card-title">
-                        <%= __('i18n.views.manage.collection_complete') || 'Collection Complete' %>
+                        <%= __('i18n.views.manage.add_credential.success') || 'Collection Complete' %>
                     </h1>
                     <div class="ic-progress-divider"></div>
                     <p class="ic-progress-card-subtitle">
-                        <%= __('i18n.views.manage.collection_success_message') || 'Your invoices have been collected successfully' %>
+                        <%= __('i18n.views.manage.add_credential.success.message') || 'Your invoices have been collected successfully' %>
                     </p>
                     <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
                         <%= __('i18n.views.manage.close') || 'Close' %>
@@ -233,7 +233,7 @@
                         <img src="/views/icons/x.svg" alt="Error">
                     </div>
                     <h1 class="ic-progress-card-title ic-progress-card-title--danger">
-                        <%= __('i18n.views.manage.collection_failed') || 'Collection Failed' %>
+                        <%= __('i18n.views.manage.add_credential.failed') || 'Collection Failed' %>
                     </h1>
                     <div class="ic-progress-divider"></div>
                     <p class="ic-progress-card-subtitle" id="progress-response-error-text">
