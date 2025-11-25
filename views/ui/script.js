@@ -470,13 +470,15 @@ async function showProgress(credential_id, wsPath) {
     document.getElementById('progress-container').classList.remove('ic-hidden');
     document.getElementById('feedback-container').classList.add('ic-hidden');
     
+    const VIRTUAL_MAX = 5;
+
     function showFinalResult(state) {
         progressLoading.hidden = true;
         progressBarSection.hidden = true;
         container2FA.hidden = true;
         containerCanvas.hidden = true;
         
-        if (state.index >= state.max) {
+        if (state.index >= VIRTUAL_MAX) {
             responseSuccess.hidden = false;
             responseUnknown.hidden = true;
             responseError.hidden = true;
@@ -583,7 +585,7 @@ async function showProgress(credential_id, wsPath) {
         } else if (parsedData.type === 'state') {
             current_state = parsedData.state;
             
-            if (current_state.index >= current_state.max || current_state.index < 0) {
+            if (current_state.index >= VIRTUAL_MAX || current_state.index < 0) {
                 if (!cancelled) {
                     showFinalResult(current_state);
                 }
