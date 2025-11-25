@@ -264,7 +264,6 @@ body {
 .ic-card-logo {
   max-width: 150px;
   max-height: 80px;
-  border-radius: var(--radius-lg);
   object-fit: contain;
   flex-shrink: 0;
 }
@@ -643,6 +642,15 @@ body {
   align-items: flex-start;
   gap: 0.75rem;
   border-left: 4px solid;
+  max-width: 56rem;
+}
+
+.ic-alert--info strong {
+  display: none;
+}
+
+.ic-alert ul {
+  padding-left: 30px;
 }
 
 .ic-alert--error {
@@ -828,23 +836,24 @@ body {
    =================================== */
 
 .ic-collector-info {
-  display: flex;
+  display: block;
   align-items: center;
   gap: 1rem;
-  padding: 1.5rem;
+  padding: 0rem;
   background: var(--card);
   border-radius: var(--radius);
-  border: 1px solid var(--input-border);
+  border: 0px solid var(--input-border);
   margin-bottom: 2rem;
   max-width: 56rem;
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .ic-collector-info-logo {
-  width: 56px;
-  height: 56px;
+  max-height: 150px;
+  max-width: 500px;
   border-radius: var(--radius);
   object-fit: contain;
   background: var(--logo-bg);
@@ -854,6 +863,7 @@ body {
 
 .ic-collector-info-content {
   flex: 1;
+  display: none;
 }
 
 .ic-collector-info-name {
