@@ -301,7 +301,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 };
                 // Define what to do on keydown event
                 webSocketServer.onKeydown = async (event: MessageKeydown) => {
-                    await driver.page?.keyboard.press(event.key as KeyInput);
+                    // If key is a single character, type it, else press the key
+                    if (event.key.length === 1){
+                        await driver.page?.keyboard.type(event.key);
+                    }
+                    else {
+                        await driver.page?.keyboard.press(event.key as KeyInput);
+                    }
                 };
                 // Define what to do on text event
                 webSocketServer.onText = async (event: MessageText) => {

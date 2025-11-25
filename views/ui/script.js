@@ -541,7 +541,7 @@ async function showProgress(credential_id, wsPath) {
                     console.error('Clipboard read failed:', err);
                 });
             } else {
-                ws.send(JSON.stringify({ type: 'keydown', key: event.key, code: event.code }));
+                ws.send(JSON.stringify({ type: 'keydown', key: event.key }));
             }
         });
         

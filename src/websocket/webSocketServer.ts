@@ -113,7 +113,27 @@ export class WebSocketServer {
                     this.onClick(data as MessageClick);
                 }
                 else if (data.type === 'keydown' && data.key && this.onKeydown) {
-                    this.onKeydown(data as MessageKeydown);
+                    console.log(data)
+                    if(
+                        data.key.length === 1 ||
+                        data.key === 'Backspace' ||
+                        data.key === 'Enter' ||
+                        data.key === 'Delete' ||
+                        data.key === 'ArrowLeft' ||
+                        data.key === 'ArrowRight' ||
+                        data.key === 'ArrowUp' ||
+                        data.key === 'ArrowDown'
+                    ){
+                        this.onKeydown(data as MessageKeydown);
+                    }
+                    else if (data.key.length === 2 && (
+                            data.key.startsWith('`') ||
+                            data.key.startsWith('^') ||
+                            data.key.startsWith('~'))
+                    ) {
+                        this.onKeydown({...data, key: data.key[0]} as MessageKeydown);
+                        this.onKeydown({...data, key: data.key[1]} as MessageKeydown);
+                    }
                 }
                 else if (data.type === 'type' && data.text && this.onText) {
                     this.onText(data as MessageText);
