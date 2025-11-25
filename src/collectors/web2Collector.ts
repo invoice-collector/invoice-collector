@@ -27,7 +27,7 @@ export type WebConfig = Config & {
 
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
-    static LOGIN_TIMEOUT_MS = 2 * 60 * 1000; // 2 minutes
+    static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
     static SCREENSHOT_INTERVAL_MS = 50; // 50 ms
 
     driver: Driver | null;
