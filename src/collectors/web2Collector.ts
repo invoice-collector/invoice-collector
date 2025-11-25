@@ -127,12 +127,17 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             // Update secret.localStorage
             secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
 
+            // Navigate to invoices
+            await this.navigate(driver, secret.params)
+
+            // Check if need to login again
+            if (this.config.entryUrl && await this.needLogin(driver)) {
+                throw new AuthenticationError('i18n.collectors.all.login.not_authenticated', this);
+            }
+
             // Set progress step to collecting
             state.update(State._5_COLLECTING);
             webSocketServer?.sendState(State._5_COLLECTING);
-
-            // Navigate to invoices
-            await this.navigate(driver, secret.params)
 
             // Get previous invoice ids
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
@@ -352,7 +357,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     }
 
     async navigate(driver: Driver, params: any): Promise<void> {
-        // Assume the collector does not need to navigate
+        // Go to entry URL if exists
+        if (this.config.entryUrl) {
+            await driver.goto(this.config.entryUrl);
+        }
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {
