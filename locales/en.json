@@ -9237,7 +9237,7 @@
   "i18n.views.manage.logged_in": "I'm logged in",
   "i18n.views.manage.cancel": "Cancel",
   "i18n.views.manage.request_new_collector": "Request New Collector",
-  "i18n.views.manage.website_url": "Website URL",
+  "i18n.views.manage.website_url": "Invoices URL",
   "i18n.views.manage.submit_request": "Submit Request",
   "i18n.views.manage.request_success": "Your request has been submitted successfully!",
   "i18n.views.manage.request_error": "An error occurred. Please try again.",
