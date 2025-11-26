@@ -172,12 +172,6 @@ function getHashFromSecret(secret: Secret): string {
         const collect = new Collect("", undefined)
         collect.state = State.DEFAULT_STATE;
 
-        // Define what to do on 2FA
-        collect.twofa_promise.instructions().then((twofa_instruction) => {
-            const twofa_code = prompt(`${twofa_instruction}: `).trim();
-            collect.twofa_promise.setCode(twofa_code);
-        });
-
         // Instanciate web socket server
         const webSocketServer = new WebSocketServer(undefined, I18n.DEFAULT_LOCALE, collector);
         const webSocketPath = webSocketServer.start();
@@ -203,6 +197,10 @@ function getHashFromSecret(secret: Secret): string {
                             rl.close();
                         });
                     }
+                }
+                else if(parsedData.type == "state" && parsedData.state.index == 3) {
+                    const twofa_code = prompt(`${parsedData.state.message}: `).trim();
+                    webSocketClient.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
                 }
             });
         });
