@@ -119,9 +119,14 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // If 2fa is required
             if (needTwofa) {
+                // If the webSocketServer is undefined, it means that the session has expired
+                if (!webSocketServer) {
+                    throw new AuthenticationError('i18n.collectors.all.login.expired', this);
+                }
+
                 // Set progress step to 2fa waiting
                 state.update(State._3_2FA_WAITING, needTwofa);
-                webSocketServer?.sendState(State._3_2FA_WAITING, needTwofa);
+                webSocketServer.sendState(State._3_2FA_WAITING, needTwofa);
 
                 // Set instructions for UI
                 await twofa_promise.setInstructions(needTwofa);
@@ -370,7 +375,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         // Assume the collector does not implement 2FA
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Assume the collector does not implement 2FA
     }
 

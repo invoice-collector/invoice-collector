@@ -12,7 +12,7 @@ export class OpenaiApiCollector extends WebCollector {
         id: "openai_api",
         name: "OpenAI (API)",
         description: "i18n.collectors.openai_api.description",
-        version: "7",
+        version: "8",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -79,9 +79,9 @@ export class OpenaiApiCollector extends WebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Get code from UI
-        const code = await twofa_promise.code();
+        const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
         // Input code
         await driver.inputText(OpenaiSelectors.FIELD_2FA_CODE, code);

@@ -14,7 +14,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "25",
+        version: "26",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -124,9 +124,9 @@ export class AmazonCollector extends WebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Wait for 2fa code from UI
-        const twofa_code = await twofa_promise.code();
+        const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
         // Input 2fa code
         await driver.inputText(AmazonSelectors.FIELD_2FA_CODE, twofa_code);

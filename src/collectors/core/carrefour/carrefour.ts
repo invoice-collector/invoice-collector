@@ -11,7 +11,7 @@ export class CarrefourCollector extends WebCollector {
         id: "carrefour",
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "11",
+        version: "12",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         type: CollectorType.WEB,
@@ -64,7 +64,7 @@ export class CarrefourCollector extends WebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(CarrefourSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
@@ -72,7 +72,7 @@ export class CarrefourCollector extends WebCollector {
         }
 
         // Wait for 2fa code from UI
-        const twofa_code = await twofa_promise.code();
+        const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
         // Check if 2fa code is 6 digits
         if (twofa_code.length !== 6) {
