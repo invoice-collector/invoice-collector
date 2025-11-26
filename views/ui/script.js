@@ -318,7 +318,7 @@ async function addCredential(event) {
     const formData = new FormData(form);
     let params = {};
     formData.forEach((value, key) => {
-        params[key] = value;
+        if(key != "since") params[key] = value;
     });
     
     if (!datepickerSince || !datepickerSince.getValue()) {
@@ -340,7 +340,7 @@ async function addCredential(event) {
         return;
     }
     
-    params.since = datepickerSince.formatDate(datepickerSince.getValue());
+    const download_from_timestamp = datepickerSince.getValue().getTime();
     
     document.getElementById('form-error').classList.add('ic-hidden');
     
@@ -352,6 +352,7 @@ async function addCredential(event) {
             method: 'POST',
             body: JSON.stringify({
                 collector: form.dataset.collector,
+                download_from_timestamp,
                 params
             }),
             headers: {
