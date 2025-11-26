@@ -80,6 +80,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             // Pre actions
             await this.pre(driver);
 
+            // If web socket server exists, enable images
+            let loadImagesPreviousValue = this.config.loadImages;
+            if(webSocketServer) {
+                this.config.loadImages = true;
+            }
+
             // Open entry url
             await driver.goto(this.config.entryUrl || this.config.loginUrl);
 
@@ -94,6 +100,10 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
                 console.log("User is not logged in, logging in...")
                 const login_error = await this.login(driver, secret.params, webSocketServer)
+
+                if(webSocketServer) {
+                    this.config.loadImages = loadImagesPreviousValue;
+                }
 
                 // Check if not authenticated
                 if (login_error) {
