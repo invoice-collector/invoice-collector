@@ -17,45 +17,7 @@ export class AmazonCollector extends WebCollector {
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
-        params: {
-            /*id: {
-                type: "string",
-                name: "i18n.collectors.all.email_or_number",
-                placeholder: "i18n.collectors.all.email_or_number.placeholder",
-                mandatory: true
-            },
-            password: {
-                type: "password",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true,
-            },
-            /*marketplace: {
-                type: "enum",
-                name: "i18n.collectors.all.password",
-                placeholder: "i18n.collectors.all.password.placeholder",
-                mandatory: true,
-                enum : {
-                    fr: "France",
-                    com: "United-States",
-                    ca: "Canada",
-                    "com.mx": "Mexico",
-                    "co.uk": "United-Kingdom",
-                    de: "Germany",
-                    it: "Italy",
-                    es: "Spain",
-                    nl: "Netherlands",
-                    in: "India",
-                    jp: "Japan",
-                    "com.tr": "Turkey",
-                    sa: "Saudi-Arabia",
-                    ae: "United-Arab-Emirates",
-                    au: "Australia",
-                    sg: "Singapore",
-                    "com.br": "Brazil"
-                }
-            }*/
-        },
+        params: {},
         loginUrl: "https://www.amazon.fr/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.fr%2Fgp%2Fcss%2Fyour-account-access%3Fref_%3Dnav_signin&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=frflex&openid.mode=checkid_setup&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0",
         entryUrl: "https://www.amazon.fr/your-orders/orders",
         captcha: CollectorCaptcha.NONE
