@@ -177,12 +177,13 @@
                     <div id="send-2fa-container" hidden>
                         <form id="send-2fa-form" style="margin-top: 1.5rem;">
                             <div class="ic-form-group">
-                                <label class="ic-label ic-label--required ic-label-hidden" id="send-2fa-instructions"></label>
+                                <label class="ic-label ic-label--required" id="send-2fa-instructions"></label>
                                 <input 
                                     type="text" 
                                     name="code" 
                                     class="ic-input" 
                                     placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>"
+                                    required
                                 >
                             </div>
                             <button type="submit" class="ic-button ic-button--primary" style="width: 100%;">
