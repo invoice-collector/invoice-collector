@@ -113,7 +113,6 @@ export class WebSocketServer {
                     this.onClick(data as MessageClick);
                 }
                 else if (data.type === 'keydown' && data.key && this.onKeydown) {
-                    console.log(data)
                     if(
                         data.key.length === 1 ||
                         data.key === 'Backspace' ||
