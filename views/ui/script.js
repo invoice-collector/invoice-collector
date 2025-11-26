@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     showCompanies();
     
     document.getElementById('add-credential-form').addEventListener('submit', addCredential);
+    document.querySelector('#feedback-form select[name="collector_type"]').addEventListener('change', feedbackTypeChanged);
     document.getElementById('feedback-form').addEventListener('submit', sendFeedback);
     
     getCollectors()
@@ -383,6 +384,18 @@ async function addCredential(event) {
    FEEDBACK FORM
    =================================== */
 
+function feedbackTypeChanged(event) {
+    const invoicesUrlContainer = document.querySelector('#feedback-form div.ic-form-group:has(input[name="invoices_url"])')
+    const invoicesUrlInput = document.querySelector('#feedback-form div.ic-form-group input[name="invoices_url"]')
+    if (event.target.value == "web") {
+        invoicesUrlContainer.classList.remove('ic-hidden');
+        invoicesUrlInput.required = true;
+    } else {
+        invoicesUrlContainer.classList.add('ic-hidden');
+        invoicesUrlInput.required = false;
+    }
+}
+
 async function sendFeedback(event) {
     event.preventDefault();
     
@@ -405,7 +418,11 @@ async function sendFeedback(event) {
     
     const feedbackBody = {
         type: 'new_collector',
-        message: params.website_url,
+        message: JSON.stringify({
+            website_url: params.website_url,
+            collector_type: params.collector_type,
+            invoices_url: params.invoices_url,
+        }),
         email: ''
     };
     

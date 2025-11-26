@@ -474,6 +474,17 @@ body {
 }
 
 /* ===================================
+   FEEDBACK PANEL
+   =================================== */
+
+.ic-feedback-form {
+  max-width: 56rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===================================
    FORM ELEMENTS - Floating Label Inputs
    =================================== */
 

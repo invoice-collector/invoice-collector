@@ -308,24 +308,35 @@
         <!-- Header -->
         <div class="ic-header">
             <h1 class="ic-header-title"><%= __('i18n.views.manage.request_new_collector') %></h1>
+            <div class="ic-header-subtitle-separator"></div>
         </div>
         
         <!-- Feedback Form -->
-        <form id="feedback-form">
+        <form id="feedback-form" class="ic-feedback-form">
             
             <!-- Hidden Type Field -->
             <input type="text" name="type" value="new_collector" required hidden>
             
             <!-- Website URL Field -->
             <div class="ic-form-group ic-form-group--floating">
-                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.website_url') %></label>
-                <input 
-                    type="url" 
-                    name="website_url" 
-                    class="ic-input" 
-                    placeholder="https://example.com/path/to/invoices" 
-                    required
-                >
+                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url') %></label>
+                <input type="url" name="website_url" class="ic-input"  placeholder="https://example.com" required>
+            </div>
+
+            <!-- Type Field -->
+            <div class="ic-form-group ic-form-group--floating">
+                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.type') %></label>
+                <select name="collector_type" class="ic-input" onchange="feedbackTypeChanged" required>
+                    <option disabled selected value hidden></option>
+                    <option value="email"><%= __('i18n.views.manage.feedback.type.email') %></option>
+                    <option value="web"><%= __('i18n.views.manage.feedback.type.web') %></option>
+                </select>
+            </div>
+
+            <!-- Invoices URL Field -->
+            <div class="ic-form-group ic-form-group--floating ic-hidden">
+                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url_invoices') %></label>
+                <input type="url" name="invoices_url" class="ic-input" placeholder="https://example.com/path/to/invoices" required>
             </div>
             
             <!-- Success Alert -->

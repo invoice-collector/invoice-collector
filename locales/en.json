@@ -9232,6 +9232,11 @@
   "i18n.views.manage.download_since_helper": "Choose a date to start collecting invoices from.",
   "i18n.views.manage.error": "Error",
   "i18n.views.manage.error_required_fields": "Please fill in all required fields.",
+  "i18n.views.manage.feedback.type": "How do you receive your invoices?",
+  "i18n.views.manage.feedback.type.email": "By email",
+  "i18n.views.manage.feedback.type.web": "Download from website",
+  "i18n.views.manage.feedback.url": "Provider Website",
+  "i18n.views.manage.feedback.url_invoices": "URL to my invoices",
   "i18n.views.manage.field_required": "field required",
   "i18n.views.manage.fields_required": "fields required",
   "i18n.views.manage.instructions": "Instructions",
@@ -9255,6 +9260,5 @@
   "i18n.views.manage.unknown": "Oops! Something went wrong... Lets try again later.",
   "i18n.views.manage.verification_code": "Verification code",
   "i18n.views.manage.verification_code.error": "Incorrect verification code",
-  "i18n.views.manage.verification_code.placeholder": "6 digits verification code received by email",
-  "i18n.views.manage.website_url": "Invoices URL"
+  "i18n.views.manage.verification_code.placeholder": "6 digits verification code received by email"
 }

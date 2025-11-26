@@ -9232,6 +9232,11 @@
   "i18n.views.manage.download_since_helper": "Choisissez une date pour commencer la collecte des factures.",
   "i18n.views.manage.error": "Erreur",
   "i18n.views.manage.error_required_fields": "Veuillez remplir tous les champs obligatoires.",
+  "i18n.views.manage.feedback.type": "Comment recevez-vous vos factures ?",
+  "i18n.views.manage.feedback.type.email": "Par email",
+  "i18n.views.manage.feedback.type.web": "Téléchargement depuis le site web",
+  "i18n.views.manage.feedback.url": "Site web du fournisseur",
+  "i18n.views.manage.feedback.url_invoices": "URL vers mes factures",
   "i18n.views.manage.field_required": "champ requis",
   "i18n.views.manage.fields_required": "champs requis",
   "i18n.views.manage.instructions": "Instructions",
@@ -9255,6 +9260,5 @@
   "i18n.views.manage.unknown": "Oups ! Quelque chose s'est mal passé... Veuillez réessayer plus tard.",
   "i18n.views.manage.verification_code": "Code de vérification",
   "i18n.views.manage.verification_code.error": "Code de vérification incorrect",
-  "i18n.views.manage.verification_code.placeholder": "Code de vérification à 6 chiffres reçu par email",
-  "i18n.views.manage.website_url": "URL de mes factures"
+  "i18n.views.manage.verification_code.placeholder": "Code de vérification à 6 chiffres reçu par email"
 }
