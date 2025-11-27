@@ -730,7 +730,8 @@ export class Element {
         }
     }
 
-    async middleClick(): Promise<Driver> {const baseUrl = new URL(this.driver.url() || "").origin;
+    async middleClick(): Promise<Driver> {
+        const baseUrl = new URL(this.driver.url() || "").origin;
         // Get number of opened pages before middle click
         const numberOfPagesBefore = (await this.driver.pages()).length;
         // Perform middle click
