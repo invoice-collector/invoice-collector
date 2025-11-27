@@ -3,6 +3,7 @@ const prompt = promptSync({});
 import dotenv from 'dotenv';
 dotenv.config();
 import fs from 'fs';
+import http from 'http';
 import assert from 'assert';
 import * as crypto from 'crypto';
 import WebSocket from 'ws';
@@ -22,6 +23,7 @@ import * as utils from '../src/utils';
 import { WebCollector } from '../src/collectors/web2Collector';
 import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
 
+const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
     await DatabaseFactory.getDatabase().connect();
@@ -172,13 +174,19 @@ function getHashFromSecret(secret: Secret): string {
         const collect = new Collect("", undefined)
         collect.state = State.DEFAULT_STATE;
 
+        // Create an http server to handle web socket connections
+        const httpServer = http.createServer();
+        httpServer.listen(PORT, () => {
+            console.log(`HTTP server listening on port ${PORT}`);
+        });
+
         // Instanciate web socket server
-        const webSocketServer = new WebSocketServer(undefined, I18n.DEFAULT_LOCALE, collector);
+        const webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
         const webSocketPath = webSocketServer.start();
 
         // Connect to web socket server
         WebCollector.SCREENSHOT_INTERVAL_MS = 1000 * 10; // 10 seconds
-        const webSocketClient = new WebSocket(`ws://localhost:${utils.getEnvVar('PORT')}${webSocketPath}`);
+        const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
         webSocketClient.addEventListener('open', () => {
             let isFirstScreenshot = true;
             webSocketClient.addEventListener('message', async (message) => {

@@ -72,15 +72,13 @@ export class WebSocketServer {
     public onText: ((event: MessageText) => void) | undefined;
     public onClose: ((event: MessageClose) => void) | undefined;
 
-    constructor(httpServer: http.Server | undefined, locale: string, collector: AbstractCollector<Config>) {
+    constructor(httpServer: http.Server, locale: string, collector: AbstractCollector<Config>) {
         this.path = `${WebSocketServer.PATH}${utils.generate_token()}`;
         this.locale = locale
         this.collector = collector;
 
         // Initialize the singleton WebSocket server manager
-        if (httpServer) {
-            WebSocketServerManager.getInstance().initialize(httpServer);
-        }
+        WebSocketServerManager.getInstance().initialize(httpServer);
     }
 
     public start(): string {
