@@ -19,6 +19,9 @@ export class Driver {
     static DEFAULT_DELAY_BETWEEN_KEYS = 100;    // 100 milliseconds
     static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
 
+    static VIEWPORT_WIDTH: number = 1920;
+    static VIEWPORT_HEIGHT: number = 1080;
+
     private static instanceCounter = 0;
 
     private static getDownloadPath(): string {
@@ -48,8 +51,8 @@ export class Driver {
                     downloadPath,
                 },
                 defaultViewport: {
-                    width: 1920,
-                    height: 1080,
+                    width: Driver.VIEWPORT_WIDTH,
+                    height: Driver.VIEWPORT_HEIGHT,
                 }
             }
         }
@@ -361,7 +364,7 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         await this.getElement(selector, { raiseException, timeout });
-        return (await this.page.$$(selector.selector)).map(element => new Element(element, this) );
+        return (await this.page.$$(selector.selector)).map(element => new Element(element, this));
     }
 
     async getAttribute(selector, attributeName, {

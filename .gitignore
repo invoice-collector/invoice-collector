@@ -1,5 +1,5 @@
 node_modules/
-mongodb/data/
+.mongodb/data/
 dist/
 media/
 coverage/

@@ -2,6 +2,7 @@ import { WebCollector } from '../../web2Collector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
 
 export class BureauValleeCollector extends WebCollector {
@@ -38,7 +39,7 @@ export class BureauValleeCollector extends WebCollector {
         super(BureauValleeCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(BureauValleeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 

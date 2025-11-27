@@ -1,5 +1,6 @@
 import { Driver, Element } from '../../../driver/driver';
 import { UnfinishedCollectorError } from '../../../error';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import { WebCollector } from '../../web2Collector';
 import { LeclercSelectors } from './selectors';
@@ -38,7 +39,7 @@ export class LeclercCollector extends WebCollector {
         super(LeclercCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
             // Accept cookies
             await driver.leftClick(LeclercSelectors.BUTTON_ACCEPT_COOKIES, { raiseException: false, timeout: 5000});
 

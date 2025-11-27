@@ -4,6 +4,7 @@ import { Driver, Element } from '../../../driver/driver';
 import { Invoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';
 import * as utils from '../../../utils';
 import { TwofaPromise } from '../../../collect/twofaPromise';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class LeroyMerlinCollector extends WebCollector {
 
@@ -11,7 +12,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "15",
+        version: "16",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
         type: CollectorType.WEB,
@@ -45,7 +46,7 @@ export class LeroyMerlinCollector extends WebCollector {
         return driver.url().includes(this.config.loginUrl);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(LeroyMerlinSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, navigation: false });
 
@@ -82,9 +83,9 @@ export class LeroyMerlinCollector extends WebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Wait for 2fa code from UI
-        const twofa_code = await twofa_promise.code();
+        const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
         // Check if 2fa code is 6 digits
         if (twofa_code.length !== 6) {

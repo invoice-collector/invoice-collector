@@ -9,6 +9,9 @@ import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 import * as utils from '../utils';
 import { V2Collector } from "./v2Collector";
+import { WebSocketServer } from "../websocket/webSocketServer";
+import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
+import { KeyInput } from "rebrowser-puppeteer-core";
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -29,6 +32,8 @@ export enum DocumentStrategy {
 
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
+    static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
+    static SCREENSHOT_INTERVAL_MS = 50; // 50 ms
     static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
     driver: Driver | null;
@@ -51,6 +56,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     async _collect(
         state: State,
         twofa_promise: TwofaPromise,
+        webSocketServer: WebSocketServer | undefined,
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
@@ -74,6 +80,12 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             // Pre actions
             await this.pre(driver);
 
+            // If web socket server exists, enable images
+            let loadImagesPreviousValue = this.config.loadImages;
+            if(webSocketServer) {
+                this.config.loadImages = true;
+            }
+
             // Open entry url
             await driver.goto(this.config.entryUrl || this.config.loginUrl);
 
@@ -84,9 +96,14 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             if (needLogin) {
                 // Set progress step to logging in
                 state.update(State._2_LOGGING_IN);
+                webSocketServer?.sendState(State._2_LOGGING_IN);
 
                 console.log("User is not logged in, logging in...")
-                const login_error = await this.login(driver, secret.params)
+                const login_error = await this.login(driver, secret.params, webSocketServer)
+
+                if(webSocketServer) {
+                    this.config.loadImages = loadImagesPreviousValue;
+                }
 
                 // Check if not authenticated
                 if (login_error) {
@@ -102,14 +119,20 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // If 2fa is required
             if (needTwofa) {
+                // If the webSocketServer is undefined, it means that the session has expired
+                if (!webSocketServer) {
+                    throw new AuthenticationError('i18n.collectors.all.login.expired', this);
+                }
+
                 // Set progress step to 2fa waiting
                 state.update(State._3_2FA_WAITING, needTwofa);
+                webSocketServer.sendState(State._3_2FA_WAITING, needTwofa);
 
                 // Set instructions for UI
                 await twofa_promise.setInstructions(needTwofa);
 
                 console.log(`2FA is required, performing 2FA... (${needTwofa})`)
-                const twofa_error = await this.twofa(driver, secret.params, twofa_promise)
+                const twofa_error = await this.twofa(driver, secret.params, twofa_promise, webSocketServer)
 
                 // Check if 2fa error
                 if (twofa_error) {
@@ -125,11 +148,17 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             // Update secret.localStorage
             secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
 
-            // Set progress step to collecting
-            state.update(State._5_COLLECTING);
-
             // Navigate to invoices
             await this.navigate(driver, secret.params)
+
+            // Check if need to login again
+            if (this.config.entryUrl && await this.needLogin(driver)) {
+                throw new AuthenticationError('i18n.collectors.all.login.not_authenticated', this);
+            }
+
+            // Set progress step to collecting
+            state.update(State._5_COLLECTING);
+            webSocketServer?.sendState(State._5_COLLECTING);
 
             // Get previous invoice ids
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
@@ -185,6 +214,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 if (firstDownload) {
                                     // Set progress step to downloading
                                     state.update(State._6_DOWNLOADING);
+                                    webSocketServer?.sendState(State._6_DOWNLOADING);
                                     firstDownload = false;
                                 }
 
@@ -258,6 +288,75 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         }
     }
 
+    protected async loginWithCanvas(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
+        // If login is called with a WebSocketServer to undefined, it means that the session has expired
+        if (!webSocketServer) {
+            throw new AuthenticationError('i18n.collectors.all.login.expired', this);
+        }
+
+        let screenshotInterval;
+        const promise = new Promise<void>((resolve, reject) => {
+            setTimeout(() => {
+                //webSocketServer.close();
+                reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
+            }, WebCollector.LOGIN_TIMEOUT_MS)
+
+            if (webSocketServer) {
+                // Take screenshot and send it to the client every 50 ms
+                screenshotInterval = setInterval(async () => {
+                    try {
+                        const screenshot = await driver.screenshot();
+                        webSocketServer?.sendScreenshot(screenshot, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+                    } catch (error) {}
+                }, WebCollector.SCREENSHOT_INTERVAL_MS);
+
+                // Define what to do on click event
+                webSocketServer.onClick = async (event: MessageClick) => {
+                    await driver.page?.mouse.click(event.x, event.y);
+                };
+                // Define what to do on keydown event
+                webSocketServer.onKeydown = async (event: MessageKeydown) => {
+                    // If key is a single character, type it, else press the key
+                    if (event.key.length === 1){
+                        await driver.page?.keyboard.type(event.key);
+                    }
+                    else {
+                        await driver.page?.keyboard.press(event.key as KeyInput);
+                    }
+                };
+                // Define what to do on text event
+                webSocketServer.onText = async (event: MessageText) => {
+                    await driver.page?.keyboard.type(event.text);
+                };
+                // Define what to do on close event
+                webSocketServer.onClose = async (event) => {
+                    switch(event.reason) {
+                        case 'ok':
+                            resolve();
+                            break;
+                        case 'cancel':
+                            reject(new AuthenticationError("i18n.collectors.all.login.cancel", this));
+                            break;
+                        case 'report':
+                            reject(new LoggableError("A user reported an issue on this collector", this));
+                            break;
+                        default:
+                            console.error('Unknown close reason:', event.reason);
+                            break;
+                    }
+                };
+            }
+        });
+
+        try {
+            await promise;
+        } finally {
+            if (screenshotInterval) {
+                clearInterval(screenshotInterval);
+            }
+        }
+    }
+
     //NOT IMPLEMENTED
     async pre(driver: Driver): Promise<void> {
         // Assume the collector does not need pre actions
@@ -270,18 +369,21 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         return this.config.entryUrl == undefined || !driver.url().includes(this.config.entryUrl);
     }
 
-    abstract login(driver: Driver, params: any): Promise<string | void>;
+    abstract login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void>;
 
     async needTwofa(driver: Driver): Promise<string | void>{
         // Assume the collector does not implement 2FA
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Assume the collector does not implement 2FA
     }
 
     async navigate(driver: Driver, params: any): Promise<void> {
-        // Assume the collector does not need to navigate
+        // Go to entry URL if exists
+        if (this.config.entryUrl) {
+            await driver.goto(this.config.entryUrl);
+        }
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {

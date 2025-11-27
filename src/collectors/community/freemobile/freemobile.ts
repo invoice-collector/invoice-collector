@@ -4,6 +4,7 @@ import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class FreeMobileCollector extends WebCollector {
 
@@ -11,7 +12,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "9",
+        version: "10",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -43,7 +44,7 @@ export class FreeMobileCollector extends WebCollector {
         return driver.url().includes("login") || driver.url().includes("otp");
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Input id and password
         await driver.inputText(FreeMobileSelectors.FIELD_IDENTIFIER, params.id);
         await driver.inputText(FreeMobileSelectors.FIELD_PASSWORD, params.password);
@@ -66,7 +67,7 @@ export class FreeMobileCollector extends WebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Check if too much attempts
         const twofa_too_much = await driver.getElement(FreeMobileSelectors.CONTAINER_2FA_ALERT, { raiseException: false, timeout: 1000 });
         if (twofa_too_much) {
@@ -74,7 +75,7 @@ export class FreeMobileCollector extends WebCollector {
         }
 
         // Wait for 2fa code from UI
-        const twofa_code = await twofa_promise.code();
+        const twofa_code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
         // Check if 2fa code is 6 digits
         if (twofa_code.length !== 6) {

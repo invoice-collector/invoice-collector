@@ -3,6 +3,7 @@ import { TwofaPromise } from "../collect/twofaPromise";
 import * as utils from '../utils';
 import { Invoice } from "../collectors/abstractCollector";
 import { AuthenticationError, ElementNotFoundError } from "../error";
+import { WebSocketServer } from "../websocket/webSocketServer";
 
 export enum ActionEnum  {
     GOAL_REACHED = 'goalReached',
@@ -215,6 +216,7 @@ export class GetTextContentAction extends Action<GetTextContentContext, string> 
 export type InputTwofaContext = {
     driver: Driver;
     twofaPromise: TwofaPromise;
+    webSocketServer: WebSocketServer;
 }
 
 export class InputTwofaAction extends Action<InputTwofaContext, void> {
@@ -228,7 +230,7 @@ export class InputTwofaAction extends Action<InputTwofaContext, void> {
 
     async perform(context: InputTwofaContext): Promise<void> {
         // Get 2fa code
-        const code = await context.twofaPromise.code();
+        const code = await Promise.race([context.twofaPromise.code(), context.webSocketServer.getTwofa()]);
 
         let element: Element = await this.getElement(context.driver);
         await element.inputText(code, this.args);
