@@ -394,7 +394,7 @@ app.delete('/api/v1/credential/:credential_id', async (req, res) => {
 app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
-        console.log(`POST 2fa ${req.params.credential_id}`);
+        console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(req.headers.authorization, req.params.user_id, undefined, req.params.credential_id, req.body.code);
 
         // Build response
@@ -408,7 +408,7 @@ app.post('/api/v1/user/:user_id/credential/:credential_id/2fa', async (req, res)
 app.post('/api/v1/credential/:credential_id/2fa', async (req, res) => {
     try {
         // Post 2fa
-        console.log(`POST 2fa ${req.params.credential_id}`);
+        console.log(`POST 2fa ${req.params.credential_id} (DEPRECATED, use websockets instead)`);
         await server.post_credential_2fa(undefined, undefined, req.query.token, req.params.credential_id, req.body.code);
 
         // Build response
