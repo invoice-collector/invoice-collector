@@ -37,7 +37,7 @@ export const BureauValleeSelectors = {
         info: "submit button"
     },
     CONTAINER_PASSWORD_ALERT: {
-        selector: "#messages-container:not([style*='display']) .message.error div[data-bind*='html']",
+        selector: "#passwordMessageError",
         info: "password alert container"
     },
 
