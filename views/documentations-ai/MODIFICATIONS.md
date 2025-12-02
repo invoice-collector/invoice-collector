@@ -101,7 +101,7 @@ Ce document fournit des instructions directes pour les modifications les plus fr
 **Ligne** : ~5
 
 ```html
-<title>Invoice-Collector - <%= __('i18n.views.manage.my_collectors') %></title>
+<title><%= __('i18n.views.manage.page_title') %></title>
 ```
 
 ### Modifier l'en-tête de la liste

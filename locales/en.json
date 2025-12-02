@@ -9245,7 +9245,7 @@
   "i18n.views.manage.invalid_credentials": "Invalid credentials",
   "i18n.views.manage.let_us_know": "Let us know and we'll add it for you!",
   "i18n.views.manage.logged_in": "I'm logged in",
-  "i18n.views.manage.my_collectors": "My collectors",
+  "i18n.views.manage.page_title": "Invoice-Collector - Add a collector",
   "i18n.views.manage.request_error": "An error occurred. Please try again.",
   "i18n.views.manage.request_new": "Request new",
   "i18n.views.manage.request_new_collector": "Request New Collector",
