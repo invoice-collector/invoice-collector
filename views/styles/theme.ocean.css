@@ -1118,7 +1118,6 @@ body {
   max-height: 100%;
   width: auto;
   height: auto;
-  border-radius: var(--radius);
   background:  var(--bg);
 }
 
