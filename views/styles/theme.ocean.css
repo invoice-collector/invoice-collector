@@ -155,7 +155,10 @@ body {
 }
 
 .ic-header {
+  display: flex;
   margin-bottom: 2rem;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
 .ic-header-title {
@@ -173,11 +176,6 @@ body {
   opacity: 0.8;
   font-weight: 400;
   color: var(--text);
-}
-
-.ic-header-subtitle-separator {
-  padding-top: 20px;
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 
 /* ===================================
@@ -819,6 +817,9 @@ body {
   border-radius: var(--radius-full);
   border: 1px solid var(--input-border);
   width: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 1.5rem;
 }
 
 .ic-back-button span {

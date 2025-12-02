@@ -133,6 +133,7 @@ body {
 }
 
 .ic-header {
+  display: flex;
   margin-bottom: 2rem;
 }
 
@@ -744,6 +745,9 @@ body {
   width: fit-content;
   border-radius: var(--radius);
   background-color: var(--bg);
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 1.5rem;
 }
 
 .ic-back-button span {

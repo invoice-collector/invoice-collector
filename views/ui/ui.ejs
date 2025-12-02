@@ -16,20 +16,21 @@
          Initial screen showing available collectors
          ============================================ -->
     <div id="companies-container" class="ic-container">
-        
-        <!-- Exit Button -->
-        <a href="#" class="ic-back-button" onclick="event.preventDefault(); closeIframe();">
-            <span class="ic-back-icon">
-                <img src="/views/icons/x.svg" alt="Back">
-            </span>
-            <%= __('i18n.views.manage.close') %>
-        </a>
-        
+
         <!-- Header -->
         <div class="ic-header">
-            <h1 class="ic-header-title"><%= __('i18n.views.manage.add_collectors') %></h1>
-            <p class="ic-header-subtitle"><%= __('i18n.views.manage.select_collector') %></p>
-            <div class="ic-header-subtitle-separator"></div>
+            <!-- Close Button -->
+            <a href="#" class="ic-back-button" onclick="event.preventDefault(); closeIframe();">
+                <span class="ic-back-icon">
+                    <img src="/views/icons/x.svg" alt="Back">
+                </span>
+                <%= __('i18n.views.manage.close') %>
+            </a>
+
+            <div>
+                <h1 class="ic-header-title"><%= __('i18n.views.manage.add_collectors') %></h1>
+                <p class="ic-header-subtitle"><%= __('i18n.views.manage.select_collector') %></p>
+            </div>
         </div>
         
         <!-- Search Input -->
@@ -56,21 +57,23 @@
          SECTION 2: CREDENTIAL FORM
          Form to add credentials for a collector
          ============================================ -->
+
     <div id="form-container" class="ic-container ic-hidden">
-        
-        <!-- Back Button -->
-        <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
-            <span class="ic-back-icon">
-                <img src="/views/icons/move-left.svg" alt="Back">
-            </span>
-            <%= __('i18n.views.manage.return') %>
-        </a>
-        
+
         <!-- Header -->
         <div class="ic-header">
-            <h1 class="ic-header-title" id="form-title"><%= __('i18n.views.manage.add_collectors') %></h1>
-            <p class="ic-header-subtitle" id="form-subtitle"><%= __('i18n.views.manage.connect_account') %></p>
-            <div class="ic-header-subtitle-separator"></div>
+            <!-- Back Button -->
+            <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
+                <span class="ic-back-icon">
+                    <img src="/views/icons/move-left.svg" alt="Back">
+                </span>
+                <%= __('i18n.views.manage.return') %>
+            </a>
+
+            <div>
+                <h1 class="ic-header-title" id="form-title"><%= __('i18n.views.manage.add_collectors') %></h1>
+                <p class="ic-header-subtitle" id="form-subtitle"><%= __('i18n.views.manage.connect_account') %></p>
+            </div>
         </div>
         
         <!-- Collector Info Card -->
@@ -149,6 +152,7 @@
          SECTION 3: PROGRESS SCREEN
          Shows collection progress and results
          ============================================ -->
+
     <div id="progress-container" class="ic-container ic-hidden">
         <div class="ic-progress-screen">
             <div class="ic-progress-card">
@@ -261,6 +265,7 @@
          SECTION 4: CANVAS (Full Screen)
          Interactive canvas for browser automation
          ============================================ -->
+
     <div id="canvas-container" class="ic-canvas-fullscreen" hidden>
         
         <!-- Toolbar -->
@@ -304,20 +309,22 @@
          SECTION 5: FEEDBACK FORM
          Request a new collector
          ============================================ -->
+
     <div id="feedback-container" class="ic-container ic-hidden">
-        
-        <!-- Back Button -->
-        <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
-            <span class="ic-back-icon">
-                <img src="/views/icons/move-left.svg" alt="Back">
-            </span>
-            <%= __('i18n.views.manage.return') %>
-        </a>
-        
+
         <!-- Header -->
         <div class="ic-header">
-            <h1 class="ic-header-title"><%= __('i18n.views.manage.request_new_collector') %></h1>
-            <div class="ic-header-subtitle-separator"></div>
+            <!-- Back Button -->
+            <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
+                <span class="ic-back-icon">
+                    <img src="/views/icons/move-left.svg" alt="Back">
+                </span>
+                <%= __('i18n.views.manage.return') %>
+            </a>
+
+            <div>
+                <h1 class="ic-header-title"><%= __('i18n.views.manage.request_new_collector') %></h1>
+            </div>
         </div>
         
         <!-- Feedback Form -->
@@ -373,6 +380,7 @@
          SECTION 6: JAVASCRIPT
          Internationalization & Script Loading
          ============================================ -->
+
     <script>        
         // Current locale
         const locale = "<%= locale %>";
