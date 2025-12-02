@@ -4,6 +4,7 @@ import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, DownloadedInvoice, Invoice } from '../../../collectors/abstractCollector';
 import * as utils from '../../../utils';
 import { AuthenticationError } from '../../../error';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class OrangeCollector extends WebCollector {
 
@@ -11,7 +12,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "17",
+        version: "18",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -44,7 +45,7 @@ export class OrangeCollector extends WebCollector {
         return driver.url().includes("login.orange");
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(OrangeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 

@@ -3,6 +3,7 @@ import { USelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
 import { UnfinishedCollectorError } from '../../../error';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class UCollector extends WebCollector {
 
@@ -10,7 +11,7 @@ export class UCollector extends WebCollector {
         id: "u",
         name: "U Courses",
         description: "i18n.collectors.u.description",
-        version: "7",
+        version: "8",
         website: "https://www.coursesu.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
         type: CollectorType.WEB,
@@ -38,7 +39,7 @@ export class UCollector extends WebCollector {
         super(UCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Refuse cookies
         await driver.leftClick(USelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
 

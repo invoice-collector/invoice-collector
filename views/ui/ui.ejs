@@ -1,175 +1,440 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invoice-Collector - <%= __('i18n.views.manage.my_collectors') %></title>
-    <link rel="stylesheet" href="/views/styles.css">
-    <link rel="stylesheet" href="/views/themes/<%= theme %>.css">
+    <title><%= __('i18n.views.manage.page_title') %></title>
+    
+    <!-- Styles & Assets -->
+    <link rel="stylesheet" href="/views/styles/theme.<%= theme %>.css">
     <link rel="icon" href="/views/icons/favicon.ico" type="image/x-icon">
-    <script src="/views/ui/script.js"></script>
 </head>
 <body>
-    <div class="main-container">
-        <!-- CREDENTIALS CONTAINER -->
 
-        <div id="credentials-container" class="container">
-            <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.my_collectors') %></h1>
-            <!-- BUTTON -->
-            <div class="credentials-buttons">
-                <button class="button action-button" onclick="showCompanies()"><%= __('i18n.views.manage.add_collectors') %></button>
-            </div>
-            <!-- CREDENTIALS TABLE -->
-            <table id="credentials-table">
-                <thead>
-                    <tr>
-                        <th class="table-column-120"></th>
-                        <th class="table-column"><%= __('i18n.views.credentials.note') %></th>
-                        <th class="table-column-40"><%= __('i18n.views.credentials.status') %></th>
-                        <th class="table-column-120"><%= __('i18n.views.credentials.documents') %></th>
-                        <th class="table-column-120"><%= __('i18n.views.credentials.last_collect') %></th>
-                        <th class="table-column-120"><%= __('i18n.views.credentials.next_collect') %></th>
-                        <th class="table-column-40"></th>
-                    </tr>
-                </thead>
-                <tbody id="credentials-empty">
-                    <tr>
-                        <td colspan="6" style="text-align: center;"><%= __('i18n.views.credentials.empty') %></td>
-                    </tr>
-                </tbody>
-                <tbody id="credentials-list">
-                </tbody>
-            </table>
-        </div>
+    <!-- ============================================
+         SECTION 1: COMPANIES LIST
+         Initial screen showing available collectors
+         ============================================ -->
+    <div id="companies-container" class="ic-container">
 
-        <!-- COMPANIES CONTAINER -->
-
-        <div id="companies-container" class="container" hidden>
-            <!-- BUTTON -->
-            <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
-            <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.add_collectors') %></h1>
-            <!-- COMPANIES LIST -->
-            <ul id="companies-list"></ul>
-            
-            <div class="center-button">
-                <button class="button delete-button no-collector-button" onclick="showFeedback('new_collector')"><%= __('i18n.views.manage.no_collector') %></button>
-            </div>
-        </div>
-
-        <!-- FORM CONTAINER -->
-            
-        <div id="form-container" class="container" hidden>
-            <!-- BUTTON -->
-            <button class="button return-button" onclick="showCompanies()"><%= __('i18n.views.manage.return') %></button>
-            <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.add_collectors') %></h1>
-            <!-- FORM -->
-            <div id="add-credential-form-container">
-                <div class="form-item">
-                    <img id="form-logo" src="" alt="Logo">
-                    <div>
-                        <h3 id="form-name"></h3>
-                        <p id="form-description"></p>
-                    </div>
+        <!-- Header -->
+        <div class="ic-header">
+            <!-- Close Button -->
+            <a href="#" class="ic-back-button" onclick="event.preventDefault(); closeIframe();">
+                <span class="ic-back-icon">
+                    <img src="/views/icons/x.svg" alt="Back">
+                </span>
+                <div>
+                    <%= __('i18n.views.manage.close') %>
                 </div>
-                <div class="container" id="add-credential-instructions">
-                    <strong><%= __('i18n.views.manage.instructions') %>:</strong>
-                    <p></p>
-                </div>
-                <form id="add-credential-form">
-                    <div id="add-credential-form-params"></div>
-                    <label><%= __('i18n.collectors.all.note') %></label>
-                    <input type="text" name="note" placeholder="<%= __('i18n.collectors.all.note.placeholder') %>">
-                    <button type="submit" class="button action-button"><%= __('i18n.views.manage.add_collectors') %></button>
-                </form>
+            </a>
 
-                <div id="hit-sketch">
-                    <label><%= __('i18n.views.manage.sketch') %></label>
-                    <div class="center-button">
-                        <button id="hit-sketch-button" class="button delete-button"><%= __('i18n.views.manage.sketch.hit') %></button>
-                    </div>
-                    <div id="hit-sketch-success" class="feedback-response feedback-response-success" hidden>
-                        <p><%= __('i18n.views.manage.sketch.hit.done') %></p>
-                    </div>
-                </div>
+            <div>
+                <h1 class="ic-header-title"><%= __('i18n.views.manage.add_collectors') %></h1>
+                <p class="ic-header-subtitle"><%= __('i18n.views.manage.select_collector') %></p>
             </div>
         </div>
-
-        <!-- PROGRESS CONTAINER -->
-
-        <div id="progress-container" class="container" hidden>
-            <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.adding_collector') %></h1>
-            <!-- PROGRESS BAR -->
-            <div id="progress-text">
-            </div>
-            <div id="progress-bar-container">
-                <div id="progress-bar"></div>
-            </div>
-            <!-- 2FA FORM -->
-            <div id="send-2fa-container" >
-                <form id="send-2fa-form">
-                    <label id="send-2fa-instructions"></label>
-                    <input type="text" name="code" placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>">
-                    <button type="submit" class="button action-button"><%= __('i18n.views.manage.continue') %></button>
-                </form>
-            </div>
-            <!-- RESPONSE -->
-            <div id="progress-response-success" class="progress-response" hidden>
-                <img src="/views/icons/success.png" alt="Success">
-                <p><%= __('i18n.views.manage.success') %></p>
-                <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
-            </div>
-            <div id="progress-response-unknown" class="progress-response" hidden>
-                <img src="/views/icons/pending.png" alt="Unknown">
-                <p><%= __('i18n.views.manage.unknown') %></p>
-                <button class="button action-button" onclick="showCredentials()"><%= __('i18n.views.manage.continue') %></button>
-            </div>
-            <div id="progress-response-error" class="progress-response" hidden>
-                <img src="/views/icons/error.png" alt="Success">
-                <p id="progress-response-error-text"></p>
-                <button class="button delete-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
+        
+        <!-- Search Input -->
+        <div class="ic-search-bar" style="margin-bottom: 2rem;">
+            <div style="position: relative;">
+                <img src="/views/icons/search.svg" alt="Search" class="ic-input-icon">
+                <input 
+                    type="text" 
+                    id="search-collectors" 
+                    class="ic-input" 
+                    placeholder="<%= __('i18n.views.manage.search_placeholder') %>" 
+                    style="padding-left: 3rem;"
+                    oninput="filterCompanies(this.value)"
+                >
             </div>
         </div>
-
-        <!-- FEEDBACK CONTAINER -->
-
-        <div id="feedback-container" class="container" hidden>
-            <!-- BUTTON -->
-            <button class="button return-button" onclick="showCredentials()"><%= __('i18n.views.manage.return') %></button>
-            <!-- TITLE -->
-            <h1><%= __('i18n.views.manage.send_feedback') %></h1>
-            <!-- FORM -->
-            <form id="feedback-form">
-                <input type="text" name="type" required hidden>
-                <label><%= __('i18n.views.manage.feedback') %><span style="color: red;"> *</span></label>
-                <textarea type="text" name="message" placeholder="<%= __('i18n.views.manage.feedback.placeholder') %>" required></textarea>
-                <label><%= __('i18n.collectors.all.email') %></label>
-                <input type="email" name="email" type="email" placeholder="<%= __('i18n.views.manage.feedback.email.placeholder') %>">
-                <button type="submit" class="button action-button"><%= __('i18n.views.manage.send_feedback') %></button>
-            </form>
-            <!-- RESPONSE -->
-            <div id="feedback-response-success" class="feedback-response feedback-response-success" hidden>
-                <p><%= __('i18n.views.manage.feedback.success') %></p>
-            </div>
-            <div id="feedback-response-error" class="feedback-response feedback-response-error" hidden>
-                <p><%= __('i18n.views.manage.feedback.error') %></p>
-            </div>
-        </div>
-
-        <!-- FOOTER -->
-
-        <div class="footer">
-            <a id="send-feedback-button" class="button" onclick="showFeedback('custom')"><%= __('i18n.views.manage.send_feedback') %></a>
-        </div>
+        
+        <!-- Companies Grid (populated by JavaScript) -->
+        <div class="ic-grid" id="companies-list"></div>
+        
     </div>
 
-    <!-- SCRIPT -->
+    <!-- ============================================
+         SECTION 2: CREDENTIAL FORM
+         Form to add credentials for a collector
+         ============================================ -->
 
-    <script>
+    <div id="form-container" class="ic-container ic-hidden">
+
+        <!-- Header -->
+        <div class="ic-header">
+            <!-- Back Button -->
+            <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
+                <span class="ic-back-icon">
+                    <img src="/views/icons/move-left.svg" alt="Back">
+                </span>
+                <div>
+                    <%= __('i18n.views.manage.return') %>
+                </div>
+            </a>
+
+            <div>
+                <h1 class="ic-header-title" id="form-title"><%= __('i18n.views.manage.add_collectors') %></h1>
+                <p class="ic-header-subtitle" id="form-subtitle"><%= __('i18n.views.manage.connect_account') %></p>
+            </div>
+        </div>
+        
+        <!-- Collector Info Card -->
+        <div class="ic-collector-info" id="form-collector-info">
+            <img id="form-logo" src="" alt="Logo" class="ic-collector-info-logo">
+            <div class="ic-collector-info-content">
+                <h3 class="ic-collector-info-name" id="form-name"></h3>
+                <p class="ic-collector-info-description" id="form-description"></p>
+            </div>
+            <span class="ic-badge ic-badge--stable" id="form-badge">Stable</span>
+        </div>
+        
+        <!-- Instructions Alert (shown if collector has instructions) -->
+        <div class="ic-alert ic-alert--info ic-hidden" id="add-credential-instructions">
+            <img src="/views/icons/circle-question-mark.svg" alt="Info" class="ic-alert-icon">
+            <div>
+                <strong><%= __('i18n.views.manage.instructions') %>:</strong>
+                <p id="instructions-text"></p>
+            </div>
+        </div>
+        
+        <!-- Credential Form -->
+        <form id="add-credential-form" class="add-credential-form">
+            
+            <!-- Dynamic Form Fields (populated by JavaScript) -->
+            <div id="add-credential-form-params"></div>
+            
+            <!-- Date Picker - Collection Start Date -->
+            <div class="ic-form-group  ic-form-group--floating">
+                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.download_since') %></label>
+                <input 
+                    type="text" 
+                    id="datepicker-since" 
+                    name="since" 
+                    class="ic-input" 
+                    placeholder="<%= __('i18n.views.manage.date_placeholder') %>" 
+                    required
+                >
+                <span class="ic-input-helper">
+                    <%= __('i18n.views.manage.download_since_helper') %>
+                </span>
+            </div>
+            
+            <!-- Form Error Alert -->
+            <div class="ic-alert ic-alert--error ic-hidden" id="form-error">
+                <img src="/views/icons/x.svg" alt="Error" class="ic-alert-icon">
+                <div>
+                    <strong><%= __('i18n.views.manage.error') %></strong> <%= __('i18n.views.manage.error_required_fields') %>
+                </div>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="ic-button ic-button--primary" style="width: 100%;">
+                <%= __('i18n.views.manage.add_collectors') %>
+            </button>
+            
+        </form>
+        
+        <!-- Sketch Section (for sketch-type collectors) -->
+        <div id="hit-sketch" class="ic-hidden" style="margin-top: 2rem;">
+            <p style="text-align: center; color: var(--muted); margin-bottom: 1rem;">
+                <%= __('i18n.views.manage.sketch') %>
+            </p>
+            <button id="hit-sketch-button" class="ic-button ic-button--secondary" style="width: 100%;">
+                <%= __('i18n.views.manage.sketch.hit') %>
+            </button>
+            <div id="hit-sketch-success" class="ic-alert ic-alert--success ic-hidden" style="margin-top: 1rem;">
+                <img src="/views/icons/check.svg" alt="Success" class="ic-alert-icon">
+                <div><%= __('i18n.views.manage.sketch.hit.done') %></div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- ============================================
+         SECTION 3: PROGRESS SCREEN
+         Shows collection progress and results
+         ============================================ -->
+
+    <div id="progress-container" class="ic-container ic-hidden">
+        <div class="ic-progress-screen">
+            <div class="ic-progress-card">
+                
+                <!-- Loading State -->
+                <div id="progress-loading">
+                    
+                    <!-- Spinner -->
+                    <div class="ic-loader">
+                        <div class="ic-spinner ic-spinner--large"></div>
+                    </div>
+                    
+                    <!-- Loading Text -->
+                    <h1 class="ic-header-title" style="margin-bottom: 0.5rem;">
+                        <%= __('i18n.views.manage.adding_collector') %>
+                    </h1>
+                    <p class="ic-header-subtitle" id="progress-subtitle">
+                        <%= __('i18n.views.manage.collecting_data') %>
+                    </p>
+                    
+                    <div class="ic-progress-divider"></div>
+                    
+                    <!-- Progress Bar -->
+                    <div id="progress-bar-section" class="ic-progress">
+                        <div class="ic-progress-label">
+                            <span id="progress-text"></span>
+                        </div>
+                        <div class="ic-progress-bar" id="progress-bar-container">
+                            <div class="ic-progress-fill" id="progress-bar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2FA Input Form -->
+                    <div id="send-2fa-container" hidden>
+                        <form id="send-2fa-form" style="margin-top: 1.5rem;">
+                            <div class="ic-form-group">
+                                <label class="ic-label ic-label--required" id="send-2fa-instructions"></label>
+                                <input 
+                                    type="text" 
+                                    name="code" 
+                                    class="ic-input" 
+                                    placeholder="<%= __('i18n.views.manage.2fa.placeholder') %>"
+                                    required
+                                >
+                            </div>
+                            <button type="submit" class="ic-button ic-button--primary" style="width: 100%;">
+                                <%= __('i18n.views.manage.continue') %>
+                            </button>
+                        </form>
+                    </div>
+                    
+                </div>
+                
+                <!-- Success Response -->
+                <div id="progress-response-success" class="progress-response" hidden>
+                    <div class="ic-response-icon-large ic-response-icon-large--success">
+                        <img src="/views/icons/check.svg" alt="Success">
+                    </div>
+                    <h1 class="ic-progress-card-title">
+                        <%= __('i18n.views.manage.add_credential.success') || 'Collection Complete' %>
+                    </h1>
+                    <div class="ic-progress-divider"></div>
+                    <p class="ic-progress-card-subtitle">
+                        <%= __('i18n.views.manage.add_credential.success.message') || 'Your invoices have been collected successfully' %>
+                    </p>
+                    <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                        <%= __('i18n.views.manage.close') || 'Close' %>
+                    </button>
+                </div>
+                
+                 <!-- Error/Unknown Response (something went wrong) -->
+                <div id="progress-response-unknown" class="progress-response" hidden>
+                    <div class="ic-response-icon-large ic-response-icon-large--warning">
+                        <img src="/views/icons/circle-question-mark.svg" alt="Unknown">
+                    </div>
+                    <h1 class="ic-progress-card-title">
+                        <%= __('i18n.views.manage.error') || 'Error' %>
+                    </h1>
+                    <div class="ic-progress-divider"></div>
+                    <p class="ic-progress-card-subtitle">
+                        <%= __('i18n.views.manage.unknown') || 'Oops! Something went wrong... We will try again later.' %>
+                    </p>
+                    <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                        <%= __('i18n.views.manage.close') || 'Close' %>
+                    </button>
+                </div>
+                
+                <!-- Error Response -->
+                <div id="progress-response-error" class="progress-response" hidden>
+                    <div class="ic-response-icon-large ic-response-icon-large--danger">
+                        <img src="/views/icons/x.svg" alt="Error">
+                    </div>
+                    <h1 class="ic-progress-card-title ic-progress-card-title--danger">
+                        <%= __('i18n.views.manage.add_credential.failed') || 'Collection Failed' %>
+                    </h1>
+                    <div class="ic-progress-divider"></div>
+                    <p class="ic-progress-card-subtitle" id="progress-response-error-text">
+                        <%= __('i18n.views.manage.invalid_credentials') || 'Invalid credentials' %>
+                    </p>
+                    <button class="ic-button ic-button--primary" onclick="closeIframe()" style="margin-top: 2rem; width: 100%;">
+                        <%= __('i18n.views.manage.close') || 'Close' %>
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <!-- ============================================
+         SECTION 4: CANVAS (Full Screen)
+         Interactive canvas for browser automation
+         ============================================ -->
+
+    <div id="canvas-container" class="ic-canvas-fullscreen" hidden>
+        
+        <!-- Toolbar -->
+        <div class="ic-canvas-toolbar">
+            
+            <!-- Back Button -->
+            <button id="canvas-back" class="ic-canvas-toolbar-back">
+                <img src="/views/icons/move-left.svg" alt="Back">
+            </button>
+            
+            <!-- Icon & Instructions -->
+            <span class="ic-canvas-toolbar-icon">
+                <img src="/views/icons/key-round.svg" alt="Key">
+            </span>
+            <span class="ic-canvas-toolbar-text">
+                <%= __('i18n.views.manage.canvas_instruction') %>
+            </span>
+            
+            <!-- Action Buttons -->
+            <div class="ic-canvas-toolbar-actions">
+                <button id="canvas-ok" class="ic-button ic-button--primary">
+                    <img src="/views/icons/check.svg" alt="OK" class="ic-canvas-btn-icon">
+                    <span class="ic-canvas-btn-text"><%= __('i18n.views.manage.logged_in') %></span>
+                </button>
+                <button id="canvas-cancel" class="ic-button ic-button--ghost">
+                    <img src="/views/icons/x.svg" alt="Cancel" class="ic-canvas-btn-icon">
+                    <span class="ic-canvas-btn-text"><%= __('i18n.views.manage.cancel') %></span>
+                </button>
+            </div>
+            
+        </div>
+        
+        <!-- Canvas Element -->
+        <div class="ic-canvas-content">
+            <canvas id="canvas" width="1280" height="720"></canvas>
+        </div>
+        
+    </div>
+
+    <!-- ============================================
+         SECTION 5: FEEDBACK FORM
+         Request a new collector
+         ============================================ -->
+
+    <div id="feedback-container" class="ic-container ic-hidden">
+
+        <!-- Header -->
+        <div class="ic-header">
+            <!-- Back Button -->
+            <a href="#" class="ic-back-button" onclick="event.preventDefault(); showCompanies();">
+                <span class="ic-back-icon">
+                    <img src="/views/icons/move-left.svg" alt="Back">
+                </span>
+                <div>
+                    <%= __('i18n.views.manage.return') %>
+                </div>
+            </a>
+
+            <div>
+                <h1 class="ic-header-title"><%= __('i18n.views.manage.request_new_collector') %></h1>
+            </div>
+        </div>
+        
+        <!-- Feedback Form -->
+        <form id="feedback-form" class="ic-feedback-form">
+            
+            <!-- Hidden Type Field -->
+            <input type="text" name="type" value="new_collector" required hidden>
+            
+            <!-- Website URL Field -->
+            <div class="ic-form-group ic-form-group--floating">
+                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url') %></label>
+                <input type="url" name="website_url" class="ic-input"  placeholder="<%= __('i18n.views.manage.feedback.url.placeholder') %>" required>
+            </div>
+
+            <!-- Type Field -->
+            <div class="ic-form-group ic-form-group--floating">
+                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.type') %></label>
+                <select name="collector_type" class="ic-input" onchange="feedbackTypeChanged" required>
+                    <option disabled selected value hidden></option>
+                    <option value="email"><%= __('i18n.views.manage.feedback.type.email') %></option>
+                    <option value="web"><%= __('i18n.views.manage.feedback.type.web') %></option>
+                </select>
+            </div>
+
+            <!-- Invoices URL Field -->
+            <div class="ic-form-group ic-form-group--floating ic-hidden">
+                <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url_invoices') %></label>
+                <input type="url" name="invoices_url" class="ic-input" placeholder="<%= __('i18n.views.manage.feedback.url_invoices.placeholder') %>" required>
+            </div>
+            
+            <!-- Success Alert -->
+            <div class="ic-alert ic-alert--success ic-hidden" id="feedback-response-success">
+                <img src="/views/icons/check.svg" alt="Success" class="ic-alert-icon">
+                <div><%= __('i18n.views.manage.request_success') %></div>
+            </div>
+            
+            <!-- Error Alert -->
+            <div class="ic-alert ic-alert--error ic-hidden" id="feedback-response-error">
+                <img src="/views/icons/x.svg" alt="Error" class="ic-alert-icon">
+                <div><%= __('i18n.views.manage.request_error') %></div>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="ic-button ic-button--primary" style="width: 100%;">
+                <%= __('i18n.views.manage.submit_request') %>
+            </button>
+            
+        </form>
+        
+    </div>
+
+    <!-- ============================================
+         SECTION 6: JAVASCRIPT
+         Internationalization & Script Loading
+         ============================================ -->
+
+    <script>        
+        // Current locale
         const locale = "<%= locale %>";
+        
+        // Internationalization strings
+        const i18n = {
+            // Companies list
+            cantFindCollector: "<%= __('i18n.views.manage.cant_find_collector') %>",
+            letUsKnow: "<%= __('i18n.views.manage.let_us_know') %>",
+            requestNew: "<%= __('i18n.views.manage.request_new') %>",
+            
+            // Form validation
+            fieldsRequired: "<%= __('i18n.views.manage.fields_required') %>",
+            fieldRequired: "<%= __('i18n.views.manage.field_required') %>",
+            
+            // Datepicker translations
+            datepicker: {
+                clear: "<%= __('i18n.views.manage.datepicker_clear') %>",
+                placeholder: "<%= __('i18n.views.manage.datepicker_placeholder') %>",
+                months: [
+                    "<%= __('i18n.views.manage.datepicker.months.january') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.february') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.march') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.april') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.may') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.june') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.july') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.august') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.september') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.october') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.november') %>",
+                    "<%= __('i18n.views.manage.datepicker.months.december') %>"
+                ],
+                weekdays: [
+                    "<%= __('i18n.views.manage.datepicker.weekdays.mon') %>",
+                    "<%= __('i18n.views.manage.datepicker.weekdays.tue') %>",
+                    "<%= __('i18n.views.manage.datepicker.weekdays.wed') %>",
+                    "<%= __('i18n.views.manage.datepicker.weekdays.thu') %>",
+                    "<%= __('i18n.views.manage.datepicker.weekdays.fri') %>",
+                    "<%= __('i18n.views.manage.datepicker.weekdays.sat') %>",
+                    "<%= __('i18n.views.manage.datepicker.weekdays.sun') %>"
+                ]
+            }
+        };
     </script>
+    
+    <!-- Main Application Script -->
+    <script src="/views/ui/script.js"></script>
+
 </body>
 </html>

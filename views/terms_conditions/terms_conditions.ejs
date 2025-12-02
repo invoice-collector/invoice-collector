@@ -4,36 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice-Collector - <%= __('i18n.views.manage.terms_conditions') %></title>
-    <link rel="stylesheet" href="/views/styles.css">
-    <link rel="stylesheet" href="/views/themes/<%= theme %>.css">
+    
+    <!-- Styles & Assets -->
+    <link rel="stylesheet" href="/views/styles/theme.<%= theme %>.css">
     <link rel="icon" href="/views/icons/favicon.ico" type="image/x-icon">
+    
+    <!-- Scripts -->
     <script src="/views/terms_conditions/script.js"></script>
 </head>
 <body>
-    <!-- TERMS & CONDITIONS CONTAINER -->
 
-    <div id="terms-conditions-container" class="container">
-        <!-- TITLE -->
-        <h1><%= __('i18n.views.manage.terms_conditions') %></h1>
-        <!-- FORM -->
+    <!-- ============================================
+         TERMS & CONDITIONS CONTAINER
+         ============================================ -->
+    <div id="terms-conditions-container" class="ic-container">
+        
+        <!-- Header -->
+        <div class="ic-header">
+            <h1 class="ic-header-title"><%= __('i18n.views.manage.terms_conditions') %></h1>
+        </div>
+        
+        <!-- Terms Form -->
         <form id="terms-conditions-form">
-            <!-- TOKEN -->
+            
+            <!-- Hidden Token Field -->
             <input type="text" name="token" value="<%= token %>" required hidden>
-            <!-- CHECBOX -->
-            <div style="display: inline;">
-                <input type="checkbox" name="acceptTerms" required>
-                <label for="accept-terms">
+            
+            <!-- Accept Terms Checkbox -->
+            <div class="ic-form-group" style="display: flex; align-items: flex-start; gap: 0.5rem;">
+                <input 
+                    type="checkbox" 
+                    id="accept-terms" 
+                    name="acceptTerms" 
+                    required 
+                    style="margin-top: 0.25rem;"
+                >
+                <label for="accept-terms" style="cursor: pointer;">
                     <%= __('i18n.views.manage.terms_conditions.read') %>  
-                    <a href="https://invoice-collector.com/terms-of-use" target="_blank"><%= __('i18n.views.manage.terms_conditions') %></a>
+                    <a href="https://invoice-collector.com/terms-of-use" target="_blank" style="color: var(--primary);">
+                        <%= __('i18n.views.manage.terms_conditions') %>
+                    </a>
                 </label>
             </div>
-            <!-- VERFIICATION CODE -->
-            <label><%= __('i18n.views.manage.verification_code') %></label>
-            <input type="text" name="verificationCode" placeholder="<%= __('i18n.views.manage.verification_code.placeholder') %>" required>
-            <!-- ERROR -->
-            <p id="verificationCode-error" style="color: red;" hidden><%= __('i18n.views.manage.verification_code.error') %></p>
-            <button type="submit" class="button action-button"><%= __('i18n.views.manage.continue') %></button>
+            
+            <!-- Verification Code Input -->
+            <div class="ic-form-group">
+                <label class="ic-label ic-label--required">
+                    <%= __('i18n.views.manage.verification_code') %>
+                </label>
+                <input 
+                    type="text" 
+                    name="verificationCode" 
+                    class="ic-input"
+                    placeholder="<%= __('i18n.views.manage.verification_code.placeholder') %>" 
+                    required
+                >
+            </div>
+            
+            <!-- Error Alert -->
+            <div class="ic-alert ic-alert--error ic-hidden" id="verificationCode-error">
+                <img src="/views/styles/icons/x.svg" alt="Error" class="ic-alert-icon">
+                <div><%= __('i18n.views.manage.verification_code.error') %></div>
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="ic-button ic-button--primary" style="width: 100%;">
+                <%= __('i18n.views.manage.continue') %>
+            </button>
+            
         </form>
+        
     </div>
+
 </body>
 </html>

@@ -3,6 +3,12 @@ const prompt = promptSync({});
 import dotenv from 'dotenv';
 dotenv.config();
 import fs from 'fs';
+import http from 'http';
+import assert from 'assert';
+import * as crypto from 'crypto';
+import WebSocket from 'ws';
+import readline from 'readline';
+
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
@@ -10,11 +16,14 @@ import { Collect } from '../src/collect/collect';
 import { IcCredential } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
-import assert from 'assert';
-import * as crypto from 'crypto';
 import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
+import { WebSocketServer } from '../src/websocket/webSocketServer';
+import * as utils from '../src/utils';
+import { WebCollector } from '../src/collectors/web2Collector';
 import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
+
+const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
     await DatabaseFactory.getDatabase().connect();
@@ -72,6 +81,12 @@ function getHashFromSecret(secret: Secret): string {
         }
         DatabaseFactory.getDatabase().disconnect();
         process.exit();
+    });
+
+    // Start readline interface for async prompt
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
     });
 
     try {
@@ -156,16 +171,59 @@ function getHashFromSecret(secret: Secret): string {
         }
 
         // Collect invoices
-        const collect = new Collect("")
+        const collect = new Collect("", undefined)
         collect.state = State.DEFAULT_STATE;
 
-        // Define what to do on 2FA
-        collect.twofa_promise.instructions().then((twofa_instruction) => {
-            const twofa_code = prompt(`${twofa_instruction}: `).trim();
-            collect.twofa_promise.setCode(twofa_code);
+        // Create an http server to handle web socket connections
+        const httpServer = http.createServer();
+        httpServer.listen(PORT, () => {
+            console.log(`HTTP server listening on port ${PORT}`);
         });
 
-        const newInvoices = await collector.collect_new_invoices(collect.state, collect.twofa_promise, secret, Date.UTC(2000, 0, 1), [], null);
+        // Instanciate web socket server
+        const webSocketServer = new WebSocketServer(httpServer, I18n.DEFAULT_LOCALE, collector);
+        const webSocketPath = webSocketServer.start();
+
+        // Connect to web socket server
+        WebCollector.SCREENSHOT_INTERVAL_MS = 1000 * 10; // 10 seconds
+        const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
+        webSocketClient.addEventListener('open', () => {
+            let isFirstScreenshot = true;
+            webSocketClient.addEventListener('message', async (message) => {
+                const parsedData = JSON.parse(message.data.toString());
+                if(parsedData.type == "screenshot") {
+                    if(isFirstScreenshot) {
+                        isFirstScreenshot = false;
+
+                        console.log("Login to the website and press Enter to continue...");
+
+                        // Listen for user input asynchronously
+                        rl.on('line', (input) => {
+                            // Send close message to server
+                            webSocketClient.send(JSON.stringify({ type: 'close', reason: 'ok' }));
+                            // Close readline interface
+                            rl.close();
+                        });
+                    }
+                }
+                else if(parsedData.type == "state" && parsedData.state.index == 3) {
+                    const twofa_code = prompt(`${parsedData.state.message}: `).trim();
+                    webSocketClient.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
+                }
+            });
+        });
+
+
+        // Collect new invoices
+        const newInvoices = await collector.collect_new_invoices(
+            collect.state,
+            collect.twofa_promise,
+            webSocketServer,
+            secret,
+            Date.UTC(2000, 0, 1),
+            [],
+            null
+        );
         console.log(`${newInvoices.length} invoices downloaded`);
 
         // ---------- PART 4 : SAVE INVOICES ----------
@@ -219,6 +277,9 @@ function getHashFromSecret(secret: Secret): string {
         }
     }
     finally {
+        // Close readline interface
+        rl.close();
+        // Update secret if needed
         await updateSecret(credential, secret, secretHash);
 
         // Try to disconnect from the database

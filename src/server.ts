@@ -1,5 +1,5 @@
 import { DatabaseFactory } from './database/databaseFactory';
-import { AbstractSecretManager, Secret } from './secret_manager/abstractSecretManager';
+import { Secret } from './secret_manager/abstractSecretManager';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
 import { generate_token } from './utils';
@@ -9,7 +9,7 @@ import { Customer, Stats } from './model/customer';
 import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
-import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
+import { CollectorType, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
 import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
@@ -18,10 +18,11 @@ import { Collect } from './collect/collect';
 import { I18n } from './i18n';
 import { Plan } from './model/plan';
 import { State } from './model/state';
+import { WebSocketServer } from './websocket/webSocketServer';
 
 export class Server {
 
-    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "600000"));
+    static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "1800000"));
     static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "3600000"));
     static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));
     static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
@@ -31,6 +32,7 @@ export class Server {
     resetTokens: { [key: string]: string };
     uiBearers: { [key: string]: string };
     collect_task: CollectTask;
+    httpServer: any;
 
     constructor() {
         this.uiTokens = {};
@@ -576,11 +578,13 @@ export class Server {
         user_id: string,
         note: string,
         create_timestamp: number,
+        download_from_timestamp: number,
         last_collect_timestamp: number,
         next_collect_timestamp: number,
         invoices: any[],
         state: State,
-        collector: Config
+        collector: Config,
+        wsPath: string | null
     }[]> {
         // Get user from bearer or token
          const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
@@ -609,16 +613,21 @@ export class Server {
             credential.state.title = I18n.get(credential.state.title, user.locale);
             credential.state.message = I18n.get(credential.state.message, user.locale);
 
+            // Get ws path
+            const wsPath = collect?.webSocketServer?.path || null;
+
             return {
                 id: credential.id,
                 user_id: credential.user_id,
                 note: credential.note,
                 create_timestamp: credential.create_timestamp,
+                download_from_timestamp: credential.download_from_timestamp,
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 state: credential.state,
                 invoices: credential.invoices,
                 collector: collector.config,
+                wsPath: wsPath
             }
         }));
     }
@@ -641,7 +650,8 @@ export class Server {
         next_collect_timestamp: number,
         invoices: any[],
         state: State,
-        collector: Config
+        collector: Config,
+        wsPath: string
     }> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
@@ -733,8 +743,12 @@ export class Server {
         // Create credential in database
         await credential.commit();
 
+        // Start web socket server and get token
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
+        const wsPath = webSocketServer.start();
+
         // Start collect
-        const collect = new Collect(credential.id)
+        const collect = new Collect(credential.id, webSocketServer)
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -747,6 +761,8 @@ export class Server {
         .finally(() => {
             // Unregister collect in progress
             CollectPool.getInstance().unregisterCollect(credential.id);
+            // Close web socket server
+            webSocketServer.close();
         });
 
         // Return credential
@@ -761,6 +777,7 @@ export class Server {
             invoices: credential.invoices,
             state: credential.state,
             collector: collector.config,
+            wsPath: wsPath
         };
     }
 
@@ -775,11 +792,13 @@ export class Server {
         user_id: string,
         note: string,
         create_timestamp: number,
+        download_from_timestamp: number,
         last_collect_timestamp: number,
         next_collect_timestamp: number,
         invoices: any[],
         state: State,
-        collector: Config
+        collector: Config,
+        wsPath: string | null
     }> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
@@ -816,17 +835,22 @@ export class Server {
         credential.state.title = I18n.get(credential.state.title, user.locale);
         credential.state.message = I18n.get(credential.state.message, user.locale);
 
+        // Get ws path
+        const wsPath = collect?.webSocketServer?.path || null;
+
         // Return credential
         return {
             id: credential.id,
             user_id: credential.user_id,
             note: credential.note,
             create_timestamp: credential.create_timestamp,
+            download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
             next_collect_timestamp: credential.next_collect_timestamp,
             invoices: credential.invoices,
             state: credential.state,
             collector: collector.config,
+            wsPath: wsPath
         };
     }
 
@@ -916,7 +940,9 @@ export class Server {
         user_id: string | undefined,
         token: any,
         credential_id: string
-    ): Promise<void> {
+    ): Promise<{
+        wsPath: string
+    }> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
@@ -936,8 +962,15 @@ export class Server {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
+        // Get collector from id
+        const collector = await CollectorLoader.get(credential.collector_id);
+
+        // Start web socket server and get token
+        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
+        const wsPath = webSocketServer.start();
+
         // Start collect
-        const collect = new Collect(credential.id)
+        const collect = new Collect(credential.id, webSocketServer)
 
         // Register collect in progress
         CollectPool.getInstance().registerCollect(credential.id, collect);
@@ -950,7 +983,11 @@ export class Server {
         .finally(() => {
             // Unregister collect in progress
             CollectPool.getInstance().unregisterCollect(credential.id);
+            // Close web socket server
+            webSocketServer.close();
         });
+
+        return { wsPath };
     }
 
     // ---------- COLLECTOR ENDPOINTS ----------

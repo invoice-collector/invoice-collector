@@ -24,8 +24,8 @@ services:
     image : mongo:8.0.3
     container_name: mongodb
     volumes:
-      - ./mongodb/data:/data/db
-      - ./mongodb/config:/etc/mongo/
+      - ./.mongodb/data:/data/db
+      - ./.mongodb/config:/etc/mongo/
     ports:
       - 27017:27017
     command: --logpath /dev/null

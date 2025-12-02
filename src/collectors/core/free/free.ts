@@ -2,6 +2,7 @@ import { WebCollector } from '../../web2Collector';
 import { FreeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class FreeCollector extends WebCollector {
 
@@ -9,7 +10,7 @@ export class FreeCollector extends WebCollector {
         id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "9",
+        version: "10",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         type: CollectorType.WEB,
@@ -37,7 +38,7 @@ export class FreeCollector extends WebCollector {
         super(FreeCollector.CONFIG);
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         await driver.inputText(FreeSelectors.FIELD_USERNAME, params.id);
         await driver.inputText(FreeSelectors.FIELD_PASSWORD, params.password);
         await driver.leftClick(FreeSelectors.BUTTON_SUBMIT);

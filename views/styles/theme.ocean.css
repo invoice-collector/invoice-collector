@@ -1,0 +1,1628 @@
+/* ===================================
+   THEME: OCEAN (Light - Axonaut Style)
+   Light theme with marine blue accents
+   =================================== */
+
+/* ===================================
+   GOOGLE FONTS - Montserrat
+   =================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap');
+
+/* ===================================
+   CSS VARIABLES - Theme Colors
+   =================================== */
+
+:root {
+  /* Background & Text */
+  --bg: #ffffff;
+  --text: #333333;
+  --text-secondary: #333333;
+  --muted: #666666;
+  --placeholder: #999999;
+
+  /* Primary - Ocean Blue */
+  --primary: #2D95F8;
+  --primary-hover: #35A5F6;
+  --primary-gradient: #40BCF5;
+  --primary-focus: rgba(45, 149, 248, 0.2);
+  --label-focus: #35A5F6;
+
+  /* Secondary */
+  --secondary: #f5f5f5;
+  --secondary-hover: #e8e8e8;
+
+  /* Accent - Dark Blue */
+  --accent: #21406b;
+  --accent-light: #35A5F6;
+
+  /* Cards */
+  --card: #ffffff;
+  --card-border: #00f;
+  --card-border-default: rgba(0, 0, 0, 0.2);
+  --card-special: rgba(208, 235, 253, 0.1);
+  --card-special-hover: rgba(208, 235, 253, 0.2);
+  --card-bg: rgba(208, 235, 253, 0.1);
+
+  /* Status - Success */
+  --success: #28a745;
+  --success-hover: #218838;
+  --success-bg: rgba(40, 167, 69, 0.1);
+  --success-text: #155724;
+
+  /* Status - Warning */
+  --warning: #ffc107;
+  --warning-hover: #e0a800;
+  --warning-bg: rgba(255, 193, 7, 0.1);
+  --warning-text: #856404;
+
+  /* Status - Danger */
+  --danger: #dc3545;
+  --danger-hover: #c82333;
+  --danger-bg: rgba(220, 53, 69, 0.1);
+  --danger-text: #721c24;
+
+  /* Status - Info */
+  --info: #2D95F8;
+  --info-hover: #35A5F6;
+  --info-bg: rgba(45, 149, 248, 0.1);
+  --info-text: #21406b;
+
+  /* Forms */
+  --input-bg: #ffffff;
+  --input-border: rgba(0, 0, 0, 0.2);
+  --input-background-hover: #C4E2FF;
+  --disabled-bg: #f5f5f5;
+
+  /* Progress & Spinner */
+  --progress-bg: #e0e0e0;
+  --spinner-bg: #e0e0e0;
+
+  /* Icons */
+  --icon-color: #494d55;
+
+  /* Shadows */
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.2);
+
+  /* Border Radius */
+  --radius: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* Font size */
+  --text-base: 14px;
+}
+
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.42857143;
+  font-size: var(--text-base);
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ===================================
+   LAYOUT - Container & Header
+   =================================== */
+
+.ic-container {
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2rem;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted) var(--bg);
+}
+
+.ic-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.ic-container::-webkit-scrollbar-track {
+  background: var(--bg);
+  border-radius: var(--radius);
+}
+
+.ic-container::-webkit-scrollbar-thumb {
+  background: #cccccc;
+  border-radius: var(--radius);
+}
+
+.ic-container::-webkit-scrollbar-thumb:hover {
+  background: #999999;
+}
+
+.ic-header {
+  display: flex;
+  margin-bottom: 2rem;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.ic-header-title {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.ic-header-subtitle {
+  display: block;
+  font-size: 16px;
+  line-height: 19px;
+  opacity: 0.8;
+  font-weight: 400;
+  color: var(--text);
+}
+
+/* ===================================
+   GRID SYSTEM
+   =================================== */
+
+.ic-search-bar {
+  margin-bottom: 1.5rem;
+  max-width: 56rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ic-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 56rem;
+  grid-template-columns: 1fr;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 500px) {
+  .ic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 750px) {
+  .ic-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1000px) {
+  .ic-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ===================================
+   CARDS
+   =================================== */
+
+.ic-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  border: 1px dashed var(--card-border);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.ic-card:hover {
+  border: 2px solid var(--primary-hover);
+}
+
+.ic-card--special {
+  border: 1px dashed var(--card-border);
+  background: var(--card-special);
+}
+
+.ic-card--special:hover {
+  border: 2px solid var(--primary-hover);
+}
+
+.ic-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 4px;
+  flex-shrink: 0;
+  flex-direction: column;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.ic-card-logo {
+  max-width: 150px;
+  max-height: 80px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.ic-card-title {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--primary);
+  margin-bottom: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ic-card-body {
+  flex: 1;
+  display: none;
+  flex-direction: column;
+}
+
+.ic-card-description {
+  font-size: var(--text-base);
+  color: var(--muted);
+  line-height: 1.42857143;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: calc(1.5em * 2);
+  max-height: calc(1.5em * 2);
+  position: relative;
+  cursor: default;
+}
+
+.ic-card-description[title]:hover::after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--text);
+  color: var(--bg);
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  max-width: 300px;
+  width: max-content;
+  z-index: 100;
+  box-shadow: var(--shadow-lg);
+  white-space: normal;
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+.ic-card-footer {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.ic-card-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Special card logo styling */
+.ic-card--special .ic-card-logo {
+  filter: none;
+  opacity: 1;
+  background: var(--logo-bg);
+  padding: 0.75rem;
+}
+
+/* ===================================
+   BADGES
+   =================================== */
+
+.ic-badge {
+  display: none;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.ic-badge--stable {
+  background: var(--success-bg);
+  color: var(--success-text);
+}
+
+.ic-badge--beta {
+  background: var(--warning-bg);
+  color: var(--warning-text);
+}
+
+.ic-badge--alpha {
+  background: var(--danger-bg);
+  color: var(--danger-text);
+}
+
+.ic-badge--info {
+  background: var(--info-bg);
+  color: var(--info-text);
+}
+
+/* ===================================
+   BUTTONS
+   =================================== */
+
+.ic-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-xl);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  font-family: inherit;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ic-button--primary {
+  background: var(--primary);
+  background: linear-gradient(70deg, var(--primary), var(--primary-gradient));
+  color: white;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
+}
+
+.ic-button--primary:hover {
+  background: var(--primary);
+  background: linear-gradient(70deg, var(--primary), var(--primary-gradient));
+  box-shadow: 0 4px 12px rgba(45, 149, 248, 0.4);
+}
+
+.ic-button--primary:active {
+  transform: translateY(0);
+}
+
+.ic-button--secondary {
+  background: var(--card);
+  background: linear-gradient(70deg, var(--card), var(--card));
+  color: var(--muted);
+  border: 1px solid var(--muted);
+  box-shadow: var(--shadow);
+}
+
+.ic-button--secondary:hover {
+  background: #C4E2FF;
+  background: linear-gradient(70deg, #C4E2FF, #C4E2FF);
+  color: #319DF7;
+  border: 1px solid #319DF7;
+}
+
+.ic-button--ghost {
+  background: transparent;
+  color: var(--text);
+  border: none;
+}
+
+.ic-button--ghost:hover {
+  background: var(--secondary);
+}
+
+.ic-button--danger {
+  background: var(--danger);
+  color: white;
+  border: 1px solid transparent;
+  box-shadow: var(--shadow);
+}
+
+.ic-button--danger:hover {
+  background: var(--danger-hover);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+.ic-button--icon {
+  padding: 0.5rem;
+  width: 34px;
+  height: 34px;
+}
+
+.ic-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===================================
+   FEEDBACK PANEL
+   =================================== */
+
+.ic-feedback-form {
+  max-width: 56rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===================================
+   FORM ELEMENTS - Floating Label Inputs
+   =================================== */
+
+.add-credential-form {
+  max-width: 56rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ic-form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Floating label container */
+.ic-form-group--floating {
+  position: relative;
+}
+
+.ic-form-group--floating .ic-input,
+.ic-form-group--floating .ic-textarea {
+  padding: 10px 15px 10px 15px;
+}
+
+.ic-form-group--floating .ic-label {
+  position: absolute;
+  left: 12px;
+  top: -10px;
+  background: var(--bg);
+  padding: 0 4px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+/* Label turns blue when input is focused */
+.ic-form-group--floating .ic-input:focus ~ .ic-label,
+.ic-form-group--floating .ic-textarea:focus ~ .ic-label,
+.ic-form-group--floating:focus-within .ic-label {
+  color: var(--label-focus);
+}
+
+/* Required asterisk in red */
+.ic-form-group--floating .ic-label--required::after {
+  content: " *";
+  color: var(--danger);
+}
+
+/* Standard label (non-floating) */
+.ic-label {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.ic-label--required::after {
+  content: " *";
+  color: var(--danger);
+}
+
+.ic-label-hidden{
+  display: none !important;
+}
+
+/* Input styles */
+.ic-input,
+.ic-textarea {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 15px;
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius);
+  background: var(--input-bg);
+  color: var(--text);
+  font-size: var(--text-base);
+  font-family: inherit;
+  line-height: 18px;
+  vertical-align: middle;
+  height: unset;
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.ic-input:focus,
+.ic-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+.ic-input::placeholder,
+.ic-textarea::placeholder {
+  color: var(--placeholder);
+}
+
+.ic-input:disabled,
+.ic-textarea:disabled {
+  background: var(--disabled-bg);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.ic-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.ic-input-helper {
+  display: block;
+  font-size: var(--text-base);
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+
+.ic-input-error {
+  display: block;
+  font-size: var(--text-base);
+  color: var(--danger);
+  margin-top: 0.5rem;
+}
+
+.ic-form-group.error .ic-input,
+.ic-form-group.error .ic-textarea {
+  border-color: var(--danger);
+}
+
+.ic-form-group.error .ic-label {
+  color: var(--danger);
+}
+
+/* Input with icon */
+.ic-input-wrapper {
+  position: relative;
+}
+
+.ic-input-icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+  pointer-events: none;
+  color: var(--icon-color);
+}
+
+.ic-input-wrapper .ic-input {
+  padding-left: 2.75rem;
+}
+
+/* ===================================
+   ALERTS / MESSAGES
+   =================================== */
+
+.ic-alert {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-left: 4px solid;
+  max-width: 56rem;
+}
+
+.ic-alert--info strong {
+  display: none;
+}
+
+.ic-alert ul {
+  padding-left: 30px;
+}
+
+.ic-alert--error {
+  background: var(--danger-bg);
+  border-color: var(--danger);
+  color: var(--danger-text);
+}
+
+.ic-alert--success {
+  background: var(--success-bg);
+  border-color: var(--success);
+  color: var(--success-text);
+}
+
+.ic-alert--info {
+  background: var(--info-bg);
+  border-color: var(--info);
+  color: var(--info-text);
+}
+
+.ic-alert--warning {
+  background: var(--warning-bg);
+  border-color: var(--warning);
+  color: var(--warning-text);
+}
+
+.ic-alert-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+/* Alert icon colors */
+.ic-alert--error .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(20%) sepia(100%) saturate(2000%) hue-rotate(340deg) brightness(90%) contrast(100%);
+}
+
+.ic-alert--success .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(30%) sepia(100%) saturate(500%) hue-rotate(100deg) brightness(90%) contrast(100%);
+}
+
+.ic-alert--info .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(40%) sepia(100%) saturate(1000%) hue-rotate(200deg) brightness(100%) contrast(100%);
+}
+
+.ic-alert--warning .ic-alert-icon {
+  filter: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(500%) hue-rotate(10deg) brightness(100%) contrast(100%);
+}
+
+/* ===================================
+   PROGRESS BAR
+   =================================== */
+
+.ic-progress {
+  margin-bottom: 1.5rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ic-progress-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  font-size: var(--text-base);
+  color: var(--muted);
+  font-weight: 500;
+  min-height: 1.5rem;
+}
+
+.ic-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: var(--progress-bg);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.ic-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--primary-gradient));
+  border-radius: var(--radius-full);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.ic-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* ===================================
+   LOADER / SPINNER
+   =================================== */
+
+.ic-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.ic-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--spinner-bg);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.ic-spinner--small {
+  width: 20px;
+  height: 20px;
+  border-width: 2px;
+}
+
+.ic-spinner--large {
+  width: 60px;
+  height: 60px;
+  border-width: 6px;
+}
+
+/* ===================================
+   BACK BUTTON
+   =================================== */
+
+.ic-back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s ease;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--input-border);
+  width: fit-content;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 1.5rem;
+}
+
+.ic-back-button span {
+  display: flex;
+}
+
+.ic-back-button:hover {
+  color: var(--primary-hover);
+  background-color: var(--input-background-hover);
+  border-color: var(--info-hover);
+}
+
+.ic-back-icon img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+  color: var(--icon-color);
+}
+
+.ic-back-button:hover img {
+  color: var(--primary-hover);
+}
+
+/* ===================================
+   COLLECTOR INFO BLOCK
+   =================================== */
+
+.ic-collector-info {
+  display: block;
+  align-items: center;
+  gap: 1rem;
+  padding: 0rem;
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 0px solid var(--input-border);
+  margin-bottom: 2rem;
+  max-width: 56rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.ic-collector-info-logo {
+  max-height: 150px;
+  max-width: 500px;
+  border-radius: var(--radius);
+  object-fit: contain;
+  background: var(--logo-bg);
+  padding: 0.5rem;
+  flex-shrink: 0;
+}
+
+.ic-collector-info-content {
+  flex: 1;
+  display: none;
+}
+
+.ic-collector-info-name {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+.ic-collector-info-description {
+  display: block;
+  font-size: var(--text-base);
+  line-height: 16px;
+  opacity: 0.8;
+  font-weight: 400;
+  color: var(--text);
+}
+
+/* ===================================
+   PROGRESS SCREEN - Card Centered
+   =================================== */
+
+.ic-progress-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  height: 100%;
+  min-width: 40vh;
+}
+
+.ic-progress-card {
+  background: var(--card);
+  border: 0px solid var(--input-border);
+  border-radius: var(--radius);
+  padding: 3rem 2rem;
+  min-width: 500px;
+  max-width: 600px;
+  margin: auto auto;
+  text-align: center;
+}
+
+.ic-progress-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 1.5rem 0;
+}
+
+.ic-progress-card-title {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.ic-progress-card-title--danger {
+  color: var(--danger);
+}
+
+.ic-progress-card-subtitle {
+  display: block;
+  font-size: var(--text-base);
+  line-height: 16px;
+  opacity: 0.8;
+  font-weight: 400;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ===================================
+   RESPONSE ICONS - Large
+   =================================== */
+
+.ic-response-icon-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+}
+
+.ic-response-icon-large img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
+}
+
+.ic-response-icon-large--success {
+  background: var(--success);
+  box-shadow: 0 4px 20px rgba(40, 167, 69, 0.4);
+}
+
+.ic-response-icon-large--warning {
+  background: var(--warning);
+  box-shadow: 0 4px 20px rgba(255, 193, 7, 0.4);
+}
+
+.ic-response-icon-large--danger {
+  background: var(--danger);
+  box-shadow: 0 4px 20px rgba(220, 53, 69, 0.4);
+}
+
+/* Response container styling */
+.progress-response {
+  padding: 2rem 1rem;
+}
+
+.progress-response .ic-header-title {
+  font-size: 22px;
+  margin-bottom: 0.5rem;
+}
+
+.progress-response .ic-header-subtitle {
+  font-size: var(--text-base);
+  line-height: 16px;
+  margin-bottom: 0;
+}
+
+/* ===================================
+   CANVAS FULLSCREEN MODE
+   =================================== */
+
+.ic-canvas-fullscreen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+.ic-canvas-fullscreen[hidden] {
+  display: none;
+}
+
+/* Canvas Toolbar */
+.ic-canvas-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--input-border);
+  flex-shrink: 0;
+}
+
+.ic-canvas-toolbar-back {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.ic-canvas-toolbar-back:hover {
+  background: var(--secondary);
+}
+
+.ic-canvas-toolbar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+}
+
+.ic-canvas-toolbar-back img,
+.ic-canvas-toolbar-icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.8;
+  color: var(--icon-color);
+}
+
+.ic-canvas-toolbar-text {
+  flex: 1;
+  font-size: var(--text-base);
+  color: var(--text);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  text-align: left;
+}
+
+.ic-canvas-toolbar-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+/* Canvas button icons */
+.ic-canvas-btn-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.ic-canvas-btn-text {
+  display: inline;
+}
+
+.ic-button--primary .ic-canvas-btn-icon {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+.ic-button--ghost .ic-canvas-btn-icon {
+  filter: none;
+  opacity: 0.8;
+}
+
+/* Canvas content area */
+.ic-canvas-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+.ic-canvas-content canvas {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  background:  var(--bg);
+}
+
+/* ===================================
+   MODAL
+   =================================== */
+
+.ic-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ic-modal {
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ic-modal-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.ic-modal-title {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.ic-modal-body {
+  padding: 1.5rem;
+}
+
+.ic-modal-footer {
+  padding: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* ===================================
+   DATEPICKER / CALENDAR
+   =================================== */
+
+.ic-datepicker-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.ic-datepicker-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.ic-datepicker-input {
+  cursor: pointer;
+  padding-right: 3rem;
+}
+
+.ic-datepicker-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ic-datepicker-icon img {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  color: var(--icon-color);
+}
+
+.ic-datepicker-clear {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  display: none;
+  font-size: 1rem;
+  line-height: 1;
+  transition: color 0.2s ease;
+  width: 20px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.ic-datepicker-clear:hover {
+  color: var(--text);
+}
+
+.ic-datepicker-wrapper.has-value .ic-datepicker-clear {
+  display: flex;
+}
+
+.ic-datepicker-wrapper.has-value .ic-datepicker-input {
+  padding-right: 5rem;
+}
+
+/* Datepicker Modal Overlay */
+.ic-datepicker-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.ic-datepicker-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Datepicker Modal */
+.ic-datepicker-modal {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 400px;
+  width: 100%;
+  padding: 0.5rem;
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+}
+
+.ic-datepicker-modal-overlay.active .ic-datepicker-modal {
+  transform: scale(1);
+}
+
+/* Datepicker Header */
+.ic-datepicker-header {
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.2rem 0.5rem 0.2rem 0.5rem; 
+  border-radius: var(--radius);
+}
+
+.ic-datepicker-nav-button {
+  background: transparent;
+  border: none;
+  color: var(--bg);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+  font-size: 1.25rem;
+  line-height: 1;
+  width: 26px;
+  height: 26px;
+}
+
+.ic-datepicker-nav-button:hover {
+  border-radius: 26px;
+  border: 1px solid var(--bg);
+}
+
+.ic-datepicker-nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.ic-datepicker-month-year {
+  color: var(--bg);
+  font-weight: bold;
+}
+
+/* Month/Year Select Dropdowns */
+.ic-datepicker-month-year-select {
+  flex: 1;
+  position: relative;
+  display: none;
+}
+
+.ic-datepicker-month-year-select select {
+  width: 100%;
+  padding: 0.5rem 0rem 0.5rem 0rem;
+  border: 0px solid var(--input-border);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--bg);
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  appearance: none;
+  transition: all 0.2s ease;
+}
+
+.ic-datepicker-month-year-select select:hover {
+  border-color: var(--primary);
+}
+
+.ic-datepicker-month-year-select select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-focus);
+}
+
+.ic-datepicker-month-year-select::after {
+  content: '▼';
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+/* Calendar Grid */
+.ic-datepicker-calendar {
+  width: 100%;
+}
+
+.ic-datepicker-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.ic-datepicker-weekday {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.5rem 0;
+  text-transform: lowercase;
+}
+
+.ic-datepicker-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.25rem;
+}
+
+.ic-datepicker-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  font-size: var(--text-base);
+  color: #AAA;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 600;
+  position: relative;
+}
+
+.ic-datepicker-day:hover:not(:disabled):not(.selected):not(.other-month) {
+  color: var(--text);
+  border: 1px solid var(--primary);
+}
+
+.ic-datepicker-day.other-month {
+  color: var(--placeholder);
+  opacity: 0.4;
+  visibility: hidden;
+}
+
+.ic-datepicker-day.today:not(.selected) {
+  background: var(--primary);
+  color: white;
+  font-weight: 600;
+}
+
+.ic-datepicker-day.selected {
+  background: var(--primary);
+  color: white;
+  font-weight: 400;
+}
+
+.ic-datepicker-day:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+}
+
+.ic-datepicker-day:active:not(:disabled) {
+  transform: scale(0.9);
+}
+
+/* Weekend days - Ocean blue */
+.ic-datepicker-day.weekend {
+  color: #AAA;
+}
+
+.ic-datepicker-day.weekend.other-month {
+  color: #AAA;
+  opacity: 0.4;
+  visibility: hidden;
+}
+
+/* Datepicker Footer */
+.ic-datepicker-footer {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.ic-datepicker-footer-button {
+  padding: 0.625rem 1.5rem;
+  border: 1px solid var(--muted);
+  border-radius: var(--radius);
+  font-size: var(--text-base);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--card);
+  color: var(--muted);
+  min-width: 100px;
+}
+
+.ic-datepicker-footer-button:hover {
+  background: #C4E2FF;
+  border-color: #319DF7;
+  color: #319DF7;
+}
+
+.ic-datepicker-footer-button.clear {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.ic-datepicker-footer-button.clear:hover {
+  background: var(--danger-bg);
+  border-color: var(--danger);
+}
+
+/* ===================================
+   UTILITY CLASSES
+   =================================== */
+
+/* Text */
+.ic-text-center { text-align: center; }
+.ic-text-muted { color: var(--muted); }
+
+/* Margins */
+.ic-mb-1 { margin-bottom: 0.5rem; }
+.ic-mb-2 { margin-bottom: 1rem; }
+.ic-mb-3 { margin-bottom: 1.5rem; }
+.ic-mb-4 { margin-bottom: 2rem; }
+.ic-mt-1 { margin-top: 0.5rem; }
+.ic-mt-2 { margin-top: 1rem; }
+.ic-mt-3 { margin-top: 1.5rem; }
+.ic-mt-4 { margin-top: 2rem; }
+
+/* Flexbox */
+.ic-flex { display: flex; }
+.ic-flex-center { display: flex; align-items: center; justify-content: center; }
+.ic-flex-between { display: flex; align-items: center; justify-content: space-between; }
+
+/* Gap */
+.ic-gap-1 { gap: 0.5rem; }
+.ic-gap-2 { gap: 1rem; }
+.ic-gap-3 { gap: 1.5rem; }
+
+/* Display */
+.ic-hidden { display: none; }
+
+/* ===================================
+   RESPONSIVE BREAKPOINTS
+   =================================== */
+
+/* Small screens (< 640px) */
+@media (max-width: 639px) {
+  .ic-container {
+    padding: 1rem;
+  }
+
+  .ic-header-title {
+    font-size: 22px;
+  }
+
+  .ic-card {
+    padding: 0.75rem;
+  }
+
+  .ic-modal-footer {
+    flex-direction: column-reverse;
+  }
+
+  .ic-modal-footer .ic-button {
+    width: 100%;
+  }
+
+  .ic-progress-card {
+    min-width: 100%;
+    padding: 2rem 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .ic-progress-card-title {
+    font-size: 18px;
+  }
+
+  .ic-datepicker-modal {
+    max-width: calc(100vw - 2rem);
+    padding: 1.25rem;
+    min-width: 40vh;
+  }
+
+  .ic-datepicker-footer {
+    flex-direction: column;
+  }
+
+  .ic-datepicker-footer-button {
+    width: 100%;
+  }
+}
+
+/* Canvas toolbar responsive */
+@media (max-width: 900px) {
+  .ic-canvas-toolbar-text {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .ic-canvas-toolbar {
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .ic-canvas-toolbar-text {
+    font-size: 0.75rem;
+  }
+
+  .ic-canvas-btn-text {
+    display: none;
+  }
+
+  .ic-canvas-toolbar-actions .ic-button {
+    padding: 0.5rem;
+    min-width: 36px;
+  }
+}
+
+@media (max-width: 400px) {
+  .ic-canvas-toolbar-text {
+    display: none;
+  }
+
+  .ic-canvas-toolbar-actions {
+    margin-left: auto;
+  }
+}

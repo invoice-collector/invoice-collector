@@ -4,6 +4,7 @@ import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { TwofaPromise } from '../../../collect/twofaPromise';
 import * as utils from '../../../utils';
+import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class OpenaiApiCollector extends WebCollector {
 
@@ -11,7 +12,7 @@ export class OpenaiApiCollector extends WebCollector {
         id: "openai_api",
         name: "OpenAI (API)",
         description: "i18n.collectors.openai_api.description",
-        version: "7",
+        version: "8",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -45,7 +46,7 @@ export class OpenaiApiCollector extends WebCollector {
         return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 10000 }) != null;
     }
 
-    async login(driver: Driver, params: any): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         // Go to login page
         await driver.goto("https://platform.openai.com/login");
 
@@ -78,9 +79,9 @@ export class OpenaiApiCollector extends WebCollector {
         }
     }
 
-    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise): Promise<string | void> {
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
         // Get code from UI
-        const code = await twofa_promise.code();
+        const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
         // Input code
         await driver.inputText(OpenaiSelectors.FIELD_2FA_CODE, code);
