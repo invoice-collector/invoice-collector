@@ -342,9 +342,9 @@ body {
 .ic-badge {
   display: inline-flex;
   align-items: center;
-  padding: 0.25rem 0.75rem;
+  padding: 0.2rem 0.5rem;
   border-radius: var(--radius-full);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
   text-transform: none;
   letter-spacing: normal;
@@ -366,8 +366,8 @@ body {
 }
 
 .ic-badge--info {
-  background: var(--info-bg);
-  color: var(--info-text);
+  background: var(--secondary);
+  color: var(--text-secondary);
 }
 
 /* ===================================

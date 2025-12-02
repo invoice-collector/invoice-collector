@@ -191,9 +191,9 @@ function renderCompanies(companiesToRender) {
                 <div class="ic-card-meta">
                     <span>${paramsCount} ${fieldsText}</span>
                 </div>
-                ${company.state === 'development' ? '<span class="ic-badge ic-badge--info">Development</span>' : ''}
-                ${company.state === 'active' ? '<span class="ic-badge ic-badge--stable">Active</span>' : ''}
-                ${company.state === 'maintenance' ? '<span class="ic-badge ic-badge--beta">Maintenance</span>' : ''}
+                ${company.state === 'development' ? '<span class="ic-badge ic-badge--info">development</span>' : ''}
+                ${company.state === 'active' ? '<span class="ic-badge ic-badge--stable">active</span>' : ''}
+                ${company.state === 'maintenance' ? '<span class="ic-badge ic-badge--beta">maintenance</span>' : ''}
             </div>
         `;
         companyCard.addEventListener('click', () => showForm(company));
@@ -241,13 +241,13 @@ function showForm(company) {
     const badge = document.getElementById('form-badge');
     if (company.state === 'development') {
         badge.className = 'ic-badge ic-badge--info';
-        badge.textContent = 'Development';
+        badge.textContent = 'development';
     } else if (company.state === 'active') {
         badge.className = 'ic-badge ic-badge--stable';
-        badge.textContent = 'Active';
+        badge.textContent = 'active';
     } else if (company.state === 'maintenance') {
         badge.className = 'ic-badge ic-badge--beta';
-        badge.textContent = 'Maintenance';
+        badge.textContent = 'maintenance';
     }
     
     const instructionsDiv = document.getElementById('add-credential-instructions');
