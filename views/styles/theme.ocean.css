@@ -909,7 +909,7 @@ body {
 
 .ic-progress-card {
   background: var(--card);
-  border: 1px solid var(--input-border);
+  border: 0px solid var(--input-border);
   border-radius: var(--radius);
   padding: 3rem 2rem;
   min-width: 500px;
