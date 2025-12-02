@@ -67,12 +67,12 @@ async function deleteCredential(id) {
    NAVIGATION FUNCTIONS
    =================================== */
 
-const NAVIGATION_EVENT_CLOSE = { type: 'invoice-collector-close' };
-const NAVIGATION_EVENT_SHOW_COMPANIES = { type: 'invoice-collector-panel-search' };
-const NAVIGATION_EVENT_SHOW_FORM = { type: 'invoice-collector-panel-form' };
-const NAVIGATION_EVENT_SHOW_FEEDBACK = { type: 'invoice-collector-panel-feedback' };
-const NAVIGATION_EVENT_SHOW_PROGRESS = { type: 'invoice-collector-panel-progress' };
-const NAVIGATION_EVENT_SHOW_CANVAS = { type: 'invoice-collector-panel-canvas' };
+const NAVIGATION_EVENT_CLOSE = { type: 'ic-close' };
+const NAVIGATION_EVENT_SHOW_COMPANIES = { type: 'ic-panel-search' };
+const NAVIGATION_EVENT_SHOW_FORM = { type: 'ic-panel-form' };
+const NAVIGATION_EVENT_SHOW_FEEDBACK = { type: 'ic-panel-feedback' };
+const NAVIGATION_EVENT_SHOW_PROGRESS = { type: 'ic-panel-progress' };
+const NAVIGATION_EVENT_SHOW_CANVAS = { type: 'ic-panel-canvas' };
 
 function closeIframe() {
     window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');

@@ -105,7 +105,7 @@ async function deleteCredential(id) {
 
 ```javascript
 function closeIframe() {
-    window.parent.postMessage({ type: 'invoice-collector-close' }, '*');
+    window.parent.postMessage({ type: 'ic-close' }, '*');
 }
 ```
 
