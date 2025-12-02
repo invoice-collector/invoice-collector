@@ -17,6 +17,14 @@
          ============================================ -->
     <div id="companies-container" class="ic-container">
         
+        <!-- Exit Button -->
+        <a href="#" class="ic-back-button" onclick="event.preventDefault(); closeIframe();">
+            <span class="ic-back-icon">
+                <img src="/views/icons/x.svg" alt="Back">
+            </span>
+            <%= __('i18n.views.manage.close') %>
+        </a>
+        
         <!-- Header -->
         <div class="ic-header">
             <h1 class="ic-header-title"><%= __('i18n.views.manage.add_collectors') %></h1>

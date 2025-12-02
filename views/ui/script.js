@@ -67,8 +67,15 @@ async function deleteCredential(id) {
    NAVIGATION FUNCTIONS
    =================================== */
 
+const NAVIGATION_EVENT_CLOSE = { type: 'invoice-collector-close' };
+const NAVIGATION_EVENT_SHOW_COMPANIES = { type: 'invoice-collector-panel-search' };
+const NAVIGATION_EVENT_SHOW_FORM = { type: 'invoice-collector-panel-form' };
+const NAVIGATION_EVENT_SHOW_FEEDBACK = { type: 'invoice-collector-panel-feedback' };
+const NAVIGATION_EVENT_SHOW_PROGRESS = { type: 'invoice-collector-panel-progress' };
+const NAVIGATION_EVENT_SHOW_CANVAS = { type: 'invoice-collector-panel-canvas' };
+
 function closeIframe() {
-    window.parent.postMessage({ type: 'invoice-collector-close' }, '*');
+    window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');
     showCompanies();
 }
 
@@ -86,6 +93,7 @@ async function showCompanies() {
     }
     
     renderCompanies(companies.slice(0, 100));
+    window.parent.postMessage(NAVIGATION_EVENT_SHOW_COMPANIES, '*');
 }
 
 function showFeedback(type) {
@@ -103,6 +111,7 @@ function showFeedback(type) {
     if (submitButton) {
         submitButton.disabled = false;
     }
+    window.parent.postMessage(NAVIGATION_EVENT_SHOW_FEEDBACK, '*');
 }
 
 
@@ -255,8 +264,7 @@ function showForm(company) {
         datepickerSince.destroy();
         datepickerSince = null;
     }
-    
-    //if (company.type !== 'sketch') {
+
     form.style.display = 'block';
     hitSketch.classList.add('ic-hidden');
     
@@ -289,22 +297,8 @@ function showForm(company) {
         format: 'yyyy-MM-dd',
         placeholder: 'jj / mm / aaaa'
     });
-    /*} else {
-        form.style.display = 'none';
-        hitSketch.classList.remove('ic-hidden');
-        document.getElementById('hit-sketch-success').classList.add('ic-hidden');
-        
-        hitSketchButton.onclick = async () => {
-            document.getElementById('hit-sketch-success').classList.remove('ic-hidden');
-            if (!hit.includes(company.id)) {
-                await post_send_feedback({
-                    type: 'sketch',
-                    message: company.id,
-                });
-                hit.push(company.id);
-            }
-        };
-    }*/
+   
+    window.parent.postMessage(NAVIGATION_EVENT_SHOW_FORM, '*');
 }
 
 async function addCredential(event) {
@@ -510,6 +504,7 @@ async function showProgress(credential_id, wsPath) {
             responseError.hidden = false;
             responseErrorText.textContent = state.message;
         }
+        window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
     }
     
     function cancelAndClose() {
@@ -571,6 +566,7 @@ async function showProgress(credential_id, wsPath) {
             containerCanvas.hidden = true;
             document.getElementById('progress-container').classList.remove('ic-hidden');
             ws.send(JSON.stringify({ type: 'close', reason: 'ok' }));
+            window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
         };
         
         canvasCancelButton.onclick = cancelAndClose;
@@ -599,6 +595,7 @@ async function showProgress(credential_id, wsPath) {
             if (!finished) {
                 containerCanvas.hidden = false;
                 document.getElementById('progress-container').classList.add('ic-hidden');
+                window.parent.postMessage(NAVIGATION_EVENT_SHOW_CANVAS, '*');
             }
         } else if (parsedData.type === 'state') {
             current_state = parsedData.state;
@@ -641,6 +638,8 @@ async function showProgress(credential_id, wsPath) {
         event.preventDefault();
         ws.send(JSON.stringify({ type: 'twofa', twofa: event.target['code'].value }));
     });
+
+    window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
 }
 
 
