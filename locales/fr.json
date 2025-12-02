@@ -9232,7 +9232,7 @@
   "i18n.views.manage.download_since_helper": "Choisissez une date pour commencer la collecte des factures.",
   "i18n.views.manage.error": "Erreur",
   "i18n.views.manage.error_required_fields": "Veuillez remplir tous les champs obligatoires.",
-  "i18n.views.manage.feedback.type": "Comment recevez-vous vos factures ?",
+  "i18n.views.manage.feedback.type": "Comment récupérez-vous vos factures ?",
   "i18n.views.manage.feedback.type.email": "Par email",
   "i18n.views.manage.feedback.type.web": "Téléchargement depuis le site web",
   "i18n.views.manage.feedback.url": "Site web du fournisseur",

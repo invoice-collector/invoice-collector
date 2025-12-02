@@ -9232,7 +9232,7 @@
   "i18n.views.manage.download_since_helper": "Choose a date to start collecting invoices from.",
   "i18n.views.manage.error": "Error",
   "i18n.views.manage.error_required_fields": "Please fill in all required fields.",
-  "i18n.views.manage.feedback.type": "How do you receive your invoices?",
+  "i18n.views.manage.feedback.type": "How do you retrieve your invoices?",
   "i18n.views.manage.feedback.type.email": "By email",
   "i18n.views.manage.feedback.type.web": "Download from website",
   "i18n.views.manage.feedback.url": "Provider Website",
