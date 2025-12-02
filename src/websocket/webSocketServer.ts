@@ -60,7 +60,7 @@ export class WebSocketServer {
     public static PATH = '/api/v1/ws/';
     static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
 
-    private path: string;
+    public path: string;
     private ws: WebSocket | null = null;
     private locale: string;
     private collector: AbstractCollector<Config>;

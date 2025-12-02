@@ -583,7 +583,8 @@ export class Server {
         next_collect_timestamp: number,
         invoices: any[],
         state: State,
-        collector: Config
+        collector: Config,
+        wsPath: string | null
     }[]> {
         // Get user from bearer or token
          const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
@@ -612,6 +613,9 @@ export class Server {
             credential.state.title = I18n.get(credential.state.title, user.locale);
             credential.state.message = I18n.get(credential.state.message, user.locale);
 
+            // Get ws path
+            const wsPath = collect?.webSocketServer?.path || null;
+
             return {
                 id: credential.id,
                 user_id: credential.user_id,
@@ -623,6 +627,7 @@ export class Server {
                 state: credential.state,
                 invoices: credential.invoices,
                 collector: collector.config,
+                wsPath: wsPath
             }
         }));
     }
@@ -792,7 +797,8 @@ export class Server {
         next_collect_timestamp: number,
         invoices: any[],
         state: State,
-        collector: Config
+        collector: Config,
+        wsPath: string | null
     }> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
@@ -829,6 +835,9 @@ export class Server {
         credential.state.title = I18n.get(credential.state.title, user.locale);
         credential.state.message = I18n.get(credential.state.message, user.locale);
 
+        // Get ws path
+        const wsPath = collect?.webSocketServer?.path || null;
+
         // Return credential
         return {
             id: credential.id,
@@ -841,6 +850,7 @@ export class Server {
             invoices: credential.invoices,
             state: credential.state,
             collector: collector.config,
+            wsPath: wsPath
         };
     }
 
