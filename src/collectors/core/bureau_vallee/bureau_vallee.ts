@@ -1,7 +1,7 @@
 import { WebCollector } from '../../web2Collector';
 import { BureauValleeSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import * as utils from '../../../utils';
 
@@ -9,9 +9,9 @@ export class BureauValleeCollector extends WebCollector {
 
     static CONFIG = {
         id: "bureau_vallee",
-        name: "Bureau Vallee",
+        name: "Bureau Vallée",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "9",
+        version: "10",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
