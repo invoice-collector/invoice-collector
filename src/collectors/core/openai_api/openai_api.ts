@@ -12,7 +12,7 @@ export class OpenaiApiCollector extends WebCollector {
         id: "openai_api",
         name: "OpenAI (API)",
         description: "i18n.collectors.openai_api.description",
-        version: "8",
+        version: "9",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -143,6 +143,6 @@ export class OpenaiApiCollector extends WebCollector {
         // Download PDF
         await newPage.leftClick(OpenaiSelectors.BUTTON_DOWNLOAD);
         // Return downloaded file
-        return [await this.download_from_file(driver)];
+        return [await this.download_from_file(newPage)];
     }
 }

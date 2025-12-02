@@ -12,7 +12,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "16",
+        version: "17",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
         type: CollectorType.WEB,
@@ -143,6 +143,6 @@ export class LeroyMerlinCollector extends WebCollector {
         // Next time the button will be clicked, the invoice will be effectively downloaded.
         await newPage.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD);
         // Return downloaded file
-        return [await this.download_from_file(driver)];
+        return [await this.download_from_file(newPage)];
     }
 }
