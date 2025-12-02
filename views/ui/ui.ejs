@@ -329,7 +329,7 @@
             <!-- Website URL Field -->
             <div class="ic-form-group ic-form-group--floating">
                 <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url') %></label>
-                <input type="url" name="website_url" class="ic-input"  placeholder="https://example.com" required>
+                <input type="url" name="website_url" class="ic-input"  placeholder="<%= __('i18n.views.manage.feedback.url.placeholder') %>" required>
             </div>
 
             <!-- Type Field -->
@@ -345,7 +345,7 @@
             <!-- Invoices URL Field -->
             <div class="ic-form-group ic-form-group--floating ic-hidden">
                 <label class="ic-label ic-label--required"><%= __('i18n.views.manage.feedback.url_invoices') %></label>
-                <input type="url" name="invoices_url" class="ic-input" placeholder="https://example.com/path/to/invoices" required>
+                <input type="url" name="invoices_url" class="ic-input" placeholder="<%= __('i18n.views.manage.feedback.url_invoices.placeholder') %>" required>
             </div>
             
             <!-- Success Alert -->
