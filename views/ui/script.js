@@ -131,15 +131,27 @@ function searchCollectorsWithScore(collectors, searchTerm) {
         if (!term || term.length < 1) return 0;
         
         const normalize = (str) => str.normalize('NFD')
-            .replace(/[^a-zA-Z]/g, '').toLowerCase();
+            .replace(/[^a-zA-Z\s]/g, '').toLowerCase();
         
         const name = normalize(collector.name);
         const termLower = normalize(term);
+        console.log(name, termLower);
         
         let score = 0;
-        if (name === termLower) score += 8;
-        else if (name.startsWith(termLower)) score += 4;
-        else if (name.includes(termLower)) score += 2;
+        const terms = termLower.split(' ')
+        const firstTerm = terms.shift()
+        const otherTerms = terms;
+
+        if (name === firstTerm) score += 8;
+        else if (name.startsWith(firstTerm)) score += 4;
+        else if (name.includes(firstTerm)) score += 2;
+
+        if(score > 0) {
+            otherTerms.forEach(word => {
+                if (name.includes(word)) score += 2;
+                else score = 0;
+            });
+        }
         
         return score;
     };
