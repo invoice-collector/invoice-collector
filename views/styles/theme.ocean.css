@@ -413,7 +413,6 @@ body {
 .ic-button--primary:hover {
   background: var(--primary);
   background: linear-gradient(70deg, var(--primary), var(--primary-gradient));
-  transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(45, 149, 248, 0.4);
 }
 

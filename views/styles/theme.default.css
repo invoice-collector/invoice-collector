@@ -204,7 +204,6 @@ body {
 }
 
 .ic-card:hover {
-  transform: translateY(-4px);
   box-shadow: var(--shadow-hover);
   border-color: var(--primary);
 }
@@ -231,7 +230,6 @@ body {
 
 .ic-card--special:hover {
   border: 2px solid var(--danger);
-  transform: translateY(-4px);
 }
 
 .ic-card-header {
@@ -402,7 +400,6 @@ body {
 
 .ic-button--primary:hover {
   background: var(--primary-hover);
-  transform: translateY(-1px);
   box-shadow: var(--shadow-hover);
 }
 
