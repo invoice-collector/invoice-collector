@@ -64,7 +64,7 @@ export class WebSocketServer {
     private ws: WebSocket | null = null;
     private locale: string;
     private collector: AbstractCollector<Config>;
-    private defaultState : State | null = null;
+    private lastState : State | null = null;
 
     public onTwofa: ((event: MessageTwofa) => void) | undefined;
     public onClick: ((event: MessageClick) => void) | undefined;
@@ -91,9 +91,9 @@ export class WebSocketServer {
         console.log(`WebSocket connection established on ${this.path}`);
         this.ws = ws;
 
-        // Send initial state if exists
-        if (this.defaultState) {
-            this.sendState(this.defaultState);
+        // Send last state if exists
+        if (this.lastState) {
+            this.sendState(this.lastState);
         }
 
         // Define message handlers
@@ -182,18 +182,14 @@ export class WebSocketServer {
         state.title = I18n.get(state.title, this.locale);
         state.message = I18n.get(state.message, this.locale);
 
-        // Check if WebSocket is connected
-        if (!this.ws || this.ws.readyState !== WebSocket.OPEN) {
-            // Define default state to be send on connection
-            this.defaultState = state;
-        }
-        else {
-            const message: MessageState = {
-                type: 'state',
-                state: state
-            };
-            this.sendMessage(message);
-        }
+        // Define last state
+        this.lastState = state;
+
+        const message: MessageState = {
+            type: 'state',
+            state: state
+        };
+        this.sendMessage(message);
     }
 
     public getTwofa(): Promise<string> {
