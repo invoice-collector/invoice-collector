@@ -739,8 +739,9 @@ body {
   margin-bottom: 1rem;
   padding: 0.5rem 1rem;
   transition: color 0.2s ease;
-  width: fit-content;
-  border-radius: var(--radius);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-full);
   background-color: var(--bg);
   margin-top: auto;
   margin-bottom: auto;
@@ -749,6 +750,10 @@ body {
 
 .ic-back-button span {
   display: flex;
+}
+
+.ic-back-button div {
+  display: none;
 }
 
 .ic-back-icon img {
