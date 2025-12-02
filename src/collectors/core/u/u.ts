@@ -11,7 +11,7 @@ export class UCollector extends WebCollector {
         id: "u",
         name: "U Courses",
         description: "i18n.collectors.u.description",
-        version: "7",
+        version: "8",
         website: "https://www.coursesu.com",
         logo: "https://upload.wikimedia.org/wikipedia/fr/1/13/U_commer%C3%A7ants_logo_2018.svg",
         type: CollectorType.WEB,

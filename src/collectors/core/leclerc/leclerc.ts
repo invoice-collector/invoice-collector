@@ -11,7 +11,7 @@ export class LeclercCollector extends WebCollector {
         id: "leclerc",
         name: "E.Leclerc",
         description: "i18n.collectors.leclerc.description",
-        version: "7",
+        version: "8",
         website: "https://www.e.leclerc/",
         logo: "https://upload.wikimedia.org/wikipedia/commons/e/ed/Logo_E.Leclerc_Sans_le_texte.svg",
         type: CollectorType.WEB,
