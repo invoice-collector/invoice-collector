@@ -9257,10 +9257,5 @@
   "i18n.views.manage.sketch.hit": "I need this collector to be developed!",
   "i18n.views.manage.sketch.hit.done": "Thank you for your feedback! We have been informed and will try to add it as soon as possible.",
   "i18n.views.manage.submit_request": "Submit Request",
-  "i18n.views.manage.terms_conditions": "Terms of Use",
-  "i18n.views.manage.terms_conditions.read": "I acknowledge that I have read and accept the",
-  "i18n.views.manage.unknown": "Oops! Something went wrong... Lets try again later.",
-  "i18n.views.manage.verification_code": "Verification code",
-  "i18n.views.manage.verification_code.error": "Incorrect verification code",
-  "i18n.views.manage.verification_code.placeholder": "6 digits verification code received by email"
+  "i18n.views.manage.unknown": "Oops! Something went wrong... Lets try again later."
 }

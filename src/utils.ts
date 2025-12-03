@@ -78,7 +78,7 @@ export function mimetypeFromBase64(base64: string | null): string {
         }
     }
 
-    throw Error(`Unknown mimetype for base64 string starting with ${base64.slice(0, 10)}`);
+    throw Error(`Unknown mimetype for base64 string starting with ${base64.slice(0, 100)}`);
 }
 
 export async function mergePdfDocuments(documents: string[]): Promise<string> {

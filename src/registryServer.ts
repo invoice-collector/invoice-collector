@@ -1,7 +1,7 @@
 import axios, { AxiosInstance } from 'axios';
 import { fullStackTrace, LoggableError } from './error'
 import * as utils from './utils'
-import { TermsConditions } from './model/user';
+import { OTP } from './model/otp';
 import { Server } from './server';
 import { AbstractCollector, Config } from './collectors/abstractCollector';
 
@@ -111,9 +111,9 @@ You are still able to use the product but some features may not work as expected
         );
     }
 
-    public async sendVerificationCodeEmail(email: string, locale: string): Promise<TermsConditions> {
+    public async sendOtpEmail(email: string, locale: string): Promise<OTP> {
         // Generate verification code
-        const verificationCode: string = utils.generateVerificationCode();
+        const code: string = utils.generateVerificationCode();
 
         // Send email
         console.log("Sending verification code email to", email);
@@ -123,7 +123,7 @@ You are still able to use the product but some features may not work as expected
             [
                 { text: `Hello`, bold: false, center: false, italic: false },
                 { text: `Your activation code is:`, bold: false, center: false, italic: false },
-                { text: verificationCode, bold: true, center: true, italic: false },
+                { text: code, bold: true, center: true, italic: false },
                 { text: "This code is valid for 10 minutes after the reception of this email.", bold: false, center: false, italic: false },
                 { text: null, bold: false, center: false, italic: false },
                 { text: "You are not the requestor? Kindly ignore this message.", bold: false, center: false, italic: true }
@@ -131,8 +131,8 @@ You are still able to use the product but some features may not work as expected
         );
 
         return {
-            verificationCode,
-            sentTimestamp: Date.now(),
+            code: code,
+            sentAt: Date.now()
         };
     }
 

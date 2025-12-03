@@ -1,15 +1,9 @@
 import { DatabaseFactory } from "../database/databaseFactory";
-import { StatusError, TermsConditionsError } from "../error";
+import { StatusError } from "../error";
 import { Location } from "../proxy/abstractProxy";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { IcCredential } from "./credential";
 import { Customer } from "./customer";
-
-export type TermsConditions = {
-    verificationCode: string,
-    sentTimestamp: number,
-    validTimestamp?: number;
-}
 
 export class User {
 
@@ -18,7 +12,6 @@ export class User {
     remote_id: string;
     location: Location | null;
     locale: string;
-    termsConditions: TermsConditions;
     createdAt: number;
 
     constructor(
@@ -26,7 +19,6 @@ export class User {
         remote_id: string,
         location: Location | null,
         locale: string,
-        termsConditions: TermsConditions,
         createdAt: number = Date.now(),
     ) {
         this.id = "";
@@ -34,7 +26,6 @@ export class User {
         this.remote_id = remote_id;
         this.location = location;
         this.locale = locale;
-        this.termsConditions = termsConditions;
         this.createdAt = createdAt;
     }
 
@@ -82,12 +73,5 @@ export class User {
 
         // Delete the user
         await DatabaseFactory.getDatabase().deleteUser(this.id);
-    }
-
-    async checkTermsConditions(): Promise<void> {
-        if (this.termsConditions.validTimestamp == undefined) {
-            const customer = await this.getCustomer();
-            throw new TermsConditionsError(this.locale, customer.theme);
-        }
     }
 }

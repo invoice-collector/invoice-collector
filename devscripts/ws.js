@@ -12,7 +12,6 @@ async function createUserAndOpenBrowser() {
         body: JSON.stringify({
             "remote_id": "1234",
             "locale": "fr",
-            "email": "test@test.test",
             "ip": "1.2.3.4"
         })
     })
