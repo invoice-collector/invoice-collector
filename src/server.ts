@@ -25,7 +25,6 @@ export class Server {
     static OAUTH_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("OAUTH_TOKEN_VALIDITY_DURATION_MS", "1800000"));
     static RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS = Number(utils.getEnvVar("RESET_PASSWORD_TOKEN_VALIDITY_DURATION_MS", "3600000"));
     static UI_BEARER_VALIDITY_DURATION_MS = Number(utils.getEnvVar("UI_BEARER_VALIDITY_DURATION_MS", "3600000"));
-    static DISABLE_VERIFICATION_CODE: boolean = utils.getEnvVar("DISABLE_VERIFICATION_CODE", "false").toLowerCase() === "true";
     static IS_SELF_HOSTED: boolean = utils.getEnvVar("IS_SELF_HOSTED", "true").toLowerCase() === "true";
 
     uiTokens: { [key: string]: User };
@@ -61,24 +60,14 @@ export class Server {
     // ---------- GENERAL ENDPOINTS ----------
 
     // TOKEN AUTHENTICATION
-    public async get_ui(token: any, verificationCode: any): Promise<{locale: string, theme: string}> {
+    public async get_ui(token: any): Promise<{locale: string, theme: string}> {
         // Get user from token
         const user = this.getUserFromUiToken(token);
 
         // Get customer from user
         const customer = await user.getCustomer();
 
-        // Check if verificationCode is valid
-        if (verificationCode && user.termsConditions.verificationCode === verificationCode) {
-            // Validate terms and conditions by setting validTimestamp to now
-            user.termsConditions.validTimestamp = Date.now();
-            // Commit changes
-            await user.commit();
-        }
-
-        // Check if terms and conditions have been accepted
-        await user.checkTermsConditions();
-
+        // Return locale and theme for UI rendering
         return { locale: user.locale, theme: customer.theme };
     }
 
@@ -411,7 +400,6 @@ export class Server {
         bearer: string | undefined,
         remote_id: string | undefined,
         locale: string | undefined,
-        email: string | undefined,
         ip: string | undefined
     ): Promise<{
         id: string,
@@ -457,51 +445,14 @@ export class Server {
                 throw new StatusError(`User limit reached. Max users: ${customer.plan.maxUsers}`, 403);
             }
 
-            let termsConditions;
-            // If terms and conditions are required, send email
-            if (!Server.DISABLE_VERIFICATION_CODE) {
-                // Check if email field is missing
-                if(!email) {
-                    throw new MissingField("email");
-                }
-                // Send terms and conditions email
-                termsConditions = await RegistryServer.getInstance().sendVerificationCodeEmail(email, locale);
-            } else {
-                // If terms and conditions are not required, set validTimestamp to now
-                termsConditions = {
-                    verificationCode: null,
-                    sentTimestamp: Date.now(),
-                    validTimestamp: Date.now()
-                };
-            }
             // Get user location
             const location = await ProxyFactory.getProxy().locate(ip);
             // Create user
-            user = new User(customer.id, remote_id, location, locale, termsConditions);
+            user = new User(customer.id, remote_id, location, locale);
         }
         else {
             // Update user locale
             user.locale = locale;
-
-            // Check if user has accepted terms and conditions
-            if (!user.termsConditions.validTimestamp) {
-                // If terms and conditions are required, send email
-                if (!Server.DISABLE_VERIFICATION_CODE) {
-                    // Check if email field is missing
-                    if(!email) {
-                        throw new MissingField("email");
-                    }
-                    // Send terms and conditions email
-                    const termsConditions = await RegistryServer.getInstance().sendVerificationCodeEmail(email, locale);
-                    // Update terms and conditions
-                    user.termsConditions = termsConditions;
-                }
-                else {
-                    // This case can happend the DISABLE_VERIFICATION_CODE environment variable is changed after the user has been created.
-                    // If terms and conditions are not required, set validTimestamp to now
-                    user.termsConditions.validTimestamp = Date.now();
-                }
-            }
             
             // If user location is unknown
             if (user.location === null) {
@@ -589,9 +540,6 @@ export class Server {
         // Get user from bearer or token
          const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
-        // Check if terms and conditions have been accepted
-        await user.checkTermsConditions();
-
         // Get credentials from user
         let credentials = await user.getCredentials();
 
@@ -670,9 +618,6 @@ export class Server {
         if(download_from_timestamp != undefined && (typeof download_from_timestamp !== "number" || download_from_timestamp < 0)) {
             throw new StatusError(`The field "download_from_timestamp" must be a positive number.`, 400);
         }
-
-        // Check if terms and conditions have been accepted
-        await user.checkTermsConditions();
 
         // Get collector from id
         const collector = await CollectorLoader.get(collector_id);
@@ -803,9 +748,6 @@ export class Server {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
-        // Check if terms and conditions have been accepted
-        await user.checkTermsConditions();
-
         // Get credential from id
         const credential = await user.getCredential(id);
 
@@ -864,9 +806,6 @@ export class Server {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
 
-        // Check if terms and conditions have been accepted
-        await user.checkTermsConditions();
-
         // Get credential from id
         const credential = await user.getCredential(id);
 
@@ -916,9 +855,6 @@ export class Server {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
-        // Check if terms and conditions have been accepted
-        await user.checkTermsConditions();
-
         // Get collect from id
         const collect = await CollectPool.getInstance().get(credential.id);
 
@@ -945,9 +881,6 @@ export class Server {
     }> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
-
-        // Check if terms and conditions have been accepted
-        await user.checkTermsConditions();
 
         // Get credential from id
         const credential = await user.getCredential(credential_id)

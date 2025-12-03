@@ -162,17 +162,3 @@ export class DesynchronizationError extends AuthenticationError {
         this.name = this.constructor.name;
     }
 }
-
-// OTHER ERRORS
-
-export class TermsConditionsError extends Error {
-    locale: string;
-    theme: Theme;
-
-    constructor(locale: string, theme: Theme, opts = {}) {
-        super("The user did not accept the terms and conditions.", opts);
-        this.name = this.constructor.name;
-        this.locale = locale;
-        this.theme = theme;
-    }
-}

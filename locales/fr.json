@@ -9257,8 +9257,6 @@
   "i18n.views.manage.sketch.hit": "J'ai besoin que ce collecteur soit développé !",
   "i18n.views.manage.sketch.hit.done": "Merci pour votre signalement ! Nous avons été informés et nous allons essayer de l'ajouter dès que possible.",
   "i18n.views.manage.submit_request": "Envoyer la demande",
-  "i18n.views.manage.terms_conditions": "Conditions générales d'utilisation",
-  "i18n.views.manage.terms_conditions.read": "Je reconnais avoir pris connaissance et accepter les",
   "i18n.views.manage.unknown": "Oups ! Quelque chose s'est mal passé... Veuillez réessayer plus tard.",
   "i18n.views.manage.verification_code": "Code de vérification",
   "i18n.views.manage.verification_code.error": "Code de vérification incorrect",

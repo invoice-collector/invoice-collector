@@ -1,7 +1,7 @@
 import path from 'path';
 import express from 'express';
 import dotenv from 'dotenv';
-import { StatusError, TermsConditionsError } from "./error"
+import { StatusError } from "./error"
 import { Server } from "./server"
 import * as utils from "./utils"
 import { I18n } from './i18n';
@@ -32,11 +32,6 @@ function handle_error(e, req, res){
         res.setHeader('Content-Type', 'application/json');
         res.status(e.status_code).end(JSON.stringify({type: "error", message: e.message}));
     }
-    else if (e instanceof TermsConditionsError) {
-        console.error(e.message);
-        req.setLocale(e.locale);
-        res.render('terms_conditions/terms_conditions', { token: req.query.token, theme: e.theme });
-    }
     else {
         console.error(e);
         let reason;
@@ -56,9 +51,9 @@ function handle_error(e, req, res){
 // TOKEN AUTHENTICATION
 app.get('/api/v1/ui', async (req, res) => {
     try {
-        // Check user has accepted terms and conditions
+        // Get UI context
         console.log(`GET ui`);
-        const context = await server.get_ui(req.query.token, req.query.verificationCode);
+        const context = await server.get_ui(req.query.token);
 
         // Render ui.ejs
         req.setLocale(context.locale);
@@ -234,7 +229,7 @@ app.post('/api/v1/user', async (req, res) => {
     try {
         // Perform authorization
         console.log('POST user');
-        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.email, req.body.ip);
+        const response = await server.post_user(req.headers.authorization, req.body.remote_id, req.body.locale, req.body.ip);
 
         // Build response
         res.setHeader('Content-Type', 'application/json');

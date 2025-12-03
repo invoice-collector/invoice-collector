@@ -186,7 +186,6 @@ export class MongoDB extends AbstractDatabase {
                 document.remote_id,
                 document.location,
                 document.locale,
-                document.termsConditions,
                 document.createdAt
             );
             user.id = document._id.toString();
@@ -209,7 +208,6 @@ export class MongoDB extends AbstractDatabase {
             document.remote_id,
             document.location,
             document.locale,
-            document.termsConditions,
             document.createdAt
         );
         user.id = document._id.toString();
@@ -232,7 +230,6 @@ export class MongoDB extends AbstractDatabase {
             document.remote_id,
             document.location,
             document.locale,
-            document.termsConditions,
             document.createdAt
         );
         user.id = document._id.toString();
@@ -255,7 +252,6 @@ export class MongoDB extends AbstractDatabase {
             document.remote_id,
             document.location,
             document.locale,
-            document.termsConditions,
             document.createdAt
         );
         user.id = document._id.toString();
@@ -271,7 +267,6 @@ export class MongoDB extends AbstractDatabase {
             remote_id: user.remote_id,
             location: user.location,
             locale: user.locale,
-            termsConditions: user.termsConditions,
             createdAt: user.createdAt
         });
         user.id = document.insertedId.toString();
@@ -288,8 +283,7 @@ export class MongoDB extends AbstractDatabase {
                 customer_id: new ObjectId(user.customer_id),
                 remote_id: user.remote_id,
                 location: user.location,
-                locale: user.locale,
-                termsConditions: user.termsConditions
+                locale: user.locale
             }}
         );
     }
