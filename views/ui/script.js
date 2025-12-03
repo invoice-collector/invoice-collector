@@ -130,24 +130,23 @@ function searchCollectorsWithScore(collectors, searchTerm) {
     const computeCollectorScore = (collector, term) => {
         if (!term || term.length < 1) return 0;
         
-        const normalize = (str) => str.normalize('NFD')
-            .replace(/[^a-zA-Z\s]/g, '').toLowerCase();
-        
+        // Remove accents and special characters, convert to lowercase
+        const normalize = (str) => str.normalize('NFD').replace(/[^a-zA-Z\s]/g, '').toLowerCase();
         const name = normalize(collector.name);
         const termLower = normalize(term);
-        console.log(name, termLower);
         
         let score = 0;
         const terms = termLower.split(' ')
         const firstTerm = terms.shift()
-        const otherTerms = terms;
+
+        if (!firstTerm) return 0;
 
         if (name === firstTerm) score += 8;
         else if (name.startsWith(firstTerm)) score += 4;
         else if (name.includes(firstTerm)) score += 2;
 
         if(score > 0) {
-            otherTerms.forEach(word => {
+            terms.forEach(word => {
                 if (name.includes(word)) score += 2;
                 else score = 0;
             });
