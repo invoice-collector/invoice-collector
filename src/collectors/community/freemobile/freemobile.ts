@@ -12,7 +12,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "10",
+        version: "11",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -101,9 +101,13 @@ export class FreeMobileCollector extends WebCollector {
     async navigate(driver: Driver, params: any): Promise<void>{
         // Show invoices
         await driver.leftClick(FreeMobileSelectors.BUTTON_SHOW_INVOICES, { navigation: false });
+    }
 
+    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
         // Show more invoices while possible
-        while((await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false })) != null) {}
+        while((await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false, delay: 1000 })) != null) {}
+        // Collect invoices
+        await next();
     }
     
     async getInvoices(driver: Driver, params: any): Promise<Element[]> {
