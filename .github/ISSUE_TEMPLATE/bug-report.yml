@@ -1,7 +1,7 @@
 name: "\U0001F41BBug report"
 description: Report a bug
 title: "\U0001F41B[BUG] My bug"
-labels: bug, collector
+labels: bug
 assignees: LucBerge
 body:
   - type: textarea
