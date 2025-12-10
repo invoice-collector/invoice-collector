@@ -23,65 +23,65 @@ export class CollectorLoader {
     }
 
     private static async loadFolders(name: string, folder: string, filter: string | null) {
-        const strPattern = filter ? `./${folder}/${filter}/*.ts` : `./${folder}/*/*.ts`;
+        const strPattern = filter ? `./${folder}/**/${filter}.ts` : `./${folder}/**/*.ts`;
         const pattern = path.join(__dirname, strPattern);
 
         await new Promise<void>((resolve, reject) => {
             glob(pattern, (err, files) => {
-            console.log(`Loading ${name} collectors...`);
-            if (err) {
-                console.error('Error finding files:', err);
-                reject(err);
-            }
-            let nbFFilesLoaded = 0;
-            for (const file of files) {
-                if(file.endsWith('selectors.ts')) {
-                    continue; // Skip selectors files
+                console.log(`Loading ${name} collectors...`);
+                if (err) {
+                    console.error('Error finding files:', err);
+                    reject(err);
                 }
-
-                // Read the file content
-                const content = fs.readFileSync(file, 'utf8');
-
-                const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?})\s*constructor/);
-                if (configMatch) {
-                try {
-                    // Replace enum references with their values before eval
-                    let configStr = configMatch[1]
-                    .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
-                    .replace("CollectorState.DEVELOPMENT", `"${CollectorState.DEVELOPMENT.toString()}"`)
-                    .replace("CollectorState.MAINTENANCE", `"${CollectorState.MAINTENANCE.toString()}"`)
-                    .replace("CollectorCaptcha.NONE", `"${CollectorCaptcha.NONE.toString()}"`)
-                    .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
-                    .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)
-                    .replace("CollectorCaptcha.OTHER", `"${CollectorCaptcha.OTHER.toString()}"`)
-                    .replace("CollectorType.WEB", `"${CollectorType.WEB.toString()}"`)
-                    .replace("CollectorType.AGENT", `"${CollectorType.AGENT.toString()}"`)
-                    .replace("CollectorType.API", `"${CollectorType.API.toString()}"`)
-                    .replace("CollectorType.EMAIL", `"${CollectorType.EMAIL.toString()}"`)
-                    .replace("CollectorType.SKETCH", `"${CollectorType.SKETCH.toString()}"`)
-
-                    // Evaluate the config object
-                    const config = eval('(' + configStr + ')');
-
-                    // Set config.state to default if not set
-                    if (!config.state) {
-                        config.state = CollectorState.ACTIVE;
+                let nbFFilesLoaded = 0;
+                for (const file of files) {
+                    if(file.endsWith('selectors.ts') || file.endsWith('customAgentCollector.ts') || file.endsWith('common.ts') || file.endsWith('Common.ts')) {
+                        continue; // Skip file
                     }
 
-                    if (config && config.id) {
-                    CollectorLoader.collectors.set(config.id.toLowerCase(), { config, file });
-                    nbFFilesLoaded++;
+                    // Read the file content
+                    const content = fs.readFileSync(file, 'utf8');
+
+                    const configMatch = content.match(/CONFIG\s*=\s*({[\s\S]*?})\s*constructor/);
+                    if (configMatch) {
+                        try {
+                            // Replace enum references with their values before eval
+                            let configStr = configMatch[1]
+                            .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
+                            .replace("CollectorState.DEVELOPMENT", `"${CollectorState.DEVELOPMENT.toString()}"`)
+                            .replace("CollectorState.MAINTENANCE", `"${CollectorState.MAINTENANCE.toString()}"`)
+                            .replace("CollectorCaptcha.NONE", `"${CollectorCaptcha.NONE.toString()}"`)
+                            .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
+                            .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)
+                            .replace("CollectorCaptcha.OTHER", `"${CollectorCaptcha.OTHER.toString()}"`)
+                            .replace("CollectorType.WEB", `"${CollectorType.WEB.toString()}"`)
+                            .replace("CollectorType.AGENT", `"${CollectorType.AGENT.toString()}"`)
+                            .replace("CollectorType.API", `"${CollectorType.API.toString()}"`)
+                            .replace("CollectorType.EMAIL", `"${CollectorType.EMAIL.toString()}"`)
+                            .replace("CollectorType.SKETCH", `"${CollectorType.SKETCH.toString()}"`)
+
+                            // Evaluate the config object
+                            const config = eval('(' + configStr + ')');
+
+                            // Set config.state to default if not set
+                            if (!config.state) {
+                                config.state = CollectorState.ACTIVE;
+                            }
+
+                            if (config && config.id) {
+                            CollectorLoader.collectors.set(config.id.toLowerCase(), { config, file });
+                            nbFFilesLoaded++;
+                            }
+                        } catch (e) {
+                            reject(new Error(`Failed to parse CONFIG in ${file}: ${e}`));
+                        }
                     }
-                } catch (e) {
-                    reject(new Error(`Failed to parse CONFIG in ${file}: ${e}`));
+                    else {
+                        reject(new Error(`No CONFIG found in ${file}`));
+                    }
                 }
-                }
-                else {
-                reject(new Error(`No CONFIG found in ${file}`));
-                }
-            }
-            console.log(`${nbFFilesLoaded} ${name} collectors loaded`);
-            resolve();
+                console.log(`${nbFFilesLoaded} ${name} collectors loaded`);
+                resolve();
             });
         });
     }
