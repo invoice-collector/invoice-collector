@@ -1,18 +1,18 @@
-import { WebCollector } from '../../web2Collector';
 import { OpenaiSelectors } from './selectors';
-import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorType, Invoice } from '../../abstractCollector';
-import { TwofaPromise } from '../../../collect/twofaPromise';
-import * as utils from '../../../utils';
-import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Driver, Element } from '../../../../driver/driver';
+import { CollectorCaptcha, CollectorType, Invoice } from '../../../abstractCollector';
+import { TwofaPromise } from '../../../../collect/twofaPromise';
+import * as utils from '../../../../utils';
+import { WebSocketServer } from '../../../../websocket/webSocketServer';
+import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 
-export class OpenaiApiCollector extends WebCollector {
+export class OpenaiApiCollector extends OpenaiCommonCollector {
 
     static CONFIG = {
         id: "openai_api",
         name: "OpenAI (API)",
         description: "i18n.collectors.openai_api.description",
-        version: "9",
+        version: "10",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,

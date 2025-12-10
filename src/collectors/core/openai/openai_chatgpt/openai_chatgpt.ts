@@ -1,8 +1,7 @@
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../../abstractCollector';
+import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 
-import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
-
-export class OpenaiChatgptCollector extends SketchCollector {
+export class OpenaiChatgptCollector extends OpenaiCommonCollector {
 
     static CONFIG = {
         id: "openai_chatgpt",
@@ -10,7 +9,7 @@ export class OpenaiChatgptCollector extends SketchCollector {
         description: "i18n.collectors.openai_chatgpt.description",
         version: "1",
         website: "https://chatgpt.com",
-        logo: "https://pngimg.com/uploads/chatgpt/chatgpt_PNG2.png",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,7 +25,12 @@ export class OpenaiChatgptCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://auth.openai.com/log-in",
         entryUrl: "https://chatgpt.com/#settings/Account",
+        captcha: CollectorCaptcha.NONE,
+        autoLogin: {
+            localStorageKeys: ['@@auth0spajs@@']
+        },
         state: CollectorState.DEVELOPMENT
     }
 
