@@ -149,12 +149,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
 
             // Navigate to invoices
-            await this.navigate(driver, secret.params)
-
-            // Check if need to login again
-            if (this.config.entryUrl && await this.needLogin(driver)) {
-                throw new AuthenticationError('i18n.collectors.all.login.not_authenticated', this);
-            }
+            await this.navigate(driver, secret.params);
 
             // Set progress step to collecting
             state.update(State._5_COLLECTING);
