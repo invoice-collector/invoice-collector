@@ -285,6 +285,18 @@ export class Driver {
         return null;
     }
 
+    async waitForNavigation({
+        timeout = Driver.DEFAULT_TIMEOUT,
+    } = {}): Promise<void> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        try {
+            await this.page.waitForNavigation({timeout});
+        }
+        catch {}
+    }
+
     // ACTIONS
 
     async getElement(selector, {
@@ -415,10 +427,7 @@ export class Driver {
             await element.click();
             await utils.delay(delay);
             if(navigation === true) {
-                try {
-                    await this.page.waitForNavigation({timeout});
-                }
-                catch {}
+                await this.waitForNavigation({timeout});
             }
             return element;
         }
@@ -723,10 +732,7 @@ export class Element {
         await this.element.click();
         await utils.delay(delay);
         if(navigation === true) {
-            try {
-                await this.driver.page?.waitForNavigation({timeout});
-            }
-            catch {}
+            await this.driver.waitForNavigation({timeout});
         }
     }
 
@@ -827,10 +833,7 @@ export class Element {
             await this.element.type(text);                  // Replace
         }
         if(navigation === true) {
-            try {
-                await this.driver.page?.waitForNavigation({timeout});
-            }
-            catch {}
+            await this.driver.waitForNavigation({timeout});
         }
     }
 
