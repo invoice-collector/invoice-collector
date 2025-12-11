@@ -7,19 +7,24 @@
    =================================== */
 
 const token = new URLSearchParams(window.location.search).get('token');
+const collect_credential_id = new URLSearchParams(window.location.search).get('collect');
 let companies = [];
 let hit = [];
 let datepickerSince = null;
 let isSubmitting = false;
 let currentWebSocket = null;
 
-
 /* ===================================
    INITIALIZATION
    =================================== */
 
 document.addEventListener('DOMContentLoaded', async () => {
-    showCompanies();
+    if (collect_credential_id) {
+        collectCredential(collect_credential_id);
+    }
+    else {
+        showCompanies();
+    }
     
     document.getElementById('add-credential-form').addEventListener('submit', addCredential);
     document.querySelector('#feedback-form select[name="collector_type"]').addEventListener('change', feedbackTypeChanged);
@@ -28,7 +33,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     getCollectors()
         .then(c => {
             companies = c;
-            showCompanies();
+            if (!collect_credential_id) {
+                showCompanies();
+            }
         })
         .catch(error => {
             console.error('Error getting the companies:', error);
@@ -76,7 +83,19 @@ const NAVIGATION_EVENT_SHOW_CANVAS = { type: 'ic-panel-canvas' };
 
 function closeIframe() {
     window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');
-    showCompanies();
+    if (!collect_credential_id) {
+        showCompanies();
+    }
+    else{
+        hiddeAllPanels();
+    }
+}
+
+async function hiddeAllPanels() {
+    document.getElementById('companies-container').classList.add('ic-hidden');
+    document.getElementById('form-container').classList.add('ic-hidden');
+    document.getElementById('progress-container').classList.add('ic-hidden');
+    document.getElementById('feedback-container').classList.add('ic-hidden');
 }
 
 async function showCompanies() {
@@ -382,6 +401,33 @@ async function addCredential(event) {
     } finally {
         isSubmitting = false;
         submitButton.disabled = false;
+    }
+}
+
+async function collectCredential(id) {
+    window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
+
+    try {
+        const response = await fetch(`credential/${id}/collect?token=${token}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        const content = await response.json();
+        
+        if (!response.ok) {
+            console.error('Error when starting the collection:', content);
+            alert(`Error: ${content.message || 'An error occurred while starting the collection.'}`);
+            showCompanies();
+        } else {
+            showProgress(id, content.wsPath);
+        }
+    } catch (error) {
+        console.error('Error when starting the collection:', error);
+        alert('An error occurred while starting the collection.');
+        showCompanies();
     }
 }
 
