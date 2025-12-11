@@ -58,7 +58,8 @@ class WebSocketServerManager {
 export class WebSocketServer {
 
     public static PATH = '/api/v1/ws/';
-    static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
+    public static TWOFA_TIMEOUT_MS = 1000 * 60 * 5; // 5 minutes
+    public static KEEP_ALIVE_INTERVAL = 1000 * 30;  // 30 seconds
 
     public path: string;
     private ws: WebSocket | null = null;
@@ -95,6 +96,12 @@ export class WebSocketServer {
         if (this.lastState) {
             this.sendState(this.lastState);
         }
+
+        const keepAliveInterval = setInterval(() => {
+            if (this.ws && this.ws.readyState === WebSocket.OPEN) {
+                this.ws.ping();
+            }
+        }, WebSocketServer.KEEP_ALIVE_INTERVAL);
 
         // Define message handlers
         ws.on('message', (message) => {
@@ -148,6 +155,7 @@ export class WebSocketServer {
 
         // Define close handler
         ws.on('close', () => {
+            clearInterval(keepAliveInterval);
             console.log(`WebSocket connection closed on ${this.path}`);
         });
     }
