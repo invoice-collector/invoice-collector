@@ -41,25 +41,34 @@ export abstract class OpenaiCommonCollector extends WebCollector {
     }
 
     async needTwofa(driver: Driver): Promise<string | void> {
-        // Check if 2FA instructions container is displayed
-        const twofaInstructions = await driver.getElement(OpenaiSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
-        if (twofaInstructions) {
-            return await twofaInstructions.textContent("i18n.collectors.all.2fa.error");
+        // If URL contains 2FA verification
+        if(driver.url().includes("email-verification") || driver.url().includes("push-auth-verification")) {
+            // Check if 2FA instructions container is displayed
+            const twofaInstructions = await driver.getElement(OpenaiSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
+            if (twofaInstructions) {
+                return await twofaInstructions.textContent("i18n.collectors.all.2fa.error");
+            }
         }
     }
 
     async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+        // Check if is push auth
+        const isPushAuth = driver.url().includes("push-auth-verification");
+
         // Get code from UI
         const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
 
-        // Input code
-        await driver.inputText(OpenaiSelectors.FIELD_2FA_CODE, code);
-        await driver.leftClick(OpenaiSelectors.BUTTON_2FA_CONTINUE);
+        // If not push auth
+        if(!isPushAuth) {
+            // Input code
+            await driver.inputText(OpenaiSelectors.FIELD_2FA_CODE, code);
+            await driver.leftClick(OpenaiSelectors.BUTTON_2FA_CONTINUE);
 
-        // Check if 2FA error is displayed
-        const twofaError = await driver.getElement(OpenaiSelectors.CONTAINER_2FA_ERROR, { raiseException: false, timeout: 2000 });
-        if (twofaError) {
-            return await twofaError.textContent("i18n.collectors.all.2fa.error");
+            // Check if 2FA error is displayed
+            const twofaError = await driver.getElement(OpenaiSelectors.CONTAINER_2FA_ERROR, { raiseException: false, timeout: 2000 });
+            if (twofaError) {
+                return await twofaError.textContent("i18n.collectors.all.2fa.error");
+            }
         }
     }
 }
