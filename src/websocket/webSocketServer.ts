@@ -101,7 +101,7 @@ export class WebSocketServer {
             try {
                 const data = JSON.parse(message.toString());
 
-                if (data.type === 'twofa' && data.twofa && this.onTwofa) {
+                if (data.type === 'twofa' && data.twofa !== undefined && this.onTwofa) {
                     this.sendState(State._4_2FA_PROCEEDING);
                     this.onTwofa(data as MessageTwofa);
                 }
