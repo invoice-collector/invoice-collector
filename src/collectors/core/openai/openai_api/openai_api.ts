@@ -10,7 +10,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         id: "openai_api",
         name: "OpenAI (API)",
         description: "i18n.collectors.openai_api.description",
-        version: "10",
+        version: "11",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
