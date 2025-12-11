@@ -42,7 +42,9 @@ export abstract class OpenaiCommonCollector extends WebCollector {
 
     async needTwofa(driver: Driver): Promise<string | void> {
         // If URL contains 2FA verification
-        if(driver.url().includes("email-verification") || driver.url().includes("push-auth-verification")) {
+        if(driver.url().includes("email-verification") ||
+            driver.url().includes("mfa-challenge") ||
+            driver.url().includes("push-auth-verification")) {
             // Check if 2FA instructions container is displayed
             const twofaInstructions = await driver.getElement(OpenaiSelectors.CONTAINER_2FA_INSTRUCTIONS, { raiseException: false, timeout: 2000 });
             if (twofaInstructions) {
