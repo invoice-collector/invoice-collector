@@ -39,10 +39,10 @@
   --success-text: #166534;   /* green-800 */
 
   /* Status - Warning */
-  --warning: #d97706;        /* amber-600 */
-  --warning-hover: #b45309;  /* amber-700 */
-  --warning-bg: #fef3c7;     /* amber-100 */
-  --warning-text: #92400e;   /* amber-800 */
+  --warning: #fdd835;        /* yellow-600 */
+  --warning-hover: #fbc02d;  /* yellow-700 */
+  --warning-bg: #fff9c4;     /* yellow-100 */
+  --warning-text: #f9a825;   /* yellow-800 */
 
   /* Status - Danger */
   --danger: #dc2626;         /* red-600 */
