@@ -30,9 +30,6 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         loginUrl: "https://auth.openai.com/log-in",
         entryUrl: "https://chatgpt.com/#settings/Account",
         captcha: CollectorCaptcha.NONE,
-        autoLogin: {
-            localStorageKeys: ['@@auth0spajs@@']
-        },
         state: CollectorState.DEVELOPMENT
     }
 
