@@ -30,7 +30,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         },
         loginUrl: "https://platform.openai.com/login",
         entryUrl: "https://platform.openai.com/settings/organization/billing/history",
-        captcha: CollectorCaptcha.OTHER,
+        captcha: CollectorCaptcha.NONE,
         autoLogin: {
             localStorageKeys: ['@@auth0spajs@@']
         }
