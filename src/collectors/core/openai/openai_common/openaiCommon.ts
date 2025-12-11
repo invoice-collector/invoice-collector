@@ -2,12 +2,13 @@ import { OpenaiSelectors } from './selectors';
 import { Driver } from '../../../../driver/driver';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
-import { AgentCollector } from '../../../../premium/collectors/customAgentCollector';
+import { WebCollector } from '../../../web2Collector';
 
-export abstract class OpenaiCommonCollector extends AgentCollector {
+export abstract class OpenaiCommonCollector extends WebCollector {
 
     async needLogin(driver: Driver): Promise<boolean> {
-        return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 10000 }) != null;
+        return await driver.getElement(OpenaiSelectors.BUTTON_LOGIN_OR_OUPS, { raiseException: false, timeout: 5000 }) != null ||
+            driver.url().includes(this.config.loginUrl);
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
@@ -24,14 +25,18 @@ export abstract class OpenaiCommonCollector extends AgentCollector {
             return await emailError.textContent("i18n.collectors.all.email.error");
         }
 
-        // Input password
-        await driver.inputText(OpenaiSelectors.FIELD_PASSWORD, params.password);
-        await driver.leftClick(OpenaiSelectors.BUTTON_PASSWORD_CONTINUE);
+        // Wait for password field
+        const passwordField = await driver.getElement(OpenaiSelectors.FIELD_PASSWORD, { raiseException: false });
+        if (passwordField) {
+            // Input password if displayed
+            await passwordField.inputText(params.password);
+            await driver.leftClick(OpenaiSelectors.BUTTON_PASSWORD_CONTINUE);
 
-        // Check if password error is displayed
-        const passwordError = await driver.getElement(OpenaiSelectors.CONTAINER_PASSWORD_ERROR, { raiseException: false, timeout: 5000 });
-        if (passwordError) {
-            return await passwordError.textContent("i18n.collectors.all.password.error");
+            // Check if password error is displayed
+            const passwordError = await driver.getElement(OpenaiSelectors.CONTAINER_PASSWORD_ERROR, { raiseException: false, timeout: 5000 });
+            if (passwordError) {
+                return await passwordError.textContent("i18n.collectors.all.password.error");
+            }
         }
     }
 
@@ -56,12 +61,5 @@ export abstract class OpenaiCommonCollector extends AgentCollector {
         if (twofaError) {
             return await twofaError.textContent("i18n.collectors.all.2fa.error");
         }
-    }
-
-    async navigate(driver: Driver, params: any): Promise<void> {
-        // Wait for billing button
-        await driver.getElement(OpenaiSelectors.BUTTON_SETTINGS, { timeout: 5000 });
-        // Go to invoices page
-        await driver.goto(this.config.entryUrl);
     }
 }

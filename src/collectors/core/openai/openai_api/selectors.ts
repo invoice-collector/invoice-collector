@@ -1,5 +1,12 @@
 export const OpenaiSelectors = {
 
+    // HOME PAGE
+
+    BUTTON_SETTINGS: {
+        selector: "a[href='/settings']",
+        info: "settings button"
+    },
+
     // CONTAINER INVOICE
 
     CONTAINER_NO_INVOICE: {

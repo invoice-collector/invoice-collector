@@ -47,12 +47,5 @@ export const OpenaiSelectors = {
     CONTAINER_2FA_ERROR: {
         selector: "form ul li",
         info: "2FA error container"
-    },
-
-    // HOME PAGE
-
-    BUTTON_SETTINGS: {
-        selector: "a[href='/settings']",
-        info: "settings button"
     }
 }
