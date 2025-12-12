@@ -11,7 +11,7 @@ export class CarrefourCollector extends WebCollector {
         id: "carrefour",
         name: "Carrefour",
         description: "i18n.collectors.carrefour.description",
-        version: "12",
+        version: "13",
         website: "https://www.carrefour.fr",
         logo: "https://upload.wikimedia.org/wikipedia/fr/3/3b/Logo_Carrefour.svg",
         type: CollectorType.WEB,
@@ -122,6 +122,7 @@ export class CarrefourCollector extends WebCollector {
     }
 
     async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        const downloadButton = await element.getElement(CarrefourSelectors.CONTAINER_LINK);
         const order_link = await element.getAttribute(CarrefourSelectors.CONTAINER_LINK, "href");
         const date = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_DATE, "textContent");
         const amount = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_AMOUNT, "textContent");
@@ -142,7 +143,8 @@ export class CarrefourCollector extends WebCollector {
             id,
             link,
             timestamp,
-            amount
+            amount,
+            downloadButton: downloadButton
         };
     }
 

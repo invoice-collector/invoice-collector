@@ -12,7 +12,7 @@ export class FreeMobileCollector extends WebCollector {
         id: "freemobile",
         name: "Free Mobile",
         description: "i18n.collectors.freemobile.description",
-        version: "11",
+        version: "12",
         website: "https://mobile.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Free_mobile_2011.svg",
         type: CollectorType.WEB,
@@ -115,6 +115,7 @@ export class FreeMobileCollector extends WebCollector {
     }
 
     async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
+        const downloadButton = await element.getElement(FreeMobileSelectors.CONTAINER_INVOICE_LINK);
         const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
         const stringDate = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
         const date = stringDate.replace("Ma dernière facture - ", "").trim();
@@ -130,7 +131,8 @@ export class FreeMobileCollector extends WebCollector {
             id,
             link: `https://mobile.free.fr${link}`,
             timestamp,
-            amount
+            amount,
+            downloadButton: downloadButton
         };
     }
 

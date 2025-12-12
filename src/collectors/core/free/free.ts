@@ -10,7 +10,7 @@ export class FreeCollector extends WebCollector {
         id: "free",
         name: "Free",
         description: "i18n.collectors.free.description",
-        version: "10",
+        version: "11",
         website: "https://www.free.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/5/52/Free_logo.svg",
         type: CollectorType.WEB,
@@ -66,6 +66,7 @@ export class FreeCollector extends WebCollector {
     }
 
     async data(driver: Driver, params: any, element: Element): Promise<Invoice> {
+        const downloadButton = await element.getElement(FreeSelectors.BUTTON_DOWNLOAD);
         const link = await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, "href");
         const amount = await element.getAttribute(FreeSelectors.CONTAINER_AMOUNT, "textContent");
 
@@ -88,7 +89,8 @@ export class FreeCollector extends WebCollector {
             id: id,
             timestamp,
             link,
-            amount
+            amount,
+            downloadButton: downloadButton
         };
     }
 
