@@ -15,8 +15,8 @@ export class Driver {
     static DEFAULT_DOWNLOAD_TIMEOUT = 20000;    // 20 seconds
     static DEFAULT_TIMEOUT = 10000;             // 10 seconds
     static DEFAULT_POLLING = 1000;              // 1 second
-    static DEFAULT_DELAY = 0;
-    static DEFAULT_DELAY_BETWEEN_KEYS = 100;    // 100 milliseconds
+    static DEFAULT_DELAY = 1000;                // 1 second
+    static DEFAULT_DELAY_BETWEEN_RETRIES = 100; // 100 milliseconds
     static PARENT_DOWNLOAD_PATH = path.resolve(__dirname, '../../media/download');
 
     static VIEWPORT_WIDTH: number = 1920;
@@ -424,11 +424,7 @@ export class Driver {
         }
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.click();
-            await utils.delay(delay);
-            if(navigation === true) {
-                await this.waitForNavigation({timeout});
-            }
+            await element.click({ timeout, delay, navigation });
             return element;
         }
         return null;
@@ -439,24 +435,26 @@ export class Driver {
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         tries = 5
-    } = {}): Promise<void> {
+    } = {}): Promise<Element | null> {
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.inputText(text, { tries });
-            await utils.delay(delay);
+            await element.inputText(text, { tries, timeout, delay });
+            return element;
         }
+        return null;
     }
 
     async dropdownSelect(selector, value: string, {
         raiseException = true,
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY
-    } = {}): Promise<void> {
+    } = {}): Promise<Element | null> {
         const element = await this.getElement(selector, { raiseException, timeout });
         if (element) {
-            await element.dropdownSelect(value);
-            await utils.delay(delay);
+            await element.dropdownSelect(value, { delay });
+            return element;
         }
+        return null;
     }
 
     async press(key: KeyInput, occurence: number = 1): Promise<void> {
@@ -816,6 +814,7 @@ export class Element {
     async inputText(text: string, {
         tries = 5,
         timeout = Driver.DEFAULT_TIMEOUT,
+        delay = Driver.DEFAULT_DELAY,
         navigation = false
     } = {}): Promise<void> {
         if (tries > 0) {
@@ -823,7 +822,7 @@ export class Element {
             while (currentValue !== text && tries > 0) {
                 await this.element.click({ clickCount: 3 });    // Select all text
                 await this.element.type(text);                  // Replace
-                await utils.delay(Driver.DEFAULT_DELAY_BETWEEN_KEYS);
+                await utils.delay(Driver.DEFAULT_DELAY_BETWEEN_RETRIES);
                 currentValue = await this.element.evaluate((el: any) => el.value);
                 tries--;
             }
@@ -832,17 +831,21 @@ export class Element {
             await this.element.click({ clickCount: 3 });    // Select all text
             await this.element.type(text);                  // Replace
         }
+        await utils.delay(delay);
         if(navigation === true) {
             await this.driver.waitForNavigation({timeout});
         }
     }
 
-    async getAttribute(selector, attribute: string): Promise<string> {
-        return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
+    async dropdownSelect(value: string, {
+        delay = Driver.DEFAULT_DELAY
+    } = {}): Promise<void> {
+        await this.element.select(value);
+        await utils.delay(delay);
     }
 
-    async dropdownSelect(value: string): Promise<void> {
-        await this.element.select(value);
+    async getAttribute(selector, attribute: string): Promise<string> {
+        return await this.element.$eval(selector.selector, (element, attr) => element.getAttribute(attr) ?? element[attr], attribute);
     }
 
     async innerHTML(): Promise<string> {
