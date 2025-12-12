@@ -172,6 +172,7 @@ export function createFakeInvoice(): { collector_id: string, remote_id: string, 
         data: data,
         mimetype: mimetypeFromBase64(data),
         metadata: { contract: "CON-1234" },
+        downloadButton: null,
         collected_timestamp: Date.now()
     };
     return {

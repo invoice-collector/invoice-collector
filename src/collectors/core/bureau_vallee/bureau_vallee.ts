@@ -97,13 +97,13 @@ export class BureauValleeCollector extends WebCollector {
             timestamp,
             amount,
             link,
-            downloadData: { element: downloadElement }
+            downloadButton: downloadElement
         };
     }
 
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Click on element
-        await invoice.downloadData?.element.leftClick();
+        await invoice.downloadButton.leftClick();
         // Wait for the invoice to be downloaded
         return [await this.download_from_file(driver)];
     }

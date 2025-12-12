@@ -345,9 +345,7 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
             link,
             timestamp,
             amount,
-            downloadData: {
-                element: downloadElement
-            }
+            downloadButton: downloadElement
         }
     }
 

@@ -127,13 +127,13 @@ export class OrangeCollector extends WebCollector {
             timestamp,
             link: link,
             amount,
-            downloadData: {element: pdfElement}
+            downloadButton: pdfElement
         };
     }
     
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Click on element
-        await invoice.downloadData?.element.leftClick();
+        await invoice.downloadButton.leftClick();
         try {
             return [ await this.download_from_file(driver) ];
         } catch (e) {

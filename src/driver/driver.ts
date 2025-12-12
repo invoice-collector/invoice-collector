@@ -695,6 +695,8 @@ export class Element {
      *
      * @returns A promise that resolves to the ElementHandle of the associated element, or null if the element is not found.
      */
+    async getElement(selector: any, options?: { raiseException?: true }): Promise<Element>;
+    async getElement(selector: any, options: { raiseException: false }): Promise<Element | null>;
     async getElement(selector: any, {
         raiseException = true
     } = {}): Promise<Element | null> {

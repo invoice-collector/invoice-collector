@@ -198,7 +198,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                             amount: invoice.amount?.trim(),
                             link: invoice.link?.trim(),
                             metadata: invoice.metadata || {},
-                            downloadData: invoice.downloadData || {}
+                            downloadButton: invoice.downloadButton || {}
                         }
 
                         // If invoice is more recent or equal to most recent timestamp and id is not in previousInvoiceIds
@@ -243,8 +243,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                     data: null,
                                     mimetype: null,
                                     collected_timestamp: null,
+                                    downloadButton: null,
                                     metadata: {},
-                                    downloadData: {}
                                 });
                             }
                         }

@@ -10,7 +10,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         id: "openai_api",
         name: "OpenAI (API)",
         description: "i18n.collectors.openai_api.description",
-        version: "11",
+        version: "12",
         website: "https://openai.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -79,13 +79,13 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
             timestamp,
             link: link,
             amount,
-            downloadData: {element: viewInvoice}
+            downloadButton: viewInvoice
         };
     }
 
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Open invoice in new tab
-        const newPage = await invoice.downloadData?.element.middleClick();
+        const newPage = await invoice.downloadButton.middleClick();
         // Download PDF
         await newPage.leftClick(OpenaiSelectors.BUTTON_DOWNLOAD);
         // Return downloaded file
