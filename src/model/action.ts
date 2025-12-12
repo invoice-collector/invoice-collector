@@ -308,13 +308,13 @@ export type ExtractInvoiceDataContext = {
 
 export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, Invoice> {
     constructor(description: string, location: string, args: any, cssSelector?: string) {
+        // args should have 'least css_selector_id' or 'css_selector_amount' fields
+        if(!args.hasOwnProperty('css_selector_id') && !args.hasOwnProperty('css_selector_amount')) {
+            throw new Error('InputTwofaAction requires args to have at least a "css_selector_id" or "css_selector_amount" field');
+        }
         // args should have 'css_selector_date' field
         if(!args.hasOwnProperty('css_selector_date')) {
             throw new Error('InputTwofaAction requires args to have a "css_selector_date" field');
-        }
-        // args should have 'css_selector_amount' field
-        if(!args.hasOwnProperty('css_selector_amount')) {
-            throw new Error('InputTwofaAction requires args to have a "css_selector_amount" field');
         }
         // args should have 'css_selector_download' field
         if(!args.hasOwnProperty('css_selector_download')) {
@@ -336,15 +336,32 @@ export class ExtractInvoiceDataAction extends Action<ExtractInvoiceDataContext, 
         const link = await context.driver.url();
         const date = await context.element.getAttribute(this.args.css_selector_date, "textContent");
         const timestamp = utils.timestampFromString(date, this.args.date_format, this.args.date_locale || 'en');
-        const amount = await context.element.getAttribute(this.args.css_selector_amount, "textContent");
-        utils.checkAmountContainsCurrencySymbol(amount);
         const downloadElement = await context.element.getElement(this.args.css_selector_download);
 
+        // Get amount if selector provided
+        let amount: string | undefined;
+        if(this.args.css_selector_amount) {
+            amount = await context.element.getAttribute(this.args.css_selector_amount, "textContent");
+            utils.checkAmountContainsCurrencySymbol(amount);
+        }
+
+        // Get id if selector provided
+        let id: string;
+        if(this.args.css_selector_id) {
+            id = await context.element.getAttribute(this.args.css_selector_id, "textContent");
+        }
+        else if (amount) {
+            id = utils.hash_string(`${date}${amount}`);
+        }
+        else {
+            throw new Error('Cannot compute invoice id, no css_selector_id provided and amount is undefined');
+        }
+
         return {
-            id: utils.hash_string(`${date}${amount}`),
-            link,
-            timestamp,
-            amount,
+            id: id,
+            link: link,
+            timestamp: timestamp,
+            amount: amount,
             downloadButton: downloadElement
         }
     }
