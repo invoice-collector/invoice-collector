@@ -12,7 +12,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "18",
+        version: "19",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -127,13 +127,13 @@ export class OrangeCollector extends WebCollector {
             timestamp,
             link: link,
             amount,
-            downloadData: {element: pdfElement}
+            downloadButton: pdfElement
         };
     }
     
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Click on element
-        await invoice.downloadData?.element.click();
+        await invoice.downloadButton.leftClick();
         try {
             return [ await this.download_from_file(driver) ];
         } catch (e) {

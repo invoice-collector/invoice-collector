@@ -14,7 +14,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "27",
+        version: "28",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -198,7 +198,7 @@ export class AmazonCollector extends WebCollector {
             timestamp,
             amount,
             link,
-            downloadData:{element: downloadElement}
+            downloadButton: downloadElement
         };
     }
 
@@ -209,7 +209,7 @@ export class AmazonCollector extends WebCollector {
         const origin = driver.origin();
 
         // Open invoice link
-        const newPage: Driver = await invoice.downloadData?.element.middleClick();
+        const newPage: Driver = await invoice.downloadButton.middleClick();
 
         // Get order link
         const orderLink = await newPage.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");

@@ -11,7 +11,7 @@ export class BureauValleeCollector extends WebCollector {
         id: "bureau_vallee",
         name: "Bureau Vallée",
         description: "i18n.collectors.bureau_vallee.description",
-        version: "10",
+        version: "11",
         website: "https://www.bureau-vallee.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Logo-bureau-vallee-2021.png/320px-Logo-bureau-vallee-2021.png",
         type: CollectorType.WEB,
@@ -97,13 +97,13 @@ export class BureauValleeCollector extends WebCollector {
             timestamp,
             amount,
             link,
-            downloadData: { element: downloadElement }
+            downloadButton: downloadElement
         };
     }
 
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Click on element
-        await invoice.downloadData?.element.click();
+        await invoice.downloadButton.leftClick();
         // Wait for the invoice to be downloaded
         return [await this.download_from_file(driver)];
     }

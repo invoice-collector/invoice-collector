@@ -4,6 +4,7 @@ import { Secret } from '../secret_manager/abstractSecretManager';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { WebSocketServer } from '../websocket/webSocketServer';
+import { Element } from '../driver/driver';
 
 export enum CollectorState {
     DEVELOPMENT = 'development',
@@ -51,8 +52,8 @@ export type Invoice = {
     timestamp: number,
     amount?: string,
     link: string,
-    metadata?: Record<string, any>,
-    downloadData?: Record<string, any>
+    downloadButton: Element,
+    metadata?: Record<string, any>
 
 }
 
@@ -61,10 +62,11 @@ export type DownloadedInvoice = Invoice & {
     metadata?: Record<string, any>,
 }
 
-export type CompleteInvoice = Invoice & {
+export type CompleteInvoice = Omit<Invoice, 'downloadButton'> & {
     data: string | null,
     mimetype: string | null,
     collected_timestamp: number | null,
+    downloadButton: Element | null,
     metadata: Record<string, any>,
 }
 

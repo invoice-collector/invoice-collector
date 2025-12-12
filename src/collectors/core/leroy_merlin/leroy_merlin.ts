@@ -12,7 +12,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "17",
+        version: "18",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
         type: CollectorType.WEB,
@@ -130,14 +130,14 @@ export class LeroyMerlinCollector extends WebCollector {
             timestamp,
             link: link,
             amount,
-            downloadData: {element: detailsButton}
+            downloadButton: detailsButton
         };
     }
 
     // Define custom method to download invoice
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Open details in a new page
-        const newPage = await invoice.downloadData?.element.middleClick();
+        const newPage = await invoice.downloadButton.middleClick();
         // If the order is from a third party provider, clicking on the button will ask leroy merlin to request the invoice from the provider.
         // It can take few hours for the invoice to be available.
         // Next time the button will be clicked, the invoice will be effectively downloaded.
