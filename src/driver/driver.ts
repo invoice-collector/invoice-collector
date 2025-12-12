@@ -424,7 +424,7 @@ export class Driver {
         }
         let element = await this.getElement(selector, { raiseException, timeout });
         if(element != null) {
-            await element.click({ timeout, delay, navigation });
+            await element.leftClick({ timeout, delay, navigation });
             return element;
         }
         return null;
@@ -722,7 +722,7 @@ export class Element {
         return this.element.evaluate(el => el.textContent ?? _default);
     }
 
-    async click({
+    async leftClick({
         timeout = Driver.DEFAULT_TIMEOUT,
         delay = Driver.DEFAULT_DELAY,
         navigation = true
