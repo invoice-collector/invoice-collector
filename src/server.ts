@@ -877,7 +877,7 @@ export class Server {
         token: any,
         credential_id: string
     ): Promise<{
-        wsPath: string
+        wsPath: string | null
     }> {
         // Get user from bearer or token
         const user = await this.getUserFromBearerOrToken(bearer, user_id, token);
@@ -895,32 +895,44 @@ export class Server {
             throw new StatusError(`Credential with id "${credential_id}" does not belong to user.`, 403);
         }
 
-        // Get collector from id
-        const collector = await CollectorLoader.get(credential.collector_id);
+        let collect = CollectPool.getInstance().get(credential.id);
+        let wsPath: string | null;
 
-        // Start web socket server and get token
-        const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
-        const wsPath = webSocketServer.start();
+        // If no collect in progress, start a new one
+        if (collect == undefined) {
+            // Get collector from id
+            const collector = await CollectorLoader.get(credential.collector_id);
 
-        // Start collect
-        const collect = new Collect(credential.id, webSocketServer)
+            // Start web socket server and get token
+            const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
+            wsPath = webSocketServer.start();
 
-        // Register collect in progress
-        CollectPool.getInstance().registerCollect(credential.id, collect);
+            // Start collect
+            collect = new Collect(credential.id, webSocketServer)
 
-        // Do not wait for promise to resolve
-        collect.start().catch((err) => {
-            console.error(`Collect for credential ${credential.id} has failed`);
-            console.error(err);
-        })
-        .finally(() => {
-            // Unregister collect in progress
-            CollectPool.getInstance().unregisterCollect(credential.id);
-            // Close web socket server
-            webSocketServer.close();
-        });
+            // Register collect in progress
+            CollectPool.getInstance().registerCollect(credential.id, collect);
 
-        return { wsPath };
+            // Do not wait for promise to resolve
+            collect.start().catch((err) => {
+                console.error(`Collect for credential ${credential.id} has failed`);
+                console.error(err);
+            })
+            .finally(() => {
+                // Unregister collect in progress
+                CollectPool.getInstance().unregisterCollect(credential.id);
+                // Close web socket server
+                webSocketServer.close();
+            });
+        }
+        else {
+            // If collect in progress, return existing wsPath
+            wsPath = collect.webSocketServer?.path || null;
+        }
+
+        return {
+            wsPath: wsPath
+        };
     }
 
     // ---------- COLLECTOR ENDPOINTS ----------
