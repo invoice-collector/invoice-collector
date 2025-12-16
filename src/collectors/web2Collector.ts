@@ -284,7 +284,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         }
     }
 
-    protected async loginWithCanvas(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
+    protected async interactiveLogin(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
         // If login is called with a WebSocketServer to undefined, it means that the session has expired
         if (!webSocketServer) {
             throw new AuthenticationError('i18n.collectors.all.login.expired', this);
