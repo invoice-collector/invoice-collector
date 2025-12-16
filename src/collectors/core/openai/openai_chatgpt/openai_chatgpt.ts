@@ -2,6 +2,7 @@ import { Driver, Element } from '../../../../driver/driver';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../../abstractCollector';
 import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 import { OpenaiSelectors } from './selectors';
+import * as utils from '../../../../utils';
 
 export class OpenaiChatgptCollector extends OpenaiCommonCollector {
 
@@ -9,7 +10,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         id: "openai_chatgpt",
         name: "OpenAI (ChatGPT Plus)",
         description: "i18n.collectors.openai_chatgpt.description",
-        version: "3",
+        version: "4",
         website: "https://chatgpt.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -42,7 +43,13 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         await driver.getElement(OpenaiSelectors.BUTTON_ACCOUNT, { timeout: 5000 });
         // Click manage payments button
         await driver.leftClick(OpenaiSelectors.BUTTON_MANAGE_PAYMENTS);
+        // Wait for invoices search button
+        await driver.getElement(OpenaiSelectors.BUTTON_SEARCH_INVOICES);
     }
+    
+    /*async isEmpty(driver: Driver): Promise<boolean>{
+        return await driver.getElement(OpenaiSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
+    }*/
 
     async getInvoices(driver: Driver, params: any): Promise<Element[]> {
         throw new Error( "Method not implemented.");
