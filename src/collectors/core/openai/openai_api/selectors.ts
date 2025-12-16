@@ -32,12 +32,5 @@ export const OpenaiSelectors = {
     BUTTON_VIEW: {
         selector: "td:nth-child(5) a",
         info: "invoice date container"
-    },
-
-    // DOWNLOAD PAGE
-
-    BUTTON_DOWNLOAD: {
-        selector: "button[data-testid='download-invoice-receipt-pdf-button']",
-        info: "invoice date container"
     }
 }

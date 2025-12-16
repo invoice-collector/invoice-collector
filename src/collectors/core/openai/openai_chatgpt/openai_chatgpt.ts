@@ -1,5 +1,5 @@
 import { Driver, Element } from '../../../../driver/driver';
-import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../../abstractCollector';
+import { CollectorCaptcha, CollectorType, Invoice } from '../../../abstractCollector';
 import { OpenaiCommonCollector } from '../openai_common/openaiCommon';
 import { OpenaiSelectors } from './selectors';
 import * as utils from '../../../../utils';
@@ -10,7 +10,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         id: "openai_chatgpt",
         name: "OpenAI (ChatGPT Plus)",
         description: "i18n.collectors.openai_chatgpt.description",
-        version: "4",
+        version: "5",
         website: "https://chatgpt.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -30,8 +30,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         },
         loginUrl: "https://auth.openai.com/log-in",
         entryUrl: "https://chatgpt.com/#settings/Account",
-        captcha: CollectorCaptcha.NONE,
-        state: CollectorState.DEVELOPMENT
+        captcha: CollectorCaptcha.NONE
     }
 
     constructor() {
@@ -47,19 +46,37 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         await driver.getElement(OpenaiSelectors.BUTTON_SEARCH_INVOICES);
     }
     
-    /*async isEmpty(driver: Driver): Promise<boolean>{
+    async isEmpty(driver: Driver): Promise<boolean>{
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
-    }*/
+    }
 
     async getInvoices(driver: Driver, params: any): Promise<Element[]> {
-        throw new Error( "Method not implemented.");
+        return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICES);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<null> {
-        throw new Error( "Method not implemented.");
-    }
+    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+        // Get url before map
+        const link = driver.url();
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
-        throw new Error( "Method not implemented.");
+        // Compute timestamp
+        const dateTime = await element.getAttribute(OpenaiSelectors.CONTAINER_DATE, "textContent");
+        let timestamp: number;
+        try {
+            timestamp = utils.timestampFromString(dateTime, "d MMM yyyy", 'fr');
+        } catch (error) {
+            timestamp = utils.timestampFromString(dateTime, "MMM d',' yyyy", 'en');
+        }
+
+        // Get amount
+        const amount = await element.getAttribute(OpenaiSelectors.CONTAINER_AMOUNT, "textContent");
+
+        // Return invoice
+        return {
+            id: utils.hash_string(`${timestamp}${amount}`),
+            timestamp: timestamp,
+            link: link,
+            amount: amount,
+            downloadButton: element
+        };
     }
 }
