@@ -10,7 +10,7 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         id: "openai_chatgpt",
         name: "OpenAI (ChatGPT Plus)",
         description: "i18n.collectors.openai_chatgpt.description",
-        version: "5",
+        version: "6",
         website: "https://chatgpt.com",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg",
         type: CollectorType.WEB,
@@ -44,6 +44,13 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         await driver.leftClick(OpenaiSelectors.BUTTON_MANAGE_PAYMENTS);
         // Wait for invoices search button
         await driver.getElement(OpenaiSelectors.BUTTON_SEARCH_INVOICES);
+    }
+    
+    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+        // Show more invoices while possible
+        while((await driver.leftClick(OpenaiSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false, delay: 1000 })) != null) {}
+        // Collect invoices
+        await next();
     }
     
     async isEmpty(driver: Driver): Promise<boolean>{
