@@ -133,14 +133,14 @@ export class OrangeCollector extends WebCollector {
     
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Click on element
-        await invoice.downloadButton.leftClick();
+        const newPage = await invoice.downloadButton.middleClick();
         // Some acounts need one more click to download
-        await driver.leftClick(OrangeSelectors.BUTTON_PDF_DOWNLOAD, { raiseException: false, timeout: 2000 });
+        await newPage.leftClick(OrangeSelectors.BUTTON_PDF_DOWNLOAD, { raiseException: false, timeout: 2000 });
         try {
-            return [ await this.download_from_file(driver) ];
+            return [ await this.download_from_file(newPage) ];
         } catch (e) {
             // Check if VPN issue displayed
-            const vpnError = await driver.getElement(OrangeSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 100 });
+            const vpnError = await newPage.getElement(OrangeSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 100 });
             if (vpnError) {
                 throw new AuthenticationError("i18n.collectors.orange.vpn.error", this);
             }
