@@ -12,6 +12,7 @@ import { WebCollector } from '../collectors/web2Collector';
 
 export class Driver {
 
+    static DEFAULT_NAVIGATION_TIMEOUT = 30000;  // 30 seconds
     static DEFAULT_DOWNLOAD_TIMEOUT = 20000;    // 20 seconds
     static DEFAULT_TIMEOUT = 10000;             // 10 seconds
     static DEFAULT_POLLING = 1000;              // 1 second
@@ -152,6 +153,18 @@ export class Driver {
         }
     }
 
+    async goBack(): Promise<void> {
+        if (this.page === null) {
+            throw new Error('Page is not initialized.');
+        }
+        try {
+            // Navigate to PREVIOUS page
+            await this.page.goBack({ waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT });
+        } catch (error) {
+            console.warn(`Failed to navigate to previous page, navigation timeout`);
+        }
+    }
+
     // GOTO
 
     async goto(url, network_request: string = ""): Promise<{requestBody: any, responseBody: any}> {
@@ -184,7 +197,7 @@ export class Driver {
             });
 
             // Navigate to the page
-            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 60000});
+            await this.page.goto(url, {waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT});
 
             // Wait for the network request
             const response = await Promise.race([
@@ -201,7 +214,7 @@ export class Driver {
             let response;
             try {
                 // Navigate to the page
-                response = await this.page.goto(url, {waitUntil: 'networkidle0', timeout: 30000});
+                response = await this.page.goto(url, {waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT});
             } catch (error) {
                 console.warn(`Failed to navigate to ${url}, navigation timeout`);
             }
@@ -227,7 +240,7 @@ export class Driver {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
-        await this.page.goto(url, { waitUntil: 'networkidle0' });
+        await this.page.goto(url, { waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT });
         const data = await this.page.$eval("body", (element) => {
             try {
                 return JSON.parse(element.innerText);
