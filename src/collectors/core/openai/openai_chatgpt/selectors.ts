@@ -17,5 +17,20 @@ export const OpenaiSelectors = {
     CONTAINER_NO_ORDERS: {
         selector: "::-p-xpath(//div[@data-testid='page-container-main']//a[@data-testid='collapsed-invoice-search']/../../../../..//div[@data-testid='empty-state'])",
         info: "no orders container"
+    },
+    CONTAINER_INVOICES: {
+        selector: "::-p-xpath(//div[@data-testid='page-container-main']//a[@data-testid='collapsed-invoice-search']/../../../../../div/div/a)",
+        info: "invoices container"
+    },
+
+    // DATA
+
+    CONTAINER_DATE: {
+        selector: "div > div:nth-child(1) > span",
+        info: "invoice date"
+    },
+    CONTAINER_AMOUNT: {
+        selector: "div > div:nth-child(2) > span",
+        info: "invoice amount"
     }
 }

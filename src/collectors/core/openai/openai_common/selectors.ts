@@ -47,5 +47,12 @@ export const OpenaiSelectors = {
     CONTAINER_2FA_ERROR: {
         selector: "form ul li",
         info: "2FA error container"
+    },
+
+    // DOWNLOAD PAGE
+
+    BUTTON_DOWNLOAD: {
+        selector: "button[data-testid='download-invoice-receipt-pdf-button']",
+        info: "invoice date container"
     }
 }

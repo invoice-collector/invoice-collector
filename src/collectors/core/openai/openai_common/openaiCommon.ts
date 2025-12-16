@@ -1,8 +1,9 @@
 import { OpenaiSelectors } from './selectors';
-import { Driver } from '../../../../driver/driver';
+import { Driver, Element } from '../../../../driver/driver';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
 import { WebCollector } from '../../../web2Collector';
+import { Invoice } from '../../../abstractCollector';
 
 export abstract class OpenaiCommonCollector extends WebCollector {
 
@@ -72,5 +73,14 @@ export abstract class OpenaiCommonCollector extends WebCollector {
                 return await twofaError.textContent("i18n.collectors.all.2fa.error");
             }
         }
+    }
+
+    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+        // Open invoice in new tab
+        const newPage = await invoice.downloadButton.middleClick();
+        // Download PDF
+        await newPage.leftClick(OpenaiSelectors.BUTTON_DOWNLOAD);
+        // Return downloaded file
+        return [await this.download_from_file(newPage)];
     }
 }
