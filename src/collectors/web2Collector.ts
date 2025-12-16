@@ -33,6 +33,7 @@ export enum DocumentStrategy {
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
+    static CHECK_PAGE_INTERVAL_MS = 1000; // 1 second
     static SCREENSHOT_INTERVAL_MS = 50; // 50 ms
     static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
@@ -283,72 +284,87 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         }
     }
 
-    protected async loginWithCanvas(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
+    protected async interactiveLogin(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
         // If login is called with a WebSocketServer to undefined, it means that the session has expired
         if (!webSocketServer) {
             throw new AuthenticationError('i18n.collectors.all.login.expired', this);
         }
 
-        let screenshotInterval;
+        let checkPageInterval: NodeJS.Timeout | undefined, screenshotInterval: NodeJS.Timeout | undefined;
         const promise = new Promise<void>((resolve, reject) => {
+            // Define timeout
             setTimeout(() => {
                 //webSocketServer.close();
                 reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
             }, WebCollector.LOGIN_TIMEOUT_MS)
 
-            if (webSocketServer) {
-                // Take screenshot and send it to the client every 50 ms
-                screenshotInterval = setInterval(async () => {
-                    try {
-                        const screenshot = await driver.screenshot();
-                        webSocketServer?.sendScreenshot(screenshot, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
-                    } catch (error) {}
-                }, WebCollector.SCREENSHOT_INTERVAL_MS);
-
-                // Define what to do on click event
-                webSocketServer.onClick = async (event: MessageClick) => {
-                    await driver.page?.mouse.click(event.x, event.y);
-                };
-                // Define what to do on keydown event
-                webSocketServer.onKeydown = async (event: MessageKeydown) => {
-                    // If key is a single character, type it, else press the key
-                    if (event.key.length === 1){
-                        await driver.page?.keyboard.type(event.key);
+            // Check every second if a new page has been opened
+            checkPageInterval = setInterval(async () => {
+                driver.pages().then(pages => {
+                    if (pages.length === 0) {
+                        reject(new LoggableError("No pages available in the browser", this));
                     }
                     else {
-                        await driver.page?.keyboard.press(event.key as KeyInput);
+                        const lastPage = pages[pages.length - 1];
+                        // If page has changed
+                        if (driver.page != lastPage) {
+                            // Update driver's page
+                            driver.page = lastPage;
+                        }
                     }
-                };
-                // Define what to do on text event
-                webSocketServer.onText = async (event: MessageText) => {
-                    await driver.page?.keyboard.type(event.text);
-                };
-                // Define what to do on close event
-                webSocketServer.onClose = async (event) => {
-                    switch(event.reason) {
-                        case 'ok':
-                            resolve();
-                            break;
-                        case 'cancel':
-                            reject(new AuthenticationError("i18n.collectors.all.login.cancel", this));
-                            break;
-                        case 'report':
-                            reject(new LoggableError("A user reported an issue on this collector", this));
-                            break;
-                        default:
-                            console.error('Unknown close reason:', event.reason);
-                            break;
-                    }
-                };
-            }
+                });
+            }, WebCollector.CHECK_PAGE_INTERVAL_MS);
+
+            // Take screenshot and send it to the client every 50 ms
+            screenshotInterval = setInterval(async () => {
+                try {
+                    const screenshot = await driver.screenshot();
+                    webSocketServer?.sendScreenshot(screenshot, Driver.VIEWPORT_WIDTH, Driver.VIEWPORT_HEIGHT);
+                } catch (error) {}
+            }, WebCollector.SCREENSHOT_INTERVAL_MS);
+
+            // Define what to do on click event
+            webSocketServer.onClick = async (event: MessageClick) => {
+                await driver.page?.mouse.click(event.x, event.y);
+            };
+            // Define what to do on keydown event
+            webSocketServer.onKeydown = async (event: MessageKeydown) => {
+                // If key is a single character, type it, else press the key
+                if (event.key.length === 1){
+                    await driver.page?.keyboard.type(event.key);
+                }
+                else {
+                    await driver.page?.keyboard.press(event.key as KeyInput);
+                }
+            };
+            // Define what to do on text event
+            webSocketServer.onText = async (event: MessageText) => {
+                await driver.page?.keyboard.type(event.text);
+            };
+            // Define what to do on close event
+            webSocketServer.onClose = async (event) => {
+                switch(event.reason) {
+                    case 'ok':
+                        resolve();
+                        break;
+                    case 'cancel':
+                        reject(new AuthenticationError("i18n.collectors.all.login.cancel", this));
+                        break;
+                    case 'report':
+                        reject(new LoggableError("A user reported an issue on this collector", this));
+                        break;
+                    default:
+                        console.error('Unknown close reason:', event.reason);
+                        break;
+                }
+            };
         });
 
         try {
             await promise;
         } finally {
-            if (screenshotInterval) {
-                clearInterval(screenshotInterval);
-            }
+            clearInterval(checkPageInterval);
+            clearInterval(screenshotInterval);
         }
     }
 

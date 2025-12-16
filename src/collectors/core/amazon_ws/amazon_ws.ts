@@ -28,7 +28,7 @@ export class AmazonCollector extends WebCollector {
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        return this.loginWithCanvas(driver, params, webSocketServer);
+        return this.interactiveLogin(driver, params, webSocketServer);
     }
 
     async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {

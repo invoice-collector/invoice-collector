@@ -12,7 +12,6 @@ let companies = [];
 let hit = [];
 let datepickerSince = null;
 let isSubmitting = false;
-let currentWebSocket = null;
 
 /* ===================================
    INITIALIZATION
@@ -540,6 +539,10 @@ async function showProgress(credential_id, wsPath) {
     document.getElementById('feedback-container').classList.add('ic-hidden');
     
     const VIRTUAL_MAX = 5;
+    
+    let finished = false;
+    let cancelled = false;
+    const ws = new WebSocket(wsPath);
 
     function showFinalResult(state) {
         progressLoading.hidden = true;
@@ -562,24 +565,19 @@ async function showProgress(credential_id, wsPath) {
             responseErrorText.textContent = state.message;
         }
         window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
+        ws.close();
     }
     
     function cancelAndClose() {
         finished = true;
         cancelled = true;
         containerCanvas.hidden = true;
-        if (currentWebSocket && currentWebSocket.readyState === WebSocket.OPEN) {
-            currentWebSocket.send(JSON.stringify({ type: 'close', reason: 'cancel' }));
-            currentWebSocket.close();
+        if (ws.readyState === WebSocket.OPEN) {
+            ws.send(JSON.stringify({ type: 'close', reason: 'cancel' }));
+            ws.close();
         }
-        currentWebSocket = null;
         showCompanies();
     }
-    
-    let finished = false;
-    let cancelled = false;
-    const ws = new WebSocket(wsPath);
-    currentWebSocket = ws;
     
     ws.onopen = () => {
         const canvas = document.getElementById('canvas');
@@ -679,7 +677,6 @@ async function showProgress(credential_id, wsPath) {
     
     ws.onclose = () => {
         containerCanvas.hidden = true;
-        currentWebSocket = null;
         
         if (cancelled) return;
         
