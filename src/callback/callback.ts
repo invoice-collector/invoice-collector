@@ -20,7 +20,7 @@ export class CallbackHandler {
             }
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                throw new Error(`Callback request failed with status code ${error.code}. Make sure the callback URL is correct and accessible.`);
+                throw new Error(`Callback request failed with status code ${error.code}. Make sure the callback URL is correct and accessible.`, { cause: error });
             }
             throw new Error(`Callback request failed: ${error}. Make sure the callback URL is correct and accessible`, { cause: error });
         }
