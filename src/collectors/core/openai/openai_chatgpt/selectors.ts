@@ -14,6 +14,10 @@ export const OpenaiSelectors = {
         selector: "div[data-testid='page-container-main'] a[data-testid='collapsed-invoice-search']",
         info: "search invoices input"
     },
+    BUTTON_MORE_INVOICES: {
+        selector: "::-p-xpath(//div[@data-testid='page-container-main']//a[@data-testid='collapsed-invoice-search']/../../../../../div/button)",
+        info: "more invoices button"
+    },
     CONTAINER_NO_ORDERS: {
         selector: "::-p-xpath(//div[@data-testid='page-container-main']//a[@data-testid='collapsed-invoice-search']/../../../../..//div[@data-testid='empty-state'])",
         info: "no orders container"
