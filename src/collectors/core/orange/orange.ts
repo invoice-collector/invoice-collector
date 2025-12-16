@@ -12,7 +12,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "20",
+        version: "21",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -133,14 +133,25 @@ export class OrangeCollector extends WebCollector {
     
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Click on element
-        const newPage = await invoice.downloadButton.middleClick();
-        // Some acounts need one more click to download
-        await newPage.leftClick(OrangeSelectors.BUTTON_PDF_DOWNLOAD, { raiseException: false, timeout: 2000 });
+        await invoice.downloadButton.leftClick();
+
+        // Some acounts need one more click to download, if button is displayed click it
+        const downloadButton = await driver.getElement(OrangeSelectors.BUTTON_PDF_DOWNLOAD, { raiseException: false, timeout: 2000 });
+        
         try {
-            return [ await this.download_from_file(newPage) ];
+            // Performs one more click if needed
+            if (downloadButton) {
+                await downloadButton.leftClick();
+            }
+            const documents = [ await this.download_from_file(driver) ]
+            // Navigate back to invoices list if click was performed
+            if (downloadButton) {
+                await driver.goBack();
+            }
+            return documents;
         } catch (e) {
             // Check if VPN issue displayed
-            const vpnError = await newPage.getElement(OrangeSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 100 });
+            const vpnError = await driver.getElement(OrangeSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 100 });
             if (vpnError) {
                 throw new AuthenticationError("i18n.collectors.orange.vpn.error", this);
             }
