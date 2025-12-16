@@ -132,7 +132,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 // Set instructions for UI
                 await twofa_promise.setInstructions(needTwofa);
 
-                console.log(`2FA is required, performing 2FA... (${needTwofa})`)
+                console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
                 const twofa_error = await this.twofa(driver, secret.params, twofa_promise, webSocketServer)
 
                 // Check if 2fa error
