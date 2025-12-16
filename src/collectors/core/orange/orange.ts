@@ -12,7 +12,7 @@ export class OrangeCollector extends WebCollector {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "21",
+        version: "22",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -135,20 +135,8 @@ export class OrangeCollector extends WebCollector {
         // Click on element
         await invoice.downloadButton.leftClick();
 
-        // Some acounts need one more click to download, if button is displayed click it
-        const downloadButton = await driver.getElement(OrangeSelectors.BUTTON_PDF_DOWNLOAD, { raiseException: false, timeout: 2000 });
-        
         try {
-            // Performs one more click if needed
-            if (downloadButton) {
-                await downloadButton.leftClick();
-            }
-            const documents = [ await this.download_from_file(driver) ]
-            // Navigate back to invoices list if click was performed
-            if (downloadButton) {
-                await driver.goBack();
-            }
-            return documents;
+            return [ await this.download_from_file(driver) ];
         } catch (e) {
             // Check if VPN issue displayed
             const vpnError = await driver.getElement(OrangeSelectors.CONTAINER_VPN_ERROR, { raiseException: false, timeout: 100 });

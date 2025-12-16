@@ -63,7 +63,7 @@ export const OrangeSelectors = {
     // INVOICE PAGE
 
     CONTAINER_INVOICE: {
-        selector: "bills-history-table tbody tr",
+        selector: "bills-history-table tbody tr:has(payment-status-column)",
         info: "invoice container"
     },
     BUTTON_PDF: {
@@ -84,9 +84,5 @@ export const OrangeSelectors = {
     CONTAINER_VPN_ERROR: {
         selector: "ecm-layout-container .feedback .feedback-text:nth-of-type(1)",
         info: "VPN error container"
-    },
-    BUTTON_PDF_DOWNLOAD: {
-        selector: "div:has(> #modal-basic-title) button",
-        info: "PDF download button"
     }
 }
