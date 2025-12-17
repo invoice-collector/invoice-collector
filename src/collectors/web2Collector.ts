@@ -12,6 +12,8 @@ import { V2Collector } from "./v2Collector";
 import { WebSocketServer } from "../websocket/webSocketServer";
 import { MessageClick, MessageKeydown, MessageText } from "../websocket/message";
 import { KeyInput } from "rebrowser-puppeteer-core";
+import { GoogleOauth2 } from "./oauth2/googleOauth2";
+import { MicrosoftOauth2 } from "./oauth2/microsoftOauth2";
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -100,11 +102,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 webSocketServer?.sendState(State._2_LOGGING_IN);
 
                 console.log("User is not logged in, logging in...")
-                const login_error = await this.login(driver, secret.params, webSocketServer)
-
-                if(webSocketServer) {
-                    this.config.loadImages = loadImagesPreviousValue;
-                }
+                const login_error = await this.login(driver, secret.params, webSocketServer) || 
+                    await GoogleOauth2.login(driver, secret.params, webSocketServer) || 
+                    await MicrosoftOauth2.login(driver, secret.params, webSocketServer);
 
                 // Check if not authenticated
                 if (login_error) {
@@ -115,8 +115,15 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 console.log("Successfully used cookies and local storage")
             }
 
+            // Restore previous load images value
+            if(webSocketServer) {
+                this.config.loadImages = loadImagesPreviousValue;
+            }
+
             // Check if 2fa is required
-            const needTwofa = await this.needTwofa(driver)
+            const needTwofa = await GoogleOauth2.needTwofa(driver) ||
+                await MicrosoftOauth2.needTwofa(driver) ||
+                await this.needTwofa(driver);
 
             // If 2fa is required
             if (needTwofa) {
@@ -133,7 +140,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 await twofa_promise.setInstructions(needTwofa);
 
                 console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
-                const twofa_error = await this.twofa(driver, secret.params, twofa_promise, webSocketServer)
+                const twofa_error = await GoogleOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
+                    await MicrosoftOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
+                    await this.twofa(driver, secret.params, twofa_promise, webSocketServer);
 
                 // Check if 2fa error
                 if (twofa_error) {
