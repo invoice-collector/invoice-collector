@@ -7,6 +7,10 @@ export const MicrosoftOauth2Selectors = {
         selector: "button[type='submit'][data-testid='primaryButton']",
         type: "Button send notification"
     },
+    CONTAINERS_2FA_INSTRUCTIONS: {
+        selector: "h1[data-testid='title'], div[data-testid='displaySign'], div[data-testid='description']",
+        type: "2FA instructions container"
+    }
 }
 
 export class MicrosoftOauth2 {
@@ -17,11 +21,19 @@ export class MicrosoftOauth2 {
 
     static async needTwofa(driver: Driver): Promise<string | void> {
         if(driver.url().includes("login.live.com/oauth2")) {
+            // Click send notification button
             await driver.leftClick(MicrosoftOauth2Selectors.BUTTON_SEND_NOTIFICATION, { navigation: false });
+
+            // Get 2FA instructions
+            const texts = await driver.getAttributes(MicrosoftOauth2Selectors.CONTAINERS_2FA_INSTRUCTIONS, "textContent");
+            return texts.join(". ");
         }
     }
 
     static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
-        //TODO
+        if(driver.url().includes("login.live.com/oauth2")) {
+            // Get code from UI
+            const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+        }
     }
 }
