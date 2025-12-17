@@ -27,7 +27,7 @@ export abstract class OpenaiCommonCollector extends WebCollector {
         }
 
         // Wait for password field
-        const passwordField = await driver.getElement(OpenaiSelectors.FIELD_PASSWORD, { raiseException: false });
+        const passwordField = await driver.getElement(OpenaiSelectors.FIELD_PASSWORD, { raiseException: false, timeout: 100 });
         if (passwordField) {
             // Input password if displayed
             await passwordField.inputText(params.password);
