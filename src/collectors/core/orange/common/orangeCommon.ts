@@ -35,14 +35,18 @@ export abstract class OrangeCommonCollector extends WebCollector {
         // Select password authentication if multiple options are available
         await driver.leftClick(OrangeCommonSelectors.BUTTON_PASSWORD_OPTION, { raiseException: false, timeout: 2000 });
 
-        // Input password
-        await driver.inputText(OrangeCommonSelectors.FIELD_PASSWORD, params.password);
-        await driver.leftClick(OrangeCommonSelectors.BUTTON_SUBMIT);
-    
-        // Check if password is incorrect
-        const password_alert = await driver.getElement(OrangeCommonSelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
-        if (password_alert) {
-            return await password_alert.textContent("i18n.collectors.all.password.error");
+        // If password input is displayed
+        const passwordInput = await driver.getElement(OrangeCommonSelectors.FIELD_PASSWORD, { raiseException: false, timeout: 1000 });
+        if(passwordInput) {
+            // Input password
+            await passwordInput.inputText(params.password);
+            await driver.leftClick(OrangeCommonSelectors.BUTTON_SUBMIT);
+        
+            // Check if password is incorrect
+            const password_alert = await driver.getElement(OrangeCommonSelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
+            if (password_alert) {
+                return await password_alert.textContent("i18n.collectors.all.password.error");
+            }
         }
 
         // Skip 2FA proposal if displayed
