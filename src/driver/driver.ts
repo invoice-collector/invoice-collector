@@ -734,7 +734,7 @@ export class Element {
      * @returns A promise that resolves to the text content of the element, or the default value if the element's text content is null.
      */
     async textContent(_default: string): Promise<string> {
-        return this.element.evaluate(el => el.textContent ?? _default);
+        return await this.element.evaluate(el => el.textContent) || _default;
     }
 
     async leftClick({
