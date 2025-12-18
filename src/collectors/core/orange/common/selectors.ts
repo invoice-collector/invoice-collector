@@ -51,5 +51,9 @@ export const OrangeCommonSelectors = {
     BUTTON_AUTHENTICATE_MOBILE_CONNECT: {
         selector: "#btnSubmit[data-testid='submit-mc']",
         info: "mobile connect button"
+    },
+    CONTAINER_MOBILE_CONNECT_INSTRUCTION: {
+        selector: ".text-start",
+        info: "mobile connect instruction container"
     }
 }

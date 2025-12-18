@@ -2,6 +2,7 @@ import { WebCollector } from '../../../../collectors/web2Collector';
 import { OrangeCommonSelectors } from './selectors';
 import { Driver, } from '../../../../driver/driver';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
+import { TwofaPromise } from '../../../../collect/twofaPromise';
 
 export abstract class OrangeCommonCollector extends WebCollector {
 
@@ -53,8 +54,13 @@ export abstract class OrangeCommonCollector extends WebCollector {
         if(driver.url().includes("mobile-connect")){
             // Click on "Authenticate with Mobile Connect" button
             await driver.leftClick(OrangeCommonSelectors.BUTTON_AUTHENTICATE_MOBILE_CONNECT);
-
-            // TODO, return 2FA instructions
+            // Return instruction text
+            return await driver.getAttribute(OrangeCommonSelectors.CONTAINER_MOBILE_CONNECT_INSTRUCTION, "textContent");
         }
+    }
+
+    async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
+        // Get code from UI
+        const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
     }
 }
