@@ -1,18 +1,17 @@
-import { WebCollector } from '../../../collectors/web2Collector';
 import { OrangeSelectors } from './selectors';
-import { Driver, Element } from '../../../driver/driver';
-import { CollectorCaptcha, CollectorType, DownloadedInvoice, Invoice } from '../../../collectors/abstractCollector';
-import * as utils from '../../../utils';
-import { AuthenticationError } from '../../../error';
-import { WebSocketServer } from '../../../websocket/webSocketServer';
+import { Driver, Element } from '../../../../driver/driver';
+import { CollectorCaptcha, CollectorType, Invoice } from '../../../../collectors/abstractCollector';
+import * as utils from '../../../../utils';
+import { AuthenticationError } from '../../../../error';
+import { OrangeCommonCollector } from '../common/orangeCommon';
 
-export class OrangeCollector extends WebCollector {
+export class OrangeCollector extends OrangeCommonCollector {
 
     static CONFIG = {
         id: "orange",
         name: "Orange",
         description: "i18n.collectors.orange.description",
-        version: "22",
+        version: "23",
         website: "https://www.orange.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/c/c8/Orange_logo.svg",
         type: CollectorType.WEB,
@@ -41,49 +40,6 @@ export class OrangeCollector extends WebCollector {
         super(OrangeCollector.CONFIG);
     }
 
-    async needLogin(driver: Driver): Promise<boolean> {
-        return driver.url().includes("login.orange");
-    }
-
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
-        // Refuse cookies
-        await driver.leftClick(OrangeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 5000});
-
-        // If login input is displayed
-        const emailInput = await driver.getElement(OrangeSelectors.FIELD_EMAIL, { raiseException: false, timeout: 2000 });
-        if (emailInput) {
-            // Input email
-            await emailInput.inputText(params.id);
-            await driver.leftClick(OrangeSelectors.BUTTON_CONTINUE);
-        
-            // Check if email is incorrect
-            const email_alert = await driver.getElement(OrangeSelectors.CONTAINER_LOGIN_ALERT, { raiseException: false, timeout: 2000 });
-            if (email_alert) {
-                return await email_alert.textContent("i18n.collectors.all.email_or_number.error");
-            }
-
-            // If id exists but no account associated
-            if (driver.url().includes("mdp/choice/default") || driver.url().includes("promo/custom-login")) {
-                return "i18n.collectors.all.signup.error";
-            }
-        }
-
-        // Select password authentication if multiple options are available
-        await driver.leftClick(OrangeSelectors.BUTTON_PASSWORD_OPTION, { raiseException: false, timeout: 2000 });
-
-        // Input password
-        await driver.inputText(OrangeSelectors.FIELD_PASSWORD, params.password);
-        await driver.leftClick(OrangeSelectors.BUTTON_SUBMIT);
-    
-        // Check if password is incorrect
-        const password_alert = await driver.getElement(OrangeSelectors.CONTAINER_PASSWORD_ALERT, { raiseException: false, timeout: 2000 });
-        if (password_alert) {
-            return await password_alert.textContent("i18n.collectors.all.password.error");
-        }
-
-        // Skip 2FA proposal if displayed
-        await driver.leftClick(OrangeSelectors.BUTTON_SKIP_2FA, { raiseException: false, timeout: 2000 });
-    }
     async navigate(driver: Driver, params: any): Promise<void> {
         // Refuse cookies
         await driver.leftClick(OrangeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 2000});
