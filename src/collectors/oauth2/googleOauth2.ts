@@ -47,7 +47,9 @@ export class GoogleOauth2 {
     }
 
     static async twofa(driver: Driver, params: any, twofa_promise: TwofaPromise, webSocketServer: WebSocketServer): Promise<string | void> {
-        // Get code from UI
-        const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+        if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/challenge")) {
+            // Get code from UI
+            const code = await Promise.race([twofa_promise.code(), webSocketServer.getTwofa()]);
+        }
     }
 }
