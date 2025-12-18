@@ -55,7 +55,7 @@ export abstract class OrangeCommonCollector extends WebCollector {
             // Click on "Authenticate with Mobile Connect" button
             await driver.leftClick(OrangeCommonSelectors.BUTTON_AUTHENTICATE_MOBILE_CONNECT);
             // Return instruction text
-            return await driver.getAttribute(OrangeCommonSelectors.CONTAINER_MOBILE_CONNECT_INSTRUCTION, "textContent");
+            return driver.getAttribute(OrangeCommonSelectors.CONTAINER_MOBILE_CONNECT_INSTRUCTION, "textContent");
         }
     }
 
