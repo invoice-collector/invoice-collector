@@ -48,4 +48,13 @@ export abstract class OrangeCommonCollector extends WebCollector {
         // Skip 2FA proposal if displayed
         await driver.leftClick(OrangeCommonSelectors.BUTTON_SKIP_2FA, { raiseException: false, timeout: 2000 });
     }
+
+    async needTwofa(driver: Driver): Promise<string | void>{
+        if(driver.url().includes("mobile-connect")){
+            // Click on "Authenticate with Mobile Connect" button
+            await driver.leftClick(OrangeCommonSelectors.BUTTON_AUTHENTICATE_MOBILE_CONNECT);
+
+            // TODO, return 2FA instructions
+        }
+    }
 }

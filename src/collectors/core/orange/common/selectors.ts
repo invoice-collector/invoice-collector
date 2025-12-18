@@ -44,5 +44,12 @@ export const OrangeCommonSelectors = {
     BUTTON_SKIP_2FA: {
         selector: "button[data-testid='link-aba-later']",
         info: "skip 2FA button"
+    },
+
+    // NEED2FA
+
+    BUTTON_AUTHENTICATE_MOBILE_CONNECT: {
+        selector: "#btnSubmit[data-testid='submit-mc']",
+        info: "mobile connect button"
     }
 }
