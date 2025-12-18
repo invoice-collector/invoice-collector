@@ -22,7 +22,7 @@ export class GoogleOauth2 {
     static async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/identifier")) {
             // Click next button
-            await driver.leftClick(GoogleOauth2Selectors.BUTTON_LOGIN_NEXT, { navigation: false });
+            await driver.leftClick(GoogleOauth2Selectors.BUTTON_LOGIN_NEXT, { navigation: false, delay: 2000 });
 
             // Input password and click next
             await driver.inputText(GoogleOauth2Selectors.INPUT_PASSWORD, params.password);
