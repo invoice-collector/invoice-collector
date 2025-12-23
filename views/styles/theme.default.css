@@ -1243,6 +1243,10 @@ body {
   cursor: not-allowed;
 }
 
+.ic-datepicker-month-year {
+  display: none;
+}
+
 /* Month/Year Select Dropdowns */
 .ic-datepicker-month-year-select {
   flex: 1;
