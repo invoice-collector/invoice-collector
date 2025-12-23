@@ -77,10 +77,10 @@ export abstract class OpenaiCommonCollector extends WebCollector {
 
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Open invoice in new tab
-        const newPage = await invoice.downloadButton.middleClick();
+        await invoice.downloadButton.middleClick();
         // Download PDF
-        await newPage.leftClick(OpenaiSelectors.BUTTON_DOWNLOAD);
+        await driver.leftClick(OpenaiSelectors.BUTTON_DOWNLOAD);
         // Return downloaded file
-        return [await this.download_from_file(newPage)];
+        return [await this.download_from_file(driver)];
     }
 }

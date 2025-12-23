@@ -111,6 +111,25 @@ export class Driver {
 
         // Clear download folder
         this.clearDownloadFolder();
+
+        // Listen for new page and update page
+        this.browser.on('targetcreated', async (target) => {
+            const newPage = await target.page();
+            if (newPage && this.page !== newPage) {
+                this.page = newPage;
+            }
+        });
+
+        // Listen for closed page and update page
+        this.browser.on('targetdestroyed', async (target) => {
+            const closedPage = await target.page();
+            if (closedPage && this.page === closedPage) {
+                const pages = await this.pages();
+                if(pages.length > 0) {
+                    this.page = pages[pages.length - 1];
+                }
+            }
+        });
     }
 
     async close() {
@@ -141,16 +160,14 @@ export class Driver {
     }
 
     async closeExtraPages(): Promise<void> {
-        const pages = await this.pages();
-        // If has more than one page
-        if(pages.length > 1) {
-            // Close all pages except the main one
-            for (const page of pages) {
-                if (page !== this.page) {
-                    await page.close();
-                }
-            }
-        }
+        // Get all pages
+        let pages = await this.pages();
+        // Remove the first page
+        pages.shift();
+        // Close all other pages
+        pages.forEach(async page => {
+            await page.close();
+        });
     }
 
     async goBack(): Promise<void> {
@@ -158,7 +175,7 @@ export class Driver {
             throw new Error('Page is not initialized.');
         }
         try {
-            // Navigate to PREVIOUS page
+            // Navigate to previous page
             await this.page.goBack({ waitUntil: 'networkidle0', timeout: Driver.DEFAULT_NAVIGATION_TIMEOUT });
         } catch (error) {
             console.warn(`Failed to navigate to previous page, navigation timeout`);
@@ -749,8 +766,7 @@ export class Element {
         }
     }
 
-    async middleClick(): Promise<Driver> {
-        const baseUrl = new URL(this.driver.url() || "").origin;
+    async middleClick(): Promise<void> {
         // Get number of opened pages before middle click
         const numberOfPagesBefore = (await this.driver.pages()).length;
         // Perform middle click
@@ -759,71 +775,22 @@ export class Element {
         await utils.delay(5000);
         // Get number of opened pages after middle click
         const pages = await this.driver.pages();
-        let newPage: Page;
-
+        // Get number of opened pages after middle click
         const numberOfPagesAfter = pages.length;
         // If no new page opened
-        let driver: Driver;
         if (numberOfPagesAfter == numberOfPagesBefore) {
-            /*await this.driver.page?.keyboard.press('Escape'); // Close context menu after middle click failed
-            await this.driver.page?.setRequestInterception(true);
-            let handler;
-            const urlPromise = new Promise<string>((resolve, reject) => {
-                setTimeout(() => reject(new Error(`Unable to intercept request for middle click`)), 10000);
-                handler = (request) => {
-                    if (
-                        !request.isInterceptResolutionHandled() &&
-                        request.url().includes(baseUrl) &&
-                        request.resourceType() === 'document' &&
-                        request.method() === 'GET'
-                    ) {
-                        request.abort('aborted', 5);
-                        resolve(request.url());
-                    }
-                };
-                this.driver.page?.on('request', handler);
-            });
-            // Perform simple click to intercept URL
-            await this.element.click();
-            // Wait for the intercepted URL
-            const interceptedUrl = await urlPromise;*/
-
-            if (!this.driver.browser) {
-                throw new Error('Browser is not initialized.');
-            }
-
-            newPage = await this.driver.browser.newPage();
-            await newPage.bringToFront();
-
-            driver = new Driver(this.driver.collector);
-            driver.browser = this.driver.browser;
-            driver.page = newPage;
-            driver.downloadPath = this.driver.downloadPath;
-            driver.puppeteerConfig = this.driver.puppeteerConfig;
-
-            await driver.goto(this.driver.url());
-
-            // Remove request handler
-            //this.driver.page?.off('request', handler);
-
-            await driver.leftClick({
+            // Get current url
+            const currentUrl = this.driver.url();
+            // Open new page
+            await this.driver.browser?.newPage();
+            // Navigate to current url
+            await this.driver.goto(currentUrl);
+            // Click on the element again
+            await this.driver.leftClick({
                 selector: await this.cssSelector(),
                 info: ""
             });
         }
-        else {
-            // Bring latest page to front
-            newPage = pages[pages.length - 1];
-            await newPage.bringToFront();
-
-            driver = new Driver(this.driver.collector);
-            driver.browser = this.driver.browser;
-            driver.page = newPage;
-            driver.downloadPath = this.driver.downloadPath;
-            driver.puppeteerConfig = this.driver.puppeteerConfig;
-        }
-
-        return driver;
     }
 
     async inputText(text: string, {
@@ -870,19 +837,10 @@ export class Element {
     async cssSelector(): Promise<string> {
         return await this.element.evaluate(element => {
             function getCssSelector(element): string {
-                /*if (element.id) {
-                    return `#${element.id}`;
-                }*/
                 if (element === document.body) {
                     return 'body';
                 }
                 let selector = element.tagName.toLowerCase();
-                /*if (element.className && typeof element.className === 'string') {
-                    const classes = element.className.trim().split(/\s+/).filter(Boolean);
-                    if (classes.length) {
-                        selector += '.' + classes.join('.');
-                    }
-                }*/
                 let sibling = element;
                 let nth = 1;
                 while ((sibling = sibling.previousElementSibling)) {

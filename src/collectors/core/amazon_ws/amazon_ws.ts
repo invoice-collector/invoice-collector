@@ -13,7 +13,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon_ws",
         name: "Amazon (.fr) - No credentials",
         description: "i18n.collectors.amazon.description",
-        version: "24",
+        version: "25",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -91,21 +91,21 @@ export class AmazonCollector extends WebCollector {
         const origin = driver.origin();
 
         // Open invoice link
-        const newPage: Driver = await invoice.downloadButton.middleClick();
+        await invoice.downloadButton.middleClick();
 
         // Get order link
-        const orderLink = await newPage.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
+        const orderLink = await driver.getAttribute(AmazonSelectors.CONTAINER_ORDER_LINK, "href");
 
         // Get invoices link
-        const invoicesLink = await newPage.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
+        const invoicesLink = await driver.getAttributes(AmazonSelectors.CONTAINER_INVOICES, "href", { raiseException: false, timeout: 100 });
 
         // Download invoices
         for (const invoiceLink of invoicesLink) {
-            documents.push(await this.download_link(newPage, origin + invoiceLink));
+            documents.push(await this.download_link(driver, origin + invoiceLink));
         }
 
         // Download order
-        documents.unshift(await this.download_webpage(newPage, origin + orderLink));
+        documents.unshift(await this.download_webpage(driver, origin + orderLink));
 
         return documents;
     }

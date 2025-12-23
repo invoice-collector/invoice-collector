@@ -139,8 +139,8 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
         let element: Element = context.element || await this.getElement(context.driver);
         
         try {
-            // Perform middle click and replace the driver
-            context.driver = await element.middleClick();
+            // Perform middle click
+            await element.middleClick();
         } catch (error) {
             // If error occurs, it may be because middle click is not supported and a simple click was already performed
         }
