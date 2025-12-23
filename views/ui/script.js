@@ -634,18 +634,13 @@ async function showProgress(credential_id, wsPath) {
         const parsedData = JSON.parse(event.data);
         
         if (parsedData.type === 'screenshot') {
-            const arrayBuffer = Uint8Array.from(atob(parsedData.screenshot), c => c.charCodeAt(0)).buffer;
-            const blob = new Blob([new Uint8Array(arrayBuffer)], { type: 'image/png' });
-            const url = URL.createObjectURL(blob);
             const img = new Image();
-            
+            img.src = `data:image/png;base64,${parsedData.screenshot}`;
             img.onload = function() {
                 const canvas = document.getElementById('canvas');
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                URL.revokeObjectURL(url);
             };
-            img.src = url;
             
             if (!finished) {
                 containerCanvas.hidden = false;
