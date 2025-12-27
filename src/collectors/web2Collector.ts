@@ -35,7 +35,6 @@ export enum DocumentStrategy {
 export abstract class WebCollector extends V2Collector<WebConfig> {
 
     static LOGIN_TIMEOUT_MS = 10 * 60 * 1000; // 10 minutes
-    static CHECK_PAGE_INTERVAL_MS = 1000; // 1 second
     static SCREENSHOT_INTERVAL_MS = 50; // 50 ms
     static DEFAULT_DOCUMENT_STRATEGY = DocumentStrategy.SPLIT;
 
@@ -307,23 +306,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 reject(new AuthenticationError('i18n.collectors.all.login.timeout', this))
             }, WebCollector.LOGIN_TIMEOUT_MS)
 
-            // Check every second if a new page has been opened
-            checkPageInterval = setInterval(async () => {
-                driver.pages().then(pages => {
-                    if (pages.length === 0) {
-                        reject(new LoggableError("No pages available in the browser", this));
-                    }
-                    else {
-                        const lastPage = pages[pages.length - 1];
-                        // If page has changed
-                        if (driver.page != lastPage) {
-                            // Update driver's page
-                            driver.page = lastPage;
-                        }
-                    }
-                });
-            }, WebCollector.CHECK_PAGE_INTERVAL_MS);
-
             // Take screenshot and send it to the client every 50 ms
             screenshotInterval = setInterval(async () => {
                 try {
@@ -372,7 +354,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         try {
             await promise;
         } finally {
-            clearInterval(checkPageInterval);
             clearInterval(screenshotInterval);
         }
     }
