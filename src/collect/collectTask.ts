@@ -55,7 +55,7 @@ export class CollectTask {
 
     public start() {
         this.job.start();
-        console.log('Collect Task started! Invoice collection will be performed every hour.');
+        console.log('Collect Task started!');
     }
 
     public stop() {
