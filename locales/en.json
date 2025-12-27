@@ -3085,6 +3085,7 @@
   "i18n.collectors.free.identifier.placeholder": "Identifier of the account (ex: fbx12345670)",
   "i18n.collectors.free2move.description": "A mobility service offering car-sharing, rentals, and more for flexible urban travel.",
   "i18n.collectors.free2move_business.description": "A mobility service offering flexible and sustainable solutions for businesses to manage their fleets and employee travel.",
+  "i18n.collectors.free_pro.identifier.placeholder": "Email or identifier of the account",
   "i18n.collectors.freeagent.description": "A cloud-based accounting software designed for freelancers, contractors, and small businesses.",
   "i18n.collectors.freedom_mobile.description": "A Canadian wireless carrier offering affordable mobile plans and nationwide coverage.",
   "i18n.collectors.freeeup.description": "A time-tracking and freelancer management platform for remote teams.",
