@@ -207,6 +207,10 @@ function getHashFromSecret(secret: Secret): string {
                     }
                 }
                 else if(parsedData.type == "state" && parsedData.state.index == 3) {
+                    // Wait until main thread is waiting for twofa code
+                    while (webSocketServer.onTwofa == undefined) {
+                        await utils.delay(1000);
+                    }
                     const twofa_code = prompt(`${parsedData.state.message}: `).trim();
                     webSocketClient.send(JSON.stringify({ type: 'twofa', twofa: twofa_code }));
                 }
