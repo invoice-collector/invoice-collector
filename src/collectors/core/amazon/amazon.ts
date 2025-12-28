@@ -8,13 +8,15 @@ import { WebSocketServer } from '../../../websocket/webSocketServer';
 
 export class AmazonCollector extends WebCollector {
 
+    private language: string;
+
     static TWO_DAYS_IN_MS = 2 * 24 * 60 * 60 * 1000;
 
     static CONFIG = {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "30",
+        version: "31",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -64,6 +66,7 @@ export class AmazonCollector extends WebCollector {
 
     constructor() {
         super(AmazonCollector.CONFIG);
+        this.language = 'en';
     }
 
     async needLogin(driver: Driver): Promise<boolean> {
@@ -141,8 +144,8 @@ export class AmazonCollector extends WebCollector {
     }
 
     async navigate(driver: Driver, params: any): Promise<void>{
-        // Wait for UI language element
-        await driver.getElement(AmazonSelectors.CONTAINER_LANGUAGE);
+        // Get UI language element
+        this.language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
     }
 
     async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
@@ -177,10 +180,9 @@ export class AmazonCollector extends WebCollector {
     }
 
     async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
-        // Get UI language
-        const language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
+        // Get timestamp
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
-        const timestamp = timestampFromString(date, 'd MMMM yyyy', language);
+        const timestamp = timestampFromString(date, 'd MMMM yyyy', this.language);
 
         // Cancel invoice if more recent than 2 days
         if (timestamp > Date.now() - AmazonCollector.TWO_DAYS_IN_MS){
