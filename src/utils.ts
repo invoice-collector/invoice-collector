@@ -34,7 +34,12 @@ export function randomDelay(min: number=200, max: number=400): Promise<void> {
     });
 }
 
-export function timestampFromString(date: string, format: string, locale: string): number {
+export function timestampFromString(date: string, formats: string | string[], locale: string): number {
+    // If format is a string, convert to array
+    if (typeof formats === 'string') {
+        formats = [formats];
+    }
+
     const fnsLocales = {
         fr: fr,
         uk: enGB,
@@ -44,21 +49,23 @@ export function timestampFromString(date: string, format: string, locale: string
         enus: enUS,
     };
 
-    const dateFnsLocale = fnsLocales[trim(locale).toLowerCase()];
-    let parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: dateFnsLocale });
+    const locales = [fnsLocales[trim(locale).toLowerCase()], enUS];
 
-    // Check if parsing failed
-    if (isNaN(parsedDate.getTime())) {
-        // Try to do it with default locale
-        parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: enUS });
-    
-        // Check if parsing failed again
-        if (isNaN(parsedDate.getTime())) {
-            throw new Error(`Unable to parse date: ${date} with format: ${format} and locale: ${locale}`);
+    // For each locale
+    for (const dateFnsLocale of locales) {
+        // For each format
+        for (const format of formats) {
+            // Try to parse date
+            let parsedDate = date_fns.parse(date.trim(), format, new Date(Date.UTC(1970, 0, 1)), { locale: dateFnsLocale });
+
+            // Check if parsing succeeded
+            if (!isNaN(parsedDate.getTime())) {
+                return parsedDate.setUTCMilliseconds(0);
+            }
         }
     }
-
-    return parsedDate.setUTCMilliseconds(0);
+    // Raise error if no format matched
+    throw new Error(`Unable to parse date: ${date} with formats: ${formats} and locale: ${locale}`);
 }
 
 export function mimetypeFromBase64(base64: string | null): string {
