@@ -226,6 +226,7 @@ export class AmazonCollector extends WebCollector {
 
         // Download order
         //documents.unshift(await this.download_webpage(driver, origin + orderLink));
+
         return documents;
     }
 }
