@@ -268,23 +268,14 @@ export class Driver {
         return data;
     }
 
-    async newPage(url: string): Promise<Driver> {
+    async newPage(url: string): Promise<void> {
         if (this.page === null) {
             throw new Error('Page is not initialized.');
         }
         // Create new page
-        const newPage = await this.page.browser().newPage();
-
-        // Create new driver
-        const driver = new Driver(this.collector);
-        driver.browser = this.browser;
-        driver.page = newPage;
-        driver.downloadPath = this.downloadPath;
-        driver.puppeteerConfig = this.puppeteerConfig;
-
+        await this.page.browser().newPage();
         // Navigate to URL
-        await driver.goto(url);
-        return driver;
+        await this.goto(url);
     }
 
     // WAIT

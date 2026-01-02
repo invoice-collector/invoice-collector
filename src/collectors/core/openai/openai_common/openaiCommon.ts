@@ -79,7 +79,7 @@ export abstract class OpenaiCommonCollector extends WebCollector {
         // Open invoice in new tab
         await invoice.downloadButton.middleClick();
         // Download PDF
-        await driver.leftClick(OpenaiSelectors.BUTTON_DOWNLOAD);
+        await driver.leftClick(OpenaiSelectors.BUTTON_DOWNLOAD, { navigation: false });
         // Return downloaded file
         return [await this.download_from_file(driver)];
     }

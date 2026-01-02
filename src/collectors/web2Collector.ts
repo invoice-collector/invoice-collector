@@ -1,6 +1,6 @@
 import { Invoice, CompleteInvoice, CollectorType, CollectorCaptcha, CollectorState, Config } from "./abstractCollector";
 import { Driver, Element } from '../driver/driver';
-import { AuthenticationError, CollectorError, LoggableError, NoInvoiceFoundError } from '../error';
+import { AuthenticationError, CollectorError, DisconnectedError, LoggableError, NoInvoiceFoundError } from '../error';
 import { ProxyFactory } from '../proxy/proxyFactory';
 import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
@@ -126,9 +126,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
             // If 2fa is required
             if (needTwofa) {
+                console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
+
                 // If the webSocketServer is undefined, it means that the session has expired
                 if (!webSocketServer) {
-                    throw new AuthenticationError('i18n.collectors.all.login.expired', this);
+                    throw new DisconnectedError(this);
                 }
 
                 // Set progress step to 2fa waiting
@@ -138,7 +140,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 // Set instructions for UI
                 await twofa_promise.setInstructions(needTwofa);
 
-                console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
                 const twofa_error = await GoogleOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
                     await MicrosoftOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
                     await this.twofa(driver, secret.params, twofa_promise, webSocketServer);
@@ -295,7 +296,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     protected async interactiveLogin(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
         // If login is called with a WebSocketServer to undefined, it means that the session has expired
         if (!webSocketServer) {
-            throw new AuthenticationError('i18n.collectors.all.login.expired', this);
+            throw new DisconnectedError(this);
         }
 
         let checkPageInterval: NodeJS.Timeout | undefined, screenshotInterval: NodeJS.Timeout | undefined;

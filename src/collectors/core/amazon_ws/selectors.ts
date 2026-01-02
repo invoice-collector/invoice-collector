@@ -86,6 +86,10 @@ export const AmazonSelectors = {
         selector: ".a-pagination li.a-normal a",
         info: "other page button"
     },
+    CONTAINER_NO_ORDERS: {
+        selector: ".your-orders-content-container__content > div.a-row.a-spacing-extra-large > div.a-section",
+        info: "no orders container"
+    },
     CONTAINER_ORDER: {
         selector: ".order-card .order-header:has(li.yohtmlc-order-level-connections a):has(.a-col-left div.a-column:nth-child(2) div:last-of-type span)",
         info: "order container"
