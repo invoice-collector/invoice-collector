@@ -1,7 +1,7 @@
 import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
-import { AuthenticationError, DesynchronizationError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
+import { AuthenticationError, DesynchronizationError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
@@ -168,23 +168,28 @@ export class Collect {
                     credential.next_collect_timestamp = credential.last_collect_timestamp + IcCredential.ONE_DAY_MS;
                 }
             }
-            else if (err instanceof AuthenticationError) {
+            else if (err instanceof AuthenticationError || err instanceof DisconnectedError) {
                 console.warn(`Invoice collection for credential ${this.credential_id} has failed: ${err.message}`);
                 // If credential exists
                 if (credential && user && customer) {
-                    // If error occurs and previous collect was successful, update state to disconnected
+                    // If error occurs and previous collect was successful, send notification
                     if (credential.state.index >= credential.state.max) {
                         // Send disconnected notification to callback
                         const callback = new CallbackHandler(customer);
                         await callback.sendNotificationDisconnected(credential.collector_id, credential.id, user.id, user.remote_id);
-                        // Update credential to disconnected
-                        credential.state.update(State._2_DISCONNECTED);
-                        this.webSocketServer?.sendState(State._2_DISCONNECTED);
                     }
-                    else {
+
+                    // If authentication error
+                    if (err instanceof AuthenticationError) {
                         // Update credential to error
                         credential.state.update(State._1_ERROR, err.message);
                         this.webSocketServer?.sendState(State._1_ERROR, err.message);
+                    }
+                    // If disconnected error
+                    else {
+                        // Update credential to disconnected
+                        credential.state.update(State._2_DISCONNECTED);
+                        this.webSocketServer?.sendState(State._2_DISCONNECTED);
                     }
 
                     // Update last collect

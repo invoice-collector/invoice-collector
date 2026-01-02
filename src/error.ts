@@ -98,6 +98,17 @@ export class AuthenticationError extends CollectorError {
     }
 }
 
+export class DisconnectedError extends CollectorError {
+    constructor(collector: AbstractCollector<Config>, opts = {}) {
+        super(
+            'i18n.collectors.all.login.expired',
+            collector,
+            opts
+        );
+        this.name = this.constructor.name;
+    }
+}
+
 export class LoggableError extends CollectorError {
     url: string;
     source_code: string;
