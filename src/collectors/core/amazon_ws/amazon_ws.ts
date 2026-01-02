@@ -15,7 +15,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon_ws",
         name: "Amazon (.fr) - No credentials",
         description: "i18n.collectors.amazon.description",
-        version: "27",
+        version: "28",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -116,7 +116,7 @@ export class AmazonCollector extends WebCollector {
         }
 
         // Download order
-        documents.unshift(await this.download_webpage(driver, origin + orderLink));
+        //documents.unshift(await this.download_webpage(driver, origin + orderLink));
 
         return documents;
     }
