@@ -12,7 +12,7 @@ export class LeroyMerlinCollector extends WebCollector {
         id: "leroy_merlin",
         name: "Leroy Merlin",
         description: "i18n.collectors.leroy_merlin.description",
-        version: "20",
+        version: "21",
         website: "https://www.leroymerlin.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/a/a4/Leroy_Merlin_-_logo_%28France%2C_1995-%29.svg",
         type: CollectorType.WEB,
@@ -138,10 +138,24 @@ export class LeroyMerlinCollector extends WebCollector {
     async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
         // Open details in a new page
         await invoice.downloadButton.middleClick();
+
+        // Click on download invoices
+        const downloadInvoicesButton = await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD_INVOICES, { navigation: false, raiseException: false, timeout: 1000 });
+        // If button is not visible, click on the regular download button
+        if (!downloadInvoicesButton) {
+            await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD, { navigation: false });
+        }
+
         // If the order is from a third party provider, clicking on the button will ask leroy merlin to request the invoice from the provider.
-        // It can take few hours for the invoice to be available.
+        // It can take few days for the invoice to be available and an error message is displayed on screen
         // Next time the button will be clicked, the invoice will be effectively downloaded.
-        await driver.leftClick(LeroyMerlinSelectors.BUTTON_DOWNLOAD, { navigation: false });
+
+        // If error is displayed on screen, return empty array
+        const downloadError = await driver.getElement(LeroyMerlinSelectors.CONTAINER_DOWNLOAD_ERROR, { raiseException: false, timeout: 1000 });
+        if (downloadError) {
+            return [];
+        }
+
         // Return downloaded file
         return [await this.download_from_file(driver)];
     }

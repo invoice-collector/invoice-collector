@@ -76,6 +76,9 @@ export const LeroyMerlinSelectors = {
         selector: ".order-summary__total-amount",
         info: "order amount container"
     },
+
+    // DOWNLOAD
+
     BUTTON_ORDER_DETAILS: {
         selector: "button.order-summary__link",
         info: "order details button"
@@ -83,5 +86,13 @@ export const LeroyMerlinSelectors = {
     BUTTON_DOWNLOAD: {
         selector: "#download-button",
         info: "download button"
+    },
+    BUTTON_DOWNLOAD_INVOICES: {
+        selector: "#invoices-download-button",
+        info: "invoices download button"
+    },
+    CONTAINER_DOWNLOAD_ERROR: {
+        selector: ".mc-notification__content .mc-notification__message",
+        info: "download error container"
     }
 }
