@@ -64,6 +64,7 @@ export class Driver {
     page: Page | null;
     downloadPath: string;
     puppeteerConfig: Options;
+    downloadedFile: string | null = null;
 
     constructor(collector: OldWebCollector | WebCollector) {
         this.collector = collector;
@@ -128,6 +129,22 @@ export class Driver {
                 if(pages.length > 0) {
                     this.page = pages[pages.length - 1];
                 }
+            }
+        });
+
+        let inProgressFile: string;
+        const client = await this.page.createCDPSession();
+        await client.send('Browser.setDownloadBehavior', {
+            behavior: 'allow',
+            eventsEnabled: true,
+            downloadPath: this.downloadPath,
+        });
+        client.on('Browser.downloadWillBegin', async (e1) => {
+            inProgressFile = path.join(this.downloadPath, e1.suggestedFilename);
+        });
+        client.on('Browser.downloadProgress', async (e2) => {
+            if (e2.state === 'completed') {
+                this.downloadedFile = inProgressFile;
             }
         });
     }
@@ -572,10 +589,9 @@ export class Driver {
     }
 
     async waitForFileToDownload(raiseException: boolean = true): Promise<string> {
-        // Wait for file to download
+        // Wait for file to be downloaded
         const file = await this.waitFor(async (driver) => {
-            const files = fs.readdirSync(this.downloadPath).filter(file => !file.endsWith('.crdownload'));
-            return files.length > 0 ? files[0] : null;
+            return this.downloadedFile != null ? this.downloadedFile : null;
         }, `No file downloaded after ${Driver.DEFAULT_TIMEOUT}ms`,
         raiseException,
         Driver.DEFAULT_DOWNLOAD_TIMEOUT);
@@ -599,6 +615,8 @@ export class Driver {
     }
 
     clearDownloadFolder(): void {
+        // Remove download file
+        this.downloadedFile = null;
         // Remove all files in the download folder
         if (fs.existsSync(this.downloadPath)) {
             fs.readdirSync(this.downloadPath).forEach(async file => {
