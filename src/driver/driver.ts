@@ -236,14 +236,6 @@ export class Driver {
                 console.warn(`Failed to navigate to ${url}, navigation timeout`);
             }
 
-            // Check if response is 404
-            if (response && response.status() == 404) {
-                const error = new LoggableError(`Failed to navigate to ${url}, page not found 404`, this.collector);
-                error.url = url;
-                error.source_code = await this.sourceCode(true, true);
-                error.screenshot = await this.screenshot();
-                throw error;
-            }
             return {requestBody: null, responseBody: null};
         }
     }
