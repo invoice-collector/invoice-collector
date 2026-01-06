@@ -24,6 +24,7 @@ export enum CollectorCaptcha {
     NONE = 'none',
     DATADOME = 'datadome',
     CLOUDFLARE = 'cloudflare',
+    RECAPTCHA = 'recaptcha',
     OTHER = 'other'
 }
 
