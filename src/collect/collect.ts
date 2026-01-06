@@ -11,6 +11,7 @@ import { Secret } from "../secret_manager/abstractSecretManager";
 import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { TwofaPromise } from "./twofaPromise";
 import { WebSocketServer } from '../websocket/webSocketServer';
+import * as utils from "../utils";
 
 export class Collect {
 
@@ -98,6 +99,9 @@ export class Collect {
 
                                 // Add invoice to credential only if callback successfully reached
                                 credential.addInvoice(invoice);
+
+                                // Wait 1 second between each callback to avoid overwhelming the callback server
+                                await utils.delay(1000);
                             } catch (error) {
                                 console.error(error);
                             }
