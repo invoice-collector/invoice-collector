@@ -9,8 +9,13 @@ import { CompleteInvoice } from './collectors/abstractCollector';
 
 const FAKE_INVOICE_FILE = path.resolve(__dirname, '../data/fake_invoice.pdf');
 
-export function generate_bearer(size=128): string {
-    return crypto.randomBytes(size).toString('base64');
+export enum BearerType {
+    SESSION = "sess",
+    API = "api"
+}
+
+export function generate_bearer(type: BearerType, size=128): string {
+    return `${type}_${crypto.randomBytes(size).toString('base64')}`;
 }
 
 export function generate_token(size=64): string {

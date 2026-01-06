@@ -159,8 +159,8 @@ export class Server {
             throw new StatusError("Invalid credentials", 401);
         }
 
-        // Generate ui bearer token
-        const uiBearer = utils.generate_bearer();
+        // Generate session bearer token
+        const uiBearer = utils.generate_bearer(utils.BearerType.SESSION);
 
         // Compute hashed bearer
         const hashed_bearer = utils.hash_string(uiBearer);
@@ -342,8 +342,8 @@ export class Server {
         // Get customer from bearer
         const customer = await this.getCustomerFromBearer(bearer);
 
-        // Generate new bearer token
-        const newBearer = utils.generate_bearer();
+        // Generate api bearer
+        const newBearer = utils.generate_bearer(utils.BearerType.API);
 
         // Compute hashed bearer
         const hashedBearer = utils.hash_string(newBearer);

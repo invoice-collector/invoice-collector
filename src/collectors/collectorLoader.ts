@@ -53,6 +53,7 @@ export class CollectorLoader {
                             .replace("CollectorCaptcha.NONE", `"${CollectorCaptcha.NONE.toString()}"`)
                             .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
                             .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)
+                            .replace("CollectorCaptcha.RECAPTCHA", `"${CollectorCaptcha.RECAPTCHA.toString()}"`)
                             .replace("CollectorCaptcha.OTHER", `"${CollectorCaptcha.OTHER.toString()}"`)
                             .replace("CollectorType.WEB", `"${CollectorType.WEB.toString()}"`)
                             .replace("CollectorType.AGENT", `"${CollectorType.AGENT.toString()}"`)
@@ -73,7 +74,7 @@ export class CollectorLoader {
                             nbFFilesLoaded++;
                             }
                         } catch (e) {
-                            reject(new Error(`Failed to parse CONFIG in ${file}: ${e}`));
+                            reject(new Error(`Failed to parse CONFIG in ${file}`, { cause: e }));
                         }
                     }
                     else {

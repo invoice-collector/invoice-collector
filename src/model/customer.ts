@@ -51,7 +51,8 @@ export class Customer {
     }
 
     static async createDefault(): Promise<{bearer: string, customer: Customer}> {
-        const bearer = utils.generate_bearer();
+        // Generate default api bearer
+        const bearer = utils.generate_bearer(utils.BearerType.API);
         const customer = new Customer(
             Customer.DEFAULT_EMAIL,
             Customer.DEFAULT_PASSWORD,
