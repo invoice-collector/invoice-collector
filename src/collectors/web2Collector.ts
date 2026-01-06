@@ -120,9 +120,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             }
 
             // Check if 2fa is required
-            const needTwofa = await GoogleOauth2.needTwofa(driver) ||
-                await MicrosoftOauth2.needTwofa(driver) ||
-                await this.needTwofa(driver);
+            const needTwofa = await this.needTwofa(driver) ||
+                await GoogleOauth2.needTwofa(driver) ||
+                await MicrosoftOauth2.needTwofa(driver);
 
             // If 2fa is required
             if (needTwofa) {
@@ -140,9 +140,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 // Set instructions for UI
                 await twofa_promise.setInstructions(needTwofa);
 
-                const twofa_error = await GoogleOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
-                    await MicrosoftOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
-                    await this.twofa(driver, secret.params, twofa_promise, webSocketServer);
+                const twofa_error = await this.twofa(driver, secret.params, twofa_promise, webSocketServer) ||
+                    await GoogleOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
+                    await MicrosoftOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer);
 
                 // Check if 2fa error
                 if (twofa_error) {
