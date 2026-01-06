@@ -168,11 +168,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             // Get previous invoice ids
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
 
-            // Find the most recent invoice timestamp from previousInvoices
-            const mostRecentTimestamp = previousInvoices.length > 0 
-                ? Math.max(...previousInvoices.map(inv => inv.timestamp))
-                : 0;
-
             // For each page
             let invoices: CompleteInvoice[] = [];
             let firstDownload = true;
@@ -211,8 +206,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                             downloadButton: invoice.downloadButton || {}
                         }
 
-                        // If invoice is more recent or equal to most recent timestamp and id is not in previousInvoiceIds
-                        if (invoice.timestamp >= mostRecentTimestamp && !previousInvoiceIds.includes(invoice.id)){
+                        // If id is not in previous ids
+                        if (!previousInvoiceIds.includes(invoice.id)) {
                             // If invoice is more recent than the download_from_timestamp
                             if (download_from_timestamp <= invoice.timestamp) {
                                 // If this is the first invoice to download, set progress step to downloading

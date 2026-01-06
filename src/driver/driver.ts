@@ -83,7 +83,10 @@ export class Driver {
             console.log(`Do not use proxy`);
         }
 
-        this.puppeteerConfig.remoteChrome = (this.collector.config.captcha == CollectorCaptcha.DATADOME);
+        this.puppeteerConfig.remoteChrome = (
+            this.collector.config.captcha == CollectorCaptcha.DATADOME ||
+            this.collector.config.captcha == CollectorCaptcha.RECAPTCHA
+        );
 
         // Open browser and page
         const connectResult = await connect(this.puppeteerConfig);
