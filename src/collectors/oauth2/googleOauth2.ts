@@ -14,6 +14,10 @@ export const GoogleOauth2Selectors = {
         selector: "#identifierNext",
         type: "Button next"
     },
+    CONTAINER_EMAIL_ERROR: {
+        selector: "html > body > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > c-wiz > main > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form > span > section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1)",
+        type: "Button next"
+    },
     INPUT_PASSWORD: {
         selector: "input[type='password']",
         type: "Input password"
@@ -51,6 +55,12 @@ export class GoogleOauth2 {
 
             // Click next button
             await driver.leftClick(GoogleOauth2Selectors.BUTTON_LOGIN_NEXT, { navigation: false, delay: 2000 });
+
+            // Check if email error is displayed
+            const emailError = await driver.getElement(GoogleOauth2Selectors.CONTAINER_EMAIL_ERROR, { raiseException: false, timeout: 1000 });
+            if (emailError) {
+                return await emailError.textContent("i18n.collectors.all.email.error");
+            }
 
             // Input password and click next
             await driver.inputText(GoogleOauth2Selectors.INPUT_PASSWORD, params.password);
