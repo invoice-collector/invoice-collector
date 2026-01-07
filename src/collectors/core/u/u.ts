@@ -1,4 +1,4 @@
-import { WebCollector } from '../../web2Collector';
+import { WebCollector } from '../../webCollector';
 import { USelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';

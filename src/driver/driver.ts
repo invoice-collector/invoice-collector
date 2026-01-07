@@ -7,8 +7,8 @@ import { Proxy } from '../proxy/abstractProxy';
 import * as utils from '../utils';
 import { Options } from './puppeteer/browser';
 import { CollectorCaptcha } from '../collectors/abstractCollector';
-import { WebCollector as OldWebCollector} from '../collectors/web2Collector';
-import { WebCollector } from '../collectors/web2Collector';
+import { WebCollector as OldWebCollector} from '../collectors/webCollector';
+import { WebCollector } from '../collectors/webCollector';
 
 export class Driver {
 

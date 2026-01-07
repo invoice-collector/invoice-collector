@@ -1,6 +1,6 @@
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../../collectors/abstractCollector';
-import { WebCollector } from '../../../collectors/web2Collector';
+import { WebCollector } from '../../../collectors/webCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
 import { WebSocketServer } from '../../../websocket/webSocketServer';

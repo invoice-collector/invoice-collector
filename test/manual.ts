@@ -19,7 +19,7 @@ import { DatabaseFactory } from '../src/database/databaseFactory';
 import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
 import * as utils from '../src/utils';
-import { WebCollector } from '../src/collectors/web2Collector';
+import { WebCollector } from '../src/collectors/webCollector';
 import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
 import { TwofaPromise } from '../src/collect/twofaPromise';
 

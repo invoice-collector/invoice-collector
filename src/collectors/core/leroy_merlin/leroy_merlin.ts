@@ -1,4 +1,4 @@
-import { WebCollector } from '../../web2Collector';
+import { WebCollector } from '../../webCollector';
 import { LeroyMerlinSelectors } from './selectors';
 import { Driver, Element } from '../../../driver/driver';
 import { Invoice, CollectorCaptcha, CollectorType } from '../../abstractCollector';

@@ -2,7 +2,7 @@ import { OpenaiSelectors } from './selectors';
 import { Driver, Element } from '../../../../driver/driver';
 import { TwofaPromise } from '../../../../collect/twofaPromise';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
-import { WebCollector } from '../../../web2Collector';
+import { WebCollector } from '../../../webCollector';
 import { Invoice } from '../../../abstractCollector';
 
 export abstract class OpenaiCommonCollector extends WebCollector {

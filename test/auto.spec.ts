@@ -14,7 +14,7 @@ import { TwofaPromise } from '../src/collect/twofaPromise';
 import * as utils from '../src/utils';
 import { I18n } from '../src/i18n';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
-import { WebCollector } from '../src/collectors/web2Collector';
+import { WebCollector } from '../src/collectors/webCollector';
 
 const id = process.argv[4] || null;
 const ONE_MINUTE = 60 * 1000;       // 1 minute in milliseconds

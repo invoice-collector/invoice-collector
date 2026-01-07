@@ -2,7 +2,7 @@ import { Driver, Element } from '../../../driver/driver';
 import { UnfinishedCollectorError } from '../../../error';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
 import { CollectorCaptcha, CollectorState, CollectorType, Invoice } from '../../abstractCollector';
-import { WebCollector } from '../../web2Collector';
+import { WebCollector } from '../../webCollector';
 import { LeclercSelectors } from './selectors';
 
 export class LeclercCollector extends WebCollector {
