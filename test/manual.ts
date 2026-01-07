@@ -12,7 +12,6 @@ import readline from 'readline';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
 import { Secret } from '../src/secret_manager/abstractSecretManager';
-import { Collect } from '../src/collect/collect';
 import { IcCredential } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
@@ -22,6 +21,7 @@ import { WebSocketServer } from '../src/websocket/webSocketServer';
 import * as utils from '../src/utils';
 import { WebCollector } from '../src/collectors/web2Collector';
 import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
+import { TwofaPromise } from '../src/collect/twofaPromise';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
@@ -170,10 +170,6 @@ function getHashFromSecret(secret: Secret): string {
             await DatabaseFactory.getDatabase().connect();
         }
 
-        // Collect invoices
-        const collect = new Collect("", undefined)
-        collect.state = State.DEFAULT_STATE;
-
         // Create an http server to handle web socket connections
         const httpServer = http.createServer();
         httpServer.listen(PORT, () => {
@@ -217,11 +213,10 @@ function getHashFromSecret(secret: Secret): string {
             });
         });
 
-
         // Collect new invoices
         const newInvoices = await collector.collect_new_invoices(
-            collect.state,
-            collect.twofa_promise,
+            State.DEFAULT_STATE,
+            new TwofaPromise(),
             webSocketServer,
             secret,
             Date.UTC(2000, 0, 1),
