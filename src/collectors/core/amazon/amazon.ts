@@ -16,7 +16,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon",
         name: "Amazon (.fr)",
         description: "i18n.collectors.amazon.description",
-        version: "31",
+        version: "32",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -80,6 +80,10 @@ export class AmazonCollector extends WebCollector {
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+        // Go to login page
+        await driver.goto(this.config.loginUrl);
+
+        // Wait for page to load
         const fieldPassword = await driver.getElement(AmazonSelectors.FIELD_PASSWORD, { raiseException: false, timeout: 2000 });
 
         // If password field is not visible
