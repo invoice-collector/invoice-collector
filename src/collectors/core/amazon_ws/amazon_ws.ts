@@ -1,6 +1,6 @@
 import { Driver, Element } from '../../../driver/driver';
 import { CollectorCaptcha, CollectorType, Invoice } from '../../../collectors/abstractCollector';
-import { WebCollector } from '../../../collectors/web2Collector';
+import { WebCollector } from '../../../collectors/webCollector';
 import { AmazonSelectors } from './selectors';
 import { timestampFromString } from '../../../utils';
 import { WebSocketServer } from '../../../websocket/webSocketServer';
@@ -15,7 +15,7 @@ export class AmazonCollector extends WebCollector {
         id: "amazon_ws",
         name: "Amazon (.fr) - No credentials",
         description: "i18n.collectors.amazon.description",
-        version: "27",
+        version: "28",
         website: "https://www.amazon.fr",
         logo: "https://upload.wikimedia.org/wikipedia/commons/4/4a/Amazon_icon.svg",
         type: CollectorType.WEB,
@@ -31,6 +31,9 @@ export class AmazonCollector extends WebCollector {
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
+        // Go to login page
+        await driver.goto(this.config.loginUrl);
+        // Perform interactive login
         return this.interactiveLogin(driver, params, webSocketServer);
     }
 

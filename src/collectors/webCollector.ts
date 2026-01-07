@@ -176,8 +176,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 const isEmpty = await this.isEmpty(driver);
 
                 // Continue only if invoices are present
-                if (isEmpty == false) {
-
+                if (!isEmpty) {
                     // For each invoice on the page
                     const invoiceElements = await this.getInvoices(driver, secret.params);
                     

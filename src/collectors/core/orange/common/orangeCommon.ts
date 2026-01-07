@@ -1,4 +1,4 @@
-import { WebCollector } from '../../../../collectors/web2Collector';
+import { WebCollector } from '../../../../collectors/webCollector';
 import { OrangeCommonSelectors } from './selectors';
 import { Driver, } from '../../../../driver/driver';
 import { WebSocketServer } from '../../../../websocket/webSocketServer';
