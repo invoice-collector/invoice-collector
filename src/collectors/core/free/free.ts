@@ -31,7 +31,8 @@ export class FreeCollector extends WebCollector {
         loginUrl: "https://subscribe.free.fr/login/",
         entryUrl: "https://adsl.free.fr/facture_liste.pl",
         captcha: CollectorCaptcha.NONE,
-        useProxy: false
+        useProxy: false,
+        enableInteractiveLogin: false
     }
 
     constructor() {

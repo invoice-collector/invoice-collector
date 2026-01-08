@@ -32,6 +32,7 @@ export class UCollector extends WebCollector {
         loginUrl: "https://www.coursesu.com/connexion",
         entryUrl: "https://www.coursesu.com/mon-compte/mes-commandes",
         captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

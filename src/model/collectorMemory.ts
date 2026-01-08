@@ -12,6 +12,7 @@ export class CollectorMemory {
     id: string;
     name: string;
     actions: Actions;
+    customerAreaUrl?: string;
     entryUrl?: string;
 
     constructor(name: string, actions: Actions, entryUrl?: string) {

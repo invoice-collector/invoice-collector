@@ -30,7 +30,8 @@ export class OpenaiChatgptCollector extends OpenaiCommonCollector {
         },
         loginUrl: "https://auth.openai.com/log-in",
         entryUrl: "https://chatgpt.com/#settings/Account",
-        captcha: CollectorCaptcha.NONE
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true
     }
 
     constructor() {

@@ -67,6 +67,7 @@ function getHashFromSecret(secret: Secret): string {
     let credential: IcCredential | null = null;
     let secret: Secret | null = null;
     let secretHash: string | null = null;
+    let useInteractiveLogin: boolean;
 
     let exited = false;
     process.on('SIGINT', async function() {
@@ -119,6 +120,11 @@ function getHashFromSecret(secret: Secret): string {
             // Get collector
             collector = await CollectorLoader.get(credential.collector_id);
 
+            // Ask user if he wants to test interactive login
+            const enableInteractiveLogin = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ?? true;
+            // Update collector params based on customer settings
+            useInteractiveLogin = AbstractCollector.updateCollectorParams(enableInteractiveLogin, collector.config);
+
             // Mock the collector so that if login method is triggered, it raise an error
             (collector as any).login = async () => {
                 throw new Error("Login method is not allowed");
@@ -128,6 +134,11 @@ function getHashFromSecret(secret: Secret): string {
         else {
             // Get collector
             collector = await CollectorLoader.get(id);
+
+            // Ask user if he wants to test interactive login
+            const enableInteractiveLogin = prompt(`Use interactive login (y/n)? (default y): `).toLowerCase().startsWith('y') ?? true;
+            // Update collector params based on customer settings
+            useInteractiveLogin = AbstractCollector.updateCollectorParams(enableInteractiveLogin, collector.config);
 
             // Build secret
             secret = {
@@ -221,7 +232,8 @@ function getHashFromSecret(secret: Secret): string {
             secret,
             Date.UTC(2000, 0, 1),
             [],
-            null
+            null,
+            useInteractiveLogin
         );
         console.log(`${newInvoices.length} invoices downloaded`);
 

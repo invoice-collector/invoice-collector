@@ -14,6 +14,7 @@ import { MessageClick, MessageKeydown, MessageText } from "../websocket/message"
 import { KeyInput } from "rebrowser-puppeteer-core";
 import { GoogleOauth2 } from "./oauth2/googleOauth2";
 import { MicrosoftOauth2 } from "./oauth2/microsoftOauth2";
+import { CollectorMemory } from "../model/collectorMemory";
 
 export type WebConfig = Config & {
     loginUrl: string,
@@ -24,7 +25,8 @@ export type WebConfig = Config & {
     autoLogin?: {
         cookieNames?: string[],
         localStorageKeys?: string[]
-    }
+    },
+    enableInteractiveLogin: boolean
 }
 
 export enum DocumentStrategy {
@@ -62,7 +64,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
-        location: Location | null
+        location: Location | null,
+        useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
         // Get proxy
         const proxy = this.config.useProxy ? await ProxyFactory.getProxy().get(location) : null;
@@ -88,30 +91,120 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 this.config.loadImages = true;
             }
 
-            // Open entry url
-            await driver.goto(this.config.entryUrl || this.config.loginUrl);
+            // If no interactive login
+            if(!useInteractiveLogin) {
+                // Open entry url
+                await driver.goto(this.config.entryUrl || this.config.loginUrl);
 
-            // Check if user needs to login
-            const needLogin = await this.needLogin(driver)
+                // Check if user needs to login
+                const needLogin = await this.needLogin(driver)
 
-            // If user need to login
-            if (needLogin) {
-                // Set progress step to logging in
-                state.update(State._2_LOGGING_IN);
-                webSocketServer?.sendState(State._2_LOGGING_IN);
+                // If user need to login
+                if (needLogin) {
+                    // Set progress step to logging in
+                    state.update(State._2_LOGGING_IN);
+                    webSocketServer?.sendState(State._2_LOGGING_IN);
 
-                console.log("User is not logged in, logging in...")
-                const login_error = await this.login(driver, secret.params, webSocketServer) || 
-                    await GoogleOauth2.login(driver, secret.params, webSocketServer) || 
-                    await MicrosoftOauth2.login(driver, secret.params, webSocketServer);
+                    console.log("User is not logged in, logging in...")
 
-                // Check if not authenticated
-                if (login_error) {
-                    throw new AuthenticationError(login_error, this);
+                    // Login with stored credentials
+                    const login_error = await this.login(driver, secret.params, webSocketServer) || 
+                        await GoogleOauth2.login(driver, secret.params, webSocketServer) || 
+                        await MicrosoftOauth2.login(driver, secret.params, webSocketServer);
+
+                    // Check if not authenticated
+                    if (login_error) {
+                        throw new AuthenticationError(login_error, this);
+                    }
                 }
+                else {
+                    console.log("Successfully used cookies and local storage")
+                }
+
+                // Check if 2fa is required
+                const needTwofa = await this.needTwofa(driver) ||
+                    await GoogleOauth2.needTwofa(driver) ||
+                    await MicrosoftOauth2.needTwofa(driver);
+
+                // If 2fa is required
+                if (needTwofa) {
+                    console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
+
+                    // If the webSocketServer is undefined, it means that the session has expired
+                    if (!webSocketServer) {
+                        throw new DisconnectedError(this);
+                    }
+
+                    // Set progress step to 2fa waiting
+                    state.update(State._3_2FA_WAITING, needTwofa);
+                    webSocketServer.sendState(State._3_2FA_WAITING, needTwofa);
+
+                    // Set instructions for UI
+                    await twofa_promise.setInstructions(needTwofa);
+
+                    const twofa_error = await this.twofa(driver, secret.params, twofa_promise, webSocketServer) ||
+                        await GoogleOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
+                        await MicrosoftOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer);
+
+                    // Check if 2fa error
+                    if (twofa_error) {
+                        throw new AuthenticationError(twofa_error, this);
+                    }
+                }
+
+                console.log("User is successfully logged in")
+
+                // Update secret.cookies
+                secret.cookies = await driver.getCookies(this.config.autoLogin?.cookieNames);
+
+                // Update secret.localStorage
+                secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
+
+                // Set progress step to collecting
+                state.update(State._5_COLLECTING);
+                webSocketServer?.sendState(State._5_COLLECTING);
             }
             else {
-                console.log("Successfully used cookies and local storage")
+                // Get collector memory
+                const collectorMemory = await CollectorMemory.fromName(this.config.id);
+
+                // If first collect
+                if(webSocketServer) {
+                    // Go to login url
+                    await driver.goto(this.config.loginUrl);
+                    // Perform interactive login
+                    await this.interactiveLogin(driver, secret.params, webSocketServer);
+                    // Update secret.cookies
+                    secret.cookies = await driver.getCookies(this.config.autoLogin?.cookieNames);
+                    // Update secret.localStorage
+                    secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
+                    // Save customer area url
+                    collectorMemory.customerAreaUrl = driver.url();
+                    await collectorMemory.commit();
+                }
+
+                // Compute new url
+                const url = this.config.entryUrl || collectorMemory.entryUrl || collectorMemory.customerAreaUrl;
+
+                // If url is undefined, something whent wrong
+                if(!url) {
+                    throw new Error(`Collector ${this.config.id} does not have any of entryUrl, nor customerAreaUrl defined`);
+                }
+
+                // Set progress step to collecting
+                state.update(State._5_COLLECTING);
+                webSocketServer?.sendState(State._5_COLLECTING);
+
+                // Go to entry url
+                await driver.goto(url);
+
+                // Check if user needs to login
+                const needLogin = !driver.url().includes(url);
+
+                // If need login, raise error
+                if(needLogin) {
+                    throw new DisconnectedError(this);
+                }
             }
 
             // Restore previous load images value
@@ -119,51 +212,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 this.config.loadImages = loadImagesPreviousValue;
             }
 
-            // Check if 2fa is required
-            const needTwofa = await this.needTwofa(driver) ||
-                await GoogleOauth2.needTwofa(driver) ||
-                await MicrosoftOauth2.needTwofa(driver);
-
-            // If 2fa is required
-            if (needTwofa) {
-                console.log(`2FA is required, performing 2FA... (${utils.trim(needTwofa)})`)
-
-                // If the webSocketServer is undefined, it means that the session has expired
-                if (!webSocketServer) {
-                    throw new DisconnectedError(this);
-                }
-
-                // Set progress step to 2fa waiting
-                state.update(State._3_2FA_WAITING, needTwofa);
-                webSocketServer.sendState(State._3_2FA_WAITING, needTwofa);
-
-                // Set instructions for UI
-                await twofa_promise.setInstructions(needTwofa);
-
-                const twofa_error = await this.twofa(driver, secret.params, twofa_promise, webSocketServer) ||
-                    await GoogleOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer) || 
-                    await MicrosoftOauth2.twofa(driver, secret.params, twofa_promise, webSocketServer);
-
-                // Check if 2fa error
-                if (twofa_error) {
-                    throw new AuthenticationError(twofa_error, this);
-                }
-            }
-
-            console.log("User is successfully logged in")
-
-            // Update secret.cookies
-            secret.cookies = await driver.getCookies(this.config.autoLogin?.cookieNames);
-
-            // Update secret.localStorage
-            secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
-
             // Navigate to invoices
             await this.navigate(driver, secret.params);
-
-            // Set progress step to collecting
-            state.update(State._5_COLLECTING);
-            webSocketServer?.sendState(State._5_COLLECTING);
 
             // Get previous invoice ids
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);

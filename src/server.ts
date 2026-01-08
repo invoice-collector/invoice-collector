@@ -9,7 +9,7 @@ import { Customer, Stats } from './model/customer';
 import { IcCredential } from './model/credential';
 import { CollectTask } from './collect/collectTask';
 import { ProxyFactory } from './proxy/proxyFactory';
-import { CollectorType, Config } from './collectors/abstractCollector';
+import { AbstractCollector, CollectorType, Config } from './collectors/abstractCollector';
 import { RegistryServer } from './registryServer';
 import * as utils from './utils';
 import { CallbackHandler } from './callback/callback';
@@ -548,6 +548,12 @@ export class Server {
             // Get collector from id
             const collector = await CollectorLoader.get(credential.collector_id);
 
+            // Get customer from user
+            const customer = await user.getCustomer();
+
+            // Update collector params based on customer settings
+            AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+
             // Get current collect
             const collect = CollectPool.getInstance().get(credential.id);
             
@@ -624,6 +630,9 @@ export class Server {
 
         // Get customer from user
         const customer = await user.getCustomer();
+
+        // Update collector params based on customer settings
+        AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
 
         // Check if customer has define a callback URL
         if(!customer.callback) {
@@ -764,6 +773,12 @@ export class Server {
         // Get collector from id
         const collector = await CollectorLoader.get(credential.collector_id);
 
+        // Get customer from user
+        const customer = await user.getCustomer();
+
+        // Update collector params based on customer settings
+        AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+
         // Get current collect
         const collect = CollectPool.getInstance().get(credential.id);
 
@@ -903,6 +918,12 @@ export class Server {
             // Get collector from id
             const collector = await CollectorLoader.get(credential.collector_id);
 
+            // Get customer from user
+            const customer = await user.getCustomer();
+
+            // Update collector params based on customer settings
+            AbstractCollector.updateCollectorParams(customer.enableInteractiveLogin, collector.config);
+
             // Start web socket server and get token
             const webSocketServer = new WebSocketServer(this.httpServer, user.locale, collector);
             wsPath = webSocketServer.start();
@@ -946,12 +967,14 @@ export class Server {
         // Check if token is missing or incorrect
         let subscribedCollectors: string[] = Customer.DEFAULT_SUBSCRIBED_COLLECTORS;
         let isSubscribedToAll: boolean = Customer.DEFAULT_IS_SUBSCRIBED_TO_ALL;
+        let enableInteractiveLogin: boolean = false;
         let displaySketchCollectors: boolean = Customer.DEFAULT_DISPLAY_SKETCH_COLLECTORS;
         if(token || bearer) {
             // Get customer from bearer or token
             const customer = await this.getCustomerFromBearerOrToken(bearer, token);
             subscribedCollectors = customer.subscribedCollectors;
             isSubscribedToAll = customer.isSubscribedToAll;
+            enableInteractiveLogin = customer.enableInteractiveLogin;
             displaySketchCollectors = customer.displaySketchCollectors;
         }
 
@@ -967,9 +990,13 @@ export class Server {
         }
 
         return (await CollectorLoader.getAll())
+            .map((config: Config): Config => ({ ...config }))
             .filter((config: Config) => isSubscribedToAll || subscribedCollectors.includes(config.id))
             .filter((config: Config) => config.type !== CollectorType.SKETCH || displaySketchCollectors)
             .map((config: Config): Config => {
+                // Update collector params based on customer settings
+                AbstractCollector.updateCollectorParams(enableInteractiveLogin, config);
+
                 const name: string = I18n.get(config.name, locale);
                 const description: string = I18n.get(config.description, locale);
                 const instructions: string = I18n.get(config.instructions, locale);

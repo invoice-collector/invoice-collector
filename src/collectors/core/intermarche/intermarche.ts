@@ -32,6 +32,7 @@ export class IntermarcheCollector extends WebCollector {
         loginUrl: "https://www.intermarche.com/",
         entryUrl: "https://www.intermarche.com/gestion-de-compte/mes-courses",
         captcha: CollectorCaptcha.DATADOME,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

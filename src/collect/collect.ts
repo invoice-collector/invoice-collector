@@ -80,7 +80,16 @@ export class Collect {
                 }
 
                 // Collect invoices
-                const newInvoices = await collector.collect_new_invoices(this.state, this.twofa_promise, this.webSocketServer, secret, credential.download_from_timestamp, credential.invoices, user.location);
+                const newInvoices = await collector.collect_new_invoices(
+                    this.state,
+                    this.twofa_promise,
+                    this.webSocketServer,
+                    secret,
+                    credential.download_from_timestamp,
+                    credential.invoices,
+                    user.location,
+                    customer.enableInteractiveLogin
+                );
                 console.log(`Found ${credential.invoices.length + newInvoices.length} invoices during collect and ${newInvoices.length} new`);
                 console.log(`Invoice collection for credential ${this.credential_id} succeed`);
 

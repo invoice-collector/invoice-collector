@@ -33,7 +33,8 @@ export class OrangeCollector extends OrangeCommonCollector {
         entryUrl: "https://espace-client.orange.fr/facture-paiement/historique-des-factures",
         captcha: CollectorCaptcha.NONE,
         useProxy: false, // TODO: Proxy is not compatible with Orange
-        loadImages: true
+        loadImages: true,
+        enableInteractiveLogin: true
     }
 
     constructor() {

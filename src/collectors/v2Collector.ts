@@ -18,8 +18,12 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
-        location: Location | null
+        location: Location | null,
+        customerEnableInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]> {
+        // Update collector params based on customerEnableInteractiveLogin
+        const useInteractiveLogin = AbstractCollector.updateCollectorParams(customerEnableInteractiveLogin, this.config)
+
         // Check if a mandatory field is missing
         for (const [key, value] of Object.entries(this.config.params)) {
             if (value.mandatory && !secret.params[key]) {
@@ -29,7 +33,7 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
 
         try {
             // Get invoices
-            return await this._collect(state, twofa_promise, webSocketServer, secret, download_from_timestamp, previousInvoices, location);
+            return await this._collect(state, twofa_promise, webSocketServer, secret, download_from_timestamp, previousInvoices, location, useInteractiveLogin);
         }
         finally {
             // Close the collector resources
@@ -46,7 +50,8 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
-        location: Location | null
+        location: Location | null,
+        useInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]>;
 
     abstract _close(): Promise<void>;

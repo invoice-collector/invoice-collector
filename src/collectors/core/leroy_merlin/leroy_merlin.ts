@@ -32,7 +32,8 @@ export class LeroyMerlinCollector extends WebCollector {
         },
         loginUrl: "https://www.leroymerlin.fr/login.html",
         entryUrl: "https://www.leroymerlin.fr/espace-perso/suivi-de-commande.html?auth-mode=login",
-        captcha: CollectorCaptcha.DATADOME
+        captcha: CollectorCaptcha.DATADOME,
+        enableInteractiveLogin: true
     }
 
     constructor() {
