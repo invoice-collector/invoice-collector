@@ -1,34 +1,22 @@
-import { CompleteInvoice, CollectorType, CollectorState, Config } from "./abstractCollector";
-import { V2Collector } from "./v2Collector";
-import { Location } from "../proxy/abstractProxy";
-import { Secret } from "../secret_manager/abstractSecretManager";
-import { TwofaPromise } from "../collect/twofaPromise";
-import { State } from "../model/state";
-import { WebSocketServer } from "../websocket/webSocketServer";
+import { CollectorType, CollectorState } from "./abstractCollector";
+import { WebCollector, WebConfig } from "./webCollector";
+import { Driver, Element } from "../driver/driver";
 
-export type SketchConfig = Config & {
+export type SketchConfig = WebConfig & {
 }
 
-export abstract class SketchCollector extends V2Collector<SketchConfig> {
+export abstract class SketchCollector extends WebCollector {
 
     constructor(config: SketchConfig) {
         super({
             ...config,
             type: CollectorType.SKETCH,
-            state: CollectorState.DEVELOPMENT
+            state: CollectorState.DEVELOPMENT,
+            enableInteractiveLogin: true
         });
     }
 
-    async _collect(
-        state: State,
-        twofa_promise: TwofaPromise,
-        webSocketServer: WebSocketServer | undefined,
-        secret: Secret,
-        download_from_timestamp: number,
-        previousInvoices: any[],
-        location: Location | null
-    ): Promise<CompleteInvoice[]> {
-        // Return an empty array as this is just a sketch collector
+    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
         return [];
     }
 

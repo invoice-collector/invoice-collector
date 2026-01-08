@@ -426,10 +426,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
     }
 
     async navigate(driver: Driver, params: any): Promise<void> {
-        // Go to entry URL if exists
-        if (this.config.entryUrl) {
-            await driver.goto(this.config.entryUrl);
-        }
+        // Assume the collector does not need navigation
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {
