@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeartinternetUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HeartinternetUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.heartinternet.uk/login",
+        loginUrl: "https://www.heartinternet.uk/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VitallyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VitallyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.vitally.io/",
+        loginUrl: "https://login.vitally.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

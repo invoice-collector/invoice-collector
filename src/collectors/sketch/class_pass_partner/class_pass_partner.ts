@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClassPassPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClassPassPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://studios.classpass.com/stats/reports",
+        loginUrl: "https://studios.classpass.com/stats/reports",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

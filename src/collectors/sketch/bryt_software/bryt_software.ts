@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrytSoftwareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrytSoftwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.brytsoftware.com/Account/LogIn?ReturnUrl=%2F",
+        loginUrl: "https://client.brytsoftware.com/Account/LogIn?ReturnUrl=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

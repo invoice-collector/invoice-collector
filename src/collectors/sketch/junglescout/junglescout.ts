@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JunglescoutCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JunglescoutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.junglescout.com/#/login",
+        loginUrl: "https://members.junglescout.com/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

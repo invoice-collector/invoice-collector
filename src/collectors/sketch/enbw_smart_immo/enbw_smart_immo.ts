@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnbwSmartImmoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnbwSmartImmoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smartenergysuite.enbw.com/smartimmo/home/rechnungen",
+        loginUrl: "https://smartenergysuite.enbw.com/smartimmo/home/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

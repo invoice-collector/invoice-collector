@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlantedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlantedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.planted.green/login",
+        loginUrl: "https://auth.planted.green/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

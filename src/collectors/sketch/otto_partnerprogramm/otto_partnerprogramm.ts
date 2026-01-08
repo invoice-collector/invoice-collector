@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoPartnerprogrammCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OttoPartnerprogrammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partnerprogramm.otto.de/user-billings.do",
+        loginUrl: "https://partnerprogramm.otto.de/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

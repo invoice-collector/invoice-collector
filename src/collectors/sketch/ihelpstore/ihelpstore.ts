@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IhelpstoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IhelpstoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ihelpstore.de/my-account/",
+        loginUrl: "https://www.ihelpstore.de/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

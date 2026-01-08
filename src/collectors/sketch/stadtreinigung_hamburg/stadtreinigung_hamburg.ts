@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtreinigungHamburgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtreinigungHamburgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.stadtreinigung.hamburg/portal/index.html?sap-client=101&sap-language=DE&sap-sec_session_created=X#/InvoiceList",
+        loginUrl: "https://meine.stadtreinigung.hamburg/portal/index.html?sap-client=101&sap-language=DE&sap-sec_session_created=X#/InvoiceList",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

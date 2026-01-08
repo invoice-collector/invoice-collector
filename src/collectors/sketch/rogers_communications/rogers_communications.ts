@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RogersCommunicationsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RogersCommunicationsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rogers.com",
+        loginUrl: "https://www.rogers.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

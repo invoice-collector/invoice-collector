@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NotionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NotionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.notion.so/login",
+        loginUrl: "https://www.notion.so/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuplikiumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DuplikiumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.trade-copier.com/index.php/myaccount/subscription/8O56WJCI0191",
+        loginUrl: "https://www.trade-copier.com/index.php/myaccount/subscription/8O56WJCI0191",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

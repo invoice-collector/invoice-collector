@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasypayGroupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasypayGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sce-easyonline.easypay-group.com/xhtml/com/easypaygroup/easyonline/view/index.xhtml",
+        loginUrl: "https://sce-easyonline.easypay-group.com/xhtml/com/easypaygroup/easyonline/view/index.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

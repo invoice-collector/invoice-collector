@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SapAribaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SapAribaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.ariba.com/ProfileManagement.aw/109544067/aw?awh=r&awssk=Q00yLHqP&dard=1",
+        loginUrl: "https://service.ariba.com/ProfileManagement.aw/109544067/aw?awh=r&awssk=Q00yLHqP&dard=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

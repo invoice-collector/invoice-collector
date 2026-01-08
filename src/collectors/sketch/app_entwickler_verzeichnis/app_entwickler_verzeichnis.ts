@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppEntwicklerVerzeichnisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppEntwicklerVerzeichnisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.app-entwickler-verzeichnis.de/login-register",
+        loginUrl: "http://www.app-entwickler-verzeichnis.de/login-register",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

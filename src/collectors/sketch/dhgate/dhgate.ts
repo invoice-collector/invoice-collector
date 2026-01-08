@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DhgateCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DhgateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dg.dhgate.com/buyerordmng/orderList/list.do?pahttps://dg.dhgate.com/buyerordmng/orderList/list.do?params.linkType=100rams.linkType=100",
+        loginUrl: "https://dg.dhgate.com/buyerordmng/orderList/list.do?pahttps://dg.dhgate.com/buyerordmng/orderList/list.do?params.linkType=100rams.linkType=100",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

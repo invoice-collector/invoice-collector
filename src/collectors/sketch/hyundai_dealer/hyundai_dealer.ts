@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HyundaiDealerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HyundaiDealerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wdcs.hyundaidealer.com/irj/portal/webdcs#/app_currentReport",
+        loginUrl: "https://wdcs.hyundaidealer.com/irj/portal/webdcs#/app_currentReport",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

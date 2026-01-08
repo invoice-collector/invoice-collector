@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpeeditSolutionsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpeeditSolutionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cp.speedit.org",
+        loginUrl: "https://cp.speedit.org",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

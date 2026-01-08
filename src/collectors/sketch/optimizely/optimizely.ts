@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptimizelyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OptimizelyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.optimizely.com/accountsettings/account/plan",
+        loginUrl: "https://app.optimizely.com/accountsettings/account/plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

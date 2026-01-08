@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeoForJobsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeoForJobsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.seo-for-jobs.com/clients/1752/subscription",
+        loginUrl: "https://app.seo-for-jobs.com/clients/1752/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

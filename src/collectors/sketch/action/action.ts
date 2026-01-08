@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ActionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ActionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.action.com/de-de/favoriten/",
+        loginUrl: "https://www.action.com/de-de/favoriten/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

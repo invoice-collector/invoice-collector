@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MoncoyoteComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MoncoyoteComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.moncoyote.com/fr/",
+        loginUrl: "https://www.moncoyote.com/fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

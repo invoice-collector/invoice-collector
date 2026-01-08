@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeRusselsheimCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeRusselsheimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://privatkundenportal.net/stadtwerke-ruesselsheim/",
+        loginUrl: "https://privatkundenportal.net/stadtwerke-ruesselsheim/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TokyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TokyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.toky.co/business/receipts",
+        loginUrl: "https://app.toky.co/business/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

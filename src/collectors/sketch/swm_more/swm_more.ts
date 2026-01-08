@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwmMoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwmMoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://more.swm.de/ladeloesung/account/invoices",
+        loginUrl: "https://more.swm.de/ladeloesung/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

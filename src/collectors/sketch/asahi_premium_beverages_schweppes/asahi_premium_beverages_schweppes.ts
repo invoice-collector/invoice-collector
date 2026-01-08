@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsahiPremiumBeveragesSchweppesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AsahiPremiumBeveragesSchweppesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.albconnect.com.au/storefront/sga/en/AUD/login",
+        loginUrl: "https://www.albconnect.com.au/storefront/sga/en/AUD/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelencyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SelencyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.selency.fr/mon-compte/factures",
+        loginUrl: "https://www.selency.fr/mon-compte/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

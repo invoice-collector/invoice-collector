@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HobbyAndFreizeitPartnerprogrammCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HobbyAndFreizeitPartnerprogrammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.hobby-freizeit.de/",
+        loginUrl: "https://partner.hobby-freizeit.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

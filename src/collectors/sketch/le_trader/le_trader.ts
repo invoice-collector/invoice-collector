@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeTraderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeTraderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.letrader.fr/",
+        loginUrl: "http://www.letrader.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

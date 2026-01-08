@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _99designsDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _99designsDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://99designs.de/work",
+        loginUrl: "https://99designs.de/work",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyappyourselfCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyappyourselfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.appyourself.net/#/account/data",
+        loginUrl: "https://my.appyourself.net/#/account/data",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

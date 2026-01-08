@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IleoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IleoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mel-ileo.fr/",
+        loginUrl: "https://www.mel-ileo.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

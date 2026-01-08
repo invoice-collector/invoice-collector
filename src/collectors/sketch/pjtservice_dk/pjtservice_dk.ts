@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PjtserviceDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PjtserviceDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.pjtservice.dk",
+        loginUrl: "http://www.pjtservice.dk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

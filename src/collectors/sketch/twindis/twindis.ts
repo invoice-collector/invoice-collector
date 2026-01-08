@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwindisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TwindisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.twindis.com/en/account/inloggen.html?_returnURL=%2F",
+        loginUrl: "https://www.twindis.com/en/account/inloggen.html?_returnURL=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

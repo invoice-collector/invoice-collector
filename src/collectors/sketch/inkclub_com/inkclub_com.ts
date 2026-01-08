@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InkclubComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InkclubComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.inkclub.com/",
+        loginUrl: "https://www.inkclub.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

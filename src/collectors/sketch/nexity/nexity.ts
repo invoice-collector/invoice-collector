@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NexityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nexity.fr/espace-personnel",
+        loginUrl: "https://www.nexity.fr/espace-personnel",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

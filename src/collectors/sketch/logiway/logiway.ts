@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogiwayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LogiwayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.logiway.de/shop/account",
+        loginUrl: "https://www.logiway.de/shop/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

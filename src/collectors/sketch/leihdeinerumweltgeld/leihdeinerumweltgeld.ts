@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeihdeinerumweltgeldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeihdeinerumweltgeldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://invest.leihdeinerumweltgeld.de/account/tax_documents",
+        loginUrl: "https://invest.leihdeinerumweltgeld.de/account/tax_documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

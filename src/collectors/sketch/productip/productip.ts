@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProductipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProductipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.productip.com/account-documents",
+        loginUrl: "https://secure.productip.com/account-documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

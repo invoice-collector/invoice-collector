@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WascoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WascoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wasco.nl/inloggen",
+        loginUrl: "https://www.wasco.nl/inloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MetEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.fr.met.com/client/factures",
+        loginUrl: "https://espace-client.fr.met.com/client/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

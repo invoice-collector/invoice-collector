@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SageUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SageUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.sage.co.uk",
+        loginUrl: "https://my.sage.co.uk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

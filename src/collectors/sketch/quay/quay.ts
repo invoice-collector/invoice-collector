@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://quay.io/organization/hereyourcompany/billing/invoices",
+        loginUrl: "https://quay.io/organization/hereyourcompany/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

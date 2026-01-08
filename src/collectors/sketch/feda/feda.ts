@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FedaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FedaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.feda.ad/oficina-virtual/usuarisOv/editPublic",
+        loginUrl: "https://www.feda.ad/oficina-virtual/usuarisOv/editPublic",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuphonicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AuphonicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auphonic.com/accounts/invoice_list/",
+        loginUrl: "https://auphonic.com/accounts/invoice_list/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

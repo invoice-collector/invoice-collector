@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaulsenGruppeOnlinePortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PaulsenGruppeOnlinePortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.bfgruppe.de/v3/rechnungsarchiv.csp#/",
+        loginUrl: "https://online.bfgruppe.de/v3/rechnungsarchiv.csp#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

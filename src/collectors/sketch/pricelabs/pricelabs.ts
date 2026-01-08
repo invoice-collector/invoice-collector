@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PricelabsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PricelabsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pricelabs.co/billing/",
+        loginUrl: "https://pricelabs.co/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

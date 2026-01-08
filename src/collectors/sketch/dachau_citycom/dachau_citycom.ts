@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DachauCitycomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DachauCitycomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dachau-citycom.de/rechnung-online/index.php",
+        loginUrl: "https://www.dachau-citycom.de/rechnung-online/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

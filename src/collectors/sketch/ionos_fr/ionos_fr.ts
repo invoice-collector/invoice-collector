@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IonosFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IonosFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.ionos.fr/",
+        loginUrl: "https://login.ionos.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

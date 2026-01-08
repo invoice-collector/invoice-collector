@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauMetropoleRouennormandieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EauMetropoleRouennormandieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eau.metropole-rouen-normandie.fr/",
+        loginUrl: "https://eau.metropole-rouen-normandie.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

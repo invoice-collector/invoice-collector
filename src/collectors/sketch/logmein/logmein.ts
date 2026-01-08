@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogmeinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LogmeinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.logmein.com/api/BillingHistory.svc/GetBillingHistory",
+        loginUrl: "https://store.logmein.com/api/BillingHistory.svc/GetBillingHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

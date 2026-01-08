@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppMySiteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppMySiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.appmysite.com/invoices",
+        loginUrl: "https://app.appmysite.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

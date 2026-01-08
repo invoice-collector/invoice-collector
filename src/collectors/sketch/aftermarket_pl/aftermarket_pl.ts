@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AftermarketPlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AftermarketPlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aftermarket.pl",
+        loginUrl: "https://www.aftermarket.pl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BullfrogPowerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BullfrogPowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bullfrogpower.com/mybullfrog/",
+        loginUrl: "https://www.bullfrogpower.com/mybullfrog/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

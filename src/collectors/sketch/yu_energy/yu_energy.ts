@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YuEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YuEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.yuenergy.co.uk/MyAccount/s/account-overview",
+        loginUrl: "https://myaccount.yuenergy.co.uk/MyAccount/s/account-overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

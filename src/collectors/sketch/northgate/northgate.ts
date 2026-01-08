@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NorthgateCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NorthgateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://services.intralinks.com/branding/4461927055/?status=LOGIN&clientID=4461927055",
+        loginUrl: "https://services.intralinks.com/branding/4461927055/?status=LOGIN&clientID=4461927055",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

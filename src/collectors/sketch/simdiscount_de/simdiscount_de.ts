@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimdiscountDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimdiscountDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.simdiscount.de/",
+        loginUrl: "https://service.simdiscount.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

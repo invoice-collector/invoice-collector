@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EinfachEinreichenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EinfachEinreichenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://einfach-einreichen.de/meine-belege",
+        loginUrl: "https://einfach-einreichen.de/meine-belege",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

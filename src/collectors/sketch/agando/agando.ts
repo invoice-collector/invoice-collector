@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgandoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AgandoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.agando-shop.de/login.php",
+        loginUrl: "https://www.agando-shop.de/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

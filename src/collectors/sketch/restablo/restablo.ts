@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RestabloCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RestabloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://restaurant.restablo.de/",
+        loginUrl: "https://restaurant.restablo.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlamyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlamyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.alamy.com",
+        loginUrl: "http://www.alamy.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

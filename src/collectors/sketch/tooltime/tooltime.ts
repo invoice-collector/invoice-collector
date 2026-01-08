@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TooltimeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TooltimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.tooltime.de/signin",
+        loginUrl: "https://app.tooltime.de/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

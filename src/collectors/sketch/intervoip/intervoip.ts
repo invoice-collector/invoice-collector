@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntervoipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IntervoipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.intervoip.com/purchases",
+        loginUrl: "https://www.intervoip.com/purchases",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

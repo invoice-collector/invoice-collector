@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LandbellEasyShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LandbellEasyShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://easyshop.landbell.de/",
+        loginUrl: "https://easyshop.landbell.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

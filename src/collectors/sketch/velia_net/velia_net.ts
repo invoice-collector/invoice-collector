@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeliaNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VeliaNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.velia.net/account/invoice",
+        loginUrl: "https://www.velia.net/account/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

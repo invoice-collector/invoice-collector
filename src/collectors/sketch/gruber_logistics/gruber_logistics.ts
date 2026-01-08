@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GruberLogisticsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GruberLogisticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mydesk.gruber-logistics.com/customer-invoice",
+        loginUrl: "https://mydesk.gruber-logistics.com/customer-invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmmyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmmyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://emmy-sharing.de/login/",
+        loginUrl: "https://emmy-sharing.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

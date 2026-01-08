@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SummitControlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SummitControlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://summitcontrol.com/admin/account-info.php",
+        loginUrl: "https://summitcontrol.com/admin/account-info.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

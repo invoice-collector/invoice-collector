@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkeddlyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SkeddlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.skeddly.com/Billing",
+        loginUrl: "https://app.skeddly.com/Billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

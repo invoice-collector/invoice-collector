@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IleDeFranceMobilitesCollector extends SketchCollector {
 
@@ -25,6 +25,9 @@ export class IleDeFranceMobilitesCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://mon-espace.iledefrance-mobilites.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

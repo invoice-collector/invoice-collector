@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpalKurierLogistikCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpalKurierLogistikCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://opal-kurier.de/",
+        loginUrl: "https://opal-kurier.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

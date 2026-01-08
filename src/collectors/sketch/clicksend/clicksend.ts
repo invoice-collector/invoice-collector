@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClicksendCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClicksendCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.clicksend.com/#/account/billing-recharge/transactions",
+        loginUrl: "https://dashboard.clicksend.com/#/account/billing-recharge/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

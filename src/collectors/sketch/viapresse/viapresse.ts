@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViapresseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ViapresseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.viapresse.com/customer/account/login/referer/aHR0cHM6Ly93d3cudmlhcHJlc3NlLmNvbS9jdXN0b21lci9hY2NvdW50L2luZGV4Lw,,/",
+        loginUrl: "https://www.viapresse.com/customer/account/login/referer/aHR0cHM6Ly93d3cudmlhcHJlc3NlLmNvbS9jdXN0b21lci9hY2NvdW50L2luZGV4Lw,,/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

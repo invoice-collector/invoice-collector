@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetcupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetcupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ccp.netcup.net/run/start.php",
+        loginUrl: "https://ccp.netcup.net/run/start.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneEsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VodafoneEsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vodafone.es/empresas/es/login-ds/",
+        loginUrl: "https://www.vodafone.es/empresas/es/login-ds/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

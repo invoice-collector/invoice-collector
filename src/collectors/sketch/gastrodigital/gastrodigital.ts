@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GastrodigitalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GastrodigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunden.gastro.digital/login",
+        loginUrl: "https://kunden.gastro.digital/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlesysCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GlesysCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.glesys.com/#/customer/11681/invoices",
+        loginUrl: "https://cloud.glesys.com/#/customer/11681/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

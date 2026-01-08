@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LandalGreenparksEigentumerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LandalGreenparksEigentumerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.landaleigentuemer.de/template3.aspx?cp=huurafrekening&menu=eigenarenpers&mid=eigenarenpersfinancieelhuurafrekening",
+        loginUrl: "https://www.landaleigentuemer.de/template3.aspx?cp=huurafrekening&menu=eigenarenpers&mid=eigenarenpersfinancieelhuurafrekening",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

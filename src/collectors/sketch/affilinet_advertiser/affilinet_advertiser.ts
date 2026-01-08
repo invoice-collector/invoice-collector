@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AffilinetAdvertiserCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AffilinetAdvertiserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://advertiser.affili.net/Login.aspx",
+        loginUrl: "https://advertiser.affili.net/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

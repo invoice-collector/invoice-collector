@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CallABikeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CallABikeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.callabike.de/de/kundenbereich/rechnungsubersicht",
+        loginUrl: "https://www.callabike.de/de/kundenbereich/rechnungsubersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

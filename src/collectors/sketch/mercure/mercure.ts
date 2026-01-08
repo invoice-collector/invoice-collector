@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MercureCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MercureCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mercure.rocks/",
+        loginUrl: "https://mercure.rocks/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

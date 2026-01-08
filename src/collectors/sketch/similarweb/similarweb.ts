@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimilarwebCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimilarwebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.similarweb.com/login",
+        loginUrl: "https://account.similarweb.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

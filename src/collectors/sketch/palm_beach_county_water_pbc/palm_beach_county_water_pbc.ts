@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PalmBeachCountyWaterPbcCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PalmBeachCountyWaterPbcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebill.pbcwater.com/billing/viewbillUI.aspx",
+        loginUrl: "https://ebill.pbcwater.com/billing/viewbillUI.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

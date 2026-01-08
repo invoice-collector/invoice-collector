@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoundcloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SoundcloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://soundcloud.com/you/subscriptions",
+        loginUrl: "https://soundcloud.com/you/subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

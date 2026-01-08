@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlesiaEspaceRetraiteEntrepriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KlesiaEspaceRetraiteEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://particuliers.klesia.fr/web/professionnels/login",
+        loginUrl: "https://particuliers.klesia.fr/web/professionnels/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

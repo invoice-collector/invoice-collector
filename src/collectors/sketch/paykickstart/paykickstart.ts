@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaykickstartCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PaykickstartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.paykickstart.com/admin/login",
+        loginUrl: "https://app.paykickstart.com/admin/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

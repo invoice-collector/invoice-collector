@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrintCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrintCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.trint.com/invoices",
+        loginUrl: "https://app.trint.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

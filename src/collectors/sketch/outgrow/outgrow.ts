@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OutgrowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OutgrowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://outgrow.co/",
+        loginUrl: "https://outgrow.co/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

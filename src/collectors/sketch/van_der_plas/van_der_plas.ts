@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VanDerPlasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VanDerPlasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.vdplas.com/Service/Factuur",
+        loginUrl: "https://shop.vdplas.com/Service/Factuur",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

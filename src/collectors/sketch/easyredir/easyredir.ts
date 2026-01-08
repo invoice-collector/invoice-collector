@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyredirCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasyredirCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.easyredir.com",
+        loginUrl: "https://dashboard.easyredir.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

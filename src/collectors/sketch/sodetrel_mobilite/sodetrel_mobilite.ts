@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SodetrelMobiliteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SodetrelMobiliteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sodetrel-mobilite.fr/account/#/monitoring",
+        loginUrl: "https://www.sodetrel-mobilite.fr/account/#/monitoring",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

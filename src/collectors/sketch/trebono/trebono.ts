@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrebonoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrebonoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.trebono.de/admin/module.php?load=billing&Section=invoice",
+        loginUrl: "https://service.trebono.de/admin/module.php?load=billing&Section=invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

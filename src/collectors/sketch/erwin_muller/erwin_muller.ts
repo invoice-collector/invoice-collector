@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErwinMullerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ErwinMullerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.erwinmueller.com/account?aktion=showRech",
+        loginUrl: "https://de.erwinmueller.com/account?aktion=showRech",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

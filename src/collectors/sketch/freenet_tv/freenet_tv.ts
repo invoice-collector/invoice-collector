@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreenetTvCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FreenetTvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.freenet.tv/mein-konto/bestelluebersicht",
+        loginUrl: "https://www.freenet.tv/mein-konto/bestelluebersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

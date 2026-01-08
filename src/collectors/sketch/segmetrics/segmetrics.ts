@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SegmetricsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SegmetricsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.segmetrics.io/login/",
+        loginUrl: "https://app.segmetrics.io/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

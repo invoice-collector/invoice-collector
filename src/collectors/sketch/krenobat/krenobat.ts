@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KrenobatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KrenobatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://krenobat.fr/krenobat/user/factureliste",
+        loginUrl: "https://krenobat.fr/krenobat/user/factureliste",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

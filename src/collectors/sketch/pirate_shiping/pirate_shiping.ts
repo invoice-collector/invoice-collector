@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PirateShipingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PirateShipingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ship.pirateship.com/reports/paymentreceipt",
+        loginUrl: "https://ship.pirateship.com/reports/paymentreceipt",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RomamobilitaItCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RomamobilitaItCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://busturistici2019.romamobilita.it/ListaFatture",
+        loginUrl: "https://busturistici2019.romamobilita.it/ListaFatture",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

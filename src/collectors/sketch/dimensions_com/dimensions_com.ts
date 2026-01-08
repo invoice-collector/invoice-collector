@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DimensionsComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DimensionsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dimensions.com/users/login",
+        loginUrl: "https://www.dimensions.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

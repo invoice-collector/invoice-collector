@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GhCranesAndComponentsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GhCranesAndComponentsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.ghcranes.com/clientesat/es/intervenciones",
+        loginUrl: "https://portal.ghcranes.com/clientesat/es/intervenciones",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LohmannUndRauscherDeutschlandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LohmannUndRauscherDeutschlandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store-de.lrmed.com/mein-konto/",
+        loginUrl: "https://store-de.lrmed.com/mein-konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

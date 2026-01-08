@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleIrpAutoEntrepriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleIrpAutoEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.irp-auto.com/acces-votre-compte-entreprise",
+        loginUrl: "https://www.irp-auto.com/acces-votre-compte-entreprise",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

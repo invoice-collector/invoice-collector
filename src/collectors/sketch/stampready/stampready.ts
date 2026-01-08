@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StampreadyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StampreadyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stampready.net/dashboard/account/billing/renderpdf/index.php?token=",
+        loginUrl: "https://www.stampready.net/dashboard/account/billing/renderpdf/index.php?token=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

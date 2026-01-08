@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DogadoPartnerNetworkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DogadoPartnerNetworkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.dogado.de/user-billings.do",
+        loginUrl: "https://partner.dogado.de/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

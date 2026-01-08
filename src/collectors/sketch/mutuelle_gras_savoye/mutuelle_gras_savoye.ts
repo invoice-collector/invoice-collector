@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGrasSavoyeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleGrasSavoyeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.grassavoye.fr",
+        loginUrl: "http://www.grassavoye.fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

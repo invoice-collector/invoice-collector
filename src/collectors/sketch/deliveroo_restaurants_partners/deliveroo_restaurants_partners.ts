@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeliverooRestaurantsPartnersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeliverooRestaurantsPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://restaurant-hub.deliveroo.net/login",
+        loginUrl: "https://restaurant-hub.deliveroo.net/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

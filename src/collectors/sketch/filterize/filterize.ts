@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FilterizeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FilterizeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.filterize.net/62428332/p/payment",
+        loginUrl: "https://my.filterize.net/62428332/p/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

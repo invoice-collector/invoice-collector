@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TiptransCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TiptransCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tiptrans.com/clients/home?type=4",
+        loginUrl: "https://www.tiptrans.com/clients/home?type=4",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpecialTAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpecialTAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://at.special-t.com/de/customer/account/login/",
+        loginUrl: "https://at.special-t.com/de/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

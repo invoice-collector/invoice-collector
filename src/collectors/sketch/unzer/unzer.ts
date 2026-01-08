@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnzerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnzerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://insights.unzer.com/signin?",
+        loginUrl: "https://insights.unzer.com/signin?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

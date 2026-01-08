@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianzTravelVermittlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AllianzTravelVermittlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allianztravel-agentmax.de/onePortalUI/#/",
+        loginUrl: "https://www.allianztravel-agentmax.de/onePortalUI/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EngieBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EngieBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount-business.engie.co.uk/s/login/?ec=302&startURL=%2Fs%2F",
+        loginUrl: "https://myaccount-business.engie.co.uk/s/login/?ec=302&startURL=%2Fs%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntercarsDeutschlandGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IntercarsDeutschlandGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.intercars.eu/",
+        loginUrl: "https://sso.intercars.eu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

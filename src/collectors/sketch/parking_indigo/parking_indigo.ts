@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParkingIndigoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParkingIndigoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.fr.parkindigo.com/espace-client/mes-factures",
+        loginUrl: "https://espace-client.fr.parkindigo.com/espace-client/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

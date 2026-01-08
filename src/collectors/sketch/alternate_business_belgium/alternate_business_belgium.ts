@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlternateBusinessBelgiumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlternateBusinessBelgiumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.alternate.be/customerAccountOrders.xhtml",
+        loginUrl: "https://business.alternate.be/customerAccountOrders.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BerkshireHathawayHomestateCompaniesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BerkshireHathawayHomestateCompaniesCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bhhc.com",
+        loginUrl: "https://www.bhhc.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

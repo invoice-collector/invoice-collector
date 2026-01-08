@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpesenfuchsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpesenfuchsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.spesenfuchs.de/?COK",
+        loginUrl: "https://app.spesenfuchs.de/?COK",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

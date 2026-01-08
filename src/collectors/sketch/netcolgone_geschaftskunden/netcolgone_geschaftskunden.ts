@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetcolgoneGeschaftskundenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetcolgoneGeschaftskundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meinekundenwelt.netcologne.de/geschaeftskunden/rechnungen",
+        loginUrl: "https://meinekundenwelt.netcologne.de/geschaeftskunden/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

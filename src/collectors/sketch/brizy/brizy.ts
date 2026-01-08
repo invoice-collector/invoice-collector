@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrizyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrizyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.brizy.io/account/member/payment-history",
+        loginUrl: "https://www.brizy.io/account/member/payment-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

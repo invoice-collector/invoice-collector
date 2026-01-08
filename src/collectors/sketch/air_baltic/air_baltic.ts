@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirBalticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AirBalticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.airbaltic.com/en/bookings",
+        loginUrl: "https://www.airbaltic.com/en/bookings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

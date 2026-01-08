@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SupercheckBonitatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SupercheckBonitatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.supercheck-bonitaet.de/",
+        loginUrl: "https://www.supercheck-bonitaet.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

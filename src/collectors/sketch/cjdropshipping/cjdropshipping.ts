@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CjdropshippingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CjdropshippingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.cjdropshipping.com/",
+        loginUrl: "https://app.cjdropshipping.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

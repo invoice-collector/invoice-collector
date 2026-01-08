@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CorsizioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CorsizioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manager.corsizio.com/attendees",
+        loginUrl: "https://manager.corsizio.com/attendees",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

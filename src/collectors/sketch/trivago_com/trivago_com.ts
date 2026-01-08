@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrivagoComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrivagoComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.trivago.com",
+        loginUrl: "https://www.trivago.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

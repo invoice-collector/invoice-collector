@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleDuSoleilEntrepriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleDuSoleilEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://entreprises.mutuellesdusoleil.fr/login#/",
+        loginUrl: "https://entreprises.mutuellesdusoleil.fr/login#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

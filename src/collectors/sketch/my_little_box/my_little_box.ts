@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyLittleBoxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyLittleBoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mylittlebox.fr/signin",
+        loginUrl: "https://www.mylittlebox.fr/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

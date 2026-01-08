@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaskworldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TaskworldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://europe-enterprise.taskworld.com/msg-beauty/#/workspace/workspace-plan",
+        loginUrl: "https://europe-enterprise.taskworld.com/msg-beauty/#/workspace/workspace-plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

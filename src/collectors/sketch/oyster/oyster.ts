@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OysterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OysterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.oysterhr.com/company/",
+        loginUrl: "https://app.oysterhr.com/company/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

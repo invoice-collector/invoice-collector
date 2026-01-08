@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SquarelovinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SquarelovinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.squarelovin.com/analytics/9e3c3731-e3d2-4703-8b69-effa03d567ec/settings",
+        loginUrl: "https://app.squarelovin.com/analytics/9e3c3731-e3d2-4703-8b69-effa03d567ec/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayjoeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PayjoeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.payjoe.de/activities?month=1&year=2021",
+        loginUrl: "https://login.payjoe.de/activities?month=1&year=2021",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

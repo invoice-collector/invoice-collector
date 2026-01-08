@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebfleetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebfleetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.webfleet.com/webfleet/products/login/",
+        loginUrl: "https://www.webfleet.com/webfleet/products/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

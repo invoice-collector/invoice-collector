@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeItzehoeRechnungsportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeItzehoeRechnungsportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.iz-kom.de/",
+        loginUrl: "https://service.iz-kom.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

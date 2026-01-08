@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BarzahlenViafintechCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BarzahlenViafintechCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://controlcenter.barzahlen.de/#/billing",
+        loginUrl: "https://controlcenter.barzahlen.de/#/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

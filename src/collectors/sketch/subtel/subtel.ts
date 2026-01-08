@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SubtelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SubtelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.subtel.fr/index.php?cl=subtel_account_extend_bill",
+        loginUrl: "https://www.subtel.fr/index.php?cl=subtel_account_extend_bill",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

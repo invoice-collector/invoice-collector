@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeTelegraafCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeTelegraafCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.telegraaf.nl/abonnement/",
+        loginUrl: "https://mijn.telegraaf.nl/abonnement/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImmoweltKundenportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ImmoweltKundenportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://immowelt-customerportal.de/_layouts/15/CustomLogin/Login.aspx?ReturnUrl=%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252F&Source=%2F",
+        loginUrl: "https://immowelt-customerportal.de/_layouts/15/CustomLogin/Login.aspx?ReturnUrl=%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252F&Source=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

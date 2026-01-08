@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CongstarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CongstarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.congstar.de/meincongstar-d/meine-rechnungen",
+        loginUrl: "https://www.congstar.de/meincongstar-d/meine-rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

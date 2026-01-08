@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaserowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BaserowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://baserow.io/subscriptions/",
+        loginUrl: "https://baserow.io/subscriptions/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

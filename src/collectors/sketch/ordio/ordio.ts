@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrdioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrdioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dritterort.ordio.com/schedule/plan/#/2157/settings/payment",
+        loginUrl: "https://dritterort.ordio.com/schedule/plan/#/2157/settings/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

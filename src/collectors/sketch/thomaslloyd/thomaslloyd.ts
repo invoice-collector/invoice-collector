@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThomaslloydCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ThomaslloydCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tl.vpportal.de/show/Posteingang",
+        loginUrl: "https://tl.vpportal.de/show/Posteingang",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

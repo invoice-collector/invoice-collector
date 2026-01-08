@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DzhKundencenterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DzhKundencenterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundencenter.dzh-online.de/redirect.ac",
+        loginUrl: "https://kundencenter.dzh-online.de/redirect.ac",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

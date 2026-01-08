@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RoadpostCaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RoadpostCaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.roadpost.ca/invoice/invoicelist/",
+        loginUrl: "https://www.roadpost.ca/invoice/invoicelist/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

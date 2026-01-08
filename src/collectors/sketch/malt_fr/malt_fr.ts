@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaltFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaltFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.malt.fr/invoicing/freelancer/",
+        loginUrl: "https://www.malt.fr/invoicing/freelancer/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

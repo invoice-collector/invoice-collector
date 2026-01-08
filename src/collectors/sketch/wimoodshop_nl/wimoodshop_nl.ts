@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WimoodshopNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WimoodshopNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wimoodshop.nl/inloggen",
+        loginUrl: "https://www.wimoodshop.nl/inloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

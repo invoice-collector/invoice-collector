@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheDriveryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TheDriveryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://space.thedrivery.com/membership",
+        loginUrl: "https://space.thedrivery.com/membership",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

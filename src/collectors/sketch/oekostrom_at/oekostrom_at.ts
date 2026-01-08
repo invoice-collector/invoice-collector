@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OekostromAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OekostromAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.oekostrom.at/",
+        loginUrl: "https://mein.oekostrom.at/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AahCoUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AahCoUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aah.co.uk/webapp/wcs/stores/servlet/LoginAccessWebsitesView?catalogId=10053&langId=44&storeId=20053",
+        loginUrl: "https://www.aah.co.uk/webapp/wcs/stores/servlet/LoginAccessWebsitesView?catalogId=10053&langId=44&storeId=20053",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

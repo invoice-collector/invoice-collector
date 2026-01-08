@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FormsiteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FormsiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.formsite.com/form_app/FormSite?FormId=LoadLogin&Auto",
+        loginUrl: "https://www.formsite.com/form_app/FormSite?FormId=LoadLogin&Auto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OsnatelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OsnatelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login-tk.osnatel.de/module.php/ewetel/login.php?AuthState=_3c05279a3347209a4fc68ad9a92fdf601fd55ba8db%3Ahttps%3A%2F%2Flogin-tk.osnatel.de%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttps%253A%252F%252Fmein.osnatel.de%252Fosnatel%26cookieTime%3D",
+        loginUrl: "https://login-tk.osnatel.de/module.php/ewetel/login.php?AuthState=_3c05279a3347209a4fc68ad9a92fdf601fd55ba8db%3Ahttps%3A%2F%2Flogin-tk.osnatel.de%2Fsaml2%2Fidp%2FSSOService.php%3Fspentityid%3Dhttps%253A%252F%252Fmein.osnatel.de%252Fosnatel%26cookieTime%3D",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

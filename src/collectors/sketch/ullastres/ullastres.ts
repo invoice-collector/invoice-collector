@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UllastresCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UllastresCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://oficinavirtual.ullastres.com/user/home",
+        loginUrl: "https://oficinavirtual.ullastres.com/user/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

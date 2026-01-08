@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChargepointCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChargepointCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://driver.chargepoint.com/monthly-statements",
+        loginUrl: "https://driver.chargepoint.com/monthly-statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

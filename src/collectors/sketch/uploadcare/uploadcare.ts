@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UploadcareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UploadcareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://uploadcare.com/accounts/invoices/",
+        loginUrl: "https://uploadcare.com/accounts/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

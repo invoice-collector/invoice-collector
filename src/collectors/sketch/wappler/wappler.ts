@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WapplerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WapplerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account5.wappler.io/payment",
+        loginUrl: "https://account5.wappler.io/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

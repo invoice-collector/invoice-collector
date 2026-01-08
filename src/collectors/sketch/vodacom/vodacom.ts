@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodacomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VodacomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vodacom.co.za/cloud/digital/login",
+        loginUrl: "https://www.vodacom.co.za/cloud/digital/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

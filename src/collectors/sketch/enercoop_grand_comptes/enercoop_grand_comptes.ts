@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnercoopGrandComptesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnercoopGrandComptesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mon-espace.enercoop.fr/grandscomptes-collectivites/sites",
+        loginUrl: "https://mon-espace.enercoop.fr/grandscomptes-collectivites/sites",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

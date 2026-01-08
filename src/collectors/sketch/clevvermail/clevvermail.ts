@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClevvermailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClevvermailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu.clevvermail.com/app/invoices",
+        loginUrl: "https://eu.clevvermail.com/app/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

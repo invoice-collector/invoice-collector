@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail.spre.fr/invoice/index",
+        loginUrl: "https://portail.spre.fr/invoice/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

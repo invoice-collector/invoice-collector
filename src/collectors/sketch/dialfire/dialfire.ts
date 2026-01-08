@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DialfireCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DialfireCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.dialfire.com",
+        loginUrl: "http://www.dialfire.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

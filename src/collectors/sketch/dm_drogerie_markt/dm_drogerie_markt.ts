@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DmDrogerieMarktCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DmDrogerieMarktCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dm.de/meindmkonto/bestellungen/",
+        loginUrl: "https://www.dm.de/meindmkonto/bestellungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

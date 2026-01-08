@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TotalEnergiesEgProFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TotalEnergiesEgProFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.totalenergies.fr/",
+        loginUrl: "https://pro.totalenergies.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

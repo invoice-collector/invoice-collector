@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BpmOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BpmOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bpmonline.com/login-com",
+        loginUrl: "https://www.bpmonline.com/login-com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

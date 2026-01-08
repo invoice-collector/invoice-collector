@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JournalMidiLibreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JournalMidiLibreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://abonnement.midilibre.fr/site/midilibrev2/default/fr/compte/factures.html",
+        loginUrl: "https://abonnement.midilibre.fr/site/midilibrev2/default/fr/compte/factures.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

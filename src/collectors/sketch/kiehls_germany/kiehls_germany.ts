@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiehlsGermanyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KiehlsGermanyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kiehls.de/on/demandware.store/Sites-kiehls-de-Site/de_DE/Order-Details?orderNumber=KIE7834855",
+        loginUrl: "https://www.kiehls.de/on/demandware.store/Sites-kiehls-de-Site/de_DE/Order-Details?orderNumber=KIE7834855",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

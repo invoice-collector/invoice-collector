@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlanethosterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlanethosterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.planethoster.com/client-area/invoices",
+        loginUrl: "https://my.planethoster.com/client-area/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

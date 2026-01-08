@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptimiseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OptimiseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.optimisemedia.com",
+        loginUrl: "https://dashboard.optimisemedia.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

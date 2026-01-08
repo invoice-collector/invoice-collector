@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeoliaReunionIslandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VeoliaReunionIslandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.service.eau.veolia.fr/home.html",
+        loginUrl: "https://www.service.eau.veolia.fr/home.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

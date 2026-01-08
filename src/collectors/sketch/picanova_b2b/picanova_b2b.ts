@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PicanovaB2bCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PicanovaB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b-shop-eu.picanova.com/de/bestellungen.jsf",
+        loginUrl: "https://b2b-shop-eu.picanova.com/de/bestellungen.jsf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

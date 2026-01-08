@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BonprixCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BonprixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bonprix.de/myaccount/invoices/",
+        loginUrl: "https://www.bonprix.de/myaccount/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

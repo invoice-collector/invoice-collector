@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KreezalidCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KreezalidCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kreezalid.com/",
+        loginUrl: "https://www.kreezalid.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

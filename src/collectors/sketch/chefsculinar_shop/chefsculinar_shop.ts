@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChefsculinarShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChefsculinarShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.chefsculinar.de/de-de/account/bestell%C3%BCbersicht",
+        loginUrl: "https://shop.chefsculinar.de/de-de/account/bestell%C3%BCbersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

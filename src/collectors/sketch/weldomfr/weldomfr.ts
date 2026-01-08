@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeldomFrCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class WeldomFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.weldom.fr/",
+        loginUrl: "https://www.weldom.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

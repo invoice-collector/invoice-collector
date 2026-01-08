@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlaneteOuiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlaneteOuiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.planete-oui.fr/particuliers",
+        loginUrl: "https://www.planete-oui.fr/particuliers",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

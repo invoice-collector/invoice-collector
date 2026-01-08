@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatacampCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DatacampCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.datacamp.com/profile/account_settings/subscription",
+        loginUrl: "https://www.datacamp.com/profile/account_settings/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

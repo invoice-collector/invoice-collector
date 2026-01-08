@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrowWingPowerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CrowWingPowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cwpower.smarthub.coop/Login.html",
+        loginUrl: "https://cwpower.smarthub.coop/Login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

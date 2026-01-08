@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MixpanelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MixpanelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mixpanel.com/login/",
+        loginUrl: "https://mixpanel.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BereikIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BereikIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.bereik.io/",
+        loginUrl: "https://mijn.bereik.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

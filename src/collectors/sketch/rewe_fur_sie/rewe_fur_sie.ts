@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReweFurSieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReweFurSieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.fuer-sie-eg.de/login",
+        loginUrl: "https://portal.fuer-sie-eg.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

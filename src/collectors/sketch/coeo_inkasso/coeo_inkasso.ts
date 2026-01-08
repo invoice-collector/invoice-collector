@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoeoInkassoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoeoInkassoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://coeo-mandanten.de/Account/Login?ReturnUrl=%2F",
+        loginUrl: "https://coeo-mandanten.de/Account/Login?ReturnUrl=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeutrinoApiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NeutrinoApiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.neutrinoapi.com/account/billing-history/",
+        loginUrl: "https://www.neutrinoapi.com/account/billing-history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

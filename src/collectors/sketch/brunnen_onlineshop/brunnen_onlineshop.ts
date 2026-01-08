@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrunnenOnlineshopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrunnenOnlineshopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.brunnen.de/",
+        loginUrl: "https://shop.brunnen.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

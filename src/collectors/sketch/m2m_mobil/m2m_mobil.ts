@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class M2mMobilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class M2mMobilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.m2m-mobil.de/",
+        loginUrl: "https://service.m2m-mobil.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

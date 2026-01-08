@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoltBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BoltBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.bolt.eu/login?utm_campaign=bolt-business&utm_medium=navbar&utm_source=business-welcome",
+        loginUrl: "https://business.bolt.eu/login?utm_campaign=bolt-business&utm_medium=navbar&utm_source=business-welcome",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MorgengoldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MorgengoldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.morgengold.de/customer/invoiceHistory/invoiceHistory.xhtml",
+        loginUrl: "https://www.morgengold.de/customer/invoiceHistory/invoiceHistory.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

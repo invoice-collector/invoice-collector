@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RichterFrenzelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RichterFrenzelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.richter-frenzel.de/b2b/profi-login/#e-sales",
+        loginUrl: "https://www.richter-frenzel.de/b2b/profi-login/#e-sales",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

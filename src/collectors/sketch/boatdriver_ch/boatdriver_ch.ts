@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoatdriverChCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BoatdriverChCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.boatdriver.ch/",
+        loginUrl: "https://www.boatdriver.ch/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

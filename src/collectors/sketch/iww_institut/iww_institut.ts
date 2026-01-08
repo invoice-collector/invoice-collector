@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IwwInstitutCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IwwInstitutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.iww.de/anmelden",
+        loginUrl: "https://www.iww.de/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

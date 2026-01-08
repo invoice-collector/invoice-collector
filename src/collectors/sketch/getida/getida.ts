@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetidaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetidaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.getida.com",
+        loginUrl: "http://www.getida.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

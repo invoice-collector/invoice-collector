@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PassportcardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PassportcardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.passportcard.de/site/plan/expenses",
+        loginUrl: "https://mein.passportcard.de/site/plan/expenses",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

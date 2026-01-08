@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Onedrive4BusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Onedrive4BusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onedrive.live.com/about/de-CH/download/",
+        loginUrl: "https://onedrive.live.com/about/de-CH/download/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

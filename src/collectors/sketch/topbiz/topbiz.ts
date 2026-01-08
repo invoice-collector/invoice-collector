@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TopbizCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TopbizCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.topbiz.fr/historique-commandes",
+        loginUrl: "https://www.topbiz.fr/historique-commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

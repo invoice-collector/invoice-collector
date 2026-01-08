@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EzeepCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EzeepCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.ezeep.com/subscription",
+        loginUrl: "https://app.ezeep.com/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

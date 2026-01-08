@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BonKreditCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BonKreditCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "partner.bon-kredit.de/",
+        loginUrl: "partner.bon-kredit.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

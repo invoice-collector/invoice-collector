@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OfaBambergCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OfaBambergCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.ofa24.de/login/?next=/de/",
+        loginUrl: "https://portal.ofa24.de/login/?next=/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

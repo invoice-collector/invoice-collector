@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CsiiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CsiiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.eplustechnologies.com/esalesplus/home_CSI.htm",
+        loginUrl: "https://secure.eplustechnologies.com/esalesplus/home_CSI.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

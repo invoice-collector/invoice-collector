@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimedoctorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TimedoctorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://2.timedoctor.com/billing#invoices",
+        loginUrl: "https://2.timedoctor.com/billing#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

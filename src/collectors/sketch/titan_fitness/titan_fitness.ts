@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TitanFitnessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TitanFitnessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.titan.fitness/account?registration=false&loginType=Login",
+        loginUrl: "https://www.titan.fitness/account?registration=false&loginType=Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

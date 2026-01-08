@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeaseplanSpainCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeaseplanSpainCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://leaseplan.gestionaturenting.es/serviciosonline/ov2/empresa/facturacion.xhtml",
+        loginUrl: "https://leaseplan.gestionaturenting.es/serviciosonline/ov2/empresa/facturacion.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

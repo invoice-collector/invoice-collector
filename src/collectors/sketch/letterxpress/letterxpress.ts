@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LetterxpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LetterxpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.letterxpress.de/login",
+        loginUrl: "https://www.letterxpress.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

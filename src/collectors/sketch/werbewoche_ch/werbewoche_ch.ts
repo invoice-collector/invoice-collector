@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WerbewocheChCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WerbewocheChCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.werbewoche.ch/de/account/view-order/197840/",
+        loginUrl: "https://www.werbewoche.ch/de/account/view-order/197840/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbebooksComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AbebooksComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.abebooks.com/my-account/payments/tax-invoices/",
+        loginUrl: "https://www.abebooks.com/my-account/payments/tax-invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TakealotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TakealotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.takealot.com/account/login",
+        loginUrl: "https://secure.takealot.com/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

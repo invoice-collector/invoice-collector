@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GainCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GainCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.gainapp.com/14577/billing/",
+        loginUrl: "https://manage.gainapp.com/14577/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

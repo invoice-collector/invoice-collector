@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FuelCardNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FuelCardNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.fuel-card.nl/Login.aspx",
+        loginUrl: "https://mijn.fuel-card.nl/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoOsterreichAffiliateNetzwerkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OttoOsterreichAffiliateNetzwerkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://affiliate.ottoversand.at/user-billings.do",
+        loginUrl: "https://affiliate.ottoversand.at/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

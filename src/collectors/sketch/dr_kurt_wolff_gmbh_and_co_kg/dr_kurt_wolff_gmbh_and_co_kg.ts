@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrKurtWolffGmbhAndCoKgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrKurtWolffGmbhAndCoKgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alcina-professional.com/de-de/account/invoices",
+        loginUrl: "https://www.alcina-professional.com/de-de/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

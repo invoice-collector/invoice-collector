@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuddybossCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BuddybossCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.buddyboss.com/wp-login.php",
+        loginUrl: "https://my.buddyboss.com/wp-login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

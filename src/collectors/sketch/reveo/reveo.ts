@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReveoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReveoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.reveocharge.com/login",
+        loginUrl: "https://my.reveocharge.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

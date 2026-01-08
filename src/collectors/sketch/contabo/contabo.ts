@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContaboCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ContaboCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.contabo.de",
+        loginUrl: "https://my.contabo.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GiftUpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GiftUpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://giftup.app/billing/invoices",
+        loginUrl: "https://giftup.app/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

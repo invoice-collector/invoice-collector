@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LanesAndPlanesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LanesAndPlanesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lanes-planes.com/admin/#/admin/company/accounting",
+        loginUrl: "https://app.lanes-planes.com/admin/#/admin/company/accounting",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

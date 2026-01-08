@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FtComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FtComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.ft.com/login?location=https%3A%2F%2Fwww.ft.com",
+        loginUrl: "https://accounts.ft.com/login?location=https%3A%2F%2Fwww.ft.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

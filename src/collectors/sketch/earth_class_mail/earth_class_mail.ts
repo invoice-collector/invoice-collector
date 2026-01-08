@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EarthClassMailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EarthClassMailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.billingportal.com/s/earthclassmail/statements",
+        loginUrl: "https://www.billingportal.com/s/earthclassmail/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

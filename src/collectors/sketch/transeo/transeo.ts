@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TranseoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TranseoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.transeo.io/sign/in",
+        loginUrl: "https://app.transeo.io/sign/in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OfriCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OfriCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ofri.ch/users/123580/account_balances",
+        loginUrl: "https://www.ofri.ch/users/123580/account_balances",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

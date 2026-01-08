@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JotformCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JotformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.jotform.com/login",
+        loginUrl: "https://www.jotform.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

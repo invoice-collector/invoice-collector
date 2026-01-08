@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlobimailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GlobimailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.globimail.com/billinghistory/",
+        loginUrl: "https://secure.globimail.com/billinghistory/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssurancesMaeAttestationsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AssurancesMaeAttestationsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mae.fr/espaceadherent",
+        loginUrl: "https://www.mae.fr/espaceadherent",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

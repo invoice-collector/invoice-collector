@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyspaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasyspaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.easyspace.com",
+        loginUrl: "http://www.easyspace.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

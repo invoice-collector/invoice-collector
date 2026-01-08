@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppleBusinessManagerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppleBusinessManagerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.apple.com/#main/accounts",
+        loginUrl: "https://business.apple.com/#main/accounts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

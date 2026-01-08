@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlugsurfingLandroverCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlugsurfingLandroverCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://landroverportal.plugsurfing.com/charging-history",
+        loginUrl: "https://landroverportal.plugsurfing.com/charging-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

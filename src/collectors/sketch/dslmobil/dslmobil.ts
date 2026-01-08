@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DslmobilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DslmobilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://km.dslmobil.de/",
+        loginUrl: "https://km.dslmobil.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

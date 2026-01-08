@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiabiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KiabiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kiabi.com/",
+        loginUrl: "https://www.kiabi.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

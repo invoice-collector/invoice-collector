@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DupliCheckerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DupliCheckerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.duplichecker.com/account-settings",
+        loginUrl: "https://pro.duplichecker.com/account-settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

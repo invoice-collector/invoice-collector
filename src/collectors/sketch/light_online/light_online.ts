@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LightOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LightOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lightonline.fr/",
+        loginUrl: "https://www.lightonline.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SucuriCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SucuriCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.sucuri.net/login/",
+        loginUrl: "https://dashboard.sucuri.net/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

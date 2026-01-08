@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirplusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AirplusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.airplus.com/openlogin.do",
+        loginUrl: "https://portal.airplus.com/openlogin.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

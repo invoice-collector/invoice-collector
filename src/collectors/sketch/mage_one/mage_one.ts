@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MageOneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MageOneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.mage-one.com/invoices/",
+        loginUrl: "https://my.mage-one.com/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

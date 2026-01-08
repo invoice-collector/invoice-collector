@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneCoNzMobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VodafoneCoNzMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vodafone.co.nz/#sign-in#sign-in-mobile",
+        loginUrl: "https://www.vodafone.co.nz/#sign-in#sign-in-mobile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeDachauEinspeiserPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeDachauEinspeiserPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stadtwerke-dachau.de/service-beratung/online-services/einspeiser-portal",
+        loginUrl: "https://www.stadtwerke-dachau.de/service-beratung/online-services/einspeiser-portal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

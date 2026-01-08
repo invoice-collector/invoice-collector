@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArvalUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ArvalUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myarval.com/myarvalwebtheme/",
+        loginUrl: "https://www.myarval.com/myarvalwebtheme/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

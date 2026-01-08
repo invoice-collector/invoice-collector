@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TntBulgariaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TntBulgariaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://efaktura.bg/?l=bul",
+        loginUrl: "https://efaktura.bg/?l=bul",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

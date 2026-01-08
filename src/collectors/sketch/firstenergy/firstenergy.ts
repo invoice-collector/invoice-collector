@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FirstenergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FirstenergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.firstenergycorp.com/log_in.html",
+        loginUrl: "https://www.firstenergycorp.com/log_in.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

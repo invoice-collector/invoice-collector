@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WestfalenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WestfalenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.westfalen-services.eu/default.asp?rq_AppGuid=0435AFC26C6EDDE278F4A1D3522934C10219803F&rq_TargetPageGuid=0C26109FEC6632976B939BE6F38FBB8795DC9612&rq_Layout=Westfalen-AG_Register&rq_MenuGuid=A7EAA24A978E6962C3219CE355E91CCF57BCFBD8&rq_TemplateKe",
+        loginUrl: "https://www.westfalen-services.eu/default.asp?rq_AppGuid=0435AFC26C6EDDE278F4A1D3522934C10219803F&rq_TargetPageGuid=0C26109FEC6632976B939BE6F38FBB8795DC9612&rq_Layout=Westfalen-AG_Register&rq_MenuGuid=A7EAA24A978E6962C3219CE355E91CCF57BCFBD8&rq_TemplateKe",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

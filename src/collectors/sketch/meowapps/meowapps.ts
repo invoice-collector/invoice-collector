@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeowappsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeowappsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meowapps.com/account/purchases/",
+        loginUrl: "https://meowapps.com/account/purchases/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

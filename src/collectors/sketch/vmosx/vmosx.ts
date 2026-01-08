@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VmosxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VmosxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.virtualmacosx.com/billing/clientarea.php",
+        loginUrl: "http://www.virtualmacosx.com/billing/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

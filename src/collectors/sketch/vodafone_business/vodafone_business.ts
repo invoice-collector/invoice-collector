@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VodafoneBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vodafone.de/business/services/firmenkundenportal/login.html",
+        loginUrl: "https://www.vodafone.de/business/services/firmenkundenportal/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

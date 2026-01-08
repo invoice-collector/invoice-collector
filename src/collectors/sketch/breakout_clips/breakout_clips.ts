@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BreakoutClipsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BreakoutClipsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://breakoutclips.com/login/",
+        loginUrl: "https://breakoutclips.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

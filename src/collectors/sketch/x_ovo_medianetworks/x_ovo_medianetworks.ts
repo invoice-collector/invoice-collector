@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XOvoMedianetworksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XOvoMedianetworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.domainpartner.net/billing/invoices/overview",
+        loginUrl: "https://secure.domainpartner.net/billing/invoices/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

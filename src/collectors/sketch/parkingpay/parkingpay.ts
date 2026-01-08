@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParkingpayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParkingpayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://parkingpay.ch/",
+        loginUrl: "https://parkingpay.ch/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

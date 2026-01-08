@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpsgenieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpsgenieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.opsgenie.com/auth/login",
+        loginUrl: "https://app.opsgenie.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

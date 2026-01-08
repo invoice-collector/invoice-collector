@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectAssurancesContratsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DirectAssurancesContratsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.direct-assurance.fr/Sales/QBQQ2B7Q/Common/Login",
+        loginUrl: "https://www.direct-assurance.fr/Sales/QBQQ2B7Q/Common/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

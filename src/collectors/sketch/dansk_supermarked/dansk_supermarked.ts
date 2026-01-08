@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DanskSupermarkedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DanskSupermarkedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dansksupermarked.com",
+        loginUrl: "https://dansksupermarked.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

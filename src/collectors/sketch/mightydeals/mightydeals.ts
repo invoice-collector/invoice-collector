@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MightydealsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MightydealsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mightydeals.com/customer/login",
+        loginUrl: "https://www.mightydeals.com/customer/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

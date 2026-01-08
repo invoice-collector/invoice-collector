@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeAugsburgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeAugsburgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.sw-augsburg.de/powercommerce5/swa/fo/portal/professional",
+        loginUrl: "https://onlineservice.sw-augsburg.de/powercommerce5/swa/fo/portal/professional",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

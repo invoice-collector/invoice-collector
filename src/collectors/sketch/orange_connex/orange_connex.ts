@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeConnexCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrangeConnexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fulfillment.orangeconnex.com/seller/login?redirectUrl=https%3A%2F%2Ffulfillment.orangeconnex.com%2F",
+        loginUrl: "https://fulfillment.orangeconnex.com/seller/login?redirectUrl=https%3A%2F%2Ffulfillment.orangeconnex.com%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

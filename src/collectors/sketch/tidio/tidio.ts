@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TidioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TidioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tidio.com/panel/login",
+        loginUrl: "https://www.tidio.com/panel/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Auto1Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Auto1Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.auto1.com",
+        loginUrl: "http://www.auto1.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KasprCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KasprCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.kaspr.io/billing",
+        loginUrl: "https://app.kaspr.io/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

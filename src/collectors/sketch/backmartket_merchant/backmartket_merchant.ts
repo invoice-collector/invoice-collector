@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BackmartketMerchantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BackmartketMerchantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.backmarket.de/bo_merchant/invoices/past-invoices",
+        loginUrl: "https://www.backmarket.de/bo_merchant/invoices/past-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

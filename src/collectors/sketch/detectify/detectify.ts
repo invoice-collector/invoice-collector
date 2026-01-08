@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DetectifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DetectifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://detectify.com/dashboard/billing/history",
+        loginUrl: "https://detectify.com/dashboard/billing/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

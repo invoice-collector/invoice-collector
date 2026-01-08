@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoxtelesysCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VoxtelesysCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.voxtelesys.net/invoices",
+        loginUrl: "https://portal.voxtelesys.net/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

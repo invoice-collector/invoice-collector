@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EstugoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EstugoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hera.estugo.de:8443/login_up.php?success_redirect_url=%2Fsmb%2Fweb%2Fview",
+        loginUrl: "https://hera.estugo.de:8443/login_up.php?success_redirect_url=%2Fsmb%2Fweb%2Fview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

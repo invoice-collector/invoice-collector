@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetraenkebringdienstUmbachCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetraenkebringdienstUmbachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.getraenkebringdienst-umbach.de/document/index",
+        loginUrl: "https://shop.getraenkebringdienst-umbach.de/document/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

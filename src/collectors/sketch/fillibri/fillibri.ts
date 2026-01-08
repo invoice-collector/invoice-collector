@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FillibriCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FillibriCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fillibri.com/",
+        loginUrl: "https://fillibri.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

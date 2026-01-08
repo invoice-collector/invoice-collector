@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FirecrawlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FirecrawlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.firecrawl.dev/signin",
+        loginUrl: "https://www.firecrawl.dev/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

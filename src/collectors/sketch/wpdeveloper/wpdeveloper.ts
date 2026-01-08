@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpdeveloperCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WpdeveloperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wpdeveloper.net/login/",
+        loginUrl: "https://wpdeveloper.net/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WdvMollineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WdvMollineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.molline.de/informationen/kundenbereich/",
+        loginUrl: "https://www.molline.de/informationen/kundenbereich/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

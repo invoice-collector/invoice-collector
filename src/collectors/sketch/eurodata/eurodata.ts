@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EurodataCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EurodataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.eurodata.de",
+        loginUrl: "http://www.eurodata.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

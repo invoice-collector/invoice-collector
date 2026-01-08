@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchieggVersicherungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SchieggVersicherungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.schiegg-versicherung.de/invoice/showList",
+        loginUrl: "https://www.schiegg-versicherung.de/invoice/showList",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

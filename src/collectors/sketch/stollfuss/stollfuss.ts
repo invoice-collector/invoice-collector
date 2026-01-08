@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StollfussCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StollfussCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stollfuss.de/software-service.aspx",
+        loginUrl: "https://www.stollfuss.de/software-service.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

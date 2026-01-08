@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookingsyncCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BookingsyncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bookingsync.com/users/login",
+        loginUrl: "https://www.bookingsync.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

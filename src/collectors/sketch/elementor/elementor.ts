@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElementorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElementorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.elementor.com",
+        loginUrl: "https://my.elementor.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

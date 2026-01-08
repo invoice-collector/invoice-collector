@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThecubenetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ThecubenetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.thecubenet.com/clients/clientarea.php?action=invoices",
+        loginUrl: "https://www.thecubenet.com/clients/clientarea.php?action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

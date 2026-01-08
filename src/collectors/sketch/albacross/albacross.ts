@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlbacrossCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlbacrossCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "app.albacross.com/account/billing",
+        loginUrl: "app.albacross.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

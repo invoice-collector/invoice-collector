@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PluralsightCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PluralsightCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pluralsight.com/id",
+        loginUrl: "https://app.pluralsight.com/id",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

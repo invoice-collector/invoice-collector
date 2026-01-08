@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MakroCoZaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MakroCoZaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.makro.co.za/login",
+        loginUrl: "https://www.makro.co.za/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

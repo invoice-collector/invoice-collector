@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _20iCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _20iCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.20i.com/login",
+        loginUrl: "https://my.20i.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

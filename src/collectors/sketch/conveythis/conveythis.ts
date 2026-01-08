@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConveythisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConveythisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.conveythis.com/",
+        loginUrl: "https://app.conveythis.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

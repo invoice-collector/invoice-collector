@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OntarioMunicipalUtilitiesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OntarioMunicipalUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customer.ontarioca.gov/Main-Menu/My-Account/Billing",
+        loginUrl: "https://customer.ontarioca.gov/Main-Menu/My-Account/Billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

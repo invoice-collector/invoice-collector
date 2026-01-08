@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NuonNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NuonNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nuon.nl/service/mijn-nuon/",
+        loginUrl: "https://www.nuon.nl/service/mijn-nuon/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

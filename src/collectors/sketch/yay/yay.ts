@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.yay.com/account/member/invoices/",
+        loginUrl: "https://www.yay.com/account/member/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FaktaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FaktaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fakta.dk",
+        loginUrl: "https://fakta.dk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

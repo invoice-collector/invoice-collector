@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BisonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BisonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://trade.bisonapp.com/login",
+        loginUrl: "https://trade.bisonapp.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

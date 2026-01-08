@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FraenkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FraenkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fraenk.de/xyz",
+        loginUrl: "https://fraenk.de/xyz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

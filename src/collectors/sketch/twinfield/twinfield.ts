@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwinfieldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TwinfieldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.twinfield.com/",
+        loginUrl: "https://login.twinfield.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

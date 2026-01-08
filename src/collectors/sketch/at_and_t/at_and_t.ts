@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtAndTCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AtAndTCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.att.com/my/#/login",
+        loginUrl: "https://www.att.com/my/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

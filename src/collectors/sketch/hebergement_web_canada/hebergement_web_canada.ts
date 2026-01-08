@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HebergementWebCanadaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HebergementWebCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.whc.ca/clientarea.php?language=french",
+        loginUrl: "https://clients.whc.ca/clientarea.php?language=french",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

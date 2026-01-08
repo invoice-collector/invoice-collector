@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NexiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.nexi.de/web/Download",
+        loginUrl: "https://portal.nexi.de/web/Download",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

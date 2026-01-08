@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Fliphtml5Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Fliphtml5Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fliphtml5.com/de/center/billing/#Billing-Cycle",
+        loginUrl: "https://fliphtml5.com/de/center/billing/#Billing-Cycle",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

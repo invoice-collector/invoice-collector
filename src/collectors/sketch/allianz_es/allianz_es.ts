@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianzEsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AllianzEsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://seguros.allianz.es/ngx-ecliente/private/pic-cliente",
+        loginUrl: "https://seguros.allianz.es/ngx-ecliente/private/pic-cliente",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

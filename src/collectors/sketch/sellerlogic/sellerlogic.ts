@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellerlogicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SellerlogicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.sellerlogic.com/payments/invoice/",
+        loginUrl: "https://client.sellerlogic.com/payments/invoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

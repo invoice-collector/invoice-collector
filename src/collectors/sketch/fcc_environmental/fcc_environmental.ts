@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FccEnvironmentalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FccEnvironmentalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fccenvironmental.com/pay-your-bill/",
+        loginUrl: "https://fccenvironmental.com/pay-your-bill/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

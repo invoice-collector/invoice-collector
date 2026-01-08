@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TurboperformanceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TurboperformanceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fes.turboperformance.de",
+        loginUrl: "https://fes.turboperformance.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

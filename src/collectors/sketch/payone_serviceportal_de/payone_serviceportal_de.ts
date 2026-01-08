@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayoneServiceportalDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PayoneServiceportalDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.meinservice-portal.de/login.php",
+        loginUrl: "https://www.meinservice-portal.de/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

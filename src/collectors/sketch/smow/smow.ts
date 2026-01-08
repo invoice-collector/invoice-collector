@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.smow.de/kundenkonto/anmelden",
+        loginUrl: "https://www.smow.de/kundenkonto/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

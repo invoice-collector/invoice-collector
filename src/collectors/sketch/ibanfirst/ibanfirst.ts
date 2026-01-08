@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IbanfirstCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IbanfirstCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://platform.ibanfirst.com/Compte/Documents",
+        loginUrl: "https://platform.ibanfirst.com/Compte/Documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

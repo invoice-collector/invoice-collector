@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YieldloveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YieldloveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.yieldlove.com/credit-reports",
+        loginUrl: "https://dashboard.yieldlove.com/credit-reports",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YellowbrickBelgiumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YellowbrickBelgiumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.yellowbrick.be/MyYellowbrick/invoice/list?interval=1&searchField=Date&searchValue=",
+        loginUrl: "https://my.yellowbrick.be/MyYellowbrick/invoice/list?interval=1&searchField=Date&searchValue=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

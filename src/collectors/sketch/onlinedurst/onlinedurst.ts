@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlinedurstCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OnlinedurstCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlinedurst.de/account/orders",
+        loginUrl: "https://onlinedurst.de/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

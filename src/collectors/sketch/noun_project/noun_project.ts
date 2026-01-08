@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NounProjectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NounProjectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://thenounproject.com/accounts/login/",
+        loginUrl: "https://thenounproject.com/accounts/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

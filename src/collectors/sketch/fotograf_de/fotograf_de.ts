@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotografDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FotografDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.fotograf.de/config/index_invoices",
+        loginUrl: "https://app.fotograf.de/config/index_invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MondayComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MondayComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.monday.com/login",
+        loginUrl: "https://auth.monday.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

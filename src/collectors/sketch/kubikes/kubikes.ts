@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KubikesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KubikesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kubikes.de/kubikes_shop/account.php",
+        loginUrl: "https://www.kubikes.de/kubikes_shop/account.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

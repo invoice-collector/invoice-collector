@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetsiteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetsiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.netsite.dk/mit/faktura/",
+        loginUrl: "https://www.netsite.dk/mit/faktura/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

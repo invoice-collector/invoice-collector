@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CostaCoUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CostaCoUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.costa.co.uk/coffee-club/login/",
+        loginUrl: "https://www.costa.co.uk/coffee-club/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

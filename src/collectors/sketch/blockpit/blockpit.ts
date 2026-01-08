@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlockpitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlockpitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.blockpit.io/dashboard",
+        loginUrl: "https://app.blockpit.io/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

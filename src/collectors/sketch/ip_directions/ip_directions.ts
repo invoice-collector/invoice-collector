@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpDirectionsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IpDirectionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.ipdirections.net/UI/Login/LoginPage.aspx?returnUrl",
+        loginUrl: "https://extranet.ipdirections.net/UI/Login/LoginPage.aspx?returnUrl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

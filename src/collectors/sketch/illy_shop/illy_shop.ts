@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IllyShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IllyShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.illy.com/de-de/my-account",
+        loginUrl: "https://www.illy.com/de-de/my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

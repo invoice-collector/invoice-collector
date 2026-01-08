@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManutanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ManutanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.manutan.fr/fr/maf",
+        loginUrl: "https://www.manutan.fr/fr/maf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

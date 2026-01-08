@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NovaScotiaPowerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NovaScotiaPowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.nspower.ca/",
+        loginUrl: "https://myaccount.nspower.ca/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

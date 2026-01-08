@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceTonerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FranceTonerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.francetoner.fr/caddy.php",
+        loginUrl: "https://www.francetoner.fr/caddy.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

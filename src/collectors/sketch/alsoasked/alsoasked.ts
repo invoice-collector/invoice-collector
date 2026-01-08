@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlsoaskedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlsoaskedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://alsoasked.com/billing",
+        loginUrl: "https://alsoasked.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

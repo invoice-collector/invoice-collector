@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GitbookCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GitbookCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.gitbook.com/",
+        loginUrl: "https://app.gitbook.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

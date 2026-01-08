@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JungleDiskCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JungleDiskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.jungledisk.com/secure/account/invoices.aspx",
+        loginUrl: "https://secure.jungledisk.com/secure/account/invoices.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

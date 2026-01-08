@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QparkNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QparkNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlinesales.q-park.nl/nl-nl/login/",
+        loginUrl: "https://onlinesales.q-park.nl/nl-nl/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

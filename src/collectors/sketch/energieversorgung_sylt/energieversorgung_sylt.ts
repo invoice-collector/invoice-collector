@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnergieversorgungSyltCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnergieversorgungSyltCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundencenter.energieversorgung-sylt.de/csit/action/csShowInvoices?formReset.x=true",
+        loginUrl: "https://kundencenter.energieversorgung-sylt.de/csit/action/csShowInvoices?formReset.x=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

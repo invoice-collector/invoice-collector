@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShyftplanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShyftplanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shyftplan.com/login",
+        loginUrl: "https://shyftplan.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeDuisburgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeDuisburgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.swdu.de/postbox",
+        loginUrl: "https://mein.swdu.de/postbox",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

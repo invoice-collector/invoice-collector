@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeywordToolCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KeywordToolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://keywordtool.io/user?destination=node",
+        loginUrl: "https://keywordtool.io/user?destination=node",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

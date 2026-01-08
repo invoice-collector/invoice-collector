@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EddyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EddyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eddy-sharing.de/login/",
+        loginUrl: "https://eddy-sharing.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

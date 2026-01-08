@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FormcraftsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FormcraftsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://formcrafts.com/dashboard/account",
+        loginUrl: "https://formcrafts.com/dashboard/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

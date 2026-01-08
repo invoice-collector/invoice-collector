@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkePfaffenhofenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkePfaffenhofenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://swp.emobilitycloud.com",
+        loginUrl: "https://swp.emobilitycloud.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

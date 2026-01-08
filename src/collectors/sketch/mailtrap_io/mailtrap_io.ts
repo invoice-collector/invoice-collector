@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailtrapIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailtrapIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mailtrap.io/signin",
+        loginUrl: "https://mailtrap.io/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

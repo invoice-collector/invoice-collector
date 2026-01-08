@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BelviaImmobilierCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BelviaImmobilierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.citya.com/",
+        loginUrl: "https://www.citya.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

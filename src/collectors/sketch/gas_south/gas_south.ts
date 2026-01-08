@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GasSouthCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GasSouthCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.gassouth.com/payments/paymentdetail",
+        loginUrl: "https://manage.gassouth.com/payments/paymentdetail",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

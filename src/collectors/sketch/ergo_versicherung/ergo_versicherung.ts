@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErgoVersicherungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ErgoVersicherungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunde-s.ergo.de/meineversicherungen/L1/Postfach/Posteingang%20(Spa).aspx",
+        loginUrl: "https://kunde-s.ergo.de/meineversicherungen/L1/Postfach/Posteingang%20(Spa).aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

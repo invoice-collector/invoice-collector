@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KartraCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KartraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://home.kartra.com/",
+        loginUrl: "https://home.kartra.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Home24KundenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Home24KundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.home24.de/meinkundenkonto/kunde/login",
+        loginUrl: "https://www.home24.de/meinkundenkonto/kunde/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

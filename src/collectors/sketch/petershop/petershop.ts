@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PetershopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PetershopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.petershop.de/index.php?cl=tc_b2b_item_list_document",
+        loginUrl: "https://www.petershop.de/index.php?cl=tc_b2b_item_list_document",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

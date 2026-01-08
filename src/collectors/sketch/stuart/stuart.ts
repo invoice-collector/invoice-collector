@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StuartCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StuartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.stuart.com/history",
+        loginUrl: "https://dashboard.stuart.com/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

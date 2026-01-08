@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LearningsuiteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LearningsuiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://selfservice.billwerk.com/portal/account.html#/0ySASdq3qjjXviMs8Z7XgQ",
+        loginUrl: "https://selfservice.billwerk.com/portal/account.html#/0ySASdq3qjjXviMs8Z7XgQ",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

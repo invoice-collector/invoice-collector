@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AralFleetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AralFleetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fleet.aral.com/de/invoices",
+        loginUrl: "https://fleet.aral.com/de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

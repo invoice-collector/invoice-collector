@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AliexpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AliexpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://trade.aliexpress.com/orderList.htm?tracelog=ws_topbar",
+        loginUrl: "https://trade.aliexpress.com/orderList.htm?tracelog=ws_topbar",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnisonAudioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnisonAudioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.unison.audio/dashboard/billing-history",
+        loginUrl: "https://app.unison.audio/dashboard/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

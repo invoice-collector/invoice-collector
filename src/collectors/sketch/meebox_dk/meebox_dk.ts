@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeeboxDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeeboxDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
+        loginUrl: "https://www.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

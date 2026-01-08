@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VideoDataTechnikCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VideoDataTechnikCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.videodata.de/shop/index.php",
+        loginUrl: "https://www.videodata.de/shop/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

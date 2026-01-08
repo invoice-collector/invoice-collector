@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlutterflowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlutterflowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xSHFxbmVIV2pGbHg4MFNNLF9PVmpJWmFhdkRHbXR0SGdoWThRTmZqM1I3dDlJQnow0100RoTEsU3H",
+        loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xSHFxbmVIV2pGbHg4MFNNLF9PVmpJWmFhdkRHbXR0SGdoWThRTmZqM1I3dDlJQnow0100RoTEsU3H",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

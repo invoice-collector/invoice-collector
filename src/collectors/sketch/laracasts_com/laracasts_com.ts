@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaracastsComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LaracastsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://laracasts.com/settings/subscription/invoices",
+        loginUrl: "https://laracasts.com/settings/subscription/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

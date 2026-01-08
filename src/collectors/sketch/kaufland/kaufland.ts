@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KauflandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KauflandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellerportal.kaufland.de/accounting/invoices",
+        loginUrl: "https://sellerportal.kaufland.de/accounting/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

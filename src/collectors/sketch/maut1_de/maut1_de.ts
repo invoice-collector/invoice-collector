@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Maut1DeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Maut1DeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maut1.de/account",
+        loginUrl: "https://www.maut1.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VrboCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VrboCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vrbo.com/p/properties",
+        loginUrl: "https://www.vrbo.com/p/properties",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VectorizerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VectorizerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.cedarlakeventures.com/account/transactions",
+        loginUrl: "https://de.cedarlakeventures.com/account/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeilleurplacementComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeilleurplacementComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://placement.meilleurtaux.com/",
+        loginUrl: "https://placement.meilleurtaux.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

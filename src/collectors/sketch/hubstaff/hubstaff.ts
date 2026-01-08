@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HubstaffCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HubstaffCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.hubstaff.com/login",
+        loginUrl: "https://account.hubstaff.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

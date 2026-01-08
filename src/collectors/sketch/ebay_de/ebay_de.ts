@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbayDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EbayDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ebay.de",
+        loginUrl: "https://www.ebay.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

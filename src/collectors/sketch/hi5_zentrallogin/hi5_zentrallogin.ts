@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Hi5ZentralloginCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Hi5ZentralloginCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zentrallogin.hi5dev.de/contracts",
+        loginUrl: "https://zentrallogin.hi5dev.de/contracts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

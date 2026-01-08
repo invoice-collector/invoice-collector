@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeepeeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VeepeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.veepee.fr/authentication/",
+        loginUrl: "https://www.veepee.fr/authentication/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

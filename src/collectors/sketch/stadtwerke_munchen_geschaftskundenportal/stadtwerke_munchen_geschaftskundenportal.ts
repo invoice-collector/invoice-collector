@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeMunchenGeschaftskundenportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeMunchenGeschaftskundenportalCollector extends SketchColle
                 mandatory: true
             }
         },
-        entryUrl: "https://geschaeftskundenportal.swm.de/secure/rechnungsuebersicht.html",
+        loginUrl: "https://geschaeftskundenportal.swm.de/secure/rechnungsuebersicht.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

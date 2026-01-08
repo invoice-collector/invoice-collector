@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _123pneusFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _123pneusFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.123pneus.fr/cgi-bin/my-account.pl?dsco=125",
+        loginUrl: "https://www.123pneus.fr/cgi-bin/my-account.pl?dsco=125",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

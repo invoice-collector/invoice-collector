@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpsonReadyPrintEuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EpsonReadyPrintEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://subscription.epson.eu/",
+        loginUrl: "https://subscription.epson.eu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

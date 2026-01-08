@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RV24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RV24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rv24.de/vertragscenter",
+        loginUrl: "https://www.rv24.de/vertragscenter",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

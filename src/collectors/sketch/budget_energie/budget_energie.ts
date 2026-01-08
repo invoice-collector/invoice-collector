@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BudgetEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BudgetEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.budgetenergie.nl/inloggen?_ga=2.170259616.1692855498.1524058873-1368279290.1524058873",
+        loginUrl: "https://mijn.budgetenergie.nl/inloggen?_ga=2.170259616.1692855498.1524058873-1368279290.1524058873",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

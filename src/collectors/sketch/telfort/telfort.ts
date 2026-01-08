@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelfortCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelfortCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telfort.nl/persoonlijk/inloggen-mijn-telfort.htm#/login",
+        loginUrl: "https://www.telfort.nl/persoonlijk/inloggen-mijn-telfort.htm#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

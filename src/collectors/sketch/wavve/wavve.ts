@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WavveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WavveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.wavve.co/plan",
+        loginUrl: "https://app.wavve.co/plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

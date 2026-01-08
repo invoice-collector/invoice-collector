@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudinaryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CloudinaryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloudinary.com/console/settings/billing",
+        loginUrl: "https://cloudinary.com/console/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

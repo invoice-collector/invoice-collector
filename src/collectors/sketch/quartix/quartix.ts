@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuartixCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuartixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.quartix.com/en-ie/sign-in/",
+        loginUrl: "https://www.quartix.com/en-ie/sign-in/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

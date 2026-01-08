@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrowdfireCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CrowdfireCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.crowdfireapp.com/#/grow/receipts",
+        loginUrl: "https://web.crowdfireapp.com/#/grow/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

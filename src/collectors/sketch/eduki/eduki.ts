@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdukiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdukiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eduki.com/de/honorar",
+        loginUrl: "https://eduki.com/de/honorar",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

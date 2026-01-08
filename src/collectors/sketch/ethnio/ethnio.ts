@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EthnioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EthnioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ethn.io/users/5423/billing",
+        loginUrl: "https://ethn.io/users/5423/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

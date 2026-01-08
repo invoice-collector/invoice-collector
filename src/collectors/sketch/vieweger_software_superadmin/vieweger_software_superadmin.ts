@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViewegerSoftwareSuperadminCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ViewegerSoftwareSuperadminCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.superbike8.de/haendlerportal/admin/invoices/index",
+        loginUrl: "https://www.superbike8.de/haendlerportal/admin/invoices/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

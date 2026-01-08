@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZinspectorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZinspectorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portfolio.zinspector.com/billing/payments/",
+        loginUrl: "https://portfolio.zinspector.com/billing/payments/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

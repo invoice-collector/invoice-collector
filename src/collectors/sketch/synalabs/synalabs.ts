@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SynalabsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SynalabsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.synalabs.com/clientarea.php?action=invoices",
+        loginUrl: "https://www.synalabs.com/clientarea.php?action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

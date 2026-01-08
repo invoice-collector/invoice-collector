@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuralisCollector extends SketchCollector {
 
@@ -25,6 +25,9 @@ export class EuralisCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://www.terre-vive.fr/extranet/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

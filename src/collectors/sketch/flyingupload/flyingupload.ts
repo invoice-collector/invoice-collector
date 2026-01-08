@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlyinguploadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlyinguploadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://flyingupload.com/user-account/",
+        loginUrl: "https://flyingupload.com/user-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

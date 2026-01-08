@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DisneyplusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DisneyplusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.disneyplus.com/de-de/login",
+        loginUrl: "https://www.disneyplus.com/de-de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

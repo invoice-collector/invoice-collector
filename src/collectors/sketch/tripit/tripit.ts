@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TripitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TripitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tripit.com/account/edit/section/billing_history",
+        loginUrl: "https://www.tripit.com/account/edit/section/billing_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaternetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WaternetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.waternet.nl/?_ga=2.193516461.1875114429.1524075147-2083055620.1524075147",
+        loginUrl: "https://mijn.waternet.nl/?_ga=2.193516461.1875114429.1524075147-2083055620.1524075147",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

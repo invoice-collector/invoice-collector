@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnterpriseRentACarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnterpriseRentACarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://resolution.ehi.com/#/",
+        loginUrl: "https://resolution.ehi.com/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

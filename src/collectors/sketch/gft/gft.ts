@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GftCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gft-eg.de/de/startseite.html",
+        loginUrl: "https://www.gft-eg.de/de/startseite.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

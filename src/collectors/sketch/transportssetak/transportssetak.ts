@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransportsSetakCollector extends SketchCollector {
 
@@ -25,6 +25,9 @@ export class TransportsSetakCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://app.transports-setak.com/ITEM_WEB_V2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

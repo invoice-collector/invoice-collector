@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KautBullingerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KautBullingerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kautbullinger.de/",
+        loginUrl: "https://www.kautbullinger.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

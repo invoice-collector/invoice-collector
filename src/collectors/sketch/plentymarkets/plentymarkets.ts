@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlentymarketsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlentymarketsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.plentymarkets.eu/my-account/",
+        loginUrl: "https://www.plentymarkets.eu/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

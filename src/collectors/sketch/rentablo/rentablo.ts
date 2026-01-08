@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RentabloCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RentabloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rentablo.de/app#!/cashbackSubscriptionDashboard",
+        loginUrl: "https://rentablo.de/app#!/cashbackSubscriptionDashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

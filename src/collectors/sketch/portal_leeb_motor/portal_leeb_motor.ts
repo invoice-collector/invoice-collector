@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortalLeebMotorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PortalLeebMotorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.leeb-motor.com/Home/InventCheck",
+        loginUrl: "https://portal.leeb-motor.com/Home/InventCheck",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

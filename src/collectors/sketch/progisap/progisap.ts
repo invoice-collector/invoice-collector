@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProgisapCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProgisapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.progisap.fr/",
+        loginUrl: "http://www.progisap.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

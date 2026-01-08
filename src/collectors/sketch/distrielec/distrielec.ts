@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DistrielecCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DistrielecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.d4online.com/my-account/invoice-history",
+        loginUrl: "https://www.d4online.com/my-account/invoice-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

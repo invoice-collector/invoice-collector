@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MytweakCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MytweakCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunde.mytweak.at/invoice.php",
+        loginUrl: "https://kunde.mytweak.at/invoice.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

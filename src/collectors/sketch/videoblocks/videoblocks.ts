@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VideoblocksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VideoblocksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.videoblocks.com/member/profile",
+        loginUrl: "https://www.videoblocks.com/member/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

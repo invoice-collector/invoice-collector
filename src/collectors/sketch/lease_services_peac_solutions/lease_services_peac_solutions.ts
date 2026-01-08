@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeaseServicesPeacSolutionsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeaseServicesPeacSolutionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marlinbillpay.osgview.com/Secure/StatementHistory.aspx",
+        loginUrl: "https://marlinbillpay.osgview.com/Secure/StatementHistory.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

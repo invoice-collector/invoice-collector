@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StorchSchmuckCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StorchSchmuckCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.storch-schmuck.de/account",
+        loginUrl: "https://www.storch-schmuck.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

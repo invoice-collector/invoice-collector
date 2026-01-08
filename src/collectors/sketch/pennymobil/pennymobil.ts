@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PennymobilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PennymobilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pennymobil.congstar.de/mein-pennymobil/meine-rechnungen/",
+        loginUrl: "https://pennymobil.congstar.de/mein-pennymobil/meine-rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

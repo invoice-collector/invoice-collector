@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitaloCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DigitaloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digitalo.de/my/orders.html",
+        loginUrl: "https://www.digitalo.de/my/orders.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

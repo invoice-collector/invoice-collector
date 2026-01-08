@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RenaultBankDirektCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RenaultBankDirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://banking.renault-bank-direkt.de/services_auth/auth-ui/?v=228318655de606f7&client_id=fkp&redirect_uri=https:%2F%2Fbanking.renault-bank-direkt.de%2Fservices_cloud%2Fportal%2Fportal-oauth%2Flogin",
+        loginUrl: "https://banking.renault-bank-direkt.de/services_auth/auth-ui/?v=228318655de606f7&client_id=fkp&redirect_uri=https:%2F%2Fbanking.renault-bank-direkt.de%2Fservices_cloud%2Fportal%2Fportal-oauth%2Flogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

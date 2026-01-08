@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EInvoiceBgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EInvoiceBgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.e-invoice.bg/Reciever/RecievedInvoices.aspx",
+        loginUrl: "https://www.e-invoice.bg/Reciever/RecievedInvoices.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

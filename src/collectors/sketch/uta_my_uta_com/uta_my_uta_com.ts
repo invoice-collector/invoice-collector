@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UtaMyUtaComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UtaMyUtaComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://my.uta.com/home",
+        loginUrl: "http://my.uta.com/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

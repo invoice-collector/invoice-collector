@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KalideaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KalideaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billetterie.kalidea.com/SSO/Login",
+        loginUrl: "https://billetterie.kalidea.com/SSO/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

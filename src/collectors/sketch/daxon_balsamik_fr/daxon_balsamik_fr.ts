@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DaxonBalsamikFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DaxonBalsamikFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.daxon.fr/login",
+        loginUrl: "https://www.daxon.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

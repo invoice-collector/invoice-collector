@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpRocketReseller2021Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WpRocketReseller2021Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wprocket.hpress.de/dashboard.php",
+        loginUrl: "https://wprocket.hpress.de/dashboard.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AngelAlignerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AngelAlignerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://payments.angelalign.com/ecp/?language=de#/paid/detail",
+        loginUrl: "https://payments.angelalign.com/ecp/?language=de#/paid/detail",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

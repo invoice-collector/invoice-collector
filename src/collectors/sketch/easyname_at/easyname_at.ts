@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasynameAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasynameAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.easyname.at/user-billings.do",
+        loginUrl: "https://partner.easyname.at/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

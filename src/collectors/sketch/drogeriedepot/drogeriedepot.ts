@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrogeriedepotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrogeriedepotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.drogeriedepot.de/login.php",
+        loginUrl: "https://www.drogeriedepot.de/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

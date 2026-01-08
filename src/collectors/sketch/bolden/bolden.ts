@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoldenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BoldenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bolden.fr/",
+        loginUrl: "https://bolden.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

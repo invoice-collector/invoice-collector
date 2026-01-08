@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AndorraTelecomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AndorraTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.andorratelecom.ad/botiga/#/factures",
+        loginUrl: "https://www.andorratelecom.ad/botiga/#/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

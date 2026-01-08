@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EseltCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EseltCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.eselt.de/user/invoices",
+        loginUrl: "https://app.eselt.de/user/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

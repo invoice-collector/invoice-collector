@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrankdirectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrankdirectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://drankdirect.nl/account",
+        loginUrl: "https://drankdirect.nl/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

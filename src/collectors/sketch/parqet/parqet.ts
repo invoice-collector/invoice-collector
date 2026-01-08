@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParqetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParqetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://checkout.parqet.com",
+        loginUrl: "https://checkout.parqet.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

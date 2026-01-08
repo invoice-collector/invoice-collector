@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CleverCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CleverCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://api.clever-cloud.com/v2/sessions/login?fromAuthorize=true",
+        loginUrl: "https://api.clever-cloud.com/v2/sessions/login?fromAuthorize=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

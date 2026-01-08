@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PecoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PecoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.peco-uk.com",
+        loginUrl: "http://www.peco-uk.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

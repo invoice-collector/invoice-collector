@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class O2CoUkBusinessAccountCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class O2CoUkBusinessAccountCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.o2.co.uk/auth?sendTo=https%3A%2F%2Faccounts.o2.co.uk%2Fbusiness%3Fpage_theme%3Dbusiness&failureUrl=https%3A%2F%2Faccounts.o2.co.uk%2Fbusiness%3Fpage_theme%3Dbusiness&auth_requirement_id=5e1af90e-6ee6-43c1-8a3b-cd5d6b9e5264",
+        loginUrl: "https://accounts.o2.co.uk/auth?sendTo=https%3A%2F%2Faccounts.o2.co.uk%2Fbusiness%3Fpage_theme%3Dbusiness&failureUrl=https%3A%2F%2Faccounts.o2.co.uk%2Fbusiness%3Fpage_theme%3Dbusiness&auth_requirement_id=5e1af90e-6ee6-43c1-8a3b-cd5d6b9e5264",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

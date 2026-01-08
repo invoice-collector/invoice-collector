@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KwfinderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KwfinderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mangools.com/users/sign_in?redirect=https://app.kwfinder.com/",
+        loginUrl: "https://mangools.com/users/sign_in?redirect=https://app.kwfinder.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

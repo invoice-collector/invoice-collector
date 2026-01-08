@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScpCanalDeProvenceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScpCanalDeProvenceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://moncompteclient.canaldeprovence.com/factures/",
+        loginUrl: "https://moncompteclient.canaldeprovence.com/factures/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

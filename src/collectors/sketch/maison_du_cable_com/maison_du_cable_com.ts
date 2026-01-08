@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaisonDuCableComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaisonDuCableComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maison-du-cable.com/",
+        loginUrl: "https://www.maison-du-cable.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

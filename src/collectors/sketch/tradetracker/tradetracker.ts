@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradetrackerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TradetrackerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchant.tradetracker.com/user/login",
+        loginUrl: "https://merchant.tradetracker.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

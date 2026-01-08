@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdvancedDisposalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdvancedDisposalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure8.i-doxs.net/AdvancedDisposal/SignIn.aspx",
+        loginUrl: "https://secure8.i-doxs.net/AdvancedDisposal/SignIn.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

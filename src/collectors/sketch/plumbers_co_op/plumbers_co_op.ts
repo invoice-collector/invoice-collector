@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlumbersCoOpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlumbersCoOpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pscoop.com.au/invoice-credits",
+        loginUrl: "https://www.pscoop.com.au/invoice-credits",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

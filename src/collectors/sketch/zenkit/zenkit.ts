@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZenkitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZenkitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://base.zenkit.com/",
+        loginUrl: "https://base.zenkit.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

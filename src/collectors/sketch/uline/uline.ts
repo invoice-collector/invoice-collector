@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.uline.com/SignIn/SignIn",
+        loginUrl: "https://www.uline.com/SignIn/SignIn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

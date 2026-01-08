@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleCybermutuelleSmipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleCybermutuelleSmipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adherents.apivia.fr/login#/",
+        loginUrl: "https://adherents.apivia.fr/login#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

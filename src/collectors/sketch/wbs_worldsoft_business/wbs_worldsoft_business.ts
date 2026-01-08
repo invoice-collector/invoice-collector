@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WbsWorldsoftBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WbsWorldsoftBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.worldsoft-wbs.com/billing/invoices",
+        loginUrl: "https://www.worldsoft-wbs.com/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

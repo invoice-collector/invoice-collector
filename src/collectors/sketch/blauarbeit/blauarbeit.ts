@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlauarbeitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlauarbeitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.blauarbeit.de/usr/login/show.do",
+        loginUrl: "https://www.blauarbeit.de/usr/login/show.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

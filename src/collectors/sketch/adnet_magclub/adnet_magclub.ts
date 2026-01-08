@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdnetMagclubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdnetMagclubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adnet.magclub.de/de/user/auszahlungen.html",
+        loginUrl: "https://adnet.magclub.de/de/user/auszahlungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

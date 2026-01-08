@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HotglooGbrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HotglooGbrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hotgloo.io/",
+        loginUrl: "https://hotgloo.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

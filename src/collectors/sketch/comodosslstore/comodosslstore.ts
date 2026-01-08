@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ComodosslstoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ComodosslstoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://comodosslstore.com/client/orders.aspx",
+        loginUrl: "https://comodosslstore.com/client/orders.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

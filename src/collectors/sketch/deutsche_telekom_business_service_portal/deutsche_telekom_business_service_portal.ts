@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheTelekomBusinessServicePortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeutscheTelekomBusinessServicePortalCollector extends SketchCollect
                 mandatory: true
             }
         },
-        entryUrl: "https://bsp.t-mobile.de/portal/login.xhtml",
+        loginUrl: "https://bsp.t-mobile.de/portal/login.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

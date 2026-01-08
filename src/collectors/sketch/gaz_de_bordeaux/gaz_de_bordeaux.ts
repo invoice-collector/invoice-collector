@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GazDeBordeauxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GazDeBordeauxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.gazdebordeaux.fr",
+        loginUrl: "http://www.gazdebordeaux.fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

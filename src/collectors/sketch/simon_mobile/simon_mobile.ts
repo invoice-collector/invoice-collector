@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimonMobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimonMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.simonmobile.de/login",
+        loginUrl: "https://www.simonmobile.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WipsterIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WipsterIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.wipster.io/Login",
+        loginUrl: "https://app.wipster.io/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

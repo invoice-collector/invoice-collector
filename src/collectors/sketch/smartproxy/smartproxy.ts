@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartproxyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartproxyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smartproxy.com/",
+        loginUrl: "https://smartproxy.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThingsboardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ThingsboardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://license.thingsboard.io/billing",
+        loginUrl: "https://license.thingsboard.io/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

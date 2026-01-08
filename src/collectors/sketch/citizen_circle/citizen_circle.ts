@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CitizenCircleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CitizenCircleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://member.citizencircle.de/mitgliedschaft/",
+        loginUrl: "https://member.citizencircle.de/mitgliedschaft/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

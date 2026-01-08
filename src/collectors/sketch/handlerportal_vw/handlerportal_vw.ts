@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HandlerportalVwCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HandlerportalVwCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://audi-vw-belegportal.inposia.com/inbox",
+        loginUrl: "https://audi-vw-belegportal.inposia.com/inbox",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

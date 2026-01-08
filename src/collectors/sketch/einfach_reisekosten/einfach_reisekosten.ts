@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EinfachReisekostenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EinfachReisekostenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.einfach-reisekosten.de/app/secure/account-billings.html",
+        loginUrl: "https://www.einfach-reisekosten.de/app/secure/account-billings.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

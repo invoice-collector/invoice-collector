@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlphinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlphinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.alphin.io/billing/overview?utm_source=zuora&utm_medium=email&utm_campaign=invoice",
+        loginUrl: "https://app.alphin.io/billing/overview?utm_source=zuora&utm_medium=email&utm_campaign=invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

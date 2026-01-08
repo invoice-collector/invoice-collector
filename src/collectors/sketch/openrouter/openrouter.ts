@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenrouterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpenrouterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://openrouter.ai/settings/credits",
+        loginUrl: "https://openrouter.ai/settings/credits",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

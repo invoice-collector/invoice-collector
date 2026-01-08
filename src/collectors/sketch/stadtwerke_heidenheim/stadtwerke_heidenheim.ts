@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeHeidenheimCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeHeidenheimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-heidenheim.de/kundenportal/exec/",
+        loginUrl: "https://kundenportal.stadtwerke-heidenheim.de/kundenportal/exec/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnvoyerIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnvoyerIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://envoyer.io/user/profile",
+        loginUrl: "https://envoyer.io/user/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

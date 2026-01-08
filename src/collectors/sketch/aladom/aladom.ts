@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AladomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AladomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aladom.fr",
+        loginUrl: "https://www.aladom.fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

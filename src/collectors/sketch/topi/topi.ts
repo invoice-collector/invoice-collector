@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TopiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TopiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rentwith.topi.eu/payments",
+        loginUrl: "https://rentwith.topi.eu/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YabloCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YabloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.yablo.io/",
+        loginUrl: "https://app.yablo.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

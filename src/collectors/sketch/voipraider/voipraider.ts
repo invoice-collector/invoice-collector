@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoipraiderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VoipraiderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.voipraider.com/purchases/",
+        loginUrl: "https://www.voipraider.com/purchases/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

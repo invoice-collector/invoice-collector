@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AntecServicepoolGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AntecServicepoolGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://webportal.antec-servicepool.de:1443/DocumentArc/DocumentArchive",
+        loginUrl: "https://webportal.antec-servicepool.de:1443/DocumentArc/DocumentArchive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

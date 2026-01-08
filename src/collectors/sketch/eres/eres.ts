@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EresCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EresCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eresparis.com/eu/en/home",
+        loginUrl: "https://www.eresparis.com/eu/en/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

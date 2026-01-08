@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeuroflashCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NeuroflashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.neuro-flash.com",
+        loginUrl: "https://app.neuro-flash.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

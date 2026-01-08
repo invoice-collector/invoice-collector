@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GefelicitaartCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GefelicitaartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gefelicitaart.nl/mijngegevens/index.html",
+        loginUrl: "https://www.gefelicitaart.nl/mijngegevens/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

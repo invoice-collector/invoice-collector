@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SidnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SidnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://registrars.sidn.nl/?language_id=1",
+        loginUrl: "https://registrars.sidn.nl/?language_id=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

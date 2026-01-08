@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraviaSellerCenterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiraviaSellerCenterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellercenter.miravia.es/apps/finance/accountStatement/index?spm=a2a4n.17752401.navi_left_sidebar.droot_normal_finance_mystatement.50c24edfKOtUBw&tab=4&orderId=",
+        loginUrl: "https://sellercenter.miravia.es/apps/finance/accountStatement/index?spm=a2a4n.17752401.navi_left_sidebar.droot_normal_finance_mystatement.50c24edfKOtUBw&tab=4&orderId=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

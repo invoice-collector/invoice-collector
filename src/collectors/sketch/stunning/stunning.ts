@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StunningCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StunningCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stunning.co/",
+        loginUrl: "https://stunning.co/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

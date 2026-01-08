@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PublishpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PublishpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://publishpress.com/wp-login.php",
+        loginUrl: "https://publishpress.com/wp-login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

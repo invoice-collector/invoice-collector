@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WirLebenApothekenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WirLebenApothekenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wirleben.de/myshop/orders/overview",
+        loginUrl: "https://www.wirleben.de/myshop/orders/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

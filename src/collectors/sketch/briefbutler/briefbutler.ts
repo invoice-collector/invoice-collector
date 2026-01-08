@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BriefbutlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BriefbutlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.briefbutler.at/index.php?page=login",
+        loginUrl: "https://www.briefbutler.at/index.php?page=login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

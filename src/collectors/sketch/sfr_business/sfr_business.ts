@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SfrBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SfrBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
+        loginUrl: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RescuetimeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RescuetimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rescuetime.com/invoices/list",
+        loginUrl: "https://www.rescuetime.com/invoices/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

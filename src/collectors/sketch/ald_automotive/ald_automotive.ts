@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AldAutomotiveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AldAutomotiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aldnet.fr/portal/aldnetpal/",
+        loginUrl: "https://www.aldnet.fr/portal/aldnetpal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

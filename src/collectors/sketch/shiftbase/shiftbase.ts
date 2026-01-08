@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShiftbaseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShiftbaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.shiftbase.com/login",
+        loginUrl: "https://app.shiftbase.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

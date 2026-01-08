@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JoanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JoanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://master.joan.vnct.xyz/settings/subscriptions/",
+        loginUrl: "https://master.joan.vnct.xyz/settings/subscriptions/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

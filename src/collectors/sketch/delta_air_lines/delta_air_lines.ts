@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeltaAirLinesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeltaAirLinesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.delta.com/mydelta/walletMyReceiptSummary",
+        loginUrl: "https://www.delta.com/mydelta/walletMyReceiptSummary",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

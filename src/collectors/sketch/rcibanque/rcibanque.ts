@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RcibanqueCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RcibanqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.meine.rcibanque.de",
+        loginUrl: "https://www.meine.rcibanque.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

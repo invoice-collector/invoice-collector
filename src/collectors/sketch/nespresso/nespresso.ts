@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NespressoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NespressoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nespresso.com/de/de/home",
+        loginUrl: "https://www.nespresso.com/de/de/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

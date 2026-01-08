@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyEeMobileAndBroadbandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyEeMobileAndBroadbandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.ee.co.uk/app/top-up-history",
+        loginUrl: "https://myaccount.ee.co.uk/app/top-up-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

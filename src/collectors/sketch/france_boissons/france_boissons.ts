@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceBoissonsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FranceBoissonsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myfranceboissons.fr/hfr/fr/EUR/login",
+        loginUrl: "https://www.myfranceboissons.fr/hfr/fr/EUR/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

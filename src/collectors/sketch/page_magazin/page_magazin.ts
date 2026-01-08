@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PageMagazinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PageMagazinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "page-online.de/mein-konto/",
+        loginUrl: "page-online.de/mein-konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

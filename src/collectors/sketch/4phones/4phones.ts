@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4phonesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _4phonesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://4phones.eu/account",
+        loginUrl: "https://4phones.eu/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

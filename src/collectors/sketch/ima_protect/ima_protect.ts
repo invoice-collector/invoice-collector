@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImaProtectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ImaProtectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.imaprotect.com/fr/client/account/contract",
+        loginUrl: "https://www.imaprotect.com/fr/client/account/contract",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

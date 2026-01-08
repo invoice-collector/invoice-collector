@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IcepanelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IcepanelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.icepanel.io/user/login",
+        loginUrl: "https://app.icepanel.io/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

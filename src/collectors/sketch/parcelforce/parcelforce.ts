@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParcelforceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParcelforceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://invoicing.parcelforce.com/Search.aspx?search=1",
+        loginUrl: "https://invoicing.parcelforce.com/Search.aspx?search=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

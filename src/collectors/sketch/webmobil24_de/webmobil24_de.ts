@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Webmobil24DeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Webmobil24DeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.webmobil24.com/web/de/secure/einstellungen/rechnungsverwaltung.php",
+        loginUrl: "https://secure.webmobil24.com/web/de/secure/einstellungen/rechnungsverwaltung.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

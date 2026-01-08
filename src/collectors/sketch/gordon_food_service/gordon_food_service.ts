@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GordonFoodServiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GordonFoodServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.gfs.com/",
+        loginUrl: "https://sso.gfs.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

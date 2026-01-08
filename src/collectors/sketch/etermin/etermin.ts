@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EterminCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EterminCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.etermin.net/manage.aspx",
+        loginUrl: "https://www.etermin.net/manage.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

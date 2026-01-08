@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoopervisionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoopervisionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ecommerce.coopervision.com/Invoices/Invoices.aspx",
+        loginUrl: "https://www.ecommerce.coopervision.com/Invoices/Invoices.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

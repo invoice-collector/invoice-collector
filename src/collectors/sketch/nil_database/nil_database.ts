@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NilDatabaseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NilDatabaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nilmanager.nil-database.com/accounts/login/?next=/accounts/launchpad/",
+        loginUrl: "https://nilmanager.nil-database.com/accounts/login/?next=/accounts/launchpad/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

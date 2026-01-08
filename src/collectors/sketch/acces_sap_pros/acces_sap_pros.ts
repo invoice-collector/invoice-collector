@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccesSapProsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AccesSapProsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adherent.acces-sap.com/login",
+        loginUrl: "https://adherent.acces-sap.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

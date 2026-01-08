@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PinataCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PinataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pinata.cloud/invoices",
+        loginUrl: "https://app.pinata.cloud/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

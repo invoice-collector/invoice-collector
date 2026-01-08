@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnifiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnifiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://unifi.com.my/personal",
+        loginUrl: "https://unifi.com.my/personal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

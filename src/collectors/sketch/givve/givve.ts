@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GivveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GivveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b.givve.com/user/invoices",
+        loginUrl: "https://b2b.givve.com/user/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

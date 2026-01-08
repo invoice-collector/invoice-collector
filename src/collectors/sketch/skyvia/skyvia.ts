@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkyviaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SkyviaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.skyvia.com/#/account/invoices",
+        loginUrl: "https://app.skyvia.com/#/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContentcreatorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ContentcreatorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.contentcreator.com/settings/purchase_history",
+        loginUrl: "https://www.contentcreator.com/settings/purchase_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

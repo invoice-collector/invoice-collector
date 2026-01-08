@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KomfortkasseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KomfortkasseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ssl.komfortkasse.eu/dealer/invoices.jsf",
+        loginUrl: "https://ssl.komfortkasse.eu/dealer/invoices.jsf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

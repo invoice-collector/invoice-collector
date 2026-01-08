@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudsmithCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CloudsmithCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloudsmith.com/signup/",
+        loginUrl: "https://cloudsmith.com/signup/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

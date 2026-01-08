@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PanoskinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PanoskinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.panoskin.com/#/profile",
+        loginUrl: "https://login.panoskin.com/#/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

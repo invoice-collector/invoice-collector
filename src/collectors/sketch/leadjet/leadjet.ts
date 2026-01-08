@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadjetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeadjetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.leadjet.io/settings/account",
+        loginUrl: "https://account.leadjet.io/settings/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

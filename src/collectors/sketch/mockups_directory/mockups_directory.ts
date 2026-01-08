@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MockupsDirectoryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MockupsDirectoryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mockups.directory/account",
+        loginUrl: "https://mockups.directory/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

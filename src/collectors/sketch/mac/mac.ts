@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MacCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MacCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.artfiles.de/",
+        loginUrl: "http://www.artfiles.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

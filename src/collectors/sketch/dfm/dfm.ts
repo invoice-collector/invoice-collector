@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DfmCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DfmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail-dfm.artis.fr/dfm/portail/login/auth/DO.action",
+        loginUrl: "https://portail-dfm.artis.fr/dfm/portail/login/auth/DO.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

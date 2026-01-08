@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HogastAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HogastAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.hogast.at/#/login",
+        loginUrl: "https://my.hogast.at/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

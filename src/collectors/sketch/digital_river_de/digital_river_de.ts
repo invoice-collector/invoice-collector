@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitalRiverDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DigitalRiverDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digitalriver.de/",
+        loginUrl: "https://www.digitalriver.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

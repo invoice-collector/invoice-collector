@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheGlasfaserCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeutscheGlasfaserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenlogin.deutsche-glasfaser.de",
+        loginUrl: "https://kundenlogin.deutsche-glasfaser.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

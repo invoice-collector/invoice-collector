@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VisualParadigmCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VisualParadigmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.visual-paradigm.com",
+        loginUrl: "http://www.visual-paradigm.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

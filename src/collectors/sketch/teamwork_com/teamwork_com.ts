@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeamworkComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TeamworkComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.teamwork.com/",
+        loginUrl: "https://www.teamwork.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

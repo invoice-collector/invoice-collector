@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EntegaMedianetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EntegaMedianetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.entega-medianet.de",
+        loginUrl: "http://www.entega-medianet.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

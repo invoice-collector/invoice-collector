@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YplayGermanyGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YplayGermanyGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.yplay.de",
+        loginUrl: "https://portal.yplay.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

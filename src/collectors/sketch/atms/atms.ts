@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtmsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AtmsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://atms.at",
+        loginUrl: "https://atms.at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

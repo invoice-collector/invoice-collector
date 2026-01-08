@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.unum.la/login",
+        loginUrl: "https://app.unum.la/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

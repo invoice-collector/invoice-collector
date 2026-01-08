@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelecashCustomerCareCenterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelecashCustomerCareCenterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.telecash.de/de/DownloadCenter/index",
+        loginUrl: "https://my.telecash.de/de/DownloadCenter/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

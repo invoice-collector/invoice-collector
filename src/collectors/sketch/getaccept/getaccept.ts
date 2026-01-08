@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetacceptCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetacceptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.getaccept.com/?_ga=2.103908552.978029228.1523944158-1022050628.1523944158",
+        loginUrl: "https://app.getaccept.com/?_ga=2.103908552.978029228.1523944158-1022050628.1523944158",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeCanTrackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WeCanTrackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.wecantrack.com/",
+        loginUrl: "https://app.wecantrack.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

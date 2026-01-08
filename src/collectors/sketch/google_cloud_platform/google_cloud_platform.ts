@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleCloudPlatformCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GoogleCloudPlatformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://console.cloud.google.com",
+        loginUrl: "http://console.cloud.google.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

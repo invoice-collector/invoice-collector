@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoneparCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SoneparCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sonepar.de/authentication/",
+        loginUrl: "https://www.sonepar.de/authentication/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

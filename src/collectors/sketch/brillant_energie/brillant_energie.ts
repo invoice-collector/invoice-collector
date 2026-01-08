@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrillantEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrillantEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.brillantenergie.de/auth/realms/brillant/protocol/openid-connect/auth?client_id=brillant-customer-portal-frontend&redirect_uri=https%3A%2F%2Fportal.brillantenergie.de%2Fbrillant-customer-portal-frontend%2F&state=eb2559e8-3118-44f8-a9c6-7ba21",
+        loginUrl: "https://portal.brillantenergie.de/auth/realms/brillant/protocol/openid-connect/auth?client_id=brillant-customer-portal-frontend&redirect_uri=https%3A%2F%2Fportal.brillantenergie.de%2Fbrillant-customer-portal-frontend%2F&state=eb2559e8-3118-44f8-a9c6-7ba21",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

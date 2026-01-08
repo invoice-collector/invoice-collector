@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZepassCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZepassCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.zepass.com/",
+        loginUrl: "https://www.zepass.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

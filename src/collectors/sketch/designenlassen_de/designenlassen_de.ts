@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DesignenlassenDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DesignenlassenDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.designenlassen.de/account.php?page=transaktionen",
+        loginUrl: "https://www.designenlassen.de/account.php?page=transaktionen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

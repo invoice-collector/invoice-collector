@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PcloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PcloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.pcloud.com/#page=settings&settings=tab-finance",
+        loginUrl: "https://my.pcloud.com/#page=settings&settings=tab-finance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

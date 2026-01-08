@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvoswitchCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EvoswitchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.evoswitch.com/login",
+        loginUrl: "https://auth.evoswitch.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

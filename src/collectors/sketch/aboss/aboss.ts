@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbossCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AbossCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://agency.a-boss.net/",
+        loginUrl: "https://agency.a-boss.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

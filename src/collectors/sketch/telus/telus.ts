@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telus.com/my-account/billing/summary",
+        loginUrl: "https://www.telus.com/my-account/billing/summary",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

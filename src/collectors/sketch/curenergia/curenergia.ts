@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CurenergiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CurenergiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.curenergia.es/webclifr/#/login",
+        loginUrl: "https://www.curenergia.es/webclifr/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

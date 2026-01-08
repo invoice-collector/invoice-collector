@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BugsnagCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BugsnagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.bugsnag.com/settings/",
+        loginUrl: "https://app.bugsnag.com/settings/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

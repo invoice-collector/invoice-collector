@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LexwareOfficeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LexwareOfficeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lexoffice.de/home",
+        loginUrl: "https://app.lexoffice.de/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BenNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BenNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ben.nl/inloggen",
+        loginUrl: "https://www.ben.nl/inloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

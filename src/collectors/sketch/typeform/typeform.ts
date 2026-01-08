@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TypeformCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TypeformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.typeform.com/account",
+        loginUrl: "https://admin.typeform.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

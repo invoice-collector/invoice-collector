@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerformanceHorizonGroupLtdGbCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PerformanceHorizonGroupLtdGbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://appleservices-console.partnerize.com/login/appleservices/de?",
+        loginUrl: "https://appleservices-console.partnerize.com/login/appleservices/de?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

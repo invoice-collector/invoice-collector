@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoFrickeAndCoKgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OttoFrickeAndCoKgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.fricke-oil.de",
+        loginUrl: "https://portal.fricke-oil.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

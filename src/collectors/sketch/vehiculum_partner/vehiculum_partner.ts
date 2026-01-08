@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VehiculumPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VehiculumPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.vehiculum.de/auszahlungen.cgi",
+        loginUrl: "https://partner.vehiculum.de/auszahlungen.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

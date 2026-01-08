@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RalphLaurenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RalphLaurenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ralphlauren.fr/",
+        loginUrl: "https://www.ralphlauren.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

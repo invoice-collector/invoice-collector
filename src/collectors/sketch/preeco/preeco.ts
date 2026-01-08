@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PreecoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PreecoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.preeco.de/organizations/324/master-data/invoices",
+        loginUrl: "https://app.preeco.de/organizations/324/master-data/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

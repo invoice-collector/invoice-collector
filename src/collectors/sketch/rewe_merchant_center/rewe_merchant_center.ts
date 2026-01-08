@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReweMerchantCenterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReweMerchantCenterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mc.europe-west1.gcp.commercetools.com",
+        loginUrl: "https://mc.europe-west1.gcp.commercetools.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

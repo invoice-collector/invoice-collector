@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LandenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LandenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.landen.co/settings/subscription",
+        loginUrl: "https://app.landen.co/settings/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

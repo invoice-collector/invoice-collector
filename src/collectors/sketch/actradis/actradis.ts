@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ActradisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ActradisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.actradis.fr/login",
+        loginUrl: "https://app.actradis.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

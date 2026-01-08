@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeitLohnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZeitLohnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zeit-lohn.net/Home/Index",
+        loginUrl: "https://zeit-lohn.net/Home/Index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BurgerKingCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class BurgerKingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.burgerking.fr/connexion",
+        loginUrl: "https://www.burgerking.fr/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

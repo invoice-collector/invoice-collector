@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinutedockCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MinutedockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://minutedock.com/login",
+        loginUrl: "https://minutedock.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

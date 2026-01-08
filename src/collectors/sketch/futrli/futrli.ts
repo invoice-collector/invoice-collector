@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FutrliCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FutrliCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.futrli.com/",
+        loginUrl: "https://www.futrli.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

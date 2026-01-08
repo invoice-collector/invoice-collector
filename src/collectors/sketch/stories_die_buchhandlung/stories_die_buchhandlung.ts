@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StoriesDieBuchhandlungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StoriesDieBuchhandlungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stories-hamburg.de/shop/kundenkonto/invoices",
+        loginUrl: "https://www.stories-hamburg.de/shop/kundenkonto/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixmeoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PixmeoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pixmeo.pixmeo.com/pixmeo/login/subscription/",
+        loginUrl: "https://pixmeo.pixmeo.com/pixmeo/login/subscription/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

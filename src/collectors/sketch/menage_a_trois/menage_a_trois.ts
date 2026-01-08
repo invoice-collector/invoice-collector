@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MenageATroisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MenageATroisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.ximi.xelya.io/Ximi/swee/Account/SignIn?returnUrl=%2Fximi%2Fswee%2F",
+        loginUrl: "https://extranet.ximi.xelya.io/Ximi/swee/Account/SignIn?returnUrl=%2Fximi%2Fswee%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

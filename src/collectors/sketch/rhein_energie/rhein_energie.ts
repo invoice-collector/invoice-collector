@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RheinEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RheinEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rheinenergie.com/onlineservice/de/index.php",
+        loginUrl: "https://www.rheinenergie.com/onlineservice/de/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

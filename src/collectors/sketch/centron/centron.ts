@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CentronCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CentronCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ccenter.internet1.de/login",
+        loginUrl: "https://ccenter.internet1.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

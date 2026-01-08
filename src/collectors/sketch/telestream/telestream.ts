@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelestreamCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelestreamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://telestream.onfastspring.com/account",
+        loginUrl: "https://telestream.onfastspring.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

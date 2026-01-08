@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VspEmployerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VspEmployerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.vsp.com/bd/startEBPP.sap",
+        loginUrl: "https://billing.vsp.com/bd/startEBPP.sap",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

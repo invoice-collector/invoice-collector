@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WowzaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WowzaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://cloud.wowza.com",
+        loginUrl: "http://cloud.wowza.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

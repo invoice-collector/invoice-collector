@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PropertyRedressSchemeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PropertyRedressSchemeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.theprs.co.uk/propertyagent/dashboard/#mebership",
+        loginUrl: "https://www.theprs.co.uk/propertyagent/dashboard/#mebership",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

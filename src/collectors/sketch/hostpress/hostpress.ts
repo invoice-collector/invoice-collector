@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HostpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.hostpress.de/clientarea.php?action=invoices",
+        loginUrl: "https://my.hostpress.de/clientarea.php?action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

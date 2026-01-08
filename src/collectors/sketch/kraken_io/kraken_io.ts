@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KrakenIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KrakenIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kraken.io/account/billing",
+        loginUrl: "https://kraken.io/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

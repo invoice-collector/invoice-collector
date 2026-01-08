@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StackheroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StackheroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.stackhero.io/account/organizations/org-cnrq47/billing/invoices/",
+        loginUrl: "https://dashboard.stackhero.io/account/organizations/org-cnrq47/billing/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

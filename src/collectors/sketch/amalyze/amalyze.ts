@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmalyzeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmalyzeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shield.amalyze.com/auth/login",
+        loginUrl: "https://shield.amalyze.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

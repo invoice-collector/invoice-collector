@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdserviveASCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdserviveASCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://publisher.adservice.com/cgi-bin/publisher/payments.pl?p1=finance",
+        loginUrl: "http://publisher.adservice.com/cgi-bin/publisher/payments.pl?p1=finance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

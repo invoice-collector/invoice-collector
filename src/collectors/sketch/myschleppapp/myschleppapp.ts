@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyschleppappCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyschleppappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.myschleppapp.de",
+        loginUrl: "https://portal.myschleppapp.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

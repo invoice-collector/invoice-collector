@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class O2BusinessDslCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class O2BusinessDslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://easyaccess.o2business.de/eCare/s/Rechnungsubersicht",
+        loginUrl: "https://easyaccess.o2business.de/eCare/s/Rechnungsubersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

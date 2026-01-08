@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdicomBusinessMailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdicomBusinessMailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.businessmail.net/index.htm?",
+        loginUrl: "https://www.businessmail.net/index.htm?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WatchfulLiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WatchfulLiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.watchful.li/app/#/login",
+        loginUrl: "https://app.watchful.li/app/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

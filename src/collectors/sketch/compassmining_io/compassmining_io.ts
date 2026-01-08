@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CompassminingIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CompassminingIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://compassmining.io/profile",
+        loginUrl: "https://compassmining.io/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Substance3dCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Substance3dCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.substance3d.com/user/login",
+        loginUrl: "https://store.substance3d.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

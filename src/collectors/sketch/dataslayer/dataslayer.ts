@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DataslayerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DataslayerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.dataslayer.ai/billing-info",
+        loginUrl: "https://app.dataslayer.ai/billing-info",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GuelphHydroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GuelphHydroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.guelphhydro.com",
+        loginUrl: "http://www.guelphhydro.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StatistaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StatistaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.statista.com/profil/rechnungen/",
+        loginUrl: "https://de.statista.com/profil/rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

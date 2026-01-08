@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BorlabsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BorlabsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.borlabs.io/login",
+        loginUrl: "https://service.borlabs.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

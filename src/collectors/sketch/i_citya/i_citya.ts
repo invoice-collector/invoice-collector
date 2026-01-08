@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ICityaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ICityaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.citya.com/i-citya/coproprietaire",
+        loginUrl: "https://www.citya.com/i-citya/coproprietaire",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

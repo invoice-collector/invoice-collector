@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShiparoundCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShiparoundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shiparound.de/",
+        loginUrl: "https://www.shiparound.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

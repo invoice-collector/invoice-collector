@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AntiCaptchaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AntiCaptchaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://anti-captcha.com/clients/finance/invoices",
+        loginUrl: "https://anti-captcha.com/clients/finance/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ModeticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ModeticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.modetic.com/",
+        loginUrl: "https://www.modetic.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

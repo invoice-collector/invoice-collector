@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsfinagCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AsfinagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.asfinag.at/de",
+        loginUrl: "https://shop.asfinag.at/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

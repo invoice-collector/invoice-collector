@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrandAndToyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GrandAndToyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.grandandtoy.com/Account/Logon",
+        loginUrl: "https://www.grandandtoy.com/Account/Logon",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

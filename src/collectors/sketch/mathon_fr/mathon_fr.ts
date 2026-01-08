@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MathonFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MathonFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mathon.fr/Mathon/identite/Login.aspx?ReturnUrl=%2fMonCompte%2fMonCompte.aspx",
+        loginUrl: "https://www.mathon.fr/Mathon/identite/Login.aspx?ReturnUrl=%2fMonCompte%2fMonCompte.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

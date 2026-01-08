@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlayplayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlayplayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://playplay.com/app/login?lang=en",
+        loginUrl: "https://playplay.com/app/login?lang=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KifdomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KifdomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kifdom.com/facturation",
+        loginUrl: "https://www.kifdom.com/facturation",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

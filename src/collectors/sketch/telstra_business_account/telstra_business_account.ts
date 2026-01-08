@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelstraBusinessAccountCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelstraBusinessAccountCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlinebilling.telstra.com.au/corporatebill/hierarchy/main/dashboard/show.do",
+        loginUrl: "https://onlinebilling.telstra.com.au/corporatebill/hierarchy/main/dashboard/show.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

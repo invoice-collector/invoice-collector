@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HaistGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HaistGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.haist.com/statistik/statistik.cgi?un=w7codUxUMof3aEEcyhvOHytCefOpMVif",
+        loginUrl: "https://www.haist.com/statistik/statistik.cgi?un=w7codUxUMof3aEEcyhvOHytCefOpMVif",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

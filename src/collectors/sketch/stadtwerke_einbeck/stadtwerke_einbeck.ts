@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeEinbeckCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeEinbeckCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.stadtwerke-einbeck.de",
+        loginUrl: "http://www.stadtwerke-einbeck.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

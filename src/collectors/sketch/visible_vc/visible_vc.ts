@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VisibleVcCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VisibleVcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.visible.vc/sign-in",
+        loginUrl: "https://app.visible.vc/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

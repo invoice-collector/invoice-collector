@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StandardsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StandardsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.standards.site/account/billing",
+        loginUrl: "https://app.standards.site/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

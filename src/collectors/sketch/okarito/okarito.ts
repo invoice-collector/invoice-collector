@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OkaritoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OkaritoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.okarito.io/administration/invoices",
+        loginUrl: "https://app.okarito.io/administration/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

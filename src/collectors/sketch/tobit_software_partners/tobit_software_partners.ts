@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TobitSoftwarePartnersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TobitSoftwarePartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.tobit.software/team",
+        loginUrl: "https://de.tobit.software/team",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

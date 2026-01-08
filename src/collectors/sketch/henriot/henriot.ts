@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HenriotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HenriotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.henriot.fr/WEB_GESDOUANE/",
+        loginUrl: "https://extranet.henriot.fr/WEB_GESDOUANE/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

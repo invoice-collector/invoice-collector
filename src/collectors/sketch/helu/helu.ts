@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeluCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HeluCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.helu.io/settings/invoices",
+        loginUrl: "https://my.helu.io/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

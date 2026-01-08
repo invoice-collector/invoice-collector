@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SaarbruckerZeitungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SaarbruckerZeitungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.saarbruecker-zeitung.de/login",
+        loginUrl: "https://id.saarbruecker-zeitung.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

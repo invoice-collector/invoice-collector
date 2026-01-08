@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MusicfoxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MusicfoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.musicfox.com/kunde/rechnungen.php",
+        loginUrl: "https://www.musicfox.com/kunde/rechnungen.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

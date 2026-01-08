@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DphotoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DphotoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lightbox.co/",
+        loginUrl: "https://app.lightbox.co/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

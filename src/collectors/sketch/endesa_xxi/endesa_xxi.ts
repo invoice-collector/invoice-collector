@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EndesaXxiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EndesaXxiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.energiaxxi.com/login-en.html?d=Any",
+        loginUrl: "https://www.energiaxxi.com/login-en.html?d=Any",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

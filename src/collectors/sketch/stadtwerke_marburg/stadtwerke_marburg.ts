@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeMarburgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeMarburgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://stadtwerke-marburg.de",
+        loginUrl: "http://stadtwerke-marburg.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StickermuleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StickermuleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stickermule.com/de/account/orders",
+        loginUrl: "https://www.stickermule.com/de/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WindstreamEnterpriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WindstreamEnterpriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.windstreamonline.com/pol/Home.action?cm_sp=BizUtilityNav-_-Customer%2520Login-_-NA",
+        loginUrl: "https://www.windstreamonline.com/pol/Home.action?cm_sp=BizUtilityNav-_-Customer%2520Login-_-NA",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

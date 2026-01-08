@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialMediaDailyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SocialMediaDailyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.socialmediadaily.de/",
+        loginUrl: "https://www.socialmediadaily.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

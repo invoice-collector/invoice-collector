@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GanttifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GanttifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gantt-chart.com/account/billing",
+        loginUrl: "https://gantt-chart.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

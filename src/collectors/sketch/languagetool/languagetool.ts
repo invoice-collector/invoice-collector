@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LanguagetoolCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LanguagetoolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://languagetool.org/de/user-login",
+        loginUrl: "https://languagetool.org/de/user-login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

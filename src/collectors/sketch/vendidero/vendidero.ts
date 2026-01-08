@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VendideroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VendideroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vendidero.de/mein-konto",
+        loginUrl: "https://vendidero.de/mein-konto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

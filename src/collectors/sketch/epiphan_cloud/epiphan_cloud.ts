@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpiphanCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EpiphanCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://go.epiphan.cloud/xxxxxxxx/settings/billing-usage",
+        loginUrl: "https://go.epiphan.cloud/xxxxxxxx/settings/billing-usage",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

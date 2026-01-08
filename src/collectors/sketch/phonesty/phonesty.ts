@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhonestyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PhonestyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.phonesty.de/myAccount",
+        loginUrl: "https://www.phonesty.de/myAccount",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

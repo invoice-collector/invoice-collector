@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StockdioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StockdioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://services.stockdio.com/account#invoices",
+        loginUrl: "https://services.stockdio.com/account#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

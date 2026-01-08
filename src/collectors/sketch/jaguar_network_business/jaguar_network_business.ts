@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JaguarNetworkBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JaguarNetworkBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.jaguar-network.com/auth/login",
+        loginUrl: "https://extranet.jaguar-network.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

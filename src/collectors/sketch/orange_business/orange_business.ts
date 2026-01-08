@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrangeBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.orange-business.com/group/ece2/facture-electronique",
+        loginUrl: "https://espaceclient.orange-business.com/group/ece2/facture-electronique",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

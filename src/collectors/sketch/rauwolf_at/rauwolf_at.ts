@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RauwolfAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RauwolfAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rauwolf-coffee.at/account/orders",
+        loginUrl: "https://rauwolf-coffee.at/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

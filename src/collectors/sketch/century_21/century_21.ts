@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Century21Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Century21Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.orchestrav2.egiweb.net/Works/Docnew.php",
+        loginUrl: "https://www.orchestrav2.egiweb.net/Works/Docnew.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

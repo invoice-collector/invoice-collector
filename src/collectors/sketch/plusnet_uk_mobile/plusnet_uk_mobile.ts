@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlusnetUkMobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlusnetUkMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.plus.net/my-account/login/",
+        loginUrl: "https://www.plus.net/my-account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

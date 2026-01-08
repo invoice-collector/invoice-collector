@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrmcoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrmcoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aligners.ormcodigital.com/sso/login",
+        loginUrl: "https://aligners.ormcodigital.com/sso/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

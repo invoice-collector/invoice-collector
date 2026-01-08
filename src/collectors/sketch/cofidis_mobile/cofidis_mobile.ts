@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CofidisMobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CofidisMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cofidis.fr/fr/espace-client/identification.cgi",
+        loginUrl: "https://www.cofidis.fr/fr/espace-client/identification.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

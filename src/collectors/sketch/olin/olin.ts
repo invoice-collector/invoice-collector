@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OlinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OlinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://micuenta.olin.es/login_clientes.php",
+        loginUrl: "https://micuenta.olin.es/login_clientes.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

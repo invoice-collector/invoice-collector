@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.elis.com/en",
+        loginUrl: "https://fr.elis.com/en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

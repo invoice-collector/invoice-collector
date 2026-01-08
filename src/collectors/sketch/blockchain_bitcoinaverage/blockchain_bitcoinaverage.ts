@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlockchainBitcoinaverageCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlockchainBitcoinaverageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.bitcoinaverage.com/pages/auth/login",
+        loginUrl: "https://pro.bitcoinaverage.com/pages/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

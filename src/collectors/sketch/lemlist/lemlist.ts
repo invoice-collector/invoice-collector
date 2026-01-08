@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LemlistCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LemlistCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lemlist.com",
+        loginUrl: "https://app.lemlist.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

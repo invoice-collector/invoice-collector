@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinancialReviewAustraliaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FinancialReviewAustraliaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.afr.com",
+        loginUrl: "https://myaccount.afr.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

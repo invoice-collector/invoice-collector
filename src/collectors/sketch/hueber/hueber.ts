@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HueberCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HueberCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hueber.de/?login=true",
+        loginUrl: "https://www.hueber.de/?login=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuyzeroDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BuyzeroDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://buyzero.de/en",
+        loginUrl: "https://buyzero.de/en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

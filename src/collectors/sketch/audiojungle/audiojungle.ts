@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudiojungleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AudiojungleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://audiojungle.net/user/thebuddies/statement",
+        loginUrl: "https://audiojungle.net/user/thebuddies/statement",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

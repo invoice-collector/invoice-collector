@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PowerinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PowerinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.powerin.io/login",
+        loginUrl: "https://app.powerin.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1msgPteLtdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _1msgPteLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.1msg.io/billing",
+        loginUrl: "https://my.1msg.io/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

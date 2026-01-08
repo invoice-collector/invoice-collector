@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuperclixPublisherCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SuperclixPublisherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.superclix.de",
+        loginUrl: "http://www.superclix.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

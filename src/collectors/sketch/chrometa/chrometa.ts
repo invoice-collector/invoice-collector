@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChrometaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChrometaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.chrometa.com/account",
+        loginUrl: "https://app.chrometa.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

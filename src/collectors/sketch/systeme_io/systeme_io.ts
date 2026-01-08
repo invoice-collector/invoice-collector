@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SystemeIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SystemeIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://systeme.io/dashboard/payment/transactions",
+        loginUrl: "https://systeme.io/dashboard/payment/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

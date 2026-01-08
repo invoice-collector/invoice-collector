@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NvidiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NvidiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.nvidia.de/page/home.html",
+        loginUrl: "http://www.nvidia.de/page/home.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RikomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RikomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://rikom-dsl.de",
+        loginUrl: "http://rikom-dsl.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

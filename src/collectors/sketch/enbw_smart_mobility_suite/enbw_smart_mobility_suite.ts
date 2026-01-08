@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnbwSmartMobilitySuiteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnbwSmartMobilitySuiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smartenergysuite.enbw.com/smartmobility/fleet",
+        loginUrl: "https://smartenergysuite.enbw.com/smartmobility/fleet",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

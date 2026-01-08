@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LegalEntityIdentifierLeiRegisterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LegalEntityIdentifierLeiRegisterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.leireg.de/en/invoices?10",
+        loginUrl: "https://service.leireg.de/en/invoices?10",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

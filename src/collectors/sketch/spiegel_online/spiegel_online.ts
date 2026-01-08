@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpiegelOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpiegelOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spiegel.de/plus/access/account",
+        loginUrl: "https://www.spiegel.de/plus/access/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

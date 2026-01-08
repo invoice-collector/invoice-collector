@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UserComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UserComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.user.com/payments/euiS8D/invoices/",
+        loginUrl: "https://app.user.com/payments/euiS8D/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

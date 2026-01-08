@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrontCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FrontCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.frontapp.com/settings/billing",
+        loginUrl: "https://app.frontapp.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

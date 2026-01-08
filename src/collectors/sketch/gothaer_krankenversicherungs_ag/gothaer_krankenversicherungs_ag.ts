@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GothaerKrankenversicherungsAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GothaerKrankenversicherungsAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gothaer.de/app/webmailer/webmail",
+        loginUrl: "https://www.gothaer.de/app/webmailer/webmail",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WellsFargoCopierMyaccountsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WellsFargoCopierMyaccountsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myaccounts.wellsfargo.com/lease/external/Reporting.html#Invoices",
+        loginUrl: "https://www.myaccounts.wellsfargo.com/lease/external/Reporting.html#Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeworkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WeworkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.wework.com/account",
+        loginUrl: "https://members.wework.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

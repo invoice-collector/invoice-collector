@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SharpspringCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SharpspringCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marketingautomation.services/",
+        loginUrl: "https://marketingautomation.services/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

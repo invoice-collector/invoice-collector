@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RoyalmailObaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RoyalmailObaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.oba.royalmail.com/irj/portal",
+        loginUrl: "https://www.oba.royalmail.com/irj/portal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

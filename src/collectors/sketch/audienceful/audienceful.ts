@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudiencefulCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AudiencefulCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.audienceful.com/settings/plan-and-billing",
+        loginUrl: "https://app.audienceful.com/settings/plan-and-billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

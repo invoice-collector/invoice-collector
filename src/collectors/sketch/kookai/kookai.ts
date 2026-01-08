@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KookaiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KookaiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kookai.com.au/",
+        loginUrl: "https://www.kookai.com.au/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

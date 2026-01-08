@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WurthAtCollector extends SketchCollector {
 
@@ -32,7 +32,9 @@ export class WurthAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eshop.wuerth.at",
+        loginUrl: "https://eshop.wuerth.at",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

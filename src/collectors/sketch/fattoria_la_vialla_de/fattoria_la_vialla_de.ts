@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FattoriaLaViallaDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FattoriaLaViallaDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lavialla.com/de-DE/meine-bestellungen-und-lieferungen/",
+        loginUrl: "https://www.lavialla.com/de-DE/meine-bestellungen-und-lieferungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

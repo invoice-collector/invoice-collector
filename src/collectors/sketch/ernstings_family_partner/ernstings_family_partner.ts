@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErnstingsFamilyPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ErnstingsFamilyPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pvn.ernstings-family.de/user-billings.do",
+        loginUrl: "https://pvn.ernstings-family.de/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

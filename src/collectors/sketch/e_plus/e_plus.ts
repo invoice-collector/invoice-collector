@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EPlusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EPlusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dsl.o2online.de/selfcare/content/segment/kundencenter/",
+        loginUrl: "https://dsl.o2online.de/selfcare/content/segment/kundencenter/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteamCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SteamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.steampowered.com//login/?redir=",
+        loginUrl: "https://store.steampowered.com//login/?redir=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

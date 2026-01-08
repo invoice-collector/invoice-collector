@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConstantcontentCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConstantcontentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.constant-content.com/area/dlogin.htm",
+        loginUrl: "https://www.constant-content.com/area/dlogin.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

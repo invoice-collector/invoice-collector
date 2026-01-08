@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeekbuyingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GeekbuyingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.geekbuying.com/BuyerOrder/Orders?action=History",
+        loginUrl: "https://www.geekbuying.com/BuyerOrder/Orders?action=History",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

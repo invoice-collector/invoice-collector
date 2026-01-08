@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IabcCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IabcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.iabc.com/my-account/my-profile/?tab=activememberships",
+        loginUrl: "https://members.iabc.com/my-account/my-profile/?tab=activememberships",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

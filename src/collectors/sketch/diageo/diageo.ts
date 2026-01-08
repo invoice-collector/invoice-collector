@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DiageoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DiageoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.diageo.com/",
+        loginUrl: "https://www.diageo.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

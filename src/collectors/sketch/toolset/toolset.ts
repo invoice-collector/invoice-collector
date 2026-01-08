@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToolsetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ToolsetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://toolset.com/log-in/",
+        loginUrl: "https://toolset.com/log-in/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

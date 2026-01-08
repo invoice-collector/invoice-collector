@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SilbersaitenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SilbersaitenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.silbersaiten.de/prestashop/de/bestellungsverlauf",
+        loginUrl: "https://www.silbersaiten.de/prestashop/de/bestellungsverlauf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalconicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CalconicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.calconic.com/login",
+        loginUrl: "https://app.calconic.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

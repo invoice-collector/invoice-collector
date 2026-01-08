@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RevenuecatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RevenuecatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.revenuecat.com/settings/billing/invoices",
+        loginUrl: "https://app.revenuecat.com/settings/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

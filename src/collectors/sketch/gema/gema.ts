@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GemaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GemaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gema.de/portal/app/dashboard",
+        loginUrl: "https://www.gema.de/portal/app/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

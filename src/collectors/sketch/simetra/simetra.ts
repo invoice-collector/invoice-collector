@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimetraCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimetraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail.simetra.fr/PortailBayonne",
+        loginUrl: "https://portail.simetra.fr/PortailBayonne",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

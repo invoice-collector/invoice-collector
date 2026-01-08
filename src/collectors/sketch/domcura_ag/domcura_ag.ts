@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomcuraAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DomcuraAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://office.domcura.de/index.php?m=domcura&c=profile&f=provabrg",
+        loginUrl: "https://office.domcura.de/index.php?m=domcura&c=profile&f=provabrg",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FortoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FortoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ship.forto.com/invoices",
+        loginUrl: "https://ship.forto.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

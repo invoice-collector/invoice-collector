@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EgekoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EgekoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.egeko.de",
+        loginUrl: "http://www.egeko.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

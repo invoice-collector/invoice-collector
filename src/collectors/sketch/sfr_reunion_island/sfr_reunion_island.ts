@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SfrReunionIslandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SfrReunionIslandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
+        loginUrl: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

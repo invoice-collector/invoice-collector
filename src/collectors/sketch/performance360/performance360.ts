@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Performance360Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Performance360Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.performance360.de/registry-passwordreset.do",
+        loginUrl: "https://www.performance360.de/registry-passwordreset.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

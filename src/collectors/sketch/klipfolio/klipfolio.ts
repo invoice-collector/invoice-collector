@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KlipfolioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KlipfolioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.klipfolio.com/company/history",
+        loginUrl: "https://app.klipfolio.com/company/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

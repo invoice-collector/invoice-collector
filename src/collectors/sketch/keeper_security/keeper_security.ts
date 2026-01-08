@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeeperSecurityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KeeperSecurityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://keepersecurity.eu/console/#subscriptions",
+        loginUrl: "https://keepersecurity.eu/console/#subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

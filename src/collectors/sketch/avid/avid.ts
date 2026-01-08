@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvidCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AvidCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.avid.com/account/orientation?websource=avid",
+        loginUrl: "https://my.avid.com/account/orientation?websource=avid",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

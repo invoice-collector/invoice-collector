@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UmschlageDeutschlandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UmschlageDeutschlandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.umschlaege.com/customer?xCmd=account",
+        loginUrl: "https://www.umschlaege.com/customer?xCmd=account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

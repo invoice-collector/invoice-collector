@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QrIoMarketingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QrIoMarketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://qr.io/dashboard/billing",
+        loginUrl: "https://qr.io/dashboard/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

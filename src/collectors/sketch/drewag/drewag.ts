@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrewagCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrewagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.drewag.de/sap/bc/ui5_ui5/sap/zemc_ui/index.html?CompanyID=DREWAG&sap-client=630#/invoices",
+        loginUrl: "https://onlineservice.drewag.de/sap/bc/ui5_ui5/sap/zemc_ui/index.html?CompanyID=DREWAG&sap-client=630#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

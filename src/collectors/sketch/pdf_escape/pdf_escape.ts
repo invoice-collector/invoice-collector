@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PdfEscapeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PdfEscapeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pdfescape.com/account/profile/history/",
+        loginUrl: "https://www.pdfescape.com/account/profile/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

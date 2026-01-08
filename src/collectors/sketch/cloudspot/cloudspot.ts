@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudspotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CloudspotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.cloudspot.io/accountSettings/billing",
+        loginUrl: "https://app.cloudspot.io/accountSettings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

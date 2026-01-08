@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PivasoftCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PivasoftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lhp.pivacom.com/",
+        loginUrl: "https://lhp.pivacom.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

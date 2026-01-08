@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteueragentenDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SteueragentenDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.steueragenten.de/download",
+        loginUrl: "https://online.steueragenten.de/download",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

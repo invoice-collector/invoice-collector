@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BzBernerZeitungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BzBernerZeitungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://epaper.bernerzeitung.ch",
+        loginUrl: "https://epaper.bernerzeitung.ch",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

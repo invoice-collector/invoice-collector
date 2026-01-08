@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpidemicSoundCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EpidemicSoundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://player.epidemicsound.com/login/",
+        loginUrl: "https://player.epidemicsound.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

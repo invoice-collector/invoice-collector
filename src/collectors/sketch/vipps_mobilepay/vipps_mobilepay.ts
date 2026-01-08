@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VippsMobilepayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VippsMobilepayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.vippsmobilepay.com/login",
+        loginUrl: "https://portal.vippsmobilepay.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

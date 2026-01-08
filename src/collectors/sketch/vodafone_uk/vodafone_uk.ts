@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VodafoneUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vodafone.co.uk/myvodafone/faces/home",
+        loginUrl: "https://www.vodafone.co.uk/myvodafone/faces/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

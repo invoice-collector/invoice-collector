@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnaptradeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SnaptradeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.snapsoft.de/snaptrade/login?langcode=de",
+        loginUrl: "http://www.snapsoft.de/snaptrade/login?langcode=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlikiAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlikiAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.fliki.ai/?login",
+        loginUrl: "https://app.fliki.ai/?login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VirtualStagingAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VirtualStagingAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.virtualstagingai.app/login",
+        loginUrl: "https://www.virtualstagingai.app/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

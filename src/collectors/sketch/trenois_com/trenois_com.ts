@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrenoisComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrenoisComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.trenois.com/",
+        loginUrl: "https://www.trenois.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

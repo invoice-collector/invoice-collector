@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoolworthsSaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WoolworthsSaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.woolworths.co.za/",
+        loginUrl: "https://www.woolworths.co.za/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

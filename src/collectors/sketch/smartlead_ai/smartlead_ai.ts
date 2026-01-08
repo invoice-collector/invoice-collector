@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartleadAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartleadAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.smartlead.ai/app/settings/subscription",
+        loginUrl: "https://app.smartlead.ai/app/settings/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

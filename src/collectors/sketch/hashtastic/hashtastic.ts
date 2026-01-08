@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HashtasticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HashtasticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.hashtastic.eu/profile",
+        loginUrl: "https://app.hashtastic.eu/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

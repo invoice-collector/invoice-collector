@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WclocCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WclocCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clients.wcloc.com/invoices",
+        loginUrl: "https://clients.wcloc.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

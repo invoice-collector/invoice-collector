@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CosmosdirektCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CosmosdirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cosmosdirekt.de/services/mcd-info/",
+        loginUrl: "https://www.cosmosdirekt.de/services/mcd-info/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

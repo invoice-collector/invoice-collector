@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeCoesfeldGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeCoesfeldGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenlogin.stadtwerke-coesfeld.de/oauth2/authorize?scope=openid%20offline_access&redirect_uri=https%3A%2F%2Fportal.stadtwerke-coesfeld.de%2Foauth%2Fcallback&code_challenge=atIRA1q-86UTOzoobOnCIHEwHE2XdNqWhtgIZh0yS9I&code_challenge_method=S256&cli",
+        loginUrl: "https://kundenlogin.stadtwerke-coesfeld.de/oauth2/authorize?scope=openid%20offline_access&redirect_uri=https%3A%2F%2Fportal.stadtwerke-coesfeld.de%2Foauth%2Fcallback&code_challenge=atIRA1q-86UTOzoobOnCIHEwHE2XdNqWhtgIZh0yS9I&code_challenge_method=S256&cli",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

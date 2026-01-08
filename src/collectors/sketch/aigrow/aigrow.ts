@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AigrowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AigrowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.aigrow.me/account/subscriptions#tab-payment",
+        loginUrl: "https://app.aigrow.me/account/subscriptions#tab-payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeamGermanyEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TeamGermanyEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vertriebspartner.teamgermany.de/provisionen/abrechnungen/",
+        loginUrl: "https://vertriebspartner.teamgermany.de/provisionen/abrechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

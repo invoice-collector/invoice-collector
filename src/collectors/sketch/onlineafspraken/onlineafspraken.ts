@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineafsprakenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OnlineafsprakenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://agenda.onlineafspraken.nl/companies/invoice",
+        loginUrl: "https://agenda.onlineafspraken.nl/companies/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

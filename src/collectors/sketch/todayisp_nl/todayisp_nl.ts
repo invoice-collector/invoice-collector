@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TodayispNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TodayispNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://mijn.todayisp.nl/",
+        loginUrl: "http://mijn.todayisp.nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

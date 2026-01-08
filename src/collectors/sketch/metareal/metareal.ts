@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetarealCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MetarealCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stage.metareal.com/",
+        loginUrl: "https://stage.metareal.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

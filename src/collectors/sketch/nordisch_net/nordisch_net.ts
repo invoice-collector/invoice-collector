@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NordischNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NordischNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.gvg-glasfaser.de/path/portal/",
+        loginUrl: "https://portal.gvg-glasfaser.de/path/portal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

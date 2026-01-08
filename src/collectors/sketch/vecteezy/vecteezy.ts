@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VecteezyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VecteezyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vecteezy.com/account/payments_history",
+        loginUrl: "https://www.vecteezy.com/account/payments_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EverphoneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EverphoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.everphone.app/sicherheit/anmelden",
+        loginUrl: "https://www.everphone.app/sicherheit/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

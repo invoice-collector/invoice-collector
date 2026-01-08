@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuezCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SuezCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.suez.com",
+        loginUrl: "http://www.suez.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

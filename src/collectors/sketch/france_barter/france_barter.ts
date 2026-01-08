@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceBarterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FranceBarterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://korp.co/login",
+        loginUrl: "https://korp.co/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

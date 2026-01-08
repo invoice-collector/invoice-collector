@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlowrouteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlowrouteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.flowroute.com/accounts/billing/?show_all=t",
+        loginUrl: "https://manage.flowroute.com/accounts/billing/?show_all=t",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

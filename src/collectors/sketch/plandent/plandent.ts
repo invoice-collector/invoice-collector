@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlandentCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlandentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.plandent.de/de/mein-konto/rechnungen.html",
+        loginUrl: "https://shop.plandent.de/de/mein-konto/rechnungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

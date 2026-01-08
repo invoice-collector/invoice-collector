@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _123formbuilderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _123formbuilderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.123formbuilder.com/index.php?p=myaccount&click_from=usrman#account-details",
+        loginUrl: "https://www.123formbuilder.com/index.php?p=myaccount&click_from=usrman#account-details",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

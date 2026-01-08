@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VendCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VendCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.vendhq.com/signin",
+        loginUrl: "https://secure.vendhq.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

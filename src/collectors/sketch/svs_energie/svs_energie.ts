@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SvsEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SvsEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.svs-energie.de/csit/action/csStart",
+        loginUrl: "https://www.svs-energie.de/csit/action/csStart",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

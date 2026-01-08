@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaregioneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LaregioneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aboshop.laregione.ch/?login",
+        loginUrl: "https://aboshop.laregione.ch/?login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

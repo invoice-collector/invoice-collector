@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JochenschweizerMydaysCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JochenschweizerMydaysCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.jsmd-group.com",
+        loginUrl: "https://login.jsmd-group.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

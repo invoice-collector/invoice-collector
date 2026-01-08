@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CherchonsComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CherchonsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adserver.cherchons.com/cgi/adServer.cgi?service=allFacture&language=&menuSA=A",
+        loginUrl: "https://adserver.cherchons.com/cgi/adServer.cgi?service=allFacture&language=&menuSA=A",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

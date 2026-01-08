@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelenecCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelenecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://portal.telenec.de/",
+        loginUrl: "http://portal.telenec.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ModeratorenwerkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ModeratorenwerkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.moderatorenwerk.de/jobs/rechnungen/",
+        loginUrl: "https://www.moderatorenwerk.de/jobs/rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

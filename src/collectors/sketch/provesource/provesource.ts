@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProvesourceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProvesourceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.provesrc.com/#/billing",
+        loginUrl: "https://console.provesrc.com/#/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

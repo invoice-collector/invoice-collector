@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetflixCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetflixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.netflix.com/BillingActivity",
+        loginUrl: "https://www.netflix.com/BillingActivity",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

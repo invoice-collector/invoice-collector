@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AralSupercardBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AralSupercardBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.aral-supercard.de/login",
+        loginUrl: "https://business.aral-supercard.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

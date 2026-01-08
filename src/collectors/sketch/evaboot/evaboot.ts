@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvabootCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EvabootCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.evaboot.com/",
+        loginUrl: "https://app.evaboot.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

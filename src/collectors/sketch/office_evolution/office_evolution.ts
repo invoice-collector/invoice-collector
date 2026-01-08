@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OfficeEvolutionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OfficeEvolutionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.officeevolution.com/login/",
+        loginUrl: "https://www.officeevolution.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutemioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AutemioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.autemio.de/preise/",
+        loginUrl: "https://www.autemio.de/preise/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

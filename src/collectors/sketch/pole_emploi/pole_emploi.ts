@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PoleEmploiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PoleEmploiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pole-emploi.fr/accueil/",
+        loginUrl: "https://www.pole-emploi.fr/accueil/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

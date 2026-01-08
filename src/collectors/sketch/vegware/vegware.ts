@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VegwareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VegwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vegware.com/index.php?act=login&redir=aHR0cHM6Ly93d3cudmVnd2FyZS5jb20vaW5kZXgucGhwP2NjVXNlcj0xMjRjZTViNDAzNTkyZWExMDQ2ZGU1ZWRiM2JiM2JhNw==",
+        loginUrl: "https://www.vegware.com/index.php?act=login&redir=aHR0cHM6Ly93d3cudmVnd2FyZS5jb20vaW5kZXgucGhwP2NjVXNlcj0xMjRjZTViNDAzNTkyZWExMDQ2ZGU1ZWRiM2JiM2JhNw==",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

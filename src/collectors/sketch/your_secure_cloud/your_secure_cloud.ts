@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YourSecureCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YourSecureCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.yoursecurecloud.de/accounts/login/?next=/",
+        loginUrl: "https://login.yoursecurecloud.de/accounts/login/?next=/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntersparCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IntersparCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.interspar.at/shop/lebensmittel/my-account/orders/",
+        loginUrl: "https://www.interspar.at/shop/lebensmittel/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

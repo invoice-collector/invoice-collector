@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaydueCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PaydueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://paydue.de/paydesk/clearing.php",
+        loginUrl: "https://paydue.de/paydesk/clearing.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanadaLifeCanadaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CanadaLifeCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://groupnet-pa.canadalife.com/secureGnRTE/english/Billing/BPT3.asp",
+        loginUrl: "https://groupnet-pa.canadalife.com/secureGnRTE/english/Billing/BPT3.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

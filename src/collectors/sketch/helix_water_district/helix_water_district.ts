@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelixWaterDistrictCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HelixWaterDistrictCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://css.helixwater.org/hwdcss/JSP/accountTransactions.jsp",
+        loginUrl: "https://css.helixwater.org/hwdcss/JSP/accountTransactions.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

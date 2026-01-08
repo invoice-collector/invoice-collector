@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GigahostDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GigahostDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://controlcenter.gigahost.dk/?module=login&lang=da",
+        loginUrl: "https://controlcenter.gigahost.dk/?module=login&lang=da",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SonoventeComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SonoventeComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sonovente.com/account/",
+        loginUrl: "https://www.sonovente.com/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

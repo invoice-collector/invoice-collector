@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContentstudioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ContentstudioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.contentstudio.io/login",
+        loginUrl: "https://app.contentstudio.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

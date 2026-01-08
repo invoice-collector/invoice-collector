@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TegaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TegaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tega.de/kundenportal/de/start",
+        loginUrl: "https://www.tega.de/kundenportal/de/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

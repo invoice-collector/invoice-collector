@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfographyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InfographyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://infograpify.com/account/login",
+        loginUrl: "https://infograpify.com/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

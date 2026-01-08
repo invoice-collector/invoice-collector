@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoothemesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WoothemesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://woocommerce.com/my-account/",
+        loginUrl: "https://woocommerce.com/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

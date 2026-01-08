@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WemacomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WemacomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.wemacom.de/",
+        loginUrl: "https://login.wemacom.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

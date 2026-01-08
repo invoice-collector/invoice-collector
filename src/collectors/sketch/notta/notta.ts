@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NottaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NottaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.notta.ai/de",
+        loginUrl: "https://www.notta.ai/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

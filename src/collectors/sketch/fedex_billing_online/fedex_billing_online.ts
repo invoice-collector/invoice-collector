@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FedexBillingOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FedexBillingOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fedex.com/en-us/billing-online.html",
+        loginUrl: "https://www.fedex.com/en-us/billing-online.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

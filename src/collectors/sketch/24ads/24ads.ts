@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _24adsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _24adsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.net.24-ads.com/app/index.html#/account/payments",
+        loginUrl: "https://partner.net.24-ads.com/app/index.html#/account/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

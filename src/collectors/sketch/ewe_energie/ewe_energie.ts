@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EweEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EweEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.ewe.de/strom#",
+        loginUrl: "https://meine.ewe.de/strom#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

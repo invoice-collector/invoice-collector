@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JpmchalePestControlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JpmchalePestControlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jpmchale.pestconnect.com/login",
+        loginUrl: "https://jpmchale.pestconnect.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

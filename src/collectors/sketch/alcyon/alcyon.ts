@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlcyonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlcyonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alcyon.com/accueil/piloter/comptabilite/factures/mes-factures",
+        loginUrl: "https://www.alcyon.com/accueil/piloter/comptabilite/factures/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

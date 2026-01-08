@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GwlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GwlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.gwl.eu/index.php?cur=1&cl=account_invoice",
+        loginUrl: "https://shop.gwl.eu/index.php?cur=1&cl=account_invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FonreachCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FonreachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.fonreach.com",
+        loginUrl: "http://www.fonreach.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

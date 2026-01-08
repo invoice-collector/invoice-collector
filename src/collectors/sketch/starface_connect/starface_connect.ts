@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarfaceConnectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StarfaceConnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.starface.de/secure/#/login",
+        loginUrl: "https://connect.starface.de/secure/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

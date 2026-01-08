@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StotaxSelectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StotaxSelectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stotax-online.de/",
+        loginUrl: "https://www.stotax-online.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

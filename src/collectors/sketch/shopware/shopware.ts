@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopwareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShopwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.shopware.com/#/",
+        loginUrl: "https://account.shopware.com/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

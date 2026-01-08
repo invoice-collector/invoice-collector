@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DendreoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DendreoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.dendreo.com/institut_reikiologie/abonnement/factures",
+        loginUrl: "https://pro.dendreo.com/institut_reikiologie/abonnement/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

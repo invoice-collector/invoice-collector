@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OneparkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OneparkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onepark.fr/?origin=header&modal=connect",
+        loginUrl: "https://www.onepark.fr/?origin=header&modal=connect",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

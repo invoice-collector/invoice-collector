@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CleverElementsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CleverElementsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sendcockpit.com/appl/ce/software/code/DoorLogin.php?&b=cleverelements&bid=?&bid=1",
+        loginUrl: "https://www.sendcockpit.com/appl/ce/software/code/DoorLogin.php?&b=cleverelements&bid=?&bid=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

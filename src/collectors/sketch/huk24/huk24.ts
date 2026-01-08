@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Huk24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Huk24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.huk24.de/",
+        loginUrl: "https://www.huk24.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

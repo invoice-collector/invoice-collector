@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkmatchCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LinkmatchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.linkmatch.net/invoice",
+        loginUrl: "https://www.linkmatch.net/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

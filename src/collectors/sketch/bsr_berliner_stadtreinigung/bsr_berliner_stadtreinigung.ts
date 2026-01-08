@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BsrBerlinerStadtreinigungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BsrBerlinerStadtreinigungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.bsr.de/bsr/services/kundenportal/BillPrintDocDownloadSet(PrintDocID=\'",
+        loginUrl: "https://kundenportal.bsr.de/bsr/services/kundenportal/BillPrintDocDownloadSet(PrintDocID=\'",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

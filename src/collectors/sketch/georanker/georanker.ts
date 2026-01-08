@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeorankerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GeorankerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://seoapp.georanker.com/invoices",
+        loginUrl: "https://seoapp.georanker.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WellandHydroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WellandHydroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.wellandhydro.com",
+        loginUrl: "http://www.wellandhydro.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

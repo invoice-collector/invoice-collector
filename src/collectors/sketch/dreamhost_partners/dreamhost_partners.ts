@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreamhostPartnersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DreamhostPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aff-dreamhost.pay.tune.com/payment-orders",
+        loginUrl: "https://aff-dreamhost.pay.tune.com/payment-orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

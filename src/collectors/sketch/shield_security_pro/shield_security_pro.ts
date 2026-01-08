@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShieldSecurityProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShieldSecurityProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://getshieldsecurity.com/account/purchase-history/",
+        loginUrl: "https://getshieldsecurity.com/account/purchase-history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

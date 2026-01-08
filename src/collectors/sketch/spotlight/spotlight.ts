@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpotlightCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpotlightCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.spotlight.com",
+        loginUrl: "http://www.spotlight.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

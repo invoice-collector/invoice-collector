@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProprofsHelpiqCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProprofsHelpiqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.proprofs.com/knowledgebase/login/",
+        loginUrl: "https://www.proprofs.com/knowledgebase/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

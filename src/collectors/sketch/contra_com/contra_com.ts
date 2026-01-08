@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContraComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ContraComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://contra.com/client/projects/WyJQYWlkUHJvamVjdFYyIiw1NDIwMDIyXQ==?tab=invoices",
+        loginUrl: "https://contra.com/client/projects/WyJQYWlkUHJvamVjdFYyIiw1NDIwMDIyXQ==?tab=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

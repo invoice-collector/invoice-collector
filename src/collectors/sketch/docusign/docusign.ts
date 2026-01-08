@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DocusignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DocusignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.docusign.com",
+        loginUrl: "https://account.docusign.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

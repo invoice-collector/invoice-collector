@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaDigitalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CaDigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://order.ca-digit.com/cat/customer/address/?___store=en",
+        loginUrl: "https://order.ca-digit.com/cat/customer/address/?___store=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

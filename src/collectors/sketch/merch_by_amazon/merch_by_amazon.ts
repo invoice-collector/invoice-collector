@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MerchByAmazonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MerchByAmazonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merch.amazon.com/",
+        loginUrl: "https://merch.amazon.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

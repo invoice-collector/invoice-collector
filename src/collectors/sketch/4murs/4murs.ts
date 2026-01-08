@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4mursCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _4mursCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.4murs.com/",
+        loginUrl: "https://www.4murs.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

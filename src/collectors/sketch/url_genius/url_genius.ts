@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UrlGeniusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UrlGeniusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.urlgeni.us/account/billing",
+        loginUrl: "https://app.urlgeni.us/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

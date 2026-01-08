@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitedDomainsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnitedDomainsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.united-domains.de/portfolio/a/user/invoices",
+        loginUrl: "https://www.united-domains.de/portfolio/a/user/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

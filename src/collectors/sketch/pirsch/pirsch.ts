@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PirschCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PirschCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.pirsch.io/billing",
+        loginUrl: "https://dashboard.pirsch.io/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

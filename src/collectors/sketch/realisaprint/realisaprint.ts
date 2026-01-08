@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RealisaprintCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RealisaprintCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.realisaprint.com/boutique/compte_commande.php#tabs-commandes",
+        loginUrl: "https://www.realisaprint.com/boutique/compte_commande.php#tabs-commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

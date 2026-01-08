@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravelperkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TravelperkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.travelperk.com/login",
+        loginUrl: "https://app.travelperk.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

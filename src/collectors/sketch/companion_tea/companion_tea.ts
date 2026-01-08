@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CompanionTeaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CompanionTeaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wholesale.companiontea.com/account",
+        loginUrl: "https://wholesale.companiontea.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

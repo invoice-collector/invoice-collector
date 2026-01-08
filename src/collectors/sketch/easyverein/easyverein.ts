@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyvereinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasyvereinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://easyverein.com/app/",
+        loginUrl: "https://easyverein.com/app/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

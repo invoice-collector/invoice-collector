@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalarioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SalarioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://salario.de/user/index.php",
+        loginUrl: "https://salario.de/user/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

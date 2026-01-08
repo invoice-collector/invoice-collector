@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElParkingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElParkingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://elparking.com/facturacion/facturas/1",
+        loginUrl: "https://elparking.com/facturacion/facturas/1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeHildenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeHildenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-hilden.de/csit/action/csStart",
+        loginUrl: "https://kundenportal.stadtwerke-hilden.de/csit/action/csStart",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

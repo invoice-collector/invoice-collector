@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradebyteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TradebyteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.trade-server.net/index.php?page=current_user&sub=invoicing",
+        loginUrl: "https://www.trade-server.net/index.php?page=current_user&sub=invoicing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

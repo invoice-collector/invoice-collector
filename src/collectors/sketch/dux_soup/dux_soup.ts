@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuxSoupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DuxSoupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.dux-soup.com/web/dux-profile",
+        loginUrl: "https://app.dux-soup.com/web/dux-profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

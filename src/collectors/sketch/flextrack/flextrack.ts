@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlextrackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlextrackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flextrack.ca/Account/LogOn",
+        loginUrl: "https://www.flextrack.ca/Account/LogOn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

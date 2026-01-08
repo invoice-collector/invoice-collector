@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TestgorillaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TestgorillaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.testgorilla.com/profile/plan",
+        loginUrl: "https://app.testgorilla.com/profile/plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

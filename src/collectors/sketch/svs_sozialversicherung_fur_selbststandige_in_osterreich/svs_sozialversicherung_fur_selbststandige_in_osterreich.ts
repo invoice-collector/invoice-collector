@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SvsSozialversicherungFurSelbststandigeInOsterreichCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SvsSozialversicherungFurSelbststandigeInOsterreichCollector extends
                 mandatory: true
             }
         },
-        entryUrl: "https://www.svs.at/sva-vorschreibung/views/beitragskonto_v2.xhtml?LO=4&contentid=10007.853115&portal=svsportal",
+        loginUrl: "https://www.svs.at/sva-vorschreibung/views/beitragskonto_v2.xhtml?LO=4&contentid=10007.853115&portal=svsportal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

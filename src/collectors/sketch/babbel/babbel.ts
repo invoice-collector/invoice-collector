@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BabbelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BabbelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://babbel.com/users/payments?locale=de",
+        loginUrl: "https://babbel.com/users/payments?locale=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HarvardBusinessReviewCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HarvardBusinessReviewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hbr.org/my-library/orders",
+        loginUrl: "https://hbr.org/my-library/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

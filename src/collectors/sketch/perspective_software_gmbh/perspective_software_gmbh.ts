@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerspectiveSoftwareGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PerspectiveSoftwareGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.perspective.co/settings",
+        loginUrl: "https://app.perspective.co/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EfgOnlinePlusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EfgOnlinePlusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "www.efgonlineplus.de",
+        loginUrl: "www.efgonlineplus.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

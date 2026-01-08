@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JournalLIndependantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JournalLIndependantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://abonnement.lindependant.fr/site/lindependantv2/default/fr/compte3/mes-factures.html",
+        loginUrl: "https://abonnement.lindependant.fr/site/lindependantv2/default/fr/compte3/mes-factures.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

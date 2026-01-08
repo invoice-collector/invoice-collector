@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraminoFelderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TraminoFelderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marc-felder.tramino.de/tramino/meldewesen/rechnung/",
+        loginUrl: "https://marc-felder.tramino.de/tramino/meldewesen/rechnung/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

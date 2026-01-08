@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VideoTaxiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VideoTaxiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.video.taxi/invoices",
+        loginUrl: "https://service.video.taxi/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeitDigitalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZeitDigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.zeit.de/anmelden",
+        loginUrl: "https://meine.zeit.de/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

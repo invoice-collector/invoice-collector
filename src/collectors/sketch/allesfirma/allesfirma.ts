@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllesfirmaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AllesfirmaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allesfirma.at/app/einstellungen/konto",
+        loginUrl: "https://www.allesfirma.at/app/einstellungen/konto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

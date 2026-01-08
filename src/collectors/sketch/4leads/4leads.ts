@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4leadsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _4leadsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.4leads.net/login",
+        loginUrl: "https://app.4leads.net/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

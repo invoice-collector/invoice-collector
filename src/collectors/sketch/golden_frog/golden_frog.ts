@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoldenFrogCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GoldenFrogCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.goldenfrog.com/de/controlpanel/account/invoices",
+        loginUrl: "https://www.goldenfrog.com/de/controlpanel/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

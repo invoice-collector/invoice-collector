@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GeticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.getic.de/",
+        loginUrl: "https://www.getic.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Schreibburo24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Schreibburo24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.schreibbuero-24.com/anmelden",
+        loginUrl: "https://www.schreibbuero-24.com/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

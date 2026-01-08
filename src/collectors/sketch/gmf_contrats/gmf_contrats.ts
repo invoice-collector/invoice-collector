@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GmfContratsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GmfContratsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-assure.gmf.fr/public/pages/securite/IC2.faces",
+        loginUrl: "https://espace-assure.gmf.fr/public/pages/securite/IC2.faces",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

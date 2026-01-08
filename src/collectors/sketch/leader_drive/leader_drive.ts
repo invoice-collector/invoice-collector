@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeaderDriveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeaderDriveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.leaderdrive.fr/connexion",
+        loginUrl: "https://www.leaderdrive.fr/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

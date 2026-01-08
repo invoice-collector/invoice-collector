@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HikeordersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HikeordersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://a11yenabler.hikeorders.com/invoice/",
+        loginUrl: "https://a11yenabler.hikeorders.com/invoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

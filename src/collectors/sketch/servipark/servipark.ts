@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServiparkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ServiparkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.servipark.com/de/shopping/AccountLogin.aspx",
+        loginUrl: "https://www.servipark.com/de/shopping/AccountLogin.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

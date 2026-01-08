@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssurOPoilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AssurOPoilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.assuropoil.fr/espace-adherent/",
+        loginUrl: "https://www.assuropoil.fr/espace-adherent/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

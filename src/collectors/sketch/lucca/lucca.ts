@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LuccaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LuccaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hypnovr.ilucca.net/",
+        loginUrl: "https://hypnovr.ilucca.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

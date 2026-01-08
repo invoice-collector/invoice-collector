@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DhlInternationalUkLtdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DhlInternationalUkLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://send.dhlparcel.co.uk/login?returnurl=~",
+        loginUrl: "https://send.dhlparcel.co.uk/login?returnurl=~",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

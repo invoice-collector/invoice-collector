@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1stdibsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _1stdibsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adminv2.1stdibs.com/dealers/statement",
+        loginUrl: "https://adminv2.1stdibs.com/dealers/statement",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

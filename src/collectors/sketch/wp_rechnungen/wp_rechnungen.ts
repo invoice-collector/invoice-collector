@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpRechnungenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WpRechnungenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.wp-rechnungen.de/mein-konto/",
+        loginUrl: "http://www.wp-rechnungen.de/mein-konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

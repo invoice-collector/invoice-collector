@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlickCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlickCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flick.tech/",
+        loginUrl: "https://www.flick.tech/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

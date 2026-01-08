@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GotomeetingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GotomeetingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cmrc.logmeininc.com/billingHistory.tmpl",
+        loginUrl: "https://cmrc.logmeininc.com/billingHistory.tmpl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

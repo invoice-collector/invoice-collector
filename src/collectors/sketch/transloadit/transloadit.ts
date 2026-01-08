@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransloaditCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TransloaditCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://transloadit.com/login/",
+        loginUrl: "https://transloadit.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

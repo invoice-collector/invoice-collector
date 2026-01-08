@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeavenhrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HeavenhrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.heavenhr.com/payroll/overview/",
+        loginUrl: "https://www.heavenhr.com/payroll/overview/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MsMileIqCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MsMileIqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.mileiq.com/reports",
+        loginUrl: "https://dashboard.mileiq.com/reports",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

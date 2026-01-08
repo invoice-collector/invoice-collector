@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeosurferCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeosurferCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.surferseo.com/billing/invoices",
+        loginUrl: "https://app.surferseo.com/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

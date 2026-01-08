@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BernerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BernerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.berner.eu/de-de/myberner/invoice/",
+        loginUrl: "https://shop.berner.eu/de-de/myberner/invoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

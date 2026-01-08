@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlfahostingDePartnerportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlfahostingDePartnerportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://alfahosting.de/affiliate-login/",
+        loginUrl: "https://alfahosting.de/affiliate-login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

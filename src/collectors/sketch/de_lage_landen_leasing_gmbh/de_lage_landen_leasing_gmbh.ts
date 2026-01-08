@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeLageLandenLeasingGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeLageLandenLeasingGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.directinvoices.com/en/documents/1Q6qz2dO6ikfiMOivWyl",
+        loginUrl: "https://www.directinvoices.com/en/documents/1Q6qz2dO6ikfiMOivWyl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

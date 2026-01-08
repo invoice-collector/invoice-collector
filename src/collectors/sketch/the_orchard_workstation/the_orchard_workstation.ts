@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheOrchardWorkstationCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TheOrchardWorkstationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://workstation.theorchard.com/accounting/",
+        loginUrl: "https://workstation.theorchard.com/accounting/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

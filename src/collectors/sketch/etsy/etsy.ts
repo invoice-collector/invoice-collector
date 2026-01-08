@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EtsyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EtsyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.etsy.com/your/bill?ref=seller-platform-mcnav",
+        loginUrl: "https://www.etsy.com/your/bill?ref=seller-platform-mcnav",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

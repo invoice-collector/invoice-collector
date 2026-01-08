@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Lox24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Lox24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lox24.eu/account/index.php?page=accounting",
+        loginUrl: "https://www.lox24.eu/account/index.php?page=accounting",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

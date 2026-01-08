@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InnovationGroupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InnovationGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.innovation-group.parts/innovation/kundenportal/login.php?id=0",
+        loginUrl: "http://www.innovation-group.parts/innovation/kundenportal/login.php?id=0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

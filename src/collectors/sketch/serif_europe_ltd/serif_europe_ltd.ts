@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SerifEuropeLtdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SerifEuropeLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.serif.com/en-gb/account/",
+        loginUrl: "https://store.serif.com/en-gb/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleVivinterEspaceAssureCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleVivinterEspaceAssureCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://assure.vivinter.fr/connexion.html",
+        loginUrl: "https://assure.vivinter.fr/connexion.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

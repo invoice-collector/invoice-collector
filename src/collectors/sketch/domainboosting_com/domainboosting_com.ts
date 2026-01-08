@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomainboostingComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DomainboostingComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.domainboosting.com/de/login",
+        loginUrl: "https://www.domainboosting.com/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShipStationCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShipStationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ss.shipstation.com/",
+        loginUrl: "https://ss.shipstation.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

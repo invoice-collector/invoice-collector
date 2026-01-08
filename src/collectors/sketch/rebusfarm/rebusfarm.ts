@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RebusfarmCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RebusfarmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.rebusfarm.net/de/de-alternative-login?view=login",
+        loginUrl: "https://de.rebusfarm.net/de/de-alternative-login?view=login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

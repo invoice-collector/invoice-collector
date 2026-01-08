@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HellosignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HellosignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.hellosign.com",
+        loginUrl: "https://app.hellosign.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

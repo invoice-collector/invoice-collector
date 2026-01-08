@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobilicityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MobilicityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.mobilicity.ca",
+        loginUrl: "http://www.mobilicity.ca",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

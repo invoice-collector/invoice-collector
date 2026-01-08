@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BouncebanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BouncebanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bounceban.com/app/account/billing",
+        loginUrl: "https://bounceban.com/app/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

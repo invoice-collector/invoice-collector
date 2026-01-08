@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EskerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EskerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://as1.ondemand.esker.com/ondemand/webaccess/logon.aspx?lang=en&TestCookie=1",
+        loginUrl: "https://as1.ondemand.esker.com/ondemand/webaccess/logon.aspx?lang=en&TestCookie=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

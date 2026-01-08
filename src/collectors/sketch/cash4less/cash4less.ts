@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Cash4lessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Cash4lessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.cash4less.org/app/portal/de_DE/invoices",
+        loginUrl: "https://portal.cash4less.org/app/portal/de_DE/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

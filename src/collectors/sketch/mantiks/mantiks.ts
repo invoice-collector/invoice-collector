@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MantiksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MantiksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mantiks.io/accounts/login/",
+        loginUrl: "https://app.mantiks.io/accounts/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

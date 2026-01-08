@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScreenappCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScreenappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://screenapp.io/app/#/signin",
+        loginUrl: "https://screenapp.io/app/#/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

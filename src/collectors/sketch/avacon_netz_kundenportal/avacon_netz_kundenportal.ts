@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvaconNetzKundenportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AvaconNetzKundenportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.avacon-netz.de/de/service/public/kundenportal.html",
+        loginUrl: "https://www.avacon-netz.de/de/service/public/kundenportal.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

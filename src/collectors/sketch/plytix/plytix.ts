@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlytixCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlytixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.plytix.com",
+        loginUrl: "https://accounts.plytix.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

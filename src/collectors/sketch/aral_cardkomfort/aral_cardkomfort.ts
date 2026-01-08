@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AralCardkomfortCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AralCardkomfortCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bpplus.com/pages/aral/logon.asp",
+        loginUrl: "https://www.bpplus.com/pages/aral/logon.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

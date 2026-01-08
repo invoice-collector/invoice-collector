@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoffreoProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoffreoProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.coffreo.pro/documents/",
+        loginUrl: "https://www.coffreo.pro/documents/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

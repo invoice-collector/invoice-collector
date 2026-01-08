@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppsignalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppsignalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://appsignal.com/sportograf/admin/invoices",
+        loginUrl: "https://appsignal.com/sportograf/admin/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

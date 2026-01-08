@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApplovinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ApplovinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dash.applovin.com/login",
+        loginUrl: "https://dash.applovin.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

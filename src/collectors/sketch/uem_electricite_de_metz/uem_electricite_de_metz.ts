@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UemElectriciteDeMetzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UemElectriciteDeMetzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://monagence.uem-metz.fr/efluidAEL/jsp/arc/habilitation/login.jsp",
+        loginUrl: "https://monagence.uem-metz.fr/efluidAEL/jsp/arc/habilitation/login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

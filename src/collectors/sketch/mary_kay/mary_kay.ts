@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaryKayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaryKayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mk.marykayintouch.de/s/reports/bills-invoices",
+        loginUrl: "https://mk.marykayintouch.de/s/reports/bills-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

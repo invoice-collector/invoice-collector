@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FSecureCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FSecureCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.f-secure.com/en/home/login",
+        loginUrl: "https://www.f-secure.com/en/home/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

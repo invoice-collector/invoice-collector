@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopvoteBetrieberCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShopvoteBetrieberCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shopvote.de/betreiber/index.php?site=invoice&shopid=22901",
+        loginUrl: "https://www.shopvote.de/betreiber/index.php?site=invoice&shopid=22901",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

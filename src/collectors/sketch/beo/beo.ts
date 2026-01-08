@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BeoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://kunden.expowin.de/",
+        loginUrl: "http://kunden.expowin.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

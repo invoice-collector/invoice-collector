@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelefonicaEmpresasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelefonicaEmpresasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://paut.telefonica.es/facturas",
+        loginUrl: "https://paut.telefonica.es/facturas",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TucalendiComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TucalendiComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.tucalendi.com/account/plan_settings",
+        loginUrl: "https://account.tucalendi.com/account/plan_settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

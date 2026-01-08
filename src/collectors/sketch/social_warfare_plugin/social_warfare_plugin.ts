@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialWarfarePluginCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SocialWarfarePluginCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://warfareplugins.com/wp-login.php",
+        loginUrl: "https://warfareplugins.com/wp-login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

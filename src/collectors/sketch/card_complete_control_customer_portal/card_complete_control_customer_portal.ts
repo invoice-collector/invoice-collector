@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CardCompleteControlCustomerPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CardCompleteControlCustomerPortalCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cardcomplete.com/",
+        loginUrl: "https://www.cardcomplete.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

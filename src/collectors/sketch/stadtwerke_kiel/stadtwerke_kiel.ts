@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeKielCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeKielCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservices.stadtwerke-kiel.de/onlineservices/page/postfach.xhtml?conversationContext=1",
+        loginUrl: "https://onlineservices.stadtwerke-kiel.de/onlineservices/page/postfach.xhtml?conversationContext=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

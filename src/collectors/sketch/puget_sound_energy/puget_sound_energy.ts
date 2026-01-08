@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PugetSoundEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PugetSoundEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.pse.com",
+        loginUrl: "http://www.pse.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

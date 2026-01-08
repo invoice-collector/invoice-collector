@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UsercentricsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UsercentricsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.usercentrics.eu/",
+        loginUrl: "https://admin.usercentrics.eu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

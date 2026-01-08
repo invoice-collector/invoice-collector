@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnergieeffizienzexpertenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnergieeffizienzexpertenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.energie-effizienz-experten.de/fuer-experten/benutzerkonto/rechnungen",
+        loginUrl: "https://www.energie-effizienz-experten.de/fuer-experten/benutzerkonto/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

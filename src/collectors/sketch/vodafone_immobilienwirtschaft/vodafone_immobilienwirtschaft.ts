@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneImmobilienwirtschaftCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VodafoneImmobilienwirtschaftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wowi.unitymedia.de/PWRKP/faces/KP",
+        loginUrl: "https://wowi.unitymedia.de/PWRKP/faces/KP",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

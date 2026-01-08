@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _123rfCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _123rfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.123rf.com/login.php",
+        loginUrl: "https://de.123rf.com/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

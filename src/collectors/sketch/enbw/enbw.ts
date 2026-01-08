@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnbwCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnbwCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.enbw.com/login",
+        loginUrl: "https://meine.enbw.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

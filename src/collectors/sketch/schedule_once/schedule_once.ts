@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScheduleOnceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScheduleOnceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.oncehub.com",
+        loginUrl: "https://app.oncehub.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

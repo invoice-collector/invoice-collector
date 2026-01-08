@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WelcomeOfficeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WelcomeOfficeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.welcomeoffice.com/UserAccount_V3/Authentification.aspx",
+        loginUrl: "https://www.welcomeoffice.com/UserAccount_V3/Authentification.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

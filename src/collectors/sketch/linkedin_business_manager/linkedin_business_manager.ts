@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkedinBusinessManagerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LinkedinBusinessManagerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.linkedin.com/businessmanager/accounts/6966019903610884097/billing/invoices",
+        loginUrl: "https://www.linkedin.com/businessmanager/accounts/6966019903610884097/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

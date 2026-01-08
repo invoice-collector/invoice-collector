@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteuerverwaltungDesKantonsBernCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SteuerverwaltungDesKantonsBernCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.fin.be.ch",
+        loginUrl: "http://www.fin.be.ch",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

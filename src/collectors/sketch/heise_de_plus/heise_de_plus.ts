@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeiseDePlusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HeiseDePlusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.heise.de/sso/registration/add_subscriber_id",
+        loginUrl: "https://www.heise.de/sso/registration/add_subscriber_id",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

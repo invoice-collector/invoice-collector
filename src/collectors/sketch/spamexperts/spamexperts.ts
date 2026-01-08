@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpamexpertsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpamexpertsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.spamexperts.com/clientarea.php",
+        loginUrl: "https://my.spamexperts.com/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

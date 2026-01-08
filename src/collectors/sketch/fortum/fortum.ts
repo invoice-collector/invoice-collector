@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FortumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FortumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mittfortum.se/",
+        loginUrl: "https://www.mittfortum.se/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

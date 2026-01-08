@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EastValleyWaterDistrictCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EastValleyWaterDistrictCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.municipalonlinepayments.com/eastvalleywd/utilities",
+        loginUrl: "https://www.municipalonlinepayments.com/eastvalleywd/utilities",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

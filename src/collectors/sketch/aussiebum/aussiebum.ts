@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AussiebumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AussiebumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aussiebum.com/members/login",
+        loginUrl: "https://www.aussiebum.com/members/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

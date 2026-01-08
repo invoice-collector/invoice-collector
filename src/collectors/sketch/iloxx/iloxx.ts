@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IloxxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IloxxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.iloxx.de/myiloxx/orders/invoices.aspx",
+        loginUrl: "https://www.iloxx.de/myiloxx/orders/invoices.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvisEuropeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AvisEuropeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.avis-billing.com",
+        loginUrl: "http://www.avis-billing.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SurveymonkeyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SurveymonkeyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.surveymonkey.com/home/",
+        loginUrl: "https://de.surveymonkey.com/home/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

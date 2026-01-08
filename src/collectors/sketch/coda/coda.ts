@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CodaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://coda.io/workspaces/ws-i9PtJ5ah-1?selectedTab=Billing",
+        loginUrl: "https://coda.io/workspaces/ws-i9PtJ5ah-1?selectedTab=Billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

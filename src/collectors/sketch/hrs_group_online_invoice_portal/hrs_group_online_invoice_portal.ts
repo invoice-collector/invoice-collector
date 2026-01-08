@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HrsGroupOnlineInvoicePortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HrsGroupOnlineInvoicePortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hotelservice.hrs.com/hpp/Account/Login",
+        loginUrl: "https://hotelservice.hrs.com/hpp/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuincaillerieAnglesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuincaillerieAnglesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.quincaillerie-angles.fr/qangles/invoices/",
+        loginUrl: "https://www.quincaillerie-angles.fr/qangles/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UkPostboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UkPostboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.ipostalmail.net/Account/Login",
+        loginUrl: "https://client.ipostalmail.net/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

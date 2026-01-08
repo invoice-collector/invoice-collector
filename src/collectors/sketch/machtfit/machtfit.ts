@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MachtfitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MachtfitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://machtfit.machtfit.de/accounts/login",
+        loginUrl: "https://machtfit.machtfit.de/accounts/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

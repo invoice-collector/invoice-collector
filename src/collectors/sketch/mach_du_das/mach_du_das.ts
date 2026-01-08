@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MachDuDasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MachDuDasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.machdudas.de/signin?redirectTo=%2Fjobs-neu",
+        loginUrl: "https://www.machdudas.de/signin?redirectTo=%2Fjobs-neu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

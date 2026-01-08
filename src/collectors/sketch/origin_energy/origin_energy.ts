@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OriginEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OriginEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.originenergy.com.au/#login",
+        loginUrl: "https://www.originenergy.com.au/#login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

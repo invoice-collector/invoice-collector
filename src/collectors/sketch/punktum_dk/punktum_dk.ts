@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PunktumDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PunktumDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://selvbetjening.punktum.dk/",
+        loginUrl: "https://selvbetjening.punktum.dk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

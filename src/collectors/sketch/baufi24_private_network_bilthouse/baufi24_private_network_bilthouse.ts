@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Baufi24PrivateNetworkBilthouseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Baufi24PrivateNetworkBilthouseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partnerprogramm.bilthouse.com/auszahlungen.cgi",
+        loginUrl: "https://partnerprogramm.bilthouse.com/auszahlungen.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

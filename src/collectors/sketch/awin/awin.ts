@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AwinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AwinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ui.awin.com/idp/de/login",
+        loginUrl: "https://ui.awin.com/idp/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeliasServicepointCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TeliasServicepointCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telias.de/login/de#overview",
+        loginUrl: "https://www.telias.de/login/de#overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ItNerd24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ItNerd24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://it-nerd24.de/account#hide-registration",
+        loginUrl: "https://it-nerd24.de/account#hide-registration",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

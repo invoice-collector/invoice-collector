@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProductboardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProductboardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.productboard.com/",
+        loginUrl: "https://app.productboard.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

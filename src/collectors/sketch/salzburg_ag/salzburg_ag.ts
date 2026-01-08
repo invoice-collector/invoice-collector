@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalzburgAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SalzburgAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.salzburg-ag.at/customer/account/login/",
+        loginUrl: "https://shop.salzburg-ag.at/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KanuberErdgasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KanuberErdgasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://energieportal.knauber.de/",
+        loginUrl: "https://energieportal.knauber.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

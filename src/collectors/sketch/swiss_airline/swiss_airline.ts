@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwissAirlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwissAirlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.swissair.com/de/de/",
+        loginUrl: "https://www.swissair.com/de/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

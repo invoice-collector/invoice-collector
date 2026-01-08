@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MesquiteTxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MesquiteTxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ipn.paymentus.com/cp/msqu?lang=en",
+        loginUrl: "https://ipn.paymentus.com/cp/msqu?lang=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

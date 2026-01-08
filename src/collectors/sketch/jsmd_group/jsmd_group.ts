@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JsmdGroupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JsmdGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jep.jsmd-group.com/login",
+        loginUrl: "https://jep.jsmd-group.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreatespaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CreatespaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.createspace.com/Customer/Account.jsp",
+        loginUrl: "https://www.createspace.com/Customer/Account.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

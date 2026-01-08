@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleApicilParticulierCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleApicilParticulierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.apicil.com/espace-particulier",
+        loginUrl: "https://www.apicil.com/espace-particulier",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

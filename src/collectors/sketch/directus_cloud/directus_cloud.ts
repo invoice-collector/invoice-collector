@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectusCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DirectusCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://directus.cloud/login",
+        loginUrl: "https://directus.cloud/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

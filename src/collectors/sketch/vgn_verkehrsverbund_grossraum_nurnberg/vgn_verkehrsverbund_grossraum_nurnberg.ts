@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VgnVerkehrsverbundGrossraumNurnbergCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VgnVerkehrsverbundGrossraumNurnbergCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "http://www.vgn.de",
+        loginUrl: "http://www.vgn.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

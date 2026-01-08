@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteagEnergyServicesGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SteagEnergyServicesGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.steag-fernwaerme.de/portal/csmain.asp",
+        loginUrl: "https://portal.steag-fernwaerme.de/portal/csmain.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

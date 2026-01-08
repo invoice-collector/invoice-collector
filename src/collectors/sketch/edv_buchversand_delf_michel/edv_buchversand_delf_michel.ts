@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdvBuchversandDelfMichelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdvBuchversandDelfMichelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.edv-buchversand.de/index.php?cnt=userportal",
+        loginUrl: "https://www.edv-buchversand.de/index.php?cnt=userportal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

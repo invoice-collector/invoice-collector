@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StlTonesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StlTonesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stltones.com/account?a=orders",
+        loginUrl: "https://www.stltones.com/account?a=orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

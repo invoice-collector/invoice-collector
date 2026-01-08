@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClosteComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClosteComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.closte.com/login",
+        loginUrl: "https://app.closte.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

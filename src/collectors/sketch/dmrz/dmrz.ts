@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DmrzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DmrzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ww18.autotask.net/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1",
+        loginUrl: "https://ww18.autotask.net/ClientPortal/LandingPage/LandingPage.aspx?fromLogin=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

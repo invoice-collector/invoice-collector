@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NoreadeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NoreadeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://agenceenligne.noreade.fr/espace-personnel/historique-facturation",
+        loginUrl: "https://agenceenligne.noreade.fr/espace-personnel/historique-facturation",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

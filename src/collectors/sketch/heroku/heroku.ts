@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HerokuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HerokuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.heroku.com/login",
+        loginUrl: "https://id.heroku.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

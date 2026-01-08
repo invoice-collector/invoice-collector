@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EsetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EsetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.eset.de/",
+        loginUrl: "https://portal.eset.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

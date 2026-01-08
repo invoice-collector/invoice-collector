@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OlxRoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OlxRoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.olx.ro/myaccount/invoiceslist/",
+        loginUrl: "https://www.olx.ro/myaccount/invoiceslist/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

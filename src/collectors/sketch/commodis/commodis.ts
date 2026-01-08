@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CommodisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CommodisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aflexio.commodis.de/de.commodis.ui.employer/secure/staff/booking-history.xhtml",
+        loginUrl: "https://aflexio.commodis.de/de.commodis.ui.employer/secure/staff/booking-history.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

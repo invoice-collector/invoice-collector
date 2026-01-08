@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StaffsquaredCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StaffsquaredCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.staffsquared.com/billing/summary/",
+        loginUrl: "https://secure.staffsquared.com/billing/summary/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

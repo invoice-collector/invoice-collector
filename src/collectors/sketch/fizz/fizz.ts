@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FizzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FizzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fizz.ca/en",
+        loginUrl: "https://fizz.ca/en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

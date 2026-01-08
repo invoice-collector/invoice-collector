@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BerecycledCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BerecycledCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://berecycled.org/",
+        loginUrl: "https://berecycled.org/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VolkswagenFlottenplattformCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VolkswagenFlottenplattformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fleetonline.vwfs.com/FleetOnline/postbox?startDate=2020-05-28&endDate=2020-08-26",
+        loginUrl: "https://fleetonline.vwfs.com/FleetOnline/postbox?startDate=2020-05-28&endDate=2020-08-26",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

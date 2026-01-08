@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WwrWeWorkRemotelyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WwrWeWorkRemotelyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://weworkremotely.com/",
+        loginUrl: "https://weworkremotely.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

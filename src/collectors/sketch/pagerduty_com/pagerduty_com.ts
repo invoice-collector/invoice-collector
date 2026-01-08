@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PagerdutyComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PagerdutyComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pagerduty.com/",
+        loginUrl: "https://app.pagerduty.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

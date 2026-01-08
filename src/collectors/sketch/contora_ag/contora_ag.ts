@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContoraAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ContoraAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunden.contora.de/index.php?id=333&no_cache=1",
+        loginUrl: "https://kunden.contora.de/index.php?id=333&no_cache=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

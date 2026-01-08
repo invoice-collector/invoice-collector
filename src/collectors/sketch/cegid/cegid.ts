@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CegidCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CegidCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cegidlife.com/fr/factures-et-avoirs",
+        loginUrl: "https://www.cegidlife.com/fr/factures-et-avoirs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

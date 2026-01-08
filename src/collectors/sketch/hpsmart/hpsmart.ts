@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HpsmartCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HpsmartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hpsmart.com/de/de",
+        loginUrl: "https://www.hpsmart.com/de/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

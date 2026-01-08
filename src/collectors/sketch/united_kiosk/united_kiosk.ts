@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitedKioskCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnitedKioskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.united-kiosk.de/bibliothek/user/meine-epaper/alle-epaper/all_user_products?folderId=2120912",
+        loginUrl: "https://www.united-kiosk.de/bibliothek/user/meine-epaper/alle-epaper/all_user_products?folderId=2120912",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

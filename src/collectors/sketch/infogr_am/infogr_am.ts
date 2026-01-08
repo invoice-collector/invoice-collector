@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfogrAmCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InfogrAmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://infogram.com/login",
+        loginUrl: "https://infogram.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

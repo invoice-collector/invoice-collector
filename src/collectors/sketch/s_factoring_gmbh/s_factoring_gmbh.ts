@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SFactoringGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SFactoringGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.s-factoring.de/#Docs",
+        loginUrl: "https://portal.s-factoring.de/#Docs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

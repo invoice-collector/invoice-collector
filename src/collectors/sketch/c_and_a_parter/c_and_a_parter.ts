@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CAndAParterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CAndAParterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.c-a.com/",
+        loginUrl: "https://partner.c-a.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

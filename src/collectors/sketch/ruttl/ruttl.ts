@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RuttlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RuttlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.ruttl.com/",
+        loginUrl: "https://web.ruttl.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

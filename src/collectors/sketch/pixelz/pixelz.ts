@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixelzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PixelzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.pixelz.com/Account#billingStatement",
+        loginUrl: "https://login.pixelz.com/Account#billingStatement",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

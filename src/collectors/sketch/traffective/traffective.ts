@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraffectiveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TraffectiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cockpit.traffective.com/payment/list",
+        loginUrl: "https://cockpit.traffective.com/payment/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarsellersworldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StarsellersworldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ssl.starsellersworld.com/ssw/konto/",
+        loginUrl: "https://ssl.starsellersworld.com/ssw/konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

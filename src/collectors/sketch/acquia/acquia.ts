@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcquiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AcquiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.acquia.com/account/1416806/invoices",
+        loginUrl: "https://accounts.acquia.com/account/1416806/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

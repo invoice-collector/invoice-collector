@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleRoedererCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleRoedererCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.roederer.fr/fr/particuliers",
+        loginUrl: "https://www.roederer.fr/fr/particuliers",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

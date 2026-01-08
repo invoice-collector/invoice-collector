@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterVersicherungenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InterVersicherungenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.inter.de/postbox/documents?client=kunde",
+        loginUrl: "https://www.inter.de/postbox/documents?client=kunde",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

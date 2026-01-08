@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToptranslationCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ToptranslationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.toptranslation.com/de/dashboard/invoices",
+        loginUrl: "https://www.toptranslation.com/de/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

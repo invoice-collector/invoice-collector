@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RUOnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RUOnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.r-u-on.com/ctrl?action=assets",
+        loginUrl: "https://www.r-u-on.com/ctrl?action=assets",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

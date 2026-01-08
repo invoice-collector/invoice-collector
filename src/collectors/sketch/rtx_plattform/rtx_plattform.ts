@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RtxPlattformCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RtxPlattformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.rtxplatform.com/account/funding/transactions",
+        loginUrl: "https://app.rtxplatform.com/account/funding/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

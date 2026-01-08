@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RydooCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RydooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.rydoo.com/login",
+        loginUrl: "https://accounts.rydoo.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

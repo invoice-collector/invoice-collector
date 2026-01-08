@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EsbEnergieSudbayernKundenportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EsbEnergieSudbayernKundenportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.esb.de/portal/dashboard",
+        loginUrl: "https://onlineservice.esb.de/portal/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

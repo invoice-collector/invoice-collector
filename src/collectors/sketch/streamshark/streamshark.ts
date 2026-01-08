@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StreamsharkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StreamsharkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.streamshark.io/account#invoices",
+        loginUrl: "https://app.streamshark.io/account#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

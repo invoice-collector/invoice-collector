@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfSignalHillCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfSignalHillCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signalhillca.municipalonlinepayments.com/signalhillca/utilities",
+        loginUrl: "https://signalhillca.municipalonlinepayments.com/signalhillca/utilities",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.trost.com/",
+        loginUrl: "https://de.trost.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

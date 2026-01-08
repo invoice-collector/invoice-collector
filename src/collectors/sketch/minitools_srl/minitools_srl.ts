@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinitoolsSrlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MinitoolsSrlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.minitools.com/en/sales/order/history/",
+        loginUrl: "https://store.minitools.com/en/sales/order/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

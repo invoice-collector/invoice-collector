@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HaberkornOsterreichCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HaberkornOsterreichCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.haberkorn.com/at/de/bestellungen/ausgeliefert",
+        loginUrl: "https://www.haberkorn.com/at/de/bestellungen/ausgeliefert",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

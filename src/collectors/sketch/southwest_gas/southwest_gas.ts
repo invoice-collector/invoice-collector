@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SouthwestGasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SouthwestGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.swgas.com/",
+        loginUrl: "https://myaccount.swgas.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

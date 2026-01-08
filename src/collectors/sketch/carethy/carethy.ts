@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CarethyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CarethyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.carethy.de/user?tab=orders",
+        loginUrl: "https://www.carethy.de/user?tab=orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

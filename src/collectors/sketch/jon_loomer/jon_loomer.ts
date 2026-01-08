@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JonLoomerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JonLoomerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://powerhittersclub.com/invoices/",
+        loginUrl: "https://powerhittersclub.com/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BattlenetEuropeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BattlenetEuropeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu.battle.net/login/en/?ref=https://eu.battle.net/forums/en/&app=com-forums",
+        loginUrl: "https://eu.battle.net/login/en/?ref=https://eu.battle.net/forums/en/&app=com-forums",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

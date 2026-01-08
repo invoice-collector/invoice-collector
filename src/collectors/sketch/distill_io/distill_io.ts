@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DistillIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DistillIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.distill.io/settings/billing#",
+        loginUrl: "https://app.distill.io/settings/billing#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

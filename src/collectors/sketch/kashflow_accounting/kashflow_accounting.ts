@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KashflowAccountingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KashflowAccountingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://securedwebapp.com/login.asp",
+        loginUrl: "https://securedwebapp.com/login.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VysorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VysorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.vysor.io/invoice",
+        loginUrl: "https://billing.vysor.io/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

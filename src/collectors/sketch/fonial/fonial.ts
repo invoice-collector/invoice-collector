@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FonialCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FonialCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenkonto.fonial.de/login",
+        loginUrl: "https://kundenkonto.fonial.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

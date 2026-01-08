@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RensaNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RensaNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rensa.nl/nieuwsbrief",
+        loginUrl: "https://www.rensa.nl/nieuwsbrief",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

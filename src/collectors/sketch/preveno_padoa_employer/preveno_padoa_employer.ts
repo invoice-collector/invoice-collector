@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrevenoPadoaEmployerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrevenoPadoaEmployerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://preveno.padoa.fr/",
+        loginUrl: "https://preveno.padoa.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

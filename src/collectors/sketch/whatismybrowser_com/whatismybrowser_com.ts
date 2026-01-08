@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WhatismybrowserComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WhatismybrowserComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.whatismybrowser.com/admin/account/invoices",
+        loginUrl: "https://accounts.whatismybrowser.com/admin/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

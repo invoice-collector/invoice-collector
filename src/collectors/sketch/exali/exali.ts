@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExaliCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ExaliCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.exali.de/Kundencenter/Kunden-Login,100336.php",
+        loginUrl: "https://www.exali.de/Kundencenter/Kunden-Login,100336.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfinidentSolutionsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InfinidentSolutionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://erp.infinidentsolutions.com/Infinident_myo/web/Portal-infinident_sol_myo-1/",
+        loginUrl: "https://erp.infinidentsolutions.com/Infinident_myo/web/Portal-infinident_sol_myo-1/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

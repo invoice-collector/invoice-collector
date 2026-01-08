@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FressnapfCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FressnapfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fressnapf.de/login/?redirectTo=%2Fmy-account%2F%3F",
+        loginUrl: "https://www.fressnapf.de/login/?redirectTo=%2Fmy-account%2F%3F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

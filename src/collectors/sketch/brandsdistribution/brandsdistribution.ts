@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrandsdistributionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrandsdistributionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.brandsdistribution.com/de/profile/orders/1",
+        loginUrl: "https://www.brandsdistribution.com/de/profile/orders/1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

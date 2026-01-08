@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CopacoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CopacoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.copaco.com/webshop/shop_paginas/cmsredirect.jsp?d=1&redir=https%3A%2F%2Fwww.copaco.com%2Fwelkom%2F",
+        loginUrl: "https://www.copaco.com/webshop/shop_paginas/cmsredirect.jsp?d=1&redir=https%3A%2F%2Fwww.copaco.com%2Fwelkom%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

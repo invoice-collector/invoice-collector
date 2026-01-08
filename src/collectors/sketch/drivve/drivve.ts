@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrivveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrivveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.drivve.com",
+        loginUrl: "http://www.drivve.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

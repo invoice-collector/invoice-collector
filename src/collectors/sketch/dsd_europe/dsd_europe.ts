@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DsdEuropeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DsdEuropeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dsdeurope.com/home",
+        loginUrl: "https://www.dsdeurope.com/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

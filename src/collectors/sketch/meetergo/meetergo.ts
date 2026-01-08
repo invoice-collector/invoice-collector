@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeetergoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeetergoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.meetergo.com/admin/subscription",
+        loginUrl: "https://my.meetergo.com/admin/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

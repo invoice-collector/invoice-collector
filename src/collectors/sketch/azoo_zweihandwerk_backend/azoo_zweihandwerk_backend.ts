@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AzooZweihandwerkBackendCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AzooZweihandwerkBackendCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://backend.azoo.co/zweihandwerk/settings/accountbills",
+        loginUrl: "https://backend.azoo.co/zweihandwerk/settings/accountbills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

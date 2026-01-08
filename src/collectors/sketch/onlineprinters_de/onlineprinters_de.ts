@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineprintersDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OnlineprintersDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onlineprinters.de/websale8/",
+        loginUrl: "https://www.onlineprinters.de/websale8/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

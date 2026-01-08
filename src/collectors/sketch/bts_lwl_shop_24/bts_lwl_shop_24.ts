@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BtsLwlShop24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BtsLwlShop24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lwl-shop24.de/belegarchiv/",
+        loginUrl: "https://www.lwl-shop24.de/belegarchiv/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

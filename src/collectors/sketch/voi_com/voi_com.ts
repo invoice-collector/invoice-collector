@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoiComCollector extends SketchCollector {
 
@@ -25,6 +25,9 @@ export class VoiComCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://www.voi.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

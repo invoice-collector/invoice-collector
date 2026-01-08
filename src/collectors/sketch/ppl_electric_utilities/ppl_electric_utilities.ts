@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PplElectricUtilitiesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PplElectricUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pplelectric.com/my-account/login.aspx",
+        loginUrl: "https://www.pplelectric.com/my-account/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

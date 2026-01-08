@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EncolineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EncolineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.encoline.de/www/encoline/kundenlogin/",
+        loginUrl: "https://www.encoline.de/www/encoline/kundenlogin/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

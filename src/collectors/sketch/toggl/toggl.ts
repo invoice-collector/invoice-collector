@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TogglCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TogglCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.toggl.com/app/subscription/",
+        loginUrl: "https://www.toggl.com/app/subscription/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

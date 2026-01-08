@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlineserviceStadtwerkeBadNauheimCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OnlineserviceStadtwerkeBadNauheimCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.service-rz.de/?act=login&werknr=63&System=Prod#email",
+        loginUrl: "https://onlineservice.service-rz.de/?act=login&werknr=63&System=Prod#email",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

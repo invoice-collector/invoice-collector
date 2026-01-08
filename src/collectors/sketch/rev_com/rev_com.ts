@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RevComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RevComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rev.com/account/orders/orderhistory",
+        loginUrl: "https://www.rev.com/account/orders/orderhistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

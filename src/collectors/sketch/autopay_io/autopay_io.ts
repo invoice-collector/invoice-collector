@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutopayIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AutopayIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://autopay.io/payments/receipts",
+        loginUrl: "https://autopay.io/payments/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

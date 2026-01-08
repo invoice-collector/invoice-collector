@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LubeckerNachrichtenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LubeckerNachrichtenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ln-online.de/mein-konto/#Abonnement/Plus",
+        loginUrl: "https://www.ln-online.de/mein-konto/#Abonnement/Plus",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

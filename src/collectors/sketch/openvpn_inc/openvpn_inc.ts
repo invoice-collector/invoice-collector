@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenvpnIncCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpenvpnIncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://as-billing.openvpn.net/invoices",
+        loginUrl: "https://as-billing.openvpn.net/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

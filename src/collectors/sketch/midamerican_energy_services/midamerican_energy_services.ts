@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MidamericanEnergyServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MidamericanEnergyServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.midamericanenergyservices.com/ema",
+        loginUrl: "https://www.midamericanenergyservices.com/ema",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

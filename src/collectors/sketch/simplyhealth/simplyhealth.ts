@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplyhealthCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimplyhealthCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.simplyhealth.co.uk/corporate-portal",
+        loginUrl: "https://www.simplyhealth.co.uk/corporate-portal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

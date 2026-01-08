@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SupersaasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SupersaasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.supersaas.de/accounts/invoice",
+        loginUrl: "https://www.supersaas.de/accounts/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

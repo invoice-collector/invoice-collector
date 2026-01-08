@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WienerLinienCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WienerLinienCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.wienmobil.at/",
+        loginUrl: "https://shop.wienmobil.at/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GreenlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://alt.greenline.de/members/bill_pdf",
+        loginUrl: "https://alt.greenline.de/members/bill_pdf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

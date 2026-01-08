@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WecandooArtisanFacturesDeCommissionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WecandooArtisanFacturesDeCommissionCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://wecandoo.fr/loginregister",
+        loginUrl: "https://wecandoo.fr/loginregister",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

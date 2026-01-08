@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleDomainsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GoogleDomainsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://domains.google.com/registrar/billing",
+        loginUrl: "https://domains.google.com/registrar/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

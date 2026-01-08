@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RentmytrailerDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RentmytrailerDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rentmytrailer.de/Account/Invoices",
+        loginUrl: "https://www.rentmytrailer.de/Account/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

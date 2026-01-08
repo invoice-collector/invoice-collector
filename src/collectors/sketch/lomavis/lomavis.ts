@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LomavisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LomavisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lomavis.com/",
+        loginUrl: "https://app.lomavis.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

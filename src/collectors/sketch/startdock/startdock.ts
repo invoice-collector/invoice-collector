@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StartdockCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StartdockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://community.startdock.nl/login",
+        loginUrl: "https://community.startdock.nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

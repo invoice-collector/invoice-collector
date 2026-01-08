@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DenizbankCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DenizbankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebanking.denizbank.de/Default.aspx?sID=8631632",
+        loginUrl: "https://ebanking.denizbank.de/Default.aspx?sID=8631632",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TdsTelecomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TdsTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.tds.net/",
+        loginUrl: "https://login.tds.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

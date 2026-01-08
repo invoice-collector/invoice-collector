@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeasetrackEsFinanceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeasetrackEsFinanceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://esfinance.customercorner.fineasy.com/group/es_finance/factures-avoirs",
+        loginUrl: "https://esfinance.customercorner.fineasy.com/group/es_finance/factures-avoirs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

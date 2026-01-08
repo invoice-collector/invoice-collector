@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PerstistiqCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PerstistiqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://persistiq.com/app#/billing/invoices",
+        loginUrl: "https://persistiq.com/app#/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

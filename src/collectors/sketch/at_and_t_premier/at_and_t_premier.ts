@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtAndTPremierCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AtAndTPremierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wireless.att.com/business/index.jsp?_requestid=29861",
+        loginUrl: "https://www.wireless.att.com/business/index.jsp?_requestid=29861",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

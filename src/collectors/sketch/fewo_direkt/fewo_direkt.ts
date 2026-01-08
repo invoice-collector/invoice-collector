@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FewoDirektCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FewoDirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fewo-direkt.de/gd/payments/",
+        loginUrl: "https://www.fewo-direkt.de/gd/payments/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

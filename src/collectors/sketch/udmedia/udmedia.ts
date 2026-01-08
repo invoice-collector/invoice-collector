@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UdmediaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UdmediaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.udmedia.de/login/",
+        loginUrl: "https://login.udmedia.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

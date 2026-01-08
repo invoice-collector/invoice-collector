@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SirvCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SirvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.sirv.com/#/account/billing",
+        loginUrl: "https://my.sirv.com/#/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

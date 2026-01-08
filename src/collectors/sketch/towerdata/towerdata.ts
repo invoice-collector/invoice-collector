@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TowerdataCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TowerdataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://instantdata.towerdata.com/",
+        loginUrl: "https://instantdata.towerdata.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WewashCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WewashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.we-wash.com/#/turnover?_k=43h9l3",
+        loginUrl: "https://partner.we-wash.com/#/turnover?_k=43h9l3",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

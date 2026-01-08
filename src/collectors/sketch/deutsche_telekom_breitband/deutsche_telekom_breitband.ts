@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheTelekomBreitbandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeutscheTelekomBreitbandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://breitband.telekom-dienste.de/kundencenter-breitband/",
+        loginUrl: "https://breitband.telekom-dienste.de/kundencenter-breitband/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

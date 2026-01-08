@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BiohofBuschCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BiohofBuschCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://buesch.abo-kiste.com/",
+        loginUrl: "https://buesch.abo-kiste.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

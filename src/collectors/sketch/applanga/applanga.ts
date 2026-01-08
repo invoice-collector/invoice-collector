@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApplangaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ApplangaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.applanga.com/#!/billings",
+        loginUrl: "https://dashboard.applanga.com/#!/billings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PflegecampusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PflegecampusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.pflegecampus.de",
+        loginUrl: "http://www.pflegecampus.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

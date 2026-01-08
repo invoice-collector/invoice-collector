@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangeCaraibeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrangeCaraibeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://caraibe.orange.fr/",
+        loginUrl: "https://caraibe.orange.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

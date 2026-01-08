@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FashyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FashyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fashy.de/b2b/de/account/?action=document_archive",
+        loginUrl: "https://www.fashy.de/b2b/de/account/?action=document_archive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

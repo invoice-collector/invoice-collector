@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomomatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DomomatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.domomat.com/historique-des-commandes",
+        loginUrl: "https://www.domomat.com/historique-des-commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

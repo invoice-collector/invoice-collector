@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThermonoordCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ThermonoordCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.thermonoord.nl/B2B/PAGE_Start/7A8AANwHRfNPZGdZZmJvRkdkQwA",
+        loginUrl: "https://web.thermonoord.nl/B2B/PAGE_Start/7A8AANwHRfNPZGdZZmJvRkdkQwA",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

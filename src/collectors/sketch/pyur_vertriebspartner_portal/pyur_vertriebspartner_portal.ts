@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PyurVertriebspartnerPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PyurVertriebspartnerPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pyur.tools/isa/provision",
+        loginUrl: "https://www.pyur.tools/isa/provision",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

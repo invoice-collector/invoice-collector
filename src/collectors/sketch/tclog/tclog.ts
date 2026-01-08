@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TclogCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TclogCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tclog.eu/profile/invoices/",
+        loginUrl: "https://www.tclog.eu/profile/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

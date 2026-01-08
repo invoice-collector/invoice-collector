@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ObjegoGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ObjegoGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.objego.de/login?",
+        loginUrl: "https://app.objego.de/login?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

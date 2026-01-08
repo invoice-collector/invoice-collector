@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeuronCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NeuronCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.neuronwriter.com/",
+        loginUrl: "https://app.neuronwriter.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

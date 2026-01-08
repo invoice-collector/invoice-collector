@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrustindexCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrustindexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.trustindex.io/payment/history",
+        loginUrl: "https://admin.trustindex.io/payment/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

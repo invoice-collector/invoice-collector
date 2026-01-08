@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PacklinkProEnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PacklinkProEnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.packlink.com/private/shipments/ready-to-purchase",
+        loginUrl: "https://pro.packlink.com/private/shipments/ready-to-purchase",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

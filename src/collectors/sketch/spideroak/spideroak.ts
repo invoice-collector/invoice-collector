@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpideroakCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpideroakCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://spideroak.com/user/history",
+        loginUrl: "https://spideroak.com/user/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

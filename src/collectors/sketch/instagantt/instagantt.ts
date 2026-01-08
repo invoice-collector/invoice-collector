@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstaganttCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InstaganttCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=5275785675948&redirect_uri=https://instagantt.com/asana/auth",
+        loginUrl: "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=5275785675948&redirect_uri=https://instagantt.com/asana/auth",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

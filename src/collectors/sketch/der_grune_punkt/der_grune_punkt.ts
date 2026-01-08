@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DerGrunePunktCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DerGrunePunktCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.gruener-punkt.de/onlinedsd/f?p=200:101::::::",
+        loginUrl: "https://portal.gruener-punkt.de/onlinedsd/f?p=200:101::::::",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

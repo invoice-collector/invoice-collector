@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExtrasauberCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ExtrasauberCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.extrasauber.at/customer/invoices",
+        loginUrl: "https://www.extrasauber.at/customer/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

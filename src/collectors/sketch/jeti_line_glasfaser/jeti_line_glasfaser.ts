@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JetiLineGlasfaserCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JetiLineGlasfaserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.jeti-line.de/swtr-portal/csc/login",
+        loginUrl: "https://kundenportal.jeti-line.de/swtr-portal/csc/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

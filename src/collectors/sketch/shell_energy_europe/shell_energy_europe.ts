@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShellEnergyEuropeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShellEnergyEuropeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://energyeurope.shell.com/s/invoices",
+        loginUrl: "https://energyeurope.shell.com/s/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

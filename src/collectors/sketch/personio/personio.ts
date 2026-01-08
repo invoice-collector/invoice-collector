@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PersonioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PersonioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.personio.de/login/",
+        loginUrl: "https://www.personio.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

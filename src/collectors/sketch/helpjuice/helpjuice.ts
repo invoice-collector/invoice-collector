@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelpjuiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HelpjuiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sdui.helpjuice.com/admin/billing",
+        loginUrl: "https://sdui.helpjuice.com/admin/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

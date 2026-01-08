@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RobocorpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RobocorpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.robocorp.com/saigaprodo9hwf/settings/billing/invoices",
+        loginUrl: "https://cloud.robocorp.com/saigaprodo9hwf/settings/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

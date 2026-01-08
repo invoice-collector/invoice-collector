@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlusnetFruherQscCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlusnetFruherQscCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://one.plusnet.de/billing/invoice",
+        loginUrl: "https://one.plusnet.de/billing/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

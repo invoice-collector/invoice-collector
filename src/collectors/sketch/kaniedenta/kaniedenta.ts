@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KaniedentaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KaniedentaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kaniedenta.de/account/login",
+        loginUrl: "https://www.kaniedenta.de/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

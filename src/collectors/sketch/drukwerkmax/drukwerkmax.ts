@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrukwerkmaxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrukwerkmaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://drukwerkmax.nl/user/login",
+        loginUrl: "https://drukwerkmax.nl/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

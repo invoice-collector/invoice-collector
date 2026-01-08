@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JuniCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JuniCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.juni.co/",
+        loginUrl: "https://www.juni.co/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrestigeLeGroupeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrestigeLeGroupeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.prestige-distribution.fr/web/login",
+        loginUrl: "https://shop.prestige-distribution.fr/web/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShareasaleMerchantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShareasaleMerchantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.shareasale.com/a-login.cfm?",
+        loginUrl: "https://account.shareasale.com/a-login.cfm?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

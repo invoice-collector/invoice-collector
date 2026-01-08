@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MewaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MewaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mymewa.com",
+        loginUrl: "https://www.mymewa.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

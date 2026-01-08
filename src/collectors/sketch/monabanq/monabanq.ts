@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonabanqCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MonabanqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.monabanq.com/fr/identification/authentification.html",
+        loginUrl: "https://www.monabanq.com/fr/identification/authentification.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

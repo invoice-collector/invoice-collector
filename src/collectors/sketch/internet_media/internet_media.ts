@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternetMediaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InternetMediaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.internet-media.com/invoices",
+        loginUrl: "https://my.internet-media.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

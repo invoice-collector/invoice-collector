@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LdlcComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LdlcComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.ldlc.com/Account/LoginPage.aspx?redir=%2f",
+        loginUrl: "https://secure.ldlc.com/Account/LoginPage.aspx?redir=%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

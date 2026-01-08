@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GantticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GantticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://planner.ganttic.com/",
+        loginUrl: "https://planner.ganttic.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

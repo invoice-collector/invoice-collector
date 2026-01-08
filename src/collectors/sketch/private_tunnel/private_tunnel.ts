@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrivateTunnelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrivateTunnelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.privatetunnel.com/account-details",
+        loginUrl: "https://portal.privatetunnel.com/account-details",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

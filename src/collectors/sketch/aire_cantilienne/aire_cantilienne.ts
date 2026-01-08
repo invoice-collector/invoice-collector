@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AireCantilienneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AireCantilienneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ccac.ecocito.com/Usager/Facture/Index",
+        loginUrl: "https://ccac.ecocito.com/Usager/Facture/Index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuquesneLightCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DuquesneLightCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://duquesnelight.com/account-billing/account-summary",
+        loginUrl: "https://duquesnelight.com/account-billing/account-summary",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

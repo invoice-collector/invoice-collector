@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VikingPestControlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VikingPestControlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vikingpest.pestconnect.com/login",
+        loginUrl: "https://vikingpest.pestconnect.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishCouncilEnglishOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BritishCouncilEnglishOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://englishonline.britishcouncil.org/platform/nui/reactui/build/index.html#/subscription/",
+        loginUrl: "https://englishonline.britishcouncil.org/platform/nui/reactui/build/index.html#/subscription/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

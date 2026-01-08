@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClockodoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClockodoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.clockodo.com/de",
+        loginUrl: "https://my.clockodo.com/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

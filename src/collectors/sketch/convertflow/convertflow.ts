@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConvertflowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConvertflowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.convertflow.com/login",
+        loginUrl: "https://app.convertflow.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

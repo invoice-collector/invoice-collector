@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeridianNzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeridianNzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.meridianenergy.co.nz",
+        loginUrl: "http://www.meridianenergy.co.nz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutarcCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AutarcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app2.autarc.energy/",
+        loginUrl: "https://app2.autarc.energy/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

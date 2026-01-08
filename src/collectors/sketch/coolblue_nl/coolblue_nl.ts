@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoolblueNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoolblueNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.coolblue.nl/mijn-coolblue-account/orderoverzicht",
+        loginUrl: "https://www.coolblue.nl/mijn-coolblue-account/orderoverzicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

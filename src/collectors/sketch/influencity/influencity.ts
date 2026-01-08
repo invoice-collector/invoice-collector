@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfluencityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InfluencityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://brand.influencity.com/",
+        loginUrl: "https://brand.influencity.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

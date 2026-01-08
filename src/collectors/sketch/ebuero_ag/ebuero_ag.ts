@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbueroAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EbueroAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ebuero.de/login.html",
+        loginUrl: "https://www.ebuero.de/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

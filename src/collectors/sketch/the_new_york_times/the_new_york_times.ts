@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheNewYorkTimesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TheNewYorkTimesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customercare.inyt.com/ManageMyAccount/ManageMyAccount.html#billingHistory:billinghistory",
+        loginUrl: "https://customercare.inyt.com/ManageMyAccount/ManageMyAccount.html#billingHistory:billinghistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

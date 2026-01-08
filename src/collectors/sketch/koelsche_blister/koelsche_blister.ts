@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KoelscheBlisterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KoelscheBlisterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.koelsche-blister.de/browse//Rechnungen",
+        loginUrl: "https://kundenportal.koelsche-blister.de/browse//Rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GolemCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GolemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.golem.de/user/bills",
+        loginUrl: "https://account.golem.de/user/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

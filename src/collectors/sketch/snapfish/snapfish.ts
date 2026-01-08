@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnapfishCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SnapfishCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.snapfish.fr/2/loginto?next=https%3A%2F%2Fwww.snapfish.fr%2F2%2Fhome",
+        loginUrl: "https://www.snapfish.fr/2/loginto?next=https%3A%2F%2Fwww.snapfish.fr%2F2%2Fhome",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

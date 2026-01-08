@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheBahnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeutscheBahnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bahn.de/p/view/meinebahn/login.shtml",
+        loginUrl: "https://www.bahn.de/p/view/meinebahn/login.shtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

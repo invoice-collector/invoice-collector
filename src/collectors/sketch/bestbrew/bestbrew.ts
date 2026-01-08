@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BestbrewCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BestbrewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bestbrew.de/my/invoices",
+        loginUrl: "https://www.bestbrew.de/my/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

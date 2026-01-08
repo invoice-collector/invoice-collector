@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlitzzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlitzzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://subscriptions.zoho.com/portal/blitzz/index",
+        loginUrl: "https://subscriptions.zoho.com/portal/blitzz/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IxlHostingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IxlHostingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ixlhosting.nl/login/aanmelden",
+        loginUrl: "https://www.ixlhosting.nl/login/aanmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

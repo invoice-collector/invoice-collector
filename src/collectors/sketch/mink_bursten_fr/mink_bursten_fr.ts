@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MinkBurstenFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MinkBurstenFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mink-buersten.com/fr/connexionpanier-darticles/connexion-form.html",
+        loginUrl: "https://www.mink-buersten.com/fr/connexionpanier-darticles/connexion-form.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

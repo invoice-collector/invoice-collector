@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllnetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AllnetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.allnet.de/account/orders",
+        loginUrl: "https://shop.allnet.de/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

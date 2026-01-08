@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VismeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VismeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.visme.co/billing-history",
+        loginUrl: "https://dashboard.visme.co/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

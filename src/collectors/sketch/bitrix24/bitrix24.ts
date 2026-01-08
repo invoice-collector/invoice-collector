@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Bitrix24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Bitrix24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bitrix24.com/",
+        loginUrl: "https://www.bitrix24.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

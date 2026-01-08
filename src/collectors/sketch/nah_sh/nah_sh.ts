@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NahShCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NahShCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nahsh.tickeos.de/index.php/customer",
+        loginUrl: "https://nahsh.tickeos.de/index.php/customer",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

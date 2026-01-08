@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CharterCommunicationsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CharterCommunicationsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spectrum.net/billing-and-transactions/",
+        loginUrl: "https://www.spectrum.net/billing-and-transactions/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

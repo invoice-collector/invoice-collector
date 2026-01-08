@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SefeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SefeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail-client.sefe-energy.fr/CPVFP00_CustomLoginPage",
+        loginUrl: "https://portail-client.sefe-energy.fr/CPVFP00_CustomLoginPage",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

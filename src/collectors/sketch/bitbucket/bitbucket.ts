@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BitbucketCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BitbucketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.atlassian.com/billing",
+        loginUrl: "https://my.atlassian.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadinfoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeadinfoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.leadinfo.com/settings/invoices",
+        loginUrl: "https://portal.leadinfo.com/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

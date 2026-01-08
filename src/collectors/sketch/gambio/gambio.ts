@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GambioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GambioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gambio-support.de/invoices",
+        loginUrl: "https://www.gambio-support.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

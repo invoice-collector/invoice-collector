@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EventcompaniesDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EventcompaniesDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eventcompanies.de/unternehmen/content.php?whcontentid=login",
+        loginUrl: "https://www.eventcompanies.de/unternehmen/content.php?whcontentid=login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

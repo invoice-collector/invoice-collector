@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmagCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.emag.net/login",
+        loginUrl: "https://auth.emag.net/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

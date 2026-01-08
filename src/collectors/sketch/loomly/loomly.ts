@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoomlyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LoomlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.loomly.com/signin",
+        loginUrl: "https://www.loomly.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

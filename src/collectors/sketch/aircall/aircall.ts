@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AircallCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AircallCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard-v2.aircall.io/login",
+        loginUrl: "https://dashboard-v2.aircall.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

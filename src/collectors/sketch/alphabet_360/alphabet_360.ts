@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Alphabet360Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Alphabet360Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://360fp.alphabet.com/portal-app/en-US/login",
+        loginUrl: "https://360fp.alphabet.com/portal-app/en-US/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

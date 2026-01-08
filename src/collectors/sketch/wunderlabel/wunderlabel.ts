@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WunderlabelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WunderlabelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wunderlabel.de/customerarea/invoices/",
+        loginUrl: "https://wunderlabel.de/customerarea/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

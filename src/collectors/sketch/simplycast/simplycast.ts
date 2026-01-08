@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplycastCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimplycastCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.simplycast.ca/?q=account/subscription/invoices",
+        loginUrl: "https://app.simplycast.ca/?q=account/subscription/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

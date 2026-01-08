@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KbvKehrmannBeschlagtechnikVelbertCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KbvKehrmannBeschlagtechnikVelbertCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kbv-beschlaege-shop.de/account",
+        loginUrl: "https://www.kbv-beschlaege-shop.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

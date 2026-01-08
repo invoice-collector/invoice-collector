@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwoMinuteReportsC2022CreatedByGoxAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TwoMinuteReportsC2022CreatedByGoxAiCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://two-minute-reports.chargebee.com/portal/v2/home",
+        loginUrl: "https://two-minute-reports.chargebee.com/portal/v2/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

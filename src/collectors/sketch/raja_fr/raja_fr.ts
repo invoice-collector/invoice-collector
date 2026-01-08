@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RajaFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RajaFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.raja.fr/INTERSHOP/web/WFS/RAJA-FR-Site/fr_FR/-/EUR/ViewHeader-ViewAccountIdentification?TargetPipeline=ViewHomepage-Start&T_From=Header",
+        loginUrl: "https://www.raja.fr/INTERSHOP/web/WFS/RAJA-FR-Site/fr_FR/-/EUR/ViewHeader-ViewAccountIdentification?TargetPipeline=ViewHomepage-Start&T_From=Header",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

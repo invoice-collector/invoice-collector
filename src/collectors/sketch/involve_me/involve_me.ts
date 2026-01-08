@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InvolveMeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InvolveMeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.involve.me/billing",
+        loginUrl: "https://app.involve.me/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

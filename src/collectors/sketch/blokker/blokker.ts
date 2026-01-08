@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlokkerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlokkerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.blokker.nl/login",
+        loginUrl: "https://www.blokker.nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

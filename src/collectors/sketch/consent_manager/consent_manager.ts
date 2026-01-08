@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConsentManagerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConsentManagerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.consentmanager.de/client/account.php",
+        loginUrl: "https://www.consentmanager.de/client/account.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

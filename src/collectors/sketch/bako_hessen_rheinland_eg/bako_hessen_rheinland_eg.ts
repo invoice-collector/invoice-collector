@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BakoHessenRheinlandEgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BakoHessenRheinlandEgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://15515.gwsshop.de/de/winfo/doc_types/",
+        loginUrl: "https://15515.gwsshop.de/de/winfo/doc_types/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

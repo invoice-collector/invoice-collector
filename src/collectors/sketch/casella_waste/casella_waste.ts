@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CasellaWasteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CasellaWasteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.casella.com/billpay",
+        loginUrl: "http://www.casella.com/billpay",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

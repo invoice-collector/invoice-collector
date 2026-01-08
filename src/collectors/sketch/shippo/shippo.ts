@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShippoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShippoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.goshippo.com/billing",
+        loginUrl: "https://app.goshippo.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

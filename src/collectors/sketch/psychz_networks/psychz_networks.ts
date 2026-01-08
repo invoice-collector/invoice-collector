@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PsychzNetworksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PsychzNetworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.psychz.net/dashboard/client/web/site/login",
+        loginUrl: "https://www.psychz.net/dashboard/client/web/site/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

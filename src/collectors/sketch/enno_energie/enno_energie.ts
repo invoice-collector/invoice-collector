@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnnoEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnnoEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.enno-energie.de/kunden-login/",
+        loginUrl: "https://www.enno-energie.de/kunden-login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

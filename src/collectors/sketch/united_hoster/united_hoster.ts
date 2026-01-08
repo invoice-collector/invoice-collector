@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnitedHosterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnitedHosterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.united-hoster.de/login",
+        loginUrl: "https://portal.united-hoster.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MedisignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MedisignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.medisign.de",
+        loginUrl: "http://www.medisign.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

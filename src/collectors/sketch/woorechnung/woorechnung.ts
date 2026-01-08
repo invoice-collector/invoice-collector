@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoorechnungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WoorechnungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://woorechnung.com",
+        loginUrl: "https://woorechnung.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickceaseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClickceaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.clickcease.com/dashboard/#/account/domains",
+        loginUrl: "https://www.clickcease.com/dashboard/#/account/domains",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

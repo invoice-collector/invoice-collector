@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExtraenergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ExtraenergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.extraenergie.com/selfcare",
+        loginUrl: "https://www.extraenergie.com/selfcare",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAudiensCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleAudiensCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.audiens.org/accueil/espaces-securises.html",
+        loginUrl: "https://www.audiens.org/accueil/espaces-securises.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

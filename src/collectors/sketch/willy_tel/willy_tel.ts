@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WillyTelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WillyTelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.willytel.de/",
+        loginUrl: "https://portal.willytel.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

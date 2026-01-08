@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdenredFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdenredFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.espaceclient.edenred.fr/",
+        loginUrl: "https://www.espaceclient.edenred.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

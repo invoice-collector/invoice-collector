@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MegapathCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MegapathCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.megapath.com/customeradmin/portal/login.do",
+        loginUrl: "https://my.megapath.com/customeradmin/portal/login.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HolterAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HolterAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.holter.at/hon40/O4160W.PGM",
+        loginUrl: "https://online.holter.at/hon40/O4160W.PGM",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

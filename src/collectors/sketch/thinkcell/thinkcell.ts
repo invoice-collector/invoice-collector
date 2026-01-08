@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThinkcellCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ThinkcellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://server.think-cell.com/portal/en/licenses.srf",
+        loginUrl: "https://server.think-cell.com/portal/en/licenses.srf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

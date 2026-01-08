@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KalenderDigitalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KalenderDigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://settings.kalender.digital/invoices",
+        loginUrl: "https://settings.kalender.digital/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

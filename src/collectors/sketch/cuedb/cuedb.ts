@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CuedbCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CuedbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.cuedb.com/teams/billing",
+        loginUrl: "https://app.cuedb.com/teams/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

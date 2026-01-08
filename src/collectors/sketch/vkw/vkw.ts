@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VkwCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VkwCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online-services.vkw.at/powercommerce/portal/start",
+        loginUrl: "https://online-services.vkw.at/powercommerce/portal/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

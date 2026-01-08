@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BetterproposalsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BetterproposalsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://betterproposals.io/2/settings/account-invoice-view?id=",
+        loginUrl: "https://betterproposals.io/2/settings/account-invoice-view?id=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

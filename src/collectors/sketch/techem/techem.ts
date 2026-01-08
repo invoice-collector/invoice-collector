@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TechemCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class TechemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.techem.fr/login",
+        loginUrl: "https://client.techem.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

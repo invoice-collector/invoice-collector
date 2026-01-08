@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoxboteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BoxboteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.boxbote.de",
+        loginUrl: "https://www.boxbote.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

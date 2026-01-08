@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeolyzeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeolyzeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.seolyze.com/UserCenter/",
+        loginUrl: "https://www.seolyze.com/UserCenter/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

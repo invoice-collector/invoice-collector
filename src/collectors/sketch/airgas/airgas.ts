@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirgasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AirgasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.airgas.com/dashboard",
+        loginUrl: "https://www.airgas.com/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

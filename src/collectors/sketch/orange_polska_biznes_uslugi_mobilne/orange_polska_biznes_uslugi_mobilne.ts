@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrangePolskaBiznesUslugiMobilneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrangePolskaBiznesUslugiMobilneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.orange.pl/zaloguj.phtml",
+        loginUrl: "https://www.orange.pl/zaloguj.phtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

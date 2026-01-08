@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnycubicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AnycubicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "www.anycubic.com/account",
+        loginUrl: "www.anycubic.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

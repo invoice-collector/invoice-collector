@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EveronCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EveronCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://evbox.everon.io/account/billing-history",
+        loginUrl: "https://evbox.everon.io/account/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

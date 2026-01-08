@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfGalvestonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfGalvestonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://galvestontx.epayub.com/AccountHistory",
+        loginUrl: "https://galvestontx.epayub.com/AccountHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

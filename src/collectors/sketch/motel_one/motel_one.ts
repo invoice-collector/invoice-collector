@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotelOneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MotelOneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://booking.motel-one.com/en/profile/booking.html/reservations/?page=1&searchText=&state=ALL&sorting=DATE_ASC",
+        loginUrl: "https://booking.motel-one.com/en/profile/booking.html/reservations/?page=1&searchText=&state=ALL&sorting=DATE_ASC",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

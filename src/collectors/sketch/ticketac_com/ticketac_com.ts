@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicketacComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TicketacComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ticketac.com/",
+        loginUrl: "https://www.ticketac.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

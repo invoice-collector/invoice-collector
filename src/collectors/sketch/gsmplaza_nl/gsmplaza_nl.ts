@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GsmplazaNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GsmplazaNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.gsmplaza.nl",
+        loginUrl: "http://www.gsmplaza.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

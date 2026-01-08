@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Ccm19Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Ccm19Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ccm19.de/account.php?menuid=248&account_extuser=2",
+        loginUrl: "https://www.ccm19.de/account.php?menuid=248&account_extuser=2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

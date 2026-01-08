@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixlipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PixlipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pixlip.com/account/order",
+        loginUrl: "https://www.pixlip.com/account/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

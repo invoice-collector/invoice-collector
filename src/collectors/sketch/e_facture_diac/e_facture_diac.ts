@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EFactureDiacCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EFactureDiacCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://diac-diaclocation.e-facture.net/esp_ent/index.php",
+        loginUrl: "https://diac-diaclocation.e-facture.net/esp_ent/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

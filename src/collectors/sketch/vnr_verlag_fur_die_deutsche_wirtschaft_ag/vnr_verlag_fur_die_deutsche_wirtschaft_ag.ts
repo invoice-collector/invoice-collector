@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VnrVerlagFurDieDeutscheWirtschaftAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VnrVerlagFurDieDeutscheWirtschaftAgCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://kunde.vnrag.de/",
+        loginUrl: "https://kunde.vnrag.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

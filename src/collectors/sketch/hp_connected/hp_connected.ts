@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HpConnectedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HpConnectedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://instantink.hpconnected.com",
+        loginUrl: "https://instantink.hpconnected.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxonautCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AxonautCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://axonaut.com/account/rocket/creditList",
+        loginUrl: "https://axonaut.com/account/rocket/creditList",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

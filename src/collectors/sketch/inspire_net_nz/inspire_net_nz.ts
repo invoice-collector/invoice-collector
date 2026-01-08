@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InspireNetNzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InspireNetNzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.inspire.net.nz",
+        loginUrl: "http://www.inspire.net.nz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

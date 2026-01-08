@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SufioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SufioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sufio.com/login/",
+        loginUrl: "https://sufio.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

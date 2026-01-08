@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FibwiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FibwiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clientes.fibwi.com/panelClientes",
+        loginUrl: "https://clientes.fibwi.com/panelClientes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

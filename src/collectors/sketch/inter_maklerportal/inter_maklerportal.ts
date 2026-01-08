@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterMaklerportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InterMaklerportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://makler.inter.de/e-abrechnungsservice",
+        loginUrl: "https://makler.inter.de/e-abrechnungsservice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

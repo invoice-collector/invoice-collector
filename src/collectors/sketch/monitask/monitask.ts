@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonitaskCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MonitaskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.monitask.com/en/",
+        loginUrl: "https://www.monitask.com/en/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

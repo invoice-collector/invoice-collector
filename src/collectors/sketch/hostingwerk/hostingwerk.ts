@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostingwerkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HostingwerkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hostingwerk.de/anmelden",
+        loginUrl: "https://hostingwerk.de/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

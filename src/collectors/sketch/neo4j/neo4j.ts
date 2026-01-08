@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Neo4jCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Neo4jCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.neo4j.io/?tab=invoices#settings/billing",
+        loginUrl: "https://console.neo4j.io/?tab=invoices#settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

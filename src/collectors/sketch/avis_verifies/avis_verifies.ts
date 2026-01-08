@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvisVerifiesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AvisVerifiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.avis-verifies.com/index.php?page=mod_info_banque",
+        loginUrl: "https://www.avis-verifies.com/index.php?page=mod_info_banque",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

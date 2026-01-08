@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MxToolboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MxToolboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mxtoolbox.com/Public/Login.aspx?page=pp",
+        loginUrl: "https://mxtoolbox.com/Public/Login.aspx?page=pp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

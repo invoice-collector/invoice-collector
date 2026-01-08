@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GocardlessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GocardlessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.gocardless.com/",
+        loginUrl: "https://manage.gocardless.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

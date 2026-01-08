@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RelumeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RelumeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://library.relume.io/dashboard#/ms/profile",
+        loginUrl: "https://library.relume.io/dashboard#/ms/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

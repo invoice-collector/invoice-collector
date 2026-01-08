@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GraphicReseauCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GraphicReseauCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.graphic-reseau.com/",
+        loginUrl: "https://www.graphic-reseau.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

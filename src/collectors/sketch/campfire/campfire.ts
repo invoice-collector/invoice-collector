@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CampfireCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CampfireCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://launchpad.37signals.com/signin",
+        loginUrl: "https://launchpad.37signals.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

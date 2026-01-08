@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PadletCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PadletCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://padlet.com/dashboard/settings/billing",
+        loginUrl: "https://padlet.com/dashboard/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

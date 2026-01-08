@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StratoEShopDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StratoEShopDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.strato.de/epages/de.login",
+        loginUrl: "https://shop.strato.de/epages/de.login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

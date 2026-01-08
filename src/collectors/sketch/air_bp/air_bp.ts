@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirBpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AirBpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myinvoice.bpglobal.com/sites/airbp#AirBP-Invoice_Bundles&/bundles",
+        loginUrl: "https://myinvoice.bpglobal.com/sites/airbp#AirBP-Invoice_Bundles&/bundles",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

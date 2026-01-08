@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrengoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrengoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.trengo.com/admin/subscription_settings",
+        loginUrl: "https://app.trengo.com/admin/subscription_settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

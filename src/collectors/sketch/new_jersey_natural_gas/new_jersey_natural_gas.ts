@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewJerseyNaturalGasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NewJerseyNaturalGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.njng.com/portal/default.aspx",
+        loginUrl: "https://myaccount.njng.com/portal/default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

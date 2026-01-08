@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotocommunityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FotocommunityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fotocommunity.de/settings/premium",
+        loginUrl: "https://www.fotocommunity.de/settings/premium",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

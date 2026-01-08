@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IlmProviderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IlmProviderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.ilm-provider.de/",
+        loginUrl: "https://service.ilm-provider.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartadserverCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartadserverCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://manage.smartadserver.com/ux/admin/financialportal",
+        loginUrl: "http://manage.smartadserver.com/ux/admin/financialportal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TreeNationAsblCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TreeNationAsblCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tree-nation.com/userProfile/billing",
+        loginUrl: "https://tree-nation.com/userProfile/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

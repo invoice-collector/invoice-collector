@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArcoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ArcoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://simplyui-icd2.azurewebsites.net/statements",
+        loginUrl: "https://simplyui-icd2.azurewebsites.net/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

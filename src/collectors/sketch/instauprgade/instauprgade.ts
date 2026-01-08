@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InstauprgadeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InstauprgadeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://abo.instaupgrade.de",
+        loginUrl: "https://abo.instaupgrade.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

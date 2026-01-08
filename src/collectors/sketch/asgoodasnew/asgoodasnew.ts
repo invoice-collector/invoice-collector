@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsgoodasnewCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AsgoodasnewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://asgoodasnew.de",
+        loginUrl: "http://asgoodasnew.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElectronicpartnerInfonetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElectronicpartnerInfonetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ep-infonet.de/apps/de-DE?layout=v6#/app/zahlungen/de-DE",
+        loginUrl: "https://www.ep-infonet.de/apps/de-DE?layout=v6#/app/zahlungen/de-DE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

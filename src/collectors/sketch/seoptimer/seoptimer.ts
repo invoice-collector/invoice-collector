@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeoptimerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeoptimerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.seoptimer.com/myaccount",
+        loginUrl: "https://www.seoptimer.com/myaccount",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

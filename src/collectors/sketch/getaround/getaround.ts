@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetaroundCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetaroundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://at.getaround.com/dashboard/payments?role=driver",
+        loginUrl: "https://at.getaround.com/dashboard/payments?role=driver",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

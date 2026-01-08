@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BhostedNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BhostedNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.bhosted.nl/financieel/facturen",
+        loginUrl: "https://mijn.bhosted.nl/financieel/facturen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

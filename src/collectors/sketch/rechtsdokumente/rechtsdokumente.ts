@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RechtsdokumenteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RechtsdokumenteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rechtsdokumente.de/SignIn/",
+        loginUrl: "https://www.rechtsdokumente.de/SignIn/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

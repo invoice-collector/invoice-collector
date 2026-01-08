@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BouyguesEntreprisesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BouyguesEntreprisesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cas.bouyguestelecom-entreprises.fr/cas/login",
+        loginUrl: "https://cas.bouyguestelecom-entreprises.fr/cas/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

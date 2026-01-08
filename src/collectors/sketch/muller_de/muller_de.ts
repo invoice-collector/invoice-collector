@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MullerDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MullerDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mueller.de/account/",
+        loginUrl: "https://www.mueller.de/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MentimeterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MentimeterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mentimeter.com/app/payments",
+        loginUrl: "https://www.mentimeter.com/app/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

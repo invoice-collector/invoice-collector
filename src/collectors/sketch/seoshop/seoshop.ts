@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeoshopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeoshopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://services.webshopapp.com/login",
+        loginUrl: "https://services.webshopapp.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

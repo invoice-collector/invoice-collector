@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TestobjectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TestobjectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.testobject.com/#/login?redirect=/cress/account/billing",
+        loginUrl: "https://app.testobject.com/#/login?redirect=/cress/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

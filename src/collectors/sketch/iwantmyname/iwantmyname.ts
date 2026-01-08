@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IwantmynameCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IwantmynameCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://iwantmyname.com/dashboard/account/receipts",
+        loginUrl: "https://iwantmyname.com/dashboard/account/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

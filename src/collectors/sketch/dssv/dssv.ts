@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DssvCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DssvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dssv.de/mitglieder-login/",
+        loginUrl: "https://www.dssv.de/mitglieder-login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

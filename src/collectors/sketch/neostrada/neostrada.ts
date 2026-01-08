@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeostradaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NeostradaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.neostrada.nl/inloggen.html",
+        loginUrl: "https://www.neostrada.nl/inloggen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

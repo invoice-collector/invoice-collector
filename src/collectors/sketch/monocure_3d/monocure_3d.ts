@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Monocure3dCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Monocure3dCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.monocure3d.com.au/Receipt_PrinterFriendly.asp?OrderID=3131",
+        loginUrl: "https://www.monocure3d.com.au/Receipt_PrinterFriendly.asp?OrderID=3131",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

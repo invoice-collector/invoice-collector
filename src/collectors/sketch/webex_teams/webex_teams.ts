@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebexTeamsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebexTeamsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.webex.com/login",
+        loginUrl: "https://admin.webex.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

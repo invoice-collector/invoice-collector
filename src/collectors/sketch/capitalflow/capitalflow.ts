@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CapitalflowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CapitalflowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.capital-flow.de/internal/settings",
+        loginUrl: "https://app.capital-flow.de/internal/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

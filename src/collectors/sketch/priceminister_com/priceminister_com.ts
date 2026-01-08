@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PriceministerComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PriceministerComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.priceminister.com/connect?action=login&c=80",
+        loginUrl: "https://www.priceminister.com/connect?action=login&c=80",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

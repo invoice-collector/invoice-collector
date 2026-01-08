@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchweizerischePostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SchweizerischePostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.post.ch/kurepoweb/main/ui/bills",
+        loginUrl: "https://service.post.ch/kurepoweb/main/ui/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

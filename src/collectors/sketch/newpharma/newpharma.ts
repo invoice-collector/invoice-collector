@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewpharmaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NewpharmaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.newpharma.de/myaccount/",
+        loginUrl: "https://www.newpharma.de/myaccount/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

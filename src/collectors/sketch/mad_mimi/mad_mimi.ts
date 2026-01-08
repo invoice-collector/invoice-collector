@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MadMimiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MadMimiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://madmimi.com/user/edit?account_info_tabs=account_info_receipts",
+        loginUrl: "https://madmimi.com/user/edit?account_info_tabs=account_info_receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

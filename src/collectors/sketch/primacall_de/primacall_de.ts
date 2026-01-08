@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimacallDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrimacallDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.primacall.de/mein-primacall.html",
+        loginUrl: "http://www.primacall.de/mein-primacall.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

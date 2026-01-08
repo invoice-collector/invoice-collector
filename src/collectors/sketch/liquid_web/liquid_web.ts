@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LiquidWebCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LiquidWebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.liquidweb.com/manage/billing/",
+        loginUrl: "https://manage.liquidweb.com/manage/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoipbusterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VoipbusterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.voipbuster.com/purchases",
+        loginUrl: "https://www.voipbuster.com/purchases",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

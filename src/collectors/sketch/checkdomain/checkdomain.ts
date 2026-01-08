@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CheckdomainCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CheckdomainCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.checkdomain.de/login/",
+        loginUrl: "https://www.checkdomain.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

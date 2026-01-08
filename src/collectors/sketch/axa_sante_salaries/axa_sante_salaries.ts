@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxaSanteSalariesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AxaSanteSalariesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://entreprise.axa.fr/espace-client.html#panel2",
+        loginUrl: "https://entreprise.axa.fr/espace-client.html#panel2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

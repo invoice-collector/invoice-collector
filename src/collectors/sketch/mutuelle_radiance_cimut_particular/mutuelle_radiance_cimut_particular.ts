@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleRadianceCimutParticularCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleRadianceCimutParticularCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.radiance.fr/",
+        loginUrl: "http://www.radiance.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MirasvitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MirasvitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mirasvit.com/sales/invoice/history/",
+        loginUrl: "https://mirasvit.com/sales/invoice/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

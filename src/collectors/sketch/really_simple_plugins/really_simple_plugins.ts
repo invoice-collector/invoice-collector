@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReallySimplePluginsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReallySimplePluginsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://really-simple-ssl.com/login/",
+        loginUrl: "https://really-simple-ssl.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

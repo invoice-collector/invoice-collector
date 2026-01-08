@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StgsSocieteDeTravauxGestionEtServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StgsSocieteDeTravauxGestionEtServicesCollector extends SketchCollec
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceabonne.stgs.fr/",
+        loginUrl: "https://espaceabonne.stgs.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

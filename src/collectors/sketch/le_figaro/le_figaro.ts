@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeFigaroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeFigaroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.lefigaro.fr/login?client=horizon_web&redirect_uri=https://www.lefigaro.fr/",
+        loginUrl: "https://connect.lefigaro.fr/login?client=horizon_web&redirect_uri=https://www.lefigaro.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

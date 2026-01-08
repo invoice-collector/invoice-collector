@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KaffekapslenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KaffekapslenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kaffekapslen.de/sales/order/printInvoice/order_id/6655647/",
+        loginUrl: "https://www.kaffekapslen.de/sales/order/printInvoice/order_id/6655647/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

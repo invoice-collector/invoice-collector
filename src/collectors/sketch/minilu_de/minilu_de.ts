@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiniluDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiniluDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.minilu.de/shop/de/fix/login/",
+        loginUrl: "https://www.minilu.de/shop/de/fix/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

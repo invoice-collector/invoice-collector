@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SategCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SategCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mon-espace.sateg-eau.com/fr/mes-paiements",
+        loginUrl: "https://mon-espace.sateg-eau.com/fr/mes-paiements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

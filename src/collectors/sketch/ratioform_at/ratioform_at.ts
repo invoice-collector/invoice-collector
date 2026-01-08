@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RatioformAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RatioformAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ratioform.at/",
+        loginUrl: "https://www.ratioform.at/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

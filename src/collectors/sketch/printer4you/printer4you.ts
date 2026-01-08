@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Printer4youCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Printer4youCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.printer4you.com/de/customer/login",
+        loginUrl: "https://www.printer4you.com/de/customer/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

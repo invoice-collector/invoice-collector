@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreshbooksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FreshbooksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.freshbooks.com/login/",
+        loginUrl: "https://secure.freshbooks.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

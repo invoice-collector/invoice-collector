@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VuzionLimitedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VuzionLimitedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.vuzion.cloud/ccp/v/pa/ccp-billing/history-invoices",
+        loginUrl: "https://partner.vuzion.cloud/ccp/v/pa/ccp-billing/history-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

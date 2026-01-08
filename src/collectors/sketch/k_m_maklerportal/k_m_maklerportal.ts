@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KMMaklerportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KMMaklerportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.konzept-marketing.de/Maklerportal/V2/CourtageListenDownload.php",
+        loginUrl: "https://secure.konzept-marketing.de/Maklerportal/V2/CourtageListenDownload.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MifidRecorderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MifidRecorderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.mifid-recorder.com",
+        loginUrl: "https://login.mifid-recorder.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

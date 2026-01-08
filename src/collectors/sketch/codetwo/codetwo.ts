@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodetwoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CodetwoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://emailsignatures365.codetwo.com/Profile/Billing",
+        loginUrl: "https://emailsignatures365.codetwo.com/Profile/Billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

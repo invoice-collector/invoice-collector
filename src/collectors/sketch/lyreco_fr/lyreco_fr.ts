@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LyrecoFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LyrecoFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lyreco.com/webshop/FRFR/wslogin",
+        loginUrl: "https://www.lyreco.com/webshop/FRFR/wslogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

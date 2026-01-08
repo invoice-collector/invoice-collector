@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FairAnalyticsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FairAnalyticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fairanalytics.de/account-payments",
+        loginUrl: "https://www.fairanalytics.de/account-payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

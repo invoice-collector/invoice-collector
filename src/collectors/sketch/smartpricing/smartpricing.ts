@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartpricingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartpricingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.smartpricing.it/payments",
+        loginUrl: "https://admin.smartpricing.it/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

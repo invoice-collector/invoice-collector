@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ECigFactoryFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ECigFactoryFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://e-cig-factory.fr/shop/fr/",
+        loginUrl: "http://e-cig-factory.fr/shop/fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

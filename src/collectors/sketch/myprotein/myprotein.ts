@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyproteinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyproteinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.myprotein.com/login.jsp?returnTo=https%3A%2F%2Fde.myprotein.com%2FaccountHome.account",
+        loginUrl: "https://de.myprotein.com/login.jsp?returnTo=https%3A%2F%2Fde.myprotein.com%2FaccountHome.account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

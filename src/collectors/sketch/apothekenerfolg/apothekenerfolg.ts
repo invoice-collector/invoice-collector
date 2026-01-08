@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApothekenerfolgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ApothekenerfolgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.apothekenerfolg.de/Login.aspx",
+        loginUrl: "https://mein.apothekenerfolg.de/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

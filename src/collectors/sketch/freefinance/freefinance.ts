@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreefinanceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FreefinanceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.freefinance.at/rechnung",
+        loginUrl: "https://www.freefinance.at/rechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

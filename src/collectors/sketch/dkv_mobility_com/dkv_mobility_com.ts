@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DkvMobilityComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DkvMobilityComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.dkv-mobility.com/customer/invoices/",
+        loginUrl: "https://my.dkv-mobility.com/customer/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

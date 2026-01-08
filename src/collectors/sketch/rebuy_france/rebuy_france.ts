@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RebuyFranceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RebuyFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rebuy.fr/my/orders/blue",
+        loginUrl: "https://www.rebuy.fr/my/orders/blue",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

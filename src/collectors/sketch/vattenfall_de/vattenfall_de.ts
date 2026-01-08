@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VattenfallDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VattenfallDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.vattenfall.de/rechnung",
+        loginUrl: "https://service.vattenfall.de/rechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlogmissionAdvertiserCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlogmissionAdvertiserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://blogmission.com/advertiser/guthaben",
+        loginUrl: "https://blogmission.com/advertiser/guthaben",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

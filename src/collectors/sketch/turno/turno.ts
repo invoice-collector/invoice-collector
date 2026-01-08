@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TurnoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TurnoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.turno.com/payments/methods",
+        loginUrl: "https://app.turno.com/payments/methods",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

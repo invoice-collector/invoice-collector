@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EleshopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EleshopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eleshop.fr/sales/order/history/",
+        loginUrl: "https://eleshop.fr/sales/order/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

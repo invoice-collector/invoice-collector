@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaremedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CaremedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://caremedgmbh.de/account/login",
+        loginUrl: "https://caremedgmbh.de/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

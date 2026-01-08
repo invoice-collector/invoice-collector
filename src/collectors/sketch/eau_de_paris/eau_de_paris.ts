@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauDeParisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EauDeParisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eaudeparis.fr",
+        loginUrl: "https://eaudeparis.fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

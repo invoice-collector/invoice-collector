@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AralOnefleetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AralOnefleetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onefleet.aral.de/",
+        loginUrl: "https://onefleet.aral.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

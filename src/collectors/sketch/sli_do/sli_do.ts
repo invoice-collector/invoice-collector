@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SliDoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SliDoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.sli.do/login",
+        loginUrl: "https://accounts.sli.do/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

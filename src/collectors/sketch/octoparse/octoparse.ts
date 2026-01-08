@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OctoparseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OctoparseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.octoparse.com/subscribe/transactions",
+        loginUrl: "https://www.octoparse.com/subscribe/transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

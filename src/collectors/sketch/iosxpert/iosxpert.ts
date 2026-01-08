@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IosxpertCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IosxpertCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://iosxpert.biz",
+        loginUrl: "https://iosxpert.biz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

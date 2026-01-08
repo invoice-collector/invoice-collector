@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DaznCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DaznCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dazn.com/de-DE/account/signin",
+        loginUrl: "https://www.dazn.com/de-DE/account/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

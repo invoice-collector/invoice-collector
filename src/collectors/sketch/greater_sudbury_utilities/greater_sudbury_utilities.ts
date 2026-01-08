@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreaterSudburyUtilitiesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GreaterSudburyUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.gsuinc.ca/app/login.jsp",
+        loginUrl: "https://myaccount.gsuinc.ca/app/login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

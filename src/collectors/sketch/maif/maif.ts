@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaifCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaifCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maif.fr/",
+        loginUrl: "https://www.maif.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetroMarketsGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MetroMarketsGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.metro.de/marktplatz/account/orders-history",
+        loginUrl: "https://www.metro.de/marktplatz/account/orders-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

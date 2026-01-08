@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MydpdBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MydpdBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mydpdbusiness.de/auftraege/rechnungen.aspx",
+        loginUrl: "https://www.mydpdbusiness.de/auftraege/rechnungen.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

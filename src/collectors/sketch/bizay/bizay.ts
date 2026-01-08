@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BizayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BizayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bizay.de/Account/Login?ReturnUrl=%2FOrder%2FInvoices",
+        loginUrl: "https://www.bizay.de/Account/Login?ReturnUrl=%2FOrder%2FInvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

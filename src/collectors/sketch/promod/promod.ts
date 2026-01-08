@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PromodCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PromodCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.promod.fr/",
+        loginUrl: "https://www.promod.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

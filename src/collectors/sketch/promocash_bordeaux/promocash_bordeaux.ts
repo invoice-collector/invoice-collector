@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PromocashBordeauxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PromocashBordeauxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bordeaux.promocash.com/index.php",
+        loginUrl: "https://bordeaux.promocash.com/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MysendingboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MysendingboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mysendingbox.fr/app/dashboard/settings/invoicing",
+        loginUrl: "https://www.mysendingbox.fr/app/dashboard/settings/invoicing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

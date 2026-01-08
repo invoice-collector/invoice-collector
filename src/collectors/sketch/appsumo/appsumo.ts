@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppsumoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppsumoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.appsumo.com/account/history",
+        loginUrl: "https://www.appsumo.com/account/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

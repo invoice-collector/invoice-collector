@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaneiProtectControlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CaneiProtectControlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.quick.prod.canei.io/",
+        loginUrl: "https://app.quick.prod.canei.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

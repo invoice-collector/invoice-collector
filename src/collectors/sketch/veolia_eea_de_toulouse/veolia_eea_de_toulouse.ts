@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VeoliaEeaDeToulouseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VeoliaEeaDeToulouseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.service.eau.veolia.fr/home/espace-client/vos-factures-et-correspondances.html",
+        loginUrl: "https://www.service.eau.veolia.fr/home/espace-client/vos-factures-et-correspondances.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

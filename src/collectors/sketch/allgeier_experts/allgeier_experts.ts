@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllgeierExpertsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AllgeierExpertsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.allgeier-experts.com/my/documents/",
+        loginUrl: "https://portal.allgeier-experts.com/my/documents/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

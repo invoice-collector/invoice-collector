@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CibtpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CibtpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mon-espace.cibtp.fr/4/adh/documents/list-documents/recents",
+        loginUrl: "https://mon-espace.cibtp.fr/4/adh/documents/list-documents/recents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

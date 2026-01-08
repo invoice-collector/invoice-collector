@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GebrReinhardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GebrReinhardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.reinhard-stahl.de/",
+        loginUrl: "https://shop.reinhard-stahl.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

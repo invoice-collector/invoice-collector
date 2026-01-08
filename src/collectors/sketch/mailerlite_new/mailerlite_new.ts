@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailerliteNewCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailerliteNewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.mailerlite.com/",
+        loginUrl: "https://accounts.mailerlite.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

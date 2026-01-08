@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrightHouseNetworksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrightHouseNetworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spectrum.net/login/",
+        loginUrl: "https://www.spectrum.net/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

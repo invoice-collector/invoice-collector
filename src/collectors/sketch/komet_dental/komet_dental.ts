@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KometDentalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KometDentalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kometstore.de/de-de/special-pages/my-account.aspx?page=orders",
+        loginUrl: "https://www.kometstore.de/de-de/special-pages/my-account.aspx?page=orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DebitoorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DebitoorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.debitoor.com/partnersite/login/",
+        loginUrl: "https://app.debitoor.com/partnersite/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

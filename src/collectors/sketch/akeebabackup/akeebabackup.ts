@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AkeebabackupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AkeebabackupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.akeebabackup.com/my-subscriptions/subscriptions.html",
+        loginUrl: "https://www.akeebabackup.com/my-subscriptions/subscriptions.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

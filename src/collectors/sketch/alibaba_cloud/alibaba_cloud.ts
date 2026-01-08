@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlibabaCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlibabaCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.alibabacloud.com/login/login.htm",
+        loginUrl: "https://account.alibabacloud.com/login/login.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

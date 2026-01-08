@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wowtv.de/login?return=/konto/abrechnung",
+        loginUrl: "https://www.wowtv.de/login?return=/konto/abrechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

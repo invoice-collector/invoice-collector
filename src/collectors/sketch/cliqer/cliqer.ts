@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CliqerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CliqerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cliqer.io/my-account/orders/",
+        loginUrl: "https://cliqer.io/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

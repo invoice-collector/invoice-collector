@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RcurCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RcurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rcur.app/app/settings/invoices",
+        loginUrl: "https://rcur.app/app/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

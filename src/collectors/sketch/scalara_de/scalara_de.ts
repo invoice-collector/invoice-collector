@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScalaraDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScalaraDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.scalara.de/subscriptions",
+        loginUrl: "https://app.scalara.de/subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

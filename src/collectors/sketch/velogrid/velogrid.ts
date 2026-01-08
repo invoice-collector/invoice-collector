@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VelogridCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VelogridCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.velogrid.com/login",
+        loginUrl: "https://secure.velogrid.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

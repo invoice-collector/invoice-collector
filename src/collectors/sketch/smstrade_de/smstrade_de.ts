@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmstradeDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmstradeDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.smstrade.de/index.php",
+        loginUrl: "https://login.smstrade.de/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

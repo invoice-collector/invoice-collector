@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrtServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CrtServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.crt.asso.fr/NEA/Facture/FacturesSummary?idEmetteur=4",
+        loginUrl: "https://www.crt.asso.fr/NEA/Facture/FacturesSummary?idEmetteur=4",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

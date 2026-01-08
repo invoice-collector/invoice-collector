@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelcoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SelcoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.selco.ie/",
+        loginUrl: "https://www.selco.ie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

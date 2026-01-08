@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NiftypluginsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NiftypluginsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://niftyplugins.com/account/purchases/",
+        loginUrl: "https://niftyplugins.com/account/purchases/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatananasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DatananasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chappie.datananas.com/login",
+        loginUrl: "https://chappie.datananas.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

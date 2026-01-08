@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StoreRocketCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StoreRocketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://storerocket.io/app/billing",
+        loginUrl: "https://storerocket.io/app/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

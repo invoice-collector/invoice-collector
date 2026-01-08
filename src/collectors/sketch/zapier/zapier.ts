@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZapierCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZapierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zapier.com",
+        loginUrl: "https://zapier.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

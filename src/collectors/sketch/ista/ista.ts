@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IstaCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class IstaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.ista.com/",
+        loginUrl: "https://portal.ista.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

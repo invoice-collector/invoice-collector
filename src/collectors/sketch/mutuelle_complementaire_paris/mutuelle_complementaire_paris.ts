@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleComplementaireParisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleComplementaireParisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mcvpap.mc602.fr/espaceadherents/login-adherent_new.php",
+        loginUrl: "https://mcvpap.mc602.fr/espaceadherents/login-adherent_new.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

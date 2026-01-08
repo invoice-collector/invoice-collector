@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WexMotorpassCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WexMotorpassCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://osc.motorpass.com.au/",
+        loginUrl: "https://osc.motorpass.com.au/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

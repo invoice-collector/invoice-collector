@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElEconomistaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElEconomistaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eleconomista.es/premium/",
+        loginUrl: "https://www.eleconomista.es/premium/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

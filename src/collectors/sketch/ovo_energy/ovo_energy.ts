@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OvoEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OvoEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.ovoenergy.com/",
+        loginUrl: "https://account.ovoenergy.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PostcronCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PostcronCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://postcron.com/en/",
+        loginUrl: "https://postcron.com/en/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

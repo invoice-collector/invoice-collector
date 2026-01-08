@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HydrosolutionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HydrosolutionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hydrosolution.com/espace-client/",
+        loginUrl: "https://www.hydrosolution.com/espace-client/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

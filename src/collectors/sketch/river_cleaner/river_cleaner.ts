@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RiverCleanerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RiverCleanerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rivercleaner.com/member-profile/invoices/",
+        loginUrl: "https://rivercleaner.com/member-profile/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

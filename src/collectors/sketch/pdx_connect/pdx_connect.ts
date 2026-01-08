@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PdxConnectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PdxConnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pdx-connect.com",
+        loginUrl: "https://pdx-connect.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

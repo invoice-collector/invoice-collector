@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeaconByCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BeaconByCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://beacon.by/dashboard/invoices",
+        loginUrl: "https://beacon.by/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

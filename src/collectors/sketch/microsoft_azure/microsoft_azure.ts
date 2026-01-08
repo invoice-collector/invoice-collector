@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MicrosoftAzureCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MicrosoftAzureCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://azure.microsoft.com",
+        loginUrl: "http://azure.microsoft.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

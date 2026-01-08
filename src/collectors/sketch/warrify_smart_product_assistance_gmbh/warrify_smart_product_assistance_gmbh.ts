@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WarrifySmartProductAssistanceGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WarrifySmartProductAssistanceGmbhCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "warrify.com",
+        loginUrl: "warrify.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

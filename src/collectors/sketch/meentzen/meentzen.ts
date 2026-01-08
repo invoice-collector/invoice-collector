@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeentzenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeentzenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meentzen.de/signin.html",
+        loginUrl: "https://meentzen.de/signin.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

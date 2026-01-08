@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QscAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QscAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myplusnet.de/login_form.php?st=1",
+        loginUrl: "https://www.myplusnet.de/login_form.php?st=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MultitankcardNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MultitankcardNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mtc.nl/inloggen",
+        loginUrl: "https://www.mtc.nl/inloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

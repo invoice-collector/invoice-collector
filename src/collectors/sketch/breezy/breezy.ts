@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BreezyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BreezyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://breezy.hr/signin",
+        loginUrl: "https://breezy.hr/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

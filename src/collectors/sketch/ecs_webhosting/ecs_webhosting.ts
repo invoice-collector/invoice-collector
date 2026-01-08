@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcsWebhostingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EcsWebhostingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.fritz.gmbh/?lang=de",
+        loginUrl: "https://admin.fritz.gmbh/?lang=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

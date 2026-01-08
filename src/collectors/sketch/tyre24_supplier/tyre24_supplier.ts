@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tyre24SupplierCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Tyre24SupplierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://supplier.alzura.com/de/de/user/login/page/",
+        loginUrl: "https://supplier.alzura.com/de/de/user/login/page/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DecitreFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DecitreFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.decitre.fr/",
+        loginUrl: "https://www.decitre.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

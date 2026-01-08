@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HyrosCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HyrosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.hyros.com/public/#/login",
+        loginUrl: "https://app.hyros.com/public/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

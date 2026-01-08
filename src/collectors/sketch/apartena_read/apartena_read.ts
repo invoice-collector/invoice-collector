@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApartenaReadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ApartenaReadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://read.apartena.net/user-billings.do",
+        loginUrl: "https://read.apartena.net/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

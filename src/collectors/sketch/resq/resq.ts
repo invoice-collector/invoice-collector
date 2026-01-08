@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ResqCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ResqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.getresq.com/2s9/invoices/invoices?page=2",
+        loginUrl: "https://app.getresq.com/2s9/invoices/invoices?page=2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

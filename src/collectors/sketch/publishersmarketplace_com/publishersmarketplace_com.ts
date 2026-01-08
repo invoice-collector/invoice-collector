@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PublishersmarketplaceComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PublishersmarketplaceComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.publishersmarketplace.com/",
+        loginUrl: "https://www.publishersmarketplace.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

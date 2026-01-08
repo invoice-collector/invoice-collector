@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TealNetworksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TealNetworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tealnetworks.freshbooks.com/showStatement",
+        loginUrl: "https://tealnetworks.freshbooks.com/showStatement",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

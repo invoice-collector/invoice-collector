@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookNDriveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BookNDriveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://book-n-drive.dbcarsharing-buchung.de/kundenbuchung/process.php?proc=rechnung&f=5",
+        loginUrl: "https://book-n-drive.dbcarsharing-buchung.de/kundenbuchung/process.php?proc=rechnung&f=5",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

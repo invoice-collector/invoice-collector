@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FixerIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FixerIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fixer.io/payment",
+        loginUrl: "https://fixer.io/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

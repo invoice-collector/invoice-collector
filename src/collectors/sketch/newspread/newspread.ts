@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewspreadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NewspreadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.newspread.ie/",
+        loginUrl: "https://www.newspread.ie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

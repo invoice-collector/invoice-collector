@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RVMaklerportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RVMaklerportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.ruv.de/makler/",
+        loginUrl: "https://online.ruv.de/makler/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

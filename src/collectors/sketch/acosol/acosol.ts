@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcosolCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AcosolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.acosol.es/clientes/acosol?check_logged_in=1",
+        loginUrl: "https://www.acosol.es/clientes/acosol?check_logged_in=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

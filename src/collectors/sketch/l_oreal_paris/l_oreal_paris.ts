@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LOrealParisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LOrealParisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.loreal.fr/",
+        loginUrl: "https://www.loreal.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

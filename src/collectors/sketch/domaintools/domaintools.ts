@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomaintoolsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DomaintoolsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.domaintools.com/my-account/?tab=history",
+        loginUrl: "https://account.domaintools.com/my-account/?tab=history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

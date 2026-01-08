@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhpArchitectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PhpArchitectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.phparch.com/account",
+        loginUrl: "https://www.phparch.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

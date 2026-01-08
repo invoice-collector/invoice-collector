@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StaffomaticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StaffomaticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://staffomatic.com/de/login",
+        loginUrl: "https://staffomatic.com/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

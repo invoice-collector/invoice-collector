@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FattureInCloudItCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FattureInCloudItCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fattureincloud.it/service/form/form-login/",
+        loginUrl: "https://www.fattureincloud.it/service/form/form-login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

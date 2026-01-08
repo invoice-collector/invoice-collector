@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrumairCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrumairCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.e-brumair.com/",
+        loginUrl: "https://www.e-brumair.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

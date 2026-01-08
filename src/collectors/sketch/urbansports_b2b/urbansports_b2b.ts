@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UrbansportsB2bCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UrbansportsB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.urbansportsclub.com/invoices",
+        loginUrl: "https://portal.urbansportsclub.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

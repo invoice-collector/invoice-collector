@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FruitsSecsDuWebCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FruitsSecsDuWebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fruitssecsduweb.com/commande",
+        loginUrl: "https://www.fruitssecsduweb.com/commande",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

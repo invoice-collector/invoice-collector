@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmallchatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmallchatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.small.chat/account/invoices",
+        loginUrl: "https://my.small.chat/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

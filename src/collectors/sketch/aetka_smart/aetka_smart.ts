@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AetkaSmartCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AetkaSmartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aetkasmart.de/mein-aetkasmart.aspx",
+        loginUrl: "https://www.aetkasmart.de/mein-aetkasmart.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

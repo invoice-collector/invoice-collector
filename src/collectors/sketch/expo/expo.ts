@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExpoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ExpoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://expo.dev/login",
+        loginUrl: "https://expo.dev/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

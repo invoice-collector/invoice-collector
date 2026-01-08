@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AudiomooversListenToCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AudiomooversListenToCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://audiomovers.com/wp/account/#billing_history",
+        loginUrl: "https://audiomovers.com/wp/account/#billing_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BremerSteuerInstitutEVCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BremerSteuerInstitutEVCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stbv-fortbildung.de/login/",
+        loginUrl: "https://stbv-fortbildung.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

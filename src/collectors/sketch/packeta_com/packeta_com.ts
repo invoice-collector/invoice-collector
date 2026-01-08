@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PacketaComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PacketaComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.packeta.com/en/invoices/",
+        loginUrl: "https://client.packeta.com/en/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

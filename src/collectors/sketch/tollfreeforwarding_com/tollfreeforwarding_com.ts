@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TollfreeforwardingComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TollfreeforwardingComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tollfreeforwarding.com/secure/",
+        loginUrl: "https://tollfreeforwarding.com/secure/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

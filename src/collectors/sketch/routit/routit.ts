@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RoutitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RoutitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.routit.nl",
+        loginUrl: "http://www.routit.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

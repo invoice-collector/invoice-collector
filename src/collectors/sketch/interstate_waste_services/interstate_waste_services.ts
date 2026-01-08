@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterstateWasteServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InterstateWasteServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.billtrust.com/interstatewaste/ig/open",
+        loginUrl: "https://secure.billtrust.com/interstatewaste/ig/open",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LykoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LykoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lyko.com/de/meine-seite/bestellubersicht",
+        loginUrl: "https://lyko.com/de/meine-seite/bestellubersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

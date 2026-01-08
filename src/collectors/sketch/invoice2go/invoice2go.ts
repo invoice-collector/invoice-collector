@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Invoice2goCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Invoice2goCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.2go.com",
+        loginUrl: "https://account.2go.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

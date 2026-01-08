@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BunnyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BunnyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.bunny.net/user/login",
+        loginUrl: "https://panel.bunny.net/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AffiliconCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AffiliconCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.affilicon.net/common/login",
+        loginUrl: "https://my.affilicon.net/common/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KomdslCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KomdslCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://komdsl.plusportal.de/#/",
+        loginUrl: "https://komdsl.plusportal.de/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

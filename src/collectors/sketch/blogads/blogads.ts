@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlogadsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlogadsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.blogads.de/account/booking/",
+        loginUrl: "https://www.blogads.de/account/booking/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

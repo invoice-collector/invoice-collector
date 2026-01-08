@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtlanticTireDistributorsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AtlanticTireDistributorsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.atlantic-tire.com/dashboard/invoices",
+        loginUrl: "https://accounts.atlantic-tire.com/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

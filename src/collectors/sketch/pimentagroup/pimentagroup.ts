@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PimentagroupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PimentagroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.pimentagroup.de",
+        loginUrl: "http://www.pimentagroup.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

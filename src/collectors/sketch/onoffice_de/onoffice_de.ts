@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnofficeDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OnofficeDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smart.onoffice.de/smart/index.php?_ga=2.74610130.1155995631.1647524971-2123919288.1647524971",
+        loginUrl: "https://smart.onoffice.de/smart/index.php?_ga=2.74610130.1155995631.1647524971-2123919288.1647524971",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

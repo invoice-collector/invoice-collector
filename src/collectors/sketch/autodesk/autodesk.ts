@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutodeskCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AutodeskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.autodesk.com/Authentication/LogOn#username",
+        loginUrl: "https://accounts.autodesk.com/Authentication/LogOn#username",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

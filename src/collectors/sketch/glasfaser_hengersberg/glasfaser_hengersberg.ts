@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlasfaserHengersbergCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GlasfaserHengersbergCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.glasfaser-hengersberg.de/login",
+        loginUrl: "https://kundenportal.glasfaser-hengersberg.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

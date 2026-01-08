@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeliverooFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeliverooFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://deliveroo.fr/en/login?redirect=%2Fen%2F",
+        loginUrl: "https://deliveroo.fr/en/login?redirect=%2Fen%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

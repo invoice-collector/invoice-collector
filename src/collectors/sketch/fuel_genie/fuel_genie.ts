@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FuelGenieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FuelGenieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mma.fuelgenie.co.uk/secure/login.aspx?hideApply=1",
+        loginUrl: "https://mma.fuelgenie.co.uk/secure/login.aspx?hideApply=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

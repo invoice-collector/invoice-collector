@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoundtrackYourBrandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SoundtrackYourBrandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.soundtrackyourbrand.com/accounts/QWNjb3VudCwsMWxpd3g5bzJ4MzQv/settings/billing",
+        loginUrl: "https://business.soundtrackyourbrand.com/accounts/QWNjb3VudCwsMWxpd3g5bzJ4MzQv/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

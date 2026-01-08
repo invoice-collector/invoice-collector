@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdobeStockCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdobeStockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stock.adobe.com",
+        loginUrl: "https://stock.adobe.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

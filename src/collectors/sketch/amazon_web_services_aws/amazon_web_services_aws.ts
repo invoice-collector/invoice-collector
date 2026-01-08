@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonWebServicesAwsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonWebServicesAwsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.aws.amazon.com/billing/home",
+        loginUrl: "https://console.aws.amazon.com/billing/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

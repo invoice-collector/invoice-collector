@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdvastoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdvastoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchant.advastore.com/my-storage/invoices",
+        loginUrl: "https://merchant.advastore.com/my-storage/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

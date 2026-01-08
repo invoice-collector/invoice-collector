@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlitsmeisterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlitsmeisterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.flitsmeister.nl/invoices",
+        loginUrl: "https://mijn.flitsmeister.nl/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

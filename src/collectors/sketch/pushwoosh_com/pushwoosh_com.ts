@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PushwooshComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PushwooshComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://go.pushwoosh.com/v2/account/orders",
+        loginUrl: "https://go.pushwoosh.com/v2/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

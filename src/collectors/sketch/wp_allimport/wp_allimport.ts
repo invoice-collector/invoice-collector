@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpAllimportCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WpAllimportCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wpallimport.com/portal/",
+        loginUrl: "https://www.wpallimport.com/portal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

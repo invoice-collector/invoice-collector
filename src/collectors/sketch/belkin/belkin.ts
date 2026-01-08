@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BelkinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BelkinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.belkin.com/fr/login/",
+        loginUrl: "https://www.belkin.com/fr/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

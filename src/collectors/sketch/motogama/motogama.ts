@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotogamaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MotogamaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://motogama.integra.com.pl/Accounts/OpenExportAccount.rails?d=Thu",
+        loginUrl: "https://motogama.integra.com.pl/Accounts/OpenExportAccount.rails?d=Thu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

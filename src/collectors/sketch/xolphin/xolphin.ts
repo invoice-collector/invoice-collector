@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XolphinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XolphinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.xolphin.com/cp/",
+        loginUrl: "https://www.xolphin.com/cp/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

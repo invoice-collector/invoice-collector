@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodeanywhereCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CodeanywhereCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.codeanywhere.com",
+        loginUrl: "http://www.codeanywhere.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VidalyticsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VidalyticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.vidalytics.com/dashboard/profile/invoices",
+        loginUrl: "https://app.vidalytics.com/dashboard/profile/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

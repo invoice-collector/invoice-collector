@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _10dollarCaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _10dollarCaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://10dollar.ca/en/invoice.php?id=158783351728",
+        loginUrl: "https://10dollar.ca/en/invoice.php?id=158783351728",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

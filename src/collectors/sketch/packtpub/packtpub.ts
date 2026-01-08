@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PacktpubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PacktpubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://subscription.packtpub.com/my-account/billing-details",
+        loginUrl: "https://subscription.packtpub.com/my-account/billing-details",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

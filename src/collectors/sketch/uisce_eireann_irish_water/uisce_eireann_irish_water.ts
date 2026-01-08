@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UisceEireannIrishWaterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UisceEireannIrishWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.water.ie/webcenter/portal/secure/pages_waterusage",
+        loginUrl: "https://www.water.ie/webcenter/portal/secure/pages_waterusage",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

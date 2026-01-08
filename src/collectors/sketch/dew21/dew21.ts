@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Dew21Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Dew21Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dew21.de/mein-konto/anmeldung/",
+        loginUrl: "https://www.dew21.de/mein-konto/anmeldung/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

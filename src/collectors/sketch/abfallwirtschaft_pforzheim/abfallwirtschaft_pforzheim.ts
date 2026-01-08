@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbfallwirtschaftPforzheimCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AbfallwirtschaftPforzheimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.abfallwirtschaft-pforzheim.de/kundenportal/",
+        loginUrl: "https://www.abfallwirtschaft-pforzheim.de/kundenportal/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

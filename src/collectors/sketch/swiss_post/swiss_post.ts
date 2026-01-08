@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwissPostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwissPostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.post.ch/",
+        loginUrl: "https://account.post.ch/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

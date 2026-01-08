@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnmaxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnmaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.enmax.com/sign-in",
+        loginUrl: "https://www.enmax.com/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

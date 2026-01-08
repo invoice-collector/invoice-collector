@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class H5pCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class H5pCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://h5p.com/login/introduce",
+        loginUrl: "https://h5p.com/login/introduce",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

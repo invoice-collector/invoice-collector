@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MercuryNzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MercuryNzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.mercury.co.nz/",
+        loginUrl: "https://myaccount.mercury.co.nz/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

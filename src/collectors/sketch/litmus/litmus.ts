@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LitmusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LitmusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://litmus.com/invoices",
+        loginUrl: "https://litmus.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

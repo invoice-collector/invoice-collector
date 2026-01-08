@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WyomindAddonsForMagentoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WyomindAddonsForMagentoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wyomind.com/customer/invoice/index",
+        loginUrl: "https://www.wyomind.com/customer/invoice/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContentdripsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ContentdripsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://contentdrips.com/login",
+        loginUrl: "https://contentdrips.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

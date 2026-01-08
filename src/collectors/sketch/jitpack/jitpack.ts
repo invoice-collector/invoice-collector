@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JitpackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JitpackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jitpack.io/private/invoice?customer=cus_GnJ83OJPm0JO7n&id=in_1GbT6yHW6oMZPh38aYAQlBhn",
+        loginUrl: "https://jitpack.io/private/invoice?customer=cus_GnJ83OJPm0JO7n&id=in_1GbT6yHW6oMZPh38aYAQlBhn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

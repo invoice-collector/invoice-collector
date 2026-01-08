@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProsperworksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProsperworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.prosperworks.com/users/sign_in",
+        loginUrl: "https://app.prosperworks.com/users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

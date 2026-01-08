@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MultiloginCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MultiloginCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.multilogin.com/subscription",
+        loginUrl: "https://billing.multilogin.com/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

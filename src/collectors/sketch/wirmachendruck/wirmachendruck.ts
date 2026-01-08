@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WirmachendruckCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WirmachendruckCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wir-machen-druck.de/konto_tracking_list.htm",
+        loginUrl: "https://www.wir-machen-druck.de/konto_tracking_list.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

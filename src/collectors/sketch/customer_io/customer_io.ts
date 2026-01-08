@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CustomerIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CustomerIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fly.customer.io/settings/receipts",
+        loginUrl: "https://fly.customer.io/settings/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

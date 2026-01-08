@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FonicMobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FonicMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fonic-mobile.de/login",
+        loginUrl: "https://www.fonic-mobile.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

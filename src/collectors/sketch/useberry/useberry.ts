@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UseberryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UseberryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.useberry.com/dashboard/account/billing/",
+        loginUrl: "https://www.useberry.com/dashboard/account/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GathercontentCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GathercontentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.gathercontent.com/login",
+        loginUrl: "https://app.gathercontent.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

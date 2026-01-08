@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrefoFactoringCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CrefoFactoringCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.crefo-factoring.de/firstlogin.do;jsessionid=6AB0E64A11A325479003FDB743435D82",
+        loginUrl: "https://online.crefo-factoring.de/firstlogin.do;jsessionid=6AB0E64A11A325479003FDB743435D82",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

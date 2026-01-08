@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AganttyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AganttyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.agantty.com/?locale=de",
+        loginUrl: "https://app.agantty.com/?locale=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _5hostingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _5hostingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://whmcs.webhoster.ag/clientarea.php",
+        loginUrl: "https://whmcs.webhoster.ag/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

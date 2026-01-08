@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DearInventoryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DearInventoryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://inventory.dearsystems.com/Account/Login?ReturnUrl=%2f",
+        loginUrl: "https://inventory.dearsystems.com/Account/Login?ReturnUrl=%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

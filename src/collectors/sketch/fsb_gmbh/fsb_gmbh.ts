@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FsbGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FsbGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fsb-fachinstitut.de/seminarverwaltung/kundenkontogesamtuebersicht/belege/",
+        loginUrl: "https://fsb-fachinstitut.de/seminarverwaltung/kundenkontogesamtuebersicht/belege/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

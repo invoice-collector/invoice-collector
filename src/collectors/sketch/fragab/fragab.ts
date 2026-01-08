@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FragabCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FragabCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fragab.de/download",
+        loginUrl: "https://fragab.de/download",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

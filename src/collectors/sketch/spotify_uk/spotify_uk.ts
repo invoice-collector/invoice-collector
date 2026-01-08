@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpotifyUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpotifyUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.spotify.com/en/login/?continue=https:%2F%2Fwww.spotify.com%2Fuk%2Faccount%2Foverview%2F&_locale=en-GB",
+        loginUrl: "https://accounts.spotify.com/en/login/?continue=https:%2F%2Fwww.spotify.com%2Fuk%2Faccount%2Foverview%2F&_locale=en-GB",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

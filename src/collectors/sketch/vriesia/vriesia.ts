@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VriesiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VriesiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.vriesia.nl",
+        loginUrl: "http://www.vriesia.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

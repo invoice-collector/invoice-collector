@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeedLegalsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeedLegalsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.seedlegals.com/companies/c_7RMdan0CP0/settings/billing",
+        loginUrl: "https://app.seedlegals.com/companies/c_7RMdan0CP0/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

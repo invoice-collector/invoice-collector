@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RunaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RunaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.runa.io/connect/invoices/?customer=C-ZAWVJJEQ",
+        loginUrl: "https://connect.runa.io/connect/invoices/?customer=C-ZAWVJJEQ",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

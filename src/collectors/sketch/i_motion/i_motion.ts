@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IMotionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IMotionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.i-motion.de",
+        loginUrl: "http://www.i-motion.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CurrenciesDirectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CurrenciesDirectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.currenciesdirect.com/businessportal/transactions.htm?search_criteria_name=default_activity_history",
+        loginUrl: "https://business.currenciesdirect.com/businessportal/transactions.htm?search_criteria_name=default_activity_history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

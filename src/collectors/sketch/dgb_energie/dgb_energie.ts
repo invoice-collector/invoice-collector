@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DgbEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DgbEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.dgbenergie.nl/Account/Login",
+        loginUrl: "https://mijn.dgbenergie.nl/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LOpinionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LOpinionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lopinion.fr/",
+        loginUrl: "https://www.lopinion.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

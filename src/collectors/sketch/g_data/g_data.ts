@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GDataCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GDataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gdata.de/mygdata",
+        loginUrl: "https://www.gdata.de/mygdata",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

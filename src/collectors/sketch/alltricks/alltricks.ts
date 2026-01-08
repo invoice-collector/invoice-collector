@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlltricksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlltricksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alltricks.fr/mon-compte",
+        loginUrl: "https://www.alltricks.fr/mon-compte",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

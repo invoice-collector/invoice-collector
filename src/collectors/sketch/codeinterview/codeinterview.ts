@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodeinterviewCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CodeinterviewCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://codeinterview.io/settings/billing",
+        loginUrl: "https://codeinterview.io/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

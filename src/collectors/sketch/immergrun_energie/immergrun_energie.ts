@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImmergrunEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ImmergrunEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.immergruen-energie.de",
+        loginUrl: "http://www.immergruen-energie.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

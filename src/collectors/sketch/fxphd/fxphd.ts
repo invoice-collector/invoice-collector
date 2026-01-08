@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FxphdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FxphdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fxphd.com/wp/wp-login.php",
+        loginUrl: "https://www.fxphd.com/wp/wp-login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

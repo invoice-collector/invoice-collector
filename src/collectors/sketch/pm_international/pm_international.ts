@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PmInternationalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PmInternationalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://office.pm-international.com/account/documents/?lang=de",
+        loginUrl: "https://office.pm-international.com/account/documents/?lang=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

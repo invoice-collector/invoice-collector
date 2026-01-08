@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalendarbridgeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CalendarbridgeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.calendarbridge.com/login/",
+        loginUrl: "https://app.calendarbridge.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

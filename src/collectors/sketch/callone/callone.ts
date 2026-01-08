@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalloneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CalloneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://box.callone.de",
+        loginUrl: "https://box.callone.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

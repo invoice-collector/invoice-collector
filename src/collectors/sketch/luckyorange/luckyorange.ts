@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LuckyorangeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LuckyorangeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.luckyorange.com/login.php",
+        loginUrl: "http://www.luckyorange.com/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

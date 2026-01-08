@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AuchanFraisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AuchanFraisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://frais.auchan.fr/customer/account/login/",
+        loginUrl: "https://frais.auchan.fr/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

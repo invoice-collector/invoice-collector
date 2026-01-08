@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MooncardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MooncardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mooncard.co/",
+        loginUrl: "https://www.mooncard.co/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

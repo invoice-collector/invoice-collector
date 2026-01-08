@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcotelEserviceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EcotelEserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eservice.ecotel.de/auth/login",
+        loginUrl: "https://eservice.ecotel.de/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

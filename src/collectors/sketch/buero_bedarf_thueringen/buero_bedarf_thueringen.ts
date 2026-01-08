@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BueroBedarfThueringenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BueroBedarfThueringenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.buero-bedarf-thueringen.de/mein-Konto",
+        loginUrl: "https://www.buero-bedarf-thueringen.de/mein-Konto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

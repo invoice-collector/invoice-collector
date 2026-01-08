@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdsectorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdsectorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adsector.com/account/member/payment-history",
+        loginUrl: "https://adsector.com/account/member/payment-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

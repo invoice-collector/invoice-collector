@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CouponCarrierCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CouponCarrierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.couponcarrier.io/login",
+        loginUrl: "https://app.couponcarrier.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

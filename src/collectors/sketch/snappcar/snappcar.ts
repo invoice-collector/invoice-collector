@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnappcarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SnappcarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.snappcar.de/account/reservations",
+        loginUrl: "https://www.snappcar.de/account/reservations",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GriffatiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GriffatiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.griffati.com/fr/",
+        loginUrl: "https://www.griffati.com/fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

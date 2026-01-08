@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SynchronDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SynchronDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://synchron.de/mein-konto.html",
+        loginUrl: "https://synchron.de/mein-konto.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

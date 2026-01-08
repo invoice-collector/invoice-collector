@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DynamicOooCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DynamicOooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.dynamic.ooo/my-account/orders/",
+        loginUrl: "https://shop.dynamic.ooo/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrugeeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FrugeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://frugee.de/benutzermenue;userInfoTab=user-invoices",
+        loginUrl: "https://frugee.de/benutzermenue;userInfoTab=user-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

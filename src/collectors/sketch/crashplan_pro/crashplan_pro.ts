@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CrashplanProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CrashplanProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.crashplanpro.com/login/#/login",
+        loginUrl: "https://www.crashplanpro.com/login/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

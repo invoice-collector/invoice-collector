@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoldenStateWaterCompanyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GoldenStateWaterCompanyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gswater.mygswater-cap.com/login",
+        loginUrl: "https://www.gswater.mygswater-cap.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

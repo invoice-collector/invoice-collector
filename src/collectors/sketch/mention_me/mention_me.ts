@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MentionMeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MentionMeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mention-me.com/login",
+        loginUrl: "https://mention-me.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

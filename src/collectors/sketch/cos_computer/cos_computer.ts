@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CosComputerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CosComputerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.cos-computer.com/index.php/~customerCenter_InvoiceOrderController/start/invoice",
+        loginUrl: "https://shop.cos-computer.com/index.php/~customerCenter_InvoiceOrderController/start/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

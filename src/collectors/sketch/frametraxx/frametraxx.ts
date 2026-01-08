@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrametraxxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FrametraxxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.frametraxx.de",
+        loginUrl: "http://www.frametraxx.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MichaelManagementCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MichaelManagementCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.michaelmanagement.com/edit-account.asp?tab=menu1&childtab=profile8",
+        loginUrl: "https://www.michaelmanagement.com/edit-account.asp?tab=menu1&childtab=profile8",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

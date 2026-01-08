@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VerisureSecurityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VerisureSecurityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customers.verisure.co.uk/gb/bills",
+        loginUrl: "https://customers.verisure.co.uk/gb/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

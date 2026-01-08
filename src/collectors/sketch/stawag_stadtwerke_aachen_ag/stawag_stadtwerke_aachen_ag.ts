@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StawagStadtwerkeAachenAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StawagStadtwerkeAachenAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stawag.de/portal/postbox",
+        loginUrl: "https://www.stawag.de/portal/postbox",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

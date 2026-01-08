@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgurCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AgurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ael.agur.fr/#/facture",
+        loginUrl: "https://ael.agur.fr/#/facture",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

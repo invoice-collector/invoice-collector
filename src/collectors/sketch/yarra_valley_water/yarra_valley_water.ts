@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YarraValleyWaterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YarraValleyWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.yvw.com.au",
+        loginUrl: "http://www.yvw.com.au",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

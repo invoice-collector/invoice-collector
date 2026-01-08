@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Print24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Print24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://print24.com/fr/",
+        loginUrl: "https://print24.com/fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

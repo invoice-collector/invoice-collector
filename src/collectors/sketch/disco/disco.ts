@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DiscoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DiscoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.billingportal.com/s/disco-usd/invoices",
+        loginUrl: "https://www.billingportal.com/s/disco-usd/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

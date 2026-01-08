@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScalewayDebiboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScalewayDebiboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.online.net/fr/login",
+        loginUrl: "https://console.online.net/fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

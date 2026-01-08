@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TawkToCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TawkToCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.tawk.to/login",
+        loginUrl: "https://dashboard.tawk.to/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

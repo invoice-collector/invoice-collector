@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmexpoolAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmexpoolAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://amex-online.de",
+        loginUrl: "https://amex-online.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

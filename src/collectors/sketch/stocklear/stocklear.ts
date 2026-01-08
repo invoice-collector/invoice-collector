@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StocklearCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StocklearCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stocklear.co.uk/login",
+        loginUrl: "https://stocklear.co.uk/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FactoryWorksGmbhBerlinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FactoryWorksGmbhBerlinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.factoryberlin.com",
+        loginUrl: "https://members.factoryberlin.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrthoDepotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrthoDepotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.orthodepot.de/account.php",
+        loginUrl: "https://www.orthodepot.de/account.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

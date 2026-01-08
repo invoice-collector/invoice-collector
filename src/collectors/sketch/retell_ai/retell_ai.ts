@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RetellAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RetellAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.retellai.com/billing",
+        loginUrl: "https://dashboard.retellai.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

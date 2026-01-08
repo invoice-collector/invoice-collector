@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpenexchangeratesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpenexchangeratesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://openexchangerates.org/login",
+        loginUrl: "https://openexchangerates.org/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

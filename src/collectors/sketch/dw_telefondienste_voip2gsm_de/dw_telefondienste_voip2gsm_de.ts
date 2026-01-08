@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DwTelefondiensteVoip2gsmDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DwTelefondiensteVoip2gsmDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://config.voip2gsm.eu",
+        loginUrl: "https://config.voip2gsm.eu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

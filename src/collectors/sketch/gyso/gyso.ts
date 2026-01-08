@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GysoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GysoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gyso.ch/de/letzte-rechnung.htm",
+        loginUrl: "https://www.gyso.ch/de/letzte-rechnung.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

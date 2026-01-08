@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LockboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LockboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lockboxsystem.com/users/login",
+        loginUrl: "https://www.lockboxsystem.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

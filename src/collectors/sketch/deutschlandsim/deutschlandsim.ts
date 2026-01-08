@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutschlandsimCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeutschlandsimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.deutschlandsim.de",
+        loginUrl: "https://service.deutschlandsim.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

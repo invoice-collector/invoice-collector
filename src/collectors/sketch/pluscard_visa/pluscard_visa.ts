@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PluscardVisaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PluscardVisaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://karo.pluscard.de/abrechnung",
+        loginUrl: "https://karo.pluscard.de/abrechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

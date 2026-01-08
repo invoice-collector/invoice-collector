@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FoliateamCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FoliateamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.foliateam.com/invoice/listing",
+        loginUrl: "https://espace-client.foliateam.com/invoice/listing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NochGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NochGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dealer.noch.de/admin/invoice",
+        loginUrl: "https://dealer.noch.de/admin/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WorldFuelServiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WorldFuelServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aviation.wfscorp.com/",
+        loginUrl: "https://aviation.wfscorp.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

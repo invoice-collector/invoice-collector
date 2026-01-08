@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaterielNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaterielNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.materiel.net/pm/client/login.html",
+        loginUrl: "https://www.materiel.net/pm/client/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

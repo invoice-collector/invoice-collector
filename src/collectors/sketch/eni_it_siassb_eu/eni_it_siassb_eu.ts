@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EniItSiassbEuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EniItSiassbEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://multicard.eni.com/de",
+        loginUrl: "https://multicard.eni.com/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

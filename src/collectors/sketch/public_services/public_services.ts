@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PublicServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PublicServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.girocockpit.de/",
+        loginUrl: "https://www.girocockpit.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

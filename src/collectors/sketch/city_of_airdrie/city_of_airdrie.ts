@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfAirdrieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfAirdrieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.airdrie.ca/index.cfm?serviceID=1104",
+        loginUrl: "https://www.airdrie.ca/index.cfm?serviceID=1104",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

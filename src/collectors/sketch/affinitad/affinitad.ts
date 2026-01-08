@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AffinitadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AffinitadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.affinitad.de/",
+        loginUrl: "http://www.affinitad.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

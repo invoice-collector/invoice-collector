@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CuratorIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CuratorIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.curator.io/company/invoices",
+        loginUrl: "https://app.curator.io/company/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

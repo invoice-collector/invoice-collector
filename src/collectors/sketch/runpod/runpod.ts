@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RunpodCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RunpodCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.runpod.io/login",
+        loginUrl: "https://console.runpod.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

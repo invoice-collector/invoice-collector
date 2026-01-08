@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RegistradoresOrgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RegistradoresOrgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.registradores.org/propiedad/pags/estado_cuenta/facturas/ListadoFacturas.jsp",
+        loginUrl: "https://www.registradores.org/propiedad/pags/estado_cuenta/facturas/ListadoFacturas.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

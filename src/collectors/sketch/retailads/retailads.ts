@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RetailadsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RetailadsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.retailads.net",
+        loginUrl: "https://login.retailads.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

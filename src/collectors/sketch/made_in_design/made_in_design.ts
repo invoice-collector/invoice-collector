@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MadeInDesignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MadeInDesignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.madeindesign.co.uk/midcustomer/account/login/referer/aHR0cHM6Ly93d3cubWFkZWluZGVzaWduLmNvLnVrL21pZGN1c3RvbWVyL2FjY291bnQvaW5kZXgv/",
+        loginUrl: "https://www.madeindesign.co.uk/midcustomer/account/login/referer/aHR0cHM6Ly93d3cubWFkZWluZGVzaWduLmNvLnVrL21pZGN1c3RvbWVyL2FjY291bnQvaW5kZXgv/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

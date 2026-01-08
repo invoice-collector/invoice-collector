@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _404worksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _404worksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.404works.com/fr/purchases/index",
+        loginUrl: "https://www.404works.com/fr/purchases/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

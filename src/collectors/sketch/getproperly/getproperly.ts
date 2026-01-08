@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetproperlyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetproperlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.getproperly.com/#/settings/receipts",
+        loginUrl: "https://app.getproperly.com/#/settings/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

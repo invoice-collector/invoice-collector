@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmiratesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmiratesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.emirates.com/de/german/manage-booking",
+        loginUrl: "https://www.emirates.com/de/german/manage-booking",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

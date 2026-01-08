@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4tsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _4tsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunden.4ts.at/index.php?",
+        loginUrl: "https://kunden.4ts.at/index.php?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

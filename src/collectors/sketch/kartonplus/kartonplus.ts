@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KartonplusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KartonplusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kartonplus.de/download_rechnung.php",
+        loginUrl: "https://www.kartonplus.de/download_rechnung.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

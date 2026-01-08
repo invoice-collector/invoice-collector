@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CocaColaEuropeanPartnersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CocaColaEuropeanPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.ccep.com/login#login",
+        loginUrl: "https://my.ccep.com/login#login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

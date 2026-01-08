@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlaceDesTendancesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlaceDesTendancesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.placedestendances.com/fr/fr",
+        loginUrl: "https://www.placedestendances.com/fr/fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NettokomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NettokomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.nettokom.de/de",
+        loginUrl: "https://mein.nettokom.de/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

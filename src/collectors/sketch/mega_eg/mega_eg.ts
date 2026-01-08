@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MegaEgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MegaEgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.mega.de/store/mega/de/EUR/my-account/invoices",
+        loginUrl: "https://shop.mega.de/store/mega/de/EUR/my-account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

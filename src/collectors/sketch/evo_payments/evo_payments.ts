@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvoPaymentsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EvoPaymentsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.evopayments.eu/service/evo-kundenportal-bis/",
+        loginUrl: "https://www.evopayments.eu/service/evo-kundenportal-bis/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

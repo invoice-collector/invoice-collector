@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobileDeHandlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MobileDeHandlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://handel.mobile.de/rechnungen/vorherige",
+        loginUrl: "https://handel.mobile.de/rechnungen/vorherige",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

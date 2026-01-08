@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PowerZeroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PowerZeroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://power-zero.com/fr/shop/historique-commandes",
+        loginUrl: "https://power-zero.com/fr/shop/historique-commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

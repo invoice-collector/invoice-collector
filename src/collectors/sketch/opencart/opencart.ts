@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpencartCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpencartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.opencart.com/index.php?route=account/login",
+        loginUrl: "https://www.opencart.com/index.php?route=account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

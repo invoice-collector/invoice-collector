@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PachmyrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PachmyrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pachmayr.de/shop/neu-im-sortiment",
+        loginUrl: "https://www.pachmayr.de/shop/neu-im-sortiment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CycleschemeLtdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CycleschemeLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.myschemes.co.uk/cs/index/index",
+        loginUrl: "https://extranet.myschemes.co.uk/cs/index/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

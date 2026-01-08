@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagentaBusinessAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MagentaBusinessAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://csc.magentabusiness.at/client/login?",
+        loginUrl: "https://csc.magentabusiness.at/client/login?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

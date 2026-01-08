@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdvanceAutoPartsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdvanceAutoPartsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.advanceautoparts.com/web/TrackOrderStatus?storeId=10151&catalogId=10051&langId=-1",
+        loginUrl: "https://shop.advanceautoparts.com/web/TrackOrderStatus?storeId=10151&catalogId=10051&langId=-1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

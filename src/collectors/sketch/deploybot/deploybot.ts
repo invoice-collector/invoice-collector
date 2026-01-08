@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeploybotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeploybotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.deploybot.com/session/new",
+        loginUrl: "https://login.deploybot.com/session/new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

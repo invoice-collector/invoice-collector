@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmailJsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmailJsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.emailjs.com/admin/account/invoices",
+        loginUrl: "https://dashboard.emailjs.com/admin/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

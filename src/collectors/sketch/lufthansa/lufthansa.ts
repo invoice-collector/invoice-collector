@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LufthansaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LufthansaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lufthansa.com/online/portal/lh/de/homepage?l=",
+        loginUrl: "https://www.lufthansa.com/online/portal/lh/de/homepage?l=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

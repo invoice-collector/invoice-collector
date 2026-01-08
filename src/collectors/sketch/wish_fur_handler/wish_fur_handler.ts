@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WishFurHandlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WishFurHandlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchant.wish.com",
+        loginUrl: "https://merchant.wish.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

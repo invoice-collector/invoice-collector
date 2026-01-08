@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlenderkitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlenderkitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.blenderkit.com/plans/order/",
+        loginUrl: "https://www.blenderkit.com/plans/order/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

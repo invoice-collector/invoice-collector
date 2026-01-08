@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LavazzaDeutschlandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LavazzaDeutschlandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customerportal.lavazza.com/s/login/?language=en_US",
+        loginUrl: "https://customerportal.lavazza.com/s/login/?language=en_US",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

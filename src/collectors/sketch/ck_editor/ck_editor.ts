@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CkEditorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CkEditorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.ckeditor.com/",
+        loginUrl: "https://dashboard.ckeditor.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

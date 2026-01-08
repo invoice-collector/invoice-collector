@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TutkitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TutkitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tutkit.com/de/mein-konto/lizenz",
+        loginUrl: "https://www.tutkit.com/de/mein-konto/lizenz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

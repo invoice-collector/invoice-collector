@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CjPartnersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CjPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cjaffiliate.my.site.com/publisher/s/invoice/Invoice__c/00B6O00000BN5LqUAL",
+        loginUrl: "https://cjaffiliate.my.site.com/publisher/s/invoice/Invoice__c/00B6O00000BN5LqUAL",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadertelecomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeadertelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://order.leadertelecom.biz",
+        loginUrl: "https://order.leadertelecom.biz",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialreportCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SocialreportCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.socialreport.com/settings.htm#subscription",
+        loginUrl: "https://www.socialreport.com/settings.htm#subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

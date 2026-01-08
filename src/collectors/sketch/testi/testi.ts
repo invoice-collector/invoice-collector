@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TestiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TestiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://testi.at/invoice",
+        loginUrl: "https://testi.at/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

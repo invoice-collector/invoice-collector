@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonFreightCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonFreightCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://freight.amazon.de/billing-and-payments",
+        loginUrl: "https://freight.amazon.de/billing-and-payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

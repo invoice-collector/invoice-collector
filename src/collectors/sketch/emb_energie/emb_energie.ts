@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmbEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmbEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.emb-gmbh.de/onlineservice/login",
+        loginUrl: "https://www.emb-gmbh.de/onlineservice/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

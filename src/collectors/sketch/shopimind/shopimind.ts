@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopimindCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShopimindCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.shopimind.com/",
+        loginUrl: "https://client.shopimind.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

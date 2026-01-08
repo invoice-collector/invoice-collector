@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChristianFischbacherCollector extends SketchCollector {
 
@@ -25,6 +25,9 @@ export class ChristianFischbacherCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://fischbacher1819.com/fr/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

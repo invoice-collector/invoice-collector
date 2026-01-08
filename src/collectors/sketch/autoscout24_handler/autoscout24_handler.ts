@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Autoscout24HandlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Autoscout24HandlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.autoscout24.de/dealer-invoice-download",
+        loginUrl: "https://www.autoscout24.de/dealer-invoice-download",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LightspeedhqDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LightspeedhqDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lightspeedhq.de/login/",
+        loginUrl: "https://www.lightspeedhq.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

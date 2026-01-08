@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauAggloPerpignanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EauAggloPerpignanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ea-pm.fr/documents",
+        loginUrl: "https://www.ea-pm.fr/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

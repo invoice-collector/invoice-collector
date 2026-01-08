@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class N8nIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class N8nIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.n8n.cloud/manage/billing",
+        loginUrl: "https://app.n8n.cloud/manage/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

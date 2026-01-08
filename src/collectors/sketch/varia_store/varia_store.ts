@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VariaStoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VariaStoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://varia-store.com/de/mein-konto/bestellungen/uebersicht.html",
+        loginUrl: "https://varia-store.com/de/mein-konto/bestellungen/uebersicht.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

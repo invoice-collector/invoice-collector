@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NudgifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NudgifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.nudgify.com/",
+        loginUrl: "https://app.nudgify.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

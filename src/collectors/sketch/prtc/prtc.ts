@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrtcCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrtcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://prtc.smarthub.coop/Login.html#login:",
+        loginUrl: "https://prtc.smarthub.coop/Login.html#login:",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

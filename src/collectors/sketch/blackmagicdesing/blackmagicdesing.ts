@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlackmagicdesingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlackmagicdesingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.blackmagicdesign.com/apps/settings/billing",
+        loginUrl: "https://cloud.blackmagicdesign.com/apps/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

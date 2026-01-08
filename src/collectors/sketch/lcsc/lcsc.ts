@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LcscCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LcscCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lcsc.com/order/invoices",
+        loginUrl: "https://www.lcsc.com/order/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

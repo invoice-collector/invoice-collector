@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimeonePerformanceAdvertiserCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TimeonePerformanceAdvertiserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://performance.timeonegroup.com/en/",
+        loginUrl: "https://performance.timeonegroup.com/en/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

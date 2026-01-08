@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChpadblockCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChpadblockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chpadblock.com/account/orders/",
+        loginUrl: "https://chpadblock.com/account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RadioCoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RadioCoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://studio.radio.co/login",
+        loginUrl: "https://studio.radio.co/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

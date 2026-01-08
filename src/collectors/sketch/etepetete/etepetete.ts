@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EtepeteteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EtepeteteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://etepetete-bio.de/mein-konto/#lastorder",
+        loginUrl: "https://etepetete-bio.de/mein-konto/#lastorder",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

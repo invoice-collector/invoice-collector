@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeEssenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeEssenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-essen.de/sap/bc/ui5_ui5/sap/zswe_cu_prv/index.html?sap-client=001&sap-language=DE#/invoice",
+        loginUrl: "https://kundenportal.stadtwerke-essen.de/sap/bc/ui5_ui5/sap/zswe_cu_prv/index.html?sap-client=001&sap-language=DE#/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

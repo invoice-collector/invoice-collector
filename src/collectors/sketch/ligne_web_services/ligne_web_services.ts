@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LigneWebServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LigneWebServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.lws.fr/",
+        loginUrl: "https://panel.lws.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

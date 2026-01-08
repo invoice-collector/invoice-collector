@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteuerakademieHessenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SteuerakademieHessenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://steuerakademie-hessen.de/kundenkontogesamtuebersicht/",
+        loginUrl: "https://steuerakademie-hessen.de/kundenkontogesamtuebersicht/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

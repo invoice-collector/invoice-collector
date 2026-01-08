@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class A2xAccountingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class A2xAccountingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.a2xaccounting.com/login#billing",
+        loginUrl: "https://www.a2xaccounting.com/login#billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

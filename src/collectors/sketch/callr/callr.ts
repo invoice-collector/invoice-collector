@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CallrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CallrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.callr.com/",
+        loginUrl: "https://sso.callr.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

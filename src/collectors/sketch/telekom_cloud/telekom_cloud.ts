@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelekomCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelekomCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://apps.telekomcloud.com/account/bills",
+        loginUrl: "https://apps.telekomcloud.com/account/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

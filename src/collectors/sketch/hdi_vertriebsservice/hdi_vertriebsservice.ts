@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HdiVertriebsserviceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HdiVertriebsserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vertriebsservice.hdi-gerling.de/content/public/de/common/index.html",
+        loginUrl: "https://vertriebsservice.hdi-gerling.de/content/public/de/common/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

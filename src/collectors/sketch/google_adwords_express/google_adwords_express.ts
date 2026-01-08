@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleAdwordsExpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GoogleAdwordsExpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adwords.google.de/express/plus/Business?hl=de",
+        loginUrl: "https://adwords.google.de/express/plus/Business?hl=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

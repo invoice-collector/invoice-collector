@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZepCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZepCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.zep-online.de/login",
+        loginUrl: "https://www.zep-online.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FramerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FramerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.framer.com",
+        loginUrl: "http://www.framer.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

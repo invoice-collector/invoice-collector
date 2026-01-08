@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlsoNetstarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlsoNetstarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://netzvermarktung.also.com/pvd",
+        loginUrl: "https://netzvermarktung.also.com/pvd",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

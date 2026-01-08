@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocieteGeneraleSharinboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SocieteGeneraleSharinboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sharinbox.societegenerale.com/login.do",
+        loginUrl: "https://sharinbox.societegenerale.com/login.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

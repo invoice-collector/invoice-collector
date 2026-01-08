@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartlawDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartlawDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.smartlaw.de/l/#/login",
+        loginUrl: "https://app.smartlaw.de/l/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

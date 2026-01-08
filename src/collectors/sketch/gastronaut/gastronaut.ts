@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GastronautCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GastronautCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.gastronaut.ai/auth/login",
+        loginUrl: "https://app.gastronaut.ai/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcademyOceanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AcademyOceanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.academyocean.com/profile/billing",
+        loginUrl: "https://app.academyocean.com/profile/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

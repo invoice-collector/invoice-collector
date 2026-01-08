@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConnektarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConnektarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.connektar.de/dashboard",
+        loginUrl: "https://www.connektar.de/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

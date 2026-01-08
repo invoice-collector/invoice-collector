@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StreamfitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StreamfitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://go.streamfit.com/auth/login",
+        loginUrl: "https://go.streamfit.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

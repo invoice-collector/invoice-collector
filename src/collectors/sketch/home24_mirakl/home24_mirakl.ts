@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Home24MiraklCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Home24MiraklCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://home24.mirakl.net/sellerpayment/shop/accounting-document/list",
+        loginUrl: "https://home24.mirakl.net/sellerpayment/shop/accounting-document/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

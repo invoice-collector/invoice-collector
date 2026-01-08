@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMcciCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleMcciCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mcci.fr/php/adherent.php",
+        loginUrl: "https://www.mcci.fr/php/adherent.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

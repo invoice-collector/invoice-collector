@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrderSmartCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrderSmartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://delivery-app.app-smart.services/cloudlogin",
+        loginUrl: "https://delivery-app.app-smart.services/cloudlogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SplashtopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SplashtopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.splashtop.eu/login",
+        loginUrl: "https://my.splashtop.eu/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

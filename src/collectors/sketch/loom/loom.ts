@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LoomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.loom.com/account-settings#billing",
+        loginUrl: "https://www.loom.com/account-settings#billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

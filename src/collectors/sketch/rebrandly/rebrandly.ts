@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RebrandlyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RebrandlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.rebrandly.com/account/billing-history",
+        loginUrl: "https://app.rebrandly.com/account/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

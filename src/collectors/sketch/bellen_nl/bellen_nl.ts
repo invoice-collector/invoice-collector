@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BellenNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BellenNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://translate.google.ro/translate?hl=ro&sl=nl&tl=ro&u=http%3A%2F%2Fforum.bellen.com%2F&anno=2",
+        loginUrl: "https://translate.google.ro/translate?hl=ro&sl=nl&tl=ro&u=http%3A%2F%2Fforum.bellen.com%2F&anno=2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

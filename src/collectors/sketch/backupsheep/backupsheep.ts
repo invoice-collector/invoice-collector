@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BackupsheepCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BackupsheepCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://backupsheep.com/console/billing",
+        loginUrl: "https://backupsheep.com/console/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

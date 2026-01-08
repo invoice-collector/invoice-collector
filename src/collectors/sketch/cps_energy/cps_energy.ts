@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CpsEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CpsEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.cpsenergy.com/mma/pastBills.jsp",
+        loginUrl: "https://secure.cpsenergy.com/mma/pastBills.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

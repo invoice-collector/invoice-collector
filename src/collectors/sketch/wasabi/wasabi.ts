@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WasabiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WasabiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.wasabisys.com/",
+        loginUrl: "https://console.wasabisys.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

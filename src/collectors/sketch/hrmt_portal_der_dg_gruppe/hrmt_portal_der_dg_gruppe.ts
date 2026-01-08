@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HrmtPortalDerDgGruppeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HrmtPortalDerDgGruppeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.hrmt.de/Dokumente/Arbeitgeber",
+        loginUrl: "https://portal.hrmt.de/Dokumente/Arbeitgeber",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

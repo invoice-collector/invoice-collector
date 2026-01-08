@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauxDeGrenobleAlpesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EauxDeGrenobleAlpesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ael.eauxdegrenoblealpes.fr/#/login",
+        loginUrl: "https://ael.eauxdegrenoblealpes.fr/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

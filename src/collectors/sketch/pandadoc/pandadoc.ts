@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PandadocCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PandadocCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pandadoc.com/login/?next=/a/#/dashboard/",
+        loginUrl: "https://app.pandadoc.com/login/?next=/a/#/dashboard/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

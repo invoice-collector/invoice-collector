@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpindriftCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpindriftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.spindrift.io",
+        loginUrl: "https://app.spindrift.io",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

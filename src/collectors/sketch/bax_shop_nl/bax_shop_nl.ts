@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BaxShopNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BaxShopNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.bax-shop.nl",
+        loginUrl: "http://www.bax-shop.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

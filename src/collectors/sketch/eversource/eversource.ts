@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EversourceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EversourceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.eversource.com",
+        loginUrl: "http://www.eversource.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

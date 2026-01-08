@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BikeexchangeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BikeexchangeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bikeexchange.de/client/billings",
+        loginUrl: "https://www.bikeexchange.de/client/billings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

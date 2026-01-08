@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DirectEnergyRegulatedServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DirectEnergyRegulatedServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.directenergyregulatedservices.com/",
+        loginUrl: "https://www.directenergyregulatedservices.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

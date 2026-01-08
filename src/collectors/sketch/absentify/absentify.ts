@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbsentifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AbsentifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.absentify.com/de/settings/organisation/billing",
+        loginUrl: "https://app.absentify.com/de/settings/organisation/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

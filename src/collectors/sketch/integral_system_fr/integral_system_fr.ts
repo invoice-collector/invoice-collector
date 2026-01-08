@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntegralSystemFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IntegralSystemFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.integral-system.fr/fr_FR/",
+        loginUrl: "https://www.integral-system.fr/fr_FR/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CasinoCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class CasinoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://casino.fr",
+        loginUrl: "https://casino.fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

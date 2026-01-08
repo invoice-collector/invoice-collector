@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.amazon.nl/ap/signin?_encoding=UTF8&ignoreAuthState=1&openid.assoc_handle=nlflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&ope",
+        loginUrl: "https://www.amazon.nl/ap/signin?_encoding=UTF8&ignoreAuthState=1&openid.assoc_handle=nlflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&ope",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

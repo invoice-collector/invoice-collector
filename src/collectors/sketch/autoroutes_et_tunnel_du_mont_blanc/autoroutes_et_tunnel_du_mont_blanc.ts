@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutoroutesEtTunnelDuMontBlancCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AutoroutesEtTunnelDuMontBlancCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceabonnes.atmb.net/Default.aspx?tabid=58&returnurl=%2fdefault.aspx",
+        loginUrl: "https://espaceabonnes.atmb.net/Default.aspx?tabid=58&returnurl=%2fdefault.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RoyalMailInvoicingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RoyalMailInvoicingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://invoicing.royalmail.com/RMF/",
+        loginUrl: "https://invoicing.royalmail.com/RMF/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

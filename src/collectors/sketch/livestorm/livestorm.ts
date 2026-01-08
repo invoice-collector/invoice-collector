@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LivestormCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LivestormCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.livestorm.co/#/settings?page=settings&tab=billing",
+        loginUrl: "https://app.livestorm.co/#/settings?page=settings&tab=billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

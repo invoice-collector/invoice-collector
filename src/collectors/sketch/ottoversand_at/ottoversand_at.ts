@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoversandAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OttoversandAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ottoversand.at/mein-konto/uebersicht/",
+        loginUrl: "https://www.ottoversand.at/mein-konto/uebersicht/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

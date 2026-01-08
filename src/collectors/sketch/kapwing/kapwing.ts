@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KapwingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KapwingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kapwing.com/settings/account",
+        loginUrl: "https://www.kapwing.com/settings/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

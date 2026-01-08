@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RecurpostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RecurpostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sites.fastspring.com/recurpost/order/invoice/",
+        loginUrl: "https://sites.fastspring.com/recurpost/order/invoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

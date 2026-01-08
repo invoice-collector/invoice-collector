@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdnymicsGmbhParcelDealzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdnymicsGmbhParcelDealzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.parceldealz.com/invoice",
+        loginUrl: "https://app.parceldealz.com/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

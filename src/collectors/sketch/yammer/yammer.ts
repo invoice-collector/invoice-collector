@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YammerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YammerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.yammer.com/login?locale=en-US&locale_type=standard",
+        loginUrl: "https://www.yammer.com/login?locale=en-US&locale_type=standard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

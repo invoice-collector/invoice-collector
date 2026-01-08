@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrukzoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrukzoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.drukzo.nl/inloggen?back=my-account",
+        loginUrl: "https://www.drukzo.nl/inloggen?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

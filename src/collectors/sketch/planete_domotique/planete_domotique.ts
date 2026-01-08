@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlaneteDomotiqueCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlaneteDomotiqueCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.planete-domotique.com/customer/account/login/",
+        loginUrl: "https://www.planete-domotique.com/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

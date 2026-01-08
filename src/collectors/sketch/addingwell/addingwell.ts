@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AddingwellCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AddingwellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.addingwell.com/",
+        loginUrl: "https://app.addingwell.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

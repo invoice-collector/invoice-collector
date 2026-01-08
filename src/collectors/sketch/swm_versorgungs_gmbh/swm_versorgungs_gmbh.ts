@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwmVersorgungsGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwmVersorgungsGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.swm.de/iss/acc/vertragsmanagement.html#/postfach",
+        loginUrl: "https://meine.swm.de/iss/acc/vertragsmanagement.html#/postfach",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

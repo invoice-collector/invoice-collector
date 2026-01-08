@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BerlinerWasserbetriebeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BerlinerWasserbetriebeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aquanet.berlinwasser.de/onlineportal-bwb/logon/logonServlet",
+        loginUrl: "https://aquanet.berlinwasser.de/onlineportal-bwb/logon/logonServlet",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

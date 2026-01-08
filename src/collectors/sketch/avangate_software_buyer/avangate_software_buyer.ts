@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvangateSoftwareBuyerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AvangateSoftwareBuyerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.avangate.com",
+        loginUrl: "https://secure.avangate.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

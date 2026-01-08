@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KundenmeisterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KundenmeisterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kundenmeister.com/crm/index.php/invoices/listInvoices",
+        loginUrl: "https://www.kundenmeister.com/crm/index.php/invoices/listInvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

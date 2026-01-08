@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PharmaMallCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PharmaMallCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pharma-mall.de/shop/vendors",
+        loginUrl: "https://www.pharma-mall.de/shop/vendors",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

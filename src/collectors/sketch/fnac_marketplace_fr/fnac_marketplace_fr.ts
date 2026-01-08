@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FnacMarketplaceFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FnacMarketplaceFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mp.fnac.com/compte/vendeur/factures/date_desc/1",
+        loginUrl: "https://mp.fnac.com/compte/vendeur/factures/date_desc/1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

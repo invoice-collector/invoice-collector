@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KronenZeitungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KronenZeitungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.krone.at/#/KRN/modify",
+        loginUrl: "https://www.krone.at/#/KRN/modify",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

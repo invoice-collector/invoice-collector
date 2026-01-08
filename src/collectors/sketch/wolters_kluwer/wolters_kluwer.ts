@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoltersKluwerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WoltersKluwerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.wolterskluwercloud.com/",
+        loginUrl: "https://login.wolterskluwercloud.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

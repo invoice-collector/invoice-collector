@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParamountPlusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParamountPlusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.paramountplus.com/account/",
+        loginUrl: "https://www.paramountplus.com/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

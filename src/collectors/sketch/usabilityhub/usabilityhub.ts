@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UsabilityhubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UsabilityhubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.usabilityhub.com/users/sign_in",
+        loginUrl: "https://app.usabilityhub.com/users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

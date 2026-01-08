@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TracklyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TracklyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://trackly.io/account/billing",
+        loginUrl: "https://trackly.io/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

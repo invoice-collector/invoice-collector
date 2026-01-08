@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BricomanCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class BricomanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bricoman.fr/login.html",
+        loginUrl: "https://www.bricoman.fr/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

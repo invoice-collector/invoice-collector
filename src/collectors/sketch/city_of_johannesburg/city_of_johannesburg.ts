@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfJohannesburgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfJohannesburgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eservices.joburg.org.za/Pages/eStatements.aspx",
+        loginUrl: "https://eservices.joburg.org.za/Pages/eStatements.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FtzAutodeleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FtzAutodeleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.ftz.dk",
+        loginUrl: "http://www.ftz.dk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

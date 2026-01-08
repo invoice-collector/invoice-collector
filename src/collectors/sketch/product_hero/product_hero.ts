@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProductHeroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProductHeroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://v2.app.producthero.com/settings/invoices",
+        loginUrl: "https://v2.app.producthero.com/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

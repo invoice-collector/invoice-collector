@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ForeverLivingProductsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ForeverLivingProductsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fbosite.foreverliving.com/distribNew/MyReports.do",
+        loginUrl: "https://fbosite.foreverliving.com/distribNew/MyReports.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

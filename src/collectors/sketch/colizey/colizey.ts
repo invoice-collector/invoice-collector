@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColizeyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ColizeyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.colizey.fr/invoices/",
+        loginUrl: "https://extranet.colizey.fr/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

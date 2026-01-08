@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoofunnelsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WoofunnelsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.buildwoofunnels.com",
+        loginUrl: "https://account.buildwoofunnels.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GammaCustomerPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GammaCustomerPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customers.gamma.co.uk/",
+        loginUrl: "https://customers.gamma.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

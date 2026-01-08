@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TollcollectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TollcollectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.toll-collect.de/de/toll_collect/systemservice/login/Login.html",
+        loginUrl: "https://www.toll-collect.de/de/toll_collect/systemservice/login/Login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

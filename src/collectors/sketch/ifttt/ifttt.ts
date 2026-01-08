@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IftttCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IftttCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ifttt.com/billing",
+        loginUrl: "https://ifttt.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

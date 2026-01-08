@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MmaSanteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MmaSanteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.mma.fr/authenticationForm/compteClientLogin/index?nexturl=https%253A%252F%252Fespace-client.mma.fr%252Fconnaissance-client%252Fsynthese&domain=client",
+        loginUrl: "https://espace-client.mma.fr/authenticationForm/compteClientLogin/index?nexturl=https%253A%252F%252Fespace-client.mma.fr%252Fconnaissance-client%252Fsynthese&domain=client",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VirtuoForBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VirtuoForBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.govirtuo.com/fr/invoices",
+        loginUrl: "https://business.govirtuo.com/fr/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

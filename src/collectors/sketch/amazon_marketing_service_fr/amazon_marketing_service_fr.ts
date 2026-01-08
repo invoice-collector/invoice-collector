@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonMarketingServiceFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonMarketingServiceFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://advertising.amazon.fr",
+        loginUrl: "https://advertising.amazon.fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

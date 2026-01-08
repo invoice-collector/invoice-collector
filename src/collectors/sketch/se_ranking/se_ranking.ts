@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeRankingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeRankingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.seranking.com/admin.subscription.html#/payments/",
+        loginUrl: "https://online.seranking.com/admin.subscription.html#/payments/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FeratelDeskclientCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FeratelDeskclientCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://webclient4.deskline.net/JOH/de/settlements/vrsettlementlist/8ca6dca5-b284-4a13-9941-12a851a24dbf?dbOv=MT3",
+        loginUrl: "https://webclient4.deskline.net/JOH/de/settlements/vrsettlementlist/8ca6dca5-b284-4a13-9941-12a851a24dbf?dbOv=MT3",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

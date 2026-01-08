@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UserbackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UserbackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.userback.io/account/billing",
+        loginUrl: "https://app.userback.io/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

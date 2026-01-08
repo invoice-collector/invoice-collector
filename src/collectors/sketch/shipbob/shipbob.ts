@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShipbobCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShipbobCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.shipbob.com/App/IndexV2/#/Billing",
+        loginUrl: "https://web.shipbob.com/App/IndexV2/#/Billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

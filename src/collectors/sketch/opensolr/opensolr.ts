@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpensolrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpensolrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://opensolr.com/users/login",
+        loginUrl: "https://opensolr.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

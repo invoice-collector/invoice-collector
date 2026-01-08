@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EVendoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EVendoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.e-vendo.de/",
+        loginUrl: "https://www.e-vendo.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

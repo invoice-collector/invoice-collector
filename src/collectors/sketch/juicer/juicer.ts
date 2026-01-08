@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JuicerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JuicerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.juicer.io/log-in",
+        loginUrl: "https://www.juicer.io/log-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

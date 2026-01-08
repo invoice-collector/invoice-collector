@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoxoneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LoxoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.loxone.com/dede/login/",
+        loginUrl: "https://www.loxone.com/dede/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

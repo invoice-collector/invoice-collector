@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class A25Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class A25Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.a25csc.com/facture/",
+        loginUrl: "https://www.a25csc.com/facture/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

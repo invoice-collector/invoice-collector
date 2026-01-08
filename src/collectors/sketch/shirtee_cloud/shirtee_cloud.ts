@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShirteeCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShirteeCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.shirtee.cloud/wallet",
+        loginUrl: "https://dashboard.shirtee.cloud/wallet",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

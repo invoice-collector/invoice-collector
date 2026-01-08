@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KitstoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KitstoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kitstore.de/customer/",
+        loginUrl: "https://www.kitstore.de/customer/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

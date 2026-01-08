@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdaptyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdaptyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.adapty.io/account/billing-history",
+        loginUrl: "https://app.adapty.io/account/billing-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TerralinkNetworksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TerralinkNetworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.terralink.de/dsl-festnetztarife-fuer-privatkunden.html",
+        loginUrl: "https://www.terralink.de/dsl-festnetztarife-fuer-privatkunden.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

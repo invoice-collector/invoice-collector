@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DesignCutsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DesignCutsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.designcuts.com/your-account/",
+        loginUrl: "https://www.designcuts.com/your-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

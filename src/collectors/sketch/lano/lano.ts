@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LanoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LanoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fms.lano.io/de/login",
+        loginUrl: "https://fms.lano.io/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

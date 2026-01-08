@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZentralerErechnungseingangNiedersachsenZernCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZentralerErechnungseingangNiedersachsenZernCollector extends Sketch
                 mandatory: true
             }
         },
-        entryUrl: "https://erechnung.niedersachsen.de/Identity/Account/Login?returnUrl=~/vorgang%2Fbfdd9a76-1545-4d77-964b-d823ba5ed29c",
+        loginUrl: "https://erechnung.niedersachsen.de/Identity/Account/Login?returnUrl=~/vorgang%2Fbfdd9a76-1545-4d77-964b-d823ba5ed29c",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

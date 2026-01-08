@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpusEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpusEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.opusenergy.com/login?ReturnUrl=https://my.opusenergy.com/",
+        loginUrl: "https://my.opusenergy.com/login?ReturnUrl=https://my.opusenergy.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

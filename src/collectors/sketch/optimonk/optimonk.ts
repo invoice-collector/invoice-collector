@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptimonkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OptimonkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.optimonk.com/en/login",
+        loginUrl: "https://my.optimonk.com/en/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

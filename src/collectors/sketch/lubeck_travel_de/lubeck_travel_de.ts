@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LubeckTravelDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LubeckTravelDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.travanto.de/vermieter/login?portal",
+        loginUrl: "https://login.travanto.de/vermieter/login?portal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

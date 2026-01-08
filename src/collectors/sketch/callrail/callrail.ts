@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CallrailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CallrailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.callrail.com/settings/a/292910140/account/billing",
+        loginUrl: "https://app.callrail.com/settings/a/292910140/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

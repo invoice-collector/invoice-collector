@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EngieBeNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EngieBeNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.engie.be/nl/professionals/customer-area/facturen-en-betalingen/facturen-betalingen/",
+        loginUrl: "https://www.engie.be/nl/professionals/customer-area/facturen-en-betalingen/facturen-betalingen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

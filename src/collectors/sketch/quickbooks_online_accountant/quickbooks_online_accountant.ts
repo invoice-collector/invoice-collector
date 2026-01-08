@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuickbooksOnlineAccountantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuickbooksOnlineAccountantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://quickbooks.intuit.com/",
+        loginUrl: "https://quickbooks.intuit.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

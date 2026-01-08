@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartlookCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartlookCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.smartlook.com/settings/billing/profile",
+        loginUrl: "https://app.smartlook.com/settings/billing/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

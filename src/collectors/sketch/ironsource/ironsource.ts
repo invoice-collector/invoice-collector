@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IronsourceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IronsourceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://platform.ironsrc.com/partners/funds/payments/statements",
+        loginUrl: "https://platform.ironsrc.com/partners/funds/payments/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

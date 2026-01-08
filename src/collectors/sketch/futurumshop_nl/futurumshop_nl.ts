@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FuturumshopNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FuturumshopNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.futurumshop.nl/?action=auth/login",
+        loginUrl: "https://www.futurumshop.nl/?action=auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

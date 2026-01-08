@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeslafiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TeslafiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.teslafi.com/userlogin.php",
+        loginUrl: "https://www.teslafi.com/userlogin.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

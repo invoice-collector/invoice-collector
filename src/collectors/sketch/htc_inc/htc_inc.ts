@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HtcIncCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HtcIncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.htcinc.net/controller/login",
+        loginUrl: "https://myaccount.htcinc.net/controller/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

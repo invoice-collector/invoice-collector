@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AthlonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AthlonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.athlon.com",
+        loginUrl: "http://www.athlon.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

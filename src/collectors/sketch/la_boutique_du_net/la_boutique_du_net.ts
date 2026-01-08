@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaBoutiqueDuNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LaBoutiqueDuNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.laboutiquedunet.com/c-connexion/Connexion.html?ProcessusOrigine=&PageOrigine=&Var1Origine=&Var2Origine=",
+        loginUrl: "https://www.laboutiquedunet.com/c-connexion/Connexion.html?ProcessusOrigine=&PageOrigine=&Var1Origine=&Var2Origine=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

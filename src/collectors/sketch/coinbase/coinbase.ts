@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoinbaseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoinbaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.coinbase.com/signin",
+        loginUrl: "https://www.coinbase.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

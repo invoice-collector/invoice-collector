@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HandyvertragDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HandyvertragDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.handyvertrag.de/mytariff/invoice/showAll",
+        loginUrl: "https://service.handyvertrag.de/mytariff/invoice/showAll",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

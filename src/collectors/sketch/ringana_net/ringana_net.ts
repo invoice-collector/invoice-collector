@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RinganaNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RinganaNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ringana.net/",
+        loginUrl: "https://www.ringana.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

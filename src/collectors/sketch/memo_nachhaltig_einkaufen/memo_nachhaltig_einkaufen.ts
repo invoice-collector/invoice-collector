@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MemoNachhaltigEinkaufenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MemoNachhaltigEinkaufenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.memo.de/account",
+        loginUrl: "https://www.memo.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

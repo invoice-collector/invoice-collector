@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobilepinGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MobilepinGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mobilepin.de/invoices-all",
+        loginUrl: "https://mobilepin.de/invoices-all",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

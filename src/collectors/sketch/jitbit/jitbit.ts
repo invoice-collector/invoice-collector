@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JitbitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JitbitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pruefengel.jitbit.com/helpdesk/Admin/Billing",
+        loginUrl: "https://pruefengel.jitbit.com/helpdesk/Admin/Billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

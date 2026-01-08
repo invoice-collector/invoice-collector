@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlternaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlternaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail.alterna-energie.fr/mon-compte/mes-factures",
+        loginUrl: "https://portail.alterna-energie.fr/mon-compte/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

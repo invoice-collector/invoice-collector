@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PanthermediaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PanthermediaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bildagentur.panthermedia.net/pm/sign-in",
+        loginUrl: "https://bildagentur.panthermedia.net/pm/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

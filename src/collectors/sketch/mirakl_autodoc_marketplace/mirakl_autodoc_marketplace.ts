@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklAutodocMarketplaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiraklAutodocMarketplaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://autodocde-prod.mirakl.net/sellerpayment/shop/transaction?select-search=ORDER_NUMBER_REF&limit=25",
+        loginUrl: "https://autodocde-prod.mirakl.net/sellerpayment/shop/transaction?select-search=ORDER_NUMBER_REF&limit=25",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

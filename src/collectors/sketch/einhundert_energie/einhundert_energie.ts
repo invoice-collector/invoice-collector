@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EinhundertEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EinhundertEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.einhundert-energie.de/invoices",
+        loginUrl: "https://portal.einhundert-energie.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

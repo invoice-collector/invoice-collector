@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnnaReckmannShopAdminCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AnnaReckmannShopAdminCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.annareckmann.com/admin#/login",
+        loginUrl: "https://shop.annareckmann.com/admin#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

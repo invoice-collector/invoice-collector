@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMnhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleMnhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adherent.mnh.fr/",
+        loginUrl: "https://adherent.mnh.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimetrackEnterpriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TimetrackEnterpriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.timetrackenterprise.com/#/login",
+        loginUrl: "https://cloud.timetrackenterprise.com/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

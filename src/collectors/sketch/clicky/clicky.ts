@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClickyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clicky.com/user/payments",
+        loginUrl: "https://clicky.com/user/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

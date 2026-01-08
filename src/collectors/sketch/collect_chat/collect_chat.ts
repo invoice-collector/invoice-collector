@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CollectChatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CollectChatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.collect.chat/login",
+        loginUrl: "https://dashboard.collect.chat/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

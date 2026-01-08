@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DentalMonitoringAuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DentalMonitoringAuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dental-monitoring.com/doctor/login?loc=%2Fdoctor%2F",
+        loginUrl: "https://dental-monitoring.com/doctor/login?loc=%2Fdoctor%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

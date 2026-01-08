@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExaprintCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ExaprintCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.exaprint.fr/",
+        loginUrl: "https://www.exaprint.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

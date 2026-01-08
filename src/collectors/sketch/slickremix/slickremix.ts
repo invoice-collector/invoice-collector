@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SlickremixCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SlickremixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.slickremix.com/my-account/",
+        loginUrl: "https://www.slickremix.com/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

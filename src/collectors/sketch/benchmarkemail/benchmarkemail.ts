@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BenchmarkemailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BenchmarkemailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ui.benchmarkemail.com/BillingHistory",
+        loginUrl: "https://ui.benchmarkemail.com/BillingHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

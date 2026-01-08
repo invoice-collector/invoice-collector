@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class N2fCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class N2fCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.n2f.com/app/#/",
+        loginUrl: "https://www.n2f.com/app/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

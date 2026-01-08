@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebinterpretCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebinterpretCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.webinterpret.com/login",
+        loginUrl: "https://app.webinterpret.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

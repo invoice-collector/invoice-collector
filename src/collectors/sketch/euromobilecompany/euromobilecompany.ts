@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuromobilecompanyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EuromobilecompanyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://euromobilecompany.de/de/konto/rechnungen",
+        loginUrl: "https://euromobilecompany.de/de/konto/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

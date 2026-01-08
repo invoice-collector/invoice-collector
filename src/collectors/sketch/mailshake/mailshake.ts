@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailshakeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailshakeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mailshake.com/app/",
+        loginUrl: "https://mailshake.com/app/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

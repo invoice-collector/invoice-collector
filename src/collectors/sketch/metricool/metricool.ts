@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetricoolCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MetricoolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.metricool.com/settings-payments",
+        loginUrl: "https://app.metricool.com/settings-payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

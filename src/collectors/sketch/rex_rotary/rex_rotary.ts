@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RexRotaryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RexRotaryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rex-demat.fr/programs/adminirex_client",
+        loginUrl: "https://rex-demat.fr/programs/adminirex_client",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

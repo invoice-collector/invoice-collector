@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NixstatsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NixstatsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nixstats.com/settings/invoices",
+        loginUrl: "https://nixstats.com/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

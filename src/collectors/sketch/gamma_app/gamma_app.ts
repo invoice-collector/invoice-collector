@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GammaAppCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GammaAppCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gamma.app/settings",
+        loginUrl: "https://gamma.app/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

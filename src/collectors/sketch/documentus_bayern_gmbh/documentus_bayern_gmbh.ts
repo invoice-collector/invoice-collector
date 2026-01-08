@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DocumentusBayernGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DocumentusBayernGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.documentus-bayern.de/documentus/login",
+        loginUrl: "https://portal.documentus-bayern.de/documentus/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

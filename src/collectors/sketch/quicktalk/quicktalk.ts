@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuicktalkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuicktalkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.quicktalk.com/billing",
+        loginUrl: "https://app.quicktalk.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

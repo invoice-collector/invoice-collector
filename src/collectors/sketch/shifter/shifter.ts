@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShifterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShifterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shifter.io/panel/billing",
+        loginUrl: "https://shifter.io/panel/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

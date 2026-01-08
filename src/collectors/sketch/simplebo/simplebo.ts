@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimpleboCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimpleboCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://compte.simplebo.net/sites-internet/mes-sites/Sh_Of6Ohn-hBbjb8T_n6nQ/tableau-de-bord",
+        loginUrl: "https://compte.simplebo.net/sites-internet/mes-sites/Sh_Of6Ohn-hBbjb8T_n6nQ/tableau-de-bord",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

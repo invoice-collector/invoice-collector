@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhiladelphiaInsuranceCompaniesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PhiladelphiaInsuranceCompaniesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.phly.com/myphly/login.aspx",
+        loginUrl: "https://www.phly.com/myphly/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

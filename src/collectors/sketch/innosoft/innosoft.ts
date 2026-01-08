@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InnosoftCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InnosoftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.innosoft.at/bill",
+        loginUrl: "https://my.innosoft.at/bill",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

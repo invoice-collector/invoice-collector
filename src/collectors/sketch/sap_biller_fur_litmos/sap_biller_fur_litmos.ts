@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SapBillerFurLitmosCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SapBillerFurLitmosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://directbilling.sap.com/bd_callidus/public/frameset_top_html.jsp",
+        loginUrl: "https://directbilling.sap.com/bd_callidus/public/frameset_top_html.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

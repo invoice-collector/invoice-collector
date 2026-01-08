@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebtropiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebtropiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zkm.webtropia.com/login",
+        loginUrl: "https://zkm.webtropia.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 
