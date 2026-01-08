@@ -154,12 +154,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
                 console.log("User is successfully logged in")
 
-                // Update secret.cookies
-                secret.cookies = await driver.getCookies(this.config.autoLogin?.cookieNames);
-
-                // Update secret.localStorage
-                secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
-
                 // Set progress step to collecting
                 state.update(State._5_COLLECTING);
                 webSocketServer?.sendState(State._5_COLLECTING);
@@ -174,10 +168,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     await driver.goto(this.config.loginUrl);
                     // Perform interactive login
                     await this.interactiveLogin(driver, secret.params, webSocketServer);
-                    // Update secret.cookies
-                    secret.cookies = await driver.getCookies(this.config.autoLogin?.cookieNames);
-                    // Update secret.localStorage
-                    secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
                     // Save customer area url
                     collectorMemory.customerAreaUrl = driver.url();
                     await collectorMemory.commit();
@@ -206,6 +196,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     throw new DisconnectedError(this);
                 }
             }
+
+            // Update secret.cookies
+            secret.cookies = await driver.getCookies(this.config.autoLogin?.cookieNames);
+            // Update secret.localStorage
+            secret.localStorage = await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys);
 
             // Restore previous load images value
             if(webSocketServer) {
