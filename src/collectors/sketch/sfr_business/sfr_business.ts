@@ -10,7 +10,7 @@ export class SfrBusinessCollector extends SketchCollector {
         description: "i18n.collectors.sfr_business.description",
         version: "0",
         website: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/72746.jpg",
+        logo: "https://static.s-sfr.fr/assets/logos/SFR_Business.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

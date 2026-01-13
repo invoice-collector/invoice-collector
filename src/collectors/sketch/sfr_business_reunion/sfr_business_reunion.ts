@@ -10,7 +10,7 @@ export class SfrBusinessReunionCollector extends SketchCollector {
         description: "i18n.collectors.sfr_business_reunion.description",
         version: "0",
         website: "https://mon-espace-entreprise.sfr.re/documents/3133363030333338343a666163747572655f5346525f575743445f313731363631365f41424f5f3836303031375f3230323231302e706466",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/1444815.jpg",
+        logo: "https://static.s-sfr.fr/assets/logos/SFR_Business.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

@@ -2,15 +2,15 @@
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
-export class SfrReunionCollector extends SketchCollector {
+export class SfrReCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "sfr_reunion",
-        name: "SFR Reunion",
-        description: "i18n.collectors.sfr_reunion.description",
+        id: "sfr_re",
+        name: "SFR (.re)",
+        description: "i18n.collectors.sfr_re.description",
         version: "0",
         website: "https://sso.sfr.re/login?service=https://www.sfr.re/boutique-mobile/api/secure/validate",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/135081.jpg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/9/97/SFR-2022-logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -33,6 +33,6 @@ export class SfrReunionCollector extends SketchCollector {
     }
 
     constructor() {
-        super(SfrReunionCollector.CONFIG);
+        super(SfrReCollector.CONFIG);
     }
 }
