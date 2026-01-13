@@ -28,7 +28,7 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
         // Check if a mandatory field is missing
         for (const [key, value] of Object.entries(this.config.params)) {
             if (value.mandatory && !secret.params[key]) {
-                throw new AuthenticationError(`i18n.collectors.all.missing_param`, this);
+                throw new AuthenticationError('i18n.collectors.all.missing_param', this);
             }
         }
 
