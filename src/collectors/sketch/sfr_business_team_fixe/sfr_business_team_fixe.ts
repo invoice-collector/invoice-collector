@@ -10,7 +10,7 @@ export class SfrBusinessTeamFixeCollector extends SketchCollector {
         description: "i18n.collectors.sfr_business_team_fixe.description",
         version: "0",
         website: "https://extranet.sfrbusinessteam.fr/extranet/servlet/EntrepriseApplicationServlet/ConnexionURL/DiveLoginPage?0",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/136700.jpg",
+        logo: "https://static.s-sfr.fr/assets/logos/SFR_Business.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {

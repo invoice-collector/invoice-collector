@@ -6,11 +6,11 @@ export class SfrFrCollector extends SketchCollector {
 
     static CONFIG = {
         id: "sfr_fr",
-        name: "SFR.fr",
+        name: "SFR (.fr)",
         description: "i18n.collectors.sfr_fr.description",
         version: "0",
-        website: "https://www.sfr.fr/cas/login?service=https%3A%2F%2Fwww.sfr.fr%2Faccueil%2Fj_spring_cas_security_check#sfrintid=HS_EC_Me-connecter",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/8754.jpg",
+        website: "https://sfr.fr",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/9/97/SFR-2022-logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,7 +26,7 @@ export class SfrFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        loginUrl: "https://www.sfr.fr/cas/login?service=https%3A%2F%2Fwww.sfr.fr%2Faccueil%2Fj_spring_cas_security_check#sfrintid=HS_EC_Me-connecter",
+        loginUrl: "https://www.sfr.fr/mon-espace-client/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT

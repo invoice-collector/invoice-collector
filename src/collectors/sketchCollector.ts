@@ -19,7 +19,7 @@ export abstract class SketchCollector extends WebCollector {
     }
 
     async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined ): Promise<string | void> {
-        throw new AuthenticationError("This collector is available with interactive login only.", this);
+        return;
     }
 
     async isEmpty(driver: Driver): Promise<boolean> {
