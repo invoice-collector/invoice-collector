@@ -22,6 +22,10 @@ export abstract class SketchCollector extends WebCollector {
         throw new AuthenticationError("This collector is available with interactive login only.", this);
     }
 
+    async isEmpty(driver: Driver): Promise<boolean> {
+        return true;
+    }
+
     async getInvoices(driver: Driver, params: any): Promise<Element[]> {
         return [];
     }
