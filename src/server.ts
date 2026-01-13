@@ -262,6 +262,7 @@ export class Server {
         theme: string,
         subscribedCollectors: string[],
         isSubscribedToAll: boolean,
+        enableInteractiveLogin: boolean,
         displaySketchCollectors: boolean,
         maxDelayBetweenCollect: number,
         plan: Plan
@@ -279,6 +280,7 @@ export class Server {
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
+            enableInteractiveLogin: customer.enableInteractiveLogin,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
             plan: customer.plan
@@ -294,6 +296,7 @@ export class Server {
         theme: string | undefined,
         subscribedCollectors: string[] | undefined,
         isSubscribedToAll: boolean | undefined,
+        enableInteractiveLogin: boolean | undefined,
         displaySketchCollectors: boolean | undefined
     ): Promise<void> {
         // Get customer from bearer
@@ -325,6 +328,10 @@ export class Server {
 
         if (typeof isSubscribedToAll === 'boolean') {
             customer.isSubscribedToAll = isSubscribedToAll;
+        }
+
+        if (typeof enableInteractiveLogin === 'boolean') {
+            customer.enableInteractiveLogin = enableInteractiveLogin;
         }
 
         if (typeof displaySketchCollectors === 'boolean') {
