@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OverleafCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OverleafCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.overleaf.com/users/sign_in",
+        loginUrl: "https://www.overleaf.com/users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

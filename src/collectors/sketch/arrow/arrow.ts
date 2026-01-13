@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArrowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ArrowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.arrowecs.fr/partner-portal/invoices.do",
+        loginUrl: "https://my.arrowecs.fr/partner-portal/invoices.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

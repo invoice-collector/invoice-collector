@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinxeaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LinxeaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.linxea.com/",
+        loginUrl: "https://www.linxea.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

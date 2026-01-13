@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FoodoraPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FoodoraPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.foodora.com/finance",
+        loginUrl: "https://partner.foodora.com/finance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

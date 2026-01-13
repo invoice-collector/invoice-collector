@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxpoolCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaxpoolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://maxoffice.maxpool.de/#/legacy/accountingOverview",
+        loginUrl: "https://maxoffice.maxpool.de/#/legacy/accountingOverview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

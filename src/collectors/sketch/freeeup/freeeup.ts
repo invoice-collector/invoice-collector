@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreeeupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FreeeupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://timeclock.freeeup.com/payments",
+        loginUrl: "https://timeclock.freeeup.com/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

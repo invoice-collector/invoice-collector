@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FruuxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FruuxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fruux.com/account/login/",
+        loginUrl: "https://fruux.com/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartsheetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartsheetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.smartsheet.com/b/home?_ga=2.229225886.34790070.1604168243-171507766.1604168243",
+        loginUrl: "https://app.smartsheet.com/b/home?_ga=2.229225886.34790070.1604168243-171507766.1604168243",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

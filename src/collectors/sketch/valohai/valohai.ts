@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ValohaiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ValohaiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.valohai.com/organizations/3717/#/billing/invoices",
+        loginUrl: "https://app.valohai.com/organizations/3717/#/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

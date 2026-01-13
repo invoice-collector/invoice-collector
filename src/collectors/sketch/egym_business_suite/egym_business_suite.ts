@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EgymBusinessSuiteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EgymBusinessSuiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.egym.com/business-suite/",
+        loginUrl: "https://www.egym.com/business-suite/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

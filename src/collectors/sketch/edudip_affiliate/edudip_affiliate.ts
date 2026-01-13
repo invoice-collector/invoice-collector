@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdudipAffiliateCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdudipAffiliateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://affiliate.edudip.com",
+        loginUrl: "https://affiliate.edudip.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

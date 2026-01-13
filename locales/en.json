@@ -346,6 +346,7 @@
   "i18n.collectors.all.login.cancel": "You have cancelled the addition of the collector",
   "i18n.collectors.all.login.expired": "Your session has expired. Please log in again to reconnect the account.",
   "i18n.collectors.all.login.timeout": "Login time expired. Please try again.",
+  "i18n.collectors.all.missing_param": "A required parameter is missing. Please create a new collector and delete this one.",
   "i18n.collectors.all.password": "Password",
   "i18n.collectors.all.password.error": "Incorrect password",
   "i18n.collectors.all.password.placeholder": "Password of the account",

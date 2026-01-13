@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FederatedAutoPartsFederatedLinkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FederatedAutoPartsFederatedLinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.federatedlink.com/ecomm/ar/Invoices.aspx",
+        loginUrl: "https://www.federatedlink.com/ecomm/ar/Invoices.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

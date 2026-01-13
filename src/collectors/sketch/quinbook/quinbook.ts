@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuinbookCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuinbookCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://quinbook.com/Seller/#invoices",
+        loginUrl: "https://quinbook.com/Seller/#invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

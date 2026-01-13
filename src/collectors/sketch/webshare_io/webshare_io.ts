@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebshareIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebshareIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://proxy.webshare.io/subscription/invoices/",
+        loginUrl: "https://proxy.webshare.io/subscription/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

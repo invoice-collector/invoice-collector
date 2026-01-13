@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YuccanleadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YuccanleadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.yuccanlead.com/webapp/leads/pay/",
+        loginUrl: "https://www.yuccanlead.com/webapp/leads/pay/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

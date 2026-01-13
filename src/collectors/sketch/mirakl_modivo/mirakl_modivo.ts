@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklModivoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiraklModivoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://modivo.mirakl.net/sellerpayment/shop/accounting-document/",
+        loginUrl: "https://modivo.mirakl.net/sellerpayment/shop/accounting-document/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

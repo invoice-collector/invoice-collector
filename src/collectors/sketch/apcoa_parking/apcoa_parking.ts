@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApcoaParkingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ApcoaParkingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mein-apcoa.de/",
+        loginUrl: "https://www.mein-apcoa.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

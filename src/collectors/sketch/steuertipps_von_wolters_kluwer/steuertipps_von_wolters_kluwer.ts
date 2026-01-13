@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SteuertippsVonWoltersKluwerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SteuertippsVonWoltersKluwerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.steuertipps.de/profil",
+        loginUrl: "https://www.steuertipps.de/profil",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalestringCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SalestringCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://salestring.hasoffers.com/publisher/#!/billing?limit=10&page=1",
+        loginUrl: "http://salestring.hasoffers.com/publisher/#!/billing?limit=10&page=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

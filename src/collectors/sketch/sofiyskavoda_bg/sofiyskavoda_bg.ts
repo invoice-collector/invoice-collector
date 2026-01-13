@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SofiyskavodaBgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SofiyskavodaBgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sofiyskavoda.bg/login",
+        loginUrl: "https://sofiyskavoda.bg/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

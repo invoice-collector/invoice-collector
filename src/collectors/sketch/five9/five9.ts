@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Five9Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Five9Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.five9.com/",
+        loginUrl: "https://login.five9.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

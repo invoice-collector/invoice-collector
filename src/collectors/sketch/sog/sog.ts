@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SogCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SogCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sog.de/erp-warenwirtschaft/uebersicht-erp.html",
+        loginUrl: "https://www.sog.de/erp-warenwirtschaft/uebersicht-erp.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

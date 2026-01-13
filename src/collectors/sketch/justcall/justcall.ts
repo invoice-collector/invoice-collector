@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JustcallCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JustcallCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://justcall.io/login",
+        loginUrl: "https://justcall.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HillwoodCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HillwoodCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hillwood.secure.munibilling.com/customers/sign_in",
+        loginUrl: "https://hillwood.secure.munibilling.com/customers/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

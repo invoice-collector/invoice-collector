@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PostLuxembourgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PostLuxembourgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mypost.lu/fixe-web/invoice",
+        loginUrl: "https://www.mypost.lu/fixe-web/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

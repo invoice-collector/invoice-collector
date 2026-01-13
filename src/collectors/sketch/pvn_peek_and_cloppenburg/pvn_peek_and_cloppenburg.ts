@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PvnPeekAndCloppenburgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PvnPeekAndCloppenburgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pvn.peek-cloppenburg.de/user-billings.do",
+        loginUrl: "https://pvn.peek-cloppenburg.de/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

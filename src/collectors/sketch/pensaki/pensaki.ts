@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PensakiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PensakiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pensaki.com/de/my/shop/orders/",
+        loginUrl: "https://www.pensaki.com/de/my/shop/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

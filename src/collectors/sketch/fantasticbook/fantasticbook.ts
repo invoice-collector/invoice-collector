@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FantasticbookCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FantasticbookCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://brocolis.fantasticbook.co/user/clients/bank/Qi1-NQ",
+        loginUrl: "https://brocolis.fantasticbook.co/user/clients/bank/Qi1-NQ",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

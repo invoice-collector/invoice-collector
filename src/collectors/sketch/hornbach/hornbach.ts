@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HornbachCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HornbachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hornbach.de/shop/account/login.html",
+        loginUrl: "https://www.hornbach.de/shop/account/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

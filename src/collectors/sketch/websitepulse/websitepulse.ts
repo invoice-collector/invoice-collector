@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebsitepulseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebsitepulseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.websitepulse.com/login",
+        loginUrl: "https://www.websitepulse.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

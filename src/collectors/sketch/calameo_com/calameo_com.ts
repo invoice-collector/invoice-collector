@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalameoComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CalameoComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.calameo.com/account/invoice",
+        loginUrl: "https://de.calameo.com/account/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

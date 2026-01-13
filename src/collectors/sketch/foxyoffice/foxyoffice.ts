@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FoxyofficeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FoxyofficeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mars.foxyoffice.eu/ellimachtfit/",
+        loginUrl: "https://mars.foxyoffice.eu/ellimachtfit/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

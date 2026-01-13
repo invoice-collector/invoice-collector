@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkyComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SkyComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.sky.com/bill",
+        loginUrl: "https://myaccount.sky.com/bill",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

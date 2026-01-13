@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TotemCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TotemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://totem.co/",
+        loginUrl: "https://totem.co/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

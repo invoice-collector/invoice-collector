@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyftpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasyftpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.easyftp.io/[user-name-placeholder]/billing",
+        loginUrl: "https://www.easyftp.io/[user-name-placeholder]/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

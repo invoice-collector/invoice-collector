@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MecchaJapanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MecchaJapanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meccha-japan.com/en/login?back=my-account",
+        loginUrl: "https://meccha-japan.com/en/login?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

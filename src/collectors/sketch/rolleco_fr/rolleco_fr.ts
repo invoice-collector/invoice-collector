@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RollecoFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RollecoFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rolleco.fr/connexion?back=my-account",
+        loginUrl: "https://www.rolleco.fr/connexion?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

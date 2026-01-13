@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YellComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YellComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.yell.com/sso/login",
+        loginUrl: "https://auth.yell.com/sso/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

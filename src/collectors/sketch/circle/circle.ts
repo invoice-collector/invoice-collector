@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CircleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CircleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.circle.so/sign_in?request_host=app.circle.so",
+        loginUrl: "https://login.circle.so/sign_in?request_host=app.circle.so",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

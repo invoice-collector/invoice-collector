@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _11FreundeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _11FreundeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.11freunde.de/customer/account/login/",
+        loginUrl: "https://shop.11freunde.de/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

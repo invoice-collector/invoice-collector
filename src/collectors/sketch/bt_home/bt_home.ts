@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BtHomeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BtHomeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://home.bt.com/login/loginform?TYPE=33554433&REALMOID=06-f1aca0f0-9277-1028-a2aa-843bdb4e0000&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=$SM$jaE9RZHjBubvgi6UkuSlm3S9U4%2f%2fhegw3cPiRzNtV%2fxpvcJIObGL7PMFGk1F%2fqs88fC1UwqZHelSgJpU668r0pZ3Na7N6zn9&TAR",
+        loginUrl: "https://home.bt.com/login/loginform?TYPE=33554433&REALMOID=06-f1aca0f0-9277-1028-a2aa-843bdb4e0000&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=$SM$jaE9RZHjBubvgi6UkuSlm3S9U4%2f%2fhegw3cPiRzNtV%2fxpvcJIObGL7PMFGk1F%2fqs88fC1UwqZHelSgJpU668r0pZ3Na7N6zn9&TAR",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

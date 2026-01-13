@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GympassCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GympassCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners.gympass.com/payslips",
+        loginUrl: "https://partners.gympass.com/payslips",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

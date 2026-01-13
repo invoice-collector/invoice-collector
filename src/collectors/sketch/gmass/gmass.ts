@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GmassCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GmassCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gmass.co",
+        loginUrl: "https://www.gmass.co",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

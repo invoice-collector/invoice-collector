@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexudusImpacthubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NexudusImpacthubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://impacthubhamburg.spaces.nexudus.com/profile/invoices",
+        loginUrl: "https://impacthubhamburg.spaces.nexudus.com/profile/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

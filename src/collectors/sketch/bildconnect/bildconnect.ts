@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BildconnectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BildconnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.bildconnect.de/mytariff/invoice/showAll",
+        loginUrl: "https://service.bildconnect.de/mytariff/invoice/showAll",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

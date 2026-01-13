@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RakutenMerchantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RakutenMerchantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchants.rakuten.de/office/invoice/payout",
+        loginUrl: "https://merchants.rakuten.de/office/invoice/payout",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwissmademarketingAffiliatesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwissmademarketingAffiliatesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://affiliates.swissmademarketing.com/affiliates/panel.php#Payouts",
+        loginUrl: "http://affiliates.swissmademarketing.com/affiliates/panel.php#Payouts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

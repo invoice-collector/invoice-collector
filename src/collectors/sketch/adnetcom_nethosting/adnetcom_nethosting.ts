@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdnetcomNethostingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdnetcomNethostingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.nethosting.ws/login.html",
+        loginUrl: "http://www.nethosting.ws/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

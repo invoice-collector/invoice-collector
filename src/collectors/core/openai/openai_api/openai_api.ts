@@ -33,7 +33,8 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         captcha: CollectorCaptcha.NONE,
         autoLogin: {
             localStorageKeys: ['@@auth0spajs@@']
-        }
+        },
+        enableInteractiveLogin: true
     }
 
     constructor() {

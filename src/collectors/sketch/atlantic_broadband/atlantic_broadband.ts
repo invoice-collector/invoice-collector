@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AtlanticBroadbandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AtlanticBroadbandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://atlbb.convergentcare.com/atlbb/goToLogin.action?subClientId=2002#ContextMenu/documentView",
+        loginUrl: "https://atlbb.convergentcare.com/atlbb/goToLogin.action?subClientId=2002#ContextMenu/documentView",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdvancedAdsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdvancedAdsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wpadvancedads.com/account/",
+        loginUrl: "https://wpadvancedads.com/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

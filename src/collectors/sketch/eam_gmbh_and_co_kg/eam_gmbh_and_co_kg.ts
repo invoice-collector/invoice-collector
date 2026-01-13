@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EamGmbhAndCoKgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EamGmbhAndCoKgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eam.mein-portal.de/swp/eam/BILLING",
+        loginUrl: "https://eam.mein-portal.de/swp/eam/BILLING",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

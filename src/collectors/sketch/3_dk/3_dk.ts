@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _3DkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _3DkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.3.dk/selvbetjening/login?returnUrl=/selvbetjening/regning/",
+        loginUrl: "https://www.3.dk/selvbetjening/login?returnUrl=/selvbetjening/regning/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

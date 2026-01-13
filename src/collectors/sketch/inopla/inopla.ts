@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InoplaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InoplaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.inopla.de/realms/inopla/protocol/openid-connect/auth?response_type=code&client_id=administration&redirect_uri=https://app.inopla.de&scope=openid",
+        loginUrl: "https://auth.inopla.de/realms/inopla/protocol/openid-connect/auth?response_type=code&client_id=administration&redirect_uri=https://app.inopla.de&scope=openid",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

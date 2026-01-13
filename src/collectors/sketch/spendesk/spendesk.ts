@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpendeskCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpendeskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spendesk.com/auth/login",
+        loginUrl: "https://www.spendesk.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

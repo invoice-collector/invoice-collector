@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SevdeskCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SevdeskCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.sevdesk.de",
+        loginUrl: "https://my.sevdesk.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

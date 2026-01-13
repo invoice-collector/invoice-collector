@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _3SuissesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _3SuissesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.3suisses.fr/",
+        loginUrl: "https://www.3suisses.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

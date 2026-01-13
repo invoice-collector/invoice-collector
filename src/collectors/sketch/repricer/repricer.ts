@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepricerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RepricerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard-3.repricer.com/payments",
+        loginUrl: "https://dashboard-3.repricer.com/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MissionControlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MissionControlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.hellomissioncontrol.com",
+        loginUrl: "http://www.hellomissioncontrol.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Tele2MobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Tele2MobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tele2.com/about/who-we-are/product-and-services",
+        loginUrl: "https://www.tele2.com/about/who-we-are/product-and-services",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

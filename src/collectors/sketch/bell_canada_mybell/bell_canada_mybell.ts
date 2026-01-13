@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BellCanadaMybellCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BellCanadaMybellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mybell.bell.ca/MyBills",
+        loginUrl: "https://mybell.bell.ca/MyBills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

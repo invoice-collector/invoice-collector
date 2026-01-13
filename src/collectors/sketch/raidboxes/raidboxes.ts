@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RaidboxesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RaidboxesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.raidboxes.de/rechnungen",
+        loginUrl: "https://dashboard.raidboxes.de/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

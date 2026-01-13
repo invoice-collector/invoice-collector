@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrouponMerchantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GrouponMerchantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.groupon.de/merchant/center/login",
+        loginUrl: "https://www.groupon.de/merchant/center/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlanBNetZeroEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlanBNetZeroEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.planbnetzero-energy.com/",
+        loginUrl: "https://kundenportal.planbnetzero-energy.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

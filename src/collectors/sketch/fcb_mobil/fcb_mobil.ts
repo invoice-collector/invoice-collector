@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FcbMobilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FcbMobilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.fcbayernmobil.de/fcbayern-csc/login",
+        loginUrl: "https://kundenportal.fcbayernmobil.de/fcbayern-csc/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

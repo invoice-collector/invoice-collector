@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelloprintCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HelloprintCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.helloprint.fr/index.php?controller=order-slip",
+        loginUrl: "https://www.helloprint.fr/index.php?controller=order-slip",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

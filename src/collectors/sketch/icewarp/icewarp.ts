@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IcewarpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IcewarpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.icewarp.com/",
+        loginUrl: "https://login.icewarp.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

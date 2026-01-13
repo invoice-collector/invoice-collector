@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreenowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FreenowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://free-now.com/de/",
+        loginUrl: "https://free-now.com/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

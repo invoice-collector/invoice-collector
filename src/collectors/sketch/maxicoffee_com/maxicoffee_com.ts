@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxicoffeeComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaxicoffeeComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maxicoffee.com/account_home.php",
+        loginUrl: "https://www.maxicoffee.com/account_home.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

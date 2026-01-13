@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudsecretaryTelefonServiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CloudsecretaryTelefonServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cloudsecretary.de/panel/de/consumption/billing",
+        loginUrl: "https://www.cloudsecretary.de/panel/de/consumption/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShortwaveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShortwaveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.shortwave.com/login",
+        loginUrl: "https://app.shortwave.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

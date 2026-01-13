@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnimaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AnimaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://projects.animaapp.com/team/hard-selling-qyb2suf/settings/billing",
+        loginUrl: "https://projects.animaapp.com/team/hard-selling-qyb2suf/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

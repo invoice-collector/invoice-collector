@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GenoEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GenoEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.geno-energie.de/",
+        loginUrl: "https://portal.geno-energie.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

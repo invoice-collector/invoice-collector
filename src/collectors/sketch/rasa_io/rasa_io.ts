@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RasaIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RasaIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rasa.io/",
+        loginUrl: "https://rasa.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

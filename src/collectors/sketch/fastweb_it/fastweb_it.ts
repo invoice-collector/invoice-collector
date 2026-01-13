@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FastwebItCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FastwebItCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fastweb.it/myfastpage/accesso/login/",
+        loginUrl: "https://fastweb.it/myfastpage/accesso/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

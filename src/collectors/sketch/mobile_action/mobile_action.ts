@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobileActionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MobileActionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mobileaction.co/login",
+        loginUrl: "https://www.mobileaction.co/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

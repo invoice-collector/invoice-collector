@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalesourceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SalesourceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://salesource.io/subscription/billing_details",
+        loginUrl: "https://salesource.io/subscription/billing_details",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

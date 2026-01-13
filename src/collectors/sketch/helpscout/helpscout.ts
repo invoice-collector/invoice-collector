@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelpscoutCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HelpscoutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.helpscout.net/members/invoices/",
+        loginUrl: "https://secure.helpscout.net/members/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

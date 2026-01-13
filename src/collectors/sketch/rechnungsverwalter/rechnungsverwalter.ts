@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RechnungsverwalterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RechnungsverwalterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnungsverwalter.de/",
+        loginUrl: "https://rechnungsverwalter.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

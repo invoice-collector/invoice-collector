@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplytelDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimplytelDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.simplytel.de/",
+        loginUrl: "https://service.simplytel.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

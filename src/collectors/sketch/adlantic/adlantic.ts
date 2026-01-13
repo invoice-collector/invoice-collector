@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdlanticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdlanticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.adlantic.nl",
+        loginUrl: "http://www.adlantic.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

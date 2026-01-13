@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PodiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PodiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.podia.com/account/billing",
+        loginUrl: "https://app.podia.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

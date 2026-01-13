@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoiceflowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VoiceflowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://creator.voiceflow.com/workspace",
+        loginUrl: "https://creator.voiceflow.com/workspace",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

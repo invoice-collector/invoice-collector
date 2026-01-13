@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoftlayerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SoftlayerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://control.softlayer.com/account/invoices",
+        loginUrl: "https://control.softlayer.com/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

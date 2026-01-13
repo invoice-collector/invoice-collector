@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeElmshornCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeElmshornCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.stadtwerke-elmshorn.de/bkp/",
+        loginUrl: "https://service.stadtwerke-elmshorn.de/bkp/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

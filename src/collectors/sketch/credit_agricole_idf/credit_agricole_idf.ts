@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreditAgricoleIdfCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CreditAgricoleIdfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.credit-agricole.fr/ca-paris/professionnel/acceder-a-mes-comptes.html",
+        loginUrl: "https://www.credit-agricole.fr/ca-paris/professionnel/acceder-a-mes-comptes.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

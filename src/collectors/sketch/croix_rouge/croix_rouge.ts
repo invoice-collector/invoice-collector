@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CroixRougeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CroixRougeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.croix-rouge.fr/",
+        loginUrl: "https://www.croix-rouge.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

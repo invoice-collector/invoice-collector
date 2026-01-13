@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostwayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HostwayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hostway.com/sign-in/",
+        loginUrl: "https://hostway.com/sign-in/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

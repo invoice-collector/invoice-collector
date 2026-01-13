@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChadwicksGroupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChadwicksGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://grafton.softco.com/gmroi/Account/Login?ReturnUrl=%2Fgmroi%2F",
+        loginUrl: "https://grafton.softco.com/gmroi/Account/Login?ReturnUrl=%2Fgmroi%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

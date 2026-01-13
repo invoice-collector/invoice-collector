@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssuranceMutuelleDesMotardsAvisDEcheanceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AssuranceMutuelleDesMotardsAvisDEcheanceCollector extends SketchCol
                 mandatory: true
             }
         },
-        entryUrl: "https://ext2.mutuelledesmotards.fr/cas/login?service=https%3A%2F%2Fext2.mutuelledesmotards.fr%2FEspaceSocietaireApplication-web%2Fapp%2Fj_spring_cas_security_check",
+        loginUrl: "https://ext2.mutuelledesmotards.fr/cas/login?service=https%3A%2F%2Fext2.mutuelledesmotards.fr%2FEspaceSocietaireApplication-web%2Fapp%2Fj_spring_cas_security_check",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

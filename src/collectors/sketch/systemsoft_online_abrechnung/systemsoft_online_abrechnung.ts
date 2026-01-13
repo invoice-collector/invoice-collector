@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SystemsoftOnlineAbrechnungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SystemsoftOnlineAbrechnungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.systemsoft-gmbh.de/online-invoice/index.php",
+        loginUrl: "https://www.systemsoft-gmbh.de/online-invoice/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

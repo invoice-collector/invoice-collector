@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BuyerdockCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BuyerdockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://buyerdock.com/login/",
+        loginUrl: "https://buyerdock.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EspaceClientProOrangeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EspaceClientProOrangeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclientpro.orange.fr/contracts?redir=facture",
+        loginUrl: "https://espaceclientpro.orange.fr/contracts?redir=facture",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

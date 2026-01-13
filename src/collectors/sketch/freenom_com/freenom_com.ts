@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreenomComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FreenomComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.freenom.com/clientarea.php?action=invoices&language=english",
+        loginUrl: "https://my.freenom.com/clientarea.php?action=invoices&language=english",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

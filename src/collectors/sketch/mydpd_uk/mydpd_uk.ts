@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MydpdUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MydpdUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dpd.co.uk/umslogon/public/doLogon.do",
+        loginUrl: "https://www.dpd.co.uk/umslogon/public/doLogon.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AddpeopleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AddpeopleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.addpeople.co.uk/?utm_source=emailmarketing&utm_medium=email&utm_campaign=5be3fb16387d7_15874&utm_content=2019-10-09&cid=Brr5jrOyZlxmd5xwH1jFE1EOLUTA1IUYdK68J0wk5bdl6RrEjD6Hd64o0-3TZrlQwOlFRdTDxH0Hq08pXM6OTg..",
+        loginUrl: "https://members.addpeople.co.uk/?utm_source=emailmarketing&utm_medium=email&utm_campaign=5be3fb16387d7_15874&utm_content=2019-10-09&cid=Brr5jrOyZlxmd5xwH1jFE1EOLUTA1IUYdK68J0wk5bdl6RrEjD6Hd64o0-3TZrlQwOlFRdTDxH0Hq08pXM6OTg..",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrepperCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrepperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://preppr.com/app/billing",
+        loginUrl: "https://preppr.com/app/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

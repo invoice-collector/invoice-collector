@@ -32,6 +32,7 @@ export class LeclercCollector extends WebCollector {
         loginUrl: "https://www.e.leclerc/auth",
         entryUrl: "https://www.e.leclerc/espace-client/commandes/commandes",
         captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

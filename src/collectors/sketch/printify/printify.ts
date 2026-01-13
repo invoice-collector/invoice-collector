@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrintifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrintifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://printify.com/app/login",
+        loginUrl: "https://printify.com/app/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

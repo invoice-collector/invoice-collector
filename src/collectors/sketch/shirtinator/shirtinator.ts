@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShirtinatorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShirtinatorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shirtinator.de/einloggen/",
+        loginUrl: "https://www.shirtinator.de/einloggen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

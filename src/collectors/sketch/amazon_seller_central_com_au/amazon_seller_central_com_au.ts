@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSellerCentralComAuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonSellerCentralComAuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellercentral.amazon.com.au/tax/seller-fee-invoices",
+        loginUrl: "https://sellercentral.amazon.com.au/tax/seller-fee-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

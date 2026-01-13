@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AragCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AragCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.arag.de/meinearag/",
+        loginUrl: "https://www.arag.de/meinearag/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

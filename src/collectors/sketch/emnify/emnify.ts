@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmnifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmnifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cdn.emnify.net/#/billing",
+        loginUrl: "https://cdn.emnify.net/#/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

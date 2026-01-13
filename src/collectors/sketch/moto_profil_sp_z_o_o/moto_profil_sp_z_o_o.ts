@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotoProfilSpZOOCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MotoProfilSpZOOCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.profiauto.pl/Account/Login",
+        loginUrl: "https://id.profiauto.pl/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UriageCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UriageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.uriage.fr/login",
+        loginUrl: "https://www.uriage.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

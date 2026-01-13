@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlexclipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlexclipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flexclip.com/profile.html",
+        loginUrl: "https://www.flexclip.com/profile.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

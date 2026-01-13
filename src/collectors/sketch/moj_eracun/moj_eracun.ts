@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MojEracunCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MojEracunCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www2.moj-eracun.hr/b2b/login",
+        loginUrl: "https://www2.moj-eracun.hr/b2b/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

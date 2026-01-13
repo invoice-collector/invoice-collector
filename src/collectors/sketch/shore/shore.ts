@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.shore.com/merchant/sign_in",
+        loginUrl: "https://secure.shore.com/merchant/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Uk2numbersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Uk2numbersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.uk2numbers.co.uk",
+        loginUrl: "http://www.uk2numbers.co.uk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

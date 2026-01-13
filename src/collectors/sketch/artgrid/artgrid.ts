@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArtgridCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ArtgridCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://artgrid.io/my-account",
+        loginUrl: "https://artgrid.io/my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

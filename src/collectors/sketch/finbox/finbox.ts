@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FinboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://finbox.com/",
+        loginUrl: "https://finbox.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

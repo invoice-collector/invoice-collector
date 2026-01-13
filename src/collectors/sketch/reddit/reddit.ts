@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RedditCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RedditCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reddit.com/adslogin?dest=https://ads.reddit.com/",
+        loginUrl: "https://www.reddit.com/adslogin?dest=https://ads.reddit.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

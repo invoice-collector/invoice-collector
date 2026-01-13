@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CommunicationFournisseurCarrefourFranceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CommunicationFournisseurCarrefourFranceCollector extends SketchColl
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cfcf.carrefour.net/cfou/gestionFactDiff.aspx",
+        loginUrl: "https://www.cfcf.carrefour.net/cfou/gestionFactDiff.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

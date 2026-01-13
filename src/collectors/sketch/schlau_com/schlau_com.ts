@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchlauComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SchlauComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.schlau.com/#{1}",
+        loginUrl: "https://mein.schlau.com/#{1}",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

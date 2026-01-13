@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TurnoverbnbCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TurnoverbnbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.turnoverbnb.com/host/settings",
+        loginUrl: "https://app.turnoverbnb.com/host/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

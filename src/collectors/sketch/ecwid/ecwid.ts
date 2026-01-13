@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcwidCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EcwidCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.ecwid.com/store/16217913#orders",
+        loginUrl: "https://my.ecwid.com/store/16217913#orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

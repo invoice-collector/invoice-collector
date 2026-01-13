@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SilverlabSolutionGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SilverlabSolutionGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.silverlab-solutions.de/order-history",
+        loginUrl: "https://www.silverlab-solutions.de/order-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

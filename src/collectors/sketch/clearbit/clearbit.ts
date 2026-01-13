@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClearbitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClearbitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clearbit.com",
+        loginUrl: "https://clearbit.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

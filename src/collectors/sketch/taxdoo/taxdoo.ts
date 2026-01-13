@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaxdooCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TaxdooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.taxdoo.com/login.php",
+        loginUrl: "https://dashboard.taxdoo.com/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

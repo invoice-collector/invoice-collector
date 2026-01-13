@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BcnTelecomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BcnTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tbs.bcntele.com/v35/Login.aspx",
+        loginUrl: "https://tbs.bcntele.com/v35/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

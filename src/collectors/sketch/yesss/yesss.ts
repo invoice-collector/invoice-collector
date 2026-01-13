@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YesssCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YesssCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.yesss.at/kontomanager.at/aufladungen_rechnungsbelege.php",
+        loginUrl: "https://www.yesss.at/kontomanager.at/aufladungen_rechnungsbelege.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

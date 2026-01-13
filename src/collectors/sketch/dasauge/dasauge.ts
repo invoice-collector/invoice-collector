@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DasaugeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DasaugeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dasauge.de/mitglieder/rechnungen/?utm_source=erinnerung&utm_medium=email",
+        loginUrl: "https://dasauge.de/mitglieder/rechnungen/?utm_source=erinnerung&utm_medium=email",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

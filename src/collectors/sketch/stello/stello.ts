@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StelloCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StelloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.stello.eu/documents",
+        loginUrl: "https://app.stello.eu/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

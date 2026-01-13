@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ViprinetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ViprinetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://license.vlm.support/index.php",
+        loginUrl: "https://license.vlm.support/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

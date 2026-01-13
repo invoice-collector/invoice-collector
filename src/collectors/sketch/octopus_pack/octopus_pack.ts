@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OctopusPackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OctopusPackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.octopus-pack.de/checkout/confirm",
+        loginUrl: "https://www.octopus-pack.de/checkout/confirm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

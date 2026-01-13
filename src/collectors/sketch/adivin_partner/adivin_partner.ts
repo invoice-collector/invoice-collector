@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdivinPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdivinPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.adivin.com/index.php?idi=es#",
+        loginUrl: "https://partner.adivin.com/index.php?idi=es#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

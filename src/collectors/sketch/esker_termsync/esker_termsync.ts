@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EskerTermsyncCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EskerTermsyncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.termsync.com/login",
+        loginUrl: "https://www.termsync.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

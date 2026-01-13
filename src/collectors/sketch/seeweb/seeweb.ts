@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeewebCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeewebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aop.seeweb.it/",
+        loginUrl: "https://aop.seeweb.it/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

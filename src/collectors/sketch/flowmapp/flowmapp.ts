@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlowmappCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlowmappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.flowmapp.com/profile",
+        loginUrl: "https://app.flowmapp.com/profile",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

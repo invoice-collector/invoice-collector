@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuronicsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EuronicsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.euronics.de/account#hide-registration",
+        loginUrl: "https://www.euronics.de/account#hide-registration",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

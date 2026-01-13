@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LebaraDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LebaraDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lebara.de/de/mylebara/postpaid-bills.html",
+        loginUrl: "https://www.lebara.de/de/mylebara/postpaid-bills.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

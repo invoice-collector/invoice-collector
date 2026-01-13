@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MijnwebwinkelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MijnwebwinkelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.mijnwebwinkel.nl/login",
+        loginUrl: "https://account.mijnwebwinkel.nl/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

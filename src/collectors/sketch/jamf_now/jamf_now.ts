@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JamfNowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JamfNowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://now.jamfcloud.com/payments",
+        loginUrl: "https://now.jamfcloud.com/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

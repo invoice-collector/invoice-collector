@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PicTimeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PicTimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://us.pic-time.com/login",
+        loginUrl: "https://us.pic-time.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

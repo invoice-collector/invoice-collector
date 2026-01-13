@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SabeeappCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SabeeappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chm.sabeeapp.com/subscription/subscription",
+        loginUrl: "https://chm.sabeeapp.com/subscription/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

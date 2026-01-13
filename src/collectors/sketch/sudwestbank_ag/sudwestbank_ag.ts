@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SudwestbankAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SudwestbankAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.banking-suedwestbank.de/banking-private/entry",
+        loginUrl: "https://www.banking-suedwestbank.de/banking-private/entry",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

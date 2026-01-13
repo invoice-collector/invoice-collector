@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HanseaticCoffeeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HanseaticCoffeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hanseatic-coffee.com/account?_gl=1*p38520*_up*MQ..*_ga*MTk0NjIwNDkwNC4xNzM5MDQxMTI4*_ga_0N79EF267Y*MTczOTA0MTEyNy4xLjAuMTczOTA0MTEyNy4wLjAuMA..",
+        loginUrl: "https://hanseatic-coffee.com/account?_gl=1*p38520*_up*MQ..*_ga*MTk0NjIwNDkwNC4xNzM5MDQxMTI4*_ga_0N79EF267Y*MTczOTA0MTEyNy4xLjAuMTczOTA0MTEyNy4wLjAuMA..",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

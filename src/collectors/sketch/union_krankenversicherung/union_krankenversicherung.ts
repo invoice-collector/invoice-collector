@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnionKrankenversicherungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnionKrankenversicherungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ukv.de/content/",
+        loginUrl: "https://www.ukv.de/content/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

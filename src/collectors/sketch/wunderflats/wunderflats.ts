@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WunderflatsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WunderflatsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wunderflats.com/en/login?redirect=%2Fen%2Fabout",
+        loginUrl: "https://wunderflats.com/en/login?redirect=%2Fen%2Fabout",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

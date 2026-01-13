@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KadysKsolutionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KadysKsolutionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ksign.kadys.fr/Administration/Index",
+        loginUrl: "https://ksign.kadys.fr/Administration/Index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

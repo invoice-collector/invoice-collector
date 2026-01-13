@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogdnaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LogdnaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.logdna.com/",
+        loginUrl: "https://app.logdna.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

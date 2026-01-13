@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpareroomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpareroomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.spareroom.co.uk",
+        loginUrl: "http://www.spareroom.co.uk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

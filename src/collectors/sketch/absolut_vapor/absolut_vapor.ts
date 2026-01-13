@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbsolutVaporCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AbsolutVaporCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.absolut-vapor.com/ecigarette-eliquide/",
+        loginUrl: "https://www.absolut-vapor.com/ecigarette-eliquide/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

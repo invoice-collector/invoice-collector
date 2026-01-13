@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManCitynetDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ManCitynetDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.man-citynet.de",
+        loginUrl: "http://www.man-citynet.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

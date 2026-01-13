@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebgoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebgoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.webgo.de/login",
+        loginUrl: "https://login.webgo.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

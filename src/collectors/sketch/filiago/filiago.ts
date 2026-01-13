@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FiliagoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FiliagoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.filiago.de/Account/Login/",
+        loginUrl: "https://www.filiago.de/Account/Login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

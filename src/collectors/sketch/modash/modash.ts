@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ModashCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ModashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marketer.modash.io/billing/plan-details",
+        loginUrl: "https://marketer.modash.io/billing/plan-details",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

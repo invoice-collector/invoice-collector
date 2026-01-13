@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MrMoneyServiceGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MrMoneyServiceGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://portal.maklersystems24.de",
+        loginUrl: "http://portal.maklersystems24.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

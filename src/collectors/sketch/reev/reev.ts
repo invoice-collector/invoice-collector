@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReevCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReevCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.reev.com/app/my-invoices",
+        loginUrl: "https://dashboard.reev.com/app/my-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

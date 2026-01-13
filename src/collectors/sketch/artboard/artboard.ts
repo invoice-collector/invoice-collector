@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArtboardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ArtboardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://artboard.studio/account/billing",
+        loginUrl: "https://artboard.studio/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

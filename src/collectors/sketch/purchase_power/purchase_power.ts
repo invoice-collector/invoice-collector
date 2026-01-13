@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PurchasePowerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PurchasePowerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pitneybowes.us/signin/logon.go?request_locale=en_US#/account/login",
+        loginUrl: "https://www.pitneybowes.us/signin/logon.go?request_locale=en_US#/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

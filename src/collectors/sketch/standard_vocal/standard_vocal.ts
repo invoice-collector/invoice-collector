@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StandardVocalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StandardVocalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.standard-vocal.com/",
+        loginUrl: "https://www.standard-vocal.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

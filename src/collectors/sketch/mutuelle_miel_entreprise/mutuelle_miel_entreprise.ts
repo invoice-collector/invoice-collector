@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMielEntrepriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleMielEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espacesecurise.mielmut.fr/espace-entreprise",
+        loginUrl: "https://espacesecurise.mielmut.fr/espace-entreprise",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

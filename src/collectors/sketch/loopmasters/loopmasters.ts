@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoopmastersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LoopmastersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.loopmasters.com/auth/sign_in",
+        loginUrl: "https://www.loopmasters.com/auth/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

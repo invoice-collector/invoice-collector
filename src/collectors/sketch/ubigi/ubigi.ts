@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UbigiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UbigiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ubigi.me/#/order-history",
+        loginUrl: "https://ubigi.me/#/order-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GantterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GantterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://google.gantter.com/gad/manage/drive",
+        loginUrl: "https://google.gantter.com/gad/manage/drive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

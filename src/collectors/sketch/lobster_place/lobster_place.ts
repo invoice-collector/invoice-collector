@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LobsterPlaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LobsterPlaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.lobsterplacewholesale.com/?txid=SSWOS",
+        loginUrl: "https://portal.lobsterplacewholesale.com/?txid=SSWOS",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

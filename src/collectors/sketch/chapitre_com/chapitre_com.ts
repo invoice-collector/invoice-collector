@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChapitreComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChapitreComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.chapitre.com/misc/Login.aspx?ReturnUrl=%2faccount%2fDefault.aspx",
+        loginUrl: "https://www.chapitre.com/misc/Login.aspx?ReturnUrl=%2faccount%2fDefault.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

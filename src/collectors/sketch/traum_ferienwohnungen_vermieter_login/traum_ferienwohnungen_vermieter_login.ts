@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraumFerienwohnungenVermieterLoginCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TraumFerienwohnungenVermieterLoginCollector extends SketchCollector
                 mandatory: true
             }
         },
-        entryUrl: "http://www.traum-ferienwohnungen.de",
+        loginUrl: "http://www.traum-ferienwohnungen.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

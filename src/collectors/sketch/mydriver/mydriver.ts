@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MydriverCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MydriverCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mydriver.com/en/rides",
+        loginUrl: "https://www.mydriver.com/en/rides",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

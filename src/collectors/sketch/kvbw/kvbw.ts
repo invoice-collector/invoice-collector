@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KvbwCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KvbwCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dienste.portal.kvbawue.de/bw-testverordnung/#/",
+        loginUrl: "https://dienste.portal.kvbawue.de/bw-testverordnung/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

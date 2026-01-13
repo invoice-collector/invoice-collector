@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfArlingtonTxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfArlingtonTxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://waterbilling.arlingtontx.gov/app/login.jsp",
+        loginUrl: "https://waterbilling.arlingtontx.gov/app/login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShirteeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShirteeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shirtee.com/de/customer/account/login/",
+        loginUrl: "https://www.shirtee.com/de/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

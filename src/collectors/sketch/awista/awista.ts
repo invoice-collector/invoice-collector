@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AwistaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AwistaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.awista.de/portal/invoice-duplicate",
+        loginUrl: "https://portal.awista.de/portal/invoice-duplicate",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

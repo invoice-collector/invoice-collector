@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdnCloudMarketplaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdnCloudMarketplaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marketplace.adncloud.de/login/",
+        loginUrl: "https://marketplace.adncloud.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

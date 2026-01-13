@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HairfreeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HairfreeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hairfree.idop.de/shop/index.php?controller=history",
+        loginUrl: "https://hairfree.idop.de/shop/index.php?controller=history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

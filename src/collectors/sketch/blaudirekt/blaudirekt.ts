@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlaudirektCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlaudirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maklerinfo.biz/maklerportal/?show=finanzen%2Fmakler",
+        loginUrl: "https://www.maklerinfo.biz/maklerportal/?show=finanzen%2Fmakler",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

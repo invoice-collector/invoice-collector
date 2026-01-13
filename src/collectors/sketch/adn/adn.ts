@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.adn.de/index.php?cl=account_order&lang=0&cl=account_order&lang=0",
+        loginUrl: "https://shop.adn.de/index.php?cl=account_order&lang=0&cl=account_order&lang=0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

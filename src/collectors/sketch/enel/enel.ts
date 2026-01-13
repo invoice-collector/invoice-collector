@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.enel.it/it/login",
+        loginUrl: "https://www.enel.it/it/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

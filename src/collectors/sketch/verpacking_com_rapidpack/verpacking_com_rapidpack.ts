@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VerpackingComRapidpackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VerpackingComRapidpackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.verpacking.com/Mein-Konto?bestellungen=1",
+        loginUrl: "https://www.verpacking.com/Mein-Konto?bestellungen=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

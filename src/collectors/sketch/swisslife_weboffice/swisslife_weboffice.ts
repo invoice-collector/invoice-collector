@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwisslifeWebofficeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwisslifeWebofficeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.swisslife-weboffice.de/einfogpweb/posteingang.faces",
+        loginUrl: "https://www.swisslife-weboffice.de/einfogpweb/posteingang.faces",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

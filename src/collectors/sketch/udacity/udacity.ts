@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UdacityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UdacityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.udacity.com/sign-in?next=https://classroom.udacity.com/authenticated",
+        loginUrl: "https://auth.udacity.com/sign-in?next=https://classroom.udacity.com/authenticated",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

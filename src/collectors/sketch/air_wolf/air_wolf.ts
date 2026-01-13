@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirWolfCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AirWolfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.air-wolf.de/account/order",
+        loginUrl: "https://www.air-wolf.de/account/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

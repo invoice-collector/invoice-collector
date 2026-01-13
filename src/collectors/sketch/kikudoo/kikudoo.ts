@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KikudooCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KikudooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kikudoo.com/users/login",
+        loginUrl: "https://kikudoo.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

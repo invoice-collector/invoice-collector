@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GcGruppeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GcGruppeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gconlineplus.de/#MainPage",
+        loginUrl: "https://www.gconlineplus.de/#MainPage",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TMobileAtBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TMobileAtBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnung.t-mobile.at/vpn/",
+        loginUrl: "https://rechnung.t-mobile.at/vpn/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

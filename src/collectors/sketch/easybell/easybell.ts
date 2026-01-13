@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasybellCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasybellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.easybell.de/login",
+        loginUrl: "https://login.easybell.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

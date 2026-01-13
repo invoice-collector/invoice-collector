@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FiebigCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FiebigCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.fiebig.de/ig-ApothekenWebx/index.jsp",
+        loginUrl: "https://kundenportal.fiebig.de/ig-ApothekenWebx/index.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

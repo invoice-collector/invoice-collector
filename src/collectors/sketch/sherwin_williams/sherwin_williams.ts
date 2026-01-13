@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SherwinWilliamsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SherwinWilliamsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sherwin-williams.com/login",
+        loginUrl: "https://www.sherwin-williams.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

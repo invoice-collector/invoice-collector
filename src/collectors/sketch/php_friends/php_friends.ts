@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhpFriendsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PhpFriendsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://crm.php-friends.de/invoice/index",
+        loginUrl: "https://crm.php-friends.de/invoice/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

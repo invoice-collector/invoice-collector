@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KartonaraCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KartonaraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.kartonara.de",
+        loginUrl: "http://www.kartonara.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

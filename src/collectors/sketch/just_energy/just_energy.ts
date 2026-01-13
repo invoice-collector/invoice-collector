@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JustEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JustEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.justenergy.com/myaccount",
+        loginUrl: "https://www.justenergy.com/myaccount",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

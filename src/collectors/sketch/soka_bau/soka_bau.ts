@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SokaBauCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SokaBauCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.soka-bau.de/css-webapp/pages/postfach.sbo",
+        loginUrl: "https://service.soka-bau.de/css-webapp/pages/postfach.sbo",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

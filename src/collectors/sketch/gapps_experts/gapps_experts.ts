@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GappsExpertsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GappsExpertsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.gappsexperts.com/app/",
+        loginUrl: "https://billing.gappsexperts.com/app/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

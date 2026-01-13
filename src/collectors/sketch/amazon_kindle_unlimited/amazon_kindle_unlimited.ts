@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonKindleUnlimitedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonKindleUnlimitedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.amazon.de/gp/kindle/ku/ku_central/ref=nav_youraccount_ku",
+        loginUrl: "https://www.amazon.de/gp/kindle/ku/ku_central/ref=nav_youraccount_ku",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

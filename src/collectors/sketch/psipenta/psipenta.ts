@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PsipentaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PsipentaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.psipenta.de/de/home/",
+        loginUrl: "http://www.psipenta.de/de/home/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RaiffeisenEmsVechteOnlineBelegarchivCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RaiffeisenEmsVechteOnlineBelegarchivCollector extends SketchCollect
                 mandatory: true
             }
         },
-        entryUrl: "https://archiv.raiffeisen-ems-vechte.de/",
+        loginUrl: "https://archiv.raiffeisen-ems-vechte.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

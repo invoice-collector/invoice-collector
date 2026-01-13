@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeclercCarburantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeclercCarburantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace.cartecarburant.leclerc/EnergeoSI/client/facture/lister.do?method=rechercher",
+        loginUrl: "https://espace.cartecarburant.leclerc/EnergeoSI/client/facture/lister.do?method=rechercher",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

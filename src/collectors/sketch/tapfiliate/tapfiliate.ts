@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TapfiliateCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TapfiliateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tapfiliate.com/login_check",
+        loginUrl: "https://tapfiliate.com/login_check",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

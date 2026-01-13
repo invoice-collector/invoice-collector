@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelleriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SelleriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellerise.com/settings?section=invoices",
+        loginUrl: "https://sellerise.com/settings?section=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

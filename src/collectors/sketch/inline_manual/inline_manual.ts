@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InlineManualCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InlineManualCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.inlinemanual.com/users/login",
+        loginUrl: "https://app.inlinemanual.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GegCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class GegCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://monagence.geg.fr/aelPROD/jsp/arc/habilitation/login.jsp",
+        loginUrl: "https://monagence.geg.fr/aelPROD/jsp/arc/habilitation/login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

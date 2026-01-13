@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetStreamCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetStreamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://getstream.io/dashboard/organization/",
+        loginUrl: "https://getstream.io/dashboard/organization/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

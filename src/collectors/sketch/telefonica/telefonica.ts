@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelefonicaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelefonicaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.telefonica.com",
+        loginUrl: "http://www.telefonica.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

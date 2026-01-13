@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VestiaireCollectiveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VestiaireCollectiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.vestiairecollective.com/mon-compte.shtml#commandes",
+        loginUrl: "https://fr.vestiairecollective.com/mon-compte.shtml#commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

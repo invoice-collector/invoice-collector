@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApetizCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ApetizCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.apetiz.com/connexion/",
+        loginUrl: "https://www.apetiz.com/connexion/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

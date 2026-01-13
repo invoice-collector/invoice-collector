@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PingenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PingenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pingen.com/organisation",
+        loginUrl: "https://app.pingen.com/organisation",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

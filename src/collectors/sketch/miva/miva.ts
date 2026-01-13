@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MivaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MivaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.miva.com/mm5/merchant.mvc?Screen=ACLN",
+        loginUrl: "https://www.miva.com/mm5/merchant.mvc?Screen=ACLN",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

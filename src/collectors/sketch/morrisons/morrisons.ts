@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MorrisonsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MorrisonsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://groceries.morrisons.com/webshop/login.go?from=header",
+        loginUrl: "https://groceries.morrisons.com/webshop/login.go?from=header",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

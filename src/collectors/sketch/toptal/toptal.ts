@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToptalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ToptalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.toptal.com/billing",
+        loginUrl: "https://portal.toptal.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

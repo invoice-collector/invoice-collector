@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BalsamiqCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BalsamiqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mybalsamiq.com/login",
+        loginUrl: "https://www.mybalsamiq.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

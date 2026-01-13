@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TranslatedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TranslatedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.translated.net/int/ots.php?l=de",
+        loginUrl: "https://www.translated.net/int/ots.php?l=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

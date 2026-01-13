@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Plastit35Collector extends SketchCollector {
 
@@ -25,6 +25,9 @@ export class Plastit35Collector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl:  "https://plastit35.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

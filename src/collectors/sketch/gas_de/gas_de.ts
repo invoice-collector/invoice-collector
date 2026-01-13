@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GasDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GasDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.gas.de/qpo/portal/gasde/login",
+        loginUrl: "https://kundenportal.gas.de/qpo/portal/gasde/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

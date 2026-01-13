@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigiposteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DigiposteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.digiposte.fr/safe/940880c8c8504c019150b676723f2315",
+        loginUrl: "https://secure.digiposte.fr/safe/940880c8c8504c019150b676723f2315",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OfficeProfishopComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OfficeProfishopComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.office-profishop.com/login.php",
+        loginUrl: "https://www.office-profishop.com/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

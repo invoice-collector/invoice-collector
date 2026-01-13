@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScrewfixCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScrewfixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.screwfix.com/loginpage/",
+        loginUrl: "https://www.screwfix.com/loginpage/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

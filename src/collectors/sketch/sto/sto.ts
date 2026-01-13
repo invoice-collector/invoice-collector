@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://imatro.sto.de/",
+        loginUrl: "http://imatro.sto.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

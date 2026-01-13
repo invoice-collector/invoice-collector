@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MemberspotAffiliateCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MemberspotAffiliateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.memberspot.de/login",
+        loginUrl: "https://partner.memberspot.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

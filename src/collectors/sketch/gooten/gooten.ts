@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GootenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GootenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gooten.com/Admin/Account/Login?ReturnUrl=%2fAdmin%2f#/",
+        loginUrl: "https://www.gooten.com/Admin/Account/Login?ReturnUrl=%2fAdmin%2f#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

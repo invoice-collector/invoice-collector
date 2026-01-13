@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaneiDigitalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CaneiDigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.canei.digital/account/abo",
+        loginUrl: "https://app.canei.digital/account/abo",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

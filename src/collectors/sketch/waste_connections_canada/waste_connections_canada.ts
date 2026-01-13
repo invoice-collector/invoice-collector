@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WasteConnectionsCanadaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WasteConnectionsCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure6.i-doxs.net/bdx/default.aspx?BillerID=H1ol0uvn2h",
+        loginUrl: "https://secure6.i-doxs.net/bdx/default.aspx?BillerID=H1ol0uvn2h",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

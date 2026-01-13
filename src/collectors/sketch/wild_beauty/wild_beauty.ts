@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WildBeautyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WildBeautyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wild-beauty.de/kundenbereich/salon/383EA001-0011-1021-89-83-0000DC01010A",
+        loginUrl: "https://www.wild-beauty.de/kundenbereich/salon/383EA001-0011-1021-89-83-0000DC01010A",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

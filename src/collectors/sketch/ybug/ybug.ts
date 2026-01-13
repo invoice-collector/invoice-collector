@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YbugCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YbugCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ybug.io/dashboard/teamaccount#billing",
+        loginUrl: "https://ybug.io/dashboard/teamaccount#billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

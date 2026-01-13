@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotorolAutomotiveSpZOOCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MotorolAutomotiveSpZOOCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ezamowienia.motorol.pl/customers/documents.aspx",
+        loginUrl: "https://ezamowienia.motorol.pl/customers/documents.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PassmarkSoftwareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PassmarkSoftwareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.passmark.com/profile.php?history",
+        loginUrl: "https://www.passmark.com/profile.php?history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

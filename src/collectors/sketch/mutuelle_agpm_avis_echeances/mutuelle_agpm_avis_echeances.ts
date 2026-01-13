@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAgpmAvisEcheancesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleAgpmAvisEcheancesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.agpm.fr/espace-adherent/connexion/espace-adherent-faq.php",
+        loginUrl: "https://www.agpm.fr/espace-adherent/connexion/espace-adherent-faq.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

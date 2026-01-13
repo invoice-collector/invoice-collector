@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CutoutProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CutoutProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cutout.pro/user/payment",
+        loginUrl: "https://www.cutout.pro/user/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

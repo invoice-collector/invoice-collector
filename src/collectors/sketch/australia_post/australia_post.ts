@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AustraliaPostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AustraliaPostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auspost.com.au/auth/login?caller=ACCOUNT_GLOBAL_HEADER&product=MYPOST_CONSUMER&channel=WEB",
+        loginUrl: "https://auspost.com.au/auth/login?caller=ACCOUNT_GLOBAL_HEADER&product=MYPOST_CONSUMER&channel=WEB",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

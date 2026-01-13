@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TresoritCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TresoritCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.tresorit.com/account/billing",
+        loginUrl: "https://web.tresorit.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

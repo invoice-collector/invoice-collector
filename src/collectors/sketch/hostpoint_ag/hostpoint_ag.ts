@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostpointAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HostpointAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hostpoint.ch/login",
+        loginUrl: "https://hostpoint.ch/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

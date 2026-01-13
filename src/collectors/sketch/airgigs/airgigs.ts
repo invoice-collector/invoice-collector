@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AirgigsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AirgigsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.airgigs.com/balance",
+        loginUrl: "https://www.airgigs.com/balance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

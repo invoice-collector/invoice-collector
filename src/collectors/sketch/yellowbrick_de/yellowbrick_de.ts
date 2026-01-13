@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YellowbrickDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YellowbrickDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.yellowbrick.de/MyYellowbrick/",
+        loginUrl: "https://my.yellowbrick.de/MyYellowbrick/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

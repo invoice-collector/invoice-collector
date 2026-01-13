@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlickrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlickrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flickr.com/account",
+        loginUrl: "https://www.flickr.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

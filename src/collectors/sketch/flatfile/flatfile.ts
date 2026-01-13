@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlatfileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlatfileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.flatfile.io/login",
+        loginUrl: "https://app.flatfile.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

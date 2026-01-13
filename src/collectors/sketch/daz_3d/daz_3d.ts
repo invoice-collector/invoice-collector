@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Daz3dCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Daz3dCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.daz3d.com",
+        loginUrl: "https://www.daz3d.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

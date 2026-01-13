@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IsagenixBackofficeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IsagenixBackofficeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://backoffice.isagenix.com/Order/OrderHistory",
+        loginUrl: "https://backoffice.isagenix.com/Order/OrderHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ComputershareVoucherServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ComputershareVoucherServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.computersharevoucherservices.com/Login/Login.aspx",
+        loginUrl: "https://myaccount.computersharevoucherservices.com/Login/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

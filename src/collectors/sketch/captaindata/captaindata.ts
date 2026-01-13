@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaptaindataCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CaptaindataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.captaindata.co/login",
+        loginUrl: "https://app.captaindata.co/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _3uTelekomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _3uTelekomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal2.3utelecom.de/login",
+        loginUrl: "https://portal2.3utelecom.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

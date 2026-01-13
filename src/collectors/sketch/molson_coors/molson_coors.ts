@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MolsonCoorsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MolsonCoorsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mymolsoncoors.com/ccrz__CCSiteLogin",
+        loginUrl: "https://www.mymolsoncoors.com/ccrz__CCSiteLogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

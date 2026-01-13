@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChatbaseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChatbaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pay.chatbase.co/p/session/live_YWNjdF8xTVhTYUNBV1dvUEpGTDNRLF9Pc1NIdUZuYWFEMlIzWU1sZVVPWldvRDB6SlpCc0530100uq5TRkbG",
+        loginUrl: "https://pay.chatbase.co/p/session/live_YWNjdF8xTVhTYUNBV1dvUEpGTDNRLF9Pc1NIdUZuYWFEMlIzWU1sZVVPWldvRDB6SlpCc0530100uq5TRkbG",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BarkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BarkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bark.com/de/de/login/",
+        loginUrl: "https://www.bark.com/de/de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

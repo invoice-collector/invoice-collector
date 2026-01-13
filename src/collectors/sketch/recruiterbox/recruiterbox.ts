@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RecruiterboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RecruiterboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.recruiterbox.com/accounts/login",
+        loginUrl: "https://app.recruiterbox.com/accounts/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

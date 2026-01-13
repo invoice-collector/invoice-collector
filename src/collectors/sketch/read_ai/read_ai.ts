@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReadAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReadAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.read.ai/analytics/settings/billing",
+        loginUrl: "https://app.read.ai/analytics/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

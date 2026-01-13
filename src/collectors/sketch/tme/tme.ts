@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TmeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TmeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tme.eu/",
+        loginUrl: "https://www.tme.eu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

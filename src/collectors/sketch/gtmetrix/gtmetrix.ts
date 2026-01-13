@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GtmetrixCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GtmetrixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gtmetrix.com/pro/",
+        loginUrl: "https://gtmetrix.com/pro/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class World4youCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class World4youCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.world4you.com/verrechnung/download/",
+        loginUrl: "https://my.world4you.com/verrechnung/download/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

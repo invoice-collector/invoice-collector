@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VspCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VspCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.vsp.com",
+        loginUrl: "http://www.vsp.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

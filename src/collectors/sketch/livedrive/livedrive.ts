@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LivedriveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LivedriveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signup.livedrive.com/Login",
+        loginUrl: "https://signup.livedrive.com/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

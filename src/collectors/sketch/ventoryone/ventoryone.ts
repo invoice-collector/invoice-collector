@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VentoryoneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VentoryoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.ventoryone.com/users/login/",
+        loginUrl: "https://app.ventoryone.com/users/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

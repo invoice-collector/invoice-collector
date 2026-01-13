@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VideotronResidentialCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VideotronResidentialCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.videotron.com/client/user-management/residentiel/secur/DisplayFactureForm.do?dispatch=displayFacture&appId=EC",
+        loginUrl: "https://www.videotron.com/client/user-management/residentiel/secur/DisplayFactureForm.do?dispatch=displayFacture&appId=EC",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

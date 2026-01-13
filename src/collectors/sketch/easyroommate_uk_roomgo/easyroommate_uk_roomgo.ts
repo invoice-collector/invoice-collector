@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyroommateUkRoomgoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasyroommateUkRoomgoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.roomgo.co.uk/login",
+        loginUrl: "https://www.roomgo.co.uk/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

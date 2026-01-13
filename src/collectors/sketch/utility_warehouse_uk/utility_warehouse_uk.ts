@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UtilityWarehouseUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UtilityWarehouseUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://uw.co.uk/",
+        loginUrl: "https://uw.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

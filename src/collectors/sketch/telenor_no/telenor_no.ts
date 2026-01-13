@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelenorNoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelenorNoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telenor.no/privat/mine-sider/",
+        loginUrl: "https://www.telenor.no/privat/mine-sider/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

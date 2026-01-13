@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JeunesseGlobalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JeunesseGlobalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://joffice.jeunesseglobal.com//login.asp",
+        loginUrl: "https://joffice.jeunesseglobal.com//login.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

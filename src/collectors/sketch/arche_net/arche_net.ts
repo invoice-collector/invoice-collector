@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ArcheNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ArcheNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.arche.net",
+        loginUrl: "http://www.arche.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GalpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GalpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.galpenergia.com",
+        loginUrl: "http://www.galpenergia.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

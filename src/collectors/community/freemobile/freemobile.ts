@@ -33,7 +33,8 @@ export class FreeMobileCollector extends WebCollector {
         loginUrl: "https://mobile.free.fr/account/v2/login",
         entryUrl: "https://mobile.free.fr/account",
         captcha: CollectorCaptcha.NONE,
-        useProxy: false
+        useProxy: false,
+        enableInteractiveLogin: true
     }
 
     constructor() {

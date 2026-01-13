@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpartooCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpartooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spartoo.com/securelogin.php?from=compte",
+        loginUrl: "https://www.spartoo.com/securelogin.php?from=compte",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

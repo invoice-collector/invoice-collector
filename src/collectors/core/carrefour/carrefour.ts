@@ -31,7 +31,8 @@ export class CarrefourCollector extends WebCollector {
         },
         loginUrl: "https://moncompte.carrefour.fr/iam/XUI/#login/",
         entryUrl: "https://www.carrefour.fr/mon-compte/mes-achats/en-ligne",
-        captcha: CollectorCaptcha.CLOUDFLARE
+        captcha: CollectorCaptcha.CLOUDFLARE,
+        enableInteractiveLogin: true
     }
 
     constructor() {

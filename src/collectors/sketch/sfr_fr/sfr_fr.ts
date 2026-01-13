@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SfrFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SfrFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sfr.fr/cas/login?service=https%3A%2F%2Fwww.sfr.fr%2Faccueil%2Fj_spring_cas_security_check#sfrintid=HS_EC_Me-connecter",
+        loginUrl: "https://www.sfr.fr/cas/login?service=https%3A%2F%2Fwww.sfr.fr%2Faccueil%2Fj_spring_cas_security_check#sfrintid=HS_EC_Me-connecter",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

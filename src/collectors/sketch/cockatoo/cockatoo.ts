@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CockatooCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CockatooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://checkout.cockatoo.com/p/session/live_YWNjdF8xSjZJMWpKUm1FUzNuaWNVLF9QdmdidW96aUlibXpPWVBkT2d6cVc1aEpER01ocjJ20100vWsVuOYW",
+        loginUrl: "https://checkout.cockatoo.com/p/session/live_YWNjdF8xSjZJMWpKUm1FUzNuaWNVLF9QdmdidW96aUlibXpPWVBkT2d6cVc1aEpER01ocjJ20100vWsVuOYW",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

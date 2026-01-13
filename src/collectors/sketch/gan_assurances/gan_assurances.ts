@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GanAssurancesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GanAssurancesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://authentification.ganassurances.fr/cas/login?service=https%3A%2F%2Fespaceclient.ganassurances.fr%2Fwps%2Fmyportal%2FTableauDeBord%3Fidcr%3D98",
+        loginUrl: "https://authentification.ganassurances.fr/cas/login?service=https%3A%2F%2Fespaceclient.ganassurances.fr%2Fwps%2Fmyportal%2FTableauDeBord%3Fidcr%3D98",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

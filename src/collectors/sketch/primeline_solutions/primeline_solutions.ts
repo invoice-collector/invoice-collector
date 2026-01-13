@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimelineSolutionsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrimelineSolutionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.primeline-solutions.com/de/customer/invoice/all/",
+        loginUrl: "https://www.primeline-solutions.com/de/customer/invoice/all/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeLudenscheidCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeLudenscheidCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://swls.emobilitycloud.com/",
+        loginUrl: "https://swls.emobilitycloud.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

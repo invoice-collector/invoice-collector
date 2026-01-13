@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrustpilotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrustpilotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://businessapp.b2b.trustpilot.com/",
+        loginUrl: "https://businessapp.b2b.trustpilot.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

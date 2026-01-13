@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LesmillsOnDemandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LesmillsOnDemandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.lesmillsondemand.com/sign-in",
+        loginUrl: "https://web.lesmillsondemand.com/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

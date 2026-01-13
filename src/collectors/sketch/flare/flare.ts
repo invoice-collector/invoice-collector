@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://flareapp.io/teams/242-developer/invoices",
+        loginUrl: "https://flareapp.io/teams/242-developer/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParfumdreamsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParfumdreamsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.parfumdreams.de/User/Orders/",
+        loginUrl: "https://www.parfumdreams.de/User/Orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OneBillTelecomUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OneBillTelecomUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onebilltelecom.co.uk/",
+        loginUrl: "https://www.onebilltelecom.co.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

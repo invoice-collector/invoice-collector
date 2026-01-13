@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RainforestApiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RainforestApiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.rainforestapi.com/account",
+        loginUrl: "https://app.rainforestapi.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

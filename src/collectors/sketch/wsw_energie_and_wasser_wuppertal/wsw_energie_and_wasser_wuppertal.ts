@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WswEnergieAndWasserWuppertalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WswEnergieAndWasserWuppertalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine-wsw.wsw-online.de/DKS/MyInvoices/",
+        loginUrl: "https://meine-wsw.wsw-online.de/DKS/MyInvoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

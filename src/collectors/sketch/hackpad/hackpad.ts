@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HackpadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HackpadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dropbox.com/login?cont=https%3A%2F%2Fpaper.dropbox.com%2Fhackpad%3FredirectToSignIn%3D1&register_cont=https%3A%2F%2Fpaper.dropbox.com%2Fhackpad%3FredirectToSignIn%3D1",
+        loginUrl: "https://www.dropbox.com/login?cont=https%3A%2F%2Fpaper.dropbox.com%2Fhackpad%3FredirectToSignIn%3D1&register_cont=https%3A%2F%2Fpaper.dropbox.com%2Fhackpad%3FredirectToSignIn%3D1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChampionEnergyServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChampionEnergyServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.championenergyservices.com",
+        loginUrl: "http://www.championenergyservices.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

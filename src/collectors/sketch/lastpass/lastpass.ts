@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LastpassCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LastpassCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lastpass.com/company/#!/dashboard",
+        loginUrl: "https://lastpass.com/company/#!/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

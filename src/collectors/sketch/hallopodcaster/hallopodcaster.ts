@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HallopodcasterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HallopodcasterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hallopodcaster.de/login",
+        loginUrl: "https://www.hallopodcaster.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

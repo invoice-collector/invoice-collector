@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlsPolandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GlsPolandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adeplus.gls-poland.com/adeplus/lm/",
+        loginUrl: "https://adeplus.gls-poland.com/adeplus/lm/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

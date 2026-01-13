@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MdccDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MdccDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.mdcc.de/login",
+        loginUrl: "https://service.mdcc.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

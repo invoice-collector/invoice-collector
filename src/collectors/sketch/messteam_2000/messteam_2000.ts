@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Messteam2000Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Messteam2000Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mt2000.prohka-cloud.de/objects",
+        loginUrl: "https://mt2000.prohka-cloud.de/objects",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CorrentlyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CorrentlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://corrently.de/service/quittung-list.html",
+        loginUrl: "https://corrently.de/service/quittung-list.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

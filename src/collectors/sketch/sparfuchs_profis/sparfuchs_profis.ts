@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SparfuchsProfisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SparfuchsProfisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sparfuchs-profis.de/abrechnungen",
+        loginUrl: "https://www.sparfuchs-profis.de/abrechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

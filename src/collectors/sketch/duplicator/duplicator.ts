@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuplicatorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DuplicatorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://duplicator.com/my-account/billing/",
+        loginUrl: "https://duplicator.com/my-account/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravelersInsuranceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TravelersInsuranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signin.travelers.com/",
+        loginUrl: "https://signin.travelers.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

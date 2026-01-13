@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4tcCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _4tcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://4tc.be/bestellingen",
+        loginUrl: "https://4tc.be/bestellingen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

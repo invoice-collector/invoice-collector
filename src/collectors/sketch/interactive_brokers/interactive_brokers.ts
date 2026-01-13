@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InteractiveBrokersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InteractiveBrokersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ndcdyn.interactivebrokers.com/sso/Login?RL=1&locale=en_US",
+        loginUrl: "https://ndcdyn.interactivebrokers.com/sso/Login?RL=1&locale=en_US",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

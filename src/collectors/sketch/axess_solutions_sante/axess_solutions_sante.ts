@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AxessSolutionsSanteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AxessSolutionsSanteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pst-astgl.medtra.fr/liste-factures-adh.html",
+        loginUrl: "https://pst-astgl.medtra.fr/liste-factures-adh.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

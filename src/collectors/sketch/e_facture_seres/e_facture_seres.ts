@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EFactureSeresCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EFactureSeresCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail.e-facture.net/index.php",
+        loginUrl: "https://portail.e-facture.net/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErefererCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ErefererCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.ereferer.com/bo/invoice/list",
+        loginUrl: "https://fr.ereferer.com/bo/invoice/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

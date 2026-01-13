@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConceptBoardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConceptBoardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.conceptboard.com/login-redirect",
+        loginUrl: "https://app.conceptboard.com/login-redirect",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

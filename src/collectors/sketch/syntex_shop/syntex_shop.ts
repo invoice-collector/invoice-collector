@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SyntexShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SyntexShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.syntexshop.de/eshop/loginform",
+        loginUrl: "https://www.syntexshop.de/eshop/loginform",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

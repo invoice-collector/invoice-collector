@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FkAutomotiveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FkAutomotiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fk-haendler.de/bestellhistorie/",
+        loginUrl: "https://www.fk-haendler.de/bestellhistorie/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

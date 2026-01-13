@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PanoplyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PanoplyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://platform.panoply.io/#/login",
+        loginUrl: "https://platform.panoply.io/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

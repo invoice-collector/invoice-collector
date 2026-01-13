@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FastfieldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FastfieldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.fastfieldforms.com/Account",
+        loginUrl: "https://manage.fastfieldforms.com/Account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

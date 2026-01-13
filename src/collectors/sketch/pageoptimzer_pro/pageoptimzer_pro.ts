@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PageoptimzerProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PageoptimzerProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pageoptimizer.pro/#/login",
+        loginUrl: "https://app.pageoptimizer.pro/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

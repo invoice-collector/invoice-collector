@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayfitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PayfitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.payfit.com/",
+        loginUrl: "https://app.payfit.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

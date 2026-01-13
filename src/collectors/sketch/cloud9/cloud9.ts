@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Cloud9Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Cloud9Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://c9.io/login",
+        loginUrl: "https://c9.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

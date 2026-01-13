@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LakelandElectricCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LakelandElectricCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lakelandelectric.com/billing/home.aspx",
+        loginUrl: "https://lakelandelectric.com/billing/home.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

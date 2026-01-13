@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebexCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://support.webex.com/MyAccountWeb/invoice.do?root=My&parent=invoice&child=invPayHist",
+        loginUrl: "https://support.webex.com/MyAccountWeb/invoice.do?root=My&parent=invoice&child=invPayHist",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

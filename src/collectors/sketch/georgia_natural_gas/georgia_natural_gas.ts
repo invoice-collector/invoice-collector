@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeorgiaNaturalGasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GeorgiaNaturalGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.gng.com/BillHistory",
+        loginUrl: "https://myaccount.gng.com/BillHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

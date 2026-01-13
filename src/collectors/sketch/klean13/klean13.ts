@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Klean13Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Klean13Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.klean13.com/invoice?invoice_id=3676",
+        loginUrl: "https://app.klean13.com/invoice?invoice_id=3676",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

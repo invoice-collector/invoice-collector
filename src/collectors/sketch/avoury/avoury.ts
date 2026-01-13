@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvouryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AvouryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.avoury.com/de/de/account/orders/00136961",
+        loginUrl: "https://www.avoury.com/de/de/account/orders/00136961",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WannafindDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WannafindDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://controlpanel.wannafind.dk/Login?ReturnURL=%2f",
+        loginUrl: "https://controlpanel.wannafind.dk/Login?ReturnURL=%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

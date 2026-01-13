@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StakisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StakisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.stakis.de/",
+        loginUrl: "https://www.stakis.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

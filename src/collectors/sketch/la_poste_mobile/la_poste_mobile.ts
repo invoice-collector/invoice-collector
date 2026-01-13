@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaPosteMobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LaPosteMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.lapostemobile.fr/",
+        loginUrl: "https://espaceclient.lapostemobile.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

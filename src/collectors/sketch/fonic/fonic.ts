@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FonicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FonicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fonic.de/login",
+        loginUrl: "https://www.fonic.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

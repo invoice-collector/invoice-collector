@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxdaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaxdaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pap.maxda.de/affiliates/panel.php#Payouts",
+        loginUrl: "https://pap.maxda.de/affiliates/panel.php#Payouts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

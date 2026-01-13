@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DescampsBoisFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DescampsBoisFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.descamps-bois.fr/connexion?_target_path=/&subdomain=www&extension=fr",
+        loginUrl: "https://www.descamps-bois.fr/connexion?_target_path=/&subdomain=www&extension=fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

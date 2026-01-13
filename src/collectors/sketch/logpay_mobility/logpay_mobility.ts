@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogpayMobilityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LogpayMobilityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mandator.logpay.de/dokumente",
+        loginUrl: "https://mandator.logpay.de/dokumente",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

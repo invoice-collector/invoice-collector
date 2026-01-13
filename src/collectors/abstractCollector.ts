@@ -72,6 +72,18 @@ export type CompleteInvoice = Omit<Invoice, 'downloadButton'> & {
 }
 
 export abstract class AbstractCollector<C extends Config> {
+
+    static updateCollectorParams(customerEnableInteractiveLogin: boolean, config: Config): boolean {
+        // Compute if interactive login
+        const interactiveLogin = 'enableInteractiveLogin' in config && customerEnableInteractiveLogin && config.enableInteractiveLogin as boolean;
+        // If collector is a WebCollector and interactive login is enabled for customer and for collector
+        if (interactiveLogin) {
+            // Remove all params
+            config.params = {};
+        }
+        return interactiveLogin;
+    }
+
     config: C;
 
     constructor(config: C) {
@@ -97,6 +109,7 @@ export abstract class AbstractCollector<C extends Config> {
         secret: Secret,
         download_from_timestamp: number,
         previousInvoices: any[],
-        location: Location | null
+        location: Location | null,
+        customerEnableInteractiveLogin: boolean
     ): Promise<CompleteInvoice[]>;
 }

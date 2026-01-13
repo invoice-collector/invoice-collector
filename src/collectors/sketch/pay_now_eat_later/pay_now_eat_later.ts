@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayNowEatLaterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PayNowEatLaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.paynoweatlater.de/location/abrechnungen",
+        loginUrl: "https://partner.paynoweatlater.de/location/abrechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

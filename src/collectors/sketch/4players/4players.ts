@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4playersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _4playersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.4players.de/4players.php/login/?callback=http://www.4players.de/",
+        loginUrl: "https://login.4players.de/4players.php/login/?callback=http://www.4players.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

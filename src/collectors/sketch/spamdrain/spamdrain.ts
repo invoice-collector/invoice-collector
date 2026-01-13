@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpamdrainCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpamdrainCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://spamdrain.com/en/login.html",
+        loginUrl: "https://spamdrain.com/en/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

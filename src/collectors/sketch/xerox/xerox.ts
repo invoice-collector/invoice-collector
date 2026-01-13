@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XeroxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XeroxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.accounts.xerox.com/auth/login.jsf?&locale=en_US",
+        loginUrl: "https://www.accounts.xerox.com/auth/login.jsf?&locale=en_US",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

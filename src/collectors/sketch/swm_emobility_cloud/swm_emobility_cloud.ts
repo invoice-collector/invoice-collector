@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwmEmobilityCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwmEmobilityCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.muenchen.de/",
+        loginUrl: "https://login.muenchen.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

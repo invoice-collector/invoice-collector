@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MegaNzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MegaNzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mega.nz/fm/user-management/invoices",
+        loginUrl: "https://mega.nz/fm/user-management/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

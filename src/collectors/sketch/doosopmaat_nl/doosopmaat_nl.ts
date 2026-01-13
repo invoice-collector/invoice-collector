@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DoosopmaatNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DoosopmaatNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.doosopmaat.nl/inloggen",
+        loginUrl: "https://www.doosopmaat.nl/inloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GazDeBarrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GazDeBarrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ael.gaz-de-barr.fr/application/jsp/arc/habilitation/contrat.ZoomerContratOServicesSouscrits.go",
+        loginUrl: "https://ael.gaz-de-barr.fr/application/jsp/arc/habilitation/contrat.ZoomerContratOServicesSouscrits.go",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

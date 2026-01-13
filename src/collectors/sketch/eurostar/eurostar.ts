@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EurostarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EurostarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eurostar.com/customer-dashboard/",
+        loginUrl: "https://www.eurostar.com/customer-dashboard/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

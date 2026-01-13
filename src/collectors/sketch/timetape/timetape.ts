@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TimetapeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TimetapeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.timetape.de",
+        loginUrl: "http://www.timetape.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

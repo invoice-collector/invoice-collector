@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XeroxPartnerPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XeroxPartnerPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partneraccounts.services.xerox.com/",
+        loginUrl: "https://partneraccounts.services.xerox.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

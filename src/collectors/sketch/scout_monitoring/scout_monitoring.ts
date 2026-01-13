@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScoutMonitoringCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScoutMonitoringCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://scoutapm.com/users/sign_in",
+        loginUrl: "https://scoutapm.com/users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

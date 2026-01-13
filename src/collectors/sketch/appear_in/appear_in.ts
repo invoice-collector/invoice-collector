@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppearInCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppearInCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://appear.in/user/login",
+        loginUrl: "https://appear.in/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

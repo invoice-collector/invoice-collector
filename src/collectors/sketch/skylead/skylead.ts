@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SkyleadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SkyleadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dash.skylead.io/login",
+        loginUrl: "https://dash.skylead.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

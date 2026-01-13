@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WashworldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WashworldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://washworld.de/my-account/payment",
+        loginUrl: "https://washworld.de/my-account/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

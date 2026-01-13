@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvernoteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EvernoteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.evernote.com/PurchaseHistory.action",
+        loginUrl: "https://www.evernote.com/PurchaseHistory.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

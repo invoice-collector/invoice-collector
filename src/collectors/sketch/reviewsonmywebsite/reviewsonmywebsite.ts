@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReviewsonmywebsiteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReviewsonmywebsiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://reviewsonmywebsite.com/",
+        loginUrl: "https://reviewsonmywebsite.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

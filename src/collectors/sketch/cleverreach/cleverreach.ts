@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CleverreachCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CleverreachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu1.cleverreach.com/admin/login.php?ref=%2Fadmin%2Faccount_invoices.php",
+        loginUrl: "https://eu1.cleverreach.com/admin/login.php?ref=%2Fadmin%2Faccount_invoices.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

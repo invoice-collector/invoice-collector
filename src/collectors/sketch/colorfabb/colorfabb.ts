@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColorfabbCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ColorfabbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://colorfabb.com/sales/order/history/",
+        loginUrl: "https://colorfabb.com/sales/order/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

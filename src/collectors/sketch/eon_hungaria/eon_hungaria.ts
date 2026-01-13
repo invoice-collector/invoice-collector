@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EonHungariaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EonHungariaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://e-portal.eon-hungaria.com/ugyintezes/billing",
+        loginUrl: "https://e-portal.eon-hungaria.com/ugyintezes/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

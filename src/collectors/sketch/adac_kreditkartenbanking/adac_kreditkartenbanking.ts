@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdacKreditkartenbankingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdacKreditkartenbankingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://banking.adac-kreditkarte.de/profile/post-box/",
+        loginUrl: "https://banking.adac-kreditkarte.de/profile/post-box/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

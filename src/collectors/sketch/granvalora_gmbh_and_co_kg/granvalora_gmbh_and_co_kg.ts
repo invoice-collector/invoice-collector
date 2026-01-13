@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GranvaloraGmbhAndCoKgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GranvaloraGmbhAndCoKgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.granvalora.de/partner/refunds",
+        loginUrl: "https://mein.granvalora.de/partner/refunds",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

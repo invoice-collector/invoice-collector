@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradedoublerPrivateNetworkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TradedoublerPrivateNetworkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pvn.tradedoubler.com/de/publisher/payments/",
+        loginUrl: "https://pvn.tradedoubler.com/de/publisher/payments/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeinImmoportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeinImmoportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.meinimmoportal.eu/clientarea.php?action=invoices",
+        loginUrl: "https://service.meinimmoportal.eu/clientarea.php?action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

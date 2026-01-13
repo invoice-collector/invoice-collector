@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetzeBwCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetzeBwCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.netze-bw.de/meine-anlagen-und-auftraege/einspeiseanlage/8831082544/dokumente",
+        loginUrl: "https://meine.netze-bw.de/meine-anlagen-und-auftraege/einspeiseanlage/8831082544/dokumente",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

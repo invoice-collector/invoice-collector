@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StandardLifeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StandardLifeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bs.standardlife.de/slcontroller/home/page.home.xhtml",
+        loginUrl: "https://bs.standardlife.de/slcontroller/home/page.home.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

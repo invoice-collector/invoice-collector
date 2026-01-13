@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReviewsIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReviewsIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dash.reviews.io/login",
+        loginUrl: "https://dash.reviews.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

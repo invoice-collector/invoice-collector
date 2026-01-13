@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeRusselsheimEmobilitycloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeRusselsheimEmobilitycloudCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://stadtwerke-ruesselsheim.emobilitycloud.com/de/account/receipts",
+        loginUrl: "https://stadtwerke-ruesselsheim.emobilitycloud.com/de/account/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

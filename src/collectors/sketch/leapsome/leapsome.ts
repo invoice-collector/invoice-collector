@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeapsomeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeapsomeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.leapsome.com/app/#/team/settings/",
+        loginUrl: "https://www.leapsome.com/app/#/team/settings/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

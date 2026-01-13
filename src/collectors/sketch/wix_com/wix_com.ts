@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WixComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WixComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://premium.wix.com/wix/api/mpContainerStaticController#/billings?referralAdditionalInfo=account",
+        loginUrl: "https://premium.wix.com/wix/api/mpContainerStaticController#/billings?referralAdditionalInfo=account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

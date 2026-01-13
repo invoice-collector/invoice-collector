@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConnoxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConnoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.connox.de/kundenkonto/ihre-bestellungen/rechnungen.html",
+        loginUrl: "https://www.connox.de/kundenkonto/ihre-bestellungen/rechnungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

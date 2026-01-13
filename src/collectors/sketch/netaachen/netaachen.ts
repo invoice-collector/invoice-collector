@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetaachenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetaachenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.netcologne.de/portal/customer/invoice.htm",
+        loginUrl: "https://onlineservice.netcologne.de/portal/customer/invoice.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

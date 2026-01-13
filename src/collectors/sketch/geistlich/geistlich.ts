@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeistlichCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GeistlichCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.geistlich.de/login",
+        loginUrl: "https://shop.geistlich.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarfeelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MarfeelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hub.marfeel.com/organization/billing",
+        loginUrl: "https://hub.marfeel.com/organization/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

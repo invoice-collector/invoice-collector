@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XperityPartnersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XperityPartnersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners.xperity.de/auszahlungen.cgi",
+        loginUrl: "https://partners.xperity.de/auszahlungen.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

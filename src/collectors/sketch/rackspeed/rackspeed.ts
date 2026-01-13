@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RackspeedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RackspeedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunden.rackspeed.de/clientarea.php?action=invoices",
+        loginUrl: "https://kunden.rackspeed.de/clientarea.php?action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuperprofCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SuperprofCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.superprof.de/dashboard.html/premium",
+        loginUrl: "https://www.superprof.de/dashboard.html/premium",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

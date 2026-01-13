@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TirolerTageszeitungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TirolerTageszeitungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.tt.com/login",
+        loginUrl: "https://login.tt.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

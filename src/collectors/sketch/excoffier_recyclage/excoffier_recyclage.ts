@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExcoffierRecyclageCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ExcoffierRecyclageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.excoffierrecyclage.com/Facture",
+        loginUrl: "https://extranet.excoffierrecyclage.com/Facture",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

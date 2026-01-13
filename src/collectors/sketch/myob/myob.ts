@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyobCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyobCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myob.com/au",
+        loginUrl: "https://www.myob.com/au",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

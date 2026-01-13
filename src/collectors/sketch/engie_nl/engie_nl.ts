@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EngieNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EngieNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.engie.nl/betalingen",
+        loginUrl: "https://mijn.engie.nl/betalingen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

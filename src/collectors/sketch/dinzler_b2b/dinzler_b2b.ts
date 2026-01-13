@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DinzlerB2bCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DinzlerB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b.dinzler.de/account/billing-info",
+        loginUrl: "https://b2b.dinzler.de/account/billing-info",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

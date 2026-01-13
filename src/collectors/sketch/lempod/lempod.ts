@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LempodCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LempodCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lempod.com/billing",
+        loginUrl: "https://app.lempod.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YousignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YousignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.yousign.app/u/login?state=hKFo2SBzMFNvX28wX0Qxd180b1VlbFFyQ0dFYUZ6QkZ3MDI5LaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDRzYmNtNnZDcVQ5T2t4ci1mYVFhOVdlTVZTS3ltN29Qo2NpZNkgblg4bWNpc2lkODM1dWZPUU1ObGhWYmp1VlBpQkdjblE",
+        loginUrl: "https://auth.yousign.app/u/login?state=hKFo2SBzMFNvX28wX0Qxd180b1VlbFFyQ0dFYUZ6QkZ3MDI5LaFur3VuaXZlcnNhbC1sb2dpbqN0aWTZIDRzYmNtNnZDcVQ5T2t4ci1mYVFhOVdlTVZTS3ltN29Qo2NpZNkgblg4bWNpc2lkODM1dWZPUU1ObGhWYmp1VlBpQkdjblE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

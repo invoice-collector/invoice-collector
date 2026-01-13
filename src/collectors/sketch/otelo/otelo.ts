@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OteloCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OteloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.otelo.de/service/mein-otelo/postpaid/rechnungen-evn.html",
+        loginUrl: "https://mein.otelo.de/service/mein-otelo/postpaid/rechnungen-evn.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

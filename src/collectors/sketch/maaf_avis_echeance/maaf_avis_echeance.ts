@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaafAvisEcheanceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaafAvisEcheanceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maaf.fr/assurances/fr/d_16103/maaf-vie",
+        loginUrl: "https://www.maaf.fr/assurances/fr/d_16103/maaf-vie",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

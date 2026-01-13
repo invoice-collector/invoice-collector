@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookitupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BookitupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.bookitup.de/login",
+        loginUrl: "https://app.bookitup.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

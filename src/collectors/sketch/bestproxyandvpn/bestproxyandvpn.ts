@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BestproxyandvpnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BestproxyandvpnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bestproxyandvpn.com/control-panel.html",
+        loginUrl: "https://www.bestproxyandvpn.com/control-panel.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

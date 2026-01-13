@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Buroservice24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Buroservice24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.bueroservice24.de",
+        loginUrl: "http://www.bueroservice24.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

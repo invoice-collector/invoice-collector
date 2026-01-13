@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NorautoFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NorautoFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.norauto.fr/",
+        loginUrl: "https://www.norauto.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeinewbdKundenportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeinewbdKundenportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine-wbd.de/de/portal/documents",
+        loginUrl: "https://meine-wbd.de/de/portal/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

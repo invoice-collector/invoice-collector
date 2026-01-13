@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SstrnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SstrnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adherent.sstrn.fr/#/factures",
+        loginUrl: "https://adherent.sstrn.fr/#/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

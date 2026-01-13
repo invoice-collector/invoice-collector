@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrezlyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrezlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rock.prezly.com/",
+        loginUrl: "https://rock.prezly.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

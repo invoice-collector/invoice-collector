@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetevenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetevenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://evenmarketplaces.neteven.com/neteven",
+        loginUrl: "https://evenmarketplaces.neteven.com/neteven",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

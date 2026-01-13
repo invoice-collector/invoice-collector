@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AescriptsAepluginsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AescriptsAepluginsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aescripts.com/customer/account/",
+        loginUrl: "https://aescripts.com/customer/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

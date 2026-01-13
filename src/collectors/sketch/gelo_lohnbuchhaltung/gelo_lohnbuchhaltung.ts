@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeloLohnbuchhaltungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GeloLohnbuchhaltungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gelo.portal-bereich.de/html/#documentsharing",
+        loginUrl: "https://gelo.portal-bereich.de/html/#documentsharing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

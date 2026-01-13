@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SleevesupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SleevesupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sleevesup.officernd.com/login",
+        loginUrl: "https://sleevesup.officernd.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

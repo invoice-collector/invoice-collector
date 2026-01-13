@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeErfurtKundenportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeErfurtKundenportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-erfurt.de/powercommerce/swe/fo/portal/invoiceDetails",
+        loginUrl: "https://kundenportal.stadtwerke-erfurt.de/powercommerce/swe/fo/portal/invoiceDetails",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

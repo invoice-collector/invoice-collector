@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HygiDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HygiDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hygi.de/account",
+        loginUrl: "https://www.hygi.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

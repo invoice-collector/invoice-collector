@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmailHippoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmailHippoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.emailhippo.com/Settings/Cancel",
+        loginUrl: "https://portal.emailhippo.com/Settings/Cancel",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

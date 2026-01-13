@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpyfuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpyfuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.spyfu.com/account/receipts",
+        loginUrl: "https://www.spyfu.com/account/receipts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

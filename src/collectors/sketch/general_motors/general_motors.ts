@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeneralMotorsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GeneralMotorsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pwbplus-saml.autopartners.net/reports-tools/custom/active-Partsinvoices/creditnotes",
+        loginUrl: "https://pwbplus-saml.autopartners.net/reports-tools/custom/active-Partsinvoices/creditnotes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

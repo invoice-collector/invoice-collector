@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UspGvAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UspGvAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.usp.gv.at/at.gv.mpk-p/portal/main?resetFolder",
+        loginUrl: "https://www.usp.gv.at/at.gv.mpk-p/portal/main?resetFolder",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

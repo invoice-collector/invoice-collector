@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CurtMariaMedicalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CurtMariaMedicalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.curtmaria.de/customer/account/login/",
+        loginUrl: "https://shop.curtmaria.de/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

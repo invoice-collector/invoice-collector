@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoluumComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VoluumComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.voluum.com/login/",
+        loginUrl: "https://panel.voluum.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

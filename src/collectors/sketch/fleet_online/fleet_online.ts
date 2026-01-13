@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FleetOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FleetOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fleetonline.vwfs.com/FleetOnline/postbox?startDate=2023-04-04&endDate=2023-07-03",
+        loginUrl: "https://fleetonline.vwfs.com/FleetOnline/postbox?startDate=2023-04-04&endDate=2023-07-03",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

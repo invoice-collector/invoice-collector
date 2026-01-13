@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReventixSipbaseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReventixSipbaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.sipbase.de/",
+        loginUrl: "https://login.sipbase.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

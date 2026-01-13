@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailreachCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailreachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mailreach.co/dashboard/12497/settings/billing",
+        loginUrl: "https://app.mailreach.co/dashboard/12497/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

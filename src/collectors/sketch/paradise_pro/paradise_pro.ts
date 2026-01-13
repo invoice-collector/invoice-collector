@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParadiseProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParadiseProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.paradise-distribution.com/de/app/admin/finance/statements?offset=0&rowNum=20&sort=statementAccountingPeriod-desc",
+        loginUrl: "https://pro.paradise-distribution.com/de/app/admin/finance/statements?offset=0&rowNum=20&sort=statementAccountingPeriod-desc",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

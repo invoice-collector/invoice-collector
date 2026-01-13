@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BritishGasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BritishGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.britishgas.co.uk/identity/",
+        loginUrl: "https://www.britishgas.co.uk/identity/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

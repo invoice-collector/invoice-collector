@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoriolisCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class CoriolisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.coriolis.com/connexion",
+        loginUrl: "https://espaceclient.coriolis.com/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

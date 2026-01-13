@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EchobotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EchobotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.echobot.de/login",
+        loginUrl: "https://login.echobot.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

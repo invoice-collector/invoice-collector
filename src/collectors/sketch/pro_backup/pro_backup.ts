@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProBackupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProBackupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.probackup.io/p/asana/dashboard/account/invoices",
+        loginUrl: "https://app.probackup.io/p/asana/dashboard/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

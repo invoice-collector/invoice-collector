@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailtasticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailtasticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.app.mailtastic.de/#/login",
+        loginUrl: "https://www.app.mailtastic.de/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

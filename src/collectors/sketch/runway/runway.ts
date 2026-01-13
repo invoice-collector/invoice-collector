@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RunwayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RunwayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.runwayml.com/teams/pgutburth/settings?tab=billing",
+        loginUrl: "https://app.runwayml.com/teams/pgutburth/settings?tab=billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

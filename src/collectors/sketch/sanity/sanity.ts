@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SanityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SanityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sanity.io/organizations/ovKGesWLZ/billing",
+        loginUrl: "https://www.sanity.io/organizations/ovKGesWLZ/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

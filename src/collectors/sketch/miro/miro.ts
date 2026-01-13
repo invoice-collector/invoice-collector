@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://miro.com/app/dashboard/",
+        loginUrl: "https://miro.com/app/dashboard/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

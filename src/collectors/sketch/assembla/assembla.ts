@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AssemblaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AssemblaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.assembla.com/login#transactionsList",
+        loginUrl: "https://www.assembla.com/login#transactionsList",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

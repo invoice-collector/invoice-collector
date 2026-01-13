@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HotelSpiderPartnernetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HotelSpiderPartnernetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.hotel-spider.ch/affiliation/#/commissions",
+        loginUrl: "https://extranet.hotel-spider.ch/affiliation/#/commissions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

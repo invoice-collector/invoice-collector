@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZenhubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZenhubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.zenhub.com/dashboard/o/ridecapital/account-details",
+        loginUrl: "https://app.zenhub.com/dashboard/o/ridecapital/account-details",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

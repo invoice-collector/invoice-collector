@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GasagCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GasagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gasag.de/meine-gasag/api/b2c/postbox/",
+        loginUrl: "https://www.gasag.de/meine-gasag/api/b2c/postbox/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

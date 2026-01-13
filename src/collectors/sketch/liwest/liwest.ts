@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LiwestCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LiwestCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.liwest.at/csc/#/anmelden",
+        loginUrl: "https://mein.liwest.at/csc/#/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

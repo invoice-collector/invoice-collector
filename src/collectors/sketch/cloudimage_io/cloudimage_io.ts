@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudimageIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CloudimageIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.cloudimage.io/account/billing/invoices",
+        loginUrl: "https://admin.cloudimage.io/account/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

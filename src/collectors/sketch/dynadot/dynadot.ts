@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DynadotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DynadotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dynadot.com/account/info/order/list.html",
+        loginUrl: "https://www.dynadot.com/account/info/order/list.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

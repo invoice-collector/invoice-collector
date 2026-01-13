@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OffenblendeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OffenblendeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://portal.offenblende.de/app/contacts/tasks_billing.htm",
+        loginUrl: "http://portal.offenblende.de/app/contacts/tasks_billing.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

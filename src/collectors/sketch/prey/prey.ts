@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PreyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PreyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.preyproject.com/settings/billing",
+        loginUrl: "https://panel.preyproject.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

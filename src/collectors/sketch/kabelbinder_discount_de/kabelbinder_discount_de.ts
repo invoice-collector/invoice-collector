@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KabelbinderDiscountDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KabelbinderDiscountDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kabelbinder-discount.de/",
+        loginUrl: "https://kabelbinder-discount.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

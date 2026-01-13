@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PcbWayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PcbWayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pcbway.com/member/login.aspx",
+        loginUrl: "https://www.pcbway.com/member/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

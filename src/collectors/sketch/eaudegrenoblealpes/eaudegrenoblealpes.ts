@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauDeGrenobleAlpesCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class EauDeGrenobleAlpesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eau.grenoblealpesmetropole.fr/#/login",
+        loginUrl: "https://eau.grenoblealpesmetropole.fr/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

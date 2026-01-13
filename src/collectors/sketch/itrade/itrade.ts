@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ItradeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ItradeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://outlook.live.com/",
+        loginUrl: "https://outlook.live.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

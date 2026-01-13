@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeinestadtklebtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeinestadtklebtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.deinestadtklebt.de/kundenbereich/auftraege/abgeschlossene",
+        loginUrl: "https://www.deinestadtklebt.de/kundenbereich/auftraege/abgeschlossene",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

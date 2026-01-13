@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudmersiveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CloudmersiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.cloudmersive.com/manageproduct?ProductSelection=6de154e2-31ef-4d69-b1b4-f1af413d69ea",
+        loginUrl: "https://portal.cloudmersive.com/manageproduct?ProductSelection=6de154e2-31ef-4d69-b1b4-f1af413d69ea",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

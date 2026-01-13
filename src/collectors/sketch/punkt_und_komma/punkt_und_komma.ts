@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PunktUndKommaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PunktUndKommaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://punkt-und-komma.net/user/index",
+        loginUrl: "https://punkt-und-komma.net/user/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

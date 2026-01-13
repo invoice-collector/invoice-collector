@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WolseleyCanadaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WolseleyCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wolseleyexpress.com/",
+        loginUrl: "https://www.wolseleyexpress.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

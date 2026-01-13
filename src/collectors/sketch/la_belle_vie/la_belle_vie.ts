@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaBelleVieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LaBelleVieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.labellevie.com/",
+        loginUrl: "https://www.labellevie.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

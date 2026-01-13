@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbclivCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AbclivCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.abcliv.net/Extranet_New",
+        loginUrl: "https://www.abcliv.net/Extranet_New",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

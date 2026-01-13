@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CookieFirstCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CookieFirstCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.cookiefirst.com/dashboard/profile/billing",
+        loginUrl: "https://app.cookiefirst.com/dashboard/profile/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

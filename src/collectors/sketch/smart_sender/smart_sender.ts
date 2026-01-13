@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartSenderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartSenderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.smartsender.com/me/billing",
+        loginUrl: "https://console.smartsender.com/me/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SherwebCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SherwebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sherweb.com/customer-login",
+        loginUrl: "https://www.sherweb.com/customer-login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

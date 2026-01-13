@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShortCmCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShortCmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.short.cm/users/dashboard/links",
+        loginUrl: "https://app.short.cm/users/dashboard/links",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

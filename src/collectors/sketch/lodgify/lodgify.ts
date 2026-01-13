@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LodgifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LodgifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lodgify.com/billing/invoices",
+        loginUrl: "https://app.lodgify.com/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

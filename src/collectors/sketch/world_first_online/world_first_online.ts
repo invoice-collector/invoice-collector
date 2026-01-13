@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WorldFirstOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WorldFirstOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://trading.worldfirst.com/user/auth/login?lang=en_GB",
+        loginUrl: "https://trading.worldfirst.com/user/auth/login?lang=en_GB",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

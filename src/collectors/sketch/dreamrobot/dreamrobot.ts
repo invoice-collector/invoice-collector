@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreamrobotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DreamrobotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dreamrobot.de/info/login/",
+        loginUrl: "https://www.dreamrobot.de/info/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

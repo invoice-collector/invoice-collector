@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RydOneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RydOneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.ryd.one",
+        loginUrl: "http://www.ryd.one",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EsaguCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EsaguCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://repricing.esagu.de/spa/index#/account/invoices",
+        loginUrl: "https://repricing.esagu.de/spa/index#/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

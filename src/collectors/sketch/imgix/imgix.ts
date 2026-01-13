@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImgixCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ImgixCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.imgix.com/invoices",
+        loginUrl: "https://dashboard.imgix.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

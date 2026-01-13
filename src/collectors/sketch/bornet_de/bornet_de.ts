@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BornetDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BornetDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.deutsche-glasfaser.de/selfcare/#/selfcare/login?returnUrl=%2Fhome",
+        loginUrl: "https://kundenportal.deutsche-glasfaser.de/selfcare/#/selfcare/login?returnUrl=%2Fhome",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

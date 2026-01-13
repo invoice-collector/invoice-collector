@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SurfeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SurfeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.surfe.com/settings",
+        loginUrl: "https://account.surfe.com/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

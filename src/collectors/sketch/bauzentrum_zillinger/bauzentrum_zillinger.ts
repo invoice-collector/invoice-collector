@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BauzentrumZillingerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BauzentrumZillingerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.zillinger24.de/my-account",
+        loginUrl: "https://www.zillinger24.de/my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

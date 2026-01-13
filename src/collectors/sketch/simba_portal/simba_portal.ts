@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimbaPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimbaPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.simba.de/mandant/login#!auswertungen-mandant-select",
+        loginUrl: "https://portal.simba.de/mandant/login#!auswertungen-mandant-select",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

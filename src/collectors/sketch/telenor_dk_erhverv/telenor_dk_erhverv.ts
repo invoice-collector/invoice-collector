@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelenorDkErhvervCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelenorDkErhvervCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telenor.dk/erhverv/selvbetjening/faktura/kontooverblik/",
+        loginUrl: "https://www.telenor.dk/erhverv/selvbetjening/faktura/kontooverblik/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

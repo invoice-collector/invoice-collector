@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeguideComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeguideComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://merchant.kelkoogroup.com/app/login",
+        loginUrl: "https://merchant.kelkoogroup.com/app/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

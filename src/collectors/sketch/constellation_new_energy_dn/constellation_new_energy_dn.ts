@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConstellationNewEnergyDnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConstellationNewEnergyDnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://energymanager.constellation.com/CustomerDashboard",
+        loginUrl: "https://energymanager.constellation.com/CustomerDashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

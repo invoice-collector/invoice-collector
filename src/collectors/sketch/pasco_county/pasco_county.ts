@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PascoCountyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PascoCountyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pascoeasypay.pascocountyfl.net/my-account/billing",
+        loginUrl: "https://pascoeasypay.pascocountyfl.net/my-account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

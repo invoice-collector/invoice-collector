@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WiredashCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WiredashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.wiredash.io/login",
+        loginUrl: "https://console.wiredash.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BusinessServicePortalDerTelekomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BusinessServicePortalDerTelekomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
+        loginUrl: "https://rechnungonline-business.t-mobile.de/gk/ben_ges_dok_ueb",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TravisCiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TravisCiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://travis-ci.com/invoices",
+        loginUrl: "https://travis-ci.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

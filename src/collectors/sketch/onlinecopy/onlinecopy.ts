@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnlinecopyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OnlinecopyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.online-copy.de/auftrag_rechnung",
+        loginUrl: "https://shop.online-copy.de/auftrag_rechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Grossiste3dCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Grossiste3dCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.grossiste3d.com/connexion?back=my-account",
+        loginUrl: "https://www.grossiste3d.com/connexion?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

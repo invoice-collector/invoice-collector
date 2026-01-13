@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RakutenMarketingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RakutenMarketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.linkshare.com/sso/login",
+        loginUrl: "https://login.linkshare.com/sso/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VectorworksServiceSelectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VectorworksServiceSelectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.vectorworks.net/accounts/login/?next=https%3A//customers.vectorworks.net/dashboard",
+        loginUrl: "https://sso.vectorworks.net/accounts/login/?next=https%3A//customers.vectorworks.net/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

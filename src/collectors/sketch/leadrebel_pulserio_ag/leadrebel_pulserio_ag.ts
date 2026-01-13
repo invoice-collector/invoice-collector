@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadrebelPulserioAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeadrebelPulserioAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.leadrebel.io/settings/invoices",
+        loginUrl: "https://app.leadrebel.io/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

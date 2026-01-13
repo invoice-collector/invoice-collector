@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeachableCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TeachableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://learning.develapp.me/admin/settings/billing",
+        loginUrl: "https://learning.develapp.me/admin/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpageCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IpageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www1.ipage.com/secure/login.bml",
+        loginUrl: "https://www1.ipage.com/secure/login.bml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

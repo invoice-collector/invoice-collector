@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeexiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeexiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.leexi.ai/fr/login",
+        loginUrl: "https://app.leexi.ai/fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuellePlanSantePersonnelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuellePlanSantePersonnelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://assure.plansante.com/assures/auth",
+        loginUrl: "https://assure.plansante.com/assures/auth",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

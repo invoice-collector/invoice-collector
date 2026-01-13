@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TripadvisorEsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TripadvisorEsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tripadvisor.es/BillingAndPayments",
+        loginUrl: "https://www.tripadvisor.es/BillingAndPayments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

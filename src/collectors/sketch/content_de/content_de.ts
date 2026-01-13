@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContentDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ContentDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.content.de/common/login",
+        loginUrl: "https://www.content.de/common/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

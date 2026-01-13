@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BelcentraleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BelcentraleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.belcentrale.nl/control-panel/login",
+        loginUrl: "https://www.belcentrale.nl/control-panel/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

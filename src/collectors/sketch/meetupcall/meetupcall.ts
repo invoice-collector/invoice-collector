@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeetupcallCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeetupcallCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.meetupcall.com/login",
+        loginUrl: "https://manage.meetupcall.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

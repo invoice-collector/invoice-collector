@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeleuchtungdirektCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BeleuchtungdirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.beleuchtungdirekt.de",
+        loginUrl: "http://www.beleuchtungdirekt.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

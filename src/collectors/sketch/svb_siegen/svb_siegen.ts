@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SvbSiegenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SvbSiegenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.svb-siegen.de/",
+        loginUrl: "https://www.svb-siegen.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

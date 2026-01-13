@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppleDeveloperProgrammCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppleDeveloperProgrammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://developer.apple.com/",
+        loginUrl: "https://developer.apple.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WindMobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WindMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.freedommobile.ca/selfcare/#/login",
+        loginUrl: "https://myaccount.freedommobile.ca/selfcare/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

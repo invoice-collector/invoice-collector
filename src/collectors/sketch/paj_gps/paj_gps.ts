@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PajGpsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PajGpsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://start.finder-portal.com/de/mein-konto/orders/",
+        loginUrl: "https://start.finder-portal.com/de/mein-konto/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElektroBraunCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElektroBraunCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.elektro-braun.de/kunde-werden/",
+        loginUrl: "https://www.elektro-braun.de/kunde-werden/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

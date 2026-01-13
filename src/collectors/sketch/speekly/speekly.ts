@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpeeklyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpeeklyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://speekly.de/invoices",
+        loginUrl: "https://speekly.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

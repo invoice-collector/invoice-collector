@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PmuFranceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PmuFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pmu.fr/",
+        loginUrl: "https://www.pmu.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

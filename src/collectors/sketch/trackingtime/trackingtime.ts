@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrackingtimeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrackingtimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.trackingtime.co/",
+        loginUrl: "https://pro.trackingtime.co/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EqologyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EqologyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://biz.eqology.com/?do=payoutsreport&section=bonusdata&lang=de",
+        loginUrl: "https://biz.eqology.com/?do=payoutsreport&section=bonusdata&lang=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

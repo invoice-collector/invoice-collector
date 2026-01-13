@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwaggerhubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwaggerhubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.swaggerhub.com/settings/billings",
+        loginUrl: "https://app.swaggerhub.com/settings/billings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortalDerBitelGesellschaftFurTelekommunikationMbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PortalDerBitelGesellschaftFurTelekommunikationMbhCollector extends 
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.meinbitel.net/customer/dashboard",
+        loginUrl: "https://portal.meinbitel.net/customer/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

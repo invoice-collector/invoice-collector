@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlchimistesCoCollector extends SketchCollector {
 
@@ -25,6 +25,9 @@ export class AlchimistesCoCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://auth.mon-compte.alchimistes.co/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

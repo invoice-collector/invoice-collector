@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuropaVersicherungAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EuropaVersicherungAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.europa-go.de/service/",
+        loginUrl: "http://www.europa-go.de/service/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

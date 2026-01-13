@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PingboardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PingboardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://primal-state-performance-gmbh.pingboard.com/company/billing",
+        loginUrl: "https://primal-state-performance-gmbh.pingboard.com/company/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

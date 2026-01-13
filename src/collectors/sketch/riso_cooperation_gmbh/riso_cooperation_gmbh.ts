@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RisoCooperationGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RisoCooperationGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.riso.de/shop/mein-konto/bestellungen/",
+        loginUrl: "https://www.riso.de/shop/mein-konto/bestellungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

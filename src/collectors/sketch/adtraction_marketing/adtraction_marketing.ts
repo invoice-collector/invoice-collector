@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdtractionMarketingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdtractionMarketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://adtraction.com/de/login",
+        loginUrl: "https://adtraction.com/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

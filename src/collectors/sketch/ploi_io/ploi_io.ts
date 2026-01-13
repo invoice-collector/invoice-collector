@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PloiIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PloiIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ploi.io/profile?#v-orders",
+        loginUrl: "https://ploi.io/profile?#v-orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

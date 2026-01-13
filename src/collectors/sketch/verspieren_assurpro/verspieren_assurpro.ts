@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VerspierenAssurproCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VerspierenAssurproCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://assurpro.verspieren.com/",
+        loginUrl: "https://assurpro.verspieren.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

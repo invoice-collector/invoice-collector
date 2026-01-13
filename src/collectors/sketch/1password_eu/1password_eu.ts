@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1passwordEuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _1passwordEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.1password.eu/billing/invoices",
+        loginUrl: "https://my.1password.eu/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,5 +1,6 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
+import { log } from 'console';
 
 export class PointEFrCollector extends SketchCollector {
 
@@ -25,6 +26,9 @@ export class PointEFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
+        loginUrl: "https://boutique.point-e.fr/connexion?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

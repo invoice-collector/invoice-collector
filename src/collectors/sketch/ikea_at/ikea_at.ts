@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IkeaAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IkeaAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ikea.com/at/de/purchases/",
+        loginUrl: "https://www.ikea.com/at/de/purchases/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

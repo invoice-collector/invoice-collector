@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortfolioboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PortfolioboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.portfoliobox.net/login",
+        loginUrl: "https://www.portfoliobox.net/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WootricInmomentCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WootricInmomentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wootric.recurly.com/account",
+        loginUrl: "https://wootric.recurly.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

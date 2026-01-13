@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CharlotteWaterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CharlotteWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure8.i-doxs.net/CityOfCharlotte/Secure/DistributionView.aspx?DistributionView=1%7C3513%7C8595%7C1",
+        loginUrl: "https://secure8.i-doxs.net/CityOfCharlotte/Secure/DistributionView.aspx?DistributionView=1%7C3513%7C8595%7C1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

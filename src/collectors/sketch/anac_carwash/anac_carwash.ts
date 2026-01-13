@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnacCarwashCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AnacCarwashCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.anaccarwash.com/unlimited-inloggen-nl/",
+        loginUrl: "https://www.anaccarwash.com/unlimited-inloggen-nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagistoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MagistoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.magisto.com/account/my_invoices",
+        loginUrl: "https://www.magisto.com/account/my_invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaildosoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaildosoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.maildoso.com/accounts",
+        loginUrl: "https://app.maildoso.com/accounts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

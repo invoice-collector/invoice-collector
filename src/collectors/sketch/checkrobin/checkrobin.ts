@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CheckrobinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CheckrobinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://checkrobin.com/de/",
+        loginUrl: "https://checkrobin.com/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

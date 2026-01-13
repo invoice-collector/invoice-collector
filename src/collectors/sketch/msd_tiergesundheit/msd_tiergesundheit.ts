@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MsdTiergesundheitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MsdTiergesundheitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.authentication.us10.hana.ondemand.com/saml/login/alias/myaccount.aws-live?disco=true&idp=https%3A%2F%2Fwww.msd-tiergesundheit.de",
+        loginUrl: "https://myaccount.authentication.us10.hana.ondemand.com/saml/login/alias/myaccount.aws-live?disco=true&idp=https%3A%2F%2Fwww.msd-tiergesundheit.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

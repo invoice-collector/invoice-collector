@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UgiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UgiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineaccount.ugi.com/portal/BillingHistory.aspx",
+        loginUrl: "https://onlineaccount.ugi.com/portal/BillingHistory.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

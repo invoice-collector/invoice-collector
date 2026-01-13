@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrigadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrigadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://work.brigad.co/login",
+        loginUrl: "https://work.brigad.co/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

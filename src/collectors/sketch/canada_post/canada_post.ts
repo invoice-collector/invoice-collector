@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanadaPostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CanadaPostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.canadapost.ca/",
+        loginUrl: "https://www.canadapost.ca/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

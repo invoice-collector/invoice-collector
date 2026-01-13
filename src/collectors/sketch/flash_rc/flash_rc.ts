@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlashRcCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlashRcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.flashrc.com/clients/",
+        loginUrl: "https://www.flashrc.com/clients/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

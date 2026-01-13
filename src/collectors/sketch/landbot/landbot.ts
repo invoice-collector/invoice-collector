@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LandbotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LandbotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.landbot.io/gui/subscription/invoices",
+        loginUrl: "https://app.landbot.io/gui/subscription/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AgentyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AgentyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.agenty.com/signin.aspx",
+        loginUrl: "https://cloud.agenty.com/signin.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

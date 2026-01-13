@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.swn.net/",
+        loginUrl: "https://connect.swn.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

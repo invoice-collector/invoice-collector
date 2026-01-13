@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudcraftCoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CloudcraftCoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloudcraft.co/app",
+        loginUrl: "https://cloudcraft.co/app",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

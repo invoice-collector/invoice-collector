@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AustrocardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AustrocardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.austrocard.at/#/invoices",
+        loginUrl: "https://portal.austrocard.at/#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

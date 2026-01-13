@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NovofleetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NovofleetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.novofleet.com/portal/de/mein-novofleet-login",
+        loginUrl: "https://www.novofleet.com/portal/de/mein-novofleet-login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

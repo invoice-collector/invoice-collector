@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailercheckCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailercheckCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mailercheck.com/login?_ga=2.139472629.730230997.1635224339-1189516071.1635224339",
+        loginUrl: "https://app.mailercheck.com/login?_ga=2.139472629.730230997.1635224339-1189516071.1635224339",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

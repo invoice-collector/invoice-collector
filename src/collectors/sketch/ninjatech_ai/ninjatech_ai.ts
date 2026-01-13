@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NinjatechAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NinjatechAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myninja.ai/login",
+        loginUrl: "https://myninja.ai/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

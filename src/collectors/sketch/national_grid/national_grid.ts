@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NationalGridCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NationalGridCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www1.nationalgridus.com/SignIn",
+        loginUrl: "https://www1.nationalgridus.com/SignIn",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

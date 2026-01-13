@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SouthernCaliforniaEdisonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SouthernCaliforniaEdisonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.sce.com",
+        loginUrl: "http://www.sce.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

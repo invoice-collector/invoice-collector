@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreightcoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FreightcoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.freightcore.com/shipments/",
+        loginUrl: "https://app.freightcore.com/shipments/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

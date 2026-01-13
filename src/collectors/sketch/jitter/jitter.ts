@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JitterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JitterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jitter.video/join/",
+        loginUrl: "https://jitter.video/join/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

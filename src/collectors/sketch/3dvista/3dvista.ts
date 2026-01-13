@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _3dvistaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _3dvistaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://download.3dvista.com/",
+        loginUrl: "https://download.3dvista.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookboltCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BookboltCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.bookbolt.io/invoices",
+        loginUrl: "https://members.bookbolt.io/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

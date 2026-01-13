@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RiversideCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RiversideCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://riverside.fm/login",
+        loginUrl: "https://riverside.fm/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

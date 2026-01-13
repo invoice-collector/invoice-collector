@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HochzeitManagementCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HochzeitManagementCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.hochzeit.management/Invoice?view=overview&list=all",
+        loginUrl: "https://app.hochzeit.management/Invoice?view=overview&list=all",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

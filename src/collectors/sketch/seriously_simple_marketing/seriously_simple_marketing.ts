@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeriouslySimpleMarketingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeriouslySimpleMarketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://measurementmarketing.io/member/?ref=ssmnav",
+        loginUrl: "https://measurementmarketing.io/member/?ref=ssmnav",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

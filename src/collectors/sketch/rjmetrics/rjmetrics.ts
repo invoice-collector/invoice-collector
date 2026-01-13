@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RjmetricsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RjmetricsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.rjmetrics.com/v2/session/create",
+        loginUrl: "https://dashboard.rjmetrics.com/v2/session/create",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

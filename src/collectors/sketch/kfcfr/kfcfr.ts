@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KfcFrCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class KfcFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kfc.fr/mon-compte/connexion",
+        loginUrl: "https://www.kfc.fr/mon-compte/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

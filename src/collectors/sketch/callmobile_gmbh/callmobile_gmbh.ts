@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CallmobileGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CallmobileGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.callmobile.de/index.php",
+        loginUrl: "https://www.callmobile.de/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

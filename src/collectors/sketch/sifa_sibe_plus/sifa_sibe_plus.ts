@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SifaSibePlusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SifaSibePlusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sifa-sibe.de/aboplus-service-center/",
+        loginUrl: "https://www.sifa-sibe.de/aboplus-service-center/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

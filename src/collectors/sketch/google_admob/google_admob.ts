@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleAdmobCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GoogleAdmobCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://apps.admob.com/v2/payments/transaction-service",
+        loginUrl: "https://apps.admob.com/v2/payments/transaction-service",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

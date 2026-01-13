@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CanonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myid.canon/canonid/#/login",
+        loginUrl: "https://myid.canon/canonid/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

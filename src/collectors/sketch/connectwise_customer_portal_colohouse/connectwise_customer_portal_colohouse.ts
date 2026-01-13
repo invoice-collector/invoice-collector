@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConnectwiseCustomerPortalColohouseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConnectwiseCustomerPortalColohouseCollector extends SketchCollector
                 mandatory: true
             }
         },
-        entryUrl: "https://na.myconnectwise.net/colohouse?company=colohouse",
+        loginUrl: "https://na.myconnectwise.net/colohouse?company=colohouse",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

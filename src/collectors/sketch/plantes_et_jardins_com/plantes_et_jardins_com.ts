@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlantesEtJardinsComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlantesEtJardinsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gammvert.fr/id/connexion",
+        loginUrl: "https://www.gammvert.fr/id/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotionvfxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MotionvfxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.motionvfx.com/account,order_history.html",
+        loginUrl: "https://www.motionvfx.com/account,order_history.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

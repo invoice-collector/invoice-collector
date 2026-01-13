@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PackhelpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PackhelpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.packhelp.de/sign_in",
+        loginUrl: "https://app.packhelp.de/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

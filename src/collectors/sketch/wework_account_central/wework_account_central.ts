@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeworkAccountCentralCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WeworkAccountCentralCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.wework.com/dashboard/balance-and-invoices",
+        loginUrl: "https://accounts.wework.com/dashboard/balance-and-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

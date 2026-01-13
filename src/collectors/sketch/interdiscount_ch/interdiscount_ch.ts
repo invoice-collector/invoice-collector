@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterdiscountChCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InterdiscountChCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.interdiscount.ch/de/account",
+        loginUrl: "https://www.interdiscount.ch/de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

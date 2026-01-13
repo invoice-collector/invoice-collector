@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YourfoneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YourfoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.yourfone.de",
+        loginUrl: "https://service.yourfone.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

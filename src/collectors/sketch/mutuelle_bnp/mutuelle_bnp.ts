@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleBnpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleBnpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mutuelle.bnpparibas.fr/View/AccueilAssure.aspx",
+        loginUrl: "https://www.mutuelle.bnpparibas.fr/View/AccueilAssure.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

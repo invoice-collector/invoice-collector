@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GerepGestionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GerepGestionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://services.gerep.fr/particuliers",
+        loginUrl: "https://services.gerep.fr/particuliers",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InlandWasteSolutionsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InlandWasteSolutionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing1.desertmicrohosting.com/InlandServices/default.asp?id=3D862774-97A1-4D6F-AE2A-9AF36B8AF165",
+        loginUrl: "https://billing1.desertmicrohosting.com/InlandServices/default.asp?id=3D862774-97A1-4D6F-AE2A-9AF36B8AF165",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

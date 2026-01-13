@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RendezVousDecoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RendezVousDecoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rendezvousdeco.com/customer/account/login/?___SID=S",
+        loginUrl: "https://www.rendezvousdeco.com/customer/account/login/?___SID=S",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

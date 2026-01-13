@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JuitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JuitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.juit.com/de/profile/orders",
+        loginUrl: "https://www.juit.com/de/profile/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

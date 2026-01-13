@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParadigitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParadigitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.paradigit.nl",
+        loginUrl: "http://www.paradigit.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StudentjobCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StudentjobCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.studentjob.de/betreff/orders?q%5Bindex_selection%5D=paid_with_invoice",
+        loginUrl: "https://www.studentjob.de/betreff/orders?q%5Bindex_selection%5D=paid_with_invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

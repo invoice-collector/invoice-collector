@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _1euroComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _1euroComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cofidis.fr/fr/espace-client/1euro_identification.cgi",
+        loginUrl: "https://www.cofidis.fr/fr/espace-client/1euro_identification.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

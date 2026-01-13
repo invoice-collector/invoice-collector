@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ResopharmaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ResopharmaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.resopharma.fr/partenaires.php",
+        loginUrl: "https://www.resopharma.fr/partenaires.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

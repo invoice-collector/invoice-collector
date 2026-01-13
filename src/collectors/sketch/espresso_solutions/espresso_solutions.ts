@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EspressoSolutionsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EspressoSolutionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.espresso-solutions.co.uk/login.asp",
+        loginUrl: "https://www.espresso-solutions.co.uk/login.asp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

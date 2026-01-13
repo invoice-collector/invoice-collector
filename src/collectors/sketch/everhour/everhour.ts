@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EverhourCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EverhourCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://everhour.com/signin/",
+        loginUrl: "https://everhour.com/signin/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

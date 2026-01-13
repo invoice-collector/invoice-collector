@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlfaDirektCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlfaDirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alfa-direkt.de/sales/order/history/",
+        loginUrl: "https://www.alfa-direkt.de/sales/order/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

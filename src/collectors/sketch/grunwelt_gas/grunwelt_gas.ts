@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrunweltGasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GrunweltGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.gas.de/qpo/portal/gruengas/login",
+        loginUrl: "https://kundenportal.gas.de/qpo/portal/gruengas/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

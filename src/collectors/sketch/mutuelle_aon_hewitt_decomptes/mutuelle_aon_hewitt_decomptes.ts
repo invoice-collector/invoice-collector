@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAonHewittDecomptesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleAonHewittDecomptesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aon.com/france/produits-et-services/rh/gestion_frais_medicaux_regimes_prevoyance.jsp",
+        loginUrl: "https://www.aon.com/france/produits-et-services/rh/gestion_frais_medicaux_regimes_prevoyance.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

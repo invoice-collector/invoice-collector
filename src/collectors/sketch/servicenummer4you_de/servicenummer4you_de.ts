@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Servicenummer4youDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Servicenummer4youDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://login.srn-manager.de",
+        loginUrl: "http://login.srn-manager.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

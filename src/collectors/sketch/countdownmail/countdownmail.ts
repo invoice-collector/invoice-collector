@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CountdownmailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CountdownmailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://countdownmail.com/user/login",
+        loginUrl: "https://countdownmail.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

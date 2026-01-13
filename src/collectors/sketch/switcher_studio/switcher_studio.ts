@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwitcherStudioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwitcherStudioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.switcherstudio.com/billing",
+        loginUrl: "https://dashboard.switcherstudio.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

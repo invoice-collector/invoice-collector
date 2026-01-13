@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FanmartCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FanmartCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.fanmart.de/kunden-login",
+        loginUrl: "http://www.fanmart.de/kunden-login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

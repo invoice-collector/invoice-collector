@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScreenleapCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScreenleapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.screenleap.com/subscription/payments",
+        loginUrl: "https://www.screenleap.com/subscription/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

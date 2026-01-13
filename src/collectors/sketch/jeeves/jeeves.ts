@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JeevesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JeevesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://prod.jeev.es/client/statement",
+        loginUrl: "https://prod.jeev.es/client/statement",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

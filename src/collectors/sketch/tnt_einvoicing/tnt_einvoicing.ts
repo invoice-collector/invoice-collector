@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TntEinvoicingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TntEinvoicingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://express.tnt.com/eInvoicing/default.aspx",
+        loginUrl: "https://express.tnt.com/eInvoicing/default.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

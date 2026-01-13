@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RackspaceWebmailLoginCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RackspaceWebmailLoginCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://apps.rackspace.com/index.php",
+        loginUrl: "https://apps.rackspace.com/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

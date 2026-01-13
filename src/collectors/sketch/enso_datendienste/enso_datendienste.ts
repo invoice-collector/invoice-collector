@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnsoDatendiensteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnsoDatendiensteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://enso.plusportal.de",
+        loginUrl: "https://enso.plusportal.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

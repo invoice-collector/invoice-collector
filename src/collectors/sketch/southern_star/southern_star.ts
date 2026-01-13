@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SouthernStarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SouthernStarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://subscribe.southernstar.ie/login",
+        loginUrl: "https://subscribe.southernstar.ie/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

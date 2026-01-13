@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NimbataCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NimbataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.nimbata.com/account/plans-and-billing",
+        loginUrl: "https://app.nimbata.com/account/plans-and-billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpmanageninjaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WpmanageninjaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wpmanageninja.com/account/",
+        loginUrl: "https://wpmanageninja.com/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

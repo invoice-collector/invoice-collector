@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class McsharkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class McsharkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.mcshark.at/login",
+        loginUrl: "https://shop.mcshark.at/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

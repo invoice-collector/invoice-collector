@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CliniqueDuCheveuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CliniqueDuCheveuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.cliniqueducheveu.be/",
+        loginUrl: "http://www.cliniqueducheveu.be/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyjetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasyjetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.easyjet.com/DE/secure/MyEasyJet.mvc/ViewBooking",
+        loginUrl: "https://www.easyjet.com/DE/secure/MyEasyJet.mvc/ViewBooking",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

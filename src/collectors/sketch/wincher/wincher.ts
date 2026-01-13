@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WincherCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WincherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.wincher.com",
+        loginUrl: "http://www.wincher.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

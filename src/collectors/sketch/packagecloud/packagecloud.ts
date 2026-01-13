@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PackagecloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PackagecloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://packagecloud.io/",
+        loginUrl: "https://packagecloud.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

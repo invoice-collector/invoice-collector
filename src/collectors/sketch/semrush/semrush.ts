@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SemrushCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SemrushCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.semrush.com",
+        loginUrl: "https://www.semrush.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

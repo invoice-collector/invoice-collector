@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IgaOpticCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IgaOpticCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://10934.gwsshop.de/de/",
+        loginUrl: "https://10934.gwsshop.de/de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

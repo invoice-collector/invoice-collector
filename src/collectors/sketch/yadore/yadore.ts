@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YadoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YadoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://publisher.yadore.com/credit-notes",
+        loginUrl: "https://publisher.yadore.com/credit-notes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

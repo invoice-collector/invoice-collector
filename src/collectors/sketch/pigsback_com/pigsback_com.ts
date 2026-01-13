@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PigsbackComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PigsbackComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pigsback.com/en-ie/Account/Login",
+        loginUrl: "https://www.pigsback.com/en-ie/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

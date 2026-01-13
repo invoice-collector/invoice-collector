@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NiftyimagesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NiftyimagesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ux.niftyimages.com/Billing/Invoices",
+        loginUrl: "https://ux.niftyimages.com/Billing/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

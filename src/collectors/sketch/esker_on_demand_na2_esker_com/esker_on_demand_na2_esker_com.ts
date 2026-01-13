@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EskerOnDemandNa2EskerComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EskerOnDemandNa2EskerComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://na2.esker.com/ondemand/webaccess/asc/documents.aspx?Target=adminList&ViewId=182410030&tab=182410008",
+        loginUrl: "https://na2.esker.com/ondemand/webaccess/asc/documents.aspx?Target=adminList&ViewId=182410030&tab=182410008",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

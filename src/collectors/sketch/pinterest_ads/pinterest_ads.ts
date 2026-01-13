@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PinterestAdsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PinterestAdsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ads.pinterest.com/login/",
+        loginUrl: "https://ads.pinterest.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

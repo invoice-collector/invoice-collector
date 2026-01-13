@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BelboonServiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BelboonServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ui.service.belboon.com/app/index.html#/finance/billing/advertiser",
+        loginUrl: "https://ui.service.belboon.com/app/index.html#/finance/billing/advertiser",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TechshipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TechshipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://techship.com/order/history/",
+        loginUrl: "https://techship.com/order/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

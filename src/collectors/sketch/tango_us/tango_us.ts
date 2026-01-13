@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TangoUsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TangoUsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.tango.us/app/settings/billing",
+        loginUrl: "https://app.tango.us/app/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

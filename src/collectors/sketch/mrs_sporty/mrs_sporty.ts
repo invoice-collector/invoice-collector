@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MrsSportyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MrsSportyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.mrssporty.com/ControlPanel/Bwa",
+        loginUrl: "https://portal.mrssporty.com/ControlPanel/Bwa",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

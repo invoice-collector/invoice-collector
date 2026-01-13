@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StackoverflowTeamsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StackoverflowTeamsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stackoverflowteams.com/users/login",
+        loginUrl: "https://stackoverflowteams.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PluginAllianceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PluginAllianceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.plugin-alliance.com/",
+        loginUrl: "https://www.plugin-alliance.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

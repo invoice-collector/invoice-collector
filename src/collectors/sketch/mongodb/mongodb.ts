@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MongodbCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MongodbCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.mongodb.com/user?nds=true",
+        loginUrl: "https://cloud.mongodb.com/user?nds=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

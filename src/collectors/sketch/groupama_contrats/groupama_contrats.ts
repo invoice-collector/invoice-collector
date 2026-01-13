@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupamaContratsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GroupamaContratsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.groupama.fr/coups-de-pouce",
+        loginUrl: "https://www.groupama.fr/coups-de-pouce",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimpliBotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimpliBotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.simpli-marketing.de/v2/location/8jJXUWtFF5Ga34nqSbKM/settings/company-billing/billing?tab=payments",
+        loginUrl: "https://app.simpli-marketing.de/v2/location/8jJXUWtFF5Ga34nqSbKM/settings/company-billing/billing?tab=payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

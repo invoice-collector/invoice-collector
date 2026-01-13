@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SgAutorepondeurCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SgAutorepondeurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sg-autorepondeur.com/app/invoices.php",
+        loginUrl: "https://sg-autorepondeur.com/app/invoices.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

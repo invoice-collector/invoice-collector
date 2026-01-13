@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MemorykingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MemorykingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.memoryking.de/account",
+        loginUrl: "https://www.memoryking.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

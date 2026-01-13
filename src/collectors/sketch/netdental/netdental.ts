@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetdentalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetdentalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.netdental.de/de/mein-konto/rechnungen.html",
+        loginUrl: "https://shop.netdental.de/de/mein-konto/rechnungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

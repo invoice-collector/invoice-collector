@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeycdnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KeycdnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.keycdn.com/login",
+        loginUrl: "https://app.keycdn.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppradarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppradarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.appradar.com/settings/payment",
+        loginUrl: "https://web.appradar.com/settings/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

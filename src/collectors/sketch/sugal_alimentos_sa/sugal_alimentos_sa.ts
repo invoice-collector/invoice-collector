@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SugalAlimentosSaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SugalAlimentosSaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://einvoice.generixpt.com",
+        loginUrl: "https://einvoice.generixpt.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

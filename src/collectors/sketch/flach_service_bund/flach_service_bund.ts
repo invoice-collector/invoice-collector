@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlachServiceBundCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlachServiceBundCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://flach-buettelborn.servicebund.com/account/reports",
+        loginUrl: "https://flach-buettelborn.servicebund.com/account/reports",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

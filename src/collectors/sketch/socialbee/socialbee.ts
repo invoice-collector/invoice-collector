@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SocialbeeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SocialbeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.socialbee.com/settings/billing",
+        loginUrl: "https://app.socialbee.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

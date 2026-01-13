@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RogersMybusinessHubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RogersMybusinessHubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mybusinesshub.rogers.com/ocpLogin/one_sign_in",
+        loginUrl: "https://mybusinesshub.rogers.com/ocpLogin/one_sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

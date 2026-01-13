@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FazCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FazCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://digitale-angebote.faz.net/selfservice",
+        loginUrl: "https://digitale-angebote.faz.net/selfservice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

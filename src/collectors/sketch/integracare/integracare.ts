@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntegracareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IntegracareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.allstream.com/BillingInvoiceHistory",
+        loginUrl: "https://my.allstream.com/BillingInvoiceHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

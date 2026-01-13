@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlexwebhostingNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlexwebhostingNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=",
+        loginUrl: "https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InpiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InpiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.inpi.fr/",
+        loginUrl: "https://www.inpi.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

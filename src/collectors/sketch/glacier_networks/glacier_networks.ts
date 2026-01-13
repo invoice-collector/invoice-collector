@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlacierNetworksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GlacierNetworksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://glacier.billcenter.net/",
+        loginUrl: "https://glacier.billcenter.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

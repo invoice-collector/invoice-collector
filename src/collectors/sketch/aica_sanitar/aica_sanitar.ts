@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AicaSanitarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AicaSanitarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aicasanitaer.de/index.php?main_page=login&zenid=e316295ad37676f25a2fd9cf004c4799",
+        loginUrl: "https://aicasanitaer.de/index.php?main_page=login&zenid=e316295ad37676f25a2fd9cf004c4799",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchlundtechCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SchlundtechCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.schlundtech.com/",
+        loginUrl: "https://login.schlundtech.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

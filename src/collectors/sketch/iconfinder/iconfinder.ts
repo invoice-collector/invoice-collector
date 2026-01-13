@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IconfinderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IconfinderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.iconfinder.com/user/login",
+        loginUrl: "https://www.iconfinder.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

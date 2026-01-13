@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JarltechCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JarltechCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.jarltech.com/2007/index.php?language=de",
+        loginUrl: "https://www.jarltech.com/2007/index.php?language=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

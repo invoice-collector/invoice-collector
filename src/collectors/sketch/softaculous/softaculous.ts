@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoftaculousCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SoftaculousCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.softaculous.com/clients?ca=invoices",
+        loginUrl: "https://www.softaculous.com/clients?ca=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VisitorAnalyticsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VisitorAnalyticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.visitor-analytics.io/website/92ab0db8-c4c6-11ed-b589-901b0edac50a/settings/subscription#payment-method",
+        loginUrl: "https://app.visitor-analytics.io/website/92ab0db8-c4c6-11ed-b589-901b0edac50a/settings/subscription#payment-method",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

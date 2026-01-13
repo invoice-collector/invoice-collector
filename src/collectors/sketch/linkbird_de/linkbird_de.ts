@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkbirdDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LinkbirdDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.contentbird.io/",
+        loginUrl: "https://de.contentbird.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

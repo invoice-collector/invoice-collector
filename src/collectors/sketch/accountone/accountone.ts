@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccountoneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AccountoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.accountone.de/myaccountone/",
+        loginUrl: "https://service.accountone.de/myaccountone/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

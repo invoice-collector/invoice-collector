@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TchiboMobilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TchiboMobilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tchibo-mobil.de/login",
+        loginUrl: "https://tchibo-mobil.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

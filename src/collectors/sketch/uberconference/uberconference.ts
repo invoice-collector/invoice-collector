@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UberconferenceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UberconferenceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.uberconference.com",
+        loginUrl: "http://www.uberconference.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

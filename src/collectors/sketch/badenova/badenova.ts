@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BadenovaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BadenovaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine-badenova.badenova.de/",
+        loginUrl: "https://meine-badenova.badenova.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

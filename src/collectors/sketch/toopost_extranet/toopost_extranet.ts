@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToopostExtranetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ToopostExtranetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.toopost.net/index.php",
+        loginUrl: "https://extranet.toopost.net/index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

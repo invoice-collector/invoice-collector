@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmenFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmenFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://controlpanel.amen.fr/welcome.html",
+        loginUrl: "https://controlpanel.amen.fr/welcome.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

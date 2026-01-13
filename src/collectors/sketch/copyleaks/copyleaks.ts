@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CopyleaksCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CopyleaksCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.copyleaks.com/billing",
+        loginUrl: "https://id.copyleaks.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

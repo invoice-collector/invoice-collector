@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MydpdAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MydpdAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mydpd.at/meine-pakete",
+        loginUrl: "https://www.mydpd.at/meine-pakete",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

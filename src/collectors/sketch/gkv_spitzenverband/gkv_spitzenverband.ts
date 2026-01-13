@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GkvSpitzenverbandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GkvSpitzenverbandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://antraege.gkv-spitzenverband.de/",
+        loginUrl: "https://antraege.gkv-spitzenverband.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

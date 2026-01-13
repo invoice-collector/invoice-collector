@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KarmaBotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KarmaBotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.karmabot.chat/admin/billing#/",
+        loginUrl: "https://app.karmabot.chat/admin/billing#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

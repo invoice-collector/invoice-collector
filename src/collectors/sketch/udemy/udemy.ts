@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UdemyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UdemyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.udemy.com/join/login-popup/?next=/dashboard/purchase-history/",
+        loginUrl: "https://www.udemy.com/join/login-popup/?next=/dashboard/purchase-history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetyourguidePartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetyourguidePartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.getyourguide.com/de-de/payments",
+        loginUrl: "https://partner.getyourguide.com/de-de/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

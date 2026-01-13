@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnycCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnycCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://atlas.unyc.io/",
+        loginUrl: "https://atlas.unyc.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

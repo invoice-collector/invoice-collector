@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TargetcirclePerformissionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TargetcirclePerformissionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://performission.targetcircle.com/finance/#/documents",
+        loginUrl: "https://performission.targetcircle.com/finance/#/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

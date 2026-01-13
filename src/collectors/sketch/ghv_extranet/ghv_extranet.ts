@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GhvExtranetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GhvExtranetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ghv-extranet.de/postbox.php",
+        loginUrl: "https://www.ghv-extranet.de/postbox.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

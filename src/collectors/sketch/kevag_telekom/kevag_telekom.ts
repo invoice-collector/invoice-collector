@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KevagTelekomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KevagTelekomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundencenter.kevag-telekom.de/documents/invoices/",
+        loginUrl: "https://kundencenter.kevag-telekom.de/documents/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

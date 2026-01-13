@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JournalLaDepecheCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JournalLaDepecheCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://abonnement.ladepeche.fr/site/ladepeche/default/fr/compte2/factures.html?scrollto=content",
+        loginUrl: "https://abonnement.ladepeche.fr/site/ladepeche/default/fr/compte2/factures.html?scrollto=content",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DribbbleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DribbbleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dribbble.com/session/new",
+        loginUrl: "https://dribbble.com/session/new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

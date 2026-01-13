@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdfEntrepriseGuadeloupeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdfEntrepriseGuadeloupeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sei-ael-guadeloupe.edf.com/aelEDF/jsp/arc/habilitation/acteur.ZoomerDossierClient.go",
+        loginUrl: "https://sei-ael-guadeloupe.edf.com/aelEDF/jsp/arc/habilitation/acteur.ZoomerDossierClient.go",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

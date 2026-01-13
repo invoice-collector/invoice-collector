@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MhkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MhkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mhk.net/",
+        loginUrl: "https://www.mhk.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

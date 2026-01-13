@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WinesittingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WinesittingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://winesitting.com/login",
+        loginUrl: "https://winesitting.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

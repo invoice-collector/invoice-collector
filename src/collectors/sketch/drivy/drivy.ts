@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrivyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrivyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.drivy.com/dashboard/payments?role=driver",
+        loginUrl: "https://www.drivy.com/dashboard/payments?role=driver",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

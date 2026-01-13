@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BillbeeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BillbeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.billbee.de/login",
+        loginUrl: "https://www.billbee.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

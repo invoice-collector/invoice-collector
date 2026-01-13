@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlmaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlmaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.getalma.eu/data",
+        loginUrl: "https://dashboard.getalma.eu/data",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

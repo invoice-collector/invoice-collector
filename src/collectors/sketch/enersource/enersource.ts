@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnersourceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnersourceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure6.i-doxs.net/Enersource/Secure/Bills.aspx",
+        loginUrl: "https://secure6.i-doxs.net/Enersource/Secure/Bills.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

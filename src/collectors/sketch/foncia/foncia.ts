@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FonciaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FonciaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myfoncia.fr/login ",
+        loginUrl: "https://myfoncia.fr/login ",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WithoutaboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WithoutaboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.withoutabox.com/index.php?cmd=public.login",
+        loginUrl: "https://www.withoutabox.com/index.php?cmd=public.login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

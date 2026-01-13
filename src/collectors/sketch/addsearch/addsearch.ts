@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AddsearchCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AddsearchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.addsearch.com/invoice/",
+        loginUrl: "https://www.addsearch.com/invoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

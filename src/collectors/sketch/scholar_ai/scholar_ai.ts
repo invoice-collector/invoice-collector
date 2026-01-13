@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScholarAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScholarAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://scholarai.io/",
+        loginUrl: "https://scholarai.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClockifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClockifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clockify.me/workspaces/5c227ebdb079870b01b06417/settings#subscription",
+        loginUrl: "https://clockify.me/workspaces/5c227ebdb079870b01b06417/settings#subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

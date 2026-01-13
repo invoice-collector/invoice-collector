@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfMansfieldTxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfMansfieldTxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://payments.mansfieldtexas.gov/stw_php/stwub/ubliphst.php",
+        loginUrl: "https://payments.mansfieldtexas.gov/stw_php/stwub/ubliphst.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeBonCoinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeBonCoinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.leboncoin.fr/",
+        loginUrl: "https://www.leboncoin.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

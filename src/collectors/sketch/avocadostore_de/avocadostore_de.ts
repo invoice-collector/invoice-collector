@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvocadostoreDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AvocadostoreDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.avocadostore.de/user_session/new",
+        loginUrl: "https://www.avocadostore.de/user_session/new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

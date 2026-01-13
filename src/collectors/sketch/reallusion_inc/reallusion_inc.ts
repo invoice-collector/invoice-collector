@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReallusionIncCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReallusionIncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reallusion.com/member/#/en/order-history",
+        loginUrl: "https://www.reallusion.com/member/#/en/order-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

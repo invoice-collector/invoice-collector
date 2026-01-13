@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HexonetOtAndECollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HexonetOtAndECollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account-ote.hexonet.net/token=f7batt1c/#/invoicelist",
+        loginUrl: "https://account-ote.hexonet.net/token=f7batt1c/#/invoicelist",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

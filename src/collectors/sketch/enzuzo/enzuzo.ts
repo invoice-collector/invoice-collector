@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnzuzoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnzuzoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.enzuzo.com/login",
+        loginUrl: "https://app.enzuzo.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

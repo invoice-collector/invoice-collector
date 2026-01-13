@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RealpageResidentsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RealpageResidentsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://umresident.realpage.com/",
+        loginUrl: "https://umresident.realpage.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

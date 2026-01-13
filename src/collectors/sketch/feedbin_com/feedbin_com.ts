@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FeedbinComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FeedbinComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://feedbin.com/login",
+        loginUrl: "https://feedbin.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

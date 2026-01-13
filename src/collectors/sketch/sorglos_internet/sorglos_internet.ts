@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SorglosInternetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SorglosInternetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.sorglosinternet.de/login",
+        loginUrl: "https://mein.sorglosinternet.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

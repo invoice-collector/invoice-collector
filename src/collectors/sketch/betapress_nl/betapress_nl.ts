@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BetapressNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BetapressNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.betapress.nl",
+        loginUrl: "http://www.betapress.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

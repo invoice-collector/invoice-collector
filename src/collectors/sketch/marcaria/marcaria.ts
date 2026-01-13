@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarcariaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MarcariaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.marcaria.com/mydomains/my_domain_invoices.aspx",
+        loginUrl: "https://www.marcaria.com/mydomains/my_domain_invoices.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

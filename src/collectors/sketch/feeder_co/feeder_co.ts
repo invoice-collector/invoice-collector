@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FeederCoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FeederCoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://feeder.co/reader?view=account-settings%2Finvoices",
+        loginUrl: "https://feeder.co/reader?view=account-settings%2Finvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

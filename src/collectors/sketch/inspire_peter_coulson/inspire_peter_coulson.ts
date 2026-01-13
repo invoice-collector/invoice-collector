@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InspirePeterCoulsonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InspirePeterCoulsonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://inspire.peter-coulson.com.au/my-account",
+        loginUrl: "https://inspire.peter-coulson.com.au/my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

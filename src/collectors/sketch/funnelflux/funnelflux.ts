@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunnelfluxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FunnelfluxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.funnelflux.com/access/login",
+        loginUrl: "https://www.funnelflux.com/access/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

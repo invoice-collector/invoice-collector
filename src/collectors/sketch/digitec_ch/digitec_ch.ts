@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigitecChCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DigitecChCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.digitecgalaxus.ch/login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dhybrid.monolith-ch%26response_mode%3Dform_post%26response_type%3Dcode%2520id_token%26scope%3Dopenid%2520profile%2520B2B%26state%3DOpenIdConnect.AuthenticationProp",
+        loginUrl: "https://id.digitecgalaxus.ch/login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dhybrid.monolith-ch%26response_mode%3Dform_post%26response_type%3Dcode%2520id_token%26scope%3Dopenid%2520profile%2520B2B%26state%3DOpenIdConnect.AuthenticationProp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

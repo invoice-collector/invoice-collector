@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdfReunionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdfReunionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sei-ael-reunion.edf.com/aelEDF/jsp/arc/habilitation/login.jsp",
+        loginUrl: "https://sei-ael-reunion.edf.com/aelEDF/jsp/arc/habilitation/login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

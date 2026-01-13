@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SyscoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SyscoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.sysco.com/login",
+        loginUrl: "https://portal.sysco.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

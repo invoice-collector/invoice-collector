@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServicityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ServicityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://invia.servicity.fr",
+        loginUrl: "https://invia.servicity.fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

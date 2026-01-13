@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OplyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OplyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myspace.oply.com/login",
+        loginUrl: "https://myspace.oply.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SfrCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class SfrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sfr.fr/mon-espace-client/",
+        loginUrl: "https://www.sfr.fr/mon-espace-client/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

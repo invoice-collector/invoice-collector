@@ -85,6 +85,7 @@ export class MongoDB extends AbstractDatabase {
             theme: customer.theme,
             subscribedCollectors: customer.subscribedCollectors,
             isSubscribedToAll: customer.isSubscribedToAll,
+            enableInteractiveLogin: customer.enableInteractiveLogin,
             displaySketchCollectors: customer.displaySketchCollectors,
             maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
             plan: customer.plan
@@ -112,6 +113,7 @@ export class MongoDB extends AbstractDatabase {
             document.theme,
             document.subscribedCollectors,
             document.isSubscribedToAll,
+            document.enableInteractiveLogin,
             document.displaySketchCollectors,
             document.maxDelayBetweenCollect,
             document.plan
@@ -152,6 +154,7 @@ export class MongoDB extends AbstractDatabase {
                 theme: customer.theme,
                 subscribedCollectors: customer.subscribedCollectors,
                 isSubscribedToAll: customer.isSubscribedToAll,
+                enableInteractiveLogin: customer.enableInteractiveLogin,
                 displaySketchCollectors: customer.displaySketchCollectors,
                 maxDelayBetweenCollect: customer.maxDelayBetweenCollect,
                 plan: customer.plan
@@ -444,6 +447,7 @@ export class MongoDB extends AbstractDatabase {
         const collectorMemory = new CollectorMemory(
             document.name,
             Actions.fromObject(document.actions),
+            document.customerAreaUrl,
             document.entryUrl
         );
         collectorMemory.id = document._id.toString();
@@ -457,6 +461,7 @@ export class MongoDB extends AbstractDatabase {
         const document = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).insertOne({
             name: collectorMemory.name,
             actions: collectorMemory.actions,
+            customerAreaUrl: collectorMemory.customerAreaUrl,
             entryUrl: collectorMemory.entryUrl
         });
         collectorMemory.id = document.insertedId.toString();
@@ -472,6 +477,7 @@ export class MongoDB extends AbstractDatabase {
             { $set: {
                 name: collectorMemory.name,
                 actions: collectorMemory.actions,
+                customerAreaUrl: collectorMemory.customerAreaUrl,
                 entryUrl: collectorMemory.entryUrl
             }}
         );

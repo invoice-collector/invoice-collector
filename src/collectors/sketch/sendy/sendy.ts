@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SendyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SendyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.sendy.co",
+        loginUrl: "http://www.sendy.co",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

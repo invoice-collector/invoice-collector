@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarketscreenerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MarketscreenerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.marketscreener.com/mein-konto/abonnements/",
+        loginUrl: "https://de.marketscreener.com/mein-konto/abonnements/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

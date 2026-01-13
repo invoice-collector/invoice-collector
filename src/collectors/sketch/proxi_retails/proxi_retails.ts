@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProxiRetailsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProxiRetailsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://proxiretails.com/account",
+        loginUrl: "https://proxiretails.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

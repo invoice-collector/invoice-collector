@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PetroCanadaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PetroCanadaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.petro-canada.ca/en/personal/petro-points-sign-up-activate?modalUrl=%2Fen%2Fpersonal%2Flogin#i-have-a-card",
+        loginUrl: "https://www.petro-canada.ca/en/personal/petro-points-sign-up-activate?modalUrl=%2Fen%2Fpersonal%2Flogin#i-have-a-card",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

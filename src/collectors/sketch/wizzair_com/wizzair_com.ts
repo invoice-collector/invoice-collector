@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WizzairComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WizzairComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wizzair.com/de-de",
+        loginUrl: "https://wizzair.com/de-de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

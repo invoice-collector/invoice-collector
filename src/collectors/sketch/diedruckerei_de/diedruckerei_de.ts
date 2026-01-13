@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DiedruckereiDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DiedruckereiDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onlineprinters.de",
+        loginUrl: "https://www.onlineprinters.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NowedaCockpitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NowedaCockpitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cockpit.noweda.de/",
+        loginUrl: "https://cockpit.noweda.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

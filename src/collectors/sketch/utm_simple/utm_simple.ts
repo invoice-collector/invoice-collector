@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UtmSimpleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UtmSimpleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://utmsimple.com/",
+        loginUrl: "https://utmsimple.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

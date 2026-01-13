@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpngoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpngoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.opngo.com/fr/account/orders/current",
+        loginUrl: "https://www.opngo.com/fr/account/orders/current",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

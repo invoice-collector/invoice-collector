@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoogleAdsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GoogleAdsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ads.google.com/aw/overview",
+        loginUrl: "https://ads.google.com/aw/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FpSignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FpSignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.fp-sign.com/dashboard",
+        loginUrl: "https://admin.fp-sign.com/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

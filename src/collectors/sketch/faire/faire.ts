@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FaireCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FaireCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.faire.com/?signIn=1",
+        loginUrl: "https://www.faire.com/?signIn=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MuralCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MuralCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mural.co/signin",
+        loginUrl: "https://app.mural.co/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RedGiantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RedGiantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.redgiant.com/store/customer/orders",
+        loginUrl: "https://www.redgiant.com/store/customer/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

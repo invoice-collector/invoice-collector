@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OkofenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OkofenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.oekofen.com/de-de/pelletheizung/",
+        loginUrl: "https://www.oekofen.com/de-de/pelletheizung/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

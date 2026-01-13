@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HirerightCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HirerightCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hireright.com",
+        loginUrl: "https://www.hireright.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

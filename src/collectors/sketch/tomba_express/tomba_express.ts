@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TombaExpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TombaExpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tomba-express.com/index.php?action=my_orders",
+        loginUrl: "https://www.tomba-express.com/index.php?action=my_orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

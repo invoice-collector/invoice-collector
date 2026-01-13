@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConnectilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConnectilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.connectill.com/dashboard/my-account-invoices",
+        loginUrl: "https://cloud.connectill.com/dashboard/my-account-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

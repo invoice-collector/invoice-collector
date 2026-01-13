@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbertlangCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EbertlangCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partnerportal.elovade.com/start.cfm",
+        loginUrl: "https://partnerportal.elovade.com/start.cfm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

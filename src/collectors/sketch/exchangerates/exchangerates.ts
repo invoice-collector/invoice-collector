@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ExchangeratesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ExchangeratesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.exchangeratesapi.io/payment",
+        loginUrl: "https://manage.exchangeratesapi.io/payment",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DhlNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DhlNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.logistics.dhl/nl-nl/home/inloggen.html",
+        loginUrl: "https://www.logistics.dhl/nl-nl/home/inloggen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

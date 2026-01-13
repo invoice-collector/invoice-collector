@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DentaurumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DentaurumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.dentaurum.de/login.php?source=&ch=c12a5c",
+        loginUrl: "https://shop.dentaurum.de/login.php?source=&ch=c12a5c",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

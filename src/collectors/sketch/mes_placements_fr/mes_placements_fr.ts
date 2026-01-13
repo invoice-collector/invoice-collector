@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MesPlacementsFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MesPlacementsFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mes-placements.fr/",
+        loginUrl: "https://mes-placements.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

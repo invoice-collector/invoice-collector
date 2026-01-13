@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WerbenUndVerkaufenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WerbenUndVerkaufenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wuv.de/",
+        loginUrl: "https://www.wuv.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

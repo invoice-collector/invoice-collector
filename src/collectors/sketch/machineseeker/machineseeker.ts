@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MachineseekerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MachineseekerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.machineseeker.fr/user/contract/invoice-list",
+        loginUrl: "https://www.machineseeker.fr/user/contract/invoice-list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

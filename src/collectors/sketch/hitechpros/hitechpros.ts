@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HitechprosCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HitechprosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://esn.hitechpros.com/mon-espace/parametres#!/",
+        loginUrl: "https://esn.hitechpros.com/mon-espace/parametres#!/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TruelancerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TruelancerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.truelancer.com/payments/mymoney",
+        loginUrl: "https://www.truelancer.com/payments/mymoney",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

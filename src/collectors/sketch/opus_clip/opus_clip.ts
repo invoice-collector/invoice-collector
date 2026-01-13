@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OpusClipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OpusClipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pay.opus.pro/p/session/live_YWNjdF8xTXhzVFdKdHY4TlVvRnlJLF9RQjc5WnNSOE5aYXpuNGF5YlJpQVRpNW00TTVtNm1M0100R3F9WgCp",
+        loginUrl: "https://pay.opus.pro/p/session/live_YWNjdF8xTXhzVFdKdHY4TlVvRnlJLF9RQjc5WnNSOE5aYXpuNGF5YlJpQVRpNW00TTVtNm1M0100R3F9WgCp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

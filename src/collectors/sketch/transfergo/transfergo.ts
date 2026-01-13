@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransfergoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TransfergoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.transfergo.com/en/user/dashboard",
+        loginUrl: "https://my.transfergo.com/en/user/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeinhoergeraetDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeinhoergeraetDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.meinhoergeraet.de/de/login",
+        loginUrl: "https://www.meinhoergeraet.de/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

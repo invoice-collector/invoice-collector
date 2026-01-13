@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeGmbhBadKreuznachCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeGmbhBadKreuznachCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-kh.de/powercommerce/csit3/fo/portal/home",
+        loginUrl: "https://kundenportal.stadtwerke-kh.de/powercommerce/csit3/fo/portal/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

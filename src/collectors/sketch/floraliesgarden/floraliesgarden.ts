@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FloraliesgardenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FloraliesgardenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.floraliesgarden.com/",
+        loginUrl: "http://www.floraliesgarden.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

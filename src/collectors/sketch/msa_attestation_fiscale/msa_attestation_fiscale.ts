@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MsaAttestationFiscaleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MsaAttestationFiscaleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://monespaceprive.msa.fr/lfy/web/msa-mayenne-orne-sarthe/attestation-fiscale1?modalId=2",
+        loginUrl: "https://monespaceprive.msa.fr/lfy/web/msa-mayenne-orne-sarthe/attestation-fiscale1?modalId=2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RecrasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RecrasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.recras.nl/",
+        loginUrl: "https://www.recras.nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

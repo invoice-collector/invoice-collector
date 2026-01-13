@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CofaceCustomerPortalCofanetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CofaceCustomerPortalCofanetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cofanet.coface.com/fr",
+        loginUrl: "https://cofanet.coface.com/fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AppleSearchAdsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AppleSearchAdsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.searchads.apple.com/cm/app/settings/billing/creditcard",
+        loginUrl: "https://app.searchads.apple.com/cm/app/settings/billing/creditcard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

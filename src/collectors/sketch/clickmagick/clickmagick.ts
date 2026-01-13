@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClickmagickCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClickmagickCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.clickmagick.com/user/account/billing/",
+        loginUrl: "https://www.clickmagick.com/user/account/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

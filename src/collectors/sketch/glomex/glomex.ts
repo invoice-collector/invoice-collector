@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlomexCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GlomexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://exchange.glomex.com/manage/invoices",
+        loginUrl: "https://exchange.glomex.com/manage/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

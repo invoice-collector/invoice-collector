@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeckOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BeckOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://beck-online.beck.de/Login",
+        loginUrl: "https://beck-online.beck.de/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TummeeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TummeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tummee.com/auth/login",
+        loginUrl: "https://www.tummee.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

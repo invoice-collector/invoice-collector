@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IntellivapCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IntellivapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://intellivap.com/",
+        loginUrl: "https://intellivap.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -120,7 +120,8 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -143,7 +144,8 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -166,7 +168,8 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 ))
                     .rejects.toThrow(AuthenticationError);
             }, ONE_MINUTE);
@@ -193,7 +196,8 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     secret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 );
 
                 // Assert cookies are not null
@@ -223,7 +227,8 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                     testSecret,
                     Date.UTC(2000, 0, 1),
                     [],
-                    null
+                    null,
+                    false
                 );
             }, TWO_MINUTES);
         });

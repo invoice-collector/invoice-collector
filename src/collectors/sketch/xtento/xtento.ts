@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XtentoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XtentoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.xtento.com/customer/account/login/",
+        loginUrl: "https://www.xtento.com/customer/account/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

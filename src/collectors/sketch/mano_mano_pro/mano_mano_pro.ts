@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManoManoProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ManoManoProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.manomano.fr/mes-factures",
+        loginUrl: "https://pro.manomano.fr/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

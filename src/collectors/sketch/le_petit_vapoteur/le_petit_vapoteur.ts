@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LePetitVapoteurCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LePetitVapoteurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lepetitvapoteur.com/fr/",
+        loginUrl: "https://www.lepetitvapoteur.com/fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrivupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrivupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.drivup.fr/abonnement.php?zone=config#",
+        loginUrl: "https://admin.drivup.fr/abonnement.php?zone=config#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

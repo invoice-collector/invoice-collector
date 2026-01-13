@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuropcarCorporateCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EuropcarCorporateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://europcar.generix.biz/txe/ui/portal.jsf",
+        loginUrl: "http://europcar.generix.biz/txe/ui/portal.jsf",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

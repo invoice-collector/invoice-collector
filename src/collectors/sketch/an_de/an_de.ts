@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AnDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunde.an.de/account/Rechnungen",
+        loginUrl: "https://kunde.an.de/account/Rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

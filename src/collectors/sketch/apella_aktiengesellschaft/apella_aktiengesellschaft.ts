@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApellaAktiengesellschaftCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ApellaAktiengesellschaftCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.apella.de/login/main/exlogin.php",
+        loginUrl: "https://www.apella.de/login/main/exlogin.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

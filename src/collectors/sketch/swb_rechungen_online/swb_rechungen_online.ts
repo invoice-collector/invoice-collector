@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwbRechungenOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwbRechungenOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.swb-gruppe.de/nordcomcss/secure/billingOverview.xhtml",
+        loginUrl: "https://mein.swb-gruppe.de/nordcomcss/secure/billingOverview.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

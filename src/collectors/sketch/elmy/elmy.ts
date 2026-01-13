@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElmyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElmyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-pro.elmy.fr/accueil",
+        loginUrl: "https://espace-pro.elmy.fr/accueil",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

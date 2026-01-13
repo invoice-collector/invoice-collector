@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Msp360Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Msp360Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.msp360.com/AP/LicensesSubscriptionHistory.aspx",
+        loginUrl: "https://console.msp360.com/AP/LicensesSubscriptionHistory.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

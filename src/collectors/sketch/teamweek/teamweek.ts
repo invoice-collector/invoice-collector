@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeamweekCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TeamweekCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://plan.toggl.com",
+        loginUrl: "https://plan.toggl.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

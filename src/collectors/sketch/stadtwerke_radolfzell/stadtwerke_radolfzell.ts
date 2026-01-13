@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeRadolfzellCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeRadolfzellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.stadtwerke-radolfzell.de/powercommerce/csit3/fo/portal/invoiceDetails",
+        loginUrl: "https://kundenportal.stadtwerke-radolfzell.de/powercommerce/csit3/fo/portal/invoiceDetails",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VTrustCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VTrustCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.v-trust.com/My/Payment/List.aspx",
+        loginUrl: "https://www.v-trust.com/My/Payment/List.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

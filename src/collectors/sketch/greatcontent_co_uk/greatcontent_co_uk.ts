@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreatcontentCoUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GreatcontentCoUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.greatcontent.co.uk/common/login",
+        loginUrl: "https://www.greatcontent.co.uk/common/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

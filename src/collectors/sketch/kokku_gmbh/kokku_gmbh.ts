@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KokkuGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KokkuGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kokku-online.de",
+        loginUrl: "https://kokku-online.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

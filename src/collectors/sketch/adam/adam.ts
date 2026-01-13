@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdamCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myadam.io/profitability/dashboard",
+        loginUrl: "https://myadam.io/profitability/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

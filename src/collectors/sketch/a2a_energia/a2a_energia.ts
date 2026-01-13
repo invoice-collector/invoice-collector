@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class A2aEnergiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class A2aEnergiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.a2aenergia.eu",
+        loginUrl: "http://www.a2aenergia.eu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

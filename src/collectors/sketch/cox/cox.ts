@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.cox.com",
+        loginUrl: "http://www.cox.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

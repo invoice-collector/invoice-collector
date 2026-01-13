@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JarveeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JarveeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jarvee.azurewebsites.net/Invoices/Index",
+        loginUrl: "https://jarvee.azurewebsites.net/Invoices/Index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

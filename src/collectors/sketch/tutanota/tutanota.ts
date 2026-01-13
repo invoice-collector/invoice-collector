@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TutanotaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TutanotaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mail.tutanota.com/login",
+        loginUrl: "https://mail.tutanota.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

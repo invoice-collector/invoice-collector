@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScrapingbeeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScrapingbeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.scrapingbee.com/account/manage/info",
+        loginUrl: "https://app.scrapingbee.com/account/manage/info",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VecticonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VecticonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vecticon.co/de/dashboard?tab=billing",
+        loginUrl: "https://www.vecticon.co/de/dashboard?tab=billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

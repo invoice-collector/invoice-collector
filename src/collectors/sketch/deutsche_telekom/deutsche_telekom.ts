@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeutscheTelekomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeutscheTelekomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telekom.de/kundencenter/rechnungsuebersicht",
+        loginUrl: "https://www.telekom.de/kundencenter/rechnungsuebersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

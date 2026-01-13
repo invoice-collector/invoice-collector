@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WewebCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WewebCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.weweb.io/sign-in",
+        loginUrl: "https://dashboard.weweb.io/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

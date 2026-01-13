@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SandroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SandroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.sandro-paris.com/",
+        loginUrl: "https://fr.sandro-paris.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HuggingfaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HuggingfaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://huggingface.com/bills",
+        loginUrl: "https://huggingface.com/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

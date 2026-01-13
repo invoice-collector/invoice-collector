@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MitgoIdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MitgoIdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.mitgo.com/auth/realms/users/protocol/openid-connect/auth?client_id=monolith&redirect_uri=https%3A%2F%2Fstore.admitad.com%2Fde%2Fsso%2Flogin-complete%2F&response_type=code&scope=openid+email+profile&state=f7bc7a43-e69a-4ac1-8955-9a1748359c72&",
+        loginUrl: "https://login.mitgo.com/auth/realms/users/protocol/openid-connect/auth?client_id=monolith&redirect_uri=https%3A%2F%2Fstore.admitad.com%2Fde%2Fsso%2Flogin-complete%2F&response_type=code&scope=openid+email+profile&state=f7bc7a43-e69a-4ac1-8955-9a1748359c72&",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

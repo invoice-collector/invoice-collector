@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAprilEntrepriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleAprilEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.april-entreprise.fr/accedez-a-votre-espace",
+        loginUrl: "http://www.april-entreprise.fr/accedez-a-votre-espace",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

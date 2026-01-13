@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlertiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlertiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.alerti.com/#/en/index",
+        loginUrl: "https://app.alerti.com/#/en/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartItGlobalLtdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartItGlobalLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://smartit.shop/de/18744/de/afl/report-onetime/",
+        loginUrl: "https://smartit.shop/de/18744/de/afl/report-onetime/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

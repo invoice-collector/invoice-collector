@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MotionTmPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MotionTmPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.motion-tm.de/",
+        loginUrl: "https://partner.motion-tm.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

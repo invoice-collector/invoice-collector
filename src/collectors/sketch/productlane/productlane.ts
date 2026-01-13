@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProductlaneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProductlaneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://productlane.com/settings/plans",
+        loginUrl: "https://productlane.com/settings/plans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

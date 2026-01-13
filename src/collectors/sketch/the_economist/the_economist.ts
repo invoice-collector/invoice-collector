@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheEconomistCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TheEconomistCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.economist.com/",
+        loginUrl: "https://www.economist.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

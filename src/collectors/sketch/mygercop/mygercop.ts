@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MygercopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MygercopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://etudeamboise.mygercop.com/xnet/locataire/mes-documents/classeur/1",
+        loginUrl: "https://etudeamboise.mygercop.com/xnet/locataire/mes-documents/classeur/1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

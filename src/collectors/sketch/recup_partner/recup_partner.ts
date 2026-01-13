@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RecupPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RecupPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.recup.de/account",
+        loginUrl: "https://partner.recup.de/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

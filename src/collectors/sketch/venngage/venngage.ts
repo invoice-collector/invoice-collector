@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VenngageCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VenngageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://infograph.venngage.com/account/billinghistory",
+        loginUrl: "https://infograph.venngage.com/account/billinghistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

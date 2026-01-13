@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LiveuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LiveuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://solo.liveu.tv/dashboard/invoice/in_1IgVMsAcRTuYLIIw5yfSOChu",
+        loginUrl: "https://solo.liveu.tv/dashboard/invoice/in_1IgVMsAcRTuYLIIw5yfSOChu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

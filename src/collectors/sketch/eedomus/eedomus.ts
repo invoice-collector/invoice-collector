@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EedomusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EedomusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eedomus.com/en/",
+        loginUrl: "https://www.eedomus.com/en/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

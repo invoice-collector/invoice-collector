@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MediaMarktSuperSelectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MediaMarktSuperSelectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.super-select.de/kundencenter",
+        loginUrl: "https://www.super-select.de/kundencenter",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

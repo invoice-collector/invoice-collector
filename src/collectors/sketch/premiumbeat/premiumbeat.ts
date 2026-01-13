@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PremiumbeatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PremiumbeatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.premiumbeat.com/account/orders",
+        loginUrl: "https://www.premiumbeat.com/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

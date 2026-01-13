@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JournalLeParisienCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JournalLeParisienCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://serviceclients.leparisien.fr/abonnement/paiements",
+        loginUrl: "https://serviceclients.leparisien.fr/abonnement/paiements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

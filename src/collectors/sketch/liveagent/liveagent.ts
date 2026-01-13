@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LiveagentCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LiveagentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.liveagent.com/login/",
+        loginUrl: "https://www.liveagent.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

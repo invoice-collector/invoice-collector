@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepsolCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RepsolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.repsol.com/es/Landing/AuthnPage?returnUrl=https://www.repsol.com/es/index.cshtml",
+        loginUrl: "https://login.repsol.com/es/Landing/AuthnPage?returnUrl=https://www.repsol.com/es/index.cshtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

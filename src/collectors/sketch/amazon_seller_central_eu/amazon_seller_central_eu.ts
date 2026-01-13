@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonSellerCentralEuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonSellerCentralEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sellercentral-europe.amazon.com",
+        loginUrl: "https://sellercentral-europe.amazon.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

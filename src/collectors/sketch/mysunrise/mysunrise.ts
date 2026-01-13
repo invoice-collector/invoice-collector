@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MysunriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MysunriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sunrise.ch/content/mysunrise/de/residential/meine-rechnungen.html#/",
+        loginUrl: "https://www.sunrise.ch/content/mysunrise/de/residential/meine-rechnungen.html#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

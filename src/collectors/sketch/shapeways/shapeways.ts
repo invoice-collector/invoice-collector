@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShapewaysCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShapewaysCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.shapeways.com/orders",
+        loginUrl: "https://www.shapeways.com/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

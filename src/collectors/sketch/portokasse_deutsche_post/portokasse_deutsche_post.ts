@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortokasseDeutschePostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PortokasseDeutschePostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portokasse.deutschepost.de/portokasse/#!/journal",
+        loginUrl: "https://portokasse.deutschepost.de/portokasse/#!/journal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

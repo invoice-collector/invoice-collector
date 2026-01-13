@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HrsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HrsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.hrs.de",
+        loginUrl: "http://www.hrs.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HoststarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HoststarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.hoststar.ch/",
+        loginUrl: "https://my.hoststar.ch/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

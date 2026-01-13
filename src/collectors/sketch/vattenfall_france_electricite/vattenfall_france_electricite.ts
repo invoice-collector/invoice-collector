@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VattenfallFranceElectriciteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VattenfallFranceElectriciteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.vattenfall.fr/grandcompte/factures",
+        loginUrl: "https://espaceclient.vattenfall.fr/grandcompte/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

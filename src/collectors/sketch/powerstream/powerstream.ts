@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PowerstreamCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PowerstreamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.powerstream.ca/app/login.jsp",
+        loginUrl: "https://www.powerstream.ca/app/login.jsp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

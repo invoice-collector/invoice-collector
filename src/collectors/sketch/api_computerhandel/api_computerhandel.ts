@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ApiComputerhandelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ApiComputerhandelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.api.de",
+        loginUrl: "https://shop.api.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

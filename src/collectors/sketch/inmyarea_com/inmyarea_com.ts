@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InmyareaComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InmyareaComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.inmyarea.com",
+        loginUrl: "http://www.inmyarea.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

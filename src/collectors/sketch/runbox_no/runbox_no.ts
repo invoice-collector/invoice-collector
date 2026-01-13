@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RunboxNoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RunboxNoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://runbox.com/mail",
+        loginUrl: "https://runbox.com/mail",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DreamhostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DreamhostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.dreamhost.com",
+        loginUrl: "https://panel.dreamhost.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

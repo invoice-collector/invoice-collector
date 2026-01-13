@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoardboosterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BoardboosterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://boardbooster.com/billing",
+        loginUrl: "https://boardbooster.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

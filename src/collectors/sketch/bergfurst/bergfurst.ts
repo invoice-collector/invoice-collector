@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BergfurstCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BergfurstCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.bergfuerst.com/nachrichten/posteingang",
+        loginUrl: "https://de.bergfuerst.com/nachrichten/posteingang",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

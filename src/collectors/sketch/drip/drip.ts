@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DripCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DripCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.getdrip.com/signin",
+        loginUrl: "https://www.getdrip.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZaDirektCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZaDirektCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zadirekt.zaag.de/inbox/",
+        loginUrl: "https://zadirekt.zaag.de/inbox/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NexylanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NexylanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connect.nexylan.com/oauth2/authorize",
+        loginUrl: "https://connect.nexylan.com/oauth2/authorize",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

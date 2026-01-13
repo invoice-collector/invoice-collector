@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeinrichKippWerkGermanyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HeinrichKippWerkGermanyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kippwerk.de/de/my-account/order/list",
+        loginUrl: "https://www.kippwerk.de/de/my-account/order/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

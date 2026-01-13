@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HubicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HubicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hubic.com/home/",
+        loginUrl: "https://hubic.com/home/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

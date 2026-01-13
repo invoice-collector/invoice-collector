@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OvzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OvzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ovz.de/login/kunde/",
+        loginUrl: "https://www.ovz.de/login/kunde/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

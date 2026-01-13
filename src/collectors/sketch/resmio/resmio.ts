@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ResmioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ResmioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.resmio.com/die-blaue-agave/account",
+        loginUrl: "https://app.resmio.com/die-blaue-agave/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

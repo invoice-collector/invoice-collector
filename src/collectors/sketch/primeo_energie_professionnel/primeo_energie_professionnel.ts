@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrimeoEnergieProfessionnelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrimeoEnergieProfessionnelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.primeo-energie.fr/invoices-pc",
+        loginUrl: "https://pro.primeo-energie.fr/invoices-pc",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

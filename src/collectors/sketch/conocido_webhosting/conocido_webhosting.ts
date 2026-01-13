@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConocidoWebhostingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConocidoWebhostingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.conocido.nl",
+        loginUrl: "http://www.conocido.nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

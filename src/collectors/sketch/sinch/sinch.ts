@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SinchCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SinchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.sinch.com/settings/billing",
+        loginUrl: "https://dashboard.sinch.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

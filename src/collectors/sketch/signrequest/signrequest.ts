@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SignrequestCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SignrequestCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signrequest.com/#/billing",
+        loginUrl: "https://signrequest.com/#/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

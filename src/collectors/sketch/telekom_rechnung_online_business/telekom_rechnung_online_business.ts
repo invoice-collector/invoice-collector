@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelekomRechnungOnlineBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelekomRechnungOnlineBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnung.geschaeftskunden.telekom.de/kv/belege_uebersicht",
+        loginUrl: "https://rechnung.geschaeftskunden.telekom.de/kv/belege_uebersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

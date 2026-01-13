@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BigdatacloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BigdatacloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.stripe.com/",
+        loginUrl: "https://billing.stripe.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

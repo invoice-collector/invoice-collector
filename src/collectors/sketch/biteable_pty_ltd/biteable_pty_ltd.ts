@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BiteablePtyLtdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BiteablePtyLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.biteable.com/login",
+        loginUrl: "https://app.biteable.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

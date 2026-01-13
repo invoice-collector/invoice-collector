@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManatecCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ManatecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://erp.manatec.de/",
+        loginUrl: "https://erp.manatec.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

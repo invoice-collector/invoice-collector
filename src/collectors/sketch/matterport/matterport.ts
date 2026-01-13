@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MatterportCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MatterportCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.matterport.com/accounts/login",
+        loginUrl: "https://my.matterport.com/accounts/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

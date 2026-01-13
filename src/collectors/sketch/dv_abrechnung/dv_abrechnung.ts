@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DvAbrechnungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DvAbrechnungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://abrechnungplus.dv-portal.de/master-data?tab=2&page=1&itemsPerPage=15&sortBy%5B0%5D=voucherDate&sortDesc%5B0%5D=true",
+        loginUrl: "https://abrechnungplus.dv-portal.de/master-data?tab=2&page=1&itemsPerPage=15&sortBy%5B0%5D=voucherDate&sortDesc%5B0%5D=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

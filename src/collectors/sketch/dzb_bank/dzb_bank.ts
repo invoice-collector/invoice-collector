@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DzbBankCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DzbBankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.dzb-bank.de/dzb/",
+        loginUrl: "https://portal.dzb-bank.de/dzb/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GRoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GRoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://g-ro.com/account",
+        loginUrl: "https://g-ro.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

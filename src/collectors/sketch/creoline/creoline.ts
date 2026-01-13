@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreolineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CreolineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.creoline.de/auth/login/",
+        loginUrl: "https://account.creoline.de/auth/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

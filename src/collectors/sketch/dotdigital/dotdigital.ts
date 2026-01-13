@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DotdigitalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DotdigitalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://r1-app.dotdigital.com/account/my-invoices",
+        loginUrl: "https://r1-app.dotdigital.com/account/my-invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

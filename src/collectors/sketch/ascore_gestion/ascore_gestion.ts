@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AscoreGestionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AscoreGestionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ascoregestion.com/",
+        loginUrl: "https://www.ascoregestion.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

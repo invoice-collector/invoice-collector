@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MaxdominiosCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MaxdominiosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clientes.maxdominios.com/clientarea.php?action=invoices",
+        loginUrl: "https://clientes.maxdominios.com/clientarea.php?action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

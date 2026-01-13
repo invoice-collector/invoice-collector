@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeamspeakCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TeamspeakCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sales.teamspeakusa.com/",
+        loginUrl: "https://sales.teamspeakusa.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

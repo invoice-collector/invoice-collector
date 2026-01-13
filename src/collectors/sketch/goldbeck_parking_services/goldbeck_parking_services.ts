@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GoldbeckParkingServicesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GoldbeckParkingServicesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.goldbeck-parking.de/mein-parking-profil/de",
+        loginUrl: "https://www.goldbeck-parking.de/mein-parking-profil/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KeySystemsRrpproxyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KeySystemsRrpproxyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wi.rrpproxy.net",
+        loginUrl: "https://wi.rrpproxy.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

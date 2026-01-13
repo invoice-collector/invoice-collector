@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnviamGeschaeftskundenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnviamGeschaeftskundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.enviam.de/powercommerce/envia/fo/portal/invoice",
+        loginUrl: "https://kundenportal.enviam.de/powercommerce/envia/fo/portal/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

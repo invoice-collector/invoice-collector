@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShortStackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShortStackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app2.shortstackapp.com/manage/#/account?tab=statements",
+        loginUrl: "https://app2.shortstackapp.com/manage/#/account?tab=statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

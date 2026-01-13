@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SousvidetoolsComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SousvidetoolsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sousvidetools.com/eu/sales/order/history/",
+        loginUrl: "https://www.sousvidetools.com/eu/sales/order/history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

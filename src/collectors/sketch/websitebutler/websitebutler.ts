@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebsitebutlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebsitebutlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.websitebutler.de/login",
+        loginUrl: "https://my.websitebutler.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

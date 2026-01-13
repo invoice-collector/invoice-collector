@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FanzoExAllomatchCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FanzoExAllomatchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://business.fanzo.com/account/billing",
+        loginUrl: "https://business.fanzo.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

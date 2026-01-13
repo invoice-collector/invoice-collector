@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WoodriverenergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WoodriverenergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.woodriverenergy.com",
+        loginUrl: "https://sso.woodriverenergy.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

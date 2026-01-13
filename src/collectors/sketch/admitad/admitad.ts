@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdmitadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdmitadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.admitad.com/de",
+        loginUrl: "https://www.admitad.com/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

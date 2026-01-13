@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnapnamesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SnapnamesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.snapnames.com/switch.sn?view=registrationHistory&vcFilter=true&viewName=sn.view.regHist&filter=1",
+        loginUrl: "https://www.snapnames.com/switch.sn?view=registrationHistory&vcFilter=true&viewName=sn.view.regHist&filter=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

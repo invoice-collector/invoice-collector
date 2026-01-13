@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DistrokidCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DistrokidCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://distrokid.com/receipts/",
+        loginUrl: "https://distrokid.com/receipts/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

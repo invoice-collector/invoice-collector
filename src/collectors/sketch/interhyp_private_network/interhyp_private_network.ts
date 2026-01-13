@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InterhypPrivateNetworkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InterhypPrivateNetworkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.interhyp-partnerprogramm.de/auszahlungen.cgi",
+        loginUrl: "https://www.interhyp-partnerprogramm.de/auszahlungen.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

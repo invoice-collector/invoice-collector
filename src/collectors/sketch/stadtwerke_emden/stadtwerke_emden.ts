@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeEmdenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeEmdenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://csit.sw-emden.de/powercommerce/csit3/fo/portal/start",
+        loginUrl: "https://csit.sw-emden.de/powercommerce/csit3/fo/portal/start",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdbutlerSparklitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdbutlerSparklitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sparklit.com/common_admin.spark?",
+        loginUrl: "https://www.sparklit.com/common_admin.spark?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

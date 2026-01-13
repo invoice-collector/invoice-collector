@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FreeflySystemsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FreeflySystemsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.freeflysystems.com/account",
+        loginUrl: "https://store.freeflysystems.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

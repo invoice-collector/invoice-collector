@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UsenextCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UsenextCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://premium.usenext.com/user-billings.do",
+        loginUrl: "https://premium.usenext.com/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

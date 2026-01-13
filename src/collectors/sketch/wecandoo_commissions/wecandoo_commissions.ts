@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WecandooCommissionsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WecandooCommissionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wecandoo.fr/espace-artisan/facturation/commissions",
+        loginUrl: "https://wecandoo.fr/espace-artisan/facturation/commissions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

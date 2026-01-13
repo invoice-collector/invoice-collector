@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JboardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JboardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.jboard.io/settings/teams/5500#/invoices",
+        loginUrl: "https://app.jboard.io/settings/teams/5500#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThreecoltsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ThreecoltsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manager.threecolts.com/v2/login",
+        loginUrl: "https://manager.threecolts.com/v2/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

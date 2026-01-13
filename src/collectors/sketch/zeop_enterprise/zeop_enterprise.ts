@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeopEnterpriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZeopEnterpriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://monportailentreprise.zeop.re/gestion-factures",
+        loginUrl: "https://monportailentreprise.zeop.re/gestion-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

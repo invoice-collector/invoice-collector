@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BellCanadaMediumAndLargeBusinessPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BellCanadaMediumAndLargeBusinessPortalCollector extends SketchColle
                 mandatory: true
             }
         },
-        entryUrl: "https://www.businessportal.bell.ca/auth/Login?LOCALE=en_US",
+        loginUrl: "https://www.businessportal.bell.ca/auth/Login?LOCALE=en_US",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

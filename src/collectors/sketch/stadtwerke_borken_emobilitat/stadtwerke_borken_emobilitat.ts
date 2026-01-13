@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBorkenEmobilitatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeBorkenEmobilitatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stadtwerke-borken.emobilitycloud.com/de/login",
+        loginUrl: "https://stadtwerke-borken.emobilitycloud.com/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

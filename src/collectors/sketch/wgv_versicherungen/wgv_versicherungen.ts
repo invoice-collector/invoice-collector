@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WgvVersicherungenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WgvVersicherungenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wgv.de/app/pks2020/postfach",
+        loginUrl: "https://www.wgv.de/app/pks2020/postfach",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

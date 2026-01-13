@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LizenzguruCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LizenzguruCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lizenzguru.de/invoice_download",
+        loginUrl: "https://lizenzguru.de/invoice_download",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

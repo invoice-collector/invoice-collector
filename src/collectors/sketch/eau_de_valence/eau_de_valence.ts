@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EauDeValenceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EauDeValenceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.valenceromanseau.fr/#/login",
+        loginUrl: "https://espaceclient.valenceromanseau.fr/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

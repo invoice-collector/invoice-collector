@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllStarCardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AllStarCardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allstaronline.co.uk/OpenBankingAuthUI/Pages/Public/Login.aspx",
+        loginUrl: "https://www.allstaronline.co.uk/OpenBankingAuthUI/Pages/Public/Login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

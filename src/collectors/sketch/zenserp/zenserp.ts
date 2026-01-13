@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZenserpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZenserpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.zenserp.com/settings#/invoices",
+        loginUrl: "https://app.zenserp.com/settings#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

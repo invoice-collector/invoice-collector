@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RheinwerkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RheinwerkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rheinwerk-verlag.de/",
+        loginUrl: "https://www.rheinwerk-verlag.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

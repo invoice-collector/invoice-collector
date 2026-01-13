@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MontanaEnergieDeutschlandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MontanaEnergieDeutschlandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.montana-energie.de/privatkunden/",
+        loginUrl: "https://www.montana-energie.de/privatkunden/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

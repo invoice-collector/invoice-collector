@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KasperskyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KasperskyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.kaspersky.com/",
+        loginUrl: "https://my.kaspersky.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

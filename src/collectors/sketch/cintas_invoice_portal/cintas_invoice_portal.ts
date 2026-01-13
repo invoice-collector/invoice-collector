@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CintasInvoicePortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CintasInvoicePortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.cintas.com/online/login",
+        loginUrl: "https://account.cintas.com/online/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

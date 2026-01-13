@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VceTrainingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VceTrainingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vcetrainer.com/Account",
+        loginUrl: "https://vcetrainer.com/Account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

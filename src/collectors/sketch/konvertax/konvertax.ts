@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KonvertaxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KonvertaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://konvertax.de/invoice",
+        loginUrl: "https://konvertax.de/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JanolawCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JanolawCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.janolaw.de/myjanolaw/rechnungen.html",
+        loginUrl: "https://www.janolaw.de/myjanolaw/rechnungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

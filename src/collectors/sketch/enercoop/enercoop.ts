@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnercoopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnercoopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-client.enercoop.fr/",
+        loginUrl: "https://espace-client.enercoop.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

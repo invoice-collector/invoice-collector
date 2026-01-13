@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShrGermanyOnlineshopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShrGermanyOnlineshopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shr-germany-onlineshop.de/anmeldung?back=my-account",
+        loginUrl: "https://shr-germany-onlineshop.de/anmeldung?back=my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

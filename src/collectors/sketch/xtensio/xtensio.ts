@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XtensioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XtensioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.xtensio.com/account/signin",
+        loginUrl: "https://app.xtensio.com/account/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

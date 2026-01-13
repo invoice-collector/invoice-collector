@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RheingasFlussiggasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RheingasFlussiggasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.rheingas.de/",
+        loginUrl: "https://login.rheingas.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

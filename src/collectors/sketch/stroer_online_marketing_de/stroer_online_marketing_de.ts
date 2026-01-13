@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StroerOnlineMarketingDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StroerOnlineMarketingDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundencenter.stroeer-online-marketing.de/auth/login?next=%2Fanalytics%2Foverview",
+        loginUrl: "https://kundencenter.stroeer-online-marketing.de/auth/login?next=%2Fanalytics%2Foverview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

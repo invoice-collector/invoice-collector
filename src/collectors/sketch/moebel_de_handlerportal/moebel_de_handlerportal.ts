@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MoebelDeHandlerportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MoebelDeHandlerportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.moebel.de/portalispartner/",
+        loginUrl: "https://www.moebel.de/portalispartner/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

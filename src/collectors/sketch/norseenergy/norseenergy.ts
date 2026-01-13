@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NorseenergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NorseenergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.norseenergy.com",
+        loginUrl: "http://www.norseenergy.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

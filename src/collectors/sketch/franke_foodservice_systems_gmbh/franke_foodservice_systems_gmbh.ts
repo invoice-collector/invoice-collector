@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FrankeFoodserviceSystemsGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FrankeFoodserviceSystemsGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b-foodservicesystems-eu.franke.com/shop4/shop/my-orders",
+        loginUrl: "https://b2b-foodservicesystems-eu.franke.com/shop4/shop/my-orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmscherLippeEnergieGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmscherLippeEnergieGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.ele.de/privatkunden/meine-ele/services/rechnungen",
+        loginUrl: "https://meine.ele.de/privatkunden/meine-ele/services/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

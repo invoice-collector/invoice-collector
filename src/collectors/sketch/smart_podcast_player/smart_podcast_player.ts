@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartPodcastPlayerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartPodcastPlayerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.smartpodcastplayer.com/login#/invoices",
+        loginUrl: "https://my.smartpodcastplayer.com/login#/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

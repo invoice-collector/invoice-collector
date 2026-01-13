@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BunningsCommercialPowerpassCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BunningsCommercialPowerpassCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.bunningspowerpass.com.au",
+        loginUrl: "http://www.bunningspowerpass.com.au",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

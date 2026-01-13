@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NotismIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NotismIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.notism.io/account",
+        loginUrl: "https://www.notism.io/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

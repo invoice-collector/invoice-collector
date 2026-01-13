@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuokaDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuokaDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.quoka.de/mein-konto/login.html",
+        loginUrl: "https://www.quoka.de/mein-konto/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

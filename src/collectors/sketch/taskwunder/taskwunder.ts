@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaskwunderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TaskwunderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.taskwunder.com",
+        loginUrl: "http://www.taskwunder.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SharefileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SharefileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.sharefile.com/Authentication/Login",
+        loginUrl: "https://secure.sharefile.com/Authentication/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

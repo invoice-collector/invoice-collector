@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeLangenfeldInternetLfeldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeLangenfeldInternetLfeldCollector extends SketchCollector 
                 mandatory: true
             }
         },
-        entryUrl: "https://lfeldmediaportal.stw-langenfeld.de/#/MeineRechnungen",
+        loginUrl: "https://lfeldmediaportal.stw-langenfeld.de/#/MeineRechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

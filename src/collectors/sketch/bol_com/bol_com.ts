@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BolComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BolComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bol.com/nl/account/login.html?redirectUrl=https%3A%2F%2Fwww.bol.com%2Fnl%2Frnwy%2Faccount%2Foverzicht",
+        loginUrl: "https://www.bol.com/nl/account/login.html?redirectUrl=https%3A%2F%2Fwww.bol.com%2Fnl%2Frnwy%2Faccount%2Foverzicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

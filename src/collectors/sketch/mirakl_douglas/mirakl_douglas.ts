@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklDouglasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiraklDouglasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://douglas-prod.mirakl.net/sellerpayment/shop/accounting-document/list/to-sellers?limit=25&sort=issueDate%2CDESC",
+        loginUrl: "https://douglas-prod.mirakl.net/sellerpayment/shop/accounting-document/list/to-sellers?limit=25&sort=issueDate%2CDESC",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

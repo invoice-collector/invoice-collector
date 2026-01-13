@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostwayDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HostwayDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://helix.hostway.de",
+        loginUrl: "https://helix.hostway.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

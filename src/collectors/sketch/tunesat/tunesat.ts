@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TunesatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TunesatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://tunesat.com/tunesatportal/account",
+        loginUrl: "https://tunesat.com/tunesatportal/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

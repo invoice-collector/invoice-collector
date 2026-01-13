@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HinterlandCampCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HinterlandCampCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hinterland.camp/dashboard/payouts",
+        loginUrl: "https://hinterland.camp/dashboard/payouts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

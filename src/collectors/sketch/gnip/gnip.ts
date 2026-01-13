@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GnipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GnipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://twitter.com/login?redirect_after_login=https:/developer.twitter.com/en/enterprise",
+        loginUrl: "https://twitter.com/login?redirect_after_login=https:/developer.twitter.com/en/enterprise",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

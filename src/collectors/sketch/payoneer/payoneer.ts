@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayoneerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PayoneerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.payoneer.com/payer",
+        loginUrl: "https://myaccount.payoneer.com/payer",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

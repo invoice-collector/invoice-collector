@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ManituCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ManituCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.manitu.de",
+        loginUrl: "http://www.manitu.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

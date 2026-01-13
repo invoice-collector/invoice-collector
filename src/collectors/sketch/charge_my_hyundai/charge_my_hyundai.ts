@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChargeMyHyundaiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChargeMyHyundaiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chargemyhyundai.com/web/hyundai-de/dashboard/invoices",
+        loginUrl: "https://chargemyhyundai.com/web/hyundai-de/dashboard/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetricsToolsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MetricsToolsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://metrics-tools.de/#",
+        loginUrl: "https://metrics-tools.de/#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

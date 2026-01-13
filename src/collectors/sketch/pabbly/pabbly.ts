@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PabblyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PabblyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://payments.pabbly.com/portal/app/en/affiliateportal/invoice/1/all",
+        loginUrl: "https://payments.pabbly.com/portal/app/en/affiliateportal/invoice/1/all",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GorillaRoiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GorillaRoiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.gorillaroi.com/billing.php",
+        loginUrl: "https://app.gorillaroi.com/billing.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

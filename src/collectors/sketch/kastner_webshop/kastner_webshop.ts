@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KastnerWebshopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KastnerWebshopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.kastner.at/receipts/",
+        loginUrl: "https://shop.kastner.at/receipts/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

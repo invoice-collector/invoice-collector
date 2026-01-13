@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FieberNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FieberNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://support.fieber.nl/hc/nl",
+        loginUrl: "https://support.fieber.nl/hc/nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

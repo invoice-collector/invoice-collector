@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KabilooCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KabilooCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kabiloo.fr/",
+        loginUrl: "https://www.kabiloo.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

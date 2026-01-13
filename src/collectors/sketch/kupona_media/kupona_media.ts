@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KuponaMediaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KuponaMediaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aff.kpsys.de/auszahlungen.cgi",
+        loginUrl: "https://aff.kpsys.de/auszahlungen.cgi",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

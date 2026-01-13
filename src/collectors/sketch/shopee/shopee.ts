@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopeeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShopeeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shopee.com.my/user/purchase?type=3",
+        loginUrl: "https://shopee.com.my/user/purchase?type=3",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

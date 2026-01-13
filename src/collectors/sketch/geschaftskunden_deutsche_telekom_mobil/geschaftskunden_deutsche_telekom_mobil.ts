@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GeschaftskundenDeutscheTelekomMobilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GeschaftskundenDeutscheTelekomMobilCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://mbsp.geschaeftskunden.telekom.de/mbsp/noaccess",
+        loginUrl: "https://mbsp.geschaeftskunden.telekom.de/mbsp/noaccess",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

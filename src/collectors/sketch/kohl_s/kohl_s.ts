@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KohlSCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KohlSCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kohls.com",
+        loginUrl: "https://www.kohls.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

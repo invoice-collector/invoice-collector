@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MusikerJobCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MusikerJobCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.musiker-job.de/mein-konto/",
+        loginUrl: "https://www.musiker-job.de/mein-konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

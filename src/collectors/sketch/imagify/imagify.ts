@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImagifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ImagifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.imagify.io",
+        loginUrl: "https://app.imagify.io",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

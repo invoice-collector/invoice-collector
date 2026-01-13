@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WencksternCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WencksternCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wenckstern-shop.com",
+        loginUrl: "https://www.wenckstern-shop.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

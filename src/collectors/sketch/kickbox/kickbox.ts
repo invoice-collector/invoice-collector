@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KickboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KickboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.kickbox.com/accounts/ls4oBBrK/settings/invoices",
+        loginUrl: "https://app.kickbox.com/accounts/ls4oBBrK/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

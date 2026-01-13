@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrivateSportShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrivateSportShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.privatesportshop.fr/",
+        loginUrl: "https://www.privatesportshop.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

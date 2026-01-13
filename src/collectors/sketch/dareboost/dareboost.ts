@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DareboostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DareboostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dareboost.com/en/profile/#bills",
+        loginUrl: "https://www.dareboost.com/en/profile/#bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

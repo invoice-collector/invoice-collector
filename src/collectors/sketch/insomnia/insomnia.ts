@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InsomniaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InsomniaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://insomnia.rest/app/invoices/",
+        loginUrl: "https://insomnia.rest/app/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IhkOwlBielefeldCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IhkOwlBielefeldCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ihk-postbox.foxdox.de/services/IHK%20Ostwestfalen",
+        loginUrl: "https://ihk-postbox.foxdox.de/services/IHK%20Ostwestfalen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

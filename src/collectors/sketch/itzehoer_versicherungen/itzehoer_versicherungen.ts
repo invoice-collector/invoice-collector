@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ItzehoerVersicherungenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ItzehoerVersicherungenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.itzehoer.de/pages/user/documentslist/documents-list.xhtml",
+        loginUrl: "https://portal.itzehoer.de/pages/user/documentslist/documents-list.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

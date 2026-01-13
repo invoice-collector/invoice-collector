@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Hosting2goNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Hosting2goNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hosting2go.nl/inloggen",
+        loginUrl: "https://www.hosting2go.nl/inloggen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

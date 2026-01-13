@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SyByCegedimCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SyByCegedimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.sybycegedim.com/sy-foclient/#/re-invoices/list",
+        loginUrl: "https://portal.sybycegedim.com/sy-foclient/#/re-invoices/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

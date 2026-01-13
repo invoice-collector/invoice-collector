@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PartnerizeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PartnerizeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.partnerize.com/v2/payments/selfbill",
+        loginUrl: "https://console.partnerize.com/v2/payments/selfbill",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

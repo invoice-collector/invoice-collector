@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeobilityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeobilityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.seobility.net/de/settings/invoices/",
+        loginUrl: "https://www.seobility.net/de/settings/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BbfBikesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BbfBikesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://b2b.bbf-bike.de/invoices",
+        loginUrl: "https://b2b.bbf-bike.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

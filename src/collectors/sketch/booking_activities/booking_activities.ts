@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookingActivitiesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BookingActivitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://booking-activities.fr/en/my-account/",
+        loginUrl: "https://booking-activities.fr/en/my-account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

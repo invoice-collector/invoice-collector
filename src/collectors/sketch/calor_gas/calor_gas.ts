@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CalorGasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CalorGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mycalorgas.com/",
+        loginUrl: "https://www.mycalorgas.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

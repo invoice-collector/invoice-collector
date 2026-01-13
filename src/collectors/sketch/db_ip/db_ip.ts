@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DbIpCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DbIpCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://db-ip.com/account/account.php",
+        loginUrl: "https://db-ip.com/account/account.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

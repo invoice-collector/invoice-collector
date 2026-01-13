@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LidlDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LidlDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lidl.de",
+        loginUrl: "https://www.lidl.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

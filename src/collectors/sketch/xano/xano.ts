@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XanoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XanoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.xano.com/admin/login",
+        loginUrl: "https://app.xano.com/admin/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

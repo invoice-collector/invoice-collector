@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZasDieAbrechnungsstelleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZasDieAbrechnungsstelleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.die-abrechnungsstelle.de/auth/login",
+        loginUrl: "https://portal.die-abrechnungsstelle.de/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

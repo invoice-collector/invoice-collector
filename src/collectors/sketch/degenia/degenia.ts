@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DegeniaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DegeniaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://degenia.de/",
+        loginUrl: "https://degenia.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

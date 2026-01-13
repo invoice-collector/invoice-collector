@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XcoverCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XcoverCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.xcover.com/en/account",
+        loginUrl: "https://www.xcover.com/en/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

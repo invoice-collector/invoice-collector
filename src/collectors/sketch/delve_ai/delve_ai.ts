@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelveAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DelveAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.delve.ai/payment/history",
+        loginUrl: "https://www.delve.ai/payment/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

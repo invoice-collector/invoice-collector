@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RalphLaurenNetsendEbillCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RalphLaurenNetsendEbillCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebill.nnsend.net/ralp/documents/",
+        loginUrl: "https://ebill.nnsend.net/ralp/documents/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

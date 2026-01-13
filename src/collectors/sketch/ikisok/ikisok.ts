@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IkisokCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IkisokCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ikiosk.de/mein-konto/einkaeufe-und-abos",
+        loginUrl: "https://www.ikiosk.de/mein-konto/einkaeufe-und-abos",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

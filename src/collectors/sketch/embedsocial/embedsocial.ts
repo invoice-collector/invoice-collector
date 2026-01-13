@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmbedsocialCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmbedsocialCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://embedsocial.com/admin/embedsocial_accounts",
+        loginUrl: "https://embedsocial.com/admin/embedsocial_accounts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

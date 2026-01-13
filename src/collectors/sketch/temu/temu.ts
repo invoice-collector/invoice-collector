@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TemuCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class TemuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.temu.com/",
+        loginUrl: "https://www.temu.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

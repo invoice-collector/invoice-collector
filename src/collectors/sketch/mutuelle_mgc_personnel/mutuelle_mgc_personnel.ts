@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMgcPersonnelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleMgcPersonnelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://monespacepersonnel.cimut.net/web/mgc",
+        loginUrl: "https://monespacepersonnel.cimut.net/web/mgc",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

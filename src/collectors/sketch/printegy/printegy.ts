@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrintegyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrintegyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.printegy.de/billing",
+        loginUrl: "https://app.printegy.de/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

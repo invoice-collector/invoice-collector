@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FloridaNaturalGasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FloridaNaturalGasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://click.onlyfng.com/BillingHistory",
+        loginUrl: "https://click.onlyfng.com/BillingHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

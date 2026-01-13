@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EveEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EveEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://onlineservice.eve-energie.de/portal/postbox",
+        loginUrl: "https://onlineservice.eve-energie.de/portal/postbox",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

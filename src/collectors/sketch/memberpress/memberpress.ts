@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MemberpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MemberpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://memberpress.com/account/?action=payments",
+        loginUrl: "https://memberpress.com/account/?action=payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

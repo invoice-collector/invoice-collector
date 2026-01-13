@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RoboformCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RoboformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.roboform.com/login?lang=en",
+        loginUrl: "https://online.roboform.com/login?lang=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

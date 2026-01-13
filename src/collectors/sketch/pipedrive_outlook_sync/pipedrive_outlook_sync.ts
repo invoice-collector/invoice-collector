@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PipedriveOutlookSyncCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PipedriveOutlookSyncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.pipedriveoutlooksync.com/account/login",
+        loginUrl: "https://app.pipedriveoutlooksync.com/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

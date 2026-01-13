@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DrPetersGroupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DrPetersGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.dr-peters.de/meine-beteiligungen",
+        loginUrl: "https://kundenportal.dr-peters.de/meine-beteiligungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

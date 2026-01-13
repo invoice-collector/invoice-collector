@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BanquePopulaireBredCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BanquePopulaireBredCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bred.fr/authentification",
+        loginUrl: "https://www.bred.fr/authentification",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

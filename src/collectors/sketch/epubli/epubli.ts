@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpubliCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EpubliCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.epubli.de/myaccount/statistics/receipt/2019/01?p=211449",
+        loginUrl: "https://www.epubli.de/myaccount/statistics/receipt/2019/01?p=211449",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

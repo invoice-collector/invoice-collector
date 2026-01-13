@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BertramJuwelierserviceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BertramJuwelierserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wertversand.bertram-juwelierservice.de/de/invoice",
+        loginUrl: "https://wertversand.bertram-juwelierservice.de/de/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

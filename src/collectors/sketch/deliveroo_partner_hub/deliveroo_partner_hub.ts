@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeliverooPartnerHubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeliverooPartnerHubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner-hub.deliveroo.com/reports/invoices?orgId=209155",
+        loginUrl: "https://partner-hub.deliveroo.com/reports/invoices?orgId=209155",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

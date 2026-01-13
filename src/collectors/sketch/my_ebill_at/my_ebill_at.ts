@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyEbillAtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyEbillAtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.my-ebill.at/index.php?id=9&no_cache=1&tx_tanmarebill_ebill%5Baction%5D=list&tx_tanmarebill_ebill%5Bcontroller%5D=EBillVKBeleg&cHash=f69c6f8633f0a454f5f581139bdc536e",
+        loginUrl: "https://www.my-ebill.at/index.php?id=9&no_cache=1&tx_tanmarebill_ebill%5Baction%5D=list&tx_tanmarebill_ebill%5Bcontroller%5D=EBillVKBeleg&cHash=f69c6f8633f0a454f5f581139bdc536e",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

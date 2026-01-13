@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NiceIncontactCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NiceIncontactCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://support.incontact.com/",
+        loginUrl: "https://support.incontact.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

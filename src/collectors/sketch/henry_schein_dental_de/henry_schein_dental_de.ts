@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HenryScheinDentalDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HenryScheinDentalDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.henryschein-dental.de/global/olp/onlineinvoice.aspx?",
+        loginUrl: "https://www.henryschein-dental.de/global/olp/onlineinvoice.aspx?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

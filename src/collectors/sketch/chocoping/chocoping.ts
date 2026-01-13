@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChocopingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChocopingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://chocoping.com/processing/viewinvoice.php?id=1004129&paymentsuccess=true",
+        loginUrl: "https://chocoping.com/processing/viewinvoice.php?id=1004129&paymentsuccess=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

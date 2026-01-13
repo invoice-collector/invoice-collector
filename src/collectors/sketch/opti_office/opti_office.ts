@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OptiOfficeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OptiOfficeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://optioffice.eu/optioffice/login/piti.php",
+        loginUrl: "https://optioffice.eu/optioffice/login/piti.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

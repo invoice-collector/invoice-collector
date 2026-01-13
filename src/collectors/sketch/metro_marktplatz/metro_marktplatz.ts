@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetroMarktplatzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MetroMarktplatzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.metro-selleroffice.com/workplace/orders",
+        loginUrl: "https://www.metro-selleroffice.com/workplace/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

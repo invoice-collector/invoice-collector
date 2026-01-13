@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AviraCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AviraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.avira.com/de/dashboard/subscriptions/tabs/plans",
+        loginUrl: "https://my.avira.com/de/dashboard/subscriptions/tabs/plans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

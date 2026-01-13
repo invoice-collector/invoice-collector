@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HeemskerkFlowersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HeemskerkFlowersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.heemskerkflowers.com/service/facturen",
+        loginUrl: "https://www.heemskerkflowers.com/service/facturen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

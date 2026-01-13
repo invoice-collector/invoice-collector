@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MainmetallCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MainmetallCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.mainmetall.de/hilfe/schnittstellen",
+        loginUrl: "https://portal.mainmetall.de/hilfe/schnittstellen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

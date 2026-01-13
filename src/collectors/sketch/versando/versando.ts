@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VersandoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VersandoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.versando.de",
+        loginUrl: "http://www.versando.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

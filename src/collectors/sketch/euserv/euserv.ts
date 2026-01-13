@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuservCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EuservCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://support.euserv.com/index.iphp",
+        loginUrl: "https://support.euserv.com/index.iphp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

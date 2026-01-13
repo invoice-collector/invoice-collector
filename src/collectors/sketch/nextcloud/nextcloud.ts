@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NextcloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NextcloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.nextcloud.com/login",
+        loginUrl: "https://portal.nextcloud.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

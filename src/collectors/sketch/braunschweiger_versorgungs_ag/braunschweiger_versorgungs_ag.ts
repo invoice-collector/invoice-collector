@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BraunschweigerVersorgungsAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BraunschweigerVersorgungsAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meinportal.bs-energy.de/css/public/bsen/#/",
+        loginUrl: "https://meinportal.bs-energy.de/css/public/bsen/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

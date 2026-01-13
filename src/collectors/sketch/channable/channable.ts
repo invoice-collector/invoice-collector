@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChannableCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChannableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.channable.com",
+        loginUrl: "http://www.channable.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

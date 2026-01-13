@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LondonHydroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LondonHydroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.londonhydro.com/site/#!/login",
+        loginUrl: "https://www.londonhydro.com/site/#!/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

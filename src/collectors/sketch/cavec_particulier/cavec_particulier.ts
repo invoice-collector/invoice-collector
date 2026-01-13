@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CavecParticulierCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CavecParticulierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.macavecenligne.fr/cavec/servlet/XASFormConnexion?base=0",
+        loginUrl: "https://www.macavecenligne.fr/cavec/servlet/XASFormConnexion?base=0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

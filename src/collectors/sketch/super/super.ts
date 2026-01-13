@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuperCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SuperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.super.so/account",
+        loginUrl: "https://app.super.so/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SnafuDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SnafuDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.snafu.de/",
+        loginUrl: "https://mein.snafu.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

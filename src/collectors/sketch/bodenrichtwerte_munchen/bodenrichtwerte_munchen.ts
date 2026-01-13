@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BodenrichtwerteMunchenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BodenrichtwerteMunchenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bodenrichtwerte-muenchen.de/login",
+        loginUrl: "https://bodenrichtwerte-muenchen.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

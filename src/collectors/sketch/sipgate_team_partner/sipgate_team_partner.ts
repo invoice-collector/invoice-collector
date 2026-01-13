@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SipgateTeamPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SipgateTeamPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.sipgate.com/w0/team/settings/affiliate",
+        loginUrl: "https://app.sipgate.com/w0/team/settings/affiliate",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

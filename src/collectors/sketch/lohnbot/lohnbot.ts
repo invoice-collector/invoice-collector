@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LohnbotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LohnbotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lohnbot.at/login",
+        loginUrl: "https://app.lohnbot.at/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

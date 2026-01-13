@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BigcommerceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BigcommerceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.bigcommerce.com/login?_ga=2.230316319.2079475974.1523600767-1463894689.1523600767",
+        loginUrl: "https://login.bigcommerce.com/login?_ga=2.230316319.2079475974.1523600767-1463894689.1523600767",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RemarkableCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RemarkableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pay.stripe.com/receipts/invoices/",
+        loginUrl: "https://pay.stripe.com/receipts/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

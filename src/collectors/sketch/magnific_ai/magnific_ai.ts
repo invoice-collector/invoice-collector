@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MagnificAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MagnificAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://magnific.ai/",
+        loginUrl: "https://magnific.ai/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

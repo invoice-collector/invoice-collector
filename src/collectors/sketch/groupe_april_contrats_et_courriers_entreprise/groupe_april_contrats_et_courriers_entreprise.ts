@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCol
                 mandatory: true
             }
         },
-        entryUrl: "https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx",
+        loginUrl: "https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

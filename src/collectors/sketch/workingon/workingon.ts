@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WorkingonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WorkingonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.workingon.co/login",
+        loginUrl: "https://www.workingon.co/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

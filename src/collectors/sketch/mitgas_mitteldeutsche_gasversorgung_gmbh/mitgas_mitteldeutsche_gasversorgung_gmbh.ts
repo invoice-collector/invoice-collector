@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MitgasMitteldeutscheGasversorgungGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MitgasMitteldeutscheGasversorgungGmbhCollector extends SketchCollec
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mitgas.de/privatkunden",
+        loginUrl: "https://www.mitgas.de/privatkunden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

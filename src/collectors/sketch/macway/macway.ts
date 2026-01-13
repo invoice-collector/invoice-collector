@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MacwayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MacwayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.macway.com/",
+        loginUrl: "https://www.macway.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

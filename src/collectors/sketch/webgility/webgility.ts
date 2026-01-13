@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebgilityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebgilityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.webgility.com/billing.php",
+        loginUrl: "https://portal.webgility.com/billing.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

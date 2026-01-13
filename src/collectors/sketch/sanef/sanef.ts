@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SanefCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class SanefCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sanef.com/client/index.html",
+        loginUrl: "https://www.sanef.com/client/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

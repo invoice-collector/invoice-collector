@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnovosCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnovosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.enovos.lu/en/individuals/home",
+        loginUrl: "https://www.enovos.lu/en/individuals/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

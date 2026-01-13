@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternetBsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InternetBsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://internetbs.net/de/Domainregistrierung/login.html",
+        loginUrl: "https://internetbs.net/de/Domainregistrierung/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomainfactoryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DomainfactoryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sso.df.eu/?app=cp&path=%2Fkunde%2Findex.php5&realm=idp",
+        loginUrl: "https://sso.df.eu/?app=cp&path=%2Fkunde%2Findex.php5&realm=idp",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

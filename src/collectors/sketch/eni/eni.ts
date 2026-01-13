@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EniCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class EniCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myeni.eni.com/en_IT",
+        loginUrl: "https://myeni.eni.com/en_IT",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

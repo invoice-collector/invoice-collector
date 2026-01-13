@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YelpBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YelpBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://biz.yelp.com/billing",
+        loginUrl: "https://biz.yelp.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

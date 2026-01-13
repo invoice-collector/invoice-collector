@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VivacomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VivacomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vivacom.bg/online/bg/myvivacom/invoices",
+        loginUrl: "https://www.vivacom.bg/online/bg/myvivacom/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

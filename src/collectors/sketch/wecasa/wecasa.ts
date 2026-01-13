@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WecasaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WecasaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wecasa.fr/espace-client/connexion",
+        loginUrl: "https://www.wecasa.fr/espace-client/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

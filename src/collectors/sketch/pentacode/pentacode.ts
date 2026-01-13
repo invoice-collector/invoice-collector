@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PentacodeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PentacodeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.pentacode.app/settings/billing?",
+        loginUrl: "https://manage.pentacode.app/settings/billing?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

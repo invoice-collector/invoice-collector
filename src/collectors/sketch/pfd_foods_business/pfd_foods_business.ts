@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PfdFoodsBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PfdFoodsBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.pfdfoods.com.au/login",
+        loginUrl: "https://shop.pfdfoods.com.au/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

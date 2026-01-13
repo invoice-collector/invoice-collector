@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiniintheboxComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiniintheboxComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.miniinthebox.com/index.php?main_page=login&src=mainLoginLink&prm=2.1.74.0",
+        loginUrl: "https://www.miniinthebox.com/index.php?main_page=login&src=mainLoginLink&prm=2.1.74.0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodecovCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CodecovCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://github.com/login?client_id=c68c81cbfd179a50784a&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3Dc68c81cbfd179a50784a%26response_type%3Dcode%26scope%3Duser%253Aemail%252Cread%253Aorg%252Crepo%253Astatus%252Cwrite%253Arepo_hook",
+        loginUrl: "https://github.com/login?client_id=c68c81cbfd179a50784a&return_to=%2Flogin%2Foauth%2Fauthorize%3Fclient_id%3Dc68c81cbfd179a50784a%26response_type%3Dcode%26scope%3Duser%253Aemail%252Cread%253Aorg%252Crepo%253Astatus%252Cwrite%253Arepo_hook",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

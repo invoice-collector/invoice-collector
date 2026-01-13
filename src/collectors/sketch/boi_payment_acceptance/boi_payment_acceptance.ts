@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoiPaymentAcceptanceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BoiPaymentAcceptanceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://boipa.com/business/",
+        loginUrl: "https://boipa.com/business/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

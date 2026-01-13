@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NovasolCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NovasolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.novasol.dk/user/login",
+        loginUrl: "https://www.novasol.dk/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

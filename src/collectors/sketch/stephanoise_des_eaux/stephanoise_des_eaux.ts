@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StephanoiseDesEauxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StephanoiseDesEauxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.stephanoise-eaux.fr",
+        loginUrl: "http://www.stephanoise-eaux.fr",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

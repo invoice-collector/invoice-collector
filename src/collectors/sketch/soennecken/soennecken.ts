@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoenneckenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SoenneckenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://somit.soennecken.de/group/mitgliederservice/belegrecherche-neue-zr-",
+        loginUrl: "https://somit.soennecken.de/group/mitgliederservice/belegrecherche-neue-zr-",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

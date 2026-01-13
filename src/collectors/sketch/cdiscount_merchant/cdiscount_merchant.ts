@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CdiscountMerchantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CdiscountMerchantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://seller.cdiscount.com/finance/Invoices",
+        loginUrl: "https://seller.cdiscount.com/finance/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SoundwiseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SoundwiseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mysoundwise.com/dashboard/publisher/account",
+        loginUrl: "https://app.mysoundwise.com/dashboard/publisher/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

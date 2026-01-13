@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WerbetechnikerShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WerbetechnikerShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.werbetechniker-shop.de/index.php?cl=account_order",
+        loginUrl: "https://www.werbetechniker-shop.de/index.php?cl=account_order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HughesnetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HughesnetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://my.hughesnet.com",
+        loginUrl: "http://my.hughesnet.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

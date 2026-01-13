@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrilecCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrilecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.triconnect.be/nl/Accountancy/InvoiceOverview",
+        loginUrl: "https://www.triconnect.be/nl/Accountancy/InvoiceOverview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

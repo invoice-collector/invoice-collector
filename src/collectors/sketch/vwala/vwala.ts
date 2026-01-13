@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VwalaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VwalaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vwa.la/#/dashboard/16445247/account",
+        loginUrl: "https://www.vwa.la/#/dashboard/16445247/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

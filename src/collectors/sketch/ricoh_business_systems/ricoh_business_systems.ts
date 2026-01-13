@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RicohBusinessSystemsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RicohBusinessSystemsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.customerfinancing.com/Home/Auth/pl",
+        loginUrl: "https://www.customerfinancing.com/Home/Auth/pl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllianceonlineCoUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AllianceonlineCoUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allianceonline.co.uk",
+        loginUrl: "https://www.allianceonline.co.uk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

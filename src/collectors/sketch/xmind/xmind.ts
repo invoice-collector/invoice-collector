@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XmindCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XmindCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://xmind.app/account/payment/_xmind_wxnvEkkvTJ/",
+        loginUrl: "https://xmind.app/account/payment/_xmind_wxnvEkkvTJ/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

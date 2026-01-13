@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfPembrokePinesUtilitesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfPembrokePinesUtilitesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pembrokepinesflcitizens.munisselfservice.com/citizens/UtilityBilling/AccountBrowse.aspx",
+        loginUrl: "https://pembrokepinesflcitizens.munisselfservice.com/citizens/UtilityBilling/AccountBrowse.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

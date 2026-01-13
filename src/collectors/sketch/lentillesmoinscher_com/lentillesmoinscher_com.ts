@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LentillesmoinscherComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LentillesmoinscherComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lentillesmoinscheres.com/",
+        loginUrl: "https://www.lentillesmoinscheres.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

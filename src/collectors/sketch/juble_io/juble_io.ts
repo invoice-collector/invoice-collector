@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JubleIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JubleIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://channels.juble.io/login",
+        loginUrl: "https://channels.juble.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

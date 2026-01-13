@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RossmannDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RossmannDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rossmann.de/de/my-account",
+        loginUrl: "https://www.rossmann.de/de/my-account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

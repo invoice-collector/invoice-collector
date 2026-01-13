@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GraphicstockCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GraphicstockCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.storyblocks.com/login?redirect=%2Fstock-image",
+        loginUrl: "https://www.storyblocks.com/login?redirect=%2Fstock-image",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

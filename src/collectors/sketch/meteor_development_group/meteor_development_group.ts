@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeteorDevelopmentGroupCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeteorDevelopmentGroupCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu-west-1.galaxy.meteor.com/",
+        loginUrl: "https://eu-west-1.galaxy.meteor.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

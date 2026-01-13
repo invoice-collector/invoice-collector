@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfFortCollinsUtilityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfFortCollinsUtilityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure8.i-doxs.net/CityOfFortCollins/",
+        loginUrl: "https://secure8.i-doxs.net/CityOfFortCollins/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

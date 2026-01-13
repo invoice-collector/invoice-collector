@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MerchInformerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MerchInformerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://members.merchinformer.com/invoices",
+        loginUrl: "https://members.merchinformer.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KleinanzeigenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KleinanzeigenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kleinanzeigen.de/m-rechnungen.html",
+        loginUrl: "https://www.kleinanzeigen.de/m-rechnungen.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartboxPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartboxPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners.smartbox-group.com/s/login/?language=en_GB&startURL=%2Fs%2F&ec=302",
+        loginUrl: "https://partners.smartbox-group.com/s/login/?language=en_GB&startURL=%2Fs%2F&ec=302",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DocmorrisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DocmorrisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.docmorris.de/meindocmorris/anmelden",
+        loginUrl: "https://www.docmorris.de/meindocmorris/anmelden",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

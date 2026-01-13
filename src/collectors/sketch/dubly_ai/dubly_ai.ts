@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DublyAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DublyAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dubly.ai/account?nav=plan&v=invoices",
+        loginUrl: "https://dubly.ai/account?nav=plan&v=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

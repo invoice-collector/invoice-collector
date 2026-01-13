@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MatyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MatyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.maty.com/Identification?ReturnUrl=%2FEspaceClient%2FIndex",
+        loginUrl: "https://www.maty.com/Identification?ReturnUrl=%2FEspaceClient%2FIndex",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

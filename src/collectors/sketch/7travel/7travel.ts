@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _7travelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _7travelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.net.7travel.de/app/index.html#/account/payments",
+        loginUrl: "https://partner.net.7travel.de/app/index.html#/account/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

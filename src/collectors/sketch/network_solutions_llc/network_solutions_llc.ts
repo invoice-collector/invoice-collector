@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetworkSolutionsLlcCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetworkSolutionsLlcCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.networksolutions.com/manage-it/billing-history.jsp?1table_35527700__open=1",
+        loginUrl: "https://www.networksolutions.com/manage-it/billing-history.jsp?1table_35527700__open=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

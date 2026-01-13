@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IadvizeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IadvizeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.iadvize.com/admin/login/",
+        loginUrl: "https://www.iadvize.com/admin/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

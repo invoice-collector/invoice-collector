@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OfficeDepotFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OfficeDepotFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.officedepot.fr/",
+        loginUrl: "https://www.officedepot.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheMakeryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TheMakeryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://redesign.themakery.de/workshopprovider/payments",
+        loginUrl: "https://redesign.themakery.de/workshopprovider/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

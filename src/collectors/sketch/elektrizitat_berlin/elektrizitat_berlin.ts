@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElektrizitatBerlinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElektrizitatBerlinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.elektrizitaet-berlin.de/dashboard",
+        loginUrl: "https://kundenportal.elektrizitaet-berlin.de/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

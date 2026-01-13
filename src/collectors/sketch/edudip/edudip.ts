@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdudipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdudipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.edudip.com/de/intern/rechnungen",
+        loginUrl: "https://www.edudip.com/de/intern/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

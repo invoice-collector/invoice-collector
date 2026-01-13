@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HappyfoxChatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HappyfoxChatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://happyfoxchat.com/a/login",
+        loginUrl: "https://happyfoxchat.com/a/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

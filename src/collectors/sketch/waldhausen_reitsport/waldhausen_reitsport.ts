@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaldhausenReitsportCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WaldhausenReitsportCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.waldhausen.com/b2binvoicelist",
+        loginUrl: "https://www.waldhausen.com/b2binvoicelist",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

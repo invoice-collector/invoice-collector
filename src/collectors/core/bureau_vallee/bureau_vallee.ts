@@ -31,7 +31,8 @@ export class BureauValleeCollector extends WebCollector {
         },
         loginUrl: "https://www.bureau-vallee.fr/customer/account/login/",
         entryUrl: "https://www.bureau-vallee.fr/invoice/invoice/",
-        captcha: CollectorCaptcha.NONE
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: false
     }
 
     constructor() {

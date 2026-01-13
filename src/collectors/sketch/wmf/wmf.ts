@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WmfCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WmfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.wmf.de",
+        loginUrl: "http://www.wmf.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

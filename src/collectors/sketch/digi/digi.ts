@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DigiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digi.ro/auth/login",
+        loginUrl: "https://www.digi.ro/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

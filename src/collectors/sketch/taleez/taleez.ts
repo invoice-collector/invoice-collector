@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaleezCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TaleezCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.taleez.com/settings/invoices",
+        loginUrl: "https://app.taleez.com/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

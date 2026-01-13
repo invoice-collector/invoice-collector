@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MubiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MubiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mubi.com/subscription",
+        loginUrl: "https://mubi.com/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

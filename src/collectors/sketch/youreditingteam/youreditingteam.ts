@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YoureditingteamCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YoureditingteamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://order.youreditingteam.de/orders/",
+        loginUrl: "https://order.youreditingteam.de/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

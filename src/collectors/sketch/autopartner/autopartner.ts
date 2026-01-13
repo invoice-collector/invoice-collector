@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AutopartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AutopartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://apcat.eu/",
+        loginUrl: "https://apcat.eu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IBillCoUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IBillCoUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.i-bill.co.uk/Invoices",
+        loginUrl: "https://www.i-bill.co.uk/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

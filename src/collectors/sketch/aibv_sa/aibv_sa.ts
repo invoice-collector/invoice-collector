@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AibvSaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AibvSaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://planning.aibv.be/Reservaties/ReservatieOverzicht.aspx",
+        loginUrl: "https://planning.aibv.be/Reservaties/ReservatieOverzicht.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

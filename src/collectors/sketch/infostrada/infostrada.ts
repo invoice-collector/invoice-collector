@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfostradaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InfostradaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.infostrada.it",
+        loginUrl: "http://www.infostrada.it",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

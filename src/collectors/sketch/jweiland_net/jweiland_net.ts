@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JweilandNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JweilandNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jweiland83.premium-admin.eu/",
+        loginUrl: "https://jweiland83.premium-admin.eu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

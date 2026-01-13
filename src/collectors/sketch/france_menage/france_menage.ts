@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranceMenageCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FranceMenageCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.france-menage.fr/login",
+        loginUrl: "https://client.france-menage.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

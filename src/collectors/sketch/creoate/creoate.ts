@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreoateCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CreoateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.creoate.com/",
+        loginUrl: "https://www.creoate.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

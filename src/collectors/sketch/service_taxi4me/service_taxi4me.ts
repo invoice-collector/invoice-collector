@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServiceTaxi4meCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ServiceTaxi4meCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.taxi4me.net/1000/unternehmer2.4/",
+        loginUrl: "https://service.taxi4me.net/1000/unternehmer2.4/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

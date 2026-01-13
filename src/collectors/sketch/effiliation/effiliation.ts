@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EffiliationCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EffiliationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.effiliation.com/de/publishers-area/",
+        loginUrl: "https://www.effiliation.com/de/publishers-area/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

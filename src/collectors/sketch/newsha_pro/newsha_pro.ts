@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NewshaProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NewshaProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.newsha.pro/bestellungen/meinerechnungen/",
+        loginUrl: "https://www.newsha.pro/bestellungen/meinerechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

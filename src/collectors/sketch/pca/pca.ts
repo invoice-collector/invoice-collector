@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PcaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PcaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://reporting.pca.de/web-main/app/reporting/invoices?execution=e5s7",
+        loginUrl: "https://reporting.pca.de/web-main/app/reporting/invoices?execution=e5s7",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

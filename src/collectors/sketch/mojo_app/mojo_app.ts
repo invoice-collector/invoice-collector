@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MojoAppCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MojoAppCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mojo.video/login",
+        loginUrl: "https://app.mojo.video/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

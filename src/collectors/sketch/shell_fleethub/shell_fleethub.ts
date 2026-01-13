@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShellFleethubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShellFleethubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fleethub.shell.com/Invoices/Index",
+        loginUrl: "https://fleethub.shell.com/Invoices/Index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

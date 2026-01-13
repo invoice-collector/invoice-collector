@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EsiooxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EsiooxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.placedescartes.fr/connexion",
+        loginUrl: "https://www.placedescartes.fr/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

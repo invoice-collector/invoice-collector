@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TicketOnlineEdenredCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TicketOnlineEdenredCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ticketonline.edenred.de/AcceptorManagement/Manage/TrackReimbursement.aspx",
+        loginUrl: "https://ticketonline.edenred.de/AcceptorManagement/Manage/TrackReimbursement.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

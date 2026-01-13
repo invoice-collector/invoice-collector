@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyCompanyFilesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyCompanyFilesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customer.mycompanyfiles.fr/auth/login?ReturnUrl=%2f",
+        loginUrl: "https://customer.mycompanyfiles.fr/auth/login?ReturnUrl=%2f",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

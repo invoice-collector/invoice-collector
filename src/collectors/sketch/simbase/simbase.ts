@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimbaseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimbaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.simbase.com/dashboard/billing",
+        loginUrl: "https://dashboard.simbase.com/dashboard/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

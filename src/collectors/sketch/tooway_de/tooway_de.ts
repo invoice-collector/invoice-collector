@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToowayDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ToowayDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.tooway.de",
+        loginUrl: "http://www.tooway.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

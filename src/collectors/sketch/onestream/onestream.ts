@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OnestreamCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OnestreamCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.onestream.live",
+        loginUrl: "https://app.onestream.live",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

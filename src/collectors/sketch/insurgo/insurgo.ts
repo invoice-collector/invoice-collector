@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InsurgoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InsurgoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hd-makler.insurgo.cloud/dokumente",
+        loginUrl: "https://hd-makler.insurgo.cloud/dokumente",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

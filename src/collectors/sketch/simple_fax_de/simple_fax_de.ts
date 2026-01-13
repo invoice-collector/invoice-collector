@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimpleFaxDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimpleFaxDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://simple-fax.de/app/kontoeinstellungen/?task=rechnungen",
+        loginUrl: "https://simple-fax.de/app/kontoeinstellungen/?task=rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

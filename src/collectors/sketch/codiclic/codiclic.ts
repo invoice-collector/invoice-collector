@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodiclicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CodiclicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.codiclic.com/mes-factures",
+        loginUrl: "https://www.codiclic.com/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

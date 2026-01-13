@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BricopriveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BricopriveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bricoprive.com/",
+        loginUrl: "https://www.bricoprive.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

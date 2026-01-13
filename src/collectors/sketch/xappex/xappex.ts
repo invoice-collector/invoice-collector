@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XappexCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XappexCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.xappex.com/#/",
+        loginUrl: "https://portal.xappex.com/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

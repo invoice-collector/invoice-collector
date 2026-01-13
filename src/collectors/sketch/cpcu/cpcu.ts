@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CpcuCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class CpcuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://monespace.cpcu.fr/login",
+        loginUrl: "https://monespace.cpcu.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

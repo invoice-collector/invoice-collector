@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TopvisorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TopvisorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://topvisor.com/account/bank/#to_bank_docs",
+        loginUrl: "https://topvisor.com/account/bank/#to_bank_docs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

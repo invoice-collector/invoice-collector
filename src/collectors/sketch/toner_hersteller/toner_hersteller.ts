@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TonerHerstellerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TonerHerstellerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.tonerhersteller.de",
+        loginUrl: "http://www.tonerhersteller.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlineaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlineaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.alinea.com/",
+        loginUrl: "https://www.alinea.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

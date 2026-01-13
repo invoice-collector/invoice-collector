@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BauTechSolarenergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BauTechSolarenergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bau-tech.shop/customer",
+        loginUrl: "https://www.bau-tech.shop/customer",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

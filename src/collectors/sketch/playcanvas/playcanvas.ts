@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlaycanvasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlaycanvasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.playcanvas.com/",
+        loginUrl: "https://login.playcanvas.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

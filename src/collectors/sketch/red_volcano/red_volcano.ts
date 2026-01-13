@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RedVolcanoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RedVolcanoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://magma.redvolcano.uk/pages/login.php",
+        loginUrl: "https://magma.redvolcano.uk/pages/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

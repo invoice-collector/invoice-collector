@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuentnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuentnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.quentn.com",
+        loginUrl: "https://my.quentn.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

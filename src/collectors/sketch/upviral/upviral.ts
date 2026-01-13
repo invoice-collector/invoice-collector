@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UpviralCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UpviralCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.upviral.com/login.php",
+        loginUrl: "https://app.upviral.com/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GuardianLifeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GuardianLifeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signin.guardianlife.com/signin/precheck/",
+        loginUrl: "https://signin.guardianlife.com/signin/precheck/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

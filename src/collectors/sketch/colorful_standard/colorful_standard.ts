@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ColorfulStandardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ColorfulStandardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://colorfulstandard.spysystem.dk/b2b#tab=invoices",
+        loginUrl: "https://colorfulstandard.spysystem.dk/b2b#tab=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AAndNElectricCooperativeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AAndNElectricCooperativeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://anecop.smarthub.coop/ui/#/billingHistory",
+        loginUrl: "https://anecop.smarthub.coop/ui/#/billingHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GooglePaymentsCenterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GooglePaymentsCenterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pay.google.com/payments/home",
+        loginUrl: "https://pay.google.com/payments/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

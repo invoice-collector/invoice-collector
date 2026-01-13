@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VhbwB2bCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VhbwB2bCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vhbw-b2b.de/kunden/bestelluebersicht.htm?st=5",
+        loginUrl: "https://vhbw-b2b.de/kunden/bestelluebersicht.htm?st=5",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

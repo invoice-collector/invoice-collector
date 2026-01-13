@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EcaassurancesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EcaassurancesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.eca-assurances.com/espace-client/login.xhtml",
+        loginUrl: "https://espaceclient.eca-assurances.com/espace-client/login.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

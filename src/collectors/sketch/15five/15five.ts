@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _15fiveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _15fiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://1985663.ecommerce.zuora.com/portal/viewAllInvoices",
+        loginUrl: "https://1985663.ecommerce.zuora.com/portal/viewAllInvoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhaxioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PhaxioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://console.phaxio.com/sf_guard_users/sign_in",
+        loginUrl: "https://console.phaxio.com/sf_guard_users/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

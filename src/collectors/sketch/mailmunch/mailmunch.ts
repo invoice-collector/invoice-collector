@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailmunchCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailmunchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mailmunch.co/account/billing",
+        loginUrl: "https://app.mailmunch.co/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

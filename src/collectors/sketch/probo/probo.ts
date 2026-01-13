@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProboCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProboCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.probo.de/myaccount/invoice/index/",
+        loginUrl: "https://www.probo.de/myaccount/invoice/index/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

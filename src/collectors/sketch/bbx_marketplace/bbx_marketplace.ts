@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BbxMarketplaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BbxMarketplaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bbxworld.com/Member/Account/Login?ReturnUrl=/Member/Dashboard#/",
+        loginUrl: "https://bbxworld.com/Member/Account/Login?ReturnUrl=/Member/Dashboard#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

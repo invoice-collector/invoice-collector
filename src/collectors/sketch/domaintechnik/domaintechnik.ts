@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomaintechnikCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DomaintechnikCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.domaintechnik.at/invoice_index.php",
+        loginUrl: "https://manage.domaintechnik.at/invoice_index.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HkLivingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HkLivingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hkliving.com/account",
+        loginUrl: "https://hkliving.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

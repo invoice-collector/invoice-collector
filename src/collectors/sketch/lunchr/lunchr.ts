@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LunchrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LunchrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.lunchr.co/signin",
+        loginUrl: "https://app.lunchr.co/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CookiehubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CookiehubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dash.cookiehub.com/billing/invoice",
+        loginUrl: "https://dash.cookiehub.com/billing/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ParksterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ParksterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.parkster.com/mypages/paymentorders?page=1&size=10",
+        loginUrl: "https://www.parkster.com/mypages/paymentorders?page=1&size=10",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

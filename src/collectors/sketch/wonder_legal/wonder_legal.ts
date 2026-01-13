@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WonderLegalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WonderLegalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wonder.legal/de/compte/factures.php",
+        loginUrl: "https://www.wonder.legal/de/compte/factures.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

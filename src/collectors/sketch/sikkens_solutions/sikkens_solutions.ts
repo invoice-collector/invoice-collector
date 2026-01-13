@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SikkensSolutionsCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class SikkensSolutionsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sikkens-solutions.fr/profile/login",
+        loginUrl: "https://www.sikkens-solutions.fr/profile/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

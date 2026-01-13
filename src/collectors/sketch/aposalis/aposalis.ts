@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AposalisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AposalisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aposalis.de/myOrders",
+        loginUrl: "https://www.aposalis.de/myOrders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

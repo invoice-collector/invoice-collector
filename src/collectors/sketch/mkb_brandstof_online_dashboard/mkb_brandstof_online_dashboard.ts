@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MkbBrandstofOnlineDashboardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MkbBrandstofOnlineDashboardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.mkb-brandstof.nl/",
+        loginUrl: "https://mijn.mkb-brandstof.nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

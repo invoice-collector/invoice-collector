@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpostCaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EpostCaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.epost.ca",
+        loginUrl: "https://www.epost.ca",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

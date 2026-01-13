@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AswoShopDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AswoShopDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.aswo.com/aswoShop/startPage.faces?storeId=599",
+        loginUrl: "https://shop.aswo.com/aswoShop/startPage.faces?storeId=599",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

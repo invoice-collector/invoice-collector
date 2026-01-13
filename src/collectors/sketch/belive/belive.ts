@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BeliveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BeliveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.belive.tv",
+        loginUrl: "http://www.belive.tv",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

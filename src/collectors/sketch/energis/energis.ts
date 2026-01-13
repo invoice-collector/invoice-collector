@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnergisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnergisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.energis.de/",
+        loginUrl: "https://meine.energis.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

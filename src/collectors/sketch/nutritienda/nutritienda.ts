@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NutritiendaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NutritiendaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nutritienda.com/de/mein-konto?tab=orders",
+        loginUrl: "https://www.nutritienda.com/de/mein-konto?tab=orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

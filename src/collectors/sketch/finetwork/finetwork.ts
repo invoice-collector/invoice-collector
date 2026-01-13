@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinetworkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FinetworkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mi.finetwork.com/#/inicio",
+        loginUrl: "https://mi.finetwork.com/#/inicio",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

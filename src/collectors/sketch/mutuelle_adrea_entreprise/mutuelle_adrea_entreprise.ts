@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleAdreaEntrepriseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleAdreaEntrepriseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://entreprise.adrea.fr/",
+        loginUrl: "https://entreprise.adrea.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

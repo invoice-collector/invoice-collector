@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeadtableCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeadtableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.lead-table.com/signin",
+        loginUrl: "https://portal.lead-table.com/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

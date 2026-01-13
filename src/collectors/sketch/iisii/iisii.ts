@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IisiiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IisiiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.online-tis.de/px_rechnungen.php",
+        loginUrl: "https://www.online-tis.de/px_rechnungen.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

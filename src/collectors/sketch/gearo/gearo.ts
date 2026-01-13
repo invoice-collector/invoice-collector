@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GearoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GearoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gearo.de",
+        loginUrl: "https://gearo.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

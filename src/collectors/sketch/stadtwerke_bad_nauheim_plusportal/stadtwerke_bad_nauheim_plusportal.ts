@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBadNauheimPlusportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeBadNauheimPlusportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stadtwerke-bad-nauheim.plusportal.de/#/devices/dsl/7749/invoices",
+        loginUrl: "https://stadtwerke-bad-nauheim.plusportal.de/#/devices/dsl/7749/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

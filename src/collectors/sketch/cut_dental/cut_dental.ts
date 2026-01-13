@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CutDentalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CutDentalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cut-dental.de/account/login",
+        loginUrl: "https://cut-dental.de/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

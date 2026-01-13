@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DnlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DnlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dnl.fr/moncompte_comptabilite_liste.do",
+        loginUrl: "https://www.dnl.fr/moncompte_comptabilite_liste.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

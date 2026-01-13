@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EldisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EldisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eldis.de/open-invoice-items",
+        loginUrl: "https://eldis.de/open-invoice-items",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

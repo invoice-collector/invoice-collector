@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NominaliaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NominaliaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://controlpanel.nominalia.com/welcome.html",
+        loginUrl: "https://controlpanel.nominalia.com/welcome.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

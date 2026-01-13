@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FurioosCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FurioosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.furioos.com/sign-in",
+        loginUrl: "https://portal.furioos.com/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

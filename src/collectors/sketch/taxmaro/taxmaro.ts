@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TaxmaroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TaxmaroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.taxmaro.com/#/login//",
+        loginUrl: "https://portal.taxmaro.com/#/login//",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

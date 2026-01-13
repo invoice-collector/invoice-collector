@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SonyMusicArtistportalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SonyMusicArtistportalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sme-artistportal.com/#",
+        loginUrl: "https://sme-artistportal.com/#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

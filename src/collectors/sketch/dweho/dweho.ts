@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DwehoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DwehoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceximi.colibriwithus.com/dweo/client/",
+        loginUrl: "https://espaceximi.colibriwithus.com/dweo/client/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

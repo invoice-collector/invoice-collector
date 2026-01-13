@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnnickWeikertShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AnnickWeikertShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.annickweikert.de/customer/payments",
+        loginUrl: "https://shop.annickweikert.de/customer/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

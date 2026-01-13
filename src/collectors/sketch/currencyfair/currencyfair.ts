@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CurrencyfairCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CurrencyfairCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.currencyfair.com/accounts/statements/ALL/",
+        loginUrl: "https://app.currencyfair.com/accounts/statements/ALL/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

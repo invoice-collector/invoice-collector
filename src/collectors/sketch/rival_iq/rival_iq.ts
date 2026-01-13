@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RivalIqCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RivalIqCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.rivaliq.com/account/receipts/",
+        loginUrl: "https://app.rivaliq.com/account/receipts/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

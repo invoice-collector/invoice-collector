@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AsosMarketplaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AsosMarketplaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marketplace.asos.com/authentication/logon?returnUrl=%2F",
+        loginUrl: "https://marketplace.asos.com/authentication/logon?returnUrl=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

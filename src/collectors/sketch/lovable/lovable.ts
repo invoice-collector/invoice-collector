@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LovableCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LovableCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lovable.dev/login",
+        loginUrl: "https://lovable.dev/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

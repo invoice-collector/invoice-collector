@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenStarEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GreenStarEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.mygreenstarenergy.com/My-Energy-World",
+        loginUrl: "http://www.mygreenstarenergy.com/My-Energy-World",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

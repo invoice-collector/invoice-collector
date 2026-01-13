@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrestozonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrestozonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://prestozon.com",
+        loginUrl: "https://prestozon.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

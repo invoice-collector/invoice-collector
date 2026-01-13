@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrasshopperCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GrasshopperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.us.grasshopper.com/login.aspx?ReturnUrl=%2fMemberPages%2fDashboard.aspx",
+        loginUrl: "https://portal.us.grasshopper.com/login.aspx?ReturnUrl=%2fMemberPages%2fDashboard.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GettyImagesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GettyImagesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gettyimages.de/Account/Invoices",
+        loginUrl: "https://www.gettyimages.de/Account/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

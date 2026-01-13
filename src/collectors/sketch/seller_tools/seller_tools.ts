@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellerToolsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SellerToolsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.seller.tools/en/billing",
+        loginUrl: "https://app.seller.tools/en/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

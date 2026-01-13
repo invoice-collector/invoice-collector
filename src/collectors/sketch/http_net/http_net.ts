@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HttpNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HttpNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.http.net/login",
+        loginUrl: "https://partner.http.net/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

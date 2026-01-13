@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplyInvoiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimplyInvoiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.invoicesimple.com/invoices",
+        loginUrl: "https://app.invoicesimple.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

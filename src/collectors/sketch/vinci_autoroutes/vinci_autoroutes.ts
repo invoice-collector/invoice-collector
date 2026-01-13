@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VinciAutoroutesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VinciAutoroutesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceabonnes.vinci-autoroutes.com",
+        loginUrl: "https://espaceabonnes.vinci-autoroutes.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

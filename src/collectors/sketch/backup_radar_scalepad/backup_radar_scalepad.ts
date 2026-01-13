@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BackupRadarScalepadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BackupRadarScalepadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eu.backupradar.com/app/invoices",
+        loginUrl: "https://eu.backupradar.com/app/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

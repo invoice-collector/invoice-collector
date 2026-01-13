@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InStylefashionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InStylefashionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.in-stylefashion.de/customer/account/",
+        loginUrl: "https://www.in-stylefashion.de/customer/account/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

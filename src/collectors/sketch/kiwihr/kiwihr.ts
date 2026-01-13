@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiwihrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KiwihrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kiwihr.com/de",
+        loginUrl: "https://kiwihr.com/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

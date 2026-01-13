@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RestdbIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RestdbIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://restdb.io/login/",
+        loginUrl: "https://restdb.io/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

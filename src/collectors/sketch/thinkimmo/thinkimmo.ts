@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ThinkimmoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ThinkimmoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://thinkimmo.com/settings",
+        loginUrl: "https://thinkimmo.com/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HonorarkonzeptCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HonorarkonzeptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fortuna.honorarkonzept.de/dashboard/#/mailbox/berater",
+        loginUrl: "https://fortuna.honorarkonzept.de/dashboard/#/mailbox/berater",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

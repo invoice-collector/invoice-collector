@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RepsolMiSolredCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RepsolMiSolredCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://misolred.repsol.com/facturas",
+        loginUrl: "https://misolred.repsol.com/facturas",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

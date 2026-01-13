@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlandayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlandayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.planday.com/findCompanyUrl?lang=en",
+        loginUrl: "https://id.planday.com/findCompanyUrl?lang=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

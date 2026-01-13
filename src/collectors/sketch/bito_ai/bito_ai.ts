@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BitoAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BitoAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.bito.ai/p/session/",
+        loginUrl: "https://billing.bito.ai/p/session/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

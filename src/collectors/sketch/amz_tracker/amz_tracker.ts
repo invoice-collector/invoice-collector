@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmzTrackerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmzTrackerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.amztracker.com",
+        loginUrl: "https://www.amztracker.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

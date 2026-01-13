@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CompteurEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CompteurEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.compteur-energie.com/mag/fr/acc_account.php",
+        loginUrl: "http://www.compteur-energie.com/mag/fr/acc_account.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

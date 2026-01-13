@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReifenleaderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReifenleaderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reifenleader.at/profi/account/orders/",
+        loginUrl: "https://www.reifenleader.at/profi/account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

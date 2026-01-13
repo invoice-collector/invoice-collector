@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LebaraDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LebaraDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lebara.dk/Login",
+        loginUrl: "https://www.lebara.dk/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

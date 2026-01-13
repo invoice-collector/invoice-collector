@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KrispCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KrispCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.krisp.ai/app/manage/subscription",
+        loginUrl: "https://account.krisp.ai/app/manage/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

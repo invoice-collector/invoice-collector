@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProtectedShopsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProtectedShopsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.protectedshops.de/accountPs/invoicearchive",
+        loginUrl: "https://www.protectedshops.de/accountPs/invoicearchive",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

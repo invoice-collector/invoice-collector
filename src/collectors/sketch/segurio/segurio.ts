@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SegurioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SegurioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://segurio.com/de/users/sign_in?l=en",
+        loginUrl: "https://segurio.com/de/users/sign_in?l=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

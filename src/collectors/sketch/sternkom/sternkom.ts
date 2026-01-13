@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SternkomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SternkomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sternstrom.de/sternkom/",
+        loginUrl: "https://www.sternstrom.de/sternkom/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

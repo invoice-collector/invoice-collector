@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CreditreformCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CreditreformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meine.creditreform.de/vorgaenge/",
+        loginUrl: "https://meine.creditreform.de/vorgaenge/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

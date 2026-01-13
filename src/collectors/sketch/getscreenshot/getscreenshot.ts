@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetscreenshotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetscreenshotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.getscreenshotapi.com/account",
+        loginUrl: "https://www.getscreenshotapi.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

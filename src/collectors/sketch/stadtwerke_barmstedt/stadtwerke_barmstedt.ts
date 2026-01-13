@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBarmstedtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeBarmstedtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://stadtwerke-barmstedt.de/xitylight/mein-xitylight/",
+        loginUrl: "https://stadtwerke-barmstedt.de/xitylight/mein-xitylight/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

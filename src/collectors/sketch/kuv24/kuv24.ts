@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Kuv24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Kuv24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kuv24.de/mykuv24_getfile.php?iddokument=50221",
+        loginUrl: "https://www.kuv24.de/mykuv24_getfile.php?iddokument=50221",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

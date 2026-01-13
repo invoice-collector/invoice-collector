@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PoeditorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PoeditorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://poeditor.com/account/billing",
+        loginUrl: "https://poeditor.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

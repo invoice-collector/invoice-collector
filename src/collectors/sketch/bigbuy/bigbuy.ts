@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BigbuyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BigbuyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bigbuy.eu/de/controlpanel/invoice",
+        loginUrl: "https://www.bigbuy.eu/de/controlpanel/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

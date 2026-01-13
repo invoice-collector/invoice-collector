@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PositiveIntelligenceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PositiveIntelligenceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://coach.positiveintelligence.com",
+        loginUrl: "https://coach.positiveintelligence.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

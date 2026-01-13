@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrdersmartPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrdersmartPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.ordersmart.de/ClientInvoices/BillingPeriodIndex",
+        loginUrl: "https://my.ordersmart.de/ClientInvoices/BillingPeriodIndex",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

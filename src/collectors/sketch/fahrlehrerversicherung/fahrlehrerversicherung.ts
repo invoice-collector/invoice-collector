@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FahrlehrerversicherungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FahrlehrerversicherungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fv.de/meine-fv/postfach/",
+        loginUrl: "https://www.fv.de/meine-fv/postfach/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

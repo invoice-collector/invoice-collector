@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PliegerNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PliegerNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://web.plieger.nl/B2B/PAGE_Start/xEMAAO1FevNLU3lMaHlOQXJCjwE",
+        loginUrl: "https://web.plieger.nl/B2B/PAGE_Start/xEMAAO1FevNLU3lMaHlOQXJCjwE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

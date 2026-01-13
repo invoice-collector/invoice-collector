@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PartnerportalDeutschepostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PartnerportalDeutschepostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.partnerportal-deutschepost.de/meine-filiale/zahlen-daten-fakten/verguetungsabrechnung.html",
+        loginUrl: "https://www.partnerportal-deutschepost.de/meine-filiale/zahlen-daten-fakten/verguetungsabrechnung.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

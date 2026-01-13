@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ToplaunchCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ToplaunchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://toplaunch.com/login",
+        loginUrl: "https://toplaunch.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

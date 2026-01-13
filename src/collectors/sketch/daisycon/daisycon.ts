@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DaisyconCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DaisyconCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.daisycon.com/nl",
+        loginUrl: "https://login.daisycon.com/nl",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

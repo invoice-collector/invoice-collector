@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SupermetricsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SupermetricsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://team.supermetrics.com/",
+        loginUrl: "http://team.supermetrics.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

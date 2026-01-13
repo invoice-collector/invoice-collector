@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HellotaxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HellotaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.hellotax.com/en/billing",
+        loginUrl: "https://app.hellotax.com/en/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RexelFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RexelFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rexel.fr/frx/",
+        loginUrl: "https://www.rexel.fr/frx/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

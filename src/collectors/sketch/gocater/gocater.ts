@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GocaterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GocaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gocater.de/office/orders/past",
+        loginUrl: "https://gocater.de/office/orders/past",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

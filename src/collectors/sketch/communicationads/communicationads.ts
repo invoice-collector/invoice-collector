@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CommunicationadsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CommunicationadsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.communicationads.net",
+        loginUrl: "https://login.communicationads.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

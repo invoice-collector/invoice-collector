@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmoobuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmoobuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.smoobu.com/de/login?utm_source=Smoobu.com&utm_medium=Login&utm_campaign=LoginTopMenu_DE",
+        loginUrl: "https://login.smoobu.com/de/login?utm_source=Smoobu.com&utm_medium=Login&utm_campaign=LoginTopMenu_DE",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

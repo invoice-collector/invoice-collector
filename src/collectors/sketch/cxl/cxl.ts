@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CxlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CxlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://conversionxl.com/institute/my-account/orders/",
+        loginUrl: "https://conversionxl.com/institute/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

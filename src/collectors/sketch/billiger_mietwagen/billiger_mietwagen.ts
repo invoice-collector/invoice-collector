@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BilligerMietwagenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BilligerMietwagenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.billiger-mietwagen.de",
+        loginUrl: "https://www.billiger-mietwagen.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

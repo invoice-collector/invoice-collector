@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalesflareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SalesflareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://salesflare.com/",
+        loginUrl: "https://salesflare.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

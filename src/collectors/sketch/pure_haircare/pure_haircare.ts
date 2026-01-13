@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PureHaircareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PureHaircareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.purehaircare.shop/Meine-Rechnungen/",
+        loginUrl: "https://www.purehaircare.shop/Meine-Rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

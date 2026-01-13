@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BesUtilitiesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BesUtilitiesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.besutilities.co.uk/Login/Login?ReturnUrl=%2fCustomer%2fLogin",
+        loginUrl: "https://account.besutilities.co.uk/Login/Login?ReturnUrl=%2fCustomer%2fLogin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

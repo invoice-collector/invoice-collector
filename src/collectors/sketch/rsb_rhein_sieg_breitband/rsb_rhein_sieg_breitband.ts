@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RsbRheinSiegBreitbandCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RsbRheinSiegBreitbandCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.rs-breitband.de",
+        loginUrl: "http://www.rs-breitband.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

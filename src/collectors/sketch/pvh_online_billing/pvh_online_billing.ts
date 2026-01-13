@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PvhOnlineBillingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PvhOnlineBillingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure2.billtrust.com/pvh-de/ig/signin",
+        loginUrl: "https://secure2.billtrust.com/pvh-de/ig/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

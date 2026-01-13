@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmadeusEbillingPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmadeusEbillingPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebillingcentre.de.amadeus.com/sfiler/Tree.action",
+        loginUrl: "https://ebillingcentre.de.amadeus.com/sfiler/Tree.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InvisalignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InvisalignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners-payments.invisalign.com/partners/sign_in",
+        loginUrl: "https://partners-payments.invisalign.com/partners/sign_in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

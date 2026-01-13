@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InexioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InexioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.inexio.net/login",
+        loginUrl: "https://my.inexio.net/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

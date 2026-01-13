@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeozoomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeozoomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sz2020.seozoom.it/user/billing",
+        loginUrl: "https://sz2020.seozoom.it/user/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

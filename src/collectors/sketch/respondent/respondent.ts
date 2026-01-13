@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RespondentCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RespondentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.respondent.io/",
+        loginUrl: "https://app.respondent.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

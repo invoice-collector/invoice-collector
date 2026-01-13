@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CapsulinkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CapsulinkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.capsulink.com/settings/subscription/history",
+        loginUrl: "https://www.capsulink.com/settings/subscription/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

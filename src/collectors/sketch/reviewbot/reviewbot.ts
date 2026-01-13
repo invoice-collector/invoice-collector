@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReviewbotCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReviewbotCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.reviewbot.io/dashboard/billing",
+        loginUrl: "https://app.reviewbot.io/dashboard/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

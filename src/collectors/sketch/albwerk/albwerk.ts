@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlbwerkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlbwerkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.albwerk.de/energyportal/exec/",
+        loginUrl: "https://portal.albwerk.de/energyportal/exec/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

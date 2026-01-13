@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BewBerlinerEnergieUndWarmeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BewBerlinerEnergieUndWarmeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://xn--wrme-service-berlin-gwb.vattenfall.de/cost/invoices",
+        loginUrl: "https://xn--wrme-service-berlin-gwb.vattenfall.de/cost/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

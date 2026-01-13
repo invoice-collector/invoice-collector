@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LosAngelesDepartmentOfWaterAndPowerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LosAngelesDepartmentOfWaterAndPowerCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "http://www.ladwp.com",
+        loginUrl: "http://www.ladwp.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

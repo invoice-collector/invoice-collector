@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EasyliveIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EasyliveIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://studio.easylive.io/settings/customer/",
+        loginUrl: "https://studio.easylive.io/settings/customer/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

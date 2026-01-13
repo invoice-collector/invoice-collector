@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MlfMercatorLeasingGmbhAndCoFinanzKgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MlfMercatorLeasingGmbhAndCoFinanzKgCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://messenger.mercator-leasing.de/login.xhtml",
+        loginUrl: "https://messenger.mercator-leasing.de/login.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

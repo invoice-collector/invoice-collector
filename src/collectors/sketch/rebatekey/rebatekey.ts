@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RebatekeyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RebatekeyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rebatekey.com/sign-in",
+        loginUrl: "https://rebatekey.com/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TirehubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TirehubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.versapay.com/payables/tirehub/invoices",
+        loginUrl: "https://secure.versapay.com/payables/tirehub/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

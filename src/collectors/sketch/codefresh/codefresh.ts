@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodefreshCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CodefreshCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://codefresh.io/dontknow",
+        loginUrl: "https://codefresh.io/dontknow",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

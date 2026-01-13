@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InvoizCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InvoizCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.invoiz.de/account/login",
+        loginUrl: "https://app.invoiz.de/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

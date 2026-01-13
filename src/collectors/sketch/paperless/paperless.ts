@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaperlessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PaperlessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.paperless.io/organizations/91/billing_session",
+        loginUrl: "https://app.paperless.io/organizations/91/billing_session",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

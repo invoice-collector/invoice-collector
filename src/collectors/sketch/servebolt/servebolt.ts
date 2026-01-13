@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ServeboltCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ServeboltCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.servebolt.no",
+        loginUrl: "http://www.servebolt.no",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AccesstradeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AccesstradeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://publisher.accesstrade.co.id/#/sign-in",
+        loginUrl: "https://publisher.accesstrade.co.id/#/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BmwGroupAosCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BmwGroupAosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aos.bmwgroup.com/login/login_www.fcc?TYPE=33619969&REALMOID=06-19247b09-132c-4935-b7ea-99d11699c8f0&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=$SM$%2fuiS57HryfFZpuB%2fmaZC2uDFOuarR9pRPre0uRWBpCy1PBIAK88R8XmEIuR76gQT&TARGET=$SM$https%3a%2f%2faos%2",
+        loginUrl: "https://aos.bmwgroup.com/login/login_www.fcc?TYPE=33619969&REALMOID=06-19247b09-132c-4935-b7ea-99d11699c8f0&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=$SM$%2fuiS57HryfFZpuB%2fmaZC2uDFOuarR9pRPre0uRWBpCy1PBIAK88R8XmEIuR76gQT&TARGET=$SM$https%3a%2f%2faos%2",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

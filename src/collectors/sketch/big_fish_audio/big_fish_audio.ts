@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BigFishAudioCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BigFishAudioCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bigfishaudio.com/account.html",
+        loginUrl: "https://www.bigfishaudio.com/account.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

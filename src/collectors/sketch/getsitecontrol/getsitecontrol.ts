@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetsitecontrolCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetsitecontrolCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://getsitecontrol.com/login/",
+        loginUrl: "https://getsitecontrol.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeadlineFunnelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeadlineFunnelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://deadlinefunnel.com/auth/signin",
+        loginUrl: "https://deadlinefunnel.com/auth/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

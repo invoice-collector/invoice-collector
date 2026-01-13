@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Immoware24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Immoware24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.awi-rems.de/router/auth/login",
+        loginUrl: "https://www.awi-rems.de/router/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

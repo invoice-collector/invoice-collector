@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YategoHandlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YategoHandlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www1.yatego.com/admin/",
+        loginUrl: "https://www1.yatego.com/admin/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrisyncCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrisyncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://prisync.com/login",
+        loginUrl: "https://prisync.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

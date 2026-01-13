@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SortlyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SortlyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pro.sortly.com/billing-info",
+        loginUrl: "https://pro.sortly.com/billing-info",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LighthouseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LighthouseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lighthouseapp.com/login",
+        loginUrl: "https://lighthouseapp.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZeplugCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZeplugCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://zeplug-global.my.site.com/zeplugcommunity/s/mes-factures",
+        loginUrl: "https://zeplug-global.my.site.com/zeplugcommunity/s/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InvisalignDoctorsiteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InvisalignDoctorsiteCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vip.invisalign.com/v3/auth/patients.action",
+        loginUrl: "https://vip.invisalign.com/v3/auth/patients.action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

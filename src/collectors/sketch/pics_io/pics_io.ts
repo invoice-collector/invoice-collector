@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PicsIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PicsIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pics.io/",
+        loginUrl: "https://pics.io/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

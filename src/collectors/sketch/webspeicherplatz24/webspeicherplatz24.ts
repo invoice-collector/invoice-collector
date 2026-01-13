@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Webspeicherplatz24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Webspeicherplatz24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.webspeicherplatz24.de/cis/login",
+        loginUrl: "https://www.webspeicherplatz24.de/cis/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

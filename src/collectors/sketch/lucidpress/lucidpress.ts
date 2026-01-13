@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LucidpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LucidpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lucidpress.com/users/login",
+        loginUrl: "https://www.lucidpress.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

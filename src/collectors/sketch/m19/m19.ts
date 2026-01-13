@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class M19Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class M19Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://board.m19.com/#/billing",
+        loginUrl: "https://board.m19.com/#/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

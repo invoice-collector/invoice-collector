@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WarriorplusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WarriorplusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://warriorplus.com/account/purchases",
+        loginUrl: "https://warriorplus.com/account/purchases",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LkgLausitzerKabelbetriebsgesellschaftMbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LkgLausitzerKabelbetriebsgesellschaftMbhCollector extends SketchCol
                 mandatory: true
             }
         },
-        entryUrl: "https://lkg.kabelkundenservice.de/login.php",
+        loginUrl: "https://lkg.kabelkundenservice.de/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

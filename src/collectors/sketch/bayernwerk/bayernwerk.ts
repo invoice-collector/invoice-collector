@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BayernwerkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BayernwerkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bayernwerk-netz.de/de/service/rechnungen.html#contractAccId=255000112680",
+        loginUrl: "https://www.bayernwerk-netz.de/de/service/rechnungen.html#contractAccId=255000112680",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

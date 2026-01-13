@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BacklinksellerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BacklinksellerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.backlinkseller.de/login_area/invoices/",
+        loginUrl: "https://www.backlinkseller.de/login_area/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

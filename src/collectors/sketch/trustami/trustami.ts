@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrustamiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrustamiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.trustami.com/signin/www/de",
+        loginUrl: "https://app.trustami.com/signin/www/de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

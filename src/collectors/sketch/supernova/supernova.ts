@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SupernovaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SupernovaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.supernova-design.com/my/home",
+        loginUrl: "https://shop.supernova-design.com/my/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

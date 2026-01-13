@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TdcDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TdcDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://profil.yousee.dk/?context=selfservice",
+        loginUrl: "https://profil.yousee.dk/?context=selfservice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

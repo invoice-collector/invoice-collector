@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DatacakeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DatacakeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.datacake.de/bed/administration/billing",
+        loginUrl: "https://app.datacake.de/bed/administration/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

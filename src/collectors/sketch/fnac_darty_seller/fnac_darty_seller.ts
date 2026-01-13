@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FnacDartySellerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FnacDartySellerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://seller.fnacdarty.com/compte/vendeur/factures/date_desc/1",
+        loginUrl: "https://seller.fnacdarty.com/compte/vendeur/factures/date_desc/1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnviropackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnviropackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.enviropack.org.uk/user?current=node",
+        loginUrl: "https://www.enviropack.org.uk/user?current=node",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

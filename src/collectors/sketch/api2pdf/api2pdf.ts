@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Api2pdfCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Api2pdfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.api2pdf.com/billing/history",
+        loginUrl: "https://portal.api2pdf.com/billing/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

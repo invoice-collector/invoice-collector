@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PaceCarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PaceCarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pace.car",
+        loginUrl: "https://www.pace.car",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

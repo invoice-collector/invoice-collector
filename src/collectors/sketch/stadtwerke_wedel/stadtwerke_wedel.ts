@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeWedelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeWedelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.stadtwerke-wedel.de/kundenportal/exec/",
+        loginUrl: "https://portal.stadtwerke-wedel.de/kundenportal/exec/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JournalHauteMarneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JournalHauteMarneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jhm.fr/mon-compte/mes-abonnements/",
+        loginUrl: "https://jhm.fr/mon-compte/mes-abonnements/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

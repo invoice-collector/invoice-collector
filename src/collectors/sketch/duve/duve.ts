@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DuveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DuveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://frontdesk.duve.com/login",
+        loginUrl: "https://frontdesk.duve.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

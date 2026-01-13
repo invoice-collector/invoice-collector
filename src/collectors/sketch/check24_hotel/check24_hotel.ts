@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Check24HotelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Check24HotelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.hotel.check24.de/hotel/70627928/accounting/invoice",
+        loginUrl: "https://extranet.hotel.check24.de/hotel/70627928/accounting/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

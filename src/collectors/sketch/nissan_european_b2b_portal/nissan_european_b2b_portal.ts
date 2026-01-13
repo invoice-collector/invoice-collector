@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NissanEuropeanB2bPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NissanEuropeanB2bPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.eu.nissan.biz/nidp/idff/sso?id=B2B&sid=0&option=credential&sid=0&target=https%3A%2F%2Feu.nissan.biz%2F",
+        loginUrl: "https://login.eu.nissan.biz/nidp/idff/sso?id=B2B&sid=0&option=credential&sid=0&target=https%3A%2F%2Feu.nissan.biz%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

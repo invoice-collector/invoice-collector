@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RoadrunnerCardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RoadrunnerCardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.roadrunner-card.com/kundenbereich.php?bc=rechnungen",
+        loginUrl: "https://kundenportal.roadrunner-card.com/kundenbereich.php?bc=rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

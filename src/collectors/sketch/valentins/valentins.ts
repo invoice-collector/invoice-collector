@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ValentinsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ValentinsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.valentins.de/onlineshop/account/meinebestellungen/",
+        loginUrl: "https://www.valentins.de/onlineshop/account/meinebestellungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

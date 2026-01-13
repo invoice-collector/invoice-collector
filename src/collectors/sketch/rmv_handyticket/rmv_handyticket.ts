@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RmvHandyticketCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RmvHandyticketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rmv.de/c/de/start/",
+        loginUrl: "https://www.rmv.de/c/de/start/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

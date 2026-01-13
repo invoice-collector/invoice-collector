@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IpackProfiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IpackProfiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ipackprofi.at/login/bills",
+        loginUrl: "https://ipackprofi.at/login/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

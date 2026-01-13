@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmaysimCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmaysimCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.amaysim.com.au/identity/login",
+        loginUrl: "https://accounts.amaysim.com.au/identity/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

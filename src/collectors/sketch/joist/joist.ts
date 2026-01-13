@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JoistCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JoistCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.joist.eu/orderhistory.aspx",
+        loginUrl: "https://shop.joist.eu/orderhistory.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

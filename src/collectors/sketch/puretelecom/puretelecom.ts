@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PuretelecomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PuretelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mypure.puretelecom.ie/MyPure/billHistory.php",
+        loginUrl: "https://mypure.puretelecom.ie/MyPure/billHistory.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

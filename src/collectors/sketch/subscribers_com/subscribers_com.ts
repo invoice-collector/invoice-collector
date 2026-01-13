@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SubscribersComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SubscribersComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.subscribers.com/settings",
+        loginUrl: "https://app.subscribers.com/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

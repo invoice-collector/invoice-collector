@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MkmBuildingSuppliesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MkmBuildingSuppliesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mkmbs.co.uk/templates/mkm/pages/login/login.aspx/?returnurl=/my-account/my-account-landing/",
+        loginUrl: "https://www.mkmbs.co.uk/templates/mkm/pages/login/login.aspx/?returnurl=/my-account/my-account-landing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

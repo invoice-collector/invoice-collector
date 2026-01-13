@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IevDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IevDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.energi-ikast.dk/kundeservice/selvbetjening/",
+        loginUrl: "https://www.energi-ikast.dk/kundeservice/selvbetjening/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

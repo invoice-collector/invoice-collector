@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RealVncCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RealVncCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.realvnc.com/en/?",
+        loginUrl: "https://manage.realvnc.com/en/?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

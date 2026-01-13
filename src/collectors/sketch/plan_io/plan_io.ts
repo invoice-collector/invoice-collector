@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlanIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlanIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.plan.io/login",
+        loginUrl: "https://accounts.plan.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

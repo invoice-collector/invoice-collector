@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CodeshipCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CodeshipCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.codeship.com/sessions/new",
+        loginUrl: "https://app.codeship.com/sessions/new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

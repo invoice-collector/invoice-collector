@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigimemberCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DigimemberCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://digimember.de/login/",
+        loginUrl: "https://digimember.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

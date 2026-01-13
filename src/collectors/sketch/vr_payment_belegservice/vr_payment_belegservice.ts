@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VrPaymentBelegserviceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VrPaymentBelegserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://vr-payment.belegservice.de/download",
+        loginUrl: "https://vr-payment.belegservice.de/download",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

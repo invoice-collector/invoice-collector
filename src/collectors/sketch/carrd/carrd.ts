@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CarrdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CarrdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://carrd.co/dashboard/account/balance",
+        loginUrl: "https://carrd.co/dashboard/account/balance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

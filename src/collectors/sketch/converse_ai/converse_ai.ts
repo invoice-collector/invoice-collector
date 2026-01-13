@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConverseAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConverseAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.converse.ai/#getstarted",
+        loginUrl: "http://www.converse.ai/#getstarted",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

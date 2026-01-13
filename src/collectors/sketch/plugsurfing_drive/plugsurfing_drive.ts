@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlugsurfingDriveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlugsurfingDriveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://drive.plugsurfing.com/",
+        loginUrl: "https://drive.plugsurfing.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

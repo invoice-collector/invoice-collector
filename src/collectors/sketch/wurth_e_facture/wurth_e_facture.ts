@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WurthEFactureCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WurthEFactureCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wurth.e-facture.net/index.php?set_lang=en",
+        loginUrl: "https://wurth.e-facture.net/index.php?set_lang=en",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

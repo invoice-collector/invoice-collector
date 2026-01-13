@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FunbookerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FunbookerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.funbooker.com/fr/funpro/virements",
+        loginUrl: "https://www.funbooker.com/fr/funpro/virements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders",
+        loginUrl: "https://www.amazon.com/gp/css/order-history/ref=nav_youraccount_orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

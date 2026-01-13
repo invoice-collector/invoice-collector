@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TyroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TyroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tyro.com/",
+        loginUrl: "https://www.tyro.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

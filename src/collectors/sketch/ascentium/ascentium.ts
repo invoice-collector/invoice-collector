@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AscentiumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AscentiumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accountbutler.ascentiumcapital.com/",
+        loginUrl: "https://accountbutler.ascentiumcapital.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

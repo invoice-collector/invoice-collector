@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternetnordCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InternetnordCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://subscriptions.zoho.eu/portal/internetnord/login",
+        loginUrl: "https://subscriptions.zoho.eu/portal/internetnord/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SailthruCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SailthruCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.sailthru.com/login?redirect=http%3A%2F%2Fmy.sailthru.com%2F",
+        loginUrl: "https://my.sailthru.com/login?redirect=http%3A%2F%2Fmy.sailthru.com%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

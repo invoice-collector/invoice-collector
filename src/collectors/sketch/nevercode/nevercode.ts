@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NevercodeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NevercodeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nevercode.io/login/",
+        loginUrl: "https://nevercode.io/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

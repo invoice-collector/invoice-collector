@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaipuTvCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WaipuTvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customer-self-care.waipu.tv/ui/my_invoices",
+        loginUrl: "https://customer-self-care.waipu.tv/ui/my_invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

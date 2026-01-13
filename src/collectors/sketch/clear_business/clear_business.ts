@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClearBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClearBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://customerzone.clearbusiness.co.uk/Invoice/Index/34181673",
+        loginUrl: "https://customerzone.clearbusiness.co.uk/Invoice/Index/34181673",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

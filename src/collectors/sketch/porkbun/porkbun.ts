@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PorkbunCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PorkbunCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://porkbun.com/account/orders",
+        loginUrl: "https://porkbun.com/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

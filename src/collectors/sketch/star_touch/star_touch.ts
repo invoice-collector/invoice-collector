@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StarTouchCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StarTouchCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.startouch.com",
+        loginUrl: "http://www.startouch.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

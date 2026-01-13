@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VivenuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VivenuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.vivenu.com/balancings",
+        loginUrl: "https://dashboard.vivenu.com/balancings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

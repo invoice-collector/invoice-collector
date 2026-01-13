@@ -12,12 +12,14 @@ export class CollectorMemory {
     id: string;
     name: string;
     actions: Actions;
+    customerAreaUrl?: string;
     entryUrl?: string;
 
-    constructor(name: string, actions: Actions, entryUrl?: string) {
+    constructor(name: string, actions: Actions, customerAreaUrl?: string, entryUrl?: string) {
         this.id = "";
         this.name = name;
         this.actions = actions;
+        this.customerAreaUrl = customerAreaUrl
         this.entryUrl = entryUrl;
     }
 

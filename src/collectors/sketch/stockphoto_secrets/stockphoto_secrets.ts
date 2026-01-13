@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StockphotoSecretsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StockphotoSecretsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://shop.stockphotosecrets.com",
+        loginUrl: "http://shop.stockphotosecrets.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

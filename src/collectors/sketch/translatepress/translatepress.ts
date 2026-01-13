@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TranslatepressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TranslatepressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://translatepress.com/?edd_action=view_invoice&payment_id=1272812&invoice=edbcfe0c6953edc174ecdcc783c82093",
+        loginUrl: "https://translatepress.com/?edd_action=view_invoice&payment_id=1272812&invoice=edbcfe0c6953edc174ecdcc783c82093",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChannelengineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChannelengineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wwww.channelengine.net/login",
+        loginUrl: "https://wwww.channelengine.net/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

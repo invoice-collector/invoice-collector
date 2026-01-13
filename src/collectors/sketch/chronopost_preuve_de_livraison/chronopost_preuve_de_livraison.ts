@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ChronopostPreuveDeLivraisonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ChronopostPreuveDeLivraisonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.chronopost.fr/fr/aide/faq/livraison-de-vos-envois/comment-obtenir-la-preuve-de-livraison-de-mon-colis",
+        loginUrl: "https://www.chronopost.fr/fr/aide/faq/livraison-de-vos-envois/comment-obtenir-la-preuve-de-livraison-de-mon-colis",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

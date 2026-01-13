@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Ametra06Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Ametra06Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pst-ametra06.medtra.fr/liste-factures-adh.html",
+        loginUrl: "https://pst-ametra06.medtra.fr/liste-factures-adh.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

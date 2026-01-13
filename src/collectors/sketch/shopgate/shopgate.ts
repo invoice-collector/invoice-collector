@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShopgateCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShopgateCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.shopgate.com/DE/users/login",
+        loginUrl: "https://admin.shopgate.com/DE/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

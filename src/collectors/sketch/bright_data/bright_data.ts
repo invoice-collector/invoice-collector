@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrightDataCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrightDataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://brightdata.com/cp/billing/invoices",
+        loginUrl: "https://brightdata.com/cp/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

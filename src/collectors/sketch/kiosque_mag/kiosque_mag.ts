@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiosqueMagCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KiosqueMagCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.kiosquemag.com/mon-espace/",
+        loginUrl: "https://www.kiosquemag.com/mon-espace/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

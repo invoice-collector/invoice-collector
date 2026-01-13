@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchunkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SchunkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://iseg.schunck.es/oskar/views/seg/",
+        loginUrl: "https://iseg.schunck.es/oskar/views/seg/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

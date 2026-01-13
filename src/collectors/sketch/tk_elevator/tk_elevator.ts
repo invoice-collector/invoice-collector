@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TkElevatorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TkElevatorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://de.webportal.tkelevator.com/wps/portal/customer",
+        loginUrl: "https://de.webportal.tkelevator.com/wps/portal/customer",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

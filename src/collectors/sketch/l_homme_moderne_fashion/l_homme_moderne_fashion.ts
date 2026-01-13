@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LHommeModerneFashionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LHommeModerneFashionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lhommemoderne.fr/authentification?back=my-account.php",
+        loginUrl: "https://www.lhommemoderne.fr/authentification?back=my-account.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

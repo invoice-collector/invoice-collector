@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MistergooddealComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MistergooddealComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mistergooddeal.com/views/account/identification.aspx",
+        loginUrl: "https://www.mistergooddeal.com/views/account/identification.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

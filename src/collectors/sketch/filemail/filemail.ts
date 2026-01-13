@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FilemailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FilemailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.filemail.com/de/paymenthistory",
+        loginUrl: "https://www.filemail.com/de/paymenthistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

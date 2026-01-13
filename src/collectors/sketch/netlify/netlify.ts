@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetlifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetlifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.netlify.com/login/email?next=true",
+        loginUrl: "https://app.netlify.com/login/email?next=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

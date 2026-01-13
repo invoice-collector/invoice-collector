@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LOrleannaiseDesEauxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LOrleannaiseDesEauxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://leaudorleansmetropole.toutsurmoneau.fr/mon-compte-en-ligne/mes-factures",
+        loginUrl: "https://leaudorleansmetropole.toutsurmoneau.fr/mon-compte-en-ligne/mes-factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

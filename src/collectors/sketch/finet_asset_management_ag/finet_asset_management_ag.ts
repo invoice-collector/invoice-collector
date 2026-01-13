@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FinetAssetManagementAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FinetAssetManagementAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.finet.de/portal/tiles/artikel.cfm?ID_Seite=282",
+        loginUrl: "https://my.finet.de/portal/tiles/artikel.cfm?ID_Seite=282",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

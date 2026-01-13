@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OceanIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OceanIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.ocean.io/signin",
+        loginUrl: "https://app.ocean.io/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

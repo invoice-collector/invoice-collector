@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HctiApiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HctiApiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.htmlcsstoimage.com/u/login?state=g6Fo2SBITVA0eklEVURTU2ZnTkpZNjdEQVo4dlFqWEIwNG5DVKN0aWTZIFNMSWZxUVdQVkdybm5FSjRwVnJ4X0dSY1ZGMFZiTjFwo2NpZNkgeE9HTDJzQ0tPMnJja0psbmtSdm5uVnc3RjZqMXlMQ3E",
+        loginUrl: "https://auth.htmlcsstoimage.com/u/login?state=g6Fo2SBITVA0eklEVURTU2ZnTkpZNjdEQVo4dlFqWEIwNG5DVKN0aWTZIFNMSWZxUVdQVkdybm5FSjRwVnJ4X0dSY1ZGMFZiTjFwo2NpZNkgeE9HTDJzQ0tPMnJja0psbmtSdm5uVnc3RjZqMXlMQ3E",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

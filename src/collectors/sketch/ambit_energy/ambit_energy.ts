@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmbitEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmbitEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.ambitenergy.com/login",
+        loginUrl: "https://my.ambitenergy.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

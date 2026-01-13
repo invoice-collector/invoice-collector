@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JuraDirektGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JuraDirektGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.juradirekt.com/documents",
+        loginUrl: "https://secure.juradirekt.com/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

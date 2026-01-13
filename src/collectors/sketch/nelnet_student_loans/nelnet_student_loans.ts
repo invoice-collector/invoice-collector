@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NelnetStudentLoansCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NelnetStudentLoansCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nelnet.studentaid.gov/documents/statements",
+        loginUrl: "https://nelnet.studentaid.gov/documents/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

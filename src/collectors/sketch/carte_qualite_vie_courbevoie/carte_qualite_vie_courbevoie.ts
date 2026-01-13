@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CarteQualiteVieCourbevoieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CarteQualiteVieCourbevoieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ville-courbevoie.fr/",
+        loginUrl: "https://www.ville-courbevoie.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

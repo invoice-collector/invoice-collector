@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClubChauffeurCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClubChauffeurCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.clubchauffeur.com/",
+        loginUrl: "https://www.clubchauffeur.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

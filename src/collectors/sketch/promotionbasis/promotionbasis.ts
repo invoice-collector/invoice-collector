@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PromotionbasisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PromotionbasisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.promotionbasis.de/",
+        loginUrl: "https://www.promotionbasis.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

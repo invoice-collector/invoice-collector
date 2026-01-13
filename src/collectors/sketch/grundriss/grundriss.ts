@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrundrissCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GrundrissCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.grundriss.com/auftragsuebersicht.html?rechnungen=1",
+        loginUrl: "https://www.grundriss.com/auftragsuebersicht.html?rechnungen=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

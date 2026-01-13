@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MedialeadPublisherCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MedialeadPublisherCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.medialead.de/user-billings.do",
+        loginUrl: "https://www.medialead.de/user-billings.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

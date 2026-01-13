@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KanbanFlowCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KanbanFlowCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kanbanflow.com/organization/moHZ7G/settings/invoices",
+        loginUrl: "https://kanbanflow.com/organization/moHZ7G/settings/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

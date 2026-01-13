@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZiggoZakelijkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZiggoZakelijkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://factuur.ziggozakelijk.nl/ziggo/welcome.html",
+        loginUrl: "https://factuur.ziggozakelijk.nl/ziggo/welcome.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

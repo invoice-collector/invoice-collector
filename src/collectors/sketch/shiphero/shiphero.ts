@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShipheroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShipheroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signin.shiphero.com/login?ref=https://endeavour.shiphero.com/",
+        loginUrl: "https://signin.shiphero.com/login?ref=https://endeavour.shiphero.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

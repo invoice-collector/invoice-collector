@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeubeloNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeubeloNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partner.meubelo.nl/",
+        loginUrl: "https://partner.meubelo.nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

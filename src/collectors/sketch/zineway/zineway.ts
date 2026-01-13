@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZinewayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZinewayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.zineway.fr/accueil.html",
+        loginUrl: "https://www.zineway.fr/accueil.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

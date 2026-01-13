@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReliantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReliantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reliant.com/public/altLogon.htm",
+        loginUrl: "https://www.reliant.com/public/altLogon.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class M8mitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class M8mitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sae.m8mit.de/invoices",
+        loginUrl: "https://sae.m8mit.de/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

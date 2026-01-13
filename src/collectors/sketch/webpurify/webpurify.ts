@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebpurifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebpurifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.webpurify.com/account/invoices/",
+        loginUrl: "https://www.webpurify.com/account/invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

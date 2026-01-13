@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BtBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BtBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.business.bt.com/Account/LoginRedirect.aspx?tabId=1",
+        loginUrl: "https://secure.business.bt.com/Account/LoginRedirect.aspx?tabId=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

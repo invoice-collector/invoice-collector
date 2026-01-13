@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmazonMarketingServiceNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmazonMarketingServiceNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://advertising.amazon.nl/billing/history",
+        loginUrl: "https://advertising.amazon.nl/billing/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

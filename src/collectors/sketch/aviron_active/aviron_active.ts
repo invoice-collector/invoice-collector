@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AvironActiveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AvironActiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://accounts.avironactive.com/login?redirect=https://accounts.avironactive.com/membership",
+        loginUrl: "https://accounts.avironactive.com/login?redirect=https://accounts.avironactive.com/membership",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

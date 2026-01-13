@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class O2DeBusinessOnlineServiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class O2DeBusinessOnlineServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://easyaccess.o2business.de/s/",
+        loginUrl: "https://easyaccess.o2business.de/s/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

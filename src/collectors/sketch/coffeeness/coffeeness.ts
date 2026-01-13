@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoffeenessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoffeenessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.coffeeness.de/konto",
+        loginUrl: "https://shop.coffeeness.de/konto",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuroTreuhandInkassoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EuroTreuhandInkassoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.eurotreuhandinkasso-service.de/kundenbereich/",
+        loginUrl: "https://www.eurotreuhandinkasso-service.de/kundenbereich/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

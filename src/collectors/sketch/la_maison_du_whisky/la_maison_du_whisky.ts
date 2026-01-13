@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaMaisonDuWhiskyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LaMaisonDuWhiskyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.whisky.fr/en/",
+        loginUrl: "https://www.whisky.fr/en/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

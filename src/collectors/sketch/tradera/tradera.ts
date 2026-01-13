@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TraderaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TraderaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tradera.com/my/Invoices",
+        loginUrl: "https://www.tradera.com/my/Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

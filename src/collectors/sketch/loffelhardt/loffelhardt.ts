@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoffelhardtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LoffelhardtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.loeffelhardt.de/de/login",
+        loginUrl: "https://online.loeffelhardt.de/de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PhonetastikCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PhonetastikCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://phonetastik.de/account/order-transactions",
+        loginUrl: "https://phonetastik.de/account/order-transactions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

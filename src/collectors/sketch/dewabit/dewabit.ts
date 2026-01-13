@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DewabitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DewabitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://member.dewabit.com/dash/subscription?status=success&action=create",
+        loginUrl: "https://member.dewabit.com/dash/subscription?status=success&action=create",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

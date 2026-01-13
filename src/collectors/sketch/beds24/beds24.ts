@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Beds24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Beds24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.beds24.com/control2.php?pagetype=accountinvoice",
+        loginUrl: "https://www.beds24.com/control2.php?pagetype=accountinvoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZervantCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZervantCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.zervant.com/login/",
+        loginUrl: "https://secure.zervant.com/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

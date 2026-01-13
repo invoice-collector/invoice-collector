@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrintfulCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrintfulCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.printful.com/dashboard/billing/payment-history",
+        loginUrl: "https://www.printful.com/dashboard/billing/payment-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RalawiseComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RalawiseComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.ralawise.com/my-account/order-history/order-history/",
+        loginUrl: "https://shop.ralawise.com/my-account/order-history/order-history/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

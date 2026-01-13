@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinodeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LinodeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cloud.linode.com/account/billing",
+        loginUrl: "https://cloud.linode.com/account/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FranzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FranzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://meetfranz.com/user/invoices?utm_source=app&utm_medium=account_dashboard",
+        loginUrl: "https://meetfranz.com/user/invoices?utm_source=app&utm_medium=account_dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

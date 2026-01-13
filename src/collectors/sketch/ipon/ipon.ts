@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IponCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IponCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://iponshop.at/shop",
+        loginUrl: "https://iponshop.at/shop",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SapForMeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SapForMeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://me.sap.com/financelegal/billing",
+        loginUrl: "https://me.sap.com/financelegal/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

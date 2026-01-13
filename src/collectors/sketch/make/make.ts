@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MakeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MakeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.make.com/en/login",
+        loginUrl: "https://www.make.com/en/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AllerganCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AllerganCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.allergan.de/de-de/home",
+        loginUrl: "https://www.allergan.de/de-de/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

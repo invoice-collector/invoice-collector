@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TinyCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TinyCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tiny.cloud/my-account/profile/subscription/1472988",
+        loginUrl: "https://www.tiny.cloud/my-account/profile/subscription/1472988",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

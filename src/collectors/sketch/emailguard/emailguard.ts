@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EmailguardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EmailguardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.emailguard.io/billing/plans",
+        loginUrl: "https://app.emailguard.io/billing/plans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

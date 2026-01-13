@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BiobieneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BiobieneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.biobiene.com/account/orders",
+        loginUrl: "https://www.biobiene.com/account/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EveryoneonlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EveryoneonlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mijn.everyoneonline.nl/clientarea.php",
+        loginUrl: "https://mijn.everyoneonline.nl/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

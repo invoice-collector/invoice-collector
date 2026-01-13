@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4dslDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _4dslDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.4dsl.de",
+        loginUrl: "http://www.4dsl.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

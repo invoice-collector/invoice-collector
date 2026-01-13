@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Sim24Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Sim24Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.sim24.de/",
+        loginUrl: "https://service.sim24.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

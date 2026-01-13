@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TyresystemCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TyresystemCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tyresystem.de/",
+        loginUrl: "https://www.tyresystem.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

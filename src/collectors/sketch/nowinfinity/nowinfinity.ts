@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NowinfinityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NowinfinityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mria.nowinfinity.com.au/#/login",
+        loginUrl: "https://mria.nowinfinity.com.au/#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

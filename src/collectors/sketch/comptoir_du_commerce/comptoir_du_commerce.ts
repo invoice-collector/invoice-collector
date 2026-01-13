@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ComptoirDuCommerceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ComptoirDuCommerceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.comptoirducommerce.com/",
+        loginUrl: "http://www.comptoirducommerce.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

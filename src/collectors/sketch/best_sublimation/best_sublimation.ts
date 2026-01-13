@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BestSublimationCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BestSublimationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.bestsublimation.de/",
+        loginUrl: "https://shop.bestsublimation.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

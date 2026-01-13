@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GtcTelecommunicationCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GtcTelecommunicationCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gtc.de/infos-kontakt/login.html",
+        loginUrl: "https://gtc.de/infos-kontakt/login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

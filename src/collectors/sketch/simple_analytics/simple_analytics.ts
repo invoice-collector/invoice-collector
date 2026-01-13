@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimpleAnalyticsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimpleAnalyticsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://simpleanalytics.com/login",
+        loginUrl: "https://simpleanalytics.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

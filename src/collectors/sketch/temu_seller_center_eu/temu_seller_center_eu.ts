@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TemuSellerCenterEuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TemuSellerCenterEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://seller-eu.temu.com/login.html?",
+        loginUrl: "https://seller-eu.temu.com/login.html?",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

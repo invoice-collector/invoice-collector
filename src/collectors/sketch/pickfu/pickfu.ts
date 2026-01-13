@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PickfuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PickfuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pickfu.com/my/invoices",
+        loginUrl: "https://www.pickfu.com/my/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

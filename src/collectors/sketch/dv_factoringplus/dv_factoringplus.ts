@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DvFactoringplusCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DvFactoringplusCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://factoringplus.dv-portal.de/login",
+        loginUrl: "https://factoringplus.dv-portal.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

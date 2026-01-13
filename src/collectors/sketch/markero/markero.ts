@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarkeroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MarkeroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.markero.com/auth/login",
+        loginUrl: "https://app.markero.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

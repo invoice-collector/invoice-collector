@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NeustadtwerkeDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NeustadtwerkeDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.neustadtwerke.de/powercommerce/ivu/fo/portal/home",
+        loginUrl: "https://portal.neustadtwerke.de/powercommerce/ivu/fo/portal/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

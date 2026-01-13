@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LaterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.later.com/user/login",
+        loginUrl: "https://app.later.com/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

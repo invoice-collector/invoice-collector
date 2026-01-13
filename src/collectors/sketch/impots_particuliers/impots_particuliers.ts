@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImpotsParticuliersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ImpotsParticuliersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cfspart.impots.gouv.fr/LoginMDP?op=c",
+        loginUrl: "https://cfspart.impots.gouv.fr/LoginMDP?op=c",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

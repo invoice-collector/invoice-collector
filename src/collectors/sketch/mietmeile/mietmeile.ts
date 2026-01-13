@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MietmeileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MietmeileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mietmeile.de/intern/konto/rechnungen",
+        loginUrl: "https://www.mietmeile.de/intern/konto/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JuneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JuneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.june.energy/contract/3143/documents/june",
+        loginUrl: "https://app.june.energy/contract/3143/documents/june",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

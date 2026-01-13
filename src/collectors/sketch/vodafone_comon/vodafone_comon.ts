@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VodafoneComonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VodafoneComonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://comon.vodafone.de/login",
+        loginUrl: "https://comon.vodafone.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

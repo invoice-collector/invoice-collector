@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MygetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MygetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.myget.org/Account/Login?ReturnUrl=%2fprofile%2fMe#!/Subscription",
+        loginUrl: "https://www.myget.org/Account/Login?ReturnUrl=%2fprofile%2fMe#!/Subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

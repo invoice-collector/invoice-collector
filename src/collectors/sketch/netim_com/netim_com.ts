@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetimComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetimComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.netim.com/direct/account/orders-and-invoices/",
+        loginUrl: "https://www.netim.com/direct/account/orders-and-invoices/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

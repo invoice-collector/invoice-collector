@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuderelbeInkassoSiGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SuderelbeInkassoSiGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://luca.se-inkasso.de/invoice.php",
+        loginUrl: "https://luca.se-inkasso.de/invoice.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CanalCanalsatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CanalCanalsatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.canal.fr/",
+        loginUrl: "https://client.canal.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

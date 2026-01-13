@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NachtUndNotdienstfondCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NachtUndNotdienstfondCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "www.dav-notdienstfonds.de/login/",
+        loginUrl: "www.dav-notdienstfonds.de/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

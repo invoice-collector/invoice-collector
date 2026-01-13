@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LennySNewsletterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LennySNewsletterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lennysnewsletter.com/account/receipts?utm_source=account",
+        loginUrl: "https://www.lennysnewsletter.com/account/receipts?utm_source=account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

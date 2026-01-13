@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShippyProCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShippyProCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://compute.fattureincloud.it/doc/",
+        loginUrl: "https://compute.fattureincloud.it/doc/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

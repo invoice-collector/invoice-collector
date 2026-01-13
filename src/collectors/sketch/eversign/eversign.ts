@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EversignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EversignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eversign.com/billing",
+        loginUrl: "https://eversign.com/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

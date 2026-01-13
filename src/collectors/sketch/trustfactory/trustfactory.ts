@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrustfactoryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrustfactoryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://trustfactory.app",
+        loginUrl: "https://trustfactory.app",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

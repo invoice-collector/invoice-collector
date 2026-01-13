@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RentAGuideCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RentAGuideCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rent-a-guide.de/partner/invoices",
+        loginUrl: "https://www.rent-a-guide.de/partner/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

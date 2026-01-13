@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CentralstationCrmCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CentralstationCrmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://centralstationcrm.net",
+        loginUrl: "https://centralstationcrm.net",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

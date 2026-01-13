@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotoworkshopStuttgartDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FotoworkshopStuttgartDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fotoworkshop-stuttgart.de/konto/buchungen/",
+        loginUrl: "https://www.fotoworkshop-stuttgart.de/konto/buchungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttoPartnerConnectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OttoPartnerConnectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.otto.market/financials/downloads",
+        loginUrl: "https://portal.otto.market/financials/downloads",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CookiebotCmpAdminInterfaceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CookiebotCmpAdminInterfaceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://admin.cookiebot.com/settings",
+        loginUrl: "https://admin.cookiebot.com/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UsepacCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UsepacCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.usepac.de/login.html?action=history",
+        loginUrl: "https://www.usepac.de/login.html?action=history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

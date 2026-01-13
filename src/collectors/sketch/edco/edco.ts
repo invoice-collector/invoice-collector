@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EdcoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EdcoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.myonlinebill.com/mob/user/login.do?clientId=MTA4Nzc=",
+        loginUrl: "https://secure.myonlinebill.com/mob/user/login.do?clientId=MTA4Nzc=",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

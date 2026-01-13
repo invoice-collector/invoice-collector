@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KassenzahnarztlicheVereinigungKzvbCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KassenzahnarztlicheVereinigungKzvbCollector extends SketchCollector
                 mandatory: true
             }
         },
-        entryUrl: "https://srv.kzvb.de/eHealthPortal/core/protected/dms/zeigeDokumente.xhtml",
+        loginUrl: "https://srv.kzvb.de/eHealthPortal/core/protected/dms/zeigeDokumente.xhtml",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

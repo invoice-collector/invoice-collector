@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheGoodRollCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TheGoodRollCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://thegoodroll.com/nl-nl/account",
+        loginUrl: "https://thegoodroll.com/nl-nl/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

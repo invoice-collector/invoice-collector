@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuitedashComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SuitedashComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.suitedash.com/",
+        loginUrl: "https://app.suitedash.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

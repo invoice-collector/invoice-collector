@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LeslibrairesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LeslibrairesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.leslibraires.fr/pc/account/customer/invoice/",
+        loginUrl: "https://www.leslibraires.fr/pc/account/customer/invoice/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

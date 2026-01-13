@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PostPlannerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PostPlannerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.billingportal.com/s/postplanner/statements",
+        loginUrl: "https://www.billingportal.com/s/postplanner/statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

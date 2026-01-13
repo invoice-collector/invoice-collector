@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdsignerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdsignerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.adsigner.com/app/en/customer/billing/",
+        loginUrl: "https://www.adsigner.com/app/en/customer/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

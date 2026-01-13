@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MrcutoutCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MrcutoutCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mrcutout.com/orders",
+        loginUrl: "https://www.mrcutout.com/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

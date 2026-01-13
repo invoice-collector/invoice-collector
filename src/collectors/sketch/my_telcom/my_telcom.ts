@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyTelcomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyTelcomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.telcom.uk/billing",
+        loginUrl: "https://my.telcom.uk/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

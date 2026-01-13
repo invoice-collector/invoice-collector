@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CaptraderPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CaptraderPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.clientam.com/AccountManagement/AmAuthentication?action=Statements",
+        loginUrl: "https://www.clientam.com/AccountManagement/AmAuthentication?action=Statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

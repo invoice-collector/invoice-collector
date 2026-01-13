@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WawiboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WawiboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://wawibox.de/",
+        loginUrl: "https://wawibox.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

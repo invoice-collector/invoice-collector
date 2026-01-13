@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RebelleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RebelleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.rebelle.com/profile/commercials",
+        loginUrl: "https://www.rebelle.com/profile/commercials",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

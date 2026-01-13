@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlogtecCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlogtecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.blogtec.io/login/",
+        loginUrl: "https://app.blogtec.io/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SelfhostCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SelfhostCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.selfhost.de/cgi-bin/selfhost?p=account&cat=rechnung",
+        loginUrl: "https://secure.selfhost.de/cgi-bin/selfhost?p=account&cat=rechnung",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DelesignComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DelesignComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://go.delesign.com/sign-in",
+        loginUrl: "https://go.delesign.com/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

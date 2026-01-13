@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CloudsaleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CloudsaleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.clousale.de",
+        loginUrl: "http://www.clousale.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

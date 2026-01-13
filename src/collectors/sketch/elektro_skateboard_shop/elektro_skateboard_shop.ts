@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElektroSkateboardShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElektroSkateboardShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.elektro-skateboard.de/rechnungen/",
+        loginUrl: "https://shop.elektro-skateboard.de/rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

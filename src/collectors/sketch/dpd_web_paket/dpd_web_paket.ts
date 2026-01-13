@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DpdWebPaketCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DpdWebPaketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.paketnavigator.de/register/myLogin.aspx",
+        loginUrl: "https://www.paketnavigator.de/register/myLogin.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplescraperCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimplescraperCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://simplescraper.io/dashboard",
+        loginUrl: "https://simplescraper.io/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

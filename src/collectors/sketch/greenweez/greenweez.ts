@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GreenweezCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GreenweezCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://greenweezfr-prod.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25&sort=issueDate%2CDESC",
+        loginUrl: "https://greenweezfr-prod.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25&sort=issueDate%2CDESC",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

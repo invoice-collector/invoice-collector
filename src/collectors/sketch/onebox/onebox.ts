@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OneboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OneboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.onebox.com/signup/login",
+        loginUrl: "https://www.onebox.com/signup/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

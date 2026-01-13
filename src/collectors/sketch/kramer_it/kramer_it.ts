@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KramerItCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KramerItCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://rechnung.kraemer-it.de/",
+        loginUrl: "https://rechnung.kraemer-it.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

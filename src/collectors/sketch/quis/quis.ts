@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuisCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuisCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://selfservice.billwerk.com/portal/account.html#/qDJCTyOil-M4x0BSFW2gxg",
+        loginUrl: "https://selfservice.billwerk.com/portal/account.html#/qDJCTyOil-M4x0BSFW2gxg",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

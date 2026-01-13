@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Anrufannahme24DeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Anrufannahme24DeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.anrufannahme24.de/account/invoices",
+        loginUrl: "https://app.anrufannahme24.de/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SourceWayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SourceWayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.sourceway.de",
+        loginUrl: "http://www.sourceway.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

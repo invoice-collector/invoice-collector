@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EpsilonInternationalUkLtdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EpsilonInternationalUkLtdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://na2.esker.com/ondemand/webaccess/CustomerLogon.aspx?server=W03&skin=skin15&lang=en&uid=2963535A305854276F352C4A7321734441",
+        loginUrl: "https://na2.esker.com/ondemand/webaccess/CustomerLogon.aspx?server=W03&skin=skin15&lang=en&uid=2963535A305854276F352C4A7321734441",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

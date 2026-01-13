@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DoorbirdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DoorbirdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.doorbird.com/de/partner?login",
+        loginUrl: "https://www.doorbird.com/de/partner?login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

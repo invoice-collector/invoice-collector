@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimplyEnergyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimplyEnergyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.simplyenergy.com.au/simplyenergy/",
+        loginUrl: "https://myaccount.simplyenergy.com.au/simplyenergy/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

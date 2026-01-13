@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetbeatCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetbeatCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.netbeat.de/kundencenter/daten/rechnungsuebersicht.html",
+        loginUrl: "https://www.netbeat.de/kundencenter/daten/rechnungsuebersicht.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

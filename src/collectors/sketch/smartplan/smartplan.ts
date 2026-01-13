@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmartplanCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmartplanCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://schutzschild.smartplanapp.io/account/payment/billing/",
+        loginUrl: "https://schutzschild.smartplanapp.io/account/payment/billing/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

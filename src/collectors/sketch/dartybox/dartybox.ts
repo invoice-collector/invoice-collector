@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DartyboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DartyboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dartybox.com/redbox-frontoffice-web/wac03-forwardLoginPage.do",
+        loginUrl: "https://www.dartybox.com/redbox-frontoffice-web/wac03-forwardLoginPage.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JaMobilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JaMobilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jamobil.congstar.de/mein-jamobil/",
+        loginUrl: "https://jamobil.congstar.de/mein-jamobil/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

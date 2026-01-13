@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FairfaxWaterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FairfaxWaterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fwcustomer.org/",
+        loginUrl: "https://fwcustomer.org/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

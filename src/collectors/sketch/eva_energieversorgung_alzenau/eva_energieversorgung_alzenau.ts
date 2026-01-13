@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EvaEnergieversorgungAlzenauCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EvaEnergieversorgungAlzenauCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.eva-alzenau.de",
+        loginUrl: "http://www.eva-alzenau.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

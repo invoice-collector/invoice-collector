@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LoaderIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LoaderIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://loader.io/signin",
+        loginUrl: "https://loader.io/signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

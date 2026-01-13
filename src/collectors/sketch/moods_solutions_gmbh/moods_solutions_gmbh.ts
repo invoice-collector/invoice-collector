@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MoodsSolutionsGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MoodsSolutionsGmbhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dms.moodssolutions.de",
+        loginUrl: "https://dms.moodssolutions.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

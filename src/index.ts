@@ -166,6 +166,7 @@ app.post('/api/v1/customer', async (req, res) => {
             req.body.theme,
             req.body.subscribedCollectors,
             req.body.isSubscribedToAll,
+            req.body.enableInteractiveLogin,
             req.body.displaySketchCollectors
         );
 

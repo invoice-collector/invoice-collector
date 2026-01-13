@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KartonEuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KartonEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.karton.eu/jtl.php",
+        loginUrl: "https://www.karton.eu/jtl.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

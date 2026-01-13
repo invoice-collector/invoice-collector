@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VrTeilhaberbankCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VrTeilhaberbankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vr-teilhaberbank.de/services_cloud/portal/webcomp/epostfach/postfach",
+        loginUrl: "https://www.vr-teilhaberbank.de/services_cloud/portal/webcomp/epostfach/postfach",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

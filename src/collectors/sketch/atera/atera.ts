@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AteraCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AteraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.atera.com/Login",
+        loginUrl: "https://app.atera.com/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

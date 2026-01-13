@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FashionNetworkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FashionNetworkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fr.fashionnetwork.com/societeCompte/orders/",
+        loginUrl: "https://fr.fashionnetwork.com/societeCompte/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

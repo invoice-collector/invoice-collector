@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MatoomaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MatoomaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://m2mmanager.matooma.com/en/home/offers-management/bills",
+        loginUrl: "https://m2mmanager.matooma.com/en/home/offers-management/bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

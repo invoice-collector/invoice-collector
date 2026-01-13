@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonduCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MonduCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.mondu.ai/#/payouts",
+        loginUrl: "https://portal.mondu.ai/#/payouts",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

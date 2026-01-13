@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OfficePartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OfficePartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.office-partner.de/login#/login",
+        loginUrl: "https://www.office-partner.de/login#/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

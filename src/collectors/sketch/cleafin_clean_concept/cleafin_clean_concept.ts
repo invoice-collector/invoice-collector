@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CleafinCleanConceptCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CleafinCleanConceptCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cleafin.shop/",
+        loginUrl: "https://cleafin.shop/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

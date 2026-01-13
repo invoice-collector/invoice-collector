@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EffiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EffiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.effia.com/#",
+        loginUrl: "https://www.effia.com/#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

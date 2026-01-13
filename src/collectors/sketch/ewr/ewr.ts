@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EwrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.ewr.de",
+        loginUrl: "http://www.ewr.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

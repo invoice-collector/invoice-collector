@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SarenzaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SarenzaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sarenza.com/",
+        loginUrl: "https://www.sarenza.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

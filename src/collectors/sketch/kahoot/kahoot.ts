@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KahootCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KahootCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kahoot.com/",
+        loginUrl: "https://kahoot.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

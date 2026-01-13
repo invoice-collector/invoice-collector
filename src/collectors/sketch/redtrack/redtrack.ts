@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RedtrackCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RedtrackCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.redtrack.io/payments",
+        loginUrl: "https://app.redtrack.io/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

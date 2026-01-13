@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CcvshopDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CcvshopDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.ccvshop.de/onderhoud/GenericLogin.php?Language=de",
+        loginUrl: "https://login.ccvshop.de/onderhoud/GenericLogin.php?Language=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

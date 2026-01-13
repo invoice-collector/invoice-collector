@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InternetvistaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InternetvistaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.internetvista.com/en/website-monitoring-service-login.htm",
+        loginUrl: "https://www.internetvista.com/en/website-monitoring-service-login.htm",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

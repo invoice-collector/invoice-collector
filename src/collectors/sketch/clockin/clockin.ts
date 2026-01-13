@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClockinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClockinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.clockin.de",
+        loginUrl: "http://www.clockin.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

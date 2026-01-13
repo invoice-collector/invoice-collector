@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnergirCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnergirCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.energir.com/en/residential/",
+        loginUrl: "https://www.energir.com/en/residential/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

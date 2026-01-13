@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TerraformCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TerraformCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.terraform.io/app/FINVIA/settings/billing",
+        loginUrl: "https://app.terraform.io/app/FINVIA/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

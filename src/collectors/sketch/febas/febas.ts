@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FebasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FebasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.febas.de/kundenbereich/invoice/index",
+        loginUrl: "https://www.febas.de/kundenbereich/invoice/index",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

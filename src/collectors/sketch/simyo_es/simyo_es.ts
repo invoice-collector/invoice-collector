@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SimyoEsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SimyoEsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.simyo.es",
+        loginUrl: "https://www.simyo.es",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

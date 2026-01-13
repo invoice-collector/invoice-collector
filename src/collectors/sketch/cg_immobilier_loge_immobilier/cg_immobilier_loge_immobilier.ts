@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CgImmobilierLogeImmobilierCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CgImmobilierLogeImmobilierCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://extranet.ics.fr/V4/connexion-logeimmobilier.html",
+        loginUrl: "https://extranet.ics.fr/V4/connexion-logeimmobilier.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

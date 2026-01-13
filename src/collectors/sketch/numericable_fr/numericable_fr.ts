@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NumericableFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NumericableFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connexion.numericable.fr/Oauth/Oauth.php",
+        loginUrl: "https://connexion.numericable.fr/Oauth/Oauth.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

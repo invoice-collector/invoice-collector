@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LingoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LingoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.lingo.com/account",
+        loginUrl: "https://account.lingo.com/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

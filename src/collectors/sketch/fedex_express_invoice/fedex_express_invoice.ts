@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FedexExpressInvoiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FedexExpressInvoiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://expressinvoice.fedex.com/Logon.aspx",
+        loginUrl: "https://expressinvoice.fedex.com/Logon.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IgumbiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IgumbiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.igumbi.com/trial",
+        loginUrl: "https://www.igumbi.com/trial",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

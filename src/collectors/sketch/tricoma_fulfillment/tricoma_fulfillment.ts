@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TricomaFulfillmentCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TricomaFulfillmentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://support.tricoma-fulfillment.de/",
+        loginUrl: "https://support.tricoma-fulfillment.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

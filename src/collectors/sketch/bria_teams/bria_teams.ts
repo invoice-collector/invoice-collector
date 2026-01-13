@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BriaTeamsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BriaTeamsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://teams.softphone.com/login",
+        loginUrl: "https://teams.softphone.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

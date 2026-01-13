@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnityAssetStoreCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnityAssetStoreCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://assetstore.unity.com/orders",
+        loginUrl: "https://assetstore.unity.com/orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

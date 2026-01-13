@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KnallhartDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KnallhartDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.knallhart.de/invoice",
+        loginUrl: "https://my.knallhart.de/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

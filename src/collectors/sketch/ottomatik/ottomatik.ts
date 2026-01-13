@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OttomatikCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OttomatikCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ottomatik.io/login",
+        loginUrl: "https://ottomatik.io/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

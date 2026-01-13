@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BlogvaultCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BlogvaultCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.blogvault.net/app/account/invoices",
+        loginUrl: "https://app.blogvault.net/app/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoraCreditCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoraCreditCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cora.fr/credit/",
+        loginUrl: "https://www.cora.fr/credit/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

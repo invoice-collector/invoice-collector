@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KiblyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KiblyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.kibly.com/Login?last=Dashboard",
+        loginUrl: "https://my.kibly.com/Login?last=Dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

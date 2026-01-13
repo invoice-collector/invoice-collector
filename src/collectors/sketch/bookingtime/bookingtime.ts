@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BookingtimeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BookingtimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.booking-time.com",
+        loginUrl: "http://www.booking-time.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchnellImNetzDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SchnellImNetzDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://schnell-im-netz.de/customer/login",
+        loginUrl: "https://schnell-im-netz.de/customer/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

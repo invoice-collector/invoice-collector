@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.adt.com/customer-service",
+        loginUrl: "https://www.adt.com/customer-service",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

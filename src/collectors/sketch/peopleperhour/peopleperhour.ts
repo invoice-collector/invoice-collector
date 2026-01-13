@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PeopleperhourCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PeopleperhourCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.peopleperhour.com/",
+        loginUrl: "https://www.peopleperhour.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

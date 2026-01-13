@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BubbleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BubbleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bubble.is",
+        loginUrl: "https://www.bubble.is",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

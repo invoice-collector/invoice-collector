@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CenpacCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CenpacCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cenpac.fr/espace-client/mes-commandes",
+        loginUrl: "https://www.cenpac.fr/espace-client/mes-commandes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

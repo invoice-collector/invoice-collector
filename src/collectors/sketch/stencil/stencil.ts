@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StencilCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StencilCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://getstencil.com/app/login?curtain",
+        loginUrl: "https://getstencil.com/app/login?curtain",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

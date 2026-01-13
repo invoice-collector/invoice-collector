@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MediaMarktO2ServiceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MediaMarktO2ServiceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mediamarkt.o2service.de/kundencenter/public/login",
+        loginUrl: "https://mediamarkt.o2service.de/kundencenter/public/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DataDiveCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DataDiveCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://2.datadive.tools/",
+        loginUrl: "https://2.datadive.tools/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

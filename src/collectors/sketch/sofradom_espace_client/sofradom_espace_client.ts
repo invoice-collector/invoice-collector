@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SofradomEspaceClientCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SofradomEspaceClientCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://client.sofradom.fr/invoices",
+        loginUrl: "https://client.sofradom.fr/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

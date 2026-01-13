@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SeliaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SeliaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://espaceclient.selia-energies.fr/seolis-web/login?logout=true",
+        loginUrl: "https://espaceclient.selia-energies.fr/seolis-web/login?logout=true",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

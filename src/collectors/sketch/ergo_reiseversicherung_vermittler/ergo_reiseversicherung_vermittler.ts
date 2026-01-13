@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ErgoReiseversicherungVermittlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ErgoReiseversicherungVermittlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.reiseversicherung.de/de/partner/reisebuero/index.html",
+        loginUrl: "https://www.reiseversicherung.de/de/partner/reisebuero/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

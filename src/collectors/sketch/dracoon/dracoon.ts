@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DracoonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DracoonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dracoon.com/de/home",
+        loginUrl: "https://www.dracoon.com/de/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

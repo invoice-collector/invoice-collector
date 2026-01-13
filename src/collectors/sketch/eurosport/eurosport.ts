@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EurosportCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EurosportCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://auth.eurosport.com/login?flow=login",
+        loginUrl: "https://auth.eurosport.com/login?flow=login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

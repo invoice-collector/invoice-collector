@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ImmoDeFranceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ImmoDeFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.immodefrance.com/fr/video-services-en-ligne",
+        loginUrl: "https://www.immodefrance.com/fr/video-services-en-ligne",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

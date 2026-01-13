@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PortraitproCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PortraitproCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.portraitprofessional.com",
+        loginUrl: "http://www.portraitprofessional.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

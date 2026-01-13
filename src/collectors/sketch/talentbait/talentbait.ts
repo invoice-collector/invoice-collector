@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TalentbaitCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TalentbaitCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.talentbait.de/billing",
+        loginUrl: "https://app.talentbait.de/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UberDirectCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UberDirectCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://direct.uber.com/accounts/e8d05837-e82c-45d3-ae3e-52c0bb8b26eb/billing",
+        loginUrl: "https://direct.uber.com/accounts/e8d05837-e82c-45d3-ae3e-52c0bb8b26eb/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

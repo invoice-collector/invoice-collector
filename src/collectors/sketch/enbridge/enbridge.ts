@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnbridgeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnbridgeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.enbridgegas.com/myEnbridge/login.aspx",
+        loginUrl: "https://www.enbridgegas.com/myEnbridge/login.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

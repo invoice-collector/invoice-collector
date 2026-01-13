@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NetResultsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NetResultsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.net-results.com/app/login.php",
+        loginUrl: "https://www.net-results.com/app/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

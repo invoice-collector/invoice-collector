@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MpCareCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MpCareCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "www.mpcare.de/account/order",
+        loginUrl: "www.mpcare.de/account/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

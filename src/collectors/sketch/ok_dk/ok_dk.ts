@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OkDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OkDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://min.ok.dk/min-ok-forside/login/#/",
+        loginUrl: "https://min.ok.dk/min-ok-forside/login/#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

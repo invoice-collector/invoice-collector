@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VoloteaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VoloteaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://booking.volotea.com/Invoice.aspx",
+        loginUrl: "https://booking.volotea.com/Invoice.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetmyinvoicesPartnerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetmyinvoicesPartnerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://partners.getmyinvoices.com/credits.php",
+        loginUrl: "https://partners.getmyinvoices.com/credits.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

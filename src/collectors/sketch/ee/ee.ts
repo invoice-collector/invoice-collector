@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://id.ee.co.uk/id/login",
+        loginUrl: "https://id.ee.co.uk/id/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

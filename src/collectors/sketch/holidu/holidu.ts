@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HoliduCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HoliduCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://host.holidu.com/app/profile/invoices?pageNum=0",
+        loginUrl: "https://host.holidu.com/app/profile/invoices?pageNum=0",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

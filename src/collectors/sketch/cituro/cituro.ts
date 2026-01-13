@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CituroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CituroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.cituro.com",
+        loginUrl: "http://www.cituro.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FsDataCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FsDataCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fsdata.se/support/kontrollpanel-waff/",
+        loginUrl: "https://fsdata.se/support/kontrollpanel-waff/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

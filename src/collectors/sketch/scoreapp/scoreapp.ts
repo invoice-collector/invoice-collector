@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScoreappCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScoreappCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.stripe.com/session/_IUb4yKuPztUkkt0NkewbjYY4DroKz0v",
+        loginUrl: "https://billing.stripe.com/session/_IUb4yKuPztUkkt0NkewbjYY4DroKz0v",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

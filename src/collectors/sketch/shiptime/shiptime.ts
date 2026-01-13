@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ShiptimeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ShiptimeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.shiptime.com/shiptime.html?locale=en#nav.Invoices",
+        loginUrl: "https://my.shiptime.com/shiptime.html?locale=en#nav.Invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

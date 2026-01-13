@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NrjMobileCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NrjMobileCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.nrjmobile.fr/identification/vip-nrj-mobile.html",
+        loginUrl: "https://www.nrjmobile.fr/identification/vip-nrj-mobile.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

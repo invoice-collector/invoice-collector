@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TopcardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TopcardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://esrv.topcard.ch/cop/portal/Bewegungen/liste.faces#",
+        loginUrl: "https://esrv.topcard.ch/cop/portal/Bewegungen/liste.faces#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

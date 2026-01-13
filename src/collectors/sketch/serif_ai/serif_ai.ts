@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SerifAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SerifAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.serif.ai/login",
+        loginUrl: "https://dashboard.serif.ai/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

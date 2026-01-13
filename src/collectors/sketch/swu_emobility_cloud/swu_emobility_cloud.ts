@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwuEmobilityCloudCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwuEmobilityCloudCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://swu.emobilitycloud.com/mein-konto/rechnung/",
+        loginUrl: "https://swu.emobilitycloud.com/mein-konto/rechnung/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

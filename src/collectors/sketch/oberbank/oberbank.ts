@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OberbankCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OberbankCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.banking-oberbank.at/",
+        loginUrl: "https://www.banking-oberbank.at/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

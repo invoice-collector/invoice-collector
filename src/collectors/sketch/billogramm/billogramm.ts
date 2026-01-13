@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BillogrammCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BillogrammCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billogram.com/login",
+        loginUrl: "https://billogram.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

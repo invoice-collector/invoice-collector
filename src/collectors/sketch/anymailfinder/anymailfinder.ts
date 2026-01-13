@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnymailfinderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AnymailfinderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://newapp.anymailfinder.com/settings/billing",
+        loginUrl: "https://newapp.anymailfinder.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UlincCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UlincCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ulinc.co/subscription/",
+        loginUrl: "https://ulinc.co/subscription/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

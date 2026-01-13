@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IngetourCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IngetourCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ingetr.biz.mb3m.com/Piece",
+        loginUrl: "https://ingetr.biz.mb3m.com/Piece",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

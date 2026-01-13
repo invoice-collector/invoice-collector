@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JKonigCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JKonigCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shop.j-koenig.de/account/order",
+        loginUrl: "https://shop.j-koenig.de/account/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

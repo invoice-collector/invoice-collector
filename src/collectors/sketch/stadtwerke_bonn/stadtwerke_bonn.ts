@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeBonnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeBonnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://css.stadtwerke-bonn.de/portal",
+        loginUrl: "https://css.stadtwerke-bonn.de/portal",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

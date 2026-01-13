@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ScrewfixUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ScrewfixUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://credit.trade.co.uk/Secure/Statements.aspx",
+        loginUrl: "https://credit.trade.co.uk/Secure/Statements.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

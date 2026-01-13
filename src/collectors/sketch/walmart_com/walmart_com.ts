@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WalmartComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WalmartComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.walmart.com/account/login?tid=0&returnUrl=%2F",
+        loginUrl: "https://www.walmart.com/account/login?tid=0&returnUrl=%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

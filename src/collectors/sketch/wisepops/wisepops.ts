@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WisepopsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WisepopsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.wisepops.com/login",
+        loginUrl: "https://app.wisepops.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

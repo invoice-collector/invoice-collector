@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VertMerchantPortalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VertMerchantPortalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vertmember.com/corporate-statements/",
+        loginUrl: "https://www.vertmember.com/corporate-statements/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

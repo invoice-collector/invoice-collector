@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HexonetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HexonetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hexonet.net/sign-up",
+        loginUrl: "https://www.hexonet.net/sign-up",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

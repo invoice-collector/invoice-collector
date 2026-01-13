@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class YmlpYourMailingListProviderCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class YmlpYourMailingListProviderCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ymlp.com/app/payments.php",
+        loginUrl: "https://www.ymlp.com/app/payments.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

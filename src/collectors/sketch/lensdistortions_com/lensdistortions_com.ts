@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LensdistortionsComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LensdistortionsComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lensdistortions.com/my-account/orders/",
+        loginUrl: "https://lensdistortions.com/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

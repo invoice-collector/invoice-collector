@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RatrigCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RatrigCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ratrig.com/",
+        loginUrl: "https://ratrig.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

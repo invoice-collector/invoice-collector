@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BechtleBiosCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BechtleBiosCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://bios.bechtle.com/de/orderHistory",
+        loginUrl: "https://bios.bechtle.com/de/orderHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

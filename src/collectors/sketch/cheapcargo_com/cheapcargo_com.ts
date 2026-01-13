@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CheapcargoComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CheapcargoComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cheapcargo.com/Users/Login",
+        loginUrl: "https://www.cheapcargo.com/Users/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

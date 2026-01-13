@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClsMedCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClsMedCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cls-med.de/login.php?MODsid=7b3c779e52b77d562ec1b5be1832ba33",
+        loginUrl: "https://www.cls-med.de/login.php?MODsid=7b3c779e52b77d562ec1b5be1832ba33",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

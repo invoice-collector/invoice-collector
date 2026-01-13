@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CwsBocoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CwsBocoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mein-cws-boco.de/",
+        loginUrl: "https://www.mein-cws-boco.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

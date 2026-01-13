@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DtnCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DtnCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://online.dtn.com/online/",
+        loginUrl: "https://online.dtn.com/online/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

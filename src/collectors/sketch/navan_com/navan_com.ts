@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NavanComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NavanComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.navan.com/app/admin2/de/reports/overview?fromEpochSeconds=1672560000&toEpochSeconds=1691046182&timezone=America%2FLos_Angeles&selectedTimeframe=YTD&currency=EUR&selectedTravelDateTimeframe=null",
+        loginUrl: "https://app.navan.com/app/admin2/de/reports/overview?fromEpochSeconds=1672560000&toEpochSeconds=1691046182&timezone=America%2FLos_Angeles&selectedTimeframe=YTD&currency=EUR&selectedTravelDateTimeframe=null",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ContorionAustriaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ContorionAustriaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.contorion.at/login",
+        loginUrl: "https://www.contorion.at/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

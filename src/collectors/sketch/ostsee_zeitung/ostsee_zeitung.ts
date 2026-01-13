@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OstseeZeitungCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OstseeZeitungCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.ostsee-zeitung.de/sap(cz1TSUQlM2FBTk9OJTNhdmdtdmdtYTFfVkdNXzAwJTNhVzdkREExSnlPa29GeEZqVzJrZFNXdTB2b2R4M2Z1M0RwOFRsamJHNS1BVFQ=)/bc/gui/sap/its/zabo020/~flNUQVRFPTE4MDUyODc1Mi4wMDMuMDIuMDI=?~okcode=FABO_PRINT_SEL&gs_ws_abo_rechn-html_char-a",
+        loginUrl: "https://service.ostsee-zeitung.de/sap(cz1TSUQlM2FBTk9OJTNhdmdtdmdtYTFfVkdNXzAwJTNhVzdkREExSnlPa29GeEZqVzJrZFNXdTB2b2R4M2Z1M0RwOFRsamJHNS1BVFQ=)/bc/gui/sap/its/zabo020/~flNUQVRFPTE4MDUyODc1Mi4wMDMuMDIuMDI=?~okcode=FABO_PRINT_SEL&gs_ws_abo_rechn-html_char-a",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

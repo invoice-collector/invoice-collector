@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JulitecCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JulitecCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.billwerk.com/portal/account.html#/WoCt0G6hy8rks2vESZWvgQ",
+        loginUrl: "https://app.billwerk.com/portal/account.html#/WoCt0G6hy8rks2vESZWvgQ",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

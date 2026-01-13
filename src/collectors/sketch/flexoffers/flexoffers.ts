@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlexoffersCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlexoffersCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://publisherpro.flexoffers.com/PaymentHistory",
+        loginUrl: "https://publisherpro.flexoffers.com/PaymentHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

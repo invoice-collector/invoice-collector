@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CityOfBeaumontCaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CityOfBeaumontCaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://beaumontca.municipalonlinepayments.com/beaumontca/utilities",
+        loginUrl: "https://beaumontca.municipalonlinepayments.com/beaumontca/utilities",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

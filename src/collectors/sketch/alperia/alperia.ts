@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlperiaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlperiaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.alperia.eu",
+        loginUrl: "http://www.alperia.eu",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

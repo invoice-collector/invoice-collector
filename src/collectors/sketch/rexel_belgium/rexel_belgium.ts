@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RexelBelgiumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RexelBelgiumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ebpp.viaadvalvas.com/InvoiceManager/Dashboard.aspx",
+        loginUrl: "https://ebpp.viaadvalvas.com/InvoiceManager/Dashboard.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

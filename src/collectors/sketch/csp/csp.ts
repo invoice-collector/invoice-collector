@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CspCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CspCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.csp-epl.com/",
+        loginUrl: "https://www.csp-epl.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MakhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MakhCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.makh.org/",
+        loginUrl: "https://www.makh.org/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

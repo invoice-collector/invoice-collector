@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoltFleetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BoltFleetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fleets.bolt.eu/login",
+        loginUrl: "https://fleets.bolt.eu/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

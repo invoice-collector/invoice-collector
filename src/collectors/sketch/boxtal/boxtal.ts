@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BoxtalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BoxtalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.boxtal.com/fr/fr/app/utilisateur/connexion",
+        loginUrl: "https://www.boxtal.com/fr/fr/app/utilisateur/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

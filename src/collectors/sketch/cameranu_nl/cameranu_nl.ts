@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CameranuNlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CameranuNlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cameranu.nl/nl/user/login",
+        loginUrl: "https://www.cameranu.nl/nl/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

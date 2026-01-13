@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklPccomponentesCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiraklPccomponentesCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://pccomponentes-prod.mirakl.net/",
+        loginUrl: "https://pccomponentes-prod.mirakl.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

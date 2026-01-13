@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NamesiloCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NamesiloCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.namesilo.com/login.php",
+        loginUrl: "https://www.namesilo.com/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

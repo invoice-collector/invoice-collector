@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransparenzregisterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TransparenzregisterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.transparenzregister.de/treg/de/anmelden?1",
+        loginUrl: "https://www.transparenzregister.de/treg/de/anmelden?1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LizenzeroCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LizenzeroCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lizenzero.de/account/documentsInvoice",
+        loginUrl: "https://www.lizenzero.de/account/documentsInvoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

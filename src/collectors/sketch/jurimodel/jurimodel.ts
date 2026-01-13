@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JurimodelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JurimodelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.jurimodel.com/vie-pratique/",
+        loginUrl: "https://www.jurimodel.com/vie-pratique/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Cloud86Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Cloud86Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.cloud86.io/clientarea.php?action=invoices",
+        loginUrl: "https://my.cloud86.io/clientarea.php?action=invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

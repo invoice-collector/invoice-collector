@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrintsmarterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrintsmarterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.printsmarter.de/mein-benutzerkonto/bestellungen",
+        loginUrl: "https://www.printsmarter.de/mein-benutzerkonto/bestellungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SpreadmindCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SpreadmindCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://akademie.spiritbalance.de/wp-admin/",
+        loginUrl: "https://akademie.spiritbalance.de/wp-admin/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

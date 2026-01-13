@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EnvatoMarketCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EnvatoMarketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://account.envato.com",
+        loginUrl: "https://account.envato.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

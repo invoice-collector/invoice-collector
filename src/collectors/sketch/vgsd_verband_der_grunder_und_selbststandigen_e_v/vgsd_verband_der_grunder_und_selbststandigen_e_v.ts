@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VgsdVerbandDerGrunderUndSelbststandigenEVCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VgsdVerbandDerGrunderUndSelbststandigenEVCollector extends SketchCo
                 mandatory: true
             }
         },
-        entryUrl: "https://www.vgsd.de/account/rechnungen",
+        loginUrl: "https://www.vgsd.de/account/rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

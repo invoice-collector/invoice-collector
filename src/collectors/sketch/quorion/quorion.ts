@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class QuorionCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class QuorionCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://delta-a.de/prod/reports",
+        loginUrl: "https://delta-a.de/prod/reports",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

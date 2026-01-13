@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TeliaDkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TeliaDkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telia.dk/mit-telia/privat/log-ind",
+        loginUrl: "https://www.telia.dk/mit-telia/privat/log-ind",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

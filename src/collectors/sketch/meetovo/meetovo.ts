@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MeetovoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MeetovoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.meetovo.de/dashboard/account",
+        loginUrl: "https://app.meetovo.de/dashboard/account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

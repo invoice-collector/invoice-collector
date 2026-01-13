@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MiraklShopApothekeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MiraklShopApothekeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://shopapotheke.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25",
+        loginUrl: "https://shopapotheke.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

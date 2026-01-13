@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PlusSimpleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PlusSimpleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.plussimple.fr/client/espace/factures",
+        loginUrl: "https://app.plussimple.fr/client/espace/factures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

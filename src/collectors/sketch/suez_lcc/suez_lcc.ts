@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuezLccCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SuezLccCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lcc.suez.co.uk/login",
+        loginUrl: "https://lcc.suez.co.uk/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

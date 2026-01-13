@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UniregistryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UniregistryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://uniregistry.com/account-login",
+        loginUrl: "https://uniregistry.com/account-login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

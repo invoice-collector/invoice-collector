@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TransportForLondonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TransportForLondonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://reg.web.tflcc.co.uk/TFL.LRUC.AccountAuth/S9",
+        loginUrl: "https://reg.web.tflcc.co.uk/TFL.LRUC.AccountAuth/S9",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

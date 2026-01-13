@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VereinigteStadtwerkeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VereinigteStadtwerkeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.vereinigte-stadtwerke.de/sap/bc/ui5_ui5/sap/z_mcf_lief/index.html#Logon",
+        loginUrl: "https://kundenportal.vereinigte-stadtwerke.de/sap/bc/ui5_ui5/sap/z_mcf_lief/index.html#Logon",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

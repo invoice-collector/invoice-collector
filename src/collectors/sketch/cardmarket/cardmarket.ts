@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CardmarketCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CardmarketCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cardmarket.com/en/Magic/Account/Finance",
+        loginUrl: "https://www.cardmarket.com/en/Magic/Account/Finance",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

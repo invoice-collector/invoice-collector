@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MyrabenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MyrabenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://oftc.myraben.com/index.html",
+        loginUrl: "https://oftc.myraben.com/index.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

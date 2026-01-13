@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PotagerCityCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PotagerCityCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.potagercity.fr/login",
+        loginUrl: "https://www.potagercity.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

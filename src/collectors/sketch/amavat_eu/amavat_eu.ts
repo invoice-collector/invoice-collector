@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AmavatEuCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AmavatEuCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.amavat.eu/",
+        loginUrl: "https://portal.amavat.eu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

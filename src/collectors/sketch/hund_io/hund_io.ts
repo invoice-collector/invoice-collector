@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HundIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HundIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://hund.io/client",
+        loginUrl: "https://hund.io/client",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

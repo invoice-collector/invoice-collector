@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OrttoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OrttoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://ortto.app/deinarchitekt/billing/invoices?from=%2Fhome",
+        loginUrl: "https://ortto.app/deinarchitekt/billing/invoices?from=%2Fhome",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

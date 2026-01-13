@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FoursixtyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FoursixtyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://foursixty.com/dashboard/login/",
+        loginUrl: "https://foursixty.com/dashboard/login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

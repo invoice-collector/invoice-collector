@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HmLandRegistryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HmLandRegistryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://eservices.landregistry.gov.uk/",
+        loginUrl: "https://eservices.landregistry.gov.uk/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

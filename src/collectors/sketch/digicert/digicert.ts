@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DigicertCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DigicertCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.digicert.com/account/login.php",
+        loginUrl: "https://www.digicert.com/account/login.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

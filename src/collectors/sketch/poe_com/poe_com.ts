@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PoeComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PoeComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://poe.com/login",
+        loginUrl: "https://poe.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TradingfoxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TradingfoxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kunde.traderfox.com/rechnungen/",
+        loginUrl: "https://kunde.traderfox.com/rechnungen/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

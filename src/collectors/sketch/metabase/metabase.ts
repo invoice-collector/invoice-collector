@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MetabaseCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MetabaseCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://store.metabase.com",
+        loginUrl: "https://store.metabase.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

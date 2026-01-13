@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GiganewsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GiganewsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.giganews.com/controlpanel/invoice.html",
+        loginUrl: "https://www.giganews.com/controlpanel/invoice.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

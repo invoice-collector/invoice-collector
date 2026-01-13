@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConteaAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConteaAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.contea.ai/user/plan",
+        loginUrl: "https://app.contea.ai/user/plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

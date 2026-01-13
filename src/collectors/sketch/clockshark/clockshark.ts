@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClocksharkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClocksharkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.clockshark.com/App/Plan",
+        loginUrl: "https://app.clockshark.com/App/Plan",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

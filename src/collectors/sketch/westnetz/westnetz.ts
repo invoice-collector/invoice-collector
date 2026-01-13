@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WestnetzCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WestnetzCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.westnetz.de/Account/Login",
+        loginUrl: "https://service.westnetz.de/Account/Login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

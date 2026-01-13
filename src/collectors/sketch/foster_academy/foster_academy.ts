@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FosterAcademyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FosterAcademyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aussiescertification.com/certification/login",
+        loginUrl: "https://aussiescertification.com/certification/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

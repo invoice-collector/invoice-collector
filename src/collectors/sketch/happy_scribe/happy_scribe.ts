@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HappyScribeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HappyScribeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.happyscribe.co/invoices",
+        loginUrl: "https://www.happyscribe.co/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

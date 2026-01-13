@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DochubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DochubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dochub.com/settings/billing",
+        loginUrl: "https://dochub.com/settings/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

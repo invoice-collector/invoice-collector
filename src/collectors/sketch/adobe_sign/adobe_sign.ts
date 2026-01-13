@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AdobeSignCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AdobeSignCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.echosign.com/public/login",
+        loginUrl: "https://secure.echosign.com/public/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

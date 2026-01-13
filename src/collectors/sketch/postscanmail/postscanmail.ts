@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PostscanmailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PostscanmailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.postscanmail.com/settings/billing-statements",
+        loginUrl: "https://app.postscanmail.com/settings/billing-statements",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

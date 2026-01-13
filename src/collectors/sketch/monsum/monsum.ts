@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonsumCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MonsumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.monsum.com/index.php?cmd=1",
+        loginUrl: "https://app.monsum.com/index.php?cmd=1",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

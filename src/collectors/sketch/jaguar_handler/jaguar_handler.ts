@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JaguarHandlerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JaguarHandlerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://jaguarhaendler.jlr-portal.com/",
+        loginUrl: "https://jaguarhaendler.jlr-portal.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

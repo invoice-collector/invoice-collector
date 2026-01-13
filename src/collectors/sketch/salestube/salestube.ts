@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SalestubeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SalestubeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://aff.salestube.pl/",
+        loginUrl: "https://aff.salestube.pl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

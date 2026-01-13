@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TheveaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TheveaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://thevea.de/",
+        loginUrl: "https://thevea.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

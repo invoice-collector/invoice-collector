@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DoterraCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DoterraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://beta-doterra.myvoffice.com/index.cfm?Fuseaction=evo_Modules.OrderHistoryFull",
+        loginUrl: "https://beta-doterra.myvoffice.com/index.cfm?Fuseaction=evo_Modules.OrderHistoryFull",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

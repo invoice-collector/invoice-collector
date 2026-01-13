@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CoservCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CoservCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://coserv.smarthub.coop/Login.html",
+        loginUrl: "https://coserv.smarthub.coop/Login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

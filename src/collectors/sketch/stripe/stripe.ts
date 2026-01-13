@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StripeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StripeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.stripe.com/account/documents",
+        loginUrl: "https://dashboard.stripe.com/account/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

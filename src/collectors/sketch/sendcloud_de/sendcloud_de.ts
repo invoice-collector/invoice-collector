@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SendcloudDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SendcloudDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://panel.sendcloud.sc/accounts/login",
+        loginUrl: "https://panel.sendcloud.sc/accounts/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

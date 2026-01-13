@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GapCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GapCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gap-france.fr/",
+        loginUrl: "https://gap-france.fr/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

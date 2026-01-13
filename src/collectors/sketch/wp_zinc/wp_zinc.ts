@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WpZincCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WpZincCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wpzinc.com/account/?action=payments",
+        loginUrl: "https://www.wpzinc.com/account/?action=payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

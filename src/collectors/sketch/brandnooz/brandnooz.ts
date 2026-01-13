@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BrandnoozCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BrandnoozCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.brandnooz.de/profil/meine_bestellungen",
+        loginUrl: "https://www.brandnooz.de/profil/meine_bestellungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

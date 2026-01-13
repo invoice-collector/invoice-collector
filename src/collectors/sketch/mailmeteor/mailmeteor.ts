@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailmeteorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailmeteorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xRWFTTjdLQUxJalp1c3VRLF9OT0xTNzFKZnVsZllCZzdhUzJRSUo2eEJvUHVTeEVz0100jgHDZKN7",
+        loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xRWFTTjdLQUxJalp1c3VRLF9OT0xTNzFKZnVsZllCZzdhUzJRSUo2eEJvUHVTeEVz0100jgHDZKN7",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

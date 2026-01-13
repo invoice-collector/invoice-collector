@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TrainualCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TrainualCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.trainual.com/accounts/universal_login",
+        loginUrl: "https://app.trainual.com/accounts/universal_login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

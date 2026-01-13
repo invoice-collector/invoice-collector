@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlairAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlairAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.flair.ai/",
+        loginUrl: "https://app.flair.ai/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

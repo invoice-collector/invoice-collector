@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WeshopAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WeshopAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.weshop.ai/order",
+        loginUrl: "https://www.weshop.ai/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InfocallerInfofaxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InfocallerInfofaxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://infocaller.com/console/InMicuenta.aspx?gnid=639#",
+        loginUrl: "https://infocaller.com/console/InMicuenta.aspx?gnid=639#",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

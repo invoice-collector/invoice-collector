@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ComunifiedInteractiveDigitalMediaGmbhCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ComunifiedInteractiveDigitalMediaGmbhCollector extends SketchCollec
                 mandatory: true
             }
         },
-        entryUrl: "https://www.comunified.com/service/invoice.php?menu=8",
+        loginUrl: "https://www.comunified.com/service/invoice.php?menu=8",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

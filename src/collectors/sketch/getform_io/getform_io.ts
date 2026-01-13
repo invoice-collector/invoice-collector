@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GetformIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GetformIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.getform.io/forms",
+        loginUrl: "https://app.getform.io/forms",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

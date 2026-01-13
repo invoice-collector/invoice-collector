@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelenorSeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelenorSeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://minasidor.telenor.se/minasidor/portal/Start.do",
+        loginUrl: "https://minasidor.telenor.se/minasidor/portal/Start.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

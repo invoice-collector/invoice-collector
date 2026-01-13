@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SmiaPortalAdherentCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SmiaPortalAdherentCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portail.sante-travail.net/MesDocuments/MesFactures",
+        loginUrl: "https://portail.sante-travail.net/MesDocuments/MesFactures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

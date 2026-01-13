@@ -828,8 +828,6 @@ body {
 
 .ic-progress-card {
   background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-xl);
   padding: 3rem 2rem;
   min-width: 500px;
   max-width: 600px;

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EuronicsXtranetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EuronicsXtranetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://xtranet.euronics.de/code/main.aspx",
+        loginUrl: "https://xtranet.euronics.de/code/main.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

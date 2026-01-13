@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PandleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PandleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.pandle.com/partner_accountant_subscriptions",
+        loginUrl: "https://my.pandle.com/partner_accountant_subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

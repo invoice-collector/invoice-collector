@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DekkelOnlineCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DekkelOnlineCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://dekkel-online.lekker.de",
+        loginUrl: "http://dekkel-online.lekker.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

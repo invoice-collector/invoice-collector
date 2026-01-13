@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SellwerkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SellwerkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.sellwerk.de",
+        loginUrl: "http://www.sellwerk.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

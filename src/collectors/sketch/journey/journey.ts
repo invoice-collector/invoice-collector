@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JourneyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JourneyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.journey.io/mariolueddemann/billing",
+        loginUrl: "https://app.journey.io/mariolueddemann/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

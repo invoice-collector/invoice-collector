@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IoncubeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IoncubeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ioncube.com/main.php?c=account",
+        loginUrl: "https://www.ioncube.com/main.php?c=account",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

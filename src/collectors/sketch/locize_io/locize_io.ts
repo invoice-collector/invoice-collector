@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LocizeIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LocizeIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.locize.io/login?next=/",
+        loginUrl: "https://www.locize.io/login?next=/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

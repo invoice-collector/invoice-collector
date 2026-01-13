@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FonedayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FonedayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://foneday.shop/dashboard",
+        loginUrl: "https://foneday.shop/dashboard",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

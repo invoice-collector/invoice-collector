@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HelloFreshUkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HelloFreshUkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.hellofresh.co.uk/account-settings/order-history",
+        loginUrl: "https://www.hellofresh.co.uk/account-settings/order-history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

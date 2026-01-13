@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ElevarCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ElevarCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.getelevar.com/auth/login",
+        loginUrl: "https://app.getelevar.com/auth/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ConedisonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ConedisonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.coned.com/en/login",
+        loginUrl: "https://www.coned.com/en/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

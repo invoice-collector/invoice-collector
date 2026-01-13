@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WithlacoocheeRiverElectricCoopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WithlacoocheeRiverElectricCoopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://withlacoochee.smarthub.coop/Login.html",
+        loginUrl: "https://withlacoochee.smarthub.coop/Login.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

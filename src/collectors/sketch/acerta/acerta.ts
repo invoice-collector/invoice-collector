@@ -1,5 +1,5 @@
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AcertaCollector extends SketchCollector {
 
@@ -25,7 +25,9 @@ export class AcertaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://signin.acerta.be/am/XUI/?realm=/alpha&locale=en#/",
+        loginUrl: "https://signin.acerta.be/am/XUI/?realm=/alpha&locale=en#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

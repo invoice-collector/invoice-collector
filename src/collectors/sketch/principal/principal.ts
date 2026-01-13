@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PrincipalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PrincipalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://employers-groupbenefits.principal.com/GroupBenefitsEmployerUI/memberInformation/1171505/10001/billing",
+        loginUrl: "https://employers-groupbenefits.principal.com/GroupBenefitsEmployerUI/memberInformation/1171505/10001/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

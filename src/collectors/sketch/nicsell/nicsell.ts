@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class NicsellCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class NicsellCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://nicsell.com/en/login",
+        loginUrl: "https://nicsell.com/en/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class InteractCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class InteractCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.tryinteract.com/login",
+        loginUrl: "https://dashboard.tryinteract.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

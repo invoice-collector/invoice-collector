@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class XelMediaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class XelMediaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://controlcenter.xel.nl/",
+        loginUrl: "https://controlcenter.xel.nl/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

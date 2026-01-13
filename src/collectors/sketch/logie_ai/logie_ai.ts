@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LogieAiCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LogieAiCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mylogie.com",
+        loginUrl: "https://mylogie.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

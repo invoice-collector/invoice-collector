@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TwisterKuriereCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TwisterKuriereCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kp.twisterkuriere.de/portal/login",
+        loginUrl: "https://kp.twisterkuriere.de/portal/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ZalandoConnectedRetailCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ZalandoConnectedRetailCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://connected-retail.zalando.com",
+        loginUrl: "https://connected-retail.zalando.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

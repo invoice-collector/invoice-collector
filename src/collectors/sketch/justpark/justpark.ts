@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JustparkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JustparkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.justpark.com",
+        loginUrl: "https://www.justpark.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

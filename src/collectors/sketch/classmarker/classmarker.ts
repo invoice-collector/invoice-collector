@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClassmarkerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClassmarkerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.classmarker.com/a/myaccount/",
+        loginUrl: "https://www.classmarker.com/a/myaccount/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

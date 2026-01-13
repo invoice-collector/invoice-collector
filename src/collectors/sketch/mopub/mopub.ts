@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MopubCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MopubCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mopub.com/payment/history",
+        loginUrl: "https://app.mopub.com/payment/history",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

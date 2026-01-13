@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ObetaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ObetaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.obeta.de",
+        loginUrl: "http://www.obeta.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

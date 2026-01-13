@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KinstaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KinstaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.kinsta.com",
+        loginUrl: "http://www.kinsta.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CleantalkCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CleantalkCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cleantalk.org/my/payments",
+        loginUrl: "https://cleantalk.org/my/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

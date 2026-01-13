@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Werk1Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Werk1Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://werk1.officernd.com/billing/invoices",
+        loginUrl: "https://werk1.officernd.com/billing/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

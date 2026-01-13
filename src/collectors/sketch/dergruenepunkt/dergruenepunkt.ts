@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DergruenepunktCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DergruenepunktCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.gruener-punkt.de/de/portale.html",
+        loginUrl: "https://www.gruener-punkt.de/de/portale.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

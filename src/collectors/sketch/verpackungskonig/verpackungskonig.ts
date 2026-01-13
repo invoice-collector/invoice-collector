@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VerpackungskonigCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VerpackungskonigCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://verpackungskoenig.de/registrieren.php",
+        loginUrl: "https://verpackungskoenig.de/registrieren.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

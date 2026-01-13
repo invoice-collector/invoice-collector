@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GlwizCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GlwizCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.glwiz.com/Pages/MyAccount-Information/MyAccount-Information.aspx",
+        loginUrl: "https://www.glwiz.com/Pages/MyAccount-Information/MyAccount-Information.aspx",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

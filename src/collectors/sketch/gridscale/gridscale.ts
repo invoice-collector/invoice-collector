@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GridscaleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GridscaleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.gridscale.io/?lang=de",
+        loginUrl: "https://my.gridscale.io/?lang=de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

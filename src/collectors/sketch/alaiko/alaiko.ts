@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AlaikoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AlaikoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.alaiko.com/customer/invoices",
+        loginUrl: "https://app.alaiko.com/customer/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

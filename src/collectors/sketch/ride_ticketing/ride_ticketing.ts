@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class RideTicketingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class RideTicketingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://abo.ride-ticketing.de/management-dashboard/login",
+        loginUrl: "https://abo.ride-ticketing.de/management-dashboard/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

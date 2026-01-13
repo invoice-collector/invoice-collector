@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class VegaNetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class VegaNetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.vega-net.de/#{1}",
+        loginUrl: "https://mein.vega-net.de/#{1}",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

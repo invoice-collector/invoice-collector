@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FormfuturaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FormfuturaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://formfutura.com/my-account/orders/",
+        loginUrl: "https://formfutura.com/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

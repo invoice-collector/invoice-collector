@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeUlmCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeUlmCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.swu.de/privatkunden/service/meine-swu/",
+        loginUrl: "https://www.swu.de/privatkunden/service/meine-swu/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BurstSpieleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BurstSpieleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.burstspiele.de/shop2/index.php?page=account&action=bills",
+        loginUrl: "https://www.burstspiele.de/shop2/index.php?page=account&action=bills",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

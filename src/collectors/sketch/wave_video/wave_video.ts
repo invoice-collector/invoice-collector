@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WaveVideoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WaveVideoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.animatron.com/wave/settings/subscription",
+        loginUrl: "https://www.animatron.com/wave/settings/subscription",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

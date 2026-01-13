@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GemfuryCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GemfuryCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://manage.fury.io/manage/orgs",
+        loginUrl: "https://manage.fury.io/manage/orgs",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

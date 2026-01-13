@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class HostpapaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class HostpapaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.hostpapa.ca",
+        loginUrl: "http://www.hostpapa.ca",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AnswerThePublicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AnswerThePublicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://answerthepublic.com/",
+        loginUrl: "https://answerthepublic.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

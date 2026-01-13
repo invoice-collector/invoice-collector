@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _4overCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _4overCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://4over.com/sales/order/history/#customer-content",
+        loginUrl: "https://4over.com/sales/order/history/#customer-content",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EligantenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EligantenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.elgiganten.dk",
+        loginUrl: "https://www.elgiganten.dk",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

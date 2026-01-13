@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AhaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AhaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.aha.io/session/new",
+        loginUrl: "https://secure.aha.io/session/new",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

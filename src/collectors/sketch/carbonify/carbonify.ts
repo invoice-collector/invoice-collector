@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CarbonifyCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CarbonifyCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://carbonify.de/login",
+        loginUrl: "https://carbonify.de/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

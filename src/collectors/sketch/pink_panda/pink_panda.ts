@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PinkPandaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PinkPandaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.pinkpanda.de/my-orders",
+        loginUrl: "https://www.pinkpanda.de/my-orders",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

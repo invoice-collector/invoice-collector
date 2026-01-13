@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class _11880ComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class _11880ComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://my.11880.com/login?callbackUrl=https%3A%2F%2Fwww.11880.com%2F",
+        loginUrl: "https://my.11880.com/login?callbackUrl=https%3A%2F%2Fwww.11880.com%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

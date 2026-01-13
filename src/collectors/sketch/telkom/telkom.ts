@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TelkomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TelkomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.telkom.co.za/today/",
+        loginUrl: "https://www.telkom.co.za/today/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

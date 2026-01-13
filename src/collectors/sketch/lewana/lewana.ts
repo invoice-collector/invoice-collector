@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LewanaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LewanaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lewana.design/account/login",
+        loginUrl: "https://www.lewana.design/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

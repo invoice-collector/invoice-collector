@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class IngenicoEpaymentsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class IngenicoEpaymentsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ingenico-payment-services-customerportal.com/public/de/advantages.html",
+        loginUrl: "https://www.ingenico-payment-services-customerportal.com/public/de/advantages.html",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

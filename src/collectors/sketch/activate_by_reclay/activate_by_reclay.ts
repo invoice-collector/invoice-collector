@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ActivateByReclayCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ActivateByReclayCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://activate.reclay.de/activate_germany_german/customer/account/login/referer/aHR0cHM6Ly9hY3RpdmF0ZS5yZWNsYXkuZGUvYWN0aXZhdGVfZ2VybWFueV9nZXJtYW4v/",
+        loginUrl: "https://activate.reclay.de/activate_germany_german/customer/account/login/referer/aHR0cHM6Ly9hY3RpdmF0ZS5yZWNsYXkuZGUvYWN0aXZhdGVfZ2VybWFueV9nZXJtYW4v/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

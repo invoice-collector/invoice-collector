@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AbcfinanceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AbcfinanceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.abcfinance.de",
+        loginUrl: "http://www.abcfinance.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

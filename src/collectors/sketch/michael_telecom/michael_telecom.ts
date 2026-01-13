@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MichaelTelecomCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MichaelTelecomCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.michael-telecom.de/kundencenter/auftragsstatus/rechnungs-uebersicht",
+        loginUrl: "https://www.michael-telecom.de/kundencenter/auftragsstatus/rechnungs-uebersicht",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

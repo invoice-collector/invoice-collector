@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SymplrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SymplrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://cockpit.symplr.de/credits/",
+        loginUrl: "https://cockpit.symplr.de/credits/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

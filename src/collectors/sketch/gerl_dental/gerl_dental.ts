@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GerlDentalCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GerlDentalCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://gerl-dental.de/account/invoices",
+        loginUrl: "https://gerl-dental.de/account/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

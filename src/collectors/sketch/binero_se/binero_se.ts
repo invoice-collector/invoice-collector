@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BineroSeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BineroSeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.binero.se",
+        loginUrl: "http://www.binero.se",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

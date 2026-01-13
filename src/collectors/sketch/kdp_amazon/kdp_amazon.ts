@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class KdpAmazonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class KdpAmazonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://advertising.amazon.de/billing/history?entityId=ENTITY1M5SF34Z03AZI",
+        loginUrl: "https://advertising.amazon.de/billing/history?entityId=ENTITY1M5SF34Z03AZI",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

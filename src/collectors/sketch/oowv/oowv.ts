@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OowvCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OowvCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://service.einfach-heimat.de/#/service/invoice",
+        loginUrl: "https://service.einfach-heimat.de/#/service/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

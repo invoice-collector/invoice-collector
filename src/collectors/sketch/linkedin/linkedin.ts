@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LinkedinCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LinkedinCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.linkedin.com/uas/login?goback=&trk=hb_signin",
+        loginUrl: "https://www.linkedin.com/uas/login?goback=&trk=hb_signin",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

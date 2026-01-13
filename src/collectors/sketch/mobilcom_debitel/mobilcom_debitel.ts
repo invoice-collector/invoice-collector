@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MobilcomDebitelCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MobilcomDebitelCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.freenet-mobilfunk.de/onlineservice/meine-rechnungen",
+        loginUrl: "https://www.freenet-mobilfunk.de/onlineservice/meine-rechnungen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class McgPartsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class McgPartsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mcg-parts.de/customer/invoice",
+        loginUrl: "https://www.mcg-parts.de/customer/invoice",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

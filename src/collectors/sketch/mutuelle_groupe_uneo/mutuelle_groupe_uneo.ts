@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleGroupeUneoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleGroupeUneoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.groupe-uneo.fr/connexion/connexion",
+        loginUrl: "https://www.groupe-uneo.fr/connexion/connexion",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

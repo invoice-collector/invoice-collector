@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SchaffererCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SchaffererCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.schafferer.de/gastro/Mein-Konto/Meine-Einkaeufe/#action",
+        loginUrl: "https://www.schafferer.de/gastro/Mein-Konto/Meine-Einkaeufe/#action",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

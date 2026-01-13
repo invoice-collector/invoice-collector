@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WonderboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WonderboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.wonderbox.fr/login",
+        loginUrl: "https://www.wonderbox.fr/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

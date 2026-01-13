@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LelievreParisComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LelievreParisComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://lelievreparis.com/login",
+        loginUrl: "https://lelievreparis.com/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class WebhostingpadCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class WebhostingpadCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://secure.webhostingpad.com/billing/clientarea.php",
+        loginUrl: "https://secure.webhostingpad.com/billing/clientarea.php",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

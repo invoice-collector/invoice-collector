@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DomainpeopleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DomainpeopleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://sitecontrol.domainpeople.com/",
+        loginUrl: "https://sitecontrol.domainpeople.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

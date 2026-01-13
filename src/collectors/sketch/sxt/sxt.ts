@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SxtCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SxtCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.sxt-scooters.de",
+        loginUrl: "https://www.sxt-scooters.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

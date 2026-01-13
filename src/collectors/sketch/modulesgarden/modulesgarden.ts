@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ModulesgardenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ModulesgardenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.modulesgarden.com/",
+        loginUrl: "https://www.modulesgarden.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

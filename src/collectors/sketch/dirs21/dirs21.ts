@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Dirs21Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Dirs21Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://office.dirs21.de/",
+        loginUrl: "https://office.dirs21.de/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

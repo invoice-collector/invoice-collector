@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PayboxBusinessCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PayboxBusinessCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.paybox.at/csm-vso01-paybox/login.do",
+        loginUrl: "https://www.paybox.at/csm-vso01-paybox/login.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

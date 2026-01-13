@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FontAwesomeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FontAwesomeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://fontawesome.com/sessions/sign-in",
+        loginUrl: "https://fontawesome.com/sessions/sign-in",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

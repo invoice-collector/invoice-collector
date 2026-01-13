@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class OuiSncfCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class OuiSncfCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.oui.sncf/services-train/suivi-commande",
+        loginUrl: "https://www.oui.sncf/services-train/suivi-commande",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

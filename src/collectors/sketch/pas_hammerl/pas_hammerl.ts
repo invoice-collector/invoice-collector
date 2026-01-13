@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PasHammerlCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PasHammerlCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://login.pas-hammerl.de/kundencenter/postbox/list",
+        loginUrl: "https://login.pas-hammerl.de/kundencenter/postbox/list",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

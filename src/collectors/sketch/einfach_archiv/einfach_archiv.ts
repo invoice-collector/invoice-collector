@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EinfachArchivCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EinfachArchivCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.einfacharchiv.app/kaffeerosterei-elbe455/documents",
+        loginUrl: "https://www.einfacharchiv.app/kaffeerosterei-elbe455/documents",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

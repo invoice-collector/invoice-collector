@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PathPatheditsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PathPatheditsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.pathedits.com/home",
+        loginUrl: "https://dashboard.pathedits.com/home",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class CafeynCoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class CafeynCoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.cafeyn.co/fr/publication/l-argus/21844253",
+        loginUrl: "https://www.cafeyn.co/fr/publication/l-argus/21844253",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

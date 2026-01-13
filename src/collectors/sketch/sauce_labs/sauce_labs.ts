@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SauceLabsCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SauceLabsCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://saucelabs.com/beta/login",
+        loginUrl: "https://saucelabs.com/beta/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

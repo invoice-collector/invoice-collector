@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FlogasCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FlogasCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://myaccount.flogas.co.uk/overview",
+        loginUrl: "https://myaccount.flogas.co.uk/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

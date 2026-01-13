@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ReplymanagerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ReplymanagerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard-3.replymanager.com/payments",
+        loginUrl: "https://dashboard-3.replymanager.com/payments",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

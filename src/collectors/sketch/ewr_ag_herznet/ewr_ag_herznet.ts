@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EwrAgHerznetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EwrAgHerznetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://mein.ewr-internett.de/Default.asp?rq_Lang=de#{2}",
+        loginUrl: "https://mein.ewr-internett.de/Default.asp?rq_Lang=de#{2}",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

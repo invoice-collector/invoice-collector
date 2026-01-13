@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MarketpressCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MarketpressCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://marketpress.de/mein-konto/",
+        loginUrl: "https://marketpress.de/mein-konto/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

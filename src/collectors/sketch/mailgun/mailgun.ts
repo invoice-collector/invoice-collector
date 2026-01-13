@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailgunCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailgunCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mailgun.com",
+        loginUrl: "https://app.mailgun.com",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

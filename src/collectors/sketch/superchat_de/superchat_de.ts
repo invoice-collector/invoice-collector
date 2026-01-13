@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SuperchatDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SuperchatDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.superchat.de/subscription/invoicing",
+        loginUrl: "https://app.superchat.de/subscription/invoicing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MonicaCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MonicaCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://monica.im/login?redirectTo=https%3A%2F%2Fmonica.im%2F",
+        loginUrl: "https://monica.im/login?redirectTo=https%3A%2F%2Fmonica.im%2F",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

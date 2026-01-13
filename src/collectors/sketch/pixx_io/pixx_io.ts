@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PixxIoCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PixxIoCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://maveko.px.media/settings/overview/invoices",
+        loginUrl: "https://maveko.px.media/settings/overview/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

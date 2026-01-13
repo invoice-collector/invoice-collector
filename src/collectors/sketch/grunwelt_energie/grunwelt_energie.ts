@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GrunweltEnergieCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GrunweltEnergieCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://kundenportal.gruenwelt.de/qpo/portal/waermestrom/login",
+        loginUrl: "https://kundenportal.gruenwelt.de/qpo/portal/waermestrom/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

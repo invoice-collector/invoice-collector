@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UnityIdCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UnityIdCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://dashboard.unity3d.com/organizations/9071072152015/metered-billing/overview",
+        loginUrl: "https://dashboard.unity3d.com/organizations/9071072152015/metered-billing/overview",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

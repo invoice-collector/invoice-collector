@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ProginovCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ProginovCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.proginov.fr/ProginovDemat/liste-ged/xdoc-xclasschapfactures.html?keycnx=183-C-329613&variante=Vfactures",
+        loginUrl: "https://www.proginov.fr/ProginovDemat/liste-ged/xdoc-xclasschapfactures.html?keycnx=183-C-329613&variante=Vfactures",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

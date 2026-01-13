@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DhlPrivatkundenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DhlPrivatkundenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.dhl.de/de/privatkunden/pakete-versenden/online-frankieren.html?type=ShoppingCartHistory",
+        loginUrl: "https://www.dhl.de/de/privatkunden/pakete-versenden/online-frankieren.html?type=ShoppingCartHistory",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LkqCorpKeystoneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LkqCorpKeystoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://preview.orderkeystone.com/invoices",
+        loginUrl: "https://preview.orderkeystone.com/invoices",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

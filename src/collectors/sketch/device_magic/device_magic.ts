@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class DeviceMagicCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class DeviceMagicCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.devicemagic.com/users/login",
+        loginUrl: "https://www.devicemagic.com/users/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

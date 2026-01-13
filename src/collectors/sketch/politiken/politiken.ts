@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class PolitikenCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class PolitikenCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://politiken.dk/minside/betaling/",
+        loginUrl: "https://politiken.dk/minside/betaling/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EGonCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EGonCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://energiegemeinschaften.ezn.at/backend/e/invoice/list/user",
+        loginUrl: "https://energiegemeinschaften.ezn.at/backend/e/invoice/list/user",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

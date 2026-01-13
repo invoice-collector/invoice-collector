@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class SwnStadtwerkeNeumunsterCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class SwnStadtwerkeNeumunsterCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.swn.net/",
+        loginUrl: "https://portal.swn.net/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

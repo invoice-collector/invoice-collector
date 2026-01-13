@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class Q8Collector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class Q8Collector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.q8.dk/q8-login/",
+        loginUrl: "https://www.q8.dk/q8-login/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

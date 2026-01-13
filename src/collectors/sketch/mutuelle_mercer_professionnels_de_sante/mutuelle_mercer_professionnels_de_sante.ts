@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MutuelleMercerProfessionnelsDeSanteCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MutuelleMercerProfessionnelsDeSanteCollector extends SketchCollecto
                 mandatory: true
             }
         },
-        entryUrl: "https://prosante.mercernet.fr/login#/",
+        loginUrl: "https://prosante.mercernet.fr/login#/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

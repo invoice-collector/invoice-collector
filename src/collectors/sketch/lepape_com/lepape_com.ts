@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LepapeComCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LepapeComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.lepape.com/",
+        loginUrl: "https://www.lepape.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

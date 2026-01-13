@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FotorCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FotorCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.fotor.com/de/user/settings",
+        loginUrl: "https://www.fotor.com/de/user/settings",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

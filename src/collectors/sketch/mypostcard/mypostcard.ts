@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MypostcardCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MypostcardCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mypostcard.com/kundenkonto/guthaben-aufladen",
+        loginUrl: "https://www.mypostcard.com/kundenkonto/guthaben-aufladen",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

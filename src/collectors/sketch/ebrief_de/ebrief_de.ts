@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class EbriefDeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class EbriefDeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.ebrief.de/component/user/login",
+        loginUrl: "https://www.ebrief.de/component/user/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

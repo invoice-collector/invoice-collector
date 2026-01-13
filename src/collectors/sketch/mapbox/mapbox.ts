@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MapboxCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MapboxCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.mapbox.com/studio/signin/",
+        loginUrl: "https://www.mapbox.com/studio/signin/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

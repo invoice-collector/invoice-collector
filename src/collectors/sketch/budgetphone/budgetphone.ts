@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BudgetphoneCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BudgetphoneCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.budgetphone.nl/changes",
+        loginUrl: "https://portal.budgetphone.nl/changes",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

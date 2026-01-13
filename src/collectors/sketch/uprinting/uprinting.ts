@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class UprintingCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class UprintingCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://portal.uprinting.com/order",
+        loginUrl: "https://portal.uprinting.com/order",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

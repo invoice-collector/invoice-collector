@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class FactorialCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class FactorialCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.factorialhr.com/settings/plans",
+        loginUrl: "https://app.factorialhr.com/settings/plans",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

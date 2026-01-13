@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class LambdatestCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class LambdatestCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://billing.lambdatest.com/billing/subscriptions",
+        loginUrl: "https://billing.lambdatest.com/billing/subscriptions",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

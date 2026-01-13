@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AldiOnlineShopCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AldiOnlineShopCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.aldi-onlineshop.de/my-account/orders/",
+        loginUrl: "https://www.aldi-onlineshop.de/my-account/orders/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class TntFrCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class TntFrCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.tnt.fr/mytnt/index.do",
+        loginUrl: "https://www.tnt.fr/mytnt/index.do",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

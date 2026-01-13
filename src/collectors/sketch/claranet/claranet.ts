@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class ClaranetCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class ClaranetCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.claranet.pt",
+        loginUrl: "http://www.claranet.pt",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

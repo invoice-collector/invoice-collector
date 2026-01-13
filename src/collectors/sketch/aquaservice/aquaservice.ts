@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class AquaserviceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class AquaserviceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://clientes.aquaservice.com/facturas",
+        loginUrl: "https://clientes.aquaservice.com/facturas",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

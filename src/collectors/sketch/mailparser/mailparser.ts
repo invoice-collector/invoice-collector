@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class MailparserCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class MailparserCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.mailparser.io/account/login",
+        loginUrl: "https://app.mailparser.io/account/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

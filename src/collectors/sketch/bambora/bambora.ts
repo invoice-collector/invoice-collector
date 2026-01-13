@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BamboraCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BamboraCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://reports.bambora.com/merchants/",
+        loginUrl: "https://reports.bambora.com/merchants/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

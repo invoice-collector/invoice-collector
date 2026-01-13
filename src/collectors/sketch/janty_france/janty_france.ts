@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class JantyFranceCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class JantyFranceCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.janty.com/",
+        loginUrl: "https://www.janty.com/",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

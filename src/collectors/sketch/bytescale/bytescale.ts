@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BytescaleCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BytescaleCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.bytescale.com/dashboard/billing",
+        loginUrl: "https://www.bytescale.com/dashboard/billing",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

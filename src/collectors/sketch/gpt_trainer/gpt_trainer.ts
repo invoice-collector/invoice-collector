@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class GptTrainerCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class GptTrainerCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://app.gpt-trainer.com/site/login",
+        loginUrl: "https://app.gpt-trainer.com/site/login",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

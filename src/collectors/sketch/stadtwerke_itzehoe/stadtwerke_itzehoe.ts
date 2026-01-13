@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class StadtwerkeItzehoeCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class StadtwerkeItzehoeCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "http://www.schwimmzentrum-itzehoe.de",
+        loginUrl: "http://www.schwimmzentrum-itzehoe.de",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 

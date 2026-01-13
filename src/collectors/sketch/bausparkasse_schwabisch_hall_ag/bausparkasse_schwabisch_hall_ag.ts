@@ -1,6 +1,6 @@
 
 import { SketchCollector } from '../../sketchCollector';
-import { CollectorState, CollectorType } from '../../abstractCollector';
+import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
 export class BausparkasseSchwabischHallAgCollector extends SketchCollector {
 
@@ -26,7 +26,9 @@ export class BausparkasseSchwabischHallAgCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        entryUrl: "https://www.schwaebisch-hall.de/mein-konto.html#messages",
+        loginUrl: "https://www.schwaebisch-hall.de/mein-konto.html#messages",
+        captcha: CollectorCaptcha.NONE,
+        enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 
