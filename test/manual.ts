@@ -26,7 +26,6 @@ import { TwofaPromise } from '../src/collect/twofaPromise';
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
 async function getCredentialFromId(credential_id: string): Promise<IcCredential> {
-    await DatabaseFactory.getDatabase().connect();
     const credential = await DatabaseFactory.getDatabase().getCredential(credential_id);
     if(credential == null) {
         throw new Error(`No credential with id "${credential_id}" found.`);
@@ -35,7 +34,6 @@ async function getCredentialFromId(credential_id: string): Promise<IcCredential>
 }
 
 async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
-    await SecretManagerFactory.getSecretManager().connect();
     const secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
     if(secret == null) {
         throw new Error(`No secret with id "${credential.secret_manager_id}" found.`);
@@ -91,6 +89,9 @@ function getHashFromSecret(secret: Secret): string {
     });
 
     try {
+        // Connect to database
+        await DatabaseFactory.getDatabase().connect();
+
         // ---------- PART 1 : ASK COLLECTOR ID OR CREDENTIAL ID ----------
 
         // Get collector
@@ -175,11 +176,6 @@ function getHashFromSecret(secret: Secret): string {
         secretHash = await getHashFromSecret(secret);
 
         // ---------- PART 3 : PERFORM COLLECT ----------
-
-        // Connect to database if is agent collector
-        if(collector.config.type === CollectorType.AGENT) {
-            await DatabaseFactory.getDatabase().connect();
-        }
 
         // Create an http server to handle web socket connections
         const httpServer = http.createServer();
