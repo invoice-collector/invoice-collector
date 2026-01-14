@@ -110,7 +110,7 @@ export class Driver {
         }
 
         // Clear download folder
-        this.clearDownloadFolder();
+        await this.clearDownloadFolder();
 
         // Listen for new page and update page
         this.browser.on('targetcreated', async (target) => {
@@ -552,7 +552,7 @@ export class Driver {
         }
 
         // Remove all files in the download folder
-        this.clearDownloadFolder();
+        await this.clearDownloadFolder();
 
         // Navigate to the page
         await this.page.evaluate((url) => {
@@ -585,16 +585,21 @@ export class Driver {
         const data = fs.readFileSync(path.join(this.downloadPath, file), {encoding: 'base64'});
 
         // Clear download folder
-        this.clearDownloadFolder();
+        await this.clearDownloadFolder();
 
         return data;
     }
 
-    clearDownloadFolder(): void {
-        // Remove all files in the download folder
+    async clearDownloadFolder(): Promise<void> {
+        // If download path exists
         if (fs.existsSync(this.downloadPath)) {
-            fs.readdirSync(this.downloadPath).forEach(async file => {
+            // Get all files in the download folder
+            const files = fs.readdirSync(this.downloadPath)
+            // For each file
+            for (const file of files) {
+                // Get full path
                 const filePath = path.join(this.downloadPath, file);
+                // Try to delete the file
                 try {
                     fs.unlinkSync(filePath);
                 } catch (error) {
@@ -602,7 +607,7 @@ export class Driver {
                     await utils.delay(100);
                     fs.unlinkSync(filePath);
                 }
-            });
+            }
         }
     }
 
