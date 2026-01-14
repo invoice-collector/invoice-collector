@@ -1,8 +1,7 @@
 import axios, { AxiosInstance } from "axios";
-import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, CollectorCaptcha, Config } from "./abstractCollector";
+import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorState, Config } from "./abstractCollector";
 import { V1Collector } from "./v1Collector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
-import { mimetypeFromBase64 } from '../utils';
 import { Location } from "../proxy/abstractProxy";
 import { Secret } from "../secret_manager/abstractSecretManager";
 import { TwofaPromise } from "../collect/twofaPromise";
@@ -102,7 +101,8 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
             return {
                 ...downloadedInvoice,
                 data,
-                mimetype: mimetypeFromBase64(data),
+                mimetype: utils.mimetypeFromBase64(data),
+                hash: utils.hash_string(data, "md5"),
                 collected_timestamp: Date.now(),
                 metadata: downloadedInvoice.metadata || {}
             };
