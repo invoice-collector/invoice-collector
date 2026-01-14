@@ -273,10 +273,9 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 }
                                 console.log(`Invoice ${invoice.id} successfully downloaded, ${documents.length} document(s) found.`);
                     
-                                for (const [index, document] of documents.entries()) {
+                                for (const document of documents) {
                                     invoices.push({
                                         ...invoice,
-                                        id: `${invoice.id}${documents.length > 1 ? `-part${index + 1}` : ''}`,
                                         data: document,
                                         mimetype: utils.mimetypeFromBase64(document),
                                         hash: utils.hash_string(document, "md5"),
