@@ -22,8 +22,8 @@ export function generate_token(size=64): string {
     return crypto.randomBytes(size).toString('hex');
 }
 
-export function hash_string(input: string): string {
-    return crypto.createHash('sha3-512').update(input).digest('hex');
+export function hash_string(input: string, algorithm: string = 'sha3-512'): string {
+    return crypto.createHash(algorithm).update(input).digest('hex');
 }
 
 export function delay(ms) {
@@ -183,6 +183,7 @@ export function createFakeInvoice(): { collector_id: string, remote_id: string, 
         link: "https://slicedinvoices.com/pdf/wordpress-pdf-invoice-plugin-sample.pdf",
         data: data,
         mimetype: mimetypeFromBase64(data),
+        hash: hash_string(data, "md5"),
         metadata: { contract: "CON-1234" },
         downloadButton: null,
         collected_timestamp: Date.now()

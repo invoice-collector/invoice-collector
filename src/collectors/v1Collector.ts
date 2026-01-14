@@ -71,6 +71,7 @@ export abstract class V1Collector<C extends Config> extends AbstractCollector<C>
                             ...newInvoice,
                             data: null,
                             mimetype: null,
+                            hash: null,
                             collected_timestamp: null,
                             metadata: {}
                         });

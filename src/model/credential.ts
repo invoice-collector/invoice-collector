@@ -27,7 +27,12 @@ export class IcCredential {
     download_from_timestamp: number;
     last_collect_timestamp: number;
     next_collect_timestamp: number;
-    invoices: { id: string; timestamp: number, collected_timestamp: number | null }[];
+    invoices: {
+        id: string,
+        timestamp: number,
+        collected_timestamp: number | null,
+        hash: string | null
+    }[];
     state: State;
 
     constructor(
@@ -39,7 +44,12 @@ export class IcCredential {
         download_from_timestamp: number,
         last_collect_timestamp: number = Number.NaN,
         next_collect_timestamp: number = Number.NaN,
-        invoices: { id: string; timestamp: number, collected_timestamp: number | null }[] = [],
+        invoices: {
+            id: string,
+            timestamp: number,
+            collected_timestamp: number | null,
+            hash: string | null
+        }[] = [],
         state: State = State.DEFAULT_STATE
     ) {
         this.id = "";
@@ -133,7 +143,8 @@ export class IcCredential {
         this.invoices.push({
             id: invoice.id,
             timestamp: invoice.timestamp,
-            collected_timestamp: invoice.collected_timestamp
+            collected_timestamp: invoice.collected_timestamp,
+            hash: invoice.hash
         });
     }
 

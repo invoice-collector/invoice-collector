@@ -95,10 +95,13 @@ export class Collect {
 
                 // If at least one new invoice has been downloaded
                 if(newInvoices.length > 0) {
+                    // Get previous invoices hash
+                    const previousInvoicesHash = credential.invoices.map(inv => inv.hash);
+
                     // Loop through invoices
                     for (const [index, invoice] of newInvoices.entries()) {
                         // If data downloaded and invoice is more recent than the download_from_timestamp
-                        if (invoice.data && credential.download_from_timestamp <= invoice.timestamp) {
+                        if (invoice.data && credential.download_from_timestamp <= invoice.timestamp && !previousInvoicesHash.includes(invoice.hash)) {
                             console.log(`Sending invoice ${index + 1}/${newInvoices.length} (${invoice.id}) to callback`);
 
                             try {
