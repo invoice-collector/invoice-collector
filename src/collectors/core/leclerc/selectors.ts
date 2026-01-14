@@ -13,27 +13,35 @@ export const LeclercSelectors = {
     //LOGIN PAGE
 
     FIELD_EMAIL: {
-        selector: "#login-email",
+        selector: "#email",
         info: "login input field"
     },
-    BUTTON_LOGIN: {
-        selector: "button.btn-primary",
+    BUTTON_CONTINUE: {
+        selector: "#btn-wrapper-loader > button[type='submit']",
         info: "next button field"
     },
     CONTAINER_EMAIL_ERROR: {
-        selector: "#cs-auth-email-pattern-error",
+        selector: "#email-error",
         info: "email error container"
     },
     CONTAINER_SIGNUP: {
-        selector: "div.content-ct-signup",
+        selector: "#profile-form[action='preSignup']",
         info: "signup container"
     },
     FIELD_PASSWORD: {
-        selector: "#login-password",
+        selector: "#password",
         info: "password input field"
     },
+    CHECKBOX_STAY_CONNECTED: {
+        selector: "#stayConnected",
+        info: "stay connected checkbox"
+    },
+    BUTTON_LOGIN: {
+        selector: "#btn-signin-loader > button[type='submit']",
+        info: "next button field"
+    },
     CONTAINER_PASSWORD_ERROR: {
-        selector: "div.notify",
+        selector: ".toast-container span.toast__message",
         info: "password error field"
     }
 }
