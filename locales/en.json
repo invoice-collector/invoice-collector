@@ -7082,6 +7082,7 @@
   "i18n.collectors.sfr_business_team_fixe.description": "A dedicated online service for SFR business customers to manage fixed telephony and related services.",
   "i18n.collectors.sfr_business_team_mobile.description": "A mobile service provider offering tailored business solutions for professionals in France.",
   "i18n.collectors.sfr_fr.description": "A major French telecommunications provider offering mobile, internet, and TV services.",
+  "i18n.collectors.sfr_fr.identifier.placeholder": "Mobile line number, email, or NeufID",
   "i18n.collectors.sfr_re.description": "SFR Reunion provides telecom and internet services in the Reunion Island region.",
   "i18n.collectors.sg_autorepondeur.description": "A French online service for creating and managing automated email responses.",
   "i18n.collectors.sgb_energie.description": "SGB Energie is a German energy provider offering electricity and gas services to customers.",
