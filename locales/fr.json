@@ -7082,6 +7082,7 @@
   "i18n.collectors.sfr_business_team_fixe.description": "Un service en ligne dédié aux clients professionnels SFR pour gérer la téléphonie fixe et les services associés.",
   "i18n.collectors.sfr_business_team_mobile.description": "Un fournisseur de services mobiles proposant des solutions professionnelles adaptées aux entreprises en France.",
   "i18n.collectors.sfr_fr.description": "Un grand opérateur français de télécommunications proposant des services mobiles, internet et télévision.",
+  "i18n.collectors.sfr_fr.identifier.placeholder": "Numéro de ligne mobile, email ou NeufID",
   "i18n.collectors.sfr_re.description": "SFR Réunion propose des services de télécommunications et internet pour la région de l'île de La Réunion.",
   "i18n.collectors.sg_autorepondeur.description": "Un service en ligne français pour créer et gérer des réponses automatiques par email.",
   "i18n.collectors.sgb_energie.description": "SGB Energie est un fournisseur d'énergie allemand proposant des services d'électricité et de gaz aux clients.",

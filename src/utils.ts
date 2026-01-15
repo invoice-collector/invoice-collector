@@ -40,6 +40,9 @@ export function randomDelay(min: number=200, max: number=400): Promise<void> {
 }
 
 export function timestampFromString(date: string, formats: string | string[], locale: string): number {
+    // Trim date string
+    date = trim(date);
+
     // If format is a string, convert to array
     if (typeof formats === 'string') {
         formats = [formats];
