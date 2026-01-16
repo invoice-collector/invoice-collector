@@ -7,7 +7,7 @@
    =================================== */
 
 const token = new URLSearchParams(window.location.search).get('token');
-const collect_credential_id = new URLSearchParams(window.location.search).get('collect');
+const collect_credential_id = new URLSearchParams(window.location.search).get('credential_id');
 let companies = [];
 let hit = [];
 let datepickerSince = null;
