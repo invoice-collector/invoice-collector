@@ -540,7 +540,6 @@ async function showProgress(credential_id, wsPath) {
     
     const VIRTUAL_MAX = 5;
     
-    let finished = false;
     let cancelled = false;
     const ws = new WebSocket(wsPath);
 
@@ -569,7 +568,6 @@ async function showProgress(credential_id, wsPath) {
     }
     
     function cancelAndClose() {
-        finished = true;
         cancelled = true;
         containerCanvas.hidden = true;
         if (ws.readyState === WebSocket.OPEN) {
@@ -617,7 +615,6 @@ async function showProgress(credential_id, wsPath) {
         canvas.focus();
         
         canvasOkButton.onclick = function() {
-            finished = true;
             containerCanvas.hidden = true;
             document.getElementById('progress-container').classList.remove('ic-hidden');
             ws.send(JSON.stringify({ type: 'close', reason: 'ok' }));
@@ -629,6 +626,7 @@ async function showProgress(credential_id, wsPath) {
     };
     
     let previous_state, current_state;
+    let first_screenshot_received = false;
     
     ws.onmessage = async function(event) {
         const parsedData = JSON.parse(event.data);
@@ -642,10 +640,23 @@ async function showProgress(credential_id, wsPath) {
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             };
             
-            if (!finished) {
+            if (!first_screenshot_received) {
                 containerCanvas.hidden = false;
                 document.getElementById('progress-container').classList.add('ic-hidden');
                 window.parent.postMessage(NAVIGATION_EVENT_SHOW_CANVAS, '*');
+
+                document.addEventListener('contextmenu', (event) => {
+                    if (canvas && canvas.contains(event.target)) {
+                        event.preventDefault();
+                        navigator.clipboard.readText().then(text => {
+                            ws.send(JSON.stringify({ type: 'type', text: text }));
+                        }).catch(err => {
+                            console.error('Clipboard read failed:', err);
+                        });
+                    }
+                });
+
+                first_screenshot_received = true;
             }
         } else if (parsedData.type === 'state') {
             current_state = parsedData.state;
