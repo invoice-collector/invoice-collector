@@ -9196,7 +9196,7 @@
   "i18n.collectors.zuiver.description": "Zuiver is a modern furniture and lighting company based in the Netherlands.",
   "i18n.views.interactive.done": "Done",
   "i18n.views.interactive.login.instructions": "Connect your account below, then click Done.",
-  "i18n.views.interactive.navigate.instructions": "Please navigate to the billing or orders page of your account, then click Done.",
+  "i18n.views.interactive.navigate.instructions": "You are the first person to use this collector, help us improving this collector! Please navigate to the billing/orders page of your account, then click Done.",
   "i18n.views.manage.2fa.placeholder": "2FA code received by email or SMS",
   "i18n.views.manage.add_collectors": "Add collector",
   "i18n.views.manage.add_credential.failed": "Failed to add collector",
