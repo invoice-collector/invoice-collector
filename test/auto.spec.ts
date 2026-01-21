@@ -69,7 +69,7 @@ async function createWebsocketClientAndServer(collector: AbstractCollector<Confi
                     // Listen for user input asynchronously
                     rl.on('line', (input) => {
                         // Send close message to server
-                        webSocketClient.send(JSON.stringify({ type: 'close', reason: 'ok' }));
+                        webSocketClient.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
                         // Close readline interface
                         rl.close();
                     });
