@@ -200,10 +200,11 @@ export class WebSocketServer {
         this.sendMessage(message);
     }
 
-    public sendInteractiveOpen() {
+    public sendInteractiveOpen(instructions: string) {
         const message: MessageInteractive = {
             type: 'interactive',
-            reason: 'open'
+            reason: 'open',
+            instructions: I18n.get(instructions, this.locale)
         };
         this.sendMessage(message);
     }

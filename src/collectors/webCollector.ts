@@ -166,10 +166,19 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     // Go to login url
                     await driver.goto(this.config.loginUrl);
                     // Perform interactive login
-                    await this.interactiveLogin(driver, secret.params, webSocketServer);
+                    await this.interactive(driver, webSocketServer, 'i18n.views.interactive.login.instructions');
                     // Save customer area url
                     collectorMemory.customerAreaUrl = driver.url();
                     await collectorMemory.commit();
+
+                    // If no entry url defined
+                    if(!this.config.entryUrl && !collectorMemory.entryUrl) {
+                        // Perform interactive navigate
+                        await this.interactive(driver, webSocketServer, 'i18n.views.interactive.navigate.instructions');
+                        // Save entry url
+                        collectorMemory.entryUrl = driver.url();
+                        await collectorMemory.commit();
+                    }
                 }
 
                 // Compute new url
@@ -332,13 +341,17 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         }
     }
 
-    protected async interactiveLogin(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string |void> {
-        // If login is called with a WebSocketServer to undefined, it means that the session has expired
+    private async interactive(
+        driver: Driver,
+        webSocketServer: WebSocketServer | undefined,
+        instructions: string
+    ): Promise<string |void> {
+        // If called with a WebSocketServer to undefined, it means that the session has expired
         if (!webSocketServer) {
             throw new DisconnectedError(this);
         }
 
-        let checkPageInterval: NodeJS.Timeout | undefined, screenshotInterval: NodeJS.Timeout | undefined;
+        let screenshotInterval: NodeJS.Timeout | undefined;
         const promise = new Promise<void>((resolve, reject) => {
             // Define timeout
             setTimeout(() => {
@@ -393,7 +406,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                 }
             };
             // Send interactive open
-            webSocketServer.sendInteractiveOpen();
+            webSocketServer.sendInteractiveOpen(instructions);
         });
 
         try {

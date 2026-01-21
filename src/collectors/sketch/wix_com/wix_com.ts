@@ -6,11 +6,11 @@ export class WixComCollector extends SketchCollector {
 
     static CONFIG = {
         id: "wix_com",
-        name: "WIX.com",
+        name: "WIX (.com)",
         description: "i18n.collectors.wix_com.description",
-        version: "0",
-        website: "https://premium.wix.com/wix/api/mpContainerStaticController#/billings?referralAdditionalInfo=account",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/542.jpg",
+        version: "1",
+        website: "https://wix.com/",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/7/76/Wix.com_website_logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,7 +26,7 @@ export class WixComCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        loginUrl: "https://premium.wix.com/wix/api/mpContainerStaticController#/billings?referralAdditionalInfo=account",
+        loginUrl: "https://users.wix.com/signin?forceRender=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT

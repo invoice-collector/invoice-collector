@@ -640,6 +640,7 @@ async function showProgress(credential_id, wsPath) {
             };
         }
         else if (parsedData.type === 'interactive' && parsedData.reason === "open" ) {
+            document.getElementById('interactive-instructions').textContent = parsedData.instructions;
             containerCanvas.hidden = false;
             document.getElementById('progress-container').classList.add('ic-hidden');
             window.parent.postMessage(NAVIGATION_EVENT_SHOW_INTERACTIVE, '*');

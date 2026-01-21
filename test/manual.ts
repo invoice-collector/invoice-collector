@@ -190,24 +190,23 @@ function getHashFromSecret(secret: Secret): string {
         // Connect to web socket server
         WebCollector.SCREENSHOT_INTERVAL_MS = 1000 * 10; // 10 seconds
         const webSocketClient = new WebSocket(`ws://localhost:${PORT}${webSocketPath}`);
+        // On connection open
         webSocketClient.addEventListener('open', () => {
-            let isFirstScreenshot = true;
+            // On message received
             webSocketClient.addEventListener('message', async (message) => {
+                // Parse message data
                 const parsedData = JSON.parse(message.data.toString());
-                if(parsedData.type == "screenshot") {
-                    if(isFirstScreenshot) {
-                        isFirstScreenshot = false;
-
-                        console.log("Login to the website and press Enter to continue...");
-
-                        // Listen for user input asynchronously
-                        rl.on('line', (input) => {
-                            // Send close message to server
-                            webSocketClient.send(JSON.stringify({ type: 'close', reason: 'ok' }));
-                            // Close readline interface
-                            rl.close();
-                        });
-                    }
+                // If interactive open message
+                if(parsedData.type == "interactive" && parsedData.reason == "open") {
+                    // Display instructions to user
+                    console.log(parsedData.instructions);
+                    // Listen for user input asynchronously
+                    rl.on('line', (input) => {
+                        // Send close message to server
+                        webSocketClient.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
+                        // Close readline interface
+                        rl.close();
+                    });
                 }
                 else if(parsedData.type == "state" && parsedData.state.index == 3) {
                     // Wait until main thread is waiting for twofa code

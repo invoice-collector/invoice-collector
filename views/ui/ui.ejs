@@ -287,15 +287,15 @@
             <span class="ic-canvas-toolbar-icon">
                 <img src="/views/icons/key-round.svg" alt="Key">
             </span>
-            <span class="ic-canvas-toolbar-text">
-                <%= __('i18n.views.manage.canvas_instruction') %>
+            <span id="interactive-instructions" class="ic-canvas-toolbar-text">
+                <%= __('i18n.views.interactive.login.instructions') %>
             </span>
             
             <!-- Action Buttons -->
             <div class="ic-canvas-toolbar-actions">
                 <button id="canvas-ok" class="ic-button ic-button--primary">
                     <img src="/views/icons/check.svg" alt="OK" class="ic-canvas-btn-icon">
-                    <span class="ic-canvas-btn-text"><%= __('i18n.views.manage.logged_in') %></span>
+                    <span class="ic-canvas-btn-text"><%= __('i18n.views.interactive.done') %></span>
                 </button>
                 <button id="canvas-cancel" class="ic-button ic-button--ghost">
                     <img src="/views/icons/x.svg" alt="Cancel" class="ic-canvas-btn-icon">

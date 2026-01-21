@@ -214,7 +214,7 @@ Les deux thèmes définissent les mêmes variables avec des valeurs différentes
 { type: 'twofa', twofa: '123456' }
 
 // Fermeture
-{ type: 'close', reason: 'ok' | 'cancel' }
+{ type: 'interactive', reason: 'close' | 'cancel' }
 ```
 
 ## Flux de données
