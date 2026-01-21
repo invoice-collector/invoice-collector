@@ -372,10 +372,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             webSocketServer.onText = async (event: MessageText) => {
                 await driver.page?.keyboard.type(event.text);
             };
-            // Define what to do on close event
-            webSocketServer.onClose = async (event) => {
+            // Define what to do on interactive event
+            webSocketServer.onInteractive = async (event) => {
                 switch(event.reason) {
-                    case 'ok':
+                    case 'open':
+                        // Do not do anything
+                        break;
+                    case 'close':
                         resolve();
                         break;
                     case 'cancel':
@@ -389,6 +392,8 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         break;
                 }
             };
+            // Send interactive open
+            webSocketServer.sendInteractiveOpen();
         });
 
         try {

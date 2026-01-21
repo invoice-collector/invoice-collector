@@ -78,7 +78,7 @@ const NAVIGATION_EVENT_SHOW_COMPANIES = { type: 'ic-panel-search' };
 const NAVIGATION_EVENT_SHOW_FORM = { type: 'ic-panel-form' };
 const NAVIGATION_EVENT_SHOW_FEEDBACK = { type: 'ic-panel-feedback' };
 const NAVIGATION_EVENT_SHOW_PROGRESS = { type: 'ic-panel-progress' };
-const NAVIGATION_EVENT_SHOW_CANVAS = { type: 'ic-panel-canvas' };
+const NAVIGATION_EVENT_SHOW_INTERACTIVE = { type: 'ic-panel-interactive' };
 
 function closeIframe() {
     window.parent.postMessage(NAVIGATION_EVENT_CLOSE, '*');
@@ -571,7 +571,7 @@ async function showProgress(credential_id, wsPath) {
         cancelled = true;
         containerCanvas.hidden = true;
         if (ws.readyState === WebSocket.OPEN) {
-            ws.send(JSON.stringify({ type: 'close', reason: 'cancel' }));
+            ws.send(JSON.stringify({ type: 'interactive', reason: 'cancel' }));
             ws.close();
         }
         showCompanies();
@@ -617,7 +617,7 @@ async function showProgress(credential_id, wsPath) {
         canvasOkButton.onclick = function() {
             containerCanvas.hidden = true;
             document.getElementById('progress-container').classList.remove('ic-hidden');
-            ws.send(JSON.stringify({ type: 'close', reason: 'ok' }));
+            ws.send(JSON.stringify({ type: 'interactive', reason: 'close' }));
             window.parent.postMessage(NAVIGATION_EVENT_SHOW_PROGRESS, '*');
         };
         
@@ -626,7 +626,6 @@ async function showProgress(credential_id, wsPath) {
     };
     
     let previous_state, current_state;
-    let first_screenshot_received = false;
     
     ws.onmessage = async function(event) {
         const parsedData = JSON.parse(event.data);
@@ -639,26 +638,24 @@ async function showProgress(credential_id, wsPath) {
                 const ctx = canvas.getContext('2d');
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             };
-            
-            if (!first_screenshot_received) {
-                containerCanvas.hidden = false;
-                document.getElementById('progress-container').classList.add('ic-hidden');
-                window.parent.postMessage(NAVIGATION_EVENT_SHOW_CANVAS, '*');
+        }
+        else if (parsedData.type === 'interactive' && parsedData.reason === "open" ) {
+            containerCanvas.hidden = false;
+            document.getElementById('progress-container').classList.add('ic-hidden');
+            window.parent.postMessage(NAVIGATION_EVENT_SHOW_INTERACTIVE, '*');
 
-                document.addEventListener('contextmenu', (event) => {
-                    if (canvas && canvas.contains(event.target)) {
-                        event.preventDefault();
-                        navigator.clipboard.readText().then(text => {
-                            ws.send(JSON.stringify({ type: 'type', text: text }));
-                        }).catch(err => {
-                            console.error('Clipboard read failed:', err);
-                        });
-                    }
-                });
-
-                first_screenshot_received = true;
-            }
-        } else if (parsedData.type === 'state') {
+            document.addEventListener('contextmenu', (event) => {
+                if (canvas && canvas.contains(event.target)) {
+                    event.preventDefault();
+                    navigator.clipboard.readText().then(text => {
+                        ws.send(JSON.stringify({ type: 'type', text: text }));
+                    }).catch(err => {
+                        console.error('Clipboard read failed:', err);
+                    });
+                }
+            });
+        }
+        else if (parsedData.type === 'state') {
             current_state = parsedData.state;
             
             if (current_state.index >= VIRTUAL_MAX || current_state.index < 0) {
