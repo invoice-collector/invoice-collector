@@ -203,7 +203,8 @@ export class WebSocketServer {
     public sendInteractiveOpen() {
         const message: MessageInteractive = {
             type: 'interactive',
-            reason: 'open'
+            reason: 'open',
+            message: I18n.get('i18n.views.interactive.login.message', this.locale)
         };
         this.sendMessage(message);
     }
