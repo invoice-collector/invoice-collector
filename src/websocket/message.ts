@@ -30,7 +30,7 @@ export type MessageText = AbstractMessage & {
 export type MessageInteractive = AbstractMessage & {
     type: 'interactive';
     reason: 'open' | 'close' | 'cancel' | 'report';
-    message: string;
+    instructions: string;
 }
 
 // SENT MESSAGES
