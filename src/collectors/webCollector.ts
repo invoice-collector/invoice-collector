@@ -159,7 +159,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             }
             else {
                 // Get collector memory
-                const collectorMemory = await CollectorMemory.fromName(this.config.id);
+                const collectorMemory = await CollectorMemory.fromCollectorId(this.config.id);
 
                 // If first collect
                 if(webSocketServer) {
@@ -178,6 +178,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         // Save entry url
                         collectorMemory.entryUrl = driver.url();
                         await collectorMemory.commit();
+                    }
+                    else if (this.config.entryUrl && !collectorMemory.entryUrl) {
+                        collectorMemory.entryUrl = this.config.entryUrl;
+                        await collectorMemory.commit();
+                    }
+                    else if (!this.config.entryUrl && collectorMemory.entryUrl) {
+                        console.warn(`Collector ${this.config.id} has no entryUrl defined in config, but has one saved in memory. Consider defining it in the config.`);
                     }
                 }
 

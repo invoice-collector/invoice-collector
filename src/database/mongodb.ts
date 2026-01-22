@@ -436,16 +436,16 @@ export class MongoDB extends AbstractDatabase {
 
     // COLLECTOR MEMORY
 
-    async getCollectorMemory(name: string): Promise<CollectorMemory | null> {
+    async getCollectorMemory(collector_id: string): Promise<CollectorMemory | null> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
-        const document = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).findOne({ name });
+        const document = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).findOne({ collector_id });
         if (!document) {
             return null;
         }
         const collectorMemory = new CollectorMemory(
-            document.name,
+            document.collector_id,
             Actions.fromObject(document.actions),
             document.customerAreaUrl,
             document.entryUrl
@@ -459,7 +459,7 @@ export class MongoDB extends AbstractDatabase {
             throw new Error("Database is not connected");
         }
         const document = await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).insertOne({
-            name: collectorMemory.name,
+            collector_id: collectorMemory.collector_id,
             actions: collectorMemory.actions,
             customerAreaUrl: collectorMemory.customerAreaUrl,
             entryUrl: collectorMemory.entryUrl
@@ -475,7 +475,7 @@ export class MongoDB extends AbstractDatabase {
         await this.db.collection(MongoDB.COLLECTOR_MEMORY_COLLECTION).updateOne(
             { _id: new ObjectId(collectorMemory.id) },
             { $set: {
-                name: collectorMemory.name,
+                collector_id: collectorMemory.collector_id,
                 actions: collectorMemory.actions,
                 customerAreaUrl: collectorMemory.customerAreaUrl,
                 entryUrl: collectorMemory.entryUrl
