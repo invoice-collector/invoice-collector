@@ -2,7 +2,7 @@ import { Driver, Element } from "../driver/driver";
 import { TwofaPromise } from "../collect/twofaPromise";
 import * as utils from '../utils';
 import { Invoice } from "../collectors/abstractCollector";
-import { AuthenticationError, ElementNotFoundError } from "../error";
+import { AuthenticationError, DisconnectedError, ElementNotFoundError } from "../error";
 import { WebSocketServer } from "../websocket/webSocketServer";
 
 export enum ActionEnum  {
@@ -54,6 +54,11 @@ export abstract class Action<Context, Result> {
                 }
             }
             catch (e) {
+                // Rethrow AuthenticationError and DisconnectedError
+                if (e instanceof AuthenticationError || e instanceof DisconnectedError) {
+                    throw e;
+                }
+                // Wrap other errors
                 throw new Error(`Error performing action ${action.toString()}`, { cause: e });
             }
         }
