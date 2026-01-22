@@ -1,16 +1,15 @@
-
 import { SketchCollector } from '../../sketchCollector';
 import { CollectorCaptcha, CollectorState, CollectorType } from '../../abstractCollector';
 
-export class RexelBelgiumCollector extends SketchCollector {
+export class RexelDeCollector extends SketchCollector {
 
     static CONFIG = {
-        id: "rexel_belgium",
-        name: "REXEL BELGIUM",
-        description: "i18n.collectors.rexel_belgium.description",
-        version: "0",
-        website: "https://ebpp.viaadvalvas.com/InvoiceManager/Dashboard.aspx",
-        logo: "https://portal-ui-images.s3.eu-central-1.amazonaws.com/logo/120x120/226687.jpg",
+        id: "rexel_de",
+        name: "Rexel (.de)",
+        description: "i18n.collectors.rexel.description",
+        version: "1",
+        website: "https://www.rexel.de/",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/9/90/Rexel_logo.svg",
         type: CollectorType.SKETCH,
         params: {
             email: {
@@ -26,13 +25,13 @@ export class RexelBelgiumCollector extends SketchCollector {
                 mandatory: true
             }
         },
-        loginUrl: "https://ebpp.viaadvalvas.com/InvoiceManager/Dashboard.aspx",
+        loginUrl: "https://www.rexel.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
         state: CollectorState.DEVELOPMENT
     }
 
     constructor() {
-        super(RexelBelgiumCollector.CONFIG);
+        super(RexelDeCollector.CONFIG);
     }
 }
