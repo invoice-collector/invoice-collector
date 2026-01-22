@@ -150,6 +150,9 @@ export class Customer {
     }
 
     async setSubscribedCollectors(collectors: string[]) {
+        // Order collectors alphabetically
+        collectors.sort();
+
         // Check if collectors is an array
         if (!Array.isArray(collectors)) {
             throw new StatusError(`Collectors must be an array.`, 400);
