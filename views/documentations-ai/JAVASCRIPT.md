@@ -460,7 +460,7 @@ element.classList.remove('fade');
 ### Message vers le parent
 
 ```javascript
-window.parent.postMessage({ 
+window.parent.postMessage({
     type: 'invoice-collector-close' 
 }, '*');
 ```

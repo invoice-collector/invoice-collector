@@ -27,7 +27,7 @@ export function hash_string(input: string, algorithm: string = 'sha3-512'): stri
 }
 
 export function delay(ms) {
-    return new Promise(function(resolve) { 
+    return new Promise(function(resolve) {
         setTimeout(resolve, ms)
     });
 }

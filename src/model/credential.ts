@@ -9,7 +9,7 @@ export class IcCredential {
     static ONE_DAY_MS: number = 86400000;
     static ONE_WEEK_MS: number = 604800000;
 
-    static async fromId(id: string): Promise<IcCredential|null> {    
+    static async fromId(id: string): Promise<IcCredential | null> {
         // Get customer from bearer
         return await DatabaseFactory.getDatabase().getCredential(id);
     }

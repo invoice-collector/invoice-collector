@@ -592,7 +592,7 @@ async function showProgress(credential_id, wsPath) {
             const normalizedX = (clickX * scaleX) / canvas.width;
             const normalizedY = (clickY * scaleY) / canvas.height;
             
-            ws.send(JSON.stringify({ 
+            ws.send(JSON.stringify({
                 type: 'click', 
                 x: normalizedX, 
                 y: normalizedY 

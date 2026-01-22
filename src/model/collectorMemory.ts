@@ -4,7 +4,7 @@ import { Actions } from "./actions";
 
 export class CollectorMemory {
 
-    static async fromName(name: string): Promise<CollectorMemory> {    
+    static async fromName(name: string): Promise<CollectorMemory> {
         // Get collector memory from name or create new one
         return await DatabaseFactory.getDatabase().getCollectorMemory(name) || new CollectorMemory(name, new Actions());
     }

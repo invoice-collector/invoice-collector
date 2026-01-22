@@ -187,7 +187,7 @@ Les deux thèmes définissent les mêmes variables avec des valeurs différentes
 { type: 'screenshot', screenshot: 'base64...' }
 
 // État de progression
-{ 
+{
   type: 'state', 
   state: {
     index: 2,      // Étape courante
