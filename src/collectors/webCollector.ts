@@ -159,7 +159,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             }
             else {
                 // Get collector memory
-                const collectorMemory = await CollectorMemory.fromName(this.config.id);
+                const collectorMemory = await CollectorMemory.fromCollectorId(this.config.id);
 
                 // If first collect
                 if(webSocketServer) {
@@ -167,9 +167,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     await driver.goto(this.config.loginUrl);
                     // Perform interactive login
                     await this.interactive(driver, webSocketServer, 'i18n.views.interactive.login.instructions');
-                    // Save customer area url
-                    collectorMemory.customerAreaUrl = driver.url();
-                    await collectorMemory.commit();
+                    // Save customer area url if not defined
+                    if(!collectorMemory.customerAreaUrl) {
+                        collectorMemory.customerAreaUrl = driver.url();
+                        await collectorMemory.commit();
+                    }
 
                     // If no entry url defined
                     if(!this.config.entryUrl && !collectorMemory.entryUrl) {
@@ -178,6 +180,13 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                         // Save entry url
                         collectorMemory.entryUrl = driver.url();
                         await collectorMemory.commit();
+                    }
+                    else if (this.config.entryUrl && !collectorMemory.entryUrl) {
+                        collectorMemory.entryUrl = this.config.entryUrl;
+                        await collectorMemory.commit();
+                    }
+                    else if (!this.config.entryUrl && collectorMemory.entryUrl) {
+                        console.warn(`Collector ${this.config.id} has no entryUrl defined in config, but has one saved in memory. Consider defining it in the config.`);
                     }
                 }
 
