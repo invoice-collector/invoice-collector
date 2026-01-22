@@ -167,9 +167,11 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     await driver.goto(this.config.loginUrl);
                     // Perform interactive login
                     await this.interactive(driver, webSocketServer, 'i18n.views.interactive.login.instructions');
-                    // Save customer area url
-                    collectorMemory.customerAreaUrl = driver.url();
-                    await collectorMemory.commit();
+                    // Save customer area url if not defined
+                    if(!collectorMemory.customerAreaUrl) {
+                        collectorMemory.customerAreaUrl = driver.url();
+                        await collectorMemory.commit();
+                    }
 
                     // If no entry url defined
                     if(!this.config.entryUrl && !collectorMemory.entryUrl) {
