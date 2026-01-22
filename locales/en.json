@@ -343,6 +343,7 @@
   "i18n.collectors.all.email_or_number.placeholder": "Email or phone number of the account",
   "i18n.collectors.all.identifier": "Identifier",
   "i18n.collectors.all.identifier.error": "Incorrect identifier",
+  "i18n.collectors.all.identifier.placeholder": "Login identifier",
   "i18n.collectors.all.login.cancel": "You have cancelled the addition of the collector",
   "i18n.collectors.all.login.expired": "Your session has expired. Please log in again to reconnect the account.",
   "i18n.collectors.all.login.timeout": "Login time expired. Please try again.",
