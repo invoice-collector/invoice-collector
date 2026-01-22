@@ -47,9 +47,14 @@ export abstract class Action<Context, Result> {
 
     static async performActions(actions: Action<any, any>[], context: any): Promise<any> {
         for(const action of actions) {
-            const result = await action.perform(context);
-            if (result) {
-                return result;
+            try {
+                const result = await action.perform(context);
+                if (result) {
+                    return result;
+                }
+            }
+            catch (e) {
+                throw new Error(`Error performing action ${action.toString()}`, { cause: e });
             }
         }
         return;
@@ -380,7 +385,7 @@ export class RaiseErrorIfDisplayed extends Action<RaiseErrorContext, void> {
         super(ActionEnum.RAISE_ERROR_IF_DISPLAYED, description, location, args, cssSelector);
     }
 
-    async perform(context: RaiseErrorContext): Promise<void> {   
+    async perform(context: RaiseErrorContext): Promise<void> {
         // Get element from cssSelector
         const element = await context.driver.getElement({
             selector: this.cssSelector,
