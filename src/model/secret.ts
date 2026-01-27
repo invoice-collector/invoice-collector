@@ -3,7 +3,7 @@ import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 export class Secret {
     id: string;
     key: string;
-    private value: any;
+    value: any;
 
     constructor(key: string, value: any = {}) {
         this.id = "";

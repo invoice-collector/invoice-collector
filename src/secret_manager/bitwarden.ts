@@ -57,8 +57,8 @@ export class Bitwarden extends AbstractSecretManager {
     async createSecret(secret: Secret): Promise<Secret> {
         try {
             // JSON secret before sending
-            const stringSecret: string = JSON.stringify(secret);
-            secret.id = (await this.client.secrets().create(this.organizationId, secret.key, stringSecret, "", [this.projectId])).id;
+            const secretValue: string = JSON.stringify(secret.value);
+            secret.id = (await this.client.secrets().create(this.organizationId, secret.key, secretValue, "", [this.projectId])).id;
             return secret;
         }
         catch (err) {
@@ -69,8 +69,8 @@ export class Bitwarden extends AbstractSecretManager {
     async updateSecret(secret: Secret): Promise<void> {
         try {
             // JSON secret before sending
-            const stringSecret: string = JSON.stringify(secret);
-            await this.client.secrets().update(this.organizationId, secret.id, secret.key, stringSecret, "", [this.projectId]);
+            const secretValue: string = JSON.stringify(secret.value);
+            await this.client.secrets().update(this.organizationId, secret.id, secret.key, secretValue, "", [this.projectId]);
         }
         catch (err) {
             throw new Error(`Failed to update secret ${secret.id}`, { cause: err });
