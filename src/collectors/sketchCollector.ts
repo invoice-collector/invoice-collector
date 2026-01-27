@@ -17,7 +17,7 @@ export abstract class SketchCollector extends WebCollector {
         });
     }
 
-    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined ): Promise<string | void> {
+    async login(driver: Driver, params: any, webSocketServer: WebSocketServer | undefined): Promise<string | void> {
         return;
     }
 
@@ -25,15 +25,15 @@ export abstract class SketchCollector extends WebCollector {
         return true;
     }
 
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return [];
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         throw new Error("Method not implemented.");
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
         throw new Error("Method not implemented.");
     }
 }

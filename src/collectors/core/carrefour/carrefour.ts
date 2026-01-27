@@ -95,12 +95,12 @@ export class CarrefourCollector extends WebCollector {
         }
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Refuse cookies
         await driver.leftClick(CarrefourSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 10000});
     }
 
-    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => void): Promise<void> {
         // Get years elements
         const numberOfYears = (await driver.getElements(CarrefourSelectors.OPTION_YEARS)).length;
         // For each year
@@ -118,11 +118,11 @@ export class CarrefourCollector extends WebCollector {
         return await driver.getElement(CarrefourSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
     }
              
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(CarrefourSelectors.CONTAINER_ORDER);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         const downloadButton = await element.getElement(CarrefourSelectors.CONTAINER_LINK);
         const order_link = await element.getAttribute(CarrefourSelectors.CONTAINER_LINK, "href");
         const date = await element.getAttribute(CarrefourSelectors.CONTAINER_ORDER_DATE, "textContent");
@@ -149,7 +149,7 @@ export class CarrefourCollector extends WebCollector {
         };
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }
 }

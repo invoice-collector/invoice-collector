@@ -225,7 +225,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             }
 
             // Navigate to invoices
-            await this.navigate(driver, await secret.getParams());
+            await this.navigate(driver);
 
             // Get previous invoice ids
             const previousInvoiceIds = previousInvoices.map((inv) => inv.id);
@@ -233,14 +233,14 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             // For each page
             let invoices: CompleteInvoice[] = [];
             let firstDownload = true;
-            await this.forEachPage(driver, await secret.getParams(), async () => {
+            await this.forEachPage(driver, async () => {
                 // Check if no invoices are present on the page
                 const isEmpty = await this.isEmpty(driver);
 
                 // Continue only if invoices are present
                 if (!isEmpty) {
                     // For each invoice on the page
-                    const invoiceElements = await this.getInvoices(driver, await secret.getParams());
+                    const invoiceElements = await this.getInvoices(driver);
                     
                     // If invoice elements is empty, collector may be broken
                     if (invoiceElements.length === 0) {
@@ -250,7 +250,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                     // For each invoice element
                     for (const element of invoiceElements) {
                         // Get invoice data
-                        let invoice: Invoice | null = await this.data(driver, await secret.getParams(), element);
+                        let invoice: Invoice | null = await this.data(driver, element);
 
                         // Ignore if null
                         if (invoice === null) {
@@ -280,7 +280,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 }
 
                                 // Download invoice
-                                let documents = await this.download(driver, await secret.getParams(), element, invoice);
+                                let documents = await this.download(driver, element, invoice);
 
                                 // Close extra pages opened during download
                                 await driver.closeExtraPages();
@@ -447,7 +447,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         // Assume the collector does not implement 2FA
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Assume the collector does not need navigation
     }
 
@@ -456,16 +456,16 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
         return false;
     }
 
-    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => void): Promise<void> {
         // Assume the collector does not have pagination
         await next();
     }
 
-    abstract getInvoices(driver: Driver, params: any): Promise<Element[]>;
+    abstract getInvoices(driver: Driver): Promise<Element[]>;
 
-    abstract data(driver: Driver, params: any, element: Element): Promise<Invoice | null>;
+    abstract data(driver: Driver, element: Element): Promise<Invoice | null>;
 
-    abstract download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]>;
+    abstract download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]>;
 
     // DOWNLOAD METHODS
 

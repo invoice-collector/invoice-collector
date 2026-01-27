@@ -99,23 +99,23 @@ export class FreeMobileCollector extends WebCollector {
         }
     }
 
-    async navigate(driver: Driver, params: any): Promise<void>{
+    async navigate(driver: Driver): Promise<void>{
         // Show invoices
         await driver.leftClick(FreeMobileSelectors.BUTTON_SHOW_INVOICES, { navigation: false });
     }
 
-    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => void): Promise<void> {
         // Show more invoices while possible
         while((await driver.leftClick(FreeMobileSelectors.BUTTON_MORE_INVOICES, { raiseException: false, timeout: 1000, navigation: false, delay: 1000 })) != null) {}
         // Collect invoices
         await next();
     }
     
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(FreeMobileSelectors.CONTAINER_INVOICES);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
+    async data(driver: Driver, element: Element): Promise<Invoice | null>{
         const downloadButton = await element.getElement(FreeMobileSelectors.CONTAINER_INVOICE_LINK);
         const link = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_LINK, "href");
         const stringDate = await element.getAttribute(FreeMobileSelectors.CONTAINER_INVOICE_DATE, "textContent");
@@ -137,7 +137,7 @@ export class FreeMobileCollector extends WebCollector {
         };
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }
 }

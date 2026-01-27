@@ -148,12 +148,12 @@ export class AmazonCollector extends WebCollector {
         }
     }
 
-    async navigate(driver: Driver, params: any): Promise<void>{
+    async navigate(driver: Driver): Promise<void>{
         // Get UI language element
         this.language = await driver.getAttribute(AmazonSelectors.CONTAINER_LANGUAGE, "textContent");
     }
 
-    async forEachPage(driver: Driver, params: any, next: () => void): Promise<void> {
+    async forEachPage(driver: Driver, next: () => void): Promise<void> {
         const currentYear = new Date().getFullYear();
 
         for (let year = currentYear; year >= currentYear - 1; year--) {
@@ -179,12 +179,12 @@ export class AmazonCollector extends WebCollector {
         return await driver.getElement(AmazonSelectors.CONTAINER_NO_ORDERS, { raiseException: false, timeout: 100 }) != null;
     }
 
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         // Get order elements
         return await driver.getElements(AmazonSelectors.CONTAINER_ORDER);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null>{
+    async data(driver: Driver, element: Element): Promise<Invoice | null>{
         // Get timestamp
         const date = await element.getAttribute(AmazonSelectors.CONTAINER_ORDER_DATE, "textContent");
         const timestamp = timestampFromString(date, 'd MMMM yyyy', this.language);
@@ -209,7 +209,7 @@ export class AmazonCollector extends WebCollector {
         };
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
         let documents: string[] = [];
 
         // Get origin
