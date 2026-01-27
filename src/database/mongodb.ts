@@ -8,6 +8,7 @@ import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
+import { Secret } from "../model/secret";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -333,11 +334,13 @@ export class MongoDB extends AbstractDatabase {
             user_id: new ObjectId(user_id)
         }).toArray();
         return documents.map(document => {
+            let secret = new Secret(`${document.user_id.toString()}_${document.collector_id}`);
+            secret.id = document.secret_id;
             let credential = new IcCredential(
                 document.user_id.toString(),
                 document.collector_id,
                 document.note,
-                document.secret_manager_id,
+                secret,
                 document.create_timestamp,
                 document.download_from_timestamp,
                 document.last_collect_timestamp,
@@ -360,11 +363,13 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
+        let secret = new Secret(`${document.user_id.toString()}_${document.collector_id}`);
+        secret.id = document.secret_id;
         let credential = new IcCredential(
             document.user_id.toString(),
             document.collector_id,
             document.note,
-            document.secret_manager_id,
+            secret,
             document.create_timestamp,
             document.download_from_timestamp,
             document.last_collect_timestamp,
@@ -384,7 +389,7 @@ export class MongoDB extends AbstractDatabase {
             user_id: new ObjectId(credential.user_id),
             collector_id: credential.collector_id,
             note: credential.note,
-            secret_manager_id: credential.secret_manager_id,
+            secret_id: credential.secret.id,
             create_timestamp: credential.create_timestamp,
             download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
@@ -406,7 +411,7 @@ export class MongoDB extends AbstractDatabase {
                 user_id: new ObjectId(credential.user_id),
                 collector_id: credential.collector_id,
                 note: credential.note,
-                secret_manager_id: credential.secret_manager_id,
+                secret_id: credential.secret.id,
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 invoices: credential.invoices,

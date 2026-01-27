@@ -61,11 +61,11 @@ export class User {
     async delete() {
         // Get all credentials ids
         const credentials: IcCredential[] = await this.getCredentials();
-        const secret_manager_ids: string[] = credentials.map(credential => credential.secret_manager_id);
+        const secret_ids: string[] = credentials.map(credential => credential.secret.id);
 
         // Delete all secrets in secret manager
-        if (secret_manager_ids.length > 0) {
-            await SecretManagerFactory.getSecretManager().deleteSecrets(secret_manager_ids);
+        if (secret_ids.length > 0) {
+            await SecretManagerFactory.getSecretManager().deleteSecrets(secret_ids);
         }
 
         // Delete all credentials

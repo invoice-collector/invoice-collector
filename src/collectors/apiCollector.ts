@@ -3,7 +3,7 @@ import { Invoice, DownloadedInvoice, CompleteInvoice, CollectorType, CollectorSt
 import { V1Collector } from "./v1Collector";
 import { CollectorError, LoggableError, UnfinishedCollectorError } from '../error';
 import { Location } from "../proxy/abstractProxy";
-import { Secret } from "../secret_manager/abstractSecretManager";
+import { Secret } from "../model/secret";
 import { TwofaPromise } from "../collect/twofaPromise";
 import { State } from "../model/state";
 import * as utils from '../utils';
@@ -41,7 +41,7 @@ export abstract class ApiCollector extends V1Collector<ApiConfig> {
             state.update(State._5_COLLECTING);
 
             // Collect invoices
-            const invoices = await this.collect(this.instance, secret.params)
+            const invoices = await this.collect(this.instance, await secret.getParams());
             
             // If invoices is undefined, collector is unfinished
             if (invoices === undefined) {

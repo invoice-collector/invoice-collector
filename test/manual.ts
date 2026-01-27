@@ -11,7 +11,6 @@ import readline from 'readline';
 
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { LoggableError } from '../src/error';
-import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { IcCredential } from '../src/model/credential';
 import { State } from '../src/model/state';
 import { I18n } from '../src/i18n';
@@ -22,6 +21,7 @@ import * as utils from '../src/utils';
 import { WebCollector } from '../src/collectors/webCollector';
 import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
 import { TwofaPromise } from '../src/collect/twofaPromise';
+import { Secret } from '../src/model/secret';
 
 const PORT = parseInt(utils.getEnvVar('PORT')) + 1;
 
@@ -34,9 +34,9 @@ async function getCredentialFromId(credential_id: string): Promise<IcCredential>
 }
 
 async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
-    const secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
+    const secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret.id);
     if(secret == null) {
-        throw new Error(`No secret with id "${credential.secret_manager_id}" found.`);
+        throw new Error(`No secret with id "${credential.secret.id}" found.`);
     }
     return secret;
 }
@@ -50,7 +50,7 @@ async function updateSecret(credential: IcCredential | null, secret: Secret | nu
         if (secretHash != newSecretHash) {
             // Update secret in secret manager
             console.log(`Updating secret for credential ${credential.id}`);
-            await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, "test.override", secret);
+            await SecretManagerFactory.getSecretManager().updateSecret(secret);
             console.log(`Secret updated!`);
         }
     }
@@ -142,17 +142,18 @@ function getHashFromSecret(secret: Secret): string {
             useInteractiveLogin = AbstractCollector.updateCollectorParams(enableInteractiveLogin, collector.config);
 
             // Build secret
-            secret = {
+            secret = new Secret("", {
                 params: {},
                 cookies: null,
                 localStorage: null
-            }
+            });
             let argv_index = 3;
 
             // Loop throught each config
             for(const param_key of Object.keys(collector.config.params)) {
+                const secretParams = await secret.getParams();
                 if(process.argv[argv_index]) {
-                    secret.params[param_key] = process.argv[argv_index]
+                    secretParams[param_key] = process.argv[argv_index]
                     if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
                         console.log(`${param_key}: <hidden>`)
                     }
@@ -162,10 +163,10 @@ function getHashFromSecret(secret: Secret): string {
                 }
                 else {
                     if(param_key.toLowerCase().includes("password") || param_key.toLowerCase().includes("secret") || param_key.toLowerCase().includes("token")) {
-                        secret.params[param_key] = prompt.hide(`${param_key}: `);
+                        secretParams[param_key] = prompt.hide(`${param_key}: `);
                     }
                     else {
-                        secret.params[param_key] = prompt(`${param_key}: `);
+                        secretParams[param_key] = prompt(`${param_key}: `);
                     }
                 }
                 argv_index++;

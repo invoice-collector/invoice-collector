@@ -7,7 +7,6 @@ import readline from 'readline';
 import { expect, describe } from '@jest/globals';
 import { CollectorLoader } from '../src/collectors/collectorLoader';
 import { AuthenticationError } from '../src/error';
-import { Secret } from '../src/secret_manager/abstractSecretManager';
 import { State } from '../src/model/state';
 import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
 import { TwofaPromise } from '../src/collect/twofaPromise';
@@ -15,6 +14,7 @@ import * as utils from '../src/utils';
 import { I18n } from '../src/i18n';
 import { WebSocketServer } from '../src/websocket/webSocketServer';
 import { WebCollector } from '../src/collectors/webCollector';
+import { Secret } from '../src/model/secret';
 
 const id = process.argv[4] || null;
 const ONE_MINUTE = 60 * 1000;       // 1 minute in milliseconds
@@ -103,14 +103,14 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
 
         describe(`${id} tests`, () => {
             it('Login with incorrect email format', async () => {
-                const secret: Secret = {
+                const secret: Secret = new Secret("", {
                     params: {
                         email: 'incorrect_format_email',
                         password: 'fake_password'
                     },
                     cookies: null,
                     localStorage: null
-                };
+                });
 
                 // Collect invoices
                 await expect(collector.collect_new_invoices(
@@ -127,14 +127,14 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
             }, ONE_MINUTE);
 
             it('Login with non-existing account', async () => {
-                const secret: Secret = {
+                const secret: Secret = new Secret("", {
                     params: {
                         email: 'fake@email.com',
                         password: 'fake_password'
                     },
                     cookies: null,
                     localStorage: null
-                };
+                });
 
                 // Collect invoices
                 await expect(collector.collect_new_invoices(
@@ -151,14 +151,14 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
             }, ONE_MINUTE);
 
             it('Login with wrong password', async () => {
-                const secret: Secret = {
+                const secret: Secret = new Secret("", {
                     params: {
                         email: 'real@email.com',
                         password: 'fake_password'
                     },
                     cookies: null,
                     localStorage: null
-                };
+                });
 
                 // Collect invoices
                 await expect(collector.collect_new_invoices(
@@ -177,14 +177,14 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
             let testSecret : Secret | undefined = undefined;
 
             it('Login with correct credentials, no cookies', async () => {
-                const secret: Secret = {
+                const secret: Secret = new Secret("", {
                     params: {
                         email: 'real@email.com',
                         password: 'real_password'
                     },
                     cookies: null,
                     localStorage: null
-                };
+                });
 
                 // Instanciate web socket client and server
                 const { webSocketServer, webSocketClient } = await createWebsocketClientAndServer(collector);
@@ -201,10 +201,10 @@ for (const collectorConfig of await CollectorLoader.getAll()) {
                 );
 
                 // Assert cookies are not null
-                expect(secret.cookies).not.toBeNull();
+                expect(await secret.getCookies()).not.toBeNull();
 
                 // Assert localStorage are not null
-                expect(secret.localStorage).not.toBeNull();
+                expect(await secret.getLocalStorage()).not.toBeNull();
 
                 // Save secret if collect is successful
                 testSecret = secret;

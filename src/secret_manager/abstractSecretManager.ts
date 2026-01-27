@@ -1,8 +1,4 @@
-export type Secret = {
-    params: any,
-    cookies: any,
-    localStorage: any
-}
+import { Secret } from "../model/secret";
 
 export abstract class AbstractSecretManager {
     constructor() {
@@ -13,15 +9,15 @@ export abstract class AbstractSecretManager {
 
     abstract connect(): Promise<void>;
 
-    /*abstract disconnect(): Promise<void>;*/
+    abstract disconnect(): Promise<void>;
 
     // SECRETS
 
-    abstract addSecret(key: string, secret: Secret): Promise<string>;
+    abstract getSecret(id: string): Promise<any>;
 
-    abstract getSecret(id: string): Promise<Secret | null>;
+    abstract createSecret(secret: Secret): Promise<Secret>;
 
-    abstract updateSecret(id: string, key: string, secret: Secret): Promise<string>;
+    abstract updateSecret(secret: Secret): Promise<void>;
 
     abstract deleteSecret(id: string): Promise<void>;
 
