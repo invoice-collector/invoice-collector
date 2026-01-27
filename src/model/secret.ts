@@ -13,7 +13,7 @@ export class Secret {
 
     private async getValue(key: string): Promise<any> {
         if (Object.keys(this.value).length == 0) {
-            this.value = await SecretManagerFactory.getSecretManager().getSecret(this.id);
+            this.value = await SecretManagerFactory.getSecretManager().getValue(this.id);
         }
         return this.value[key];
     }

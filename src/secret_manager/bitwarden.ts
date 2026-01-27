@@ -43,7 +43,7 @@ export class Bitwarden extends AbstractSecretManager {
 
     // SECRETS
 
-    async getSecret(id: string): Promise<any> {
+    async getValue(id: string): Promise<any> {
         try {
             const secret = await this.client.secrets().get(id);
             // Parse JSON secret before returning

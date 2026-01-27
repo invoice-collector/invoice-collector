@@ -695,7 +695,7 @@ export class Server {
             user.id,
             collector.config.id,
             note,
-            secret,
+            secret.id,
             now,
             download_from_timestamp ?? now
         );

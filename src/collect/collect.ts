@@ -73,7 +73,7 @@ export class Collect {
                     this.state,
                     this.twofa_promise,
                     this.webSocketServer,
-                    credential.secret,
+                    credential.getSecret(),
                     credential.download_from_timestamp,
                     credential.invoices,
                     user.location,
@@ -203,12 +203,11 @@ export class Collect {
                     // Cancel next collect
                     credential.next_collect_timestamp = Number.NaN;
 
-                    // If secret exists
-                    if (credential.secret) {
-                        // Reset cookies and localStorage
-                        await credential.secret.setCookies(null);
-                        await credential.secret.setLocalStorage(null);
-                    }
+                    // Reset cookies and localStorage
+                    const secret = credential.getSecret();
+                    await secret.setCookies(null);
+                    await secret.setLocalStorage(null);
+                    await secret.commit();
                 }
             }
             else if (err instanceof MaintenanceError) {
@@ -242,8 +241,6 @@ export class Collect {
             if (credential) {
                 // Commit credential
                 await credential.commit();
-                // Commit secret
-                await credential.secret.commit();
             }
         }
     }

@@ -34,9 +34,10 @@ async function getCredentialFromId(credential_id: string): Promise<IcCredential>
 }
 
 async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
-    const secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret.id);
+    let secret = credential.getSecret();
+    secret.value = await SecretManagerFactory.getSecretManager().getValue(credential.secret_id);
     if(secret == null) {
-        throw new Error(`No secret with id "${credential.secret.id}" found.`);
+        throw new Error(`No secret with id "${credential.secret_id}" found.`);
     }
     return secret;
 }

@@ -334,13 +334,11 @@ export class MongoDB extends AbstractDatabase {
             user_id: new ObjectId(user_id)
         }).toArray();
         return documents.map(document => {
-            let secret = new Secret(`${document.user_id.toString()}_${document.collector_id}`);
-            secret.id = document.secret_id;
             let credential = new IcCredential(
                 document.user_id.toString(),
                 document.collector_id,
                 document.note,
-                secret,
+                document.secret_id,
                 document.create_timestamp,
                 document.download_from_timestamp,
                 document.last_collect_timestamp,
@@ -363,13 +361,11 @@ export class MongoDB extends AbstractDatabase {
         if (!document) {
             return null;
         }
-        let secret = new Secret(`${document.user_id.toString()}_${document.collector_id}`);
-        secret.id = document.secret_id;
         let credential = new IcCredential(
             document.user_id.toString(),
             document.collector_id,
             document.note,
-            secret,
+            document.secret_id,
             document.create_timestamp,
             document.download_from_timestamp,
             document.last_collect_timestamp,
@@ -389,7 +385,7 @@ export class MongoDB extends AbstractDatabase {
             user_id: new ObjectId(credential.user_id),
             collector_id: credential.collector_id,
             note: credential.note,
-            secret_id: credential.secret.id,
+            secret_id: credential.secret_id,
             create_timestamp: credential.create_timestamp,
             download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
@@ -411,7 +407,7 @@ export class MongoDB extends AbstractDatabase {
                 user_id: new ObjectId(credential.user_id),
                 collector_id: credential.collector_id,
                 note: credential.note,
-                secret_id: credential.secret.id,
+                secret_id: credential.secret_id,
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 invoices: credential.invoices,

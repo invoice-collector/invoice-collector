@@ -13,7 +13,7 @@ export abstract class AbstractSecretManager {
 
     // SECRETS
 
-    abstract getSecret(id: string): Promise<any>;
+    abstract getValue(id: string): Promise<any>;
 
     abstract createSecret(secret: Secret): Promise<Secret>;
 
