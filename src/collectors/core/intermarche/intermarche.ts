@@ -95,7 +95,7 @@ export class IntermarcheCollector extends WebCollector {
         throw new UnfinishedCollectorError(this);
     }
 
-    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         throw new UnfinishedCollectorError(this);
     }
 }

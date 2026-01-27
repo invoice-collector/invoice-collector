@@ -33,7 +33,7 @@ export abstract class SketchCollector extends WebCollector {
         throw new Error("Method not implemented.");
     }
 
-    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         throw new Error("Method not implemented.");
     }
 }

@@ -102,7 +102,7 @@ export class BureauValleeCollector extends WebCollector {
         };
     }
 
-    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         // Click on element
         await invoice.downloadButton.leftClick();
         // Wait for the invoice to be downloaded

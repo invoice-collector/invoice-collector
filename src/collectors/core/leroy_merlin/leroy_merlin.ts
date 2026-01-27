@@ -136,7 +136,7 @@ export class LeroyMerlinCollector extends WebCollector {
     }
 
     // Define custom method to download invoice
-    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         // Open details in a new page
         await invoice.downloadButton.middleClick();
 

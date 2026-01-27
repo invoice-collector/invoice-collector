@@ -88,7 +88,7 @@ export class OrangeCollector extends OrangeCommonCollector {
         };
     }
     
-    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         // Click on element
         await invoice.downloadButton.leftClick();
 

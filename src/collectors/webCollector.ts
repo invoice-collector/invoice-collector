@@ -280,7 +280,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
                                 }
 
                                 // Download invoice
-                                let documents = await this.download(driver, element, invoice);
+                                let documents = await this.download(driver, invoice);
 
                                 // Close extra pages opened during download
                                 await driver.closeExtraPages();
@@ -465,7 +465,7 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
 
     abstract data(driver: Driver, element: Element): Promise<Invoice | null>;
 
-    abstract download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]>;
+    abstract download(driver: Driver, invoice: Invoice): Promise<string[]>;
 
     // DOWNLOAD METHODS
 

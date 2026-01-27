@@ -149,7 +149,7 @@ export class CarrefourCollector extends WebCollector {
         };
     }
 
-    async download(driver: Driver, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }
 }
