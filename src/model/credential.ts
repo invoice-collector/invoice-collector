@@ -1,6 +1,8 @@
 import { CompleteInvoice } from "../collectors/abstractCollector";
 import { DatabaseFactory } from "../database/databaseFactory";
 import { StatusError } from "../error";
+import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
+import { Secret } from "./secret";
 import { State } from "./state";
 import { User } from "./user";
 
@@ -22,7 +24,7 @@ export class IcCredential {
     user_id: string;
     collector_id: string;
     note: string;
-    secret_manager_id: string;
+    secret_id: string;
     create_timestamp: number;
     download_from_timestamp: number;
     last_collect_timestamp: number;
@@ -39,7 +41,7 @@ export class IcCredential {
         user_id: string,
         collector_id: string,
         note: string,
-        secret_manager_id: string,
+        secret_id: string,
         create_timestamp: number,
         download_from_timestamp: number,
         last_collect_timestamp: number = Number.NaN,
@@ -56,7 +58,7 @@ export class IcCredential {
         this.user_id = user_id;
         this.collector_id = collector_id;
         this.note = note;
-        this.secret_manager_id = secret_manager_id;
+        this.secret_id = secret_id;
         this.create_timestamp = create_timestamp;
         this.download_from_timestamp = download_from_timestamp;
         this.last_collect_timestamp = last_collect_timestamp;
@@ -75,7 +77,16 @@ export class IcCredential {
         return user;
     }
 
+    getSecret(): Secret {
+        let secret = new Secret(`${this.user_id}_${this.collector_id}`);
+        secret.id = this.secret_id;
+        return secret;
+    }
+
     async delete() {
+        // Delete secret from Secure Storage
+        await SecretManagerFactory.getSecretManager().deleteSecret(this.secret_id);
+        // Delete credential from database
         await DatabaseFactory.getDatabase().deleteCredential(this.user_id, this.id);
     }
 

@@ -110,6 +110,7 @@ export abstract class Action<Context, Result> {
 
 export type LeftClickContext = {
     driver: Driver;
+    element?: Element;
 }
 
 export class LeftClickAction extends Action<LeftClickContext, void> {
@@ -124,10 +125,17 @@ export class LeftClickAction extends Action<LeftClickContext, void> {
     }
 
     async perform(context: LeftClickContext): Promise<void> {
-        await context.driver.leftClick({
+        if(context.element) {
+            // Perform left click on provided element
+            await context.element.leftClick(this.args);
+        }
+        else {
+            // Perform left click using driver and cssSelector
+            await context.driver.leftClick({
                 selector: this.cssSelector,
                 info: this.description
             }, this.args);
+        }
     }
 
     toString(): string {

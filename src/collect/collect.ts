@@ -1,14 +1,12 @@
 import { CallbackHandler } from "../callback/callback";
 import { AbstractCollector, Config } from "../collectors/abstractCollector";
 import { CollectorLoader } from "../collectors/collectorLoader";
-import { AuthenticationError, DesynchronizationError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
+import { AuthenticationError, DisconnectedError, LoggableError, MaintenanceError, NoInvoiceFoundError } from "../error";
 import { IcCredential } from "../model/credential";
 import { State } from "../model/state";
 import { Customer } from "../model/customer";
 import { User } from "../model/user";
 import { RegistryServer } from "../registryServer";
-import { Secret } from "../secret_manager/abstractSecretManager";
-import { SecretManagerFactory } from "../secret_manager/secretManagerFactory";
 import { TwofaPromise } from "./twofaPromise";
 import { WebSocketServer } from '../websocket/webSocketServer';
 import * as utils from "../utils";
@@ -29,7 +27,6 @@ export class Collect {
     async start(): Promise<void> {
         let credential: IcCredential|null = null;
         let user: User|null = null;
-        let secret: Secret|null = null;
         let collector: AbstractCollector<Config>|null = null;
         let customer: Customer|null = null;
 
@@ -59,9 +56,6 @@ export class Collect {
                 credential.state.update(State._1_PREPARING);
                 this.webSocketServer?.sendState(State._1_PREPARING);
 
-                // Get secret from secret_manager_id
-                secret = await SecretManagerFactory.getSecretManager().getSecret(credential.secret_manager_id);
-
                 // Get collector from collector_id
                 collector = await CollectorLoader.get(credential.collector_id);
 
@@ -74,17 +68,12 @@ export class Collect {
                 // Set collector for twofa promise
                 this.twofa_promise.collector = collector;
 
-                // Check if secret not found
-                if (!secret) {
-                    throw new DesynchronizationError(credential.id, collector);
-                }
-
                 // Collect invoices
                 const newInvoices = await collector.collect_new_invoices(
                     this.state,
                     this.twofa_promise,
                     this.webSocketServer,
-                    secret,
+                    credential.getSecret(),
                     credential.download_from_timestamp,
                     credential.invoices,
                     user.location,
@@ -214,12 +203,11 @@ export class Collect {
                     // Cancel next collect
                     credential.next_collect_timestamp = Number.NaN;
 
-                    // If secret exists
-                    if (secret) {
-                        // Reset cookies and localStorage
-                        secret.cookies = null;
-                        secret.localStorage = null;
-                    }
+                    // Reset cookies and localStorage
+                    const secret = credential.getSecret();
+                    await secret.setCookies(null);
+                    await secret.setLocalStorage(null);
+                    await secret.commit();
                 }
             }
             else if (err instanceof MaintenanceError) {
@@ -253,12 +241,6 @@ export class Collect {
             if (credential) {
                 // Commit credential
                 await credential.commit();
-            }
-
-            // If secret, collector, credential and user exists
-            if (secret && collector && credential && user) {
-                // Get cookies from error
-                await SecretManagerFactory.getSecretManager().updateSecret(credential.secret_manager_id, `${user.customer_id}_${user.id}_${collector.config.id}`, secret);
             }
         }
     }

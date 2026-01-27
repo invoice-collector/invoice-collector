@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Location } from '../proxy/abstractProxy';
-import { Secret } from '../secret_manager/abstractSecretManager';
+import { Secret } from '../model/secret';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { WebSocketServer } from '../websocket/webSocketServer';

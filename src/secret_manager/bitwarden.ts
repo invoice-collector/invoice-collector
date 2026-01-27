@@ -1,6 +1,7 @@
 import { BitwardenClient, ClientSettings, DeviceType, LogLevel } from "@bitwarden/sdk-napi";
-import { AbstractSecretManager, Secret } from "./abstractSecretManager";
+import { AbstractSecretManager } from "./abstractSecretManager";
 import * as utils from "../utils";
+import { Secret } from "../model/secret";
 
 export class Bitwarden extends AbstractSecretManager {
 
@@ -36,20 +37,13 @@ export class Bitwarden extends AbstractSecretManager {
         }
     }
 
-    // SECRETS
-
-    async addSecret(key: string, secret: Secret): Promise<string> {
-        try {
-            // JSON secret before sending
-            const stringSecret: string = JSON.stringify(secret);
-            return (await this.client.secrets().create(this.organizationId, key, stringSecret, "", [this.projectId])).id;
-        }
-        catch (err) {
-            throw new Error(`Failed to add secret ${key}`, { cause: err });
-        }
+    async disconnect(): Promise<void> {
+        // No explicit disconnect method in Bitwarden SDK
     }
 
-    async getSecret(id: string): Promise<any> {
+    // SECRETS
+
+    async getValue(id: string): Promise<any> {
         try {
             const secret = await this.client.secrets().get(id);
             // Parse JSON secret before returning
@@ -60,14 +54,26 @@ export class Bitwarden extends AbstractSecretManager {
         }
     }
 
-    async updateSecret(id: string, key: string, secret: Secret): Promise<string> {
+    async createSecret(secret: Secret): Promise<Secret> {
         try {
             // JSON secret before sending
-            const stringSecret: string = JSON.stringify(secret);
-            return (await this.client.secrets().update(this.organizationId, id, key, stringSecret, "", [this.projectId])).id;
+            const secretValue: string = JSON.stringify(secret.value);
+            secret.id = (await this.client.secrets().create(this.organizationId, secret.key, secretValue, "", [this.projectId])).id;
+            return secret;
         }
         catch (err) {
-            throw new Error(`Failed to update secret ${id}`, { cause: err });
+            throw new Error(`Failed to create secret ${secret.key}`, { cause: err });
+        }
+    }
+
+    async updateSecret(secret: Secret): Promise<void> {
+        try {
+            // JSON secret before sending
+            const secretValue: string = JSON.stringify(secret.value);
+            await this.client.secrets().update(this.organizationId, secret.id, secret.key, secretValue, "", [this.projectId]);
+        }
+        catch (err) {
+            throw new Error(`Failed to update secret ${secret.id}`, { cause: err });
         }
     }
 

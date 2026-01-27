@@ -1,5 +1,5 @@
 import { Location } from '../proxy/abstractProxy';
-import { Secret } from '../secret_manager/abstractSecretManager';
+import { Secret } from '../model/secret';
 import { TwofaPromise } from '../collect/twofaPromise';
 import { State } from '../model/state';
 import { AbstractCollector, CompleteInvoice, Config } from './abstractCollector';
@@ -27,7 +27,8 @@ export abstract class V2Collector<C extends Config> extends AbstractCollector<C>
 
         // Check if a mandatory field is missing
         for (const [key, value] of Object.entries(this.config.params)) {
-            if (value.mandatory && !secret.params[key]) {
+            const secretParams = await secret.getParams();
+            if (value.mandatory && !secretParams[key]) {
                 throw new AuthenticationError('i18n.collectors.all.missing_param', this);
             }
         }

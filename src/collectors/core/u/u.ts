@@ -71,7 +71,7 @@ export class UCollector extends WebCollector {
         }
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Go to orders page
         await driver.goto('https://www.coursesu.com/mon-compte/mes-commandes');
 
@@ -81,15 +81,15 @@ export class UCollector extends WebCollector {
         // TODO : Implement the rest of the collector
     }
      
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         throw new UnfinishedCollectorError(this);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         throw new UnfinishedCollectorError(this);
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         throw new UnfinishedCollectorError(this);
     }
 }

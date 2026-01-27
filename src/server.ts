@@ -1,5 +1,5 @@
 import { DatabaseFactory } from './database/databaseFactory';
-import { Secret } from './secret_manager/abstractSecretManager';
+import { Secret } from './model/secret';
 import { SecretManagerFactory } from './secret_manager/secretManagerFactory';
 import { OauthError, MissingField, MissingParams, StatusError, AuthenticationBearerError } from './error';
 import { generate_token } from './utils';
@@ -679,13 +679,15 @@ export class Server {
             throw new StatusError(`Credential limit reached. Max credentials: ${customer.plan.maxCredentials}`, 403);
         }
 
-        // Add credential to Secure Storage
-        const secret: Secret = {
+        // Create secret
+        const secret = new Secret(`${user.id}_${collector.config.id}`, {
             params,
             cookies: null,
             localStorage: null
-        }
-        const secret_manager_id = await SecretManagerFactory.getSecretManager().addSecret(`${user.customer_id}_${user.id}_${collector.config.id}`, secret);
+        });
+
+        // Create secret in Secure Storage
+        await secret.commit();
 
         // Create credential
         const now = Date.now();
@@ -693,7 +695,7 @@ export class Server {
             user.id,
             collector.config.id,
             note,
-            secret_manager_id,
+            secret.id,
             now,
             download_from_timestamp ?? now
         );
@@ -840,9 +842,6 @@ export class Server {
         if (credential.user_id != user.id) {
             throw new StatusError(`Credential with id "${id}" does not belong to user.`, 403);
         }
-
-        // Delete credential from Secure Storage
-        await SecretManagerFactory.getSecretManager().deleteSecret(credential.secret_manager_id);
 
         // Delete credential
         await credential.delete();

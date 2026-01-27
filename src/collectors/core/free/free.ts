@@ -57,16 +57,16 @@ export class FreeCollector extends WebCollector {
         }
     }
 
-    async navigate( driver: Driver, params: any ): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Go to invoices
         await driver.leftClick(FreeSelectors.BUTTON_INVOICES);
     }
 
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(FreeSelectors.CONTAINER_INVOICE);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice> {
+    async data(driver: Driver, element: Element): Promise<Invoice> {
         const downloadButton = await element.getElement(FreeSelectors.BUTTON_DOWNLOAD);
         const link = await element.getAttribute(FreeSelectors.BUTTON_DOWNLOAD, "href");
         const amount = await element.getAttribute(FreeSelectors.CONTAINER_AMOUNT, "textContent");
@@ -95,7 +95,7 @@ export class FreeCollector extends WebCollector {
         };
     }
 
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         return [await this.download_link(driver, invoice.link)];
     }
 }

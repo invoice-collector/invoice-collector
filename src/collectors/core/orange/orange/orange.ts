@@ -41,7 +41,7 @@ export class OrangeCollector extends OrangeCommonCollector {
         super(OrangeCollector.CONFIG);
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Refuse cookies
         await driver.leftClick(OrangeSelectors.BUTTON_REFUSE_COOKIES, { raiseException: false, timeout: 2000});
 
@@ -63,11 +63,11 @@ export class OrangeCollector extends OrangeCommonCollector {
         }
     }
              
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(OrangeSelectors.CONTAINER_INVOICE);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 
@@ -88,7 +88,7 @@ export class OrangeCollector extends OrangeCommonCollector {
         };
     }
     
-    async download(driver: Driver, params: any, element: Element, invoice: Invoice): Promise<string[]> {
+    async download(driver: Driver, invoice: Invoice): Promise<string[]> {
         // Click on element
         await invoice.downloadButton.leftClick();
 

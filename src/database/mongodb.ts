@@ -8,6 +8,7 @@ import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
+import { Secret } from "../model/secret";
 
 export class MongoDB extends AbstractDatabase {
 
@@ -176,7 +177,7 @@ export class MongoDB extends AbstractDatabase {
 
     // USER
 
-    async getUsers(customer_id: string ): Promise<User[]> {
+    async getUsers(customer_id: string): Promise<User[]> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
@@ -337,7 +338,7 @@ export class MongoDB extends AbstractDatabase {
                 document.user_id.toString(),
                 document.collector_id,
                 document.note,
-                document.secret_manager_id,
+                document.secret_id,
                 document.create_timestamp,
                 document.download_from_timestamp,
                 document.last_collect_timestamp,
@@ -364,7 +365,7 @@ export class MongoDB extends AbstractDatabase {
             document.user_id.toString(),
             document.collector_id,
             document.note,
-            document.secret_manager_id,
+            document.secret_id,
             document.create_timestamp,
             document.download_from_timestamp,
             document.last_collect_timestamp,
@@ -384,7 +385,7 @@ export class MongoDB extends AbstractDatabase {
             user_id: new ObjectId(credential.user_id),
             collector_id: credential.collector_id,
             note: credential.note,
-            secret_manager_id: credential.secret_manager_id,
+            secret_id: credential.secret_id,
             create_timestamp: credential.create_timestamp,
             download_from_timestamp: credential.download_from_timestamp,
             last_collect_timestamp: credential.last_collect_timestamp,
@@ -406,7 +407,7 @@ export class MongoDB extends AbstractDatabase {
                 user_id: new ObjectId(credential.user_id),
                 collector_id: credential.collector_id,
                 note: credential.note,
-                secret_manager_id: credential.secret_manager_id,
+                secret_id: credential.secret_id,
                 last_collect_timestamp: credential.last_collect_timestamp,
                 next_collect_timestamp: credential.next_collect_timestamp,
                 invoices: credential.invoices,

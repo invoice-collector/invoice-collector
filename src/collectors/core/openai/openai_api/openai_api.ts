@@ -41,7 +41,7 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         super(OpenaiApiCollector.CONFIG);
     }
 
-    async navigate(driver: Driver, params: any): Promise<void> {
+    async navigate(driver: Driver): Promise<void> {
         // Wait for billing button
         await driver.getElement(OpenaiSelectors.BUTTON_SETTINGS, { timeout: 5000 });
         // Go to invoices page
@@ -52,11 +52,11 @@ export class OpenaiApiCollector extends OpenaiCommonCollector {
         return await driver.getElement(OpenaiSelectors.CONTAINER_NO_INVOICE, { raiseException: false, timeout: 5000 }) != null;
     }
 
-    async getInvoices(driver: Driver, params: any): Promise<Element[]> {
+    async getInvoices(driver: Driver): Promise<Element[]> {
         return await driver.getElements(OpenaiSelectors.CONTAINER_INVOICE);
     }
 
-    async data(driver: Driver, params: any, element: Element): Promise<Invoice | null> {
+    async data(driver: Driver, element: Element): Promise<Invoice | null> {
         // Get url before map
         const link = driver.url();
 
