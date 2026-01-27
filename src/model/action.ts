@@ -162,6 +162,8 @@ export class MiddleClickAction extends Action<MiddleClickContext, void> {
         } catch (error) {
             // If error occurs, it may be because middle click is not supported and a simple click was already performed
         }
+        // Set element to undefined to avoid reuse for next actions
+        context.element = undefined;
     }
 
     toString(): string {
