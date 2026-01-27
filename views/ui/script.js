@@ -639,7 +639,7 @@ async function showProgress(credential_id, wsPath) {
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
             };
         }
-        else if (parsedData.type === 'interactive' && parsedData.reason === "open" ) {
+        else if (parsedData.type === 'interactive' && parsedData.reason === "open") {
             document.getElementById('interactive-instructions').textContent = parsedData.instructions;
             containerCanvas.hidden = false;
             document.getElementById('progress-container').classList.add('ic-hidden');

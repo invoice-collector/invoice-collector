@@ -78,7 +78,7 @@ export class GoogleOauth2 {
         if(driver.url().includes("accounts.google.com") && driver.url().includes("signin/challenge")) {
             // Select 2FA method if selection page is displayed
             if(driver.url().includes("signin/challenge/selection")) {
-                await driver.leftClick(GoogleOauth2Selectors.BUTTON_2FA_METHOD, { navigation: false } );
+                await driver.leftClick(GoogleOauth2Selectors.BUTTON_2FA_METHOD, { navigation: false });
             }
 
             // Get and return 2FA instructions

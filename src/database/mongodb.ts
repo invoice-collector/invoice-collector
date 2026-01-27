@@ -177,7 +177,7 @@ export class MongoDB extends AbstractDatabase {
 
     // USER
 
-    async getUsers(customer_id: string ): Promise<User[]> {
+    async getUsers(customer_id: string): Promise<User[]> {
         if (!this.db) {
             throw new Error("Database is not connected");
         }
