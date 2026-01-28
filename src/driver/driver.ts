@@ -117,6 +117,7 @@ export class Driver {
             const newPage = await target.page();
             if (newPage && this.page !== newPage) {
                 this.page = newPage;
+                this.page.bringToFront();
             }
         });
 
