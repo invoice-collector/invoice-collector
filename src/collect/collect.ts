@@ -10,6 +10,7 @@ import { RegistryServer } from "../registryServer";
 import { TwofaPromise } from "./twofaPromise";
 import { WebSocketServer } from '../websocket/webSocketServer';
 import * as utils from "../utils";
+import { Secret } from "../model/secret";
 
 export class Collect {
 
@@ -27,6 +28,7 @@ export class Collect {
     async start(): Promise<void> {
         let credential: IcCredential|null = null;
         let user: User|null = null;
+        let secret: Secret|null = null;
         let collector: AbstractCollector<Config>|null = null;
         let customer: Customer|null = null;
 
@@ -56,6 +58,9 @@ export class Collect {
                 credential.state.update(State._1_PREPARING);
                 this.webSocketServer?.sendState(State._1_PREPARING);
 
+                // Get secret from secret_manager_id
+                secret = credential.getSecret();
+
                 // Get collector from collector_id
                 collector = await CollectorLoader.get(credential.collector_id);
 
@@ -73,7 +78,7 @@ export class Collect {
                     this.state,
                     this.twofa_promise,
                     this.webSocketServer,
-                    credential.getSecret(),
+                    secret,
                     credential.download_from_timestamp,
                     credential.invoices,
                     user.location,
@@ -204,10 +209,8 @@ export class Collect {
                     credential.next_collect_timestamp = Number.NaN;
 
                     // Reset cookies and localStorage
-                    const secret = credential.getSecret();
-                    await secret.setCookies(null);
-                    await secret.setLocalStorage(null);
-                    await secret.commit();
+                    await secret?.setCookies(null);
+                    await secret?.setLocalStorage(null);
                 }
             }
             else if (err instanceof MaintenanceError) {
@@ -237,11 +240,10 @@ export class Collect {
             }
         }
         finally {
-            // If credential exists
-            if (credential) {
-                // Commit credential
-                await credential.commit();
-            }
+            // Commit credential
+            await credential?.commit();
+            // Commit secret
+            await secret?.commit();
         }
     }
 }

@@ -218,8 +218,6 @@ export abstract class WebCollector extends V2Collector<WebConfig> {
             await secret.setCookies(await driver.getCookies(this.config.autoLogin?.cookieNames));
             // Update secret.localStorage
             await secret.setLocalStorage(await driver.getLocalStorage(this.config.autoLogin?.localStorageKeys));
-            // Commit secret
-            await secret.commit();
 
             // Restore previous load images value
             if(webSocketServer) {
