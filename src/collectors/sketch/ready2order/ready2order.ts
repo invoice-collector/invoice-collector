@@ -29,7 +29,7 @@ export class Ready2orderCollector extends SketchCollector {
         loginUrl: "https://my.ready2order.at/#views/settings.php?id=3",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

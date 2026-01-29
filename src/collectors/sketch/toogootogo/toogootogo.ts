@@ -29,7 +29,7 @@ export class ToogootogoCollector extends SketchCollector {
         loginUrl: "https://toogoodtogo.fr/fr/business/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KitclopeCollector extends SketchCollector {
         loginUrl: "https://www.kitclope.fr/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

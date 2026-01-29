@@ -29,7 +29,7 @@ export class RightBloggerCollector extends SketchCollector {
         loginUrl: "https://rightblogger.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

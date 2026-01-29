@@ -29,7 +29,7 @@ export class FontshopCollector extends SketchCollector {
         loginUrl: "https://www.fontshop.com/buy/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

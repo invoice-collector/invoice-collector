@@ -29,7 +29,7 @@ export class GithubEnterpriseCollector extends SketchCollector {
         loginUrl: "https://enterprise.github.com/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

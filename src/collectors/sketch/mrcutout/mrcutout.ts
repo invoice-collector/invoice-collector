@@ -29,7 +29,7 @@ export class MrcutoutCollector extends SketchCollector {
         loginUrl: "https://www.mrcutout.com/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

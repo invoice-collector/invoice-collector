@@ -29,7 +29,7 @@ export class BestServiceCollector extends SketchCollector {
         loginUrl: "https://account.bestservice.com/en/account/orders.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

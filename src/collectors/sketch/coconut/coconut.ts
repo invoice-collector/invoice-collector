@@ -29,7 +29,7 @@ export class CoconutCollector extends SketchCollector {
         loginUrl: "https://app-eu-west-1.coconut.co/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

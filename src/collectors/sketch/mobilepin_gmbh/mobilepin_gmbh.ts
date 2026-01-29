@@ -29,7 +29,7 @@ export class MobilepinGmbhCollector extends SketchCollector {
         loginUrl: "https://mobilepin.de/invoices-all",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

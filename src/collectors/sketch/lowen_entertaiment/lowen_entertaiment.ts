@@ -29,7 +29,7 @@ export class LowenEntertaimentCollector extends SketchCollector {
         loginUrl: "https://www.loewen-kundenportal.de/mein-konto/meine-rechnungen/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AssemblaCollector extends SketchCollector {
         loginUrl: "https://www.assembla.com/login#transactionsList",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

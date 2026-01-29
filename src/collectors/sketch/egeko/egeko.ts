@@ -29,7 +29,7 @@ export class EgekoCollector extends SketchCollector {
         loginUrl: "http://www.egeko.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

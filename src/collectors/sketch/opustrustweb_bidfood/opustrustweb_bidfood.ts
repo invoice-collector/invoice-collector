@@ -29,7 +29,7 @@ export class OpustrustwebBidfoodCollector extends SketchCollector {
         loginUrl: "https://www.opustrustweb.co.uk/bidfood/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

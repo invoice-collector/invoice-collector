@@ -29,7 +29,7 @@ export class MietmeileCollector extends SketchCollector {
         loginUrl: "https://www.mietmeile.de/intern/konto/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

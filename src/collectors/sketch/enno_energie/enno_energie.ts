@@ -29,7 +29,7 @@ export class EnnoEnergieCollector extends SketchCollector {
         loginUrl: "https://www.enno-energie.de/kunden-login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Usine23ComCollector extends SketchCollector {
         loginUrl: "https://www.usine23.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

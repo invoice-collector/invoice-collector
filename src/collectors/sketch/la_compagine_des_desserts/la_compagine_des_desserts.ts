@@ -29,7 +29,7 @@ export class LaCompagineDesDessertsCollector extends SketchCollector {
         loginUrl: "https://www.compagniedesdesserts.com/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

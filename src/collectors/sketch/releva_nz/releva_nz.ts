@@ -29,7 +29,7 @@ export class RelevaNzCollector extends SketchCollector {
         loginUrl: "https://frontend.releva.nz/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

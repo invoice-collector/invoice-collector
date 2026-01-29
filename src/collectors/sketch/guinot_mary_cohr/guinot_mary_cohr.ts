@@ -29,7 +29,7 @@ export class GuinotMaryCohrCollector extends SketchCollector {
         loginUrl: "https://portailclients.guinot.com/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

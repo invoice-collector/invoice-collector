@@ -29,7 +29,7 @@ export class WisoMeinBuroWebCollector extends SketchCollector {
         loginUrl: "https://app.meinbuero.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

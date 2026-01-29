@@ -29,7 +29,7 @@ export class StapeCollector extends SketchCollector {
         loginUrl: "https://stape.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

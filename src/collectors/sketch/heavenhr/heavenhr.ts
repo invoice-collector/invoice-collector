@@ -29,7 +29,7 @@ export class HeavenhrCollector extends SketchCollector {
         loginUrl: "https://www.heavenhr.com/payroll/overview/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

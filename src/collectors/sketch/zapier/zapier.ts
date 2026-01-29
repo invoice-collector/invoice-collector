@@ -29,7 +29,7 @@ export class ZapierCollector extends SketchCollector {
         loginUrl: "https://zapier.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

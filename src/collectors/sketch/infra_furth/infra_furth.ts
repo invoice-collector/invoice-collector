@@ -29,7 +29,7 @@ export class InfraFurthCollector extends SketchCollector {
         loginUrl: "https://www.infra-fuerth.de/privatkunden/kontakt/kundenportal/einstieg/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

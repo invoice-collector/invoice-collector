@@ -29,7 +29,7 @@ export class GroupeAprilContratsEtCourriersEntrepriseCollector extends SketchCol
         loginUrl: "https://espace-entreprises-collectives.april-sante-prevoyance.fr/Authentification/tabid/62/Default.aspx?returnurl=%2fDefault.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class C2CircleCollector extends SketchCollector {
         loginUrl: "https://www.c2-circle.com/cyberport/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

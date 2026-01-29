@@ -29,7 +29,7 @@ export class GrundeigentumVerlagCollector extends SketchCollector {
         loginUrl: "https://premium.grundeigentum-verlag.de/zugang/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

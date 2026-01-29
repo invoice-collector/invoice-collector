@@ -29,7 +29,7 @@ export class XtentoCollector extends SketchCollector {
         loginUrl: "https://www.xtento.com/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

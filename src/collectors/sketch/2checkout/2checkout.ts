@@ -29,7 +29,7 @@ export class _2checkoutCollector extends SketchCollector {
         loginUrl: "https://secure.2co.com/myaccount/view_order/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

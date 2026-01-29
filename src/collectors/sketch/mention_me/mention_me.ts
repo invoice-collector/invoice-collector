@@ -29,7 +29,7 @@ export class MentionMeCollector extends SketchCollector {
         loginUrl: "https://mention-me.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

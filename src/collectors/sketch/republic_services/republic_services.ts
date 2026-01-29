@@ -29,7 +29,7 @@ export class RepublicServicesCollector extends SketchCollector {
         loginUrl: "https://www.republicservices.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TheMakeryCollector extends SketchCollector {
         loginUrl: "https://redesign.themakery.de/workshopprovider/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SfrBusinessCollector extends SketchCollector {
         loginUrl: "https://www.sfrbusiness.fr/espace-client/portail/#/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

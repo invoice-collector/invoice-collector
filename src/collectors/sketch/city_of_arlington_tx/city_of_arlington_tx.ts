@@ -29,7 +29,7 @@ export class CityOfArlingtonTxCollector extends SketchCollector {
         loginUrl: "https://waterbilling.arlingtontx.gov/app/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

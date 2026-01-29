@@ -29,7 +29,7 @@ export class ProductlaneCollector extends SketchCollector {
         loginUrl: "https://productlane.com/settings/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

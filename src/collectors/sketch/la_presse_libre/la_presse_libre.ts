@@ -29,7 +29,7 @@ export class LaPresseLibreCollector extends SketchCollector {
         loginUrl: "https://beta.lapresselibre.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

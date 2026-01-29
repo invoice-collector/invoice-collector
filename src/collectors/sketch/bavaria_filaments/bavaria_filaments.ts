@@ -29,7 +29,7 @@ export class BavariaFilamentsCollector extends SketchCollector {
         loginUrl: "https://www.bavaria-filaments.com//_api/invoice/5be32b7a-b921-448e-9c3c-b8af81a67e7b:9c7bae06-4ba7-43d6-a734-895fc27d2c42/view?token=e85acb71-f8eb-468c-a0e5-4c28229c4f60",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

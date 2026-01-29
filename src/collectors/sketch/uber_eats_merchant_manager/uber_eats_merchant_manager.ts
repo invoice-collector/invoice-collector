@@ -29,7 +29,7 @@ export class UberEatsMerchantManagerCollector extends SketchCollector {
         loginUrl: "https://merchants.ubereats.com/manager",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

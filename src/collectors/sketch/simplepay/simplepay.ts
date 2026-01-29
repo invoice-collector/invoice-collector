@@ -29,7 +29,7 @@ export class SimplepayCollector extends SketchCollector {
         loginUrl: "https://www.simplepay.co.za/signup",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

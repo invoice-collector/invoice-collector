@@ -29,7 +29,7 @@ export class HelpScoutCollector extends SketchCollector {
         loginUrl: "https://secure.helpscout.net/members/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

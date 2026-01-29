@@ -29,7 +29,7 @@ export class CurroMedCollector extends SketchCollector {
         loginUrl: "https://www.curromed-shop.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

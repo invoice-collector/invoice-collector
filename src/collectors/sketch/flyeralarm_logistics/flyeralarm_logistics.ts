@@ -29,7 +29,7 @@ export class FlyeralarmLogisticsCollector extends SketchCollector {
         loginUrl: "https://www.flyeralarm-postaktuell.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

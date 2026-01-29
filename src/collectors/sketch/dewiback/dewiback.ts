@@ -29,7 +29,7 @@ export class DewibackCollector extends SketchCollector {
         loginUrl: "https://shop.dewiback.de/de/account/?action=document_archive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

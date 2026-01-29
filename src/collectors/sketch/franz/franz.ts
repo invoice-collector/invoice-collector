@@ -29,7 +29,7 @@ export class FranzCollector extends SketchCollector {
         loginUrl: "https://meetfranz.com/user/invoices?utm_source=app&utm_medium=account_dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

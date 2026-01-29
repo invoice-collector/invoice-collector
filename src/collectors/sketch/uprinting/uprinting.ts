@@ -29,7 +29,7 @@ export class UprintingCollector extends SketchCollector {
         loginUrl: "https://portal.uprinting.com/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

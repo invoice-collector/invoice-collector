@@ -29,7 +29,7 @@ export class FlexwebhostingNlCollector extends SketchCollector {
         loginUrl: "https://cp.flexwebhosting.nl/login?ruri=aHR0cHM6Ly9jcC5mbGV4d2ViaG9zdGluZy5ubC8=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PhiladelphiaInsuranceCompaniesCollector extends SketchCollector {
         loginUrl: "https://www.phly.com/myphly/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

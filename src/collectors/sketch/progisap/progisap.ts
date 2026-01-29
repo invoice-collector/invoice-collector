@@ -29,7 +29,7 @@ export class ProgisapCollector extends SketchCollector {
         loginUrl: "http://www.progisap.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

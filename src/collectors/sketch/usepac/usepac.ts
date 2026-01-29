@@ -29,7 +29,7 @@ export class UsepacCollector extends SketchCollector {
         loginUrl: "https://www.usepac.de/login.html?action=history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

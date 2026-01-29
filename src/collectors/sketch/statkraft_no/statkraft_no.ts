@@ -29,7 +29,7 @@ export class StatkraftNoCollector extends SketchCollector {
         loginUrl: "http://www.statkraft.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

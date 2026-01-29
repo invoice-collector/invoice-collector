@@ -29,7 +29,7 @@ export class YellowImagesCollector extends SketchCollector {
         loginUrl: "https://yellowimages.com/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

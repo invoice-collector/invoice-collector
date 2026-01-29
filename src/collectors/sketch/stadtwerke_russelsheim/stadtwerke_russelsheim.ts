@@ -29,7 +29,7 @@ export class StadtwerkeRusselsheimCollector extends SketchCollector {
         loginUrl: "https://privatkundenportal.net/stadtwerke-ruesselsheim/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

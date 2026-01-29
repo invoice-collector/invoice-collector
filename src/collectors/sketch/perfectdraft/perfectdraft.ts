@@ -29,7 +29,7 @@ export class PerfectdraftCollector extends SketchCollector {
         loginUrl: "https://www.perfectdraft.com/de-de/sales/order/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

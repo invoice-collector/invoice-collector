@@ -29,7 +29,7 @@ export class WherebyCollector extends SketchCollector {
         loginUrl: "https://whereby.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

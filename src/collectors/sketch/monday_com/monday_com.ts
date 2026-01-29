@@ -29,7 +29,7 @@ export class MondayComCollector extends SketchCollector {
         loginUrl: "https://auth.monday.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

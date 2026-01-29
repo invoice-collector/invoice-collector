@@ -29,7 +29,7 @@ export class AdivinPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.adivin.com/index.php?idi=es#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

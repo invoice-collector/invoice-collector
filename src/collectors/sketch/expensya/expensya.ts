@@ -29,7 +29,7 @@ export class ExpensyaCollector extends SketchCollector {
         loginUrl: "https://app.expensya.com/portal/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

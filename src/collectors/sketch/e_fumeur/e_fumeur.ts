@@ -29,7 +29,7 @@ export class EFumeurCollector extends SketchCollector {
         loginUrl: "https://www.e-fumeur.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

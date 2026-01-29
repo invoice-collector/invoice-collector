@@ -29,7 +29,7 @@ export class AweberCollector extends SketchCollector {
         loginUrl: "https://www.aweber.com/login.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

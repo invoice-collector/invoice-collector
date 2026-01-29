@@ -29,7 +29,7 @@ export class BsiCollector extends SketchCollector {
         loginUrl: "https://portail-groupe-sequences.artis.fr/ArtisWebBsi/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=1Acv5ijjkTIaRZO9&typeLicence=BSI",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

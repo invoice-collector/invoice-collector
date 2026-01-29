@@ -29,7 +29,7 @@ export class GhostCollector extends SketchCollector {
         loginUrl: "https://ghost.org/signin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

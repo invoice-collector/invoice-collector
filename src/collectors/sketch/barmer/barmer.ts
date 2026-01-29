@@ -29,7 +29,7 @@ export class BarmerCollector extends SketchCollector {
         loginUrl: "https://barmer-webmail.t-systems-service.com/Barmer/login/webmailLogin.xhtml?username=fibu@haus-im-warndt.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

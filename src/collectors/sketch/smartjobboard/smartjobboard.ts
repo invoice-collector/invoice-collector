@@ -29,7 +29,7 @@ export class SmartjobboardCollector extends SketchCollector {
         loginUrl: "https://www.smartjobboard.com/ca/clientarea.php?action=products",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

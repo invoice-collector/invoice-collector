@@ -29,7 +29,7 @@ export class JweilandNetCollector extends SketchCollector {
         loginUrl: "https://jweiland83.premium-admin.eu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AmazonHubCollector extends SketchCollector {
         loginUrl: "https://hub.amazon.de/partner/earnings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

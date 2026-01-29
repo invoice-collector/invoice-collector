@@ -29,7 +29,7 @@ export class ShiptimeCollector extends SketchCollector {
         loginUrl: "https://my.shiptime.com/shiptime.html?locale=en#nav.Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

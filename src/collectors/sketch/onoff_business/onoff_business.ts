@@ -29,7 +29,7 @@ export class OnoffBusinessCollector extends SketchCollector {
         loginUrl: "https://web.onoffbusiness.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

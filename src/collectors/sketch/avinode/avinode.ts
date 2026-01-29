@@ -29,7 +29,7 @@ export class AvinodeCollector extends SketchCollector {
         loginUrl: "https://marketplace.avinode.com/industry/mvc/billing/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

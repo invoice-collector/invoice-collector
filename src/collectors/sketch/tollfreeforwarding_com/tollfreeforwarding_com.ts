@@ -29,7 +29,7 @@ export class TollfreeforwardingComCollector extends SketchCollector {
         loginUrl: "https://tollfreeforwarding.com/secure/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

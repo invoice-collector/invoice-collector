@@ -29,7 +29,7 @@ export class GanAssurancesCollector extends SketchCollector {
         loginUrl: "https://authentification.ganassurances.fr/cas/login?service=https%3A%2F%2Fespaceclient.ganassurances.fr%2Fwps%2Fmyportal%2FTableauDeBord%3Fidcr%3D98",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Km3Collector extends SketchCollector {
         loginUrl: "https://www.internet.km3.de/Login/007-28062/007-28062/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

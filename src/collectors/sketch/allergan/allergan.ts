@@ -29,7 +29,7 @@ export class AllerganCollector extends SketchCollector {
         loginUrl: "https://www.allergan.de/de-de/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

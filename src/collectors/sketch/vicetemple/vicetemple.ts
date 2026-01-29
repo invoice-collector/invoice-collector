@@ -29,7 +29,7 @@ export class VicetempleCollector extends SketchCollector {
         loginUrl: "https://vicetemple.net/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CocaColaHbcCollector extends SketchCollector {
         loginUrl: "https://coca-colahellenic.com/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

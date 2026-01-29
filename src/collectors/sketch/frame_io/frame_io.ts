@@ -29,7 +29,7 @@ export class FrameIoCollector extends SketchCollector {
         loginUrl: "https://app.frame.io/welcome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

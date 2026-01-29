@@ -29,7 +29,7 @@ export class ErnenputschCollector extends SketchCollector {
         loginUrl: "https://kundenportal.transporte-ernenputsch.de/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

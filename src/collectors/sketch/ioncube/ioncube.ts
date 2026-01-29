@@ -29,7 +29,7 @@ export class IoncubeCollector extends SketchCollector {
         loginUrl: "https://www.ioncube.com/main.php?c=account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

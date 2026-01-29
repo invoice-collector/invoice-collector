@@ -29,7 +29,7 @@ export class YellowbrickDeCollector extends SketchCollector {
         loginUrl: "https://my.yellowbrick.de/MyYellowbrick/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

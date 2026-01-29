@@ -29,7 +29,7 @@ export class AfoneMobileCollector extends SketchCollector {
         loginUrl: "https://m2m.afonemobile.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BookingComExtranetCollector extends SketchCollector {
         loginUrl: "https://admin.booking.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LOrleannaiseDesEauxCollector extends SketchCollector {
         loginUrl: "https://leaudorleansmetropole.toutsurmoneau.fr/mon-compte-en-ligne/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

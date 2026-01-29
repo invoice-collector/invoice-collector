@@ -29,7 +29,7 @@ export class PjtserviceDkCollector extends SketchCollector {
         loginUrl: "http://www.pjtservice.dk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

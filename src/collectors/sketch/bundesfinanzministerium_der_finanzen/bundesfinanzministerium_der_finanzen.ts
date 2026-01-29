@@ -29,7 +29,7 @@ export class BundesfinanzministeriumDerFinanzenCollector extends SketchCollector
         loginUrl: "https://www.formulare-bfinv.de/ffw/form/display.do?%24context=47338A5590A07F201351",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

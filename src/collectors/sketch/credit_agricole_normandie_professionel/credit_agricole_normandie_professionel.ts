@@ -29,7 +29,7 @@ export class CreditAgricoleNormandieProfessionelCollector extends SketchCollecto
         loginUrl: "https://www.credit-agricole.fr/ca-normandie/entreprise/operations/documents/e-documents.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

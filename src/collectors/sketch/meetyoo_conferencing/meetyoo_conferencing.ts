@@ -29,7 +29,7 @@ export class MeetyooConferencingCollector extends SketchCollector {
         loginUrl: "https://portal.meetyoo.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

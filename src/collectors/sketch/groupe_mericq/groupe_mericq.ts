@@ -29,7 +29,7 @@ export class GroupeMericqCollector extends SketchCollector {
         loginUrl: "https://new.mericq.com/commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

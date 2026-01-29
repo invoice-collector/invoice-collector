@@ -29,7 +29,7 @@ export class OamtcCollector extends SketchCollector {
         loginUrl: "https://www.oeamtc.at/mitgliedschaft/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FuzeCollector extends SketchCollector {
         loginUrl: "https://portal.thinkingphones.com/jetspeed/portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

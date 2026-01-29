@@ -29,7 +29,7 @@ export class TaubenreutherCollector extends SketchCollector {
         loginUrl: "https://www.offroad24.de/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

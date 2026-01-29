@@ -29,7 +29,7 @@ export class AldiGruneEnergieCollector extends SketchCollector {
         loginUrl: "https://click.123energie.de/123/getBillInit.sap",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

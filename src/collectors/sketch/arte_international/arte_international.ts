@@ -28,7 +28,7 @@ export class ArteInternationalCollector extends SketchCollector {
         loginUrl: "https://account.arte-international.com/fr/login?service=front",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

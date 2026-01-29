@@ -29,7 +29,7 @@ export class BzBernerZeitungCollector extends SketchCollector {
         loginUrl: "https://epaper.bernerzeitung.ch",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

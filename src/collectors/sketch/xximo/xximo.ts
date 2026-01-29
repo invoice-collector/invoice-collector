@@ -29,7 +29,7 @@ export class XximoCollector extends SketchCollector {
         loginUrl: "https://my.xximo.com/xximo-nl/nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class XolphinCollector extends SketchCollector {
         loginUrl: "https://www.xolphin.com/cp/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

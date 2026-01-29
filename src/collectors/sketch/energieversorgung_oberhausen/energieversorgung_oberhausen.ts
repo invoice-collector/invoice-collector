@@ -29,7 +29,7 @@ export class EnergieversorgungOberhausenCollector extends SketchCollector {
         loginUrl: "https://kundenportal.evo-energie.de/evo/index.html#/invoiceOverview/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

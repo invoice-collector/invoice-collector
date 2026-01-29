@@ -29,7 +29,7 @@ export class MediafireCollector extends SketchCollector {
         loginUrl: "https://www.mediafire.com/ssl_login.php?type=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

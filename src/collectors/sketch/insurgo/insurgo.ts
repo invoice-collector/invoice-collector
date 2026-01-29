@@ -29,7 +29,7 @@ export class InsurgoCollector extends SketchCollector {
         loginUrl: "https://hd-makler.insurgo.cloud/dokumente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

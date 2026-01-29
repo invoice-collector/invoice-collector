@@ -29,7 +29,7 @@ export class MutuelleCpmsCollector extends SketchCollector {
         loginUrl: "https://www.cpms.fr/connexion-particulier/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

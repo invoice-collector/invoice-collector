@@ -29,7 +29,7 @@ export class ZeplugCollector extends SketchCollector {
         loginUrl: "https://zeplug-global.my.site.com/zeplugcommunity/s/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

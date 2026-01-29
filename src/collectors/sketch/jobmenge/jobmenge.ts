@@ -29,7 +29,7 @@ export class JobmengeCollector extends SketchCollector {
         loginUrl: "https://www.jobmenge.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

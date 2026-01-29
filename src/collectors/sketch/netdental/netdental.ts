@@ -29,7 +29,7 @@ export class NetdentalCollector extends SketchCollector {
         loginUrl: "https://shop.netdental.de/de/mein-konto/rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

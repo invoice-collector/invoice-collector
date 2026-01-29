@@ -29,7 +29,7 @@ export class ManpowerCareerResourcesForIndividualsCollector extends SketchCollec
         loginUrl: "https://www.manpower.com/wps/portal/ManpowerUSA/career-resources",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

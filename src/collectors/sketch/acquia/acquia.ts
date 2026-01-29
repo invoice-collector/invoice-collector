@@ -29,7 +29,7 @@ export class AcquiaCollector extends SketchCollector {
         loginUrl: "https://accounts.acquia.com/account/1416806/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

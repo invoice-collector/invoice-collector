@@ -29,7 +29,7 @@ export class FreelancerDeCollector extends SketchCollector {
         loginUrl: "https://www.freelancer.de/login?goto=YjFiMzg4ZTQ5ODBlMDc2NDM1MDJmNTU4YjhmOTUyMTRodHRwczovL3d3dy5mcmVlbGFuY2VyLmNvbS9wYXltZW50cy90cmFuc2FjdGlvbnMucGhw",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

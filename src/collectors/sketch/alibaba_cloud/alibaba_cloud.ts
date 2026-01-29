@@ -29,7 +29,7 @@ export class AlibabaCloudCollector extends SketchCollector {
         loginUrl: "https://account.alibabacloud.com/login/login.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EkoPunktCollector extends SketchCollector {
         loginUrl: "https://www.eko-punkt.de/kundenportal-neukunden/dokumente/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

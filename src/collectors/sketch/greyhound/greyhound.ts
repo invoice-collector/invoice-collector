@@ -29,7 +29,7 @@ export class GreyhoundCollector extends SketchCollector {
         loginUrl: "https://greyhound-software.com/gcc/mybills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AndreMediaGroupCollector extends SketchCollector {
         loginUrl: "https://portal.andre-media.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

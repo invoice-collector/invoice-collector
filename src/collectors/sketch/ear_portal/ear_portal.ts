@@ -29,7 +29,7 @@ export class EarPortalCollector extends SketchCollector {
         loginUrl: "https://www.ear-system.de/ear-portal/#no-back",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

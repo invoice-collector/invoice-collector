@@ -29,7 +29,7 @@ export class LogiwayCollector extends SketchCollector {
         loginUrl: "https://www.logiway.de/shop/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

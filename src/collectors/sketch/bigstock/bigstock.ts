@@ -29,7 +29,7 @@ export class BigstockCollector extends SketchCollector {
         loginUrl: "https://www.bigstockphoto.com/de/account/payments/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TeamleaderCollector extends SketchCollector {
         loginUrl: "https://app.teamleader.eu/?gotologin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

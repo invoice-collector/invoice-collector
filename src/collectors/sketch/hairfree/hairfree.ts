@@ -29,7 +29,7 @@ export class HairfreeCollector extends SketchCollector {
         loginUrl: "https://hairfree.idop.de/shop/index.php?controller=history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

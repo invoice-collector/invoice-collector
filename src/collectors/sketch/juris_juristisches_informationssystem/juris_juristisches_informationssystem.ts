@@ -29,7 +29,7 @@ export class JurisJuristischesInformationssystemCollector extends SketchCollecto
         loginUrl: "https://juris.de/jportal/nav/index.jsp#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

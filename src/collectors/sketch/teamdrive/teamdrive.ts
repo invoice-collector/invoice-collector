@@ -29,7 +29,7 @@ export class TeamdriveCollector extends SketchCollector {
         loginUrl: "https://teamdrive.com/shop/?page=signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MangoMobiliteCollector extends SketchCollector {
         loginUrl: "https://espaceclient.aprr.fr/aprr/Pages/connexion.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

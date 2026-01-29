@@ -29,7 +29,7 @@ export class MagnalisterCollector extends SketchCollector {
         loginUrl: "https://www.magnalister.com/de/customer/login/check.do/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

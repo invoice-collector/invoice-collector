@@ -29,7 +29,7 @@ export class ConsorsfinanzCollector extends SketchCollector {
         loginUrl: "https://olb.consorsfinanz.de/web/homebanking/umsatze",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class QuadientCollector extends SketchCollector {
         loginUrl: "https://www.myquadient.fr/FR/fr/CustomerLogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

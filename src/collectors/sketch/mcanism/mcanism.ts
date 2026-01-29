@@ -29,7 +29,7 @@ export class McanismCollector extends SketchCollector {
         loginUrl: "https://skynet.mcanism.com/finance/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

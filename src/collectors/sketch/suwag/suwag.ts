@@ -29,7 +29,7 @@ export class SuwagCollector extends SketchCollector {
         loginUrl: "https://www.suewag.de/privatkunden/kundenvorteile/kundenportal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

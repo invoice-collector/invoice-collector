@@ -29,7 +29,7 @@ export class HelpjuiceCollector extends SketchCollector {
         loginUrl: "https://sdui.helpjuice.com/admin/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

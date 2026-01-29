@@ -29,7 +29,7 @@ export class KtmBikesCollector extends SketchCollector {
         loginUrl: "https://shop.ktm-bikes.at/ktm_de_de/sap_customer/listing/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

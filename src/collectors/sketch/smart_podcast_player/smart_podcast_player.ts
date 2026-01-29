@@ -29,7 +29,7 @@ export class SmartPodcastPlayerCollector extends SketchCollector {
         loginUrl: "https://my.smartpodcastplayer.com/login#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

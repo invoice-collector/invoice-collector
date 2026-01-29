@@ -29,7 +29,7 @@ export class EeCollector extends SketchCollector {
         loginUrl: "https://id.ee.co.uk/id/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

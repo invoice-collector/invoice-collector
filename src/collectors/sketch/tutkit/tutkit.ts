@@ -29,7 +29,7 @@ export class TutkitCollector extends SketchCollector {
         loginUrl: "https://www.tutkit.com/de/mein-konto/lizenz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

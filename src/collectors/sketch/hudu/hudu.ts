@@ -29,7 +29,7 @@ export class HuduCollector extends SketchCollector {
         loginUrl: "https://hq.hudu.com/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

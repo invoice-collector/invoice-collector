@@ -29,7 +29,7 @@ export class CicEntreprisesCollector extends SketchCollector {
         loginUrl: "https://www.cic.fr/fr/banque/documentinternet.html?_tabi=C&a_tiers=1300007491864&_pid=SelectDocument&k_typePageDoc=DocsAutres",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

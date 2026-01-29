@@ -29,7 +29,7 @@ export class PrintographCollector extends SketchCollector {
         loginUrl: "https://www.printograph.com/user/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

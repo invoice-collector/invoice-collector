@@ -29,7 +29,7 @@ export class FattureInCloudItCollector extends SketchCollector {
         loginUrl: "https://www.fattureincloud.it/service/form/form-login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

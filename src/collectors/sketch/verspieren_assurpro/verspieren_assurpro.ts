@@ -29,7 +29,7 @@ export class VerspierenAssurproCollector extends SketchCollector {
         loginUrl: "https://assurpro.verspieren.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

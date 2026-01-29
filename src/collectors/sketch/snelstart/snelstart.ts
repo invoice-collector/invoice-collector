@@ -29,7 +29,7 @@ export class SnelstartCollector extends SketchCollector {
         loginUrl: "https://web.snelstart.nl/04b3cb89-79ad-44ae-b291-df5e389a191a/account/invoicedetails",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

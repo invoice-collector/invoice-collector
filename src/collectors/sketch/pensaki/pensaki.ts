@@ -29,7 +29,7 @@ export class PensakiCollector extends SketchCollector {
         loginUrl: "https://www.pensaki.com/de/my/shop/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

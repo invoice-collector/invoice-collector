@@ -29,7 +29,7 @@ export class ImportfromwebNodatanobusinessComCollector extends SketchCollector {
         loginUrl: "https://dashboard.nodatanobusiness.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

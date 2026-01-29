@@ -29,7 +29,7 @@ export class BrodosNetCollector extends SketchCollector {
         loginUrl: "https://www.brodos.net/index.php/mpath/svoucher_sales_salvoucher/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

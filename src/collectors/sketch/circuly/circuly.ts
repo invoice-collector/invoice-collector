@@ -29,7 +29,7 @@ export class CirculyCollector extends SketchCollector {
         loginUrl: "https://app.circuly.io/cms/invoices?page=1&per_page=10&sort=created_at",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

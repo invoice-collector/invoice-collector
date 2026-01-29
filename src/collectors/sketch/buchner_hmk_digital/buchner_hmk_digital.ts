@@ -29,7 +29,7 @@ export class BuchnerHmkDigitalCollector extends SketchCollector {
         loginUrl: "https://www.heilmittelkatalog.app/account-einstellungen/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

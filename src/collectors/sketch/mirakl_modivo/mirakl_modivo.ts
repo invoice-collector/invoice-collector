@@ -29,7 +29,7 @@ export class MiraklModivoCollector extends SketchCollector {
         loginUrl: "https://modivo.mirakl.net/sellerpayment/shop/accounting-document/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FigurscoutVertriebsCollector extends SketchCollector {
         loginUrl: "https://www.dein-figurplan.de/mein-konto/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

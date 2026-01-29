@@ -29,7 +29,7 @@ export class TextbrokerCollector extends SketchCollector {
         loginUrl: "https://intern.textbroker.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EzebraDeCollector extends SketchCollector {
         loginUrl: "https://ezebra.de/de/signin.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

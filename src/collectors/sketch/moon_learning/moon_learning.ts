@@ -29,7 +29,7 @@ export class MoonLearningCollector extends SketchCollector {
         loginUrl: "https://www.moonlearning.io/settings/purchase_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

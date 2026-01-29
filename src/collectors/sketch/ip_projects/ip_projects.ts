@@ -29,7 +29,7 @@ export class IpProjectsCollector extends SketchCollector {
         loginUrl: "https://portal.ip-projects.de/#profile/Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

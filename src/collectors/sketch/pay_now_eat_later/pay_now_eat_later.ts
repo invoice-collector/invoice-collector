@@ -29,7 +29,7 @@ export class PayNowEatLaterCollector extends SketchCollector {
         loginUrl: "https://partner.paynoweatlater.de/location/abrechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

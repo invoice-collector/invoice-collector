@@ -29,7 +29,7 @@ export class MovistarCollector extends SketchCollector {
         loginUrl: "https://www.movistar.es/Privada/DesafioUnico",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

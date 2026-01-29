@@ -29,7 +29,7 @@ export class AirfranceCollector extends SketchCollector {
         loginUrl: "https://www.airfrance.de/en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

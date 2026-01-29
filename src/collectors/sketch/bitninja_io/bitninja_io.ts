@@ -29,7 +29,7 @@ export class BitninjaIoCollector extends SketchCollector {
         loginUrl: "https://console.bitninja.io/payment/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

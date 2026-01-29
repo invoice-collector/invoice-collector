@@ -29,7 +29,7 @@ export class StoreLocatorWidgetsCollector extends SketchCollector {
         loginUrl: "https://www.storelocatorwidgets.com/admin/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

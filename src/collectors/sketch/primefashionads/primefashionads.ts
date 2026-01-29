@@ -29,7 +29,7 @@ export class PrimefashionadsCollector extends SketchCollector {
         loginUrl: "https://www.primefashionads.com/partner",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

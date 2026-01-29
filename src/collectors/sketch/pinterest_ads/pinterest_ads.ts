@@ -29,7 +29,7 @@ export class PinterestAdsCollector extends SketchCollector {
         loginUrl: "https://ads.pinterest.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

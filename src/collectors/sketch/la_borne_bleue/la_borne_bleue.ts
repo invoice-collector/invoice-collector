@@ -29,7 +29,7 @@ export class LaBorneBleueCollector extends SketchCollector {
         loginUrl: "https://my.labornebleue.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

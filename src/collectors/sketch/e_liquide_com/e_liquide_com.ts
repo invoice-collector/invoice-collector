@@ -29,7 +29,7 @@ export class ELiquideComCollector extends SketchCollector {
         loginUrl: "https://www.e-liquide.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

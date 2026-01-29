@@ -29,7 +29,7 @@ export class PixartprintingFranceCollector extends SketchCollector {
         loginUrl: "https://www.pixartprinting.fr/espace-perso/commandes-effectuees/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

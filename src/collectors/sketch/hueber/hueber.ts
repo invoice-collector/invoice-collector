@@ -29,7 +29,7 @@ export class HueberCollector extends SketchCollector {
         loginUrl: "https://www.hueber.de/?login=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

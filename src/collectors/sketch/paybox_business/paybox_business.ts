@@ -29,7 +29,7 @@ export class PayboxBusinessCollector extends SketchCollector {
         loginUrl: "https://www.paybox.at/csm-vso01-paybox/login.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

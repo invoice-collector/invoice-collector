@@ -29,7 +29,7 @@ export class FlowbirdCollector extends SketchCollector {
         loginUrl: "https://my.flowbirdapp.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

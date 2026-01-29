@@ -29,7 +29,7 @@ export class SoenneckenCollector extends SketchCollector {
         loginUrl: "https://somit.soennecken.de/group/mitgliederservice/belegrecherche-neue-zr-",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

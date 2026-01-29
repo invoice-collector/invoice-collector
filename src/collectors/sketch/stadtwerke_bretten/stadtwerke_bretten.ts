@@ -29,7 +29,7 @@ export class StadtwerkeBrettenCollector extends SketchCollector {
         loginUrl: "https://www.kraichgau-energie.de/kundenportal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

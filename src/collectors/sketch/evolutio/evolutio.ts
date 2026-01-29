@@ -29,7 +29,7 @@ export class EvolutioCollector extends SketchCollector {
         loginUrl: "https://my.evolutio.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

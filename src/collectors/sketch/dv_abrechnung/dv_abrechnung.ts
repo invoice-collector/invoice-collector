@@ -29,7 +29,7 @@ export class DvAbrechnungCollector extends SketchCollector {
         loginUrl: "https://abrechnungplus.dv-portal.de/master-data?tab=2&page=1&itemsPerPage=15&sortBy%5B0%5D=voucherDate&sortDesc%5B0%5D=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

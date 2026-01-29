@@ -29,7 +29,7 @@ export class ServerprofisCollector extends SketchCollector {
         loginUrl: "https://service.serverprofis.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KaleidoCollector extends SketchCollector {
         loginUrl: "https://accounts.kaleido.ai/users/sign_in#payment-billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

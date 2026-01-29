@@ -29,7 +29,7 @@ export class MultiloginCollector extends SketchCollector {
         loginUrl: "https://billing.multilogin.com/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

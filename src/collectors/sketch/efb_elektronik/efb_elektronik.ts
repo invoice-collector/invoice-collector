@@ -29,7 +29,7 @@ export class EfbElektronikCollector extends SketchCollector {
         loginUrl: "https://www.efb-elektronik.de/documentList/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

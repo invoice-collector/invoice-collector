@@ -29,7 +29,7 @@ export class JoomlatoolsCollector extends SketchCollector {
         loginUrl: "https://dashboard.joomlatools.com/subscriptions/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

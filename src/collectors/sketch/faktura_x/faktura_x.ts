@@ -29,7 +29,7 @@ export class FakturaXCollector extends SketchCollector {
         loginUrl: "http://www.faktura-xp.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

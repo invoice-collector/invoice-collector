@@ -29,7 +29,7 @@ export class BelcentraleCollector extends SketchCollector {
         loginUrl: "https://www.belcentrale.nl/control-panel/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrthoDepotCollector extends SketchCollector {
         loginUrl: "https://www.orthodepot.de/account.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

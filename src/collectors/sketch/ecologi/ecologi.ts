@@ -29,7 +29,7 @@ export class EcologiCollector extends SketchCollector {
         loginUrl: "https://ecologi.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

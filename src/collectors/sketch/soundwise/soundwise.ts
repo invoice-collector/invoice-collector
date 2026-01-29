@@ -29,7 +29,7 @@ export class SoundwiseCollector extends SketchCollector {
         loginUrl: "https://app.mysoundwise.com/dashboard/publisher/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

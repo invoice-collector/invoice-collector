@@ -29,7 +29,7 @@ export class InflowInventoryCollector extends SketchCollector {
         loginUrl: "https://app.inflowinventory.com/options/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

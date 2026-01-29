@@ -29,7 +29,7 @@ export class GeloLohnbuchhaltungCollector extends SketchCollector {
         loginUrl: "https://gelo.portal-bereich.de/html/#documentsharing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

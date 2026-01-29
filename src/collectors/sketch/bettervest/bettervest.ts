@@ -29,7 +29,7 @@ export class BettervestCollector extends SketchCollector {
         loginUrl: "https://www.bettervest.com/de/meine-investitionen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

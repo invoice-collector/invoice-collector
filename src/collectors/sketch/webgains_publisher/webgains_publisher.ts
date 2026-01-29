@@ -29,7 +29,7 @@ export class WebgainsPublisherCollector extends SketchCollector {
         loginUrl: "https://platform.webgains.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

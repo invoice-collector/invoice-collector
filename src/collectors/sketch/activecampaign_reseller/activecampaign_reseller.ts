@@ -29,7 +29,7 @@ export class ActivecampaignResellerCollector extends SketchCollector {
         loginUrl: "https://www.activecampaign.com/partner/invoices.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

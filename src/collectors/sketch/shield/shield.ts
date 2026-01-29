@@ -29,7 +29,7 @@ export class ShieldCollector extends SketchCollector {
         loginUrl: "https://analytics.shieldapp.ai/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

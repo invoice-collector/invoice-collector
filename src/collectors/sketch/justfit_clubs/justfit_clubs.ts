@@ -29,7 +29,7 @@ export class JustfitClubsCollector extends SketchCollector {
         loginUrl: "https://www.justfit-clubs.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

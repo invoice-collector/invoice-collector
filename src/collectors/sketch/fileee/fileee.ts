@@ -29,7 +29,7 @@ export class FileeeCollector extends SketchCollector {
         loginUrl: "https://my.fileee.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

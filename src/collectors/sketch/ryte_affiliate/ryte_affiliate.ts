@@ -29,7 +29,7 @@ export class RyteAffiliateCollector extends SketchCollector {
         loginUrl: "https://affiliate.ryte.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

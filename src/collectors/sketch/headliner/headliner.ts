@@ -29,7 +29,7 @@ export class HeadlinerCollector extends SketchCollector {
         loginUrl: "https://www.headliner.app/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtwerkeKonstanzCollector extends SketchCollector {
         loginUrl: "http://www.stadtwerke-konstanz.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

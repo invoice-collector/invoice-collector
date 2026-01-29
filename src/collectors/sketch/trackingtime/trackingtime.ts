@@ -29,7 +29,7 @@ export class TrackingtimeCollector extends SketchCollector {
         loginUrl: "https://pro.trackingtime.co/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

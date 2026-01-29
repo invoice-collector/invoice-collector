@@ -29,7 +29,7 @@ export class SearchSeekersCollector extends SketchCollector {
         loginUrl: "https://searchseekers.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

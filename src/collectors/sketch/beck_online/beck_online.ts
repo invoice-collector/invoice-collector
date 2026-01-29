@@ -29,7 +29,7 @@ export class BeckOnlineCollector extends SketchCollector {
         loginUrl: "https://beck-online.beck.de/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

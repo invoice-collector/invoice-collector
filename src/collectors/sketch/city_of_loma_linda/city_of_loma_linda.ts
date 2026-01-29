@@ -29,7 +29,7 @@ export class CityOfLomaLindaCollector extends SketchCollector {
         loginUrl: "https://selfservice.lomalinda-ca.gov/css/citizens/UtilityBilling/ViewPayBills.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ConverseAiCollector extends SketchCollector {
         loginUrl: "http://www.converse.ai/#getstarted",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

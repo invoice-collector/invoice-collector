@@ -29,7 +29,7 @@ export class MutuellePlanSanteProfessionnelCollector extends SketchCollector {
         loginUrl: "https://ps.plansante.com/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

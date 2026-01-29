@@ -29,7 +29,7 @@ export class _10dollarCaCollector extends SketchCollector {
         loginUrl: "https://10dollar.ca/en/invoice.php?id=158783351728",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

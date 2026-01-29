@@ -29,7 +29,7 @@ export class CosCollector extends SketchCollector {
         loginUrl: "https://www.cos.com/en_de/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

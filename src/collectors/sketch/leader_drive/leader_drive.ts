@@ -29,7 +29,7 @@ export class LeaderDriveCollector extends SketchCollector {
         loginUrl: "https://www.leaderdrive.fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

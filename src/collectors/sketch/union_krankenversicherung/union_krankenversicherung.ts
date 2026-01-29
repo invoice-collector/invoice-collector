@@ -29,7 +29,7 @@ export class UnionKrankenversicherungCollector extends SketchCollector {
         loginUrl: "https://www.ukv.de/content/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

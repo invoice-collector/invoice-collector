@@ -29,7 +29,7 @@ export class LoffelhardtCollector extends SketchCollector {
         loginUrl: "https://online.loeffelhardt.de/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

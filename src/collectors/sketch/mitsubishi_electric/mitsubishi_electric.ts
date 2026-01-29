@@ -29,7 +29,7 @@ export class MitsubishiElectricCollector extends SketchCollector {
         loginUrl: "https://edocs.mitsubishielectric.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

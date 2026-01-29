@@ -29,7 +29,7 @@ export class StadtwerkeHerneCollector extends SketchCollector {
         loginUrl: "https://service.stadtwerke-herne.de/online/postbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PromocashBordeauxCollector extends SketchCollector {
         loginUrl: "https://bordeaux.promocash.com/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

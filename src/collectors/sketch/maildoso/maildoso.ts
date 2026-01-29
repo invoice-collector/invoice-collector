@@ -29,7 +29,7 @@ export class MaildosoCollector extends SketchCollector {
         loginUrl: "https://app.maildoso.com/accounts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

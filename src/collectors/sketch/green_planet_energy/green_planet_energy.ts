@@ -29,7 +29,7 @@ export class GreenPlanetEnergyCollector extends SketchCollector {
         loginUrl: "https://mein.green-planet-energy.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

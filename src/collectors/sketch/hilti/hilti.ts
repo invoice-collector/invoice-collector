@@ -29,7 +29,7 @@ export class HiltiCollector extends SketchCollector {
         loginUrl: "https://www.hilti.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

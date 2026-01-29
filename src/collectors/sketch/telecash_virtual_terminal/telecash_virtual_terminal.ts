@@ -29,7 +29,7 @@ export class TelecashVirtualTerminalCollector extends SketchCollector {
         loginUrl: "https://www.ipg-online.com/vt/view/reports/reports.faces",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

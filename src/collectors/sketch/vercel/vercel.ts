@@ -29,7 +29,7 @@ export class VercelCollector extends SketchCollector {
         loginUrl: "https://vercel.com/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

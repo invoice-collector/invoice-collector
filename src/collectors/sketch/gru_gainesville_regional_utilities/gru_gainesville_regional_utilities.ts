@@ -29,7 +29,7 @@ export class GruGainesvilleRegionalUtilitiesCollector extends SketchCollector {
         loginUrl: "https://myaccount.gru.com/BillingAndUsageHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

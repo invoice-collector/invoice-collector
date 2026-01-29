@@ -29,7 +29,7 @@ export class UberDirectCollector extends SketchCollector {
         loginUrl: "https://direct.uber.com/accounts/e8d05837-e82c-45d3-ae3e-52c0bb8b26eb/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

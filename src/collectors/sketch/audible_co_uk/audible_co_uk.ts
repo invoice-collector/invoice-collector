@@ -29,7 +29,7 @@ export class AudibleCoUkCollector extends SketchCollector {
         loginUrl: "https://www.audible.co.uk/purchase-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

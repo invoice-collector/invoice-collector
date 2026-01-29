@@ -29,7 +29,7 @@ export class QrCodeCreatorCollector extends SketchCollector {
         loginUrl: "https://qrcodecreator.com/de/dashboard/user/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

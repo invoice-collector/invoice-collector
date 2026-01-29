@@ -29,7 +29,7 @@ export class IntegralSystemFrCollector extends SketchCollector {
         loginUrl: "https://www.integral-system.fr/fr_FR/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

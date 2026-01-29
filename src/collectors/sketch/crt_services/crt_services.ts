@@ -29,7 +29,7 @@ export class CrtServicesCollector extends SketchCollector {
         loginUrl: "https://www.crt.asso.fr/NEA/Facture/FacturesSummary?idEmetteur=4",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

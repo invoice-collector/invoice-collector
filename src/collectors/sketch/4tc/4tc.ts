@@ -29,7 +29,7 @@ export class _4tcCollector extends SketchCollector {
         loginUrl: "https://4tc.be/bestellingen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

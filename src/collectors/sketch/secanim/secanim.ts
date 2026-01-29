@@ -29,7 +29,7 @@ export class SecanimCollector extends SketchCollector {
         loginUrl: "https://kundenportal.secanim.de/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

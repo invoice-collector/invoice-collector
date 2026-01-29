@@ -29,7 +29,7 @@ export class HartjeEoswebCollector extends SketchCollector {
         loginUrl: "http://www.eosweb.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

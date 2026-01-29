@@ -29,7 +29,7 @@ export class FreeeupCollector extends SketchCollector {
         loginUrl: "https://timeclock.freeeup.com/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ParfumdreamsCollector extends SketchCollector {
         loginUrl: "https://www.parfumdreams.de/User/Orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

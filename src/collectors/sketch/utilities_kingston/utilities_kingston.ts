@@ -29,7 +29,7 @@ export class UtilitiesKingstonCollector extends SketchCollector {
         loginUrl: "https://my.utilitieskingston.com/app/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

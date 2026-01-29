@@ -29,7 +29,7 @@ export class CrowWingPowerCollector extends SketchCollector {
         loginUrl: "https://cwpower.smarthub.coop/Login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

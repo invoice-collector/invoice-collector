@@ -29,7 +29,7 @@ export class AsinsellCollector extends SketchCollector {
         loginUrl: "https://asinsell.com/app/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

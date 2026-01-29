@@ -29,7 +29,7 @@ export class WoolworthsSaCollector extends SketchCollector {
         loginUrl: "https://www.woolworths.co.za/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

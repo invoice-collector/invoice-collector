@@ -29,7 +29,7 @@ export class RelayAppCollector extends SketchCollector {
         loginUrl: "https://run.relay.app/dashboard#/settings/workspace/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

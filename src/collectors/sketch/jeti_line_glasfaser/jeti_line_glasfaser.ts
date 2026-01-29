@@ -29,7 +29,7 @@ export class JetiLineGlasfaserCollector extends SketchCollector {
         loginUrl: "https://kundenportal.jeti-line.de/swtr-portal/csc/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

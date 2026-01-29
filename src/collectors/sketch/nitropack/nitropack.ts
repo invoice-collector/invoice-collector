@@ -29,7 +29,7 @@ export class NitropackCollector extends SketchCollector {
         loginUrl: "https://nitropack.io/user/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

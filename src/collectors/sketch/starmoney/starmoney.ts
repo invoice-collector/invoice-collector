@@ -29,7 +29,7 @@ export class StarmoneyCollector extends SketchCollector {
         loginUrl: "https://www.starmoney.de/kundenbereich/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CpsEnergyCollector extends SketchCollector {
         loginUrl: "https://secure.cpsenergy.com/mma/pastBills.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

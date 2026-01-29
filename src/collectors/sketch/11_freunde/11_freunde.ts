@@ -29,7 +29,7 @@ export class _11FreundeCollector extends SketchCollector {
         loginUrl: "https://shop.11freunde.de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

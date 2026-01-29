@@ -29,7 +29,7 @@ export class CartouchesEnStockCollector extends SketchCollector {
         loginUrl: "https://www.cartouches-en-stock.fr/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

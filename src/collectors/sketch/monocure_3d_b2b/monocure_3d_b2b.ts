@@ -29,7 +29,7 @@ export class Monocure3dB2bCollector extends SketchCollector {
         loginUrl: "https://b2b.monocure3d.com.au/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ShipitoComCollector extends SketchCollector {
         loginUrl: "https://www.shipito.com/de/account/login?nextpage=https%3A%2F%2Fwww.shipito.com%2Fen%2Faccount%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

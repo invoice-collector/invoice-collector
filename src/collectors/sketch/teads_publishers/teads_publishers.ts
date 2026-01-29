@@ -29,7 +29,7 @@ export class TeadsPublishersCollector extends SketchCollector {
         loginUrl: "https://publishers.teads.tv/finance/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

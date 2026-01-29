@@ -29,7 +29,7 @@ export class PriceministerComCollector extends SketchCollector {
         loginUrl: "https://www.priceminister.com/connect?action=login&c=80",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

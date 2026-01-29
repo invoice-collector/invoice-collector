@@ -28,7 +28,7 @@ export class KoneCollector extends SketchCollector {
         loginUrl: "https://secure2.anachron.com/kone/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

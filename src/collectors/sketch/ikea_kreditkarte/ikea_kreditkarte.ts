@@ -29,7 +29,7 @@ export class IkeaKreditkarteCollector extends SketchCollector {
         loginUrl: "https://www.onlinebanking.ikea-kreditkarte.de/#/login/cred",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

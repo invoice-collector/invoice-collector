@@ -29,7 +29,7 @@ export class LeadpagesCollector extends SketchCollector {
         loginUrl: "https://my.leadpages.net/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OdooEnterpriseCollector extends SketchCollector {
         loginUrl: "https://accounts.odoo.com/de_DE/my/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

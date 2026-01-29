@@ -28,7 +28,7 @@ export class WebadorCollector extends SketchCollector {
         loginUrl: "https://www.webador.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

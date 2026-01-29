@@ -29,7 +29,7 @@ export class FlightstatsCollector extends SketchCollector {
         loginUrl: "https://www.flightstats.com/v2/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

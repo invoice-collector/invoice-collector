@@ -29,7 +29,7 @@ export class BitoAiCollector extends SketchCollector {
         loginUrl: "https://billing.bito.ai/p/session/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

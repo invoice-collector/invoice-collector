@@ -29,7 +29,7 @@ export class CheapsslsecurityCollector extends SketchCollector {
         loginUrl: "https://cheapsslsecurity.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

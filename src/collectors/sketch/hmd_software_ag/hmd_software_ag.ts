@@ -29,7 +29,7 @@ export class HmdSoftwareAgCollector extends SketchCollector {
         loginUrl: "https://www.netarchiv.eu/doLogin.php?inline=0&lang=de&addresscode=&code=&demo=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

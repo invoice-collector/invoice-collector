@@ -29,7 +29,7 @@ export class FormsAppCollector extends SketchCollector {
         loginUrl: "https://forms.app/account/paymenthistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

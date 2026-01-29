@@ -29,7 +29,7 @@ export class HootsuiteCollector extends SketchCollector {
         loginUrl: "https://hootsuite.com/billing/manage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

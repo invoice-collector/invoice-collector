@@ -29,7 +29,7 @@ export class ElmyCollector extends SketchCollector {
         loginUrl: "https://espace-pro.elmy.fr/accueil",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

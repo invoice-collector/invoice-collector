@@ -29,7 +29,7 @@ export class LOpinionCollector extends SketchCollector {
         loginUrl: "https://www.lopinion.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

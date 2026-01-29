@@ -29,7 +29,7 @@ export class SelfhostCollector extends SketchCollector {
         loginUrl: "https://secure.selfhost.de/cgi-bin/selfhost?p=account&cat=rechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

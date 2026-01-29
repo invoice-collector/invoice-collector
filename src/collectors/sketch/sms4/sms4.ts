@@ -29,7 +29,7 @@ export class Sms4Collector extends SketchCollector {
         loginUrl: "https://www.sms4.de/cgi-bin/verwalten_rechnungen.pl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

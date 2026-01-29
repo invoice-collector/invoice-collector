@@ -29,7 +29,7 @@ export class MeinewbdKundenportalCollector extends SketchCollector {
         loginUrl: "https://meine-wbd.de/de/portal/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

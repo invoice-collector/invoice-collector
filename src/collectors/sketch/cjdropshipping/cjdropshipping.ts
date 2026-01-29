@@ -29,7 +29,7 @@ export class CjdropshippingCollector extends SketchCollector {
         loginUrl: "https://app.cjdropshipping.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

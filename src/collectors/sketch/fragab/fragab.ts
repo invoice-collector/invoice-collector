@@ -29,7 +29,7 @@ export class FragabCollector extends SketchCollector {
         loginUrl: "https://fragab.de/download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

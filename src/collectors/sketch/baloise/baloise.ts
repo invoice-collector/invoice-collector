@@ -29,7 +29,7 @@ export class BaloiseCollector extends SketchCollector {
         loginUrl: "https://www.baloise.ch/en/private-customers.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

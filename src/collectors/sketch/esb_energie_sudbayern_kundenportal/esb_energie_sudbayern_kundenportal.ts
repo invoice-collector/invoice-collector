@@ -29,7 +29,7 @@ export class EsbEnergieSudbayernKundenportalCollector extends SketchCollector {
         loginUrl: "https://onlineservice.esb.de/portal/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

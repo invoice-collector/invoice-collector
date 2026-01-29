@@ -29,7 +29,7 @@ export class SnapfishCollector extends SketchCollector {
         loginUrl: "https://www.snapfish.fr/2/loginto?next=https%3A%2F%2Fwww.snapfish.fr%2F2%2Fhome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

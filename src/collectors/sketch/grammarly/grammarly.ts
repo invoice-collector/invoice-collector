@@ -29,7 +29,7 @@ export class GrammarlyCollector extends SketchCollector {
         loginUrl: "https://account.grammarly.com/admin/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

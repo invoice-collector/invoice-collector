@@ -29,7 +29,7 @@ export class SellerlegendCollector extends SketchCollector {
         loginUrl: "https://app.sellerlegend.com/payment/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

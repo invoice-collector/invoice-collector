@@ -29,7 +29,7 @@ export class CourseraCollector extends SketchCollector {
         loginUrl: "https://www.coursera.org/?authMode=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

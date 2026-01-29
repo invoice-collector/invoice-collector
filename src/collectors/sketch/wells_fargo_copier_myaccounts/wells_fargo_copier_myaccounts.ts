@@ -29,7 +29,7 @@ export class WellsFargoCopierMyaccountsCollector extends SketchCollector {
         loginUrl: "https://www.myaccounts.wellsfargo.com/lease/external/Reporting.html#Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

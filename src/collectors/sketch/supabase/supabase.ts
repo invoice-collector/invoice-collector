@@ -29,7 +29,7 @@ export class SupabaseCollector extends SketchCollector {
         loginUrl: "https://supabase.com/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

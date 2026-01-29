@@ -29,7 +29,7 @@ export class LeasetrackEsFinanceCollector extends SketchCollector {
         loginUrl: "https://esfinance.customercorner.fineasy.com/group/es_finance/factures-avoirs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

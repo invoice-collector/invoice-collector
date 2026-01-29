@@ -29,7 +29,7 @@ export class ConnectBoosterCollector extends SketchCollector {
         loginUrl: "https://pcs.connectboosterportal.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MessengerpeopleCollector extends SketchCollector {
         loginUrl: "https://my.messengerpeople.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

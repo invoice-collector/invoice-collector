@@ -29,7 +29,7 @@ export class CollierCountyUtilitiesCollector extends SketchCollector {
         loginUrl: "https://www.invoicecloud.com/portal/(S(qbumyc0ayz3zy5kmqgu5e5jl))/2/CustomerGroupLedger.aspx?mode=open",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

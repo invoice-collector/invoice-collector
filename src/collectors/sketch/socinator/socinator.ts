@@ -29,7 +29,7 @@ export class SocinatorCollector extends SketchCollector {
         loginUrl: "https://socinator.com/amember/signup",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

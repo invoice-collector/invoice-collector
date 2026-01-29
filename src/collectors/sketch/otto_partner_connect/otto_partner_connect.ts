@@ -29,7 +29,7 @@ export class OttoPartnerConnectCollector extends SketchCollector {
         loginUrl: "https://portal.otto.market/financials/downloads",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

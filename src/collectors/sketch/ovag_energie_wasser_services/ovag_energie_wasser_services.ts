@@ -29,7 +29,7 @@ export class OvagEnergieWasserServicesCollector extends SketchCollector {
         loginUrl: "https://onlineservice.ovag.de/sap/bc/ui5_ui5/sap/zmcf_ui/index.html?CompanyID=OVAG&sap-client=002&sap-language=DE#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

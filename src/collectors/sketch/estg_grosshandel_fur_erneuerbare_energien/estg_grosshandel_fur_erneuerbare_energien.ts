@@ -29,7 +29,7 @@ export class EstgGrosshandelFurErneuerbareEnergienCollector extends SketchCollec
         loginUrl: "https://www.estg.eu/de-de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

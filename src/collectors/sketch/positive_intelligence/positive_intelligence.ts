@@ -29,7 +29,7 @@ export class PositiveIntelligenceCollector extends SketchCollector {
         loginUrl: "https://coach.positiveintelligence.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

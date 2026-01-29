@@ -29,7 +29,7 @@ export class LpaMobilitesCollector extends SketchCollector {
         loginUrl: "https://espaceclient.lpa.fr/ESCLAB/public/account-fac-lister",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

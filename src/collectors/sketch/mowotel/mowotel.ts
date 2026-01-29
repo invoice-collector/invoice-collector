@@ -29,7 +29,7 @@ export class MowotelCollector extends SketchCollector {
         loginUrl: "https://www.mowotel.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KlarmobilDeCollector extends SketchCollector {
         loginUrl: "https://www.klarmobil.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

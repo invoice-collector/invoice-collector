@@ -29,7 +29,7 @@ export class WasteProMemphisCollector extends SketchCollector {
         loginUrl: "https://etower.wasteprousa.com/T7Memphis/ViewInvoices.aspx?history=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

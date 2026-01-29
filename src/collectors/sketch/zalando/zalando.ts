@@ -29,7 +29,7 @@ export class ZalandoCollector extends SketchCollector {
         loginUrl: "https://www.zalando.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

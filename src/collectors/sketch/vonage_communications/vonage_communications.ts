@@ -29,7 +29,7 @@ export class VonageCommunicationsCollector extends SketchCollector {
         loginUrl: "https://dashboard.nexmo.com/billing-and-payments/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

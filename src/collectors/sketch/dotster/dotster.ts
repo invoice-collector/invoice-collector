@@ -29,7 +29,7 @@ export class DotsterCollector extends SketchCollector {
         loginUrl: "https://www1.dotster.com/controlpanel/foundation/account/billing/paid-statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GStarRawCollector extends SketchCollector {
         loginUrl: "https://invoicing.g-star.com/gstar/#/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

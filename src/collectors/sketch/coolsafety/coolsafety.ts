@@ -29,7 +29,7 @@ export class CoolsafetyCollector extends SketchCollector {
         loginUrl: "https://coolsafety.nl/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

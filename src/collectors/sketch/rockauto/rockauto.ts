@@ -29,7 +29,7 @@ export class RockautoCollector extends SketchCollector {
         loginUrl: "https://www.rockauto.com/orderstatus/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

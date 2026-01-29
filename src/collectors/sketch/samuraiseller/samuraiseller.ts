@@ -29,7 +29,7 @@ export class SamuraisellerCollector extends SketchCollector {
         loginUrl: "https://www.samuraiseller.com/members/samsvc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

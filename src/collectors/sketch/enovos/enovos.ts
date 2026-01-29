@@ -29,7 +29,7 @@ export class EnovosCollector extends SketchCollector {
         loginUrl: "https://www.enovos.lu/en/individuals/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

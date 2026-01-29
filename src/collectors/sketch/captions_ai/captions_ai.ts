@@ -29,7 +29,7 @@ export class CaptionsAiCollector extends SketchCollector {
         loginUrl: "https://desktop.captions.ai/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

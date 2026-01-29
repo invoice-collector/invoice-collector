@@ -29,7 +29,7 @@ export class HeinekenCollector extends SketchCollector {
         loginUrl: "https://direct.heineken.co.uk/huk/en/GBP/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LewanaCollector extends SketchCollector {
         loginUrl: "https://www.lewana.design/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

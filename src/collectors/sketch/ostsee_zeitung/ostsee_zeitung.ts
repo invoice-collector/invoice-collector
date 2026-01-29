@@ -29,7 +29,7 @@ export class OstseeZeitungCollector extends SketchCollector {
         loginUrl: "https://service.ostsee-zeitung.de/sap(cz1TSUQlM2FBTk9OJTNhdmdtdmdtYTFfVkdNXzAwJTNhVzdkREExSnlPa29GeEZqVzJrZFNXdTB2b2R4M2Z1M0RwOFRsamJHNS1BVFQ=)/bc/gui/sap/its/zabo020/~flNUQVRFPTE4MDUyODc1Mi4wMDMuMDIuMDI=?~okcode=FABO_PRINT_SEL&gs_ws_abo_rechn-html_char-a",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

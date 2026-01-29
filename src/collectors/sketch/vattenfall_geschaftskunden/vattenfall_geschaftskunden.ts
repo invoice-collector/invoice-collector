@@ -29,7 +29,7 @@ export class VattenfallGeschaftskundenCollector extends SketchCollector {
         loginUrl: "https://service.vattenfall.de/vertragskonto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

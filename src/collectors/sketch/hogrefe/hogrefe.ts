@@ -29,7 +29,7 @@ export class HogrefeCollector extends SketchCollector {
         loginUrl: "https://www.hogrefe.com/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DeliverooFrCollector extends SketchCollector {
         loginUrl: "https://deliveroo.fr/en/login?redirect=%2Fen%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

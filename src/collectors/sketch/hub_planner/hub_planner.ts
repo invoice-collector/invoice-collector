@@ -29,7 +29,7 @@ export class HubPlannerCollector extends SketchCollector {
         loginUrl: "https://login.hubplanner.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

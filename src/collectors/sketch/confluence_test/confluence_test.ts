@@ -29,7 +29,7 @@ export class ConfluenceTestCollector extends SketchCollector {
         loginUrl: "https://www.atlassian.com/software/confluence/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

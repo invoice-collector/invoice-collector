@@ -29,7 +29,7 @@ export class ScripeCollector extends SketchCollector {
         loginUrl: "https://scripe.io/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

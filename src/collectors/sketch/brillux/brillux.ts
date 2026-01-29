@@ -29,7 +29,7 @@ export class BrilluxCollector extends SketchCollector {
         loginUrl: "https://www.brillux.de/mein-brillux/meine-bestellungen-und-rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

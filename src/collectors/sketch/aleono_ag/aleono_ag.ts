@@ -29,7 +29,7 @@ export class AleonoAgCollector extends SketchCollector {
         loginUrl: "https://www.aleno.me/de/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

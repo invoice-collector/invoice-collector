@@ -29,7 +29,7 @@ export class AdobeAcrobatCollector extends SketchCollector {
         loginUrl: "https://acrobat.adobe.com/link/documents/files/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

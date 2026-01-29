@@ -29,7 +29,7 @@ export class ElavonConnectCollector extends SketchCollector {
         loginUrl: "https://www.elavonconnect.com/ui/#/eu/en_GB/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

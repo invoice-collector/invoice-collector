@@ -29,7 +29,7 @@ export class TheveaCollector extends SketchCollector {
         loginUrl: "https://thevea.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OneSourceCommunicationCollector extends SketchCollector {
         loginUrl: "https://esp.1scom.com/esp/security/login?ReturnUrl=https%3a%2f%2fesp.1scom.com%2fesp%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

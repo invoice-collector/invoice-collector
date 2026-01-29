@@ -29,7 +29,7 @@ export class CanadaPostCollector extends SketchCollector {
         loginUrl: "https://www.canadapost.ca/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OctopusPackCollector extends SketchCollector {
         loginUrl: "https://www.octopus-pack.de/checkout/confirm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

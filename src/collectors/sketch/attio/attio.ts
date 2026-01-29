@@ -29,7 +29,7 @@ export class AttioCollector extends SketchCollector {
         loginUrl: "https://app.attio.com/world-views/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

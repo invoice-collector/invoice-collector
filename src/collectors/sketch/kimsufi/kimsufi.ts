@@ -29,7 +29,7 @@ export class KimsufiCollector extends SketchCollector {
         loginUrl: "https://www.kimsufi.com/fr/manager/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

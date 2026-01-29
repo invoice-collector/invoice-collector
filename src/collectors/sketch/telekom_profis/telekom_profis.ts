@@ -29,7 +29,7 @@ export class TelekomProfisCollector extends SketchCollector {
         loginUrl: "https://www.telekom-profis.de/mein-bereich/rechnungsuebersicht.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

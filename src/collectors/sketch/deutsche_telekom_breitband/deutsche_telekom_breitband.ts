@@ -29,7 +29,7 @@ export class DeutscheTelekomBreitbandCollector extends SketchCollector {
         loginUrl: "https://breitband.telekom-dienste.de/kundencenter-breitband/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

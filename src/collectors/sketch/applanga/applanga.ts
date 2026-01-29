@@ -29,7 +29,7 @@ export class ApplangaCollector extends SketchCollector {
         loginUrl: "https://dashboard.applanga.com/#!/billings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

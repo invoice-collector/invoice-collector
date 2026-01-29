@@ -29,7 +29,7 @@ export class SwmEmobilityCloudCollector extends SketchCollector {
         loginUrl: "https://login.muenchen.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

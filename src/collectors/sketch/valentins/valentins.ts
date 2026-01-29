@@ -29,7 +29,7 @@ export class ValentinsCollector extends SketchCollector {
         loginUrl: "https://www.valentins.de/onlineshop/account/meinebestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

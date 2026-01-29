@@ -29,7 +29,7 @@ export class LightspeedRestaurantPosKSeriesCollector extends SketchCollector {
         loginUrl: "https://manager.lsk.lightspeed.app/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

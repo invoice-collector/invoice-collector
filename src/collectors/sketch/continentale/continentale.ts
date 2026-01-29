@@ -29,7 +29,7 @@ export class ContinentaleCollector extends SketchCollector {
         loginUrl: "https://concorp.continentale.de/hr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

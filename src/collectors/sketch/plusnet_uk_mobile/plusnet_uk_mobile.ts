@@ -29,7 +29,7 @@ export class PlusnetUkMobileCollector extends SketchCollector {
         loginUrl: "https://www.plus.net/my-account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

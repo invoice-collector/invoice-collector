@@ -29,7 +29,7 @@ export class TencentCollector extends SketchCollector {
         loginUrl: "https://console.tencentcloud.com/expense/invoicing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

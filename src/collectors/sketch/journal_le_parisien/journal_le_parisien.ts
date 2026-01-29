@@ -29,7 +29,7 @@ export class JournalLeParisienCollector extends SketchCollector {
         loginUrl: "https://serviceclients.leparisien.fr/abonnement/paiements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

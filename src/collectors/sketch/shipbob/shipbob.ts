@@ -29,7 +29,7 @@ export class ShipbobCollector extends SketchCollector {
         loginUrl: "https://web.shipbob.com/App/IndexV2/#/Billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

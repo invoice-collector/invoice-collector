@@ -29,7 +29,7 @@ export class Tele2MobileCollector extends SketchCollector {
         loginUrl: "https://www.tele2.com/about/who-we-are/product-and-services",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

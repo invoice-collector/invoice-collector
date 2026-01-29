@@ -29,7 +29,7 @@ export class LoyaltyBrainBehindCollector extends SketchCollector {
         loginUrl: "https://loyalty.brain-behind.com/VM_Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

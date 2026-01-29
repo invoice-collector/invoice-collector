@@ -29,7 +29,7 @@ export class DnNoCollector extends SketchCollector {
         loginUrl: "https://www.dn.no/auth/user/login?target=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

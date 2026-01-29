@@ -28,7 +28,7 @@ export class SchindlerCollector extends SketchCollector {
         loginUrl: "https://actionboard.schindler.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

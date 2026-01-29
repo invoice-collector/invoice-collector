@@ -29,7 +29,7 @@ export class MaxximCollector extends SketchCollector {
         loginUrl: "https://service.maxxim.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

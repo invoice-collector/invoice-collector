@@ -29,7 +29,7 @@ export class HdCollector extends SketchCollector {
         loginUrl: "https://www.hd-plus.de/mein-hd-plus",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

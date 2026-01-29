@@ -29,7 +29,7 @@ export class WpdeveloperCollector extends SketchCollector {
         loginUrl: "https://wpdeveloper.net/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

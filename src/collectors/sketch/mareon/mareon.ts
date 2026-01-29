@@ -29,7 +29,7 @@ export class MareonCollector extends SketchCollector {
         loginUrl: "http://www.mareon.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

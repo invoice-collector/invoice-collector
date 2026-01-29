@@ -29,7 +29,7 @@ export class SpinrewriterCollector extends SketchCollector {
         loginUrl: "https://www.smiley-tech.com/invoice.php?a=i6w5r4i6i6-8w5&b=eeba0299e149e854360d0871f0806eae32d30983b62252da50&c=r4a0i6a0z2w5w5",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

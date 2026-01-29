@@ -29,7 +29,7 @@ export class EurostarCollector extends SketchCollector {
         loginUrl: "https://www.eurostar.com/customer-dashboard/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SpyfuCollector extends SketchCollector {
         loginUrl: "https://www.spyfu.com/account/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

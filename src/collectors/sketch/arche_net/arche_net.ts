@@ -29,7 +29,7 @@ export class ArcheNetCollector extends SketchCollector {
         loginUrl: "http://www.arche.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

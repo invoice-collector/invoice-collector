@@ -29,7 +29,7 @@ export class VattenfallSeCollector extends SketchCollector {
         loginUrl: "https://www.vattenfall.se/logga-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

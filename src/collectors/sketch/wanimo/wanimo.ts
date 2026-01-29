@@ -29,7 +29,7 @@ export class WanimoCollector extends SketchCollector {
         loginUrl: "https://www.wanimo.com/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

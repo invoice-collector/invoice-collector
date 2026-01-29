@@ -29,7 +29,7 @@ export class OowvCollector extends SketchCollector {
         loginUrl: "https://service.einfach-heimat.de/#/service/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

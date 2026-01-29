@@ -29,7 +29,7 @@ export class CesmlCollector extends SketchCollector {
         loginUrl: "https://moncompte-cesml.multield.net/application/jsp/arc/habilitation/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

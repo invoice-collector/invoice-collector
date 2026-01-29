@@ -29,7 +29,7 @@ export class GentelOpsilonCollector extends SketchCollector {
         loginUrl: "https://extranet.gentel.fr/facture/1092",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MisterclippingCollector extends SketchCollector {
         loginUrl: "https://app.bright-river.com/com/login?r=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

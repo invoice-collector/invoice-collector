@@ -29,7 +29,7 @@ export class AutoserviceComCollector extends SketchCollector {
         loginUrl: "https://www.autoservice.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

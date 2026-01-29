@@ -29,7 +29,7 @@ export class EnergieSteiermarkBusinessCollector extends SketchCollector {
         loginUrl: "https://kundenportal.e-steiermark.com/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

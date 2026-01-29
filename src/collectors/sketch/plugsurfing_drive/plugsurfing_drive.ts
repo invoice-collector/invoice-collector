@@ -29,7 +29,7 @@ export class PlugsurfingDriveCollector extends SketchCollector {
         loginUrl: "https://drive.plugsurfing.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

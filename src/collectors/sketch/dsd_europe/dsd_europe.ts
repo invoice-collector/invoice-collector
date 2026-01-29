@@ -29,7 +29,7 @@ export class DsdEuropeCollector extends SketchCollector {
         loginUrl: "https://www.dsdeurope.com/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

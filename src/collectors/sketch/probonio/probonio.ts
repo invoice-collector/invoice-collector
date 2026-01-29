@@ -29,7 +29,7 @@ export class ProbonioCollector extends SketchCollector {
         loginUrl: "https://app.probonio.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

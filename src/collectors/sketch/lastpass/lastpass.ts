@@ -29,7 +29,7 @@ export class LastpassCollector extends SketchCollector {
         loginUrl: "https://lastpass.com/company/#!/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

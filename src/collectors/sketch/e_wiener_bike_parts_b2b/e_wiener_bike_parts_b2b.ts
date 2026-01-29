@@ -29,7 +29,7 @@ export class EWienerBikePartsB2bCollector extends SketchCollector {
         loginUrl: "http://b2b.bike-parts.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

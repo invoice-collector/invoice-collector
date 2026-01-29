@@ -29,7 +29,7 @@ export class DphotoCollector extends SketchCollector {
         loginUrl: "https://app.lightbox.co/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

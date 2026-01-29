@@ -29,7 +29,7 @@ export class UspGvAtCollector extends SketchCollector {
         loginUrl: "https://www.usp.gv.at/at.gv.mpk-p/portal/main?resetFolder",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

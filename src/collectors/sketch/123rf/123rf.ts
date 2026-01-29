@@ -29,7 +29,7 @@ export class _123rfCollector extends SketchCollector {
         loginUrl: "https://de.123rf.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

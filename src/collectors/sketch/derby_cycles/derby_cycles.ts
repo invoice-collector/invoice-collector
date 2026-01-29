@@ -29,7 +29,7 @@ export class DerbyCyclesCollector extends SketchCollector {
         loginUrl: "https://www.derby-cycle-dealer.com/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

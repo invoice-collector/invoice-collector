@@ -29,7 +29,7 @@ export class CloudinaryCollector extends SketchCollector {
         loginUrl: "https://cloudinary.com/console/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AbeileAssurancesCollector extends SketchCollector {
         loginUrl: "https://www.abeille-assurances.fr/espacepersonnel/MonCompte/Connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CallABikeCollector extends SketchCollector {
         loginUrl: "https://www.callabike.de/de/kundenbereich/rechnungsubersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

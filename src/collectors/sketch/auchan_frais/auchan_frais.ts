@@ -29,7 +29,7 @@ export class AuchanFraisCollector extends SketchCollector {
         loginUrl: "https://frais.auchan.fr/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

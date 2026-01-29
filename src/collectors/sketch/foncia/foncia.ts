@@ -29,7 +29,7 @@ export class FonciaCollector extends SketchCollector {
         loginUrl: "https://myfoncia.fr/login ",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

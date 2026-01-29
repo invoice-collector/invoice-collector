@@ -29,7 +29,7 @@ export class MessageMediaCollector extends SketchCollector {
         loginUrl: "https://hub.messagemedia.com/invoice-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

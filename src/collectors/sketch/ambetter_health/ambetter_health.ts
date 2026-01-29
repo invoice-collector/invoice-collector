@@ -29,7 +29,7 @@ export class AmbetterHealthCollector extends SketchCollector {
         loginUrl: "https://centene.softheon.com/equity/#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

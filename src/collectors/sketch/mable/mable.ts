@@ -29,7 +29,7 @@ export class MableCollector extends SketchCollector {
         loginUrl: "https://dashboard.mable.ai/data_quality/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

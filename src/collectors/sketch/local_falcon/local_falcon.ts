@@ -29,7 +29,7 @@ export class LocalFalconCollector extends SketchCollector {
         loginUrl: "https://www.localfalcon.com/billing/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

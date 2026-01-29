@@ -29,7 +29,7 @@ export class ButagazCollector extends SketchCollector {
         loginUrl: "https://espace-client.butagaz.fr/facture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

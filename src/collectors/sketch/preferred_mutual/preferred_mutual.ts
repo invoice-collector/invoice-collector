@@ -29,7 +29,7 @@ export class PreferredMutualCollector extends SketchCollector {
         loginUrl: "https://my.preferredmutual.com/Identity/account/logon?ReturnUrl=%2fIdentity%2fusers%2fissue.aspx%3fwa%3dwsignin1.0%26wtrealm%3dhttps%253a%252f%252fmy.preferredmutual.com%252finsured%252f%26wctx%3drm%253d0%2526id%253dpassive%2526ru%253d%25252fInsured%25252",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

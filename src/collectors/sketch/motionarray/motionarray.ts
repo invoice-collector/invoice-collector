@@ -29,7 +29,7 @@ export class MotionarrayCollector extends SketchCollector {
         loginUrl: "https://motionarray.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

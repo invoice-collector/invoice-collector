@@ -29,7 +29,7 @@ export class WestfalenBlattOnlineserviceCollector extends SketchCollector {
         loginUrl: "https://www.westfalen-blatt-onlineservice.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

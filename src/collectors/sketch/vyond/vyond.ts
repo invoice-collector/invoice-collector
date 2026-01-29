@@ -29,7 +29,7 @@ export class VyondCollector extends SketchCollector {
         loginUrl: "https://ga.vyond.com/login?r=%2Faccount%2Fbilling",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StandardLifeCollector extends SketchCollector {
         loginUrl: "https://bs.standardlife.de/slcontroller/home/page.home.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

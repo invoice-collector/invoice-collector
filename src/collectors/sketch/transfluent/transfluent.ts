@@ -29,7 +29,7 @@ export class TransfluentCollector extends SketchCollector {
         loginUrl: "https://www.transfluent.com/en/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

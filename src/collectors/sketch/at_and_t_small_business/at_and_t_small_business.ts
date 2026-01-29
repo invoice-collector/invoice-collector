@@ -29,7 +29,7 @@ export class AtAndTSmallBusinessCollector extends SketchCollector {
         loginUrl: "https://smb.att.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

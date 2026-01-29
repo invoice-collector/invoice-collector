@@ -29,7 +29,7 @@ export class AralCardKundencenterCollector extends SketchCollector {
         loginUrl: "https://www.bpplus.com/pages/aral/invoice.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ThugaConnectCollector extends SketchCollector {
         loginUrl: "https://thuegaconnect.plusportal.de/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

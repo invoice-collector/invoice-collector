@@ -29,7 +29,7 @@ export class LufthansaCollector extends SketchCollector {
         loginUrl: "https://www.lufthansa.com/online/portal/lh/de/homepage?l=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

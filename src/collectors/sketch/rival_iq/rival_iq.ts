@@ -29,7 +29,7 @@ export class RivalIqCollector extends SketchCollector {
         loginUrl: "https://app.rivaliq.com/account/receipts/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

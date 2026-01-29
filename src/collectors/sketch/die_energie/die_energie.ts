@@ -29,7 +29,7 @@ export class DieEnergieCollector extends SketchCollector {
         loginUrl: "https://www.kundenonlineservice.de/powercommerce/fk-elv/action/flightteaser;jsessionid=66305684A43DA3E325824415FBA3A972?gap=3283",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

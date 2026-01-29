@@ -29,7 +29,7 @@ export class OkodorfBrodowinCollector extends SketchCollector {
         loginUrl: "https://shop.brodowin.de/logon.html?locale=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

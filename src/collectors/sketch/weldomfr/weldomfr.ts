@@ -28,7 +28,7 @@ export class WeldomFrCollector extends SketchCollector {
         loginUrl: "https://www.weldom.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

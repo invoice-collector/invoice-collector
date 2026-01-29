@@ -29,7 +29,7 @@ export class NwwiCollector extends SketchCollector {
         loginUrl: "https://site.nwwi.nl/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

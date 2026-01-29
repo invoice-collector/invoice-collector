@@ -29,7 +29,7 @@ export class HarvestCollector extends SketchCollector {
         loginUrl: "https://id.getharvest.com/harvest/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

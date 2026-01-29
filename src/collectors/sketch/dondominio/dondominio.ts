@@ -29,7 +29,7 @@ export class DondominioCollector extends SketchCollector {
         loginUrl: "https://www.dondominio.com/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

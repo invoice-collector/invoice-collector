@@ -29,7 +29,7 @@ export class MoebelDePartnerCollector extends SketchCollector {
         loginUrl: "https://partner.moebel.de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

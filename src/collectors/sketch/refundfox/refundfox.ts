@@ -29,7 +29,7 @@ export class RefundfoxCollector extends SketchCollector {
         loginUrl: "https://portal.refundfox.com/#/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VyprvpnCollector extends SketchCollector {
         loginUrl: "https://account.vyprvpn.com/payment-information",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

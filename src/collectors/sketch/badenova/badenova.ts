@@ -29,7 +29,7 @@ export class BadenovaCollector extends SketchCollector {
         loginUrl: "https://meine-badenova.badenova.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

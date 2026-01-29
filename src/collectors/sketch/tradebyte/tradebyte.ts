@@ -29,7 +29,7 @@ export class TradebyteCollector extends SketchCollector {
         loginUrl: "https://www.trade-server.net/index.php?page=current_user&sub=invoicing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

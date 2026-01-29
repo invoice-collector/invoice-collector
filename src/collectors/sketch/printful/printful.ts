@@ -29,7 +29,7 @@ export class PrintfulCollector extends SketchCollector {
         loginUrl: "https://www.printful.com/dashboard/billing/payment-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

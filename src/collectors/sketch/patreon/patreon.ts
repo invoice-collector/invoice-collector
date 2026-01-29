@@ -29,7 +29,7 @@ export class PatreonCollector extends SketchCollector {
         loginUrl: "https://www.patreon.com/pledges?ty=h",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

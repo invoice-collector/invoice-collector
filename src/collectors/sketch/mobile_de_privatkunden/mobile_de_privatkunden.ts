@@ -29,7 +29,7 @@ export class MobileDePrivatkundenCollector extends SketchCollector {
         loginUrl: "https://login.mobile.de/a2/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

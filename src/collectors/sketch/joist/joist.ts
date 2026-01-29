@@ -29,7 +29,7 @@ export class JoistCollector extends SketchCollector {
         loginUrl: "https://shop.joist.eu/orderhistory.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

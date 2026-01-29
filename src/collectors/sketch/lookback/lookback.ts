@@ -29,7 +29,7 @@ export class LookbackCollector extends SketchCollector {
         loginUrl: "https://lookback.io/canyon-bicycles-gmbh/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

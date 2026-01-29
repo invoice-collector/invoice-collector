@@ -29,7 +29,7 @@ export class SteuerseminareGrafCollector extends SketchCollector {
         loginUrl: "https://www.steuerseminare-graf.de/kundenkonto/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

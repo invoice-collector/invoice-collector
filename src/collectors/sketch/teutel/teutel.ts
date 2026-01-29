@@ -29,7 +29,7 @@ export class TeutelCollector extends SketchCollector {
         loginUrl: "https://kundenportal.teutel.de/portal/docs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

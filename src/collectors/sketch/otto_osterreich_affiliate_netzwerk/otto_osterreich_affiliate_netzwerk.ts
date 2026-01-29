@@ -29,7 +29,7 @@ export class OttoOsterreichAffiliateNetzwerkCollector extends SketchCollector {
         loginUrl: "https://affiliate.ottoversand.at/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

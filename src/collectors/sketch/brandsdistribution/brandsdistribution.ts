@@ -29,7 +29,7 @@ export class BrandsdistributionCollector extends SketchCollector {
         loginUrl: "https://www.brandsdistribution.com/de/profile/orders/1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

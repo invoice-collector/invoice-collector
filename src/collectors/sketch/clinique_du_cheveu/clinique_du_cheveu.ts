@@ -29,7 +29,7 @@ export class CliniqueDuCheveuCollector extends SketchCollector {
         loginUrl: "http://www.cliniqueducheveu.be/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

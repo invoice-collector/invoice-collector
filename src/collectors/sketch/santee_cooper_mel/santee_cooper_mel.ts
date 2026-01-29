@@ -29,7 +29,7 @@ export class SanteeCooperMelCollector extends SketchCollector {
         loginUrl: "https://myservice.santeecooper.com/portal/BillDashboard.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

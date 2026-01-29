@@ -29,7 +29,7 @@ export class EvoPaymentsCollector extends SketchCollector {
         loginUrl: "https://www.evopayments.eu/service/evo-kundenportal-bis/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EkooknaCollector extends SketchCollector {
         loginUrl: "https://eko4u.com/?p=billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

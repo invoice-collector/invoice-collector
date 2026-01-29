@@ -29,7 +29,7 @@ export class YammerCollector extends SketchCollector {
         loginUrl: "https://www.yammer.com/login?locale=en-US&locale_type=standard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

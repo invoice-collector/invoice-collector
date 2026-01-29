@@ -29,7 +29,7 @@ export class FiliagoCollector extends SketchCollector {
         loginUrl: "https://www.filiago.de/Account/Login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

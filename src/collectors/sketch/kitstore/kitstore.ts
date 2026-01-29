@@ -29,7 +29,7 @@ export class KitstoreCollector extends SketchCollector {
         loginUrl: "https://www.kitstore.de/customer/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

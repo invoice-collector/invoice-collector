@@ -29,7 +29,7 @@ export class WhimsicalCollector extends SketchCollector {
         loginUrl: "https://whimsical.com/workspace/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

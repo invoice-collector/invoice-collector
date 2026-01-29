@@ -29,7 +29,7 @@ export class WitteDigitalCollector extends SketchCollector {
         loginUrl: "https://portal.flinkey.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

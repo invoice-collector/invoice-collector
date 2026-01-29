@@ -29,7 +29,7 @@ export class EFactFacNissanCollector extends SketchCollector {
         loginUrl: "https://private.cegedim-demat.com/gis-frontoffice/home.do?mdpreset=ok",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NaranjasDelCarmenCollector extends SketchCollector {
         loginUrl: "https://www.naranjasdelcarmen.com/mein-konto/pedidos",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

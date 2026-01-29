@@ -29,7 +29,7 @@ export class AldAutomotiveCollector extends SketchCollector {
         loginUrl: "https://www.aldnet.fr/portal/aldnetpal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RauwolfAtCollector extends SketchCollector {
         loginUrl: "https://rauwolf-coffee.at/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

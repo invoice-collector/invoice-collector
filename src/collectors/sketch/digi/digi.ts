@@ -29,7 +29,7 @@ export class DigiCollector extends SketchCollector {
         loginUrl: "https://www.digi.ro/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

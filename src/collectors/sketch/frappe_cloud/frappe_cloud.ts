@@ -29,7 +29,7 @@ export class FrappeCloudCollector extends SketchCollector {
         loginUrl: "https://frappecloud.com/dashboard/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

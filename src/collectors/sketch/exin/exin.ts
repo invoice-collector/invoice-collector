@@ -29,7 +29,7 @@ export class ExinCollector extends SketchCollector {
         loginUrl: "https://mylogin.exin.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TeamviewerCollector extends SketchCollector {
         loginUrl: "https://login.teamviewer.com/LogOn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

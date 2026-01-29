@@ -29,7 +29,7 @@ export class SghNetCollector extends SketchCollector {
         loginUrl: "https://cp.sgh-net.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

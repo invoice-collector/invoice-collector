@@ -29,7 +29,7 @@ export class BlinkistCollector extends SketchCollector {
         loginUrl: "https://www.blinkist.com/de/nc/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MuonaCollector extends SketchCollector {
         loginUrl: "https://moncompte.muona.com/index.php?p=MonCompteClientFacture/main&tab=1&id=1706",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

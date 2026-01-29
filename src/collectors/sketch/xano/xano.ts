@@ -29,7 +29,7 @@ export class XanoCollector extends SketchCollector {
         loginUrl: "https://app.xano.com/admin/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

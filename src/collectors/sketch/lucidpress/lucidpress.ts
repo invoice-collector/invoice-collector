@@ -29,7 +29,7 @@ export class LucidpressCollector extends SketchCollector {
         loginUrl: "https://www.lucidpress.com/users/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AmazonSellerCentralBeCollector extends SketchCollector {
         loginUrl: "https://sellercentral.amazon.com.be/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

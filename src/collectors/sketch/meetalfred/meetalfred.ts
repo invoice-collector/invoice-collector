@@ -29,7 +29,7 @@ export class MeetalfredCollector extends SketchCollector {
         loginUrl: "https://meetalfred.com/app/billing?team=14143",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

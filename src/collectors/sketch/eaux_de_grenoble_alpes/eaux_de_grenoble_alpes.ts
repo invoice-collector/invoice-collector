@@ -29,7 +29,7 @@ export class EauxDeGrenobleAlpesCollector extends SketchCollector {
         loginUrl: "https://ael.eauxdegrenoblealpes.fr/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

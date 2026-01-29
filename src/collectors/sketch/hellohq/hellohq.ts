@@ -29,7 +29,7 @@ export class HellohqCollector extends SketchCollector {
         loginUrl: "https://hq.hellohq.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StellantisCollector extends SketchCollector {
         loginUrl: "https://www.madd.stellantis.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

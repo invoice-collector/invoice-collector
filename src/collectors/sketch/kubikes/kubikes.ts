@@ -29,7 +29,7 @@ export class KubikesCollector extends SketchCollector {
         loginUrl: "https://www.kubikes.de/kubikes_shop/account.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

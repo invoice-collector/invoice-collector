@@ -29,7 +29,7 @@ export class ManagementboekCollector extends SketchCollector {
         loginUrl: "https://www.managementboek.nl/uwaccount/overzicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

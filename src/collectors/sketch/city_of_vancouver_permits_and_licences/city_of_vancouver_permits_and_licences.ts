@@ -29,7 +29,7 @@ export class CityOfVancouverPermitsAndLicencesCollector extends SketchCollector 
         loginUrl: "https://plposweb.vancouver.ca/Public/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

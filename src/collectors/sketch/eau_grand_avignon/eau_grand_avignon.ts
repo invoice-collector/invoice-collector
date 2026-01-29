@@ -29,7 +29,7 @@ export class EauGrandAvignonCollector extends SketchCollector {
         loginUrl: "https://www.eaugrandavignon.fr/mon-compte-en-ligne/je-me-connecte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

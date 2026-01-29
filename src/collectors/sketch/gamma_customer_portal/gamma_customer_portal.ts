@@ -29,7 +29,7 @@ export class GammaCustomerPortalCollector extends SketchCollector {
         loginUrl: "https://customers.gamma.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GoteborgEnergiCollector extends SketchCollector {
         loginUrl: "https://www.goteborgenergi.se/Kundservice/Logga_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

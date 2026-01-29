@@ -29,7 +29,7 @@ export class AmazonVendorCentralNlCollector extends SketchCollector {
         loginUrl: "https://vendorcentral.amazon.nl/gp/vendor/sign-in/257-4832853-4155409?ie=UTF8&originatingURI=%2Fgp%2Fvendor%2Fmembers%2Fhome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

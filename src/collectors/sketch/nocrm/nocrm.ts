@@ -29,7 +29,7 @@ export class NocrmCollector extends SketchCollector {
         loginUrl: "https://digitalanders.nocrm.io/admin/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BestSublimationCollector extends SketchCollector {
         loginUrl: "https://shop.bestsublimation.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

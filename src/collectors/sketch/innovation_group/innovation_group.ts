@@ -29,7 +29,7 @@ export class InnovationGroupCollector extends SketchCollector {
         loginUrl: "http://www.innovation-group.parts/innovation/kundenportal/login.php?id=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

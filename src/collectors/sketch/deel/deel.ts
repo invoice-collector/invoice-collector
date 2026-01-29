@@ -29,7 +29,7 @@ export class DeelCollector extends SketchCollector {
         loginUrl: "https://app.letsdeel.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

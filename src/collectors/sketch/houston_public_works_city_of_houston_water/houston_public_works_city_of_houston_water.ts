@@ -29,7 +29,7 @@ export class HoustonPublicWorksCityOfHoustonWaterCollector extends SketchCollect
         loginUrl: "https://www.houstonwaterbills.houstontx.gov/ProdDP/Billing/MyUtilityPortal/MyAccountSummary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IhelpstoreCollector extends SketchCollector {
         loginUrl: "https://www.ihelpstore.de/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

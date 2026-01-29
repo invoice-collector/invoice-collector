@@ -29,7 +29,7 @@ export class DelpechCollector extends SketchCollector {
         loginUrl: "https://pharmaciedelpech.fr/?page=Pharmacie:Accueil",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CoolshopDeCollector extends SketchCollector {
         loginUrl: "https://www.coolshop.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MeinWustenrotCollector extends SketchCollector {
         loginUrl: "https://www.wuestenrot.de/de/mein_wuestenrot.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

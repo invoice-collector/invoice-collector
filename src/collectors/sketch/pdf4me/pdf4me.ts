@@ -29,7 +29,7 @@ export class Pdf4meCollector extends SketchCollector {
         loginUrl: "https://pdf4me.com/de/account/#/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

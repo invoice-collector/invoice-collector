@@ -29,7 +29,7 @@ export class HagelShopCollector extends SketchCollector {
         loginUrl: "https://www.hagel-shop.de/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

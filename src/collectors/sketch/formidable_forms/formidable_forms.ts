@@ -29,7 +29,7 @@ export class FormidableFormsCollector extends SketchCollector {
         loginUrl: "https://formidableforms.com/account/purchases/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

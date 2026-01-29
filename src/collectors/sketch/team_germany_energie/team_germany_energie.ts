@@ -29,7 +29,7 @@ export class TeamGermanyEnergieCollector extends SketchCollector {
         loginUrl: "https://vertriebspartner.teamgermany.de/provisionen/abrechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PropertyRedressSchemeCollector extends SketchCollector {
         loginUrl: "https://www.theprs.co.uk/propertyagent/dashboard/#mebership",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

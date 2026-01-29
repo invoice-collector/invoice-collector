@@ -29,7 +29,7 @@ export class VisseriefixationsCollector extends SketchCollector {
         loginUrl: "https://www.visseriefixations.fr/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

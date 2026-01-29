@@ -29,7 +29,7 @@ export class KabelsatDeCollector extends SketchCollector {
         loginUrl: "https://kundenportal.kabelsat.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

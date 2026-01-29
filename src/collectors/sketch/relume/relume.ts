@@ -29,7 +29,7 @@ export class RelumeCollector extends SketchCollector {
         loginUrl: "https://library.relume.io/dashboard#/ms/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

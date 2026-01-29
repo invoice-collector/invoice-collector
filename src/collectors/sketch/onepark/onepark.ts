@@ -29,7 +29,7 @@ export class OneparkCollector extends SketchCollector {
         loginUrl: "https://www.onepark.fr/?origin=header&modal=connect",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

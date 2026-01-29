@@ -29,7 +29,7 @@ export class SyncsiloCollector extends SketchCollector {
         loginUrl: "https://app.syncsilo.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

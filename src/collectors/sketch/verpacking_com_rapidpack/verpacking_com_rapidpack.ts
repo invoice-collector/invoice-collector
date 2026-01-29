@@ -29,7 +29,7 @@ export class VerpackingComRapidpackCollector extends SketchCollector {
         loginUrl: "https://www.verpacking.com/Mein-Konto?bestellungen=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

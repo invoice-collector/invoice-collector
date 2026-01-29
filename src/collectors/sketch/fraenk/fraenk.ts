@@ -29,7 +29,7 @@ export class FraenkCollector extends SketchCollector {
         loginUrl: "https://fraenk.de/xyz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

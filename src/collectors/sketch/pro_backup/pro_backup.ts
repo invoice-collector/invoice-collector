@@ -29,7 +29,7 @@ export class ProBackupCollector extends SketchCollector {
         loginUrl: "https://app.probackup.io/p/asana/dashboard/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

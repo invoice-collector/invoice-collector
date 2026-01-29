@@ -29,7 +29,7 @@ export class DebonixFrCollector extends SketchCollector {
         loginUrl: "https://www.debonix.fr/customer/account/create/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

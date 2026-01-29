@@ -29,7 +29,7 @@ export class LandenCollector extends SketchCollector {
         loginUrl: "https://app.landen.co/settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

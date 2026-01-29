@@ -29,7 +29,7 @@ export class BulkgateCollector extends SketchCollector {
         loginUrl: "https://www.bulkgate.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

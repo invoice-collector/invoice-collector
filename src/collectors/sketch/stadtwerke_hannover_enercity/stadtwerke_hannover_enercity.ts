@@ -29,7 +29,7 @@ export class StadtwerkeHannoverEnercityCollector extends SketchCollector {
         loginUrl: "https://serviceportal.enercity.de/action/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

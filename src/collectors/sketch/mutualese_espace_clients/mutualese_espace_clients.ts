@@ -29,7 +29,7 @@ export class MutualeseEspaceClientsCollector extends SketchCollector {
         loginUrl: "https://www.espaceclients.mutualease-cml.com/espaceclients/initlogin.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

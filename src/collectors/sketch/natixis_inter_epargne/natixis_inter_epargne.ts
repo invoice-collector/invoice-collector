@@ -29,7 +29,7 @@ export class NatixisInterEpargneCollector extends SketchCollector {
         loginUrl: "https://epargnants.interepargne.natixis.fr/def_int_ep/ep/home.do?language=fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

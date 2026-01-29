@@ -29,7 +29,7 @@ export class Msp360Collector extends SketchCollector {
         loginUrl: "https://console.msp360.com/AP/LicensesSubscriptionHistory.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

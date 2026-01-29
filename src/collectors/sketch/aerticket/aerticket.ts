@@ -29,7 +29,7 @@ export class AerticketCollector extends SketchCollector {
         loginUrl: "https://cockpit.aerticket.de/home/mein-aer/rechnungen-und-gutschriften/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

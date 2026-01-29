@@ -29,7 +29,7 @@ export class MidtFactoringCollector extends SketchCollector {
         loginUrl: "https://mfo.midtfactoring.dk/Login/Login.aspx?ReturnUrl=%2fHome%2fWelcome.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

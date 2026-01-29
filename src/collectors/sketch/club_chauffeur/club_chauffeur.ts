@@ -29,7 +29,7 @@ export class ClubChauffeurCollector extends SketchCollector {
         loginUrl: "https://www.clubchauffeur.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

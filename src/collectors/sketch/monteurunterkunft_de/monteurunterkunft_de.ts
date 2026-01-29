@@ -29,7 +29,7 @@ export class MonteurunterkunftDeCollector extends SketchCollector {
         loginUrl: "https://www.monteurunterkunft.de/buchung/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

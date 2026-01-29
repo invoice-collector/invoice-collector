@@ -29,7 +29,7 @@ export class DeutschlandMonteurzimmerCollector extends SketchCollector {
         loginUrl: "https://www.deutschland-monteurzimmer.de/account/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

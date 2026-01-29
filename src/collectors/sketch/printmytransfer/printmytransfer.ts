@@ -29,7 +29,7 @@ export class PrintmytransferCollector extends SketchCollector {
         loginUrl: "https://extranet.printmytransfer.de/secure/my-invoices.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

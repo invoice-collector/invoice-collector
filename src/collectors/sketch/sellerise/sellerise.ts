@@ -29,7 +29,7 @@ export class SelleriseCollector extends SketchCollector {
         loginUrl: "https://sellerise.com/settings?section=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

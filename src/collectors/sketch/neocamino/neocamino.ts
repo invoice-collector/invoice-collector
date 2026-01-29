@@ -29,7 +29,7 @@ export class NeocaminoCollector extends SketchCollector {
         loginUrl: "https://app.neocamino.com/admin/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

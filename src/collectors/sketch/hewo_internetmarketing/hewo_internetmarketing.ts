@@ -29,7 +29,7 @@ export class HewoInternetmarketingCollector extends SketchCollector {
         loginUrl: "https://hewo.clonedesk.com/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

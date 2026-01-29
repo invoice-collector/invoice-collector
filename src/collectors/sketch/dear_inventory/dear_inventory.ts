@@ -29,7 +29,7 @@ export class DearInventoryCollector extends SketchCollector {
         loginUrl: "https://inventory.dearsystems.com/Account/Login?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

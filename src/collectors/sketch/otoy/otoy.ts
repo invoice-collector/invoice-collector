@@ -29,7 +29,7 @@ export class OtoyCollector extends SketchCollector {
         loginUrl: "https://render.otoy.com/account/purchases.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BetterproposalsCollector extends SketchCollector {
         loginUrl: "https://betterproposals.io/2/settings/account-invoice-view?id=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

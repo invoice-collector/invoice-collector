@@ -29,7 +29,7 @@ export class Kuv24Collector extends SketchCollector {
         loginUrl: "https://www.kuv24.de/mykuv24_getfile.php?iddokument=50221",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

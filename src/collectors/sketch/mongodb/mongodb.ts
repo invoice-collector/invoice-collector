@@ -29,7 +29,7 @@ export class MongodbCollector extends SketchCollector {
         loginUrl: "https://cloud.mongodb.com/user?nds=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

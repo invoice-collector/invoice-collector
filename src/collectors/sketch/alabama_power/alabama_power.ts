@@ -29,7 +29,7 @@ export class AlabamaPowerCollector extends SketchCollector {
         loginUrl: "http://www.alabamapower.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

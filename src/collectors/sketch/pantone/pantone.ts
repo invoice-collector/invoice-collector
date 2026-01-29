@@ -29,7 +29,7 @@ export class PantoneCollector extends SketchCollector {
         loginUrl: "https://www.pantone.com/hk/en/customer/account/create",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

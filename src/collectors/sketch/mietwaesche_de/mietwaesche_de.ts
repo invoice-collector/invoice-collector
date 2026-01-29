@@ -29,7 +29,7 @@ export class MietwaescheDeCollector extends SketchCollector {
         loginUrl: "https://auftrag.mietwaesche.de/kundenlogin/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

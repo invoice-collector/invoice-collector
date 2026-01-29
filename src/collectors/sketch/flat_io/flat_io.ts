@@ -29,7 +29,7 @@ export class FlatIoCollector extends SketchCollector {
         loginUrl: "https://flat.io/settings/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

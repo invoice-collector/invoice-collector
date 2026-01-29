@@ -29,7 +29,7 @@ export class FahrlehrerversicherungCollector extends SketchCollector {
         loginUrl: "https://www.fv.de/meine-fv/postfach/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

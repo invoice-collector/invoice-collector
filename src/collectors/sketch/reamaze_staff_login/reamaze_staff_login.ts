@@ -29,7 +29,7 @@ export class ReamazeStaffLoginCollector extends SketchCollector {
         loginUrl: "https://www.reamaze.com/admin/settings/payment_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

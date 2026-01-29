@@ -29,7 +29,7 @@ export class StawagStadtwerkeAachenAgCollector extends SketchCollector {
         loginUrl: "https://www.stawag.de/portal/postbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

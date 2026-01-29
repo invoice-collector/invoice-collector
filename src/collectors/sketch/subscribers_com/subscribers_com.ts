@@ -29,7 +29,7 @@ export class SubscribersComCollector extends SketchCollector {
         loginUrl: "https://app.subscribers.com/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BuhlDataServiceCollector extends SketchCollector {
         loginUrl: "https://www.buhl.de/rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

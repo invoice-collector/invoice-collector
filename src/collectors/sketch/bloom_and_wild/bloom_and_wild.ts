@@ -29,7 +29,7 @@ export class BloomAndWildCollector extends SketchCollector {
         loginUrl: "https://www.bloomandwild.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

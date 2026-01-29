@@ -29,7 +29,7 @@ export class CaptraderPartnerCollector extends SketchCollector {
         loginUrl: "https://www.clientam.com/AccountManagement/AmAuthentication?action=Statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

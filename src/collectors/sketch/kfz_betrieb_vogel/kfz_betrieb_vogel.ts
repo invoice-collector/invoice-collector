@@ -29,7 +29,7 @@ export class KfzBetriebVogelCollector extends SketchCollector {
         loginUrl: "https://www.kfz-betrieb.vogel.de/anmelden/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CityOfBeaumontCaCollector extends SketchCollector {
         loginUrl: "https://beaumontca.municipalonlinepayments.com/beaumontca/utilities",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

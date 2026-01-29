@@ -29,7 +29,7 @@ export class SynchronDeCollector extends SketchCollector {
         loginUrl: "https://synchron.de/mein-konto.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

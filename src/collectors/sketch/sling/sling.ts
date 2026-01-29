@@ -29,7 +29,7 @@ export class SlingCollector extends SketchCollector {
         loginUrl: "https://app.getsling.com/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AlliantEnergyCollector extends SketchCollector {
         loginUrl: "https://myaccount.alliantenergy.com/Portal//BillDashboard.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KfwKreditanstaltFurWiederaufbauCollector extends SketchCollector {
         loginUrl: "https://onlinekreditportal.kfw.de/BK_KNPlattform/KfwFormularServer",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

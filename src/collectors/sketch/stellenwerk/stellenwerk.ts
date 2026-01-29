@@ -29,7 +29,7 @@ export class StellenwerkCollector extends SketchCollector {
         loginUrl: "https://www.stellenwerk-koeln.de/user/33168/joboffers",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

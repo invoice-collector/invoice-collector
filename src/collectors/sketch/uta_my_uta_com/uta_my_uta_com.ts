@@ -29,7 +29,7 @@ export class UtaMyUtaComCollector extends SketchCollector {
         loginUrl: "http://my.uta.com/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EdpPtCollector extends SketchCollector {
         loginUrl: "http://www.edp.pt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AllesfirmaCollector extends SketchCollector {
         loginUrl: "https://www.allesfirma.at/app/einstellungen/konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

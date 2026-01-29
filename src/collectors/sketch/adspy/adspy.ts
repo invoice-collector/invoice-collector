@@ -29,7 +29,7 @@ export class AdspyCollector extends SketchCollector {
         loginUrl: "https://app.adspy.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

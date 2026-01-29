@@ -29,7 +29,7 @@ export class SpotHitCollector extends SketchCollector {
         loginUrl: "https://www.spot-hit.fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

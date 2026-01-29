@@ -29,7 +29,7 @@ export class BlenderkitCollector extends SketchCollector {
         loginUrl: "https://www.blenderkit.com/plans/order/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

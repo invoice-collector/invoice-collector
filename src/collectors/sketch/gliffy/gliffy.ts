@@ -29,7 +29,7 @@ export class GliffyCollector extends SketchCollector {
         loginUrl: "https://go.gliffy.com/go/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

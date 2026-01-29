@@ -29,7 +29,7 @@ export class OnexmaCollector extends SketchCollector {
         loginUrl: "https://www.onexma.com/cgi-bin/user.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

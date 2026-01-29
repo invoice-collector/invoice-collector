@@ -29,7 +29,7 @@ export class HostmyappleCollector extends SketchCollector {
         loginUrl: "https://portal.hostmyapple.com/portal/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HedraCollector extends SketchCollector {
         loginUrl: "https://www.hedra.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

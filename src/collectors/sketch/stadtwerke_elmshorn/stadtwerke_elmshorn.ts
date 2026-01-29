@@ -29,7 +29,7 @@ export class StadtwerkeElmshornCollector extends SketchCollector {
         loginUrl: "https://service.stadtwerke-elmshorn.de/bkp/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

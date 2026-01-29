@@ -29,7 +29,7 @@ export class ColisexpatCollector extends SketchCollector {
         loginUrl: "https://client.colisexpat.com/de/comptes/displayClientFacture/888678/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

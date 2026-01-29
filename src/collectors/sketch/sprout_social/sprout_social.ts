@@ -29,7 +29,7 @@ export class SproutSocialCollector extends SketchCollector {
         loginUrl: "https://app.sproutsocial.com/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

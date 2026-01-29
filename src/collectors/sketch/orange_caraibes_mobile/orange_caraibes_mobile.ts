@@ -29,7 +29,7 @@ export class OrangeCaraibesMobileCollector extends SketchCollector {
         loginUrl: "https://login.orange.fr/?return_url=https://caraibe.orange.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

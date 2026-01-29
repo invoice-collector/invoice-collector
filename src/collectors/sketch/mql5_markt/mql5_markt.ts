@@ -29,7 +29,7 @@ export class Mql5MarktCollector extends SketchCollector {
         loginUrl: "https://www.mql5.com/de/users/cbanalyse/accounting",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

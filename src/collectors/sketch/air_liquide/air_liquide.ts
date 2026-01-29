@@ -29,7 +29,7 @@ export class AirLiquideCollector extends SketchCollector {
         loginUrl: "https://mygas.airliquide.de/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

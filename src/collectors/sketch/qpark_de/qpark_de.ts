@@ -29,7 +29,7 @@ export class QparkDeCollector extends SketchCollector {
         loginUrl: "https://www.q-park.de/de-de/myqpark/mein-q-park/meine-rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

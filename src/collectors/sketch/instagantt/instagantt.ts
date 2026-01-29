@@ -29,7 +29,7 @@ export class InstaganttCollector extends SketchCollector {
         loginUrl: "https://app.asana.com/-/oauth_authorize?response_type=code&client_id=5275785675948&redirect_uri=https://instagantt.com/asana/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

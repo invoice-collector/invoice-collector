@@ -29,7 +29,7 @@ export class SundayNaturalCollector extends SketchCollector {
         loginUrl: "https://www.sunday.de/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CampfireCollector extends SketchCollector {
         loginUrl: "https://launchpad.37signals.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

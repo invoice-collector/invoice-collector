@@ -29,7 +29,7 @@ export class OteloCollector extends SketchCollector {
         loginUrl: "https://mein.otelo.de/service/mein-otelo/postpaid/rechnungen-evn.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

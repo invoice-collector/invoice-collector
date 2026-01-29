@@ -29,7 +29,7 @@ export class DribbbleCollector extends SketchCollector {
         loginUrl: "https://dribbble.com/session/new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

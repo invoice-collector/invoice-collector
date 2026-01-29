@@ -29,7 +29,7 @@ export class MonduCollector extends SketchCollector {
         loginUrl: "https://portal.mondu.ai/#/payouts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

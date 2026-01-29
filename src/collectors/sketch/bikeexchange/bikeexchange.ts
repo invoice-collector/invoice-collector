@@ -29,7 +29,7 @@ export class BikeexchangeCollector extends SketchCollector {
         loginUrl: "https://www.bikeexchange.de/client/billings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

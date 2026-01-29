@@ -29,7 +29,7 @@ export class NetaffiliationCollector extends SketchCollector {
         loginUrl: "https://www6.netaffiliation.com/billing/in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

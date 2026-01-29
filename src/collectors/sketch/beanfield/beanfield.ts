@@ -29,7 +29,7 @@ export class BeanfieldCollector extends SketchCollector {
         loginUrl: "https://my.beanfield.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

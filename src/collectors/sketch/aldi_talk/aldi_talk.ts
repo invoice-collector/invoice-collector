@@ -29,7 +29,7 @@ export class AldiTalkCollector extends SketchCollector {
         loginUrl: "https://www.alditalk-kundenbetreuung.de/de/konto/kontouebersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

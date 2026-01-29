@@ -29,7 +29,7 @@ export class ShifterCollector extends SketchCollector {
         loginUrl: "https://shifter.io/panel/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

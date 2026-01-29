@@ -29,7 +29,7 @@ export class LOrealCosmetiqueActiveCollector extends SketchCollector {
         loginUrl: "https://www.loreal.com/en/active-cosmetics-division/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

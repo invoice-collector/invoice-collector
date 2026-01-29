@@ -29,7 +29,7 @@ export class FosterAcademyCollector extends SketchCollector {
         loginUrl: "https://aussiescertification.com/certification/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

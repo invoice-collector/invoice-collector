@@ -28,7 +28,7 @@ export class TechemCollector extends SketchCollector {
         loginUrl: "https://client.techem.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

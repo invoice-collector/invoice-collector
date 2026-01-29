@@ -29,7 +29,7 @@ export class SellwerkCollector extends SketchCollector {
         loginUrl: "http://www.sellwerk.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

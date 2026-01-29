@@ -29,7 +29,7 @@ export class StadtwerkeDelmenhorstCollector extends SketchCollector {
         loginUrl: "https://kundenportal.swd-del.de/BK/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

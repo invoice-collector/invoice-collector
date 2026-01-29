@@ -29,7 +29,7 @@ export class ColonnaCoffeeCollector extends SketchCollector {
         loginUrl: "https://colonnacoffee.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

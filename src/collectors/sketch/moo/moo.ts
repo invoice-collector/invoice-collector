@@ -29,7 +29,7 @@ export class MooCollector extends SketchCollector {
         loginUrl: "https://www.moo.com/us/account/signin.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

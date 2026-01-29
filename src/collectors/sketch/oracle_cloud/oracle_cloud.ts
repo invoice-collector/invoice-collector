@@ -29,7 +29,7 @@ export class OracleCloudCollector extends SketchCollector {
         loginUrl: "https://cloud.oracle.com/account-management/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

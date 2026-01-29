@@ -29,7 +29,7 @@ export class TransistorCollector extends SketchCollector {
         loginUrl: "https://dashboard.transistor.fm/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

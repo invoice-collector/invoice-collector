@@ -29,7 +29,7 @@ export class FotografDeCollector extends SketchCollector {
         loginUrl: "https://app.fotograf.de/config/index_invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

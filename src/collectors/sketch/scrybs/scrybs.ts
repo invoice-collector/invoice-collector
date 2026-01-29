@@ -29,7 +29,7 @@ export class ScrybsCollector extends SketchCollector {
         loginUrl: "https://scrybs.com/en/account/c/myorders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

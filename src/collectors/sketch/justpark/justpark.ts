@@ -29,7 +29,7 @@ export class JustparkCollector extends SketchCollector {
         loginUrl: "https://www.justpark.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

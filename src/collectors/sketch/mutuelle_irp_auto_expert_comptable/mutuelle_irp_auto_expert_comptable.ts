@@ -29,7 +29,7 @@ export class MutuelleIrpAutoExpertComptableCollector extends SketchCollector {
         loginUrl: "https://www.irp-auto.com/acces-votre-compte-expert-comptable",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AppsheetCollector extends SketchCollector {
         loginUrl: "https://www.appsheet.com/Account/Account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

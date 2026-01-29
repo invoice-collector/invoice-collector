@@ -29,7 +29,7 @@ export class StadtwerkeKaltenkirchenCollector extends SketchCollector {
         loginUrl: "https://mein.kakiconnect.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

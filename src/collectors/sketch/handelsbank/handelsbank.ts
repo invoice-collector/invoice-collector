@@ -29,7 +29,7 @@ export class HandelsbankCollector extends SketchCollector {
         loginUrl: "https://banking.handelsbank.com/print/inbox.document.php?fileid=OTY4Mjg3&reloadid=N21zYXNxY3BndWJkZXEzcmpkODJ0a3A0cDd8fHw1NjY1ZDUyNjU3NTI5YTcyNjk5NmJmMmJkYTZjZjM3MXx8fDc4MDQ0NDc0OTA%3D",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

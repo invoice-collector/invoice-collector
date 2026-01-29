@@ -29,7 +29,7 @@ export class JitpackCollector extends SketchCollector {
         loginUrl: "https://jitpack.io/private/invoice?customer=cus_GnJ83OJPm0JO7n&id=in_1GbT6yHW6oMZPh38aYAQlBhn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

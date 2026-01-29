@@ -29,7 +29,7 @@ export class TrustedshopsPrivateCollector extends SketchCollector {
         loginUrl: "https://my.trustedshops.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

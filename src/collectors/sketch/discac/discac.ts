@@ -29,7 +29,7 @@ export class DiscacCollector extends SketchCollector {
         loginUrl: "https://espacepro.discac.fr/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

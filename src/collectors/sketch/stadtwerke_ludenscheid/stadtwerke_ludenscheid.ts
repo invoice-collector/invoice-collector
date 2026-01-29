@@ -29,7 +29,7 @@ export class StadtwerkeLudenscheidCollector extends SketchCollector {
         loginUrl: "https://swls.emobilitycloud.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

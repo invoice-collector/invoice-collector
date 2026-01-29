@@ -29,7 +29,7 @@ export class SBahnBerlinAboOnlineCollector extends SketchCollector {
         loginUrl: "https://www.abo-antrag.de/de/sites/Postfach/Default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

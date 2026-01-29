@@ -29,7 +29,7 @@ export class LegalstartCollector extends SketchCollector {
         loginUrl: "https://www.legalstart.fr/compte/mes-factures/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

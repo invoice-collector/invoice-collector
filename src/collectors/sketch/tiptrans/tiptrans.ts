@@ -29,7 +29,7 @@ export class TiptransCollector extends SketchCollector {
         loginUrl: "https://www.tiptrans.com/clients/home?type=4",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

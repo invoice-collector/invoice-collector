@@ -29,7 +29,7 @@ export class AbstractCollector extends SketchCollector {
         loginUrl: "https://app.goabstract.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WiredashCollector extends SketchCollector {
         loginUrl: "https://console.wiredash.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

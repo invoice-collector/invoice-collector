@@ -29,7 +29,7 @@ export class Servicenummer4youDeCollector extends SketchCollector {
         loginUrl: "http://login.srn-manager.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

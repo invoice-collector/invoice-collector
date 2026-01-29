@@ -29,7 +29,7 @@ export class AmazonWorkdocsCollector extends SketchCollector {
         loginUrl: "https://amazon-hub-payments-eu.awsapps.com/workdocs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EbayComAuCollector extends SketchCollector {
         loginUrl: "https://www.ebay.com.au/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

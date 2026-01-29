@@ -29,7 +29,7 @@ export class NexylanCollector extends SketchCollector {
         loginUrl: "https://connect.nexylan.com/oauth2/authorize",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

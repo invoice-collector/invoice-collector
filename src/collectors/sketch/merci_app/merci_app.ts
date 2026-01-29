@@ -29,7 +29,7 @@ export class MerciAppCollector extends SketchCollector {
         loginUrl: "https://web.merci-app.com/u/1455021896/settings/subscription?fsu=workspacequickswitcher#subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

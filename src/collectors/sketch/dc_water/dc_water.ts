@@ -29,7 +29,7 @@ export class DcWaterCollector extends SketchCollector {
         loginUrl: "https://www.mydcwater.com/DCWSSP/index.aspx?Logout=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

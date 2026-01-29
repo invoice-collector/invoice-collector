@@ -29,7 +29,7 @@ export class NetReviewsCollector extends SketchCollector {
         loginUrl: "https://www.avis-verifies.com/index.php?page=mod_info_banque",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

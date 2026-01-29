@@ -29,7 +29,7 @@ export class FormsiteCollector extends SketchCollector {
         loginUrl: "https://www.formsite.com/form_app/FormSite?FormId=LoadLogin&Auto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

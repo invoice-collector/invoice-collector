@@ -29,7 +29,7 @@ export class LinkedhubCollector extends SketchCollector {
         loginUrl: "https://api.linkedhub.io/api/v3/billing.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

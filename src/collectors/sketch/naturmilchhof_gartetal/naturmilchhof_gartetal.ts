@@ -29,7 +29,7 @@ export class NaturmilchhofGartetalCollector extends SketchCollector {
         loginUrl: "https://shop.naturmilchhof.de/document/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

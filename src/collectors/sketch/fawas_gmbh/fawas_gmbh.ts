@@ -29,7 +29,7 @@ export class FawasGmbhCollector extends SketchCollector {
         loginUrl: "https://www.fawas-shop.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

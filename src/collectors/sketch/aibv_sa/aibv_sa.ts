@@ -29,7 +29,7 @@ export class AibvSaCollector extends SketchCollector {
         loginUrl: "https://planning.aibv.be/Reservaties/ReservatieOverzicht.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

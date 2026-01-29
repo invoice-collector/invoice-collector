@@ -29,7 +29,7 @@ export class TrovitCollector extends SketchCollector {
         loginUrl: "https://accounts.trovit.com/?cod=check_login&url=https%3A%2F%2Fhomes.trovit.com%2Findex.php%2Fcod.mail_preferences&language=en_US&",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

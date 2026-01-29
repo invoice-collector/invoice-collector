@@ -29,7 +29,7 @@ export class HostarmadaCollector extends SketchCollector {
         loginUrl: "https://my.hostarmada.com/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

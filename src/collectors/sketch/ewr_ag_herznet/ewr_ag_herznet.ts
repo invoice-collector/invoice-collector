@@ -29,7 +29,7 @@ export class EwrAgHerznetCollector extends SketchCollector {
         loginUrl: "https://mein.ewr-internett.de/Default.asp?rq_Lang=de#{2}",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

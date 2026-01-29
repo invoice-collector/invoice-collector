@@ -29,7 +29,7 @@ export class OptimonkCollector extends SketchCollector {
         loginUrl: "https://my.optimonk.com/en/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

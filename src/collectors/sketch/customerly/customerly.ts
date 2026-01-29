@@ -29,7 +29,7 @@ export class CustomerlyCollector extends SketchCollector {
         loginUrl: "https://app.customerly.io/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

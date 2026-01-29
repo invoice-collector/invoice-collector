@@ -29,7 +29,7 @@ export class TotalhealthCollector extends SketchCollector {
         loginUrl: "https://totalhealth.ie/member",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

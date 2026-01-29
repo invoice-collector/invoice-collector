@@ -29,7 +29,7 @@ export class WebsupportSkCollector extends SketchCollector {
         loginUrl: "https://login.websupport.sk/?s=cart&l=sk&c=websupport.sk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

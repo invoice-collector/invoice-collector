@@ -29,7 +29,7 @@ export class RialtoWaterServicesCollector extends SketchCollector {
         loginUrl: "https://www.onlinebiller.com/rialtows/statements.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

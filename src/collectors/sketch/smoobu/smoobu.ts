@@ -29,7 +29,7 @@ export class SmoobuCollector extends SketchCollector {
         loginUrl: "https://login.smoobu.com/de/login?utm_source=Smoobu.com&utm_medium=Login&utm_campaign=LoginTopMenu_DE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

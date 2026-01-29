@@ -29,7 +29,7 @@ export class ChangeEnergyKundenportalCollector extends SketchCollector {
         loginUrl: "https://kundenservice.change-energy.de/change-energy/#/loginRegistration",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EdnaDeCollector extends SketchCollector {
         loginUrl: "https://www.edna.de/epages/Edna.sf/de_DE/?ObjectPath=/Shops/Edna&ViewAction=ViewMyAccount&LastViewAction=ViewMyAccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

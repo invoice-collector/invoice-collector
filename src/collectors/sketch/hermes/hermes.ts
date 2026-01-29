@@ -29,7 +29,7 @@ export class HermesCollector extends SketchCollector {
         loginUrl: "https://www.hermes-port.de/port/main.jsp?site=1027",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

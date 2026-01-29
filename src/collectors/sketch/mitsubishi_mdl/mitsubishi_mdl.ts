@@ -29,7 +29,7 @@ export class MitsubishiMdlCollector extends SketchCollector {
         loginUrl: "https://mdl.login.mmsa.com/am/XUI/?realm=/alpha&goto=http%3A%2F%2Fmdl.mmsa.com%2F%3F_ig%3Dtrue#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

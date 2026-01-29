@@ -29,7 +29,7 @@ export class ReisekostenGorillaCollector extends SketchCollector {
         loginUrl: "https://www.reisekosten-gorilla.com/admin/teams/a9e9e9b8-657b-11e7-bbf2-06f35348abf7/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

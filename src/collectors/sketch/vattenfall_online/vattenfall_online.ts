@@ -29,7 +29,7 @@ export class VattenfallOnlineCollector extends SketchCollector {
         loginUrl: "https://online.vattenfall.de/dokumente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

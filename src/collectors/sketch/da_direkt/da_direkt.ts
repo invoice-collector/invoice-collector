@@ -29,7 +29,7 @@ export class DaDirektCollector extends SketchCollector {
         loginUrl: "https://www.da-direkt.de/kundencenter/kundenkonto/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

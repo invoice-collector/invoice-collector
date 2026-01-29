@@ -29,7 +29,7 @@ export class Ssl2buyComCollector extends SketchCollector {
         loginUrl: "https://store.ssl2buy.com/invoice/viewinvoice/all",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

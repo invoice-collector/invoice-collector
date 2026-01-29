@@ -29,7 +29,7 @@ export class VinciAutoroutesCollector extends SketchCollector {
         loginUrl: "https://espaceabonnes.vinci-autoroutes.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

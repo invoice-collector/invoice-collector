@@ -29,7 +29,7 @@ export class MooncardCollector extends SketchCollector {
         loginUrl: "https://www.mooncard.co/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CalendarbridgeCollector extends SketchCollector {
         loginUrl: "https://app.calendarbridge.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

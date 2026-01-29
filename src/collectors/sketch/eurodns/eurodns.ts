@@ -29,7 +29,7 @@ export class EurodnsCollector extends SketchCollector {
         loginUrl: "https://www.eurodns.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

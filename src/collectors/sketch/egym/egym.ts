@@ -29,7 +29,7 @@ export class EgymCollector extends SketchCollector {
         loginUrl: "https://www.egym.com/mvc/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

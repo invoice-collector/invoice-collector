@@ -29,7 +29,7 @@ export class AmazonMarketingServiceNlCollector extends SketchCollector {
         loginUrl: "https://advertising.amazon.nl/billing/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

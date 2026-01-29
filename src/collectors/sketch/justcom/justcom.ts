@@ -29,7 +29,7 @@ export class JustcomCollector extends SketchCollector {
         loginUrl: "https://www.justcom-shop.de/shopware.php/sViewport,account/sAction,orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

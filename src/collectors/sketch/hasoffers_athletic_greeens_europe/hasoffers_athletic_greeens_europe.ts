@@ -29,7 +29,7 @@ export class HasoffersAthleticGreeensEuropeCollector extends SketchCollector {
         loginUrl: "http://euroathleticgreens.hasoffers.com/publisher/#!/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

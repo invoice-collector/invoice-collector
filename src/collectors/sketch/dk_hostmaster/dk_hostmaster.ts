@@ -29,7 +29,7 @@ export class DkHostmasterCollector extends SketchCollector {
         loginUrl: "https://www.dk-hostmaster.dk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

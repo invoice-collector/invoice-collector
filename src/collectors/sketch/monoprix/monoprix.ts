@@ -28,7 +28,7 @@ export class MonoprixCollector extends SketchCollector {
         loginUrl: "https://client.monoprix.fr/monoprix-shopping",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

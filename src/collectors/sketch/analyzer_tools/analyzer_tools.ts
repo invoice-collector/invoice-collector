@@ -29,7 +29,7 @@ export class AnalyzerToolsCollector extends SketchCollector {
         loginUrl: "https://www.analyzer.tools/wp-login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

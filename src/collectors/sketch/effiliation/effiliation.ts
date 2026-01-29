@@ -29,7 +29,7 @@ export class EffiliationCollector extends SketchCollector {
         loginUrl: "https://www.effiliation.com/de/publishers-area/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

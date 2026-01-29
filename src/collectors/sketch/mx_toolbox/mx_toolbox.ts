@@ -29,7 +29,7 @@ export class MxToolboxCollector extends SketchCollector {
         loginUrl: "https://mxtoolbox.com/Public/Login.aspx?page=pp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

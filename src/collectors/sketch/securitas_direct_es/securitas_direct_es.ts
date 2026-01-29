@@ -29,7 +29,7 @@ export class SecuritasDirectEsCollector extends SketchCollector {
         loginUrl: "https://customers.securitasdirect.es/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MutuelleAlptisAdherentCollector extends SketchCollector {
         loginUrl: "https://adherent.alptis.org/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

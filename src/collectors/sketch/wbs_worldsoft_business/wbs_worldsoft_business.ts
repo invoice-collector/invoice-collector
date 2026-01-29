@@ -29,7 +29,7 @@ export class WbsWorldsoftBusinessCollector extends SketchCollector {
         loginUrl: "https://www.worldsoft-wbs.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

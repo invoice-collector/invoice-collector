@@ -29,7 +29,7 @@ export class AssonaPartnerportalCollector extends SketchCollector {
         loginUrl: "https://partnerportal.assona.com/pos/index.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

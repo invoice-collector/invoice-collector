@@ -29,7 +29,7 @@ export class VismeCollector extends SketchCollector {
         loginUrl: "https://dashboard.visme.co/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

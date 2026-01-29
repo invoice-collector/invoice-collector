@@ -29,7 +29,7 @@ export class StitchexComCollector extends SketchCollector {
         loginUrl: "https://app.stitchex.com/settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

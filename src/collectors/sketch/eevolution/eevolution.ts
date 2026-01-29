@@ -29,7 +29,7 @@ export class EevolutionCollector extends SketchCollector {
         loginUrl: "https://www.eevolution.de/forum/forum/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

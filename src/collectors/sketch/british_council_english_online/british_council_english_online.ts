@@ -29,7 +29,7 @@ export class BritishCouncilEnglishOnlineCollector extends SketchCollector {
         loginUrl: "https://englishonline.britishcouncil.org/platform/nui/reactui/build/index.html#/subscription/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

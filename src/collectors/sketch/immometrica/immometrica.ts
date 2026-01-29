@@ -29,7 +29,7 @@ export class ImmometricaCollector extends SketchCollector {
         loginUrl: "https://www.immometrica.de/profile/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

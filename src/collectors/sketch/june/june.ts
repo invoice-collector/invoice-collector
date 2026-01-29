@@ -29,7 +29,7 @@ export class JuneCollector extends SketchCollector {
         loginUrl: "https://app.june.energy/contract/3143/documents/june",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

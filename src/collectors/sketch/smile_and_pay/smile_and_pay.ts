@@ -29,7 +29,7 @@ export class SmileAndPayCollector extends SketchCollector {
         loginUrl: "https://espacepersonnel.smileandpay.com/view/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AmericanWaterCollector extends SketchCollector {
         loginUrl: "https://auth.amwater.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

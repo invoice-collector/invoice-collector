@@ -29,7 +29,7 @@ export class ScrapeopsCollector extends SketchCollector {
         loginUrl: "https://scrapeops.io/app/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

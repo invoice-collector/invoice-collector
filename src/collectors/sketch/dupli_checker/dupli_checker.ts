@@ -29,7 +29,7 @@ export class DupliCheckerCollector extends SketchCollector {
         loginUrl: "https://pro.duplichecker.com/account-settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

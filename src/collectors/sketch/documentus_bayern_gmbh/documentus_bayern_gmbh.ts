@@ -29,7 +29,7 @@ export class DocumentusBayernGmbhCollector extends SketchCollector {
         loginUrl: "https://portal.documentus-bayern.de/documentus/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

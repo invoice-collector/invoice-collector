@@ -29,7 +29,7 @@ export class GoldbeckParkingServicesCollector extends SketchCollector {
         loginUrl: "https://www.goldbeck-parking.de/mein-parking-profil/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

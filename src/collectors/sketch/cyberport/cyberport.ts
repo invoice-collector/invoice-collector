@@ -29,7 +29,7 @@ export class CyberportCollector extends SketchCollector {
         loginUrl: "https://www.cyberport.de/tools/my-account.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

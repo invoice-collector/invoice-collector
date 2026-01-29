@@ -29,7 +29,7 @@ export class RcnTelecomCollector extends SketchCollector {
         loginUrl: "http://www.rcn.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MailerliteClassicCollector extends SketchCollector {
         loginUrl: "https://app.mailerlite.com/billing/my",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

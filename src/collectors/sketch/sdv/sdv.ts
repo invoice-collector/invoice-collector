@@ -29,7 +29,7 @@ export class SdvCollector extends SketchCollector {
         loginUrl: "https://www.sdvfrance.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

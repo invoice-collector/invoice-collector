@@ -29,7 +29,7 @@ export class WpeverestCollector extends SketchCollector {
         loginUrl: "https://wpeverest.com/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

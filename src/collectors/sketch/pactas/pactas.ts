@@ -29,7 +29,7 @@ export class PactasCollector extends SketchCollector {
         loginUrl: "https://itero.pactas.com/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

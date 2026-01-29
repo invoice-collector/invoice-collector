@@ -29,7 +29,7 @@ export class LoyaltylionCollector extends SketchCollector {
         loginUrl: "https://app.loyaltylion.com/accounts/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

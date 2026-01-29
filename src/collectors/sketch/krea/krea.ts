@@ -29,7 +29,7 @@ export class KreaCollector extends SketchCollector {
         loginUrl: "https://www.krea.ai/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

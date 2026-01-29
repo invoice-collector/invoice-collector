@@ -29,7 +29,7 @@ export class InterhypPrivateNetworkCollector extends SketchCollector {
         loginUrl: "https://www.interhyp-partnerprogramm.de/auszahlungen.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

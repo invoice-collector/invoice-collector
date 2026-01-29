@@ -29,7 +29,7 @@ export class FotoErhardtCollector extends SketchCollector {
         loginUrl: "https://www.foto-erhardt.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

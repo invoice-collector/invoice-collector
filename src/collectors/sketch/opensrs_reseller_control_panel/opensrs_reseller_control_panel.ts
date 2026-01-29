@@ -29,7 +29,7 @@ export class OpensrsResellerControlPanelCollector extends SketchCollector {
         loginUrl: "https://opensrs.com/manage/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

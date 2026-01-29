@@ -29,7 +29,7 @@ export class AdcrowdCollector extends SketchCollector {
         loginUrl: "http://www.adcrowd.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

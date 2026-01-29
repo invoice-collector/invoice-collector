@@ -29,7 +29,7 @@ export class BurlingtonHydroCollector extends SketchCollector {
         loginUrl: "https://www.bhiviewmybill.com/login.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AirIncCollector extends SketchCollector {
         loginUrl: "https://app.air.inc/workspace/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

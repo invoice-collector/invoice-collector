@@ -29,7 +29,7 @@ export class HolaLuzCollector extends SketchCollector {
         loginUrl: "https://clientes.holaluz.com/es/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VentyaClearInvoiceCollector extends SketchCollector {
         loginUrl: "https://einvoicing01.clear-invoice.com/CI01/secure/document.form?opener=documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

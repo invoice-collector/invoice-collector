@@ -29,7 +29,7 @@ export class LiquidPlannerCollector extends SketchCollector {
         loginUrl: "https://app.liquidplanner.com/login?_ga=2.149206070.1614711150.1523347147-1211154284.1523347147",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

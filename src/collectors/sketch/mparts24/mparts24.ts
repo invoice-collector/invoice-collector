@@ -29,7 +29,7 @@ export class Mparts24Collector extends SketchCollector {
         loginUrl: "https://www.mparts24.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

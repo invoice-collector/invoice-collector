@@ -29,7 +29,7 @@ export class MonabanqCollector extends SketchCollector {
         loginUrl: "https://www.monabanq.com/fr/identification/authentification.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

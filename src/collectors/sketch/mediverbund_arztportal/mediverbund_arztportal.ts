@@ -29,7 +29,7 @@ export class MediverbundArztportalCollector extends SketchCollector {
         loginUrl: "https://www.medi-arztportal.de/dokumente/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

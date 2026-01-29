@@ -29,7 +29,7 @@ export class TopcardCollector extends SketchCollector {
         loginUrl: "https://esrv.topcard.ch/cop/portal/Bewegungen/liste.faces#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NexiuCollector extends SketchCollector {
         loginUrl: "https://my.nexiu.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

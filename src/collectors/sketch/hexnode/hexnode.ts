@@ -29,7 +29,7 @@ export class HexnodeCollector extends SketchCollector {
         loginUrl: "https://bitwip.hexnodemdm.com/subscribe/#/reciepts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

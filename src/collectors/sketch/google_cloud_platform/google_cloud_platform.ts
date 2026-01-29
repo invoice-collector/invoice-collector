@@ -29,7 +29,7 @@ export class GoogleCloudPlatformCollector extends SketchCollector {
         loginUrl: "http://console.cloud.google.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

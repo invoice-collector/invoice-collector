@@ -29,7 +29,7 @@ export class DrSchnellCollector extends SketchCollector {
         loginUrl: "https://www.dr-schnell.com/b2border",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

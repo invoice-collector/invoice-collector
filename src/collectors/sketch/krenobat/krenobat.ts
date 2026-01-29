@@ -29,7 +29,7 @@ export class KrenobatCollector extends SketchCollector {
         loginUrl: "https://krenobat.fr/krenobat/user/factureliste",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrangeBusinessCollector extends SketchCollector {
         loginUrl: "https://espaceclient.orange-business.com/group/ece2/facture-electronique",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

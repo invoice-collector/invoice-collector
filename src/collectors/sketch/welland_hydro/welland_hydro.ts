@@ -29,7 +29,7 @@ export class WellandHydroCollector extends SketchCollector {
         loginUrl: "http://www.wellandhydro.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

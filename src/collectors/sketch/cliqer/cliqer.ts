@@ -29,7 +29,7 @@ export class CliqerCollector extends SketchCollector {
         loginUrl: "https://cliqer.io/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

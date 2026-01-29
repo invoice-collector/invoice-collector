@@ -29,7 +29,7 @@ export class BateauxMouchesDuPontDeLAlmaCollector extends SketchCollector {
         loginUrl: "https://www.bateaux-mouches.fr/fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

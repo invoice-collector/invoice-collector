@@ -29,7 +29,7 @@ export class BmwBankCollector extends SketchCollector {
         loginUrl: "https://www.bmwbank.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

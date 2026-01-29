@@ -29,7 +29,7 @@ export class PowerstreamCollector extends SketchCollector {
         loginUrl: "https://www.powerstream.ca/app/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

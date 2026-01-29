@@ -29,7 +29,7 @@ export class FpSignCollector extends SketchCollector {
         loginUrl: "https://admin.fp-sign.com/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SliteCollector extends SketchCollector {
         loginUrl: "https://slite.com/organization/select",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PdfMonkeyCollector extends SketchCollector {
         loginUrl: "https://dashboard.pdfmonkey.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

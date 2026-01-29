@@ -29,7 +29,7 @@ export class EuroTreuhandInkassoCollector extends SketchCollector {
         loginUrl: "https://www.eurotreuhandinkasso-service.de/kundenbereich/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

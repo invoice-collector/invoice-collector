@@ -29,7 +29,7 @@ export class JurimodelCollector extends SketchCollector {
         loginUrl: "https://www.jurimodel.com/vie-pratique/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

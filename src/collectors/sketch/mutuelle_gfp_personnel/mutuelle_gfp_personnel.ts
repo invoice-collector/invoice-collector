@@ -29,7 +29,7 @@ export class MutuelleGfpPersonnelCollector extends SketchCollector {
         loginUrl: "https://assure.plansante.com/assures/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

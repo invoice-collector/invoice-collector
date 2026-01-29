@@ -29,7 +29,7 @@ export class AnimaCollector extends SketchCollector {
         loginUrl: "https://projects.animaapp.com/team/hard-selling-qyb2suf/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

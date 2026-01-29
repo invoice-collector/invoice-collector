@@ -29,7 +29,7 @@ export class Dokom21DeCollector extends SketchCollector {
         loginUrl: "https://service.dokom.net/site/login.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

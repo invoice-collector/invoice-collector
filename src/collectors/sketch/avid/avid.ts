@@ -29,7 +29,7 @@ export class AvidCollector extends SketchCollector {
         loginUrl: "https://my.avid.com/account/orientation?websource=avid",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

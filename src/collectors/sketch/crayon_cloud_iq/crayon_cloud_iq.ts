@@ -29,7 +29,7 @@ export class CrayonCloudIqCollector extends SketchCollector {
         loginUrl: "https://cloudiq.crayon.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

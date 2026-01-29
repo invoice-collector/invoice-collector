@@ -29,7 +29,7 @@ export class WpRocketCollector extends SketchCollector {
         loginUrl: "https://wp-rocket.me/de/konto/bestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RideGmbhUberStripeCollector extends SketchCollector {
         loginUrl: "https://app.ride.capital/login?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

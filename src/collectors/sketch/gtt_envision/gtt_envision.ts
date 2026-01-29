@@ -29,7 +29,7 @@ export class GttEnvisionCollector extends SketchCollector {
         loginUrl: "https://envision.gtt.net/billing-invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

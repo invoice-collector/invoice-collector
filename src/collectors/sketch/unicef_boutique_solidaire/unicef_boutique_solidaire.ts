@@ -29,7 +29,7 @@ export class UnicefBoutiqueSolidaireCollector extends SketchCollector {
         loginUrl: "http://boutique-solidaire.com/unicef/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

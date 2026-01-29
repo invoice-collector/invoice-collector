@@ -29,7 +29,7 @@ export class HostingdiscounterNlCollector extends SketchCollector {
         loginUrl: "https://customer.hostingdiscounter.nl/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

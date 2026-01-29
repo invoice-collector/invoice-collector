@@ -29,7 +29,7 @@ export class AllianzDirectCollector extends SketchCollector {
         loginUrl: "https://login.allianzdirect.com/allianzdirect.onmicrosoft.com/b2c_1a_allianz_signin_username_de/oauth2/v2.0/authorize?client_id=9d490b29-d96c-493b-91cf-65203fcf446d&scope=openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fwww.allianzdirect.de%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

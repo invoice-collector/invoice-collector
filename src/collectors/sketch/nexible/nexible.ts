@@ -29,7 +29,7 @@ export class NexibleCollector extends SketchCollector {
         loginUrl: "https://www.nexible.de/kundenportal/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

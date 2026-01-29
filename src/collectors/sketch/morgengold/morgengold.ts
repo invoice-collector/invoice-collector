@@ -29,7 +29,7 @@ export class MorgengoldCollector extends SketchCollector {
         loginUrl: "https://www.morgengold.de/customer/invoiceHistory/invoiceHistory.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

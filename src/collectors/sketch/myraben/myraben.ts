@@ -29,7 +29,7 @@ export class MyrabenCollector extends SketchCollector {
         loginUrl: "https://oftc.myraben.com/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Immobilienscout24Collector extends SketchCollector {
         loginUrl: "https://www.immobilienscout24.de/rechnungsuebersicht/uebersicht.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

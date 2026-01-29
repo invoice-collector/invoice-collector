@@ -29,7 +29,7 @@ export class AirgasCollector extends SketchCollector {
         loginUrl: "https://www.airgas.com/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

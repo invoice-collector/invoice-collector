@@ -29,7 +29,7 @@ export class PublerCollector extends SketchCollector {
         loginUrl: "https://publer.io/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

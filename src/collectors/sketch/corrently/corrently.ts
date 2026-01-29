@@ -29,7 +29,7 @@ export class CorrentlyCollector extends SketchCollector {
         loginUrl: "https://corrently.de/service/quittung-list.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

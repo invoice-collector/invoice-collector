@@ -28,7 +28,7 @@ export class MpcFrCollector extends SketchCollector {
         loginUrl: "https://www.mpc.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VegaNetCollector extends SketchCollector {
         loginUrl: "https://mein.vega-net.de/#{1}",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

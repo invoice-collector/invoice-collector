@@ -29,7 +29,7 @@ export class WoltlabCollector extends SketchCollector {
         loginUrl: "https://www.woltlab.com/order-list/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

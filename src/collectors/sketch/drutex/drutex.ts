@@ -29,7 +29,7 @@ export class DrutexCollector extends SketchCollector {
         loginUrl: "https://e-portal.drutex.pl/de/invoice/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DigidomCollector extends SketchCollector {
         loginUrl: "https://app.digidom.pro/document",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ManituCollector extends SketchCollector {
         loginUrl: "http://www.manitu.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

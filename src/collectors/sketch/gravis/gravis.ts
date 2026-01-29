@@ -29,7 +29,7 @@ export class GravisCollector extends SketchCollector {
         loginUrl: "http://www.gravis.de/index.php?cl=account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IngramMicroCloudDeCollector extends SketchCollector {
         loginUrl: "https://cp.de.eu.cloud.im/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

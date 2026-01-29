@@ -29,7 +29,7 @@ export class IgraalCollector extends SketchCollector {
         loginUrl: "https://fr.igraal.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

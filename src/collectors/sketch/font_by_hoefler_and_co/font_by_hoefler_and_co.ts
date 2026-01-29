@@ -29,7 +29,7 @@ export class FontByHoeflerAndCoCollector extends SketchCollector {
         loginUrl: "https://www.typography.com/account/your-account.php#subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

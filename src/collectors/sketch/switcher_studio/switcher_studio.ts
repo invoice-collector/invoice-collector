@@ -29,7 +29,7 @@ export class SwitcherStudioCollector extends SketchCollector {
         loginUrl: "https://dashboard.switcherstudio.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

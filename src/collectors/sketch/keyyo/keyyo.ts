@@ -29,7 +29,7 @@ export class KeyyoCollector extends SketchCollector {
         loginUrl: "https://manager.keyyo.com/manage/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

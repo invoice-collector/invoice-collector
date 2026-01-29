@@ -29,7 +29,7 @@ export class UserlikeCollector extends SketchCollector {
         loginUrl: "https://www.userlike.com/de/dashboard/company/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

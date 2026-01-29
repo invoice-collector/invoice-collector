@@ -29,7 +29,7 @@ export class DreamrobotCollector extends SketchCollector {
         loginUrl: "https://www.dreamrobot.de/info/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

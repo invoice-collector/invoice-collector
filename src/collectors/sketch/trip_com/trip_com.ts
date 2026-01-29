@@ -29,7 +29,7 @@ export class TripComCollector extends SketchCollector {
         loginUrl: "https://www.trip.com/order/all/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PalletonlineCollector extends SketchCollector {
         loginUrl: "https://palletonline.co.uk/my-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

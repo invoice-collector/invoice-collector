@@ -29,7 +29,7 @@ export class HuelCollector extends SketchCollector {
         loginUrl: "https://de.huel.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

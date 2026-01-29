@@ -29,7 +29,7 @@ export class AutolampBerlinCollector extends SketchCollector {
         loginUrl: "https://b2b-auto-lamp.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

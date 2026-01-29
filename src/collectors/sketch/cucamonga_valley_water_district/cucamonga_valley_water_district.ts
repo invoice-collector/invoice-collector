@@ -29,7 +29,7 @@ export class CucamongaValleyWaterDistrictCollector extends SketchCollector {
         loginUrl: "https://www.invoicecloud.com/portal/(S(tljikpfetqc3ipbjw2r4x3ou))/2/CustomerGroupLedger.aspx?mode=closed",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

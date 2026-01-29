@@ -29,7 +29,7 @@ export class ProtoIoCollector extends SketchCollector {
         loginUrl: "https://proto.io/en/signin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

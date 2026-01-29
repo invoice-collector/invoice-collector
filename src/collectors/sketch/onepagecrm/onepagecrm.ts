@@ -29,7 +29,7 @@ export class OnepagecrmCollector extends SketchCollector {
         loginUrl: "https://secure.onepagecrm.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

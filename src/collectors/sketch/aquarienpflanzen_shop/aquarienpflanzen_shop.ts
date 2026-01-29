@@ -29,7 +29,7 @@ export class AquarienpflanzenShopCollector extends SketchCollector {
         loginUrl: "https://www.aquarienpflanzen-shop.de/Mein-Konto?bestellung=219815",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

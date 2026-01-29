@@ -29,7 +29,7 @@ export class ErgoVersicherungCollector extends SketchCollector {
         loginUrl: "https://kunde-s.ergo.de/meineversicherungen/L1/Postfach/Posteingang%20(Spa).aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

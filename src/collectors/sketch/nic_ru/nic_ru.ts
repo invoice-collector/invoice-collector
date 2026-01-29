@@ -29,7 +29,7 @@ export class NicRuCollector extends SketchCollector {
         loginUrl: "https://www.nic.ru/manager/payment.cgi?step=pay.inv_list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

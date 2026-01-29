@@ -29,7 +29,7 @@ export class EpagCollector extends SketchCollector {
         loginUrl: "https://domrob.epag.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

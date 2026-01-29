@@ -29,7 +29,7 @@ export class MisterhorseCollector extends SketchCollector {
         loginUrl: "https://misterhorse.com/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

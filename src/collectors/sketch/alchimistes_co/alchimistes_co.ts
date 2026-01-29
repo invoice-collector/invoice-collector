@@ -28,7 +28,7 @@ export class AlchimistesCoCollector extends SketchCollector {
         loginUrl: "https://auth.mon-compte.alchimistes.co/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

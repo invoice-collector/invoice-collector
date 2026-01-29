@@ -29,7 +29,7 @@ export class LeadparkVerkauferCollector extends SketchCollector {
         loginUrl: "https://www.leadpark.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

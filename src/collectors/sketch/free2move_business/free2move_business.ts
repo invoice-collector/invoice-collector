@@ -29,7 +29,7 @@ export class Free2moveBusinessCollector extends SketchCollector {
         loginUrl: "https://www.free2move.com/business/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

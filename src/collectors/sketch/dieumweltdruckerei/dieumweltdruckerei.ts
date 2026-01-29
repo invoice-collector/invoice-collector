@@ -29,7 +29,7 @@ export class DieumweltdruckereiCollector extends SketchCollector {
         loginUrl: "https://www.dieumweltdruckerei.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

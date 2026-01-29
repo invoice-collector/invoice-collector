@@ -29,7 +29,7 @@ export class ShellEvChargingSolutionsGermanyGmbhCollector extends SketchCollecto
         loginUrl: "https://account.shellrecharge.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

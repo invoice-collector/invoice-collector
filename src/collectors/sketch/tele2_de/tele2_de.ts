@@ -29,7 +29,7 @@ export class Tele2DeCollector extends SketchCollector {
         loginUrl: "https://mein.tele2.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

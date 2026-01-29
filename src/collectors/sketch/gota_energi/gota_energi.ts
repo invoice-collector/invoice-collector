@@ -29,7 +29,7 @@ export class GotaEnergiCollector extends SketchCollector {
         loginUrl: "https://minasidor.gotaenergi.se/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EShoplandCollector extends SketchCollector {
         loginUrl: "https://shop.e-shopland.ch",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

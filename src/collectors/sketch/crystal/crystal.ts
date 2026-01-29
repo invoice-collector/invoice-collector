@@ -29,7 +29,7 @@ export class CrystalCollector extends SketchCollector {
         loginUrl: "https://www.crystalknows.com/app/account/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

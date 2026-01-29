@@ -29,7 +29,7 @@ export class WiismileCollector extends SketchCollector {
         loginUrl: "https://monentreprise.wiismile.fr/company/dashboard/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

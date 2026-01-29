@@ -29,7 +29,7 @@ export class USCellularCollector extends SketchCollector {
         loginUrl: "https://m.uscellular.com/uscellular/app/login/authenticate/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

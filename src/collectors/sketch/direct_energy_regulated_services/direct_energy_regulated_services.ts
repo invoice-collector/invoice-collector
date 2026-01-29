@@ -29,7 +29,7 @@ export class DirectEnergyRegulatedServicesCollector extends SketchCollector {
         loginUrl: "https://www.directenergyregulatedservices.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

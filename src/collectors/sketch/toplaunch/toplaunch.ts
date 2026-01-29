@@ -29,7 +29,7 @@ export class ToplaunchCollector extends SketchCollector {
         loginUrl: "https://toplaunch.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

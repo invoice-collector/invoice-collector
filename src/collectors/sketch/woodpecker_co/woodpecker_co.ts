@@ -29,7 +29,7 @@ export class WoodpeckerCoCollector extends SketchCollector {
         loginUrl: "https://app.woodpecker.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

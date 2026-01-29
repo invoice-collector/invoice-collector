@@ -29,7 +29,7 @@ export class AireCantilienneCollector extends SketchCollector {
         loginUrl: "https://ccac.ecocito.com/Usager/Facture/Index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ClipchampCollector extends SketchCollector {
         loginUrl: "https://app.clipchamp.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WatchfulLiCollector extends SketchCollector {
         loginUrl: "https://app.watchful.li/app/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

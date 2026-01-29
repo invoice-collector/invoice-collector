@@ -29,7 +29,7 @@ export class ClearBusinessCollector extends SketchCollector {
         loginUrl: "https://customerzone.clearbusiness.co.uk/Invoice/Index/34181673",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

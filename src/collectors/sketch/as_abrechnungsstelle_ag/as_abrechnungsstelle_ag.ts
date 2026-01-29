@@ -29,7 +29,7 @@ export class AsAbrechnungsstelleAgCollector extends SketchCollector {
         loginUrl: "https://kunden.as-bremen.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

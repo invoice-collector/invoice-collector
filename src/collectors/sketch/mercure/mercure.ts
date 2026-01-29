@@ -29,7 +29,7 @@ export class MercureCollector extends SketchCollector {
         loginUrl: "https://mercure.rocks/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

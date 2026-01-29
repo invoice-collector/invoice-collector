@@ -29,7 +29,7 @@ export class ModeratorenwerkCollector extends SketchCollector {
         loginUrl: "https://www.moderatorenwerk.de/jobs/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

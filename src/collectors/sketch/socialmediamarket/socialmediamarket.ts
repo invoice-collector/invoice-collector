@@ -29,7 +29,7 @@ export class SocialmediamarketCollector extends SketchCollector {
         loginUrl: "https://www.socialmediamarket.de/mein-konto/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

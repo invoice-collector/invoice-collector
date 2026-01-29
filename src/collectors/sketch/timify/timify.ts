@@ -29,7 +29,7 @@ export class TimifyCollector extends SketchCollector {
         loginUrl: "https://app-de.timify.com/#/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AlgoliaCollector extends SketchCollector {
         loginUrl: "https://www.algolia.com/users/edit#?tab=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UsertestingCollector extends SketchCollector {
         loginUrl: "https://www.usertesting.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

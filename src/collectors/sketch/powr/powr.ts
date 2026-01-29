@@ -29,7 +29,7 @@ export class PowrCollector extends SketchCollector {
         loginUrl: "https://www.powr.io/users/me/account?id=me",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

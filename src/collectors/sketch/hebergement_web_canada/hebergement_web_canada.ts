@@ -29,7 +29,7 @@ export class HebergementWebCanadaCollector extends SketchCollector {
         loginUrl: "https://clients.whc.ca/clientarea.php?language=french",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

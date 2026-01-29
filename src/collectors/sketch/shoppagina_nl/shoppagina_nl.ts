@@ -29,7 +29,7 @@ export class ShoppaginaNlCollector extends SketchCollector {
         loginUrl: "https://www.shoppagina.nl/inloggen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FormcraftsCollector extends SketchCollector {
         loginUrl: "https://formcrafts.com/dashboard/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PatriwineCollector extends SketchCollector {
         loginUrl: "https://www.patriwine.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

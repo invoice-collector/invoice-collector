@@ -29,7 +29,7 @@ export class PixartprintingCollector extends SketchCollector {
         loginUrl: "https://www.pixartprinting.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

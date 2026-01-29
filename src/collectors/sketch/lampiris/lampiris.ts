@@ -29,7 +29,7 @@ export class LampirisCollector extends SketchCollector {
         loginUrl: "https://sso.lampiris.be/auth/realms/belgium-external/protocol/openid-connect/auth?client_id=cuzo&response_type=code&scope=openid%20email&kc_locale=fr&redirect_uri=https%3A//my.lampiris.be/openid-connect/belgium_external&state=906ff567c3b5b391768aa0cb09c83",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

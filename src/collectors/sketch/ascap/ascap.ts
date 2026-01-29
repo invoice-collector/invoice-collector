@@ -29,7 +29,7 @@ export class AscapCollector extends SketchCollector {
         loginUrl: "https://www.ascap.com/member-access#login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

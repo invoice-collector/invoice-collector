@@ -29,7 +29,7 @@ export class VodafoneFirmenkundenCollector extends SketchCollector {
         loginUrl: "https://www.vodafone.de/business/services/firmenkundenportal/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

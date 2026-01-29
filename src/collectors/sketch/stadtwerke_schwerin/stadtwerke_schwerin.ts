@@ -29,7 +29,7 @@ export class StadtwerkeSchwerinCollector extends SketchCollector {
         loginUrl: "https://kundenportal.swsn.de/powercommerce/swsn/fo/portal/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

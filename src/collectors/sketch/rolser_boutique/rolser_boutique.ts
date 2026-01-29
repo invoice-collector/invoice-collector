@@ -29,7 +29,7 @@ export class RolserBoutiqueCollector extends SketchCollector {
         loginUrl: "https://www.rolser.com/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

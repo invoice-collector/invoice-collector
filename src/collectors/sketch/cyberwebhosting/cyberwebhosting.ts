@@ -29,7 +29,7 @@ export class CyberwebhostingCollector extends SketchCollector {
         loginUrl: "https://cyberwebhosting.de/service/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InfographyCollector extends SketchCollector {
         loginUrl: "https://infograpify.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

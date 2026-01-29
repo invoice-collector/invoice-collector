@@ -29,7 +29,7 @@ export class FilhetAllardAndCieCollector extends SketchCollector {
         loginUrl: "https://www.filhetallard.com/acces-client/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SolusvmCollector extends SketchCollector {
         loginUrl: "https://www.soluslabs.com/clients/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

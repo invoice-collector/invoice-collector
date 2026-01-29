@@ -29,7 +29,7 @@ export class AlbacrossCollector extends SketchCollector {
         loginUrl: "app.albacross.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

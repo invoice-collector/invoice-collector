@@ -29,7 +29,7 @@ export class VimcarCollector extends SketchCollector {
         loginUrl: "https://id.vimcar.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KlesiaMutuelleParticulierCentreDeGestionDeLyonCollector extends Ske
         loginUrl: "https://www.klesia.fr/accedez-votre-espace-client",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

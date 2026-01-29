@@ -29,7 +29,7 @@ export class InlineManualCollector extends SketchCollector {
         loginUrl: "https://app.inlinemanual.com/users/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

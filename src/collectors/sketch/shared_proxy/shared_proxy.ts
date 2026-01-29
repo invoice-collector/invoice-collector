@@ -29,7 +29,7 @@ export class SharedProxyCollector extends SketchCollector {
         loginUrl: "https://sharedproxy.co/proxy-service-panel/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

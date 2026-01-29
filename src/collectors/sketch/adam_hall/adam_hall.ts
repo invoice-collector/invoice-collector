@@ -29,7 +29,7 @@ export class AdamHallCollector extends SketchCollector {
         loginUrl: "https://www.adamhall.com/shop/lu-de/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

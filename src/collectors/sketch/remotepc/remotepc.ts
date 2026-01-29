@@ -29,7 +29,7 @@ export class RemotepcCollector extends SketchCollector {
         loginUrl: "https://login.remotepc.com/rpcnew/account?page=billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

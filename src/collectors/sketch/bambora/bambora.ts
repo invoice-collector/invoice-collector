@@ -29,7 +29,7 @@ export class BamboraCollector extends SketchCollector {
         loginUrl: "https://reports.bambora.com/merchants/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KanbanFlowCollector extends SketchCollector {
         loginUrl: "https://kanbanflow.com/organization/moHZ7G/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

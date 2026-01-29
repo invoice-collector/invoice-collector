@@ -29,7 +29,7 @@ export class IntercarsPlCollector extends SketchCollector {
         loginUrl: "https://pl.e-cat.intercars.eu",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

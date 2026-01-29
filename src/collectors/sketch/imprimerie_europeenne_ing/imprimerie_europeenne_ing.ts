@@ -29,7 +29,7 @@ export class ImprimerieEuropeenneIngCollector extends SketchCollector {
         loginUrl: "https://www.imprimerie-europeenne.com/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

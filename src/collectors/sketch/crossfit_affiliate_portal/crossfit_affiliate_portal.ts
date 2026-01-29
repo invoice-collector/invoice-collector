@@ -29,7 +29,7 @@ export class CrossfitAffiliatePortalCollector extends SketchCollector {
         loginUrl: "https://www.crossfit.com/affiliate-portal/accounts/c1876789accf94fd8c82/payment-center",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TMobileNlCollector extends SketchCollector {
         loginUrl: "https://www.t-mobile.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

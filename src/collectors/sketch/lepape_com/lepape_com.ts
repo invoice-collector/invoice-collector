@@ -29,7 +29,7 @@ export class LepapeComCollector extends SketchCollector {
         loginUrl: "https://www.lepape.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OldenburgischeLandesbankCollector extends SketchCollector {
         loginUrl: "https://hbciweb.olb.de/financebrowser5/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

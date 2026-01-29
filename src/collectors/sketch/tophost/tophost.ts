@@ -29,7 +29,7 @@ export class TophostCollector extends SketchCollector {
         loginUrl: "https://www.tophost.it/co/accesso",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

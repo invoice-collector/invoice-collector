@@ -29,7 +29,7 @@ export class VoloteaCollector extends SketchCollector {
         loginUrl: "https://booking.volotea.com/Invoice.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

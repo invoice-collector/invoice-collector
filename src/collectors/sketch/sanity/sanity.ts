@@ -29,7 +29,7 @@ export class SanityCollector extends SketchCollector {
         loginUrl: "https://www.sanity.io/organizations/ovKGesWLZ/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

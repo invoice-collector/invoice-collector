@@ -29,7 +29,7 @@ export class RensaNlCollector extends SketchCollector {
         loginUrl: "https://www.rensa.nl/nieuwsbrief",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

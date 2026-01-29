@@ -29,7 +29,7 @@ export class IpbaseComCollector extends SketchCollector {
         loginUrl: "https://app.ipbase.com/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

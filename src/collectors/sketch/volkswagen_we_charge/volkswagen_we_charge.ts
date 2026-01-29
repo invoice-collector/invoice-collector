@@ -29,7 +29,7 @@ export class VolkswagenWeChargeCollector extends SketchCollector {
         loginUrl: "https://www.volkswagen.de/de/meine-ladethemen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

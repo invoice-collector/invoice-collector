@@ -29,7 +29,7 @@ export class AutozoneCollector extends SketchCollector {
         loginUrl: "https://www.autozonepro.com/ui/transaction-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

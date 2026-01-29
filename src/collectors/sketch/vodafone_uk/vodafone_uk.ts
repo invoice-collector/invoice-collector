@@ -29,7 +29,7 @@ export class VodafoneUkCollector extends SketchCollector {
         loginUrl: "https://www.vodafone.co.uk/myvodafone/faces/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

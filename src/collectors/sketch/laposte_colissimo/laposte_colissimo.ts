@@ -28,7 +28,7 @@ export class LaposteColissimoCollector extends SketchCollector {
         loginUrl: "https://www.colissimo.entreprise.laposte.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

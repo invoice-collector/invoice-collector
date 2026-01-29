@@ -29,7 +29,7 @@ export class MachDuDasCollector extends SketchCollector {
         loginUrl: "https://www.machdudas.de/signin?redirectTo=%2Fjobs-neu",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

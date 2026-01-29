@@ -29,7 +29,7 @@ export class ExoscaleCollector extends SketchCollector {
         loginUrl: "https://portal.exoscale.com/u//organization/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

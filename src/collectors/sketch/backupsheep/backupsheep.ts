@@ -29,7 +29,7 @@ export class BackupsheepCollector extends SketchCollector {
         loginUrl: "https://backupsheep.com/console/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DrewagCollector extends SketchCollector {
         loginUrl: "https://onlineservice.drewag.de/sap/bc/ui5_ui5/sap/zemc_ui/index.html?CompanyID=DREWAG&sap-client=630#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

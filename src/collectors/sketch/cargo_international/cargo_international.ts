@@ -29,7 +29,7 @@ export class CargoInternationalCollector extends SketchCollector {
         loginUrl: "https://www.cargointernational.de/mycargo",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OffenblendeCollector extends SketchCollector {
         loginUrl: "http://portal.offenblende.de/app/contacts/tasks_billing.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

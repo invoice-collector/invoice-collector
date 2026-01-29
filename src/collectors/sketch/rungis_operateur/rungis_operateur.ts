@@ -29,7 +29,7 @@ export class RungisOperateurCollector extends SketchCollector {
         loginUrl: "https://www.rungisoperateur.com/dashboard/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

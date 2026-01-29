@@ -29,7 +29,7 @@ export class LaPiscineParisCollector extends SketchCollector {
         loginUrl: "https://www.lapiscine-paris.fr/entrercompte?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

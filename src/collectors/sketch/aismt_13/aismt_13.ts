@@ -29,7 +29,7 @@ export class Aismt13Collector extends SketchCollector {
         loginUrl: "https://www.aismt13.fr/portail-adherents/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

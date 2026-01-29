@@ -29,7 +29,7 @@ export class RKomNeuCollector extends SketchCollector {
         loginUrl: "https://login.r-kom.de/auth/realms/customers/protocol/openid-connect/auth?ui_locales=de&scope=openid+email+profile+customer&response_type=code&redirect_uri=https%3A%2F%2Fserviceportal.r-kom.de%2Fc%2Fportal%2Flogin%2Fopenidconnect&state=v3K2BqGhxkEEJetdxrk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

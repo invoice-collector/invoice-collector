@@ -29,7 +29,7 @@ export class PoleEmploiCourriersElectroniquesEmployeurCollector extends SketchCo
         loginUrl: "https://www.pole-emploi.fr/region/ile-de-france/informations/employeur-@/region/ile-de-france/index.jspz?id=54126",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

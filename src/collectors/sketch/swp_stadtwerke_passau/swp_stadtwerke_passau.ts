@@ -29,7 +29,7 @@ export class SwpStadtwerkePassauCollector extends SketchCollector {
         loginUrl: "https://portal.tpponline.de/py/portal/default/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

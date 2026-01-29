@@ -29,7 +29,7 @@ export class VitadisplaysCollector extends SketchCollector {
         loginUrl: "https://www.prospekthalter.com/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

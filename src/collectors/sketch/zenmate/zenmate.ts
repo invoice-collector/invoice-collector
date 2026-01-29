@@ -29,7 +29,7 @@ export class ZenmateCollector extends SketchCollector {
         loginUrl: "https://account.zenmate.com/de_DE/login?redirectTo=/de_DE/devices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

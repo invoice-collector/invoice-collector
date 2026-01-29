@@ -29,7 +29,7 @@ export class VodafoneGreeceCollector extends SketchCollector {
         loginUrl: "https://www.vodafone.gr/#login-snack",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

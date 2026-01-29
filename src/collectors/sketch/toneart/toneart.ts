@@ -29,7 +29,7 @@ export class ToneartCollector extends SketchCollector {
         loginUrl: "https://www.toneart-shop.de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

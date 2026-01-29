@@ -29,7 +29,7 @@ export class TranseoCollector extends SketchCollector {
         loginUrl: "https://app.transeo.io/sign/in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

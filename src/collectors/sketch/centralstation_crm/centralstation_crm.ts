@@ -29,7 +29,7 @@ export class CentralstationCrmCollector extends SketchCollector {
         loginUrl: "https://centralstationcrm.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

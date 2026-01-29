@@ -29,7 +29,7 @@ export class RestabloCollector extends SketchCollector {
         loginUrl: "https://restaurant.restablo.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

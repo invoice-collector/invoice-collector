@@ -29,7 +29,7 @@ export class SubmithubCollector extends SketchCollector {
         loginUrl: "https://www.submithub.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MultikurierCollector extends SketchCollector {
         loginUrl: "https://sendos.multikurier.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

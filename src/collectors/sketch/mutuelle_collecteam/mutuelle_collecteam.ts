@@ -29,7 +29,7 @@ export class MutuelleCollecteamCollector extends SketchCollector {
         loginUrl: "https://www.collecteam.fr/espace-client/connexion-a-l-espace-client.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

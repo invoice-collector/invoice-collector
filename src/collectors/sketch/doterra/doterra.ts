@@ -29,7 +29,7 @@ export class DoterraCollector extends SketchCollector {
         loginUrl: "https://beta-doterra.myvoffice.com/index.cfm?Fuseaction=evo_Modules.OrderHistoryFull",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

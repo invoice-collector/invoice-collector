@@ -29,7 +29,7 @@ export class SnappcarCollector extends SketchCollector {
         loginUrl: "https://www.snappcar.de/account/reservations",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

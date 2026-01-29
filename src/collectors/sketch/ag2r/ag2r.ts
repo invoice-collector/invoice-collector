@@ -29,7 +29,7 @@ export class Ag2rCollector extends SketchCollector {
         loginUrl: "https://inscription.ag2rlamondiale.fr/connexion/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

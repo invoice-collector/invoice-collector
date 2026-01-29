@@ -29,7 +29,7 @@ export class WunderlabelCollector extends SketchCollector {
         loginUrl: "https://wunderlabel.de/customerarea/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

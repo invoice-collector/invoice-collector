@@ -29,7 +29,7 @@ export class Url2pngCollector extends SketchCollector {
         loginUrl: "https://www.url2png.com/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

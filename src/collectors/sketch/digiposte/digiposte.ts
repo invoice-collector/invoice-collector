@@ -29,7 +29,7 @@ export class DigiposteCollector extends SketchCollector {
         loginUrl: "https://secure.digiposte.fr/safe/940880c8c8504c019150b676723f2315",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

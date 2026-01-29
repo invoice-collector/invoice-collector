@@ -29,7 +29,7 @@ export class Buroshop24Collector extends SketchCollector {
         loginUrl: "https://www.bueroshop24.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

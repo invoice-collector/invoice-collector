@@ -29,7 +29,7 @@ export class WodupCollector extends SketchCollector {
         loginUrl: "https://www.wodup.com/gyms/evope-gmbh/admin/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

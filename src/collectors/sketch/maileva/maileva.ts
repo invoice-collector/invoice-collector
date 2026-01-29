@@ -29,7 +29,7 @@ export class MailevaCollector extends SketchCollector {
         loginUrl: "https://secure2.maileva.com/customer/invoices/list/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

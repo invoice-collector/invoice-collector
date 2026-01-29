@@ -29,7 +29,7 @@ export class ComplianzCollector extends SketchCollector {
         loginUrl: "https://complianz.io/account/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

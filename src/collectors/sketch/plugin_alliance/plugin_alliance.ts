@@ -29,7 +29,7 @@ export class PluginAllianceCollector extends SketchCollector {
         loginUrl: "https://www.plugin-alliance.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

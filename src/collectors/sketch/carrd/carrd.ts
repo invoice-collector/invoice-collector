@@ -29,7 +29,7 @@ export class CarrdCollector extends SketchCollector {
         loginUrl: "https://carrd.co/dashboard/account/balance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

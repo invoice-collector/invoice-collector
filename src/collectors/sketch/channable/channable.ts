@@ -29,7 +29,7 @@ export class ChannableCollector extends SketchCollector {
         loginUrl: "http://www.channable.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

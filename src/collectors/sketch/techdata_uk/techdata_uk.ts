@@ -29,7 +29,7 @@ export class TechdataUkCollector extends SketchCollector {
         loginUrl: "http://intouch.techdata.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

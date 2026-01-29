@@ -29,7 +29,7 @@ export class VectorworksServiceSelectCollector extends SketchCollector {
         loginUrl: "https://sso.vectorworks.net/accounts/login/?next=https%3A//customers.vectorworks.net/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

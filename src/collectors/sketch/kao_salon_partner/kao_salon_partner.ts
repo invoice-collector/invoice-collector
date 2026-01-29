@@ -29,7 +29,7 @@ export class KaoSalonPartnerCollector extends SketchCollector {
         loginUrl: "https://www.kaosalonpartner.at/salon-at/de/EUR/my-account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

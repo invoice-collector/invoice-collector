@@ -29,7 +29,7 @@ export class PaybyphoneFrCollector extends SketchCollector {
         loginUrl: "https://m2.paybyphone.fr/parking",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

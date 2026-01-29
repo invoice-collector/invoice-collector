@@ -29,7 +29,7 @@ export class ChurnbusterCollector extends SketchCollector {
         loginUrl: "https://app.churnbuster.io/accounts/paintable-2/live/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

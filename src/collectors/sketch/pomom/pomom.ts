@@ -29,7 +29,7 @@ export class PomomCollector extends SketchCollector {
         loginUrl: "https://app.lexoffice.de/customerportal/authenticate/133a9abb-727a-4259-8ad6-23fc720a1054",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

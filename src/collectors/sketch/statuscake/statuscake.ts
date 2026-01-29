@@ -29,7 +29,7 @@ export class StatuscakeCollector extends SketchCollector {
         loginUrl: "https://app.statuscake.com/Billing.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

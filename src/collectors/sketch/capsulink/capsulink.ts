@@ -29,7 +29,7 @@ export class CapsulinkCollector extends SketchCollector {
         loginUrl: "https://www.capsulink.com/settings/subscription/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

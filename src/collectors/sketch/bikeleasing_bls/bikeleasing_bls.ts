@@ -29,7 +29,7 @@ export class BikeleasingBlsCollector extends SketchCollector {
         loginUrl: "https://portal.bikeleasing-service.de/user/retailer/credits",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

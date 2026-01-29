@@ -29,7 +29,7 @@ export class MediherzDeCollector extends SketchCollector {
         loginUrl: "https://www.mediherz-shop.de/myOrders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

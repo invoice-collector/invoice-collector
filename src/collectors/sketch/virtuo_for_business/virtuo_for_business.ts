@@ -29,7 +29,7 @@ export class VirtuoForBusinessCollector extends SketchCollector {
         loginUrl: "https://business.govirtuo.com/fr/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

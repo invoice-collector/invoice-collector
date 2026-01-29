@@ -29,7 +29,7 @@ export class MutuelleBnpCollector extends SketchCollector {
         loginUrl: "https://www.mutuelle.bnpparibas.fr/View/AccueilAssure.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AttijarinetCollector extends SketchCollector {
         loginUrl: "https://attijarinet.attijariwafa.com/particulier/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

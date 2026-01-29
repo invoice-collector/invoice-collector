@@ -29,7 +29,7 @@ export class LearningsuiteIoOrbitCollector extends SketchCollector {
         loginUrl: "https://orbit.learningsuite.io/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

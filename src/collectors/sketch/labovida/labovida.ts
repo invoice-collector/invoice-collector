@@ -29,7 +29,7 @@ export class LaBovidaCollector extends SketchCollector {
         loginUrl: "https://www.labovida.com/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

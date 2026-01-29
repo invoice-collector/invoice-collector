@@ -29,7 +29,7 @@ export class LlumCollector extends SketchCollector {
         loginUrl: "https://llum-portail-web.incom-sa.fr/wp/showDisplayBills.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

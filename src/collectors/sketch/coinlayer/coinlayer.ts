@@ -29,7 +29,7 @@ export class CoinlayerCollector extends SketchCollector {
         loginUrl: "https://coinlayer.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

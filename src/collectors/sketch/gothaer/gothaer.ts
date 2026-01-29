@@ -29,7 +29,7 @@ export class GothaerCollector extends SketchCollector {
         loginUrl: "https://www.gothaer.de/meine-gothaer/portal.htm#/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

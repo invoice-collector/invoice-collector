@@ -29,7 +29,7 @@ export class KarlsruherVerkehrsverbundCollector extends SketchCollector {
         loginUrl: "https://kvv.mobilesticket.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

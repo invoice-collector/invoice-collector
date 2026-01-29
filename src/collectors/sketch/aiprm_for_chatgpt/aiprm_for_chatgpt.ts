@@ -29,7 +29,7 @@ export class AiprmForChatgptCollector extends SketchCollector {
         loginUrl: "https://app1.aiprm.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class XoviCollector extends SketchCollector {
         loginUrl: "https://suite.xovi.net/user/login?redirect=%2Faccount%2Finvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

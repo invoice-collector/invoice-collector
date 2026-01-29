@@ -29,7 +29,7 @@ export class TradingfoxCollector extends SketchCollector {
         loginUrl: "https://kunde.traderfox.com/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

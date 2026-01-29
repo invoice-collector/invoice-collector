@@ -29,7 +29,7 @@ export class Tyre24SupplierCollector extends SketchCollector {
         loginUrl: "https://supplier.alzura.com/de/de/user/login/page/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

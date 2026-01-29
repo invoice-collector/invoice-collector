@@ -29,7 +29,7 @@ export class ShpockFinderlyGmbhCollector extends SketchCollector {
         loginUrl: "https://plus.shpock.com/en-gb/manager/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

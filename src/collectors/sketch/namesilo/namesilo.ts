@@ -29,7 +29,7 @@ export class NamesiloCollector extends SketchCollector {
         loginUrl: "https://www.namesilo.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

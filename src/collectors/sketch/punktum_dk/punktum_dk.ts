@@ -29,7 +29,7 @@ export class PunktumDkCollector extends SketchCollector {
         loginUrl: "https://selvbetjening.punktum.dk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

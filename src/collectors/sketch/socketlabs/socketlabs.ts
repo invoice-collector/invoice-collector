@@ -29,7 +29,7 @@ export class SocketlabsCollector extends SketchCollector {
         loginUrl: "https://cp.socketlabs.com/account/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

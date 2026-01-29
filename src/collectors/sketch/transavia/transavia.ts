@@ -29,7 +29,7 @@ export class TransaviaCollector extends SketchCollector {
         loginUrl: "https://www.transavia.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

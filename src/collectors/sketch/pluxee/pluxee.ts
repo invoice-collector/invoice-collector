@@ -29,7 +29,7 @@ export class PluxeeCollector extends SketchCollector {
         loginUrl: "https://commercants.pluxee.fr/invoice/restaurant",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

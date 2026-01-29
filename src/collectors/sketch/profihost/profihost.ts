@@ -29,7 +29,7 @@ export class ProfihostCollector extends SketchCollector {
         loginUrl: "https://kundenlogin.profihost.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LaracastsComCollector extends SketchCollector {
         loginUrl: "https://laracasts.com/settings/subscription/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

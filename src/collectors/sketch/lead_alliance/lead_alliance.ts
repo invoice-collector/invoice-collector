@@ -29,7 +29,7 @@ export class LeadAllianceCollector extends SketchCollector {
         loginUrl: "https://www.lead-alliance.net/partner/financial/payments/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

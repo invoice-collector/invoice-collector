@@ -29,7 +29,7 @@ export class PlanityCollector extends SketchCollector {
         loginUrl: "https://www.planity.com/de-DE/mein-konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WpformsCollector extends SketchCollector {
         loginUrl: "https://wpforms.com/account/purchase-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

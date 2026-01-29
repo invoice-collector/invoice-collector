@@ -29,7 +29,7 @@ export class BirchCoomunicationsCollector extends SketchCollector {
         loginUrl: "https://birchconnect.com/bc/core/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

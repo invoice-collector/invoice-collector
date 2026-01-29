@@ -29,7 +29,7 @@ export class YieldloveCollector extends SketchCollector {
         loginUrl: "https://dashboard.yieldlove.com/credit-reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

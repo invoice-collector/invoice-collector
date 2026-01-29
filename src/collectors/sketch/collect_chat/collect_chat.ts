@@ -29,7 +29,7 @@ export class CollectChatCollector extends SketchCollector {
         loginUrl: "https://dashboard.collect.chat/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

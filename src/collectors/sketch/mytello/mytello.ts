@@ -29,7 +29,7 @@ export class MytelloCollector extends SketchCollector {
         loginUrl: "https://app.mytello.com/de/register",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

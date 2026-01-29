@@ -29,7 +29,7 @@ export class AdspertCollector extends SketchCollector {
         loginUrl: "https://www.adspert.de/user/login?lang=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

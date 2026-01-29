@@ -29,7 +29,7 @@ export class Cierp3Collector extends SketchCollector {
         loginUrl: "https://www.allgeier-it.de/404/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

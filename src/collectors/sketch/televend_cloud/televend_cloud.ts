@@ -29,7 +29,7 @@ export class TelevendCloudCollector extends SketchCollector {
         loginUrl: "https://route.televendcloud.com/tax-center/tax-report-generator",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

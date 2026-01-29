@@ -29,7 +29,7 @@ export class SharefileCollector extends SketchCollector {
         loginUrl: "https://secure.sharefile.com/Authentication/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

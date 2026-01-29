@@ -29,7 +29,7 @@ export class EdiwinPortalByEdicomCollector extends SketchCollector {
         loginUrl: "https://ediwin.edicomgroup.com/app#/docs/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

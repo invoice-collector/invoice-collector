@@ -29,7 +29,7 @@ export class MutuelleIrpAutoPersonnelCollector extends SketchCollector {
         loginUrl: "https://www.irp-auto.com/acces-mon-compte-personnel",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

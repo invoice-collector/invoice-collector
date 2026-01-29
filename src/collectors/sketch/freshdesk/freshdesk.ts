@@ -29,7 +29,7 @@ export class FreshdeskCollector extends SketchCollector {
         loginUrl: "https://accounts.freshworks.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

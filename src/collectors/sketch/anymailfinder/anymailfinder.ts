@@ -29,7 +29,7 @@ export class AnymailfinderCollector extends SketchCollector {
         loginUrl: "https://newapp.anymailfinder.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

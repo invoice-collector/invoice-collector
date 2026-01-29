@@ -29,7 +29,7 @@ export class IkisokCollector extends SketchCollector {
         loginUrl: "https://www.ikiosk.de/mein-konto/einkaeufe-und-abos",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

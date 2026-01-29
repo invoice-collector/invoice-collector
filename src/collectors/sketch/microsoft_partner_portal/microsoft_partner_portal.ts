@@ -29,7 +29,7 @@ export class MicrosoftPartnerPortalCollector extends SketchCollector {
         loginUrl: "https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

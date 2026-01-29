@@ -29,7 +29,7 @@ export class RepaDeutschlandGmbhCollector extends SketchCollector {
         loginUrl: "https://www.gev-online.com/webshop/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

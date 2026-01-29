@@ -29,7 +29,7 @@ export class StatuspageCollector extends SketchCollector {
         loginUrl: "https://manage.statuspage.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

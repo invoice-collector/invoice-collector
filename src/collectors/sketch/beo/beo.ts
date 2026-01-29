@@ -29,7 +29,7 @@ export class BeoCollector extends SketchCollector {
         loginUrl: "http://kunden.expowin.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

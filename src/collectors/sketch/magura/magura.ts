@@ -29,7 +29,7 @@ export class MaguraCollector extends SketchCollector {
         loginUrl: "https://www.magura-b2b.com/magura/de/EUR/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

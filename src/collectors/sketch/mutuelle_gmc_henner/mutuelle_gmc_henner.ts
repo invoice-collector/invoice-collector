@@ -29,7 +29,7 @@ export class MutuelleGmcHennerCollector extends SketchCollector {
         loginUrl: "https://welcome.henner.com/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

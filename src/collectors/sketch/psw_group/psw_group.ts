@@ -29,7 +29,7 @@ export class PswGroupCollector extends SketchCollector {
         loginUrl: "http://www.psw.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

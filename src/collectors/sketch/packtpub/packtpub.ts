@@ -29,7 +29,7 @@ export class PacktpubCollector extends SketchCollector {
         loginUrl: "https://subscription.packtpub.com/my-account/billing-details",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

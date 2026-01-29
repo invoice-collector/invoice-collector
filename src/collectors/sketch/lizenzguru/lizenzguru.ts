@@ -29,7 +29,7 @@ export class LizenzguruCollector extends SketchCollector {
         loginUrl: "https://lizenzguru.de/invoice_download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

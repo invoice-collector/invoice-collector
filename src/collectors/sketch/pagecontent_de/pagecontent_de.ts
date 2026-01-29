@@ -29,7 +29,7 @@ export class PagecontentDeCollector extends SketchCollector {
         loginUrl: "https://www.pagecontent.de/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FotorCollector extends SketchCollector {
         loginUrl: "https://www.fotor.com/de/user/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

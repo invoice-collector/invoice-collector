@@ -29,7 +29,7 @@ export class DelamaisonFrCollector extends SketchCollector {
         loginUrl: "https://www.delamaison.fr/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

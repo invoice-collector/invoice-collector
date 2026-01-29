@@ -29,7 +29,7 @@ export class SeamlessCollector extends SketchCollector {
         loginUrl: "https://www.seamless.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

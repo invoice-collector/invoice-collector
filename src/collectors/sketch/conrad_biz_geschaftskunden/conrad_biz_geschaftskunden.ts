@@ -29,7 +29,7 @@ export class ConradBizGeschaftskundenCollector extends SketchCollector {
         loginUrl: "https://www.conrad.biz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

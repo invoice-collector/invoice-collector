@@ -29,7 +29,7 @@ export class StadtwerkeTrostbergCollector extends SketchCollector {
         loginUrl: "http://www.stadtwerke-trostberg.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

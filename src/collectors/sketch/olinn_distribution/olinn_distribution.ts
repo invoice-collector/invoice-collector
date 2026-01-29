@@ -29,7 +29,7 @@ export class OlinnDistributionCollector extends SketchCollector {
         loginUrl: "https://olinn-distribution.com/mon-compte/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

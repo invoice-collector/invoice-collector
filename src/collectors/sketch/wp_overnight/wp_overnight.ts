@@ -29,7 +29,7 @@ export class WpOvernightCollector extends SketchCollector {
         loginUrl: "https://wpovernight.com/my-account/purchases/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

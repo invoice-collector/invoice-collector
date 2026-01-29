@@ -29,7 +29,7 @@ export class VabUnifiedPostCollector extends SketchCollector {
         loginUrl: "https://vab-documents.nxt.unifiedpost.com/link/document/c/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LaesephoneCollector extends SketchCollector {
         loginUrl: "https://leasephone-crm.fr/menu/invoice/view",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

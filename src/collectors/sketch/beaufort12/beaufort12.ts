@@ -29,7 +29,7 @@ export class Beaufort12Collector extends SketchCollector {
         loginUrl: "https://alpha-deutschland.lightning.force.com/lightning/n/wbsendit__CM_Settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

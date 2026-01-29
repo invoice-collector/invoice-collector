@@ -29,7 +29,7 @@ export class MeentzenCollector extends SketchCollector {
         loginUrl: "https://meentzen.de/signin.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

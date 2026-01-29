@@ -29,7 +29,7 @@ export class FlogasCollector extends SketchCollector {
         loginUrl: "https://myaccount.flogas.co.uk/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

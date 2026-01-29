@@ -29,7 +29,7 @@ export class CaDigitalCollector extends SketchCollector {
         loginUrl: "https://order.ca-digit.com/cat/customer/address/?___store=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

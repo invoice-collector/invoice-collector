@@ -29,7 +29,7 @@ export class LrCollector extends SketchCollector {
         loginUrl: "https://myoffice.lrworld.com/personal-orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

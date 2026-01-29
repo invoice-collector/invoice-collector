@@ -28,7 +28,7 @@ export class EniCollector extends SketchCollector {
         loginUrl: "https://myeni.eni.com/en_IT",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

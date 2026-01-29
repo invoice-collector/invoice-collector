@@ -29,7 +29,7 @@ export class FreikomDeCollector extends SketchCollector {
         loginUrl: "https://www2.purtel.com/res/res100165/index.php?link=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RebuyFranceCollector extends SketchCollector {
         loginUrl: "https://www.rebuy.fr/my/orders/blue",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

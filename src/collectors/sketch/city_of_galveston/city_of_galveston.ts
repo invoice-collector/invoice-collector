@@ -29,7 +29,7 @@ export class CityOfGalvestonCollector extends SketchCollector {
         loginUrl: "https://galvestontx.epayub.com/AccountHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

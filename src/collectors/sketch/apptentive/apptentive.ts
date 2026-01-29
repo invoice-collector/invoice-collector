@@ -29,7 +29,7 @@ export class ApptentiveCollector extends SketchCollector {
         loginUrl: "https://be.apptentive.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

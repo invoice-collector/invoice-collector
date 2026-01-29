@@ -29,7 +29,7 @@ export class Pc21Collector extends SketchCollector {
         loginUrl: "https://clients.pc21.fr/edition_factures.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

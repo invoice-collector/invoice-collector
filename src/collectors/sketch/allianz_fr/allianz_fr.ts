@@ -29,7 +29,7 @@ export class AllianzFrCollector extends SketchCollector {
         loginUrl: "https://www.allianz.fr/mon-espace-client/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

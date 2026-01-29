@@ -29,7 +29,7 @@ export class VpsServerCollector extends SketchCollector {
         loginUrl: "https://service.vpsserver.com/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

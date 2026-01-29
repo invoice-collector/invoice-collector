@@ -29,7 +29,7 @@ export class PecoCollector extends SketchCollector {
         loginUrl: "http://www.peco-uk.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

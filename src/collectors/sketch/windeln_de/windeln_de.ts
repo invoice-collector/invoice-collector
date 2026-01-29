@@ -29,7 +29,7 @@ export class WindelnDeCollector extends SketchCollector {
         loginUrl: "https://www.windeln.de/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

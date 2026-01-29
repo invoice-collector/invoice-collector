@@ -29,7 +29,7 @@ export class NounProjectCollector extends SketchCollector {
         loginUrl: "https://thenounproject.com/accounts/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

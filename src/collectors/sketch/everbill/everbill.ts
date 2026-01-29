@@ -29,7 +29,7 @@ export class EverbillCollector extends SketchCollector {
         loginUrl: "https://secure.everbill.eu/?_ga=1.5276915.1941659048.1493191247",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

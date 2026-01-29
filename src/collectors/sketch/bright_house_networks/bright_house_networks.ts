@@ -29,7 +29,7 @@ export class BrightHouseNetworksCollector extends SketchCollector {
         loginUrl: "https://www.spectrum.net/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

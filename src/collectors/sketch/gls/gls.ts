@@ -29,7 +29,7 @@ export class GlsCollector extends SketchCollector {
         loginUrl: "https://gls-group.eu/DE/de/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

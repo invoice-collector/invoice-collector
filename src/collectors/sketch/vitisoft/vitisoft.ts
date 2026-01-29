@@ -29,7 +29,7 @@ export class VitisoftCollector extends SketchCollector {
         loginUrl: "https://moncompte.vitisoft.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class G7FrAffliateCollector extends SketchCollector {
         loginUrl: "https://www.g7.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GlsPaketeCollector extends SketchCollector {
         loginUrl: "https://www.gls-pakete.de/profile?tab=myReceipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

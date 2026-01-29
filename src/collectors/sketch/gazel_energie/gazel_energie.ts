@@ -29,7 +29,7 @@ export class GazelEnergieCollector extends SketchCollector {
         loginUrl: "https://dispatching.gazelenergie.fr/WebClient/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

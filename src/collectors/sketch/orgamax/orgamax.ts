@@ -29,7 +29,7 @@ export class OrgamaxCollector extends SketchCollector {
         loginUrl: "http://www.orgamax.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

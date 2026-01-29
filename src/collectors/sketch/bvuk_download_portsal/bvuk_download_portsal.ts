@@ -29,7 +29,7 @@ export class BvukDownloadPortsalCollector extends SketchCollector {
         loginUrl: "https://www.bvuk.de/downloads/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

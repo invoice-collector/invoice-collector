@@ -29,7 +29,7 @@ export class SocieteGeneraleCarteAffairesCollector extends SketchCollector {
         loginUrl: "https://www.sogecartenet.fr/fre/index.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

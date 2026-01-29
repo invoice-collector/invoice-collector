@@ -29,7 +29,7 @@ export class UpsAccessPointCollector extends SketchCollector {
         loginUrl: "https://ap.ups.com/REAP/viewAccessPoint.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

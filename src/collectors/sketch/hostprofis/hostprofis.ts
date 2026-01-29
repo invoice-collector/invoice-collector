@@ -29,7 +29,7 @@ export class HostprofisCollector extends SketchCollector {
         loginUrl: "https://www.hostprofis.com/web/customer/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

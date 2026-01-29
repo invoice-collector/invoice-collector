@@ -29,7 +29,7 @@ export class DukaCollector extends SketchCollector {
         loginUrl: "https://www.duka.dk/mit-duka/fakturaer/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

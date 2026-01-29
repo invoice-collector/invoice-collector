@@ -29,7 +29,7 @@ export class ShadowEuCollector extends SketchCollector {
         loginUrl: "https://auth.eu.shadow.tech/ui/kratos/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

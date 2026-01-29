@@ -29,7 +29,7 @@ export class MobileDeHandlerCollector extends SketchCollector {
         loginUrl: "https://handel.mobile.de/rechnungen/vorherige",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MiniluDeCollector extends SketchCollector {
         loginUrl: "https://www.minilu.de/shop/de/fix/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

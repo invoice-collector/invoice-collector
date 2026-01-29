@@ -29,7 +29,7 @@ export class CofidisCollector extends SketchCollector {
         loginUrl: "http://www.cofidis.com/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

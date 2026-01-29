@@ -29,7 +29,7 @@ export class SephoraCollector extends SketchCollector {
         loginUrl: "https://www.sephora.fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

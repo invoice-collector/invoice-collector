@@ -29,7 +29,7 @@ export class PhysicaladdressComCollector extends SketchCollector {
         loginUrl: "https://physicaladdress.com/virtualizedmail/customerLogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

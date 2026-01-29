@@ -29,7 +29,7 @@ export class YourhostingCollector extends SketchCollector {
         loginUrl: "https://www.yourhosting.nl/login/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EauPubliqueEstEnsembleCollector extends SketchCollector {
         loginUrl: "https://eau-potable.est-ensemble.fr/#/facture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

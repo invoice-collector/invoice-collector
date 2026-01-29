@@ -29,7 +29,7 @@ export class SwuEmobilityCloudCollector extends SketchCollector {
         loginUrl: "https://swu.emobilitycloud.com/mein-konto/rechnung/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

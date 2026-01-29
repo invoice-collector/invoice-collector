@@ -29,7 +29,7 @@ export class ShopifyPartnerCollector extends SketchCollector {
         loginUrl: "https://www.shopify.com/partners?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

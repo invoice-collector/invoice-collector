@@ -29,7 +29,7 @@ export class DatamolinoCollector extends SketchCollector {
         loginUrl: "https://app.datamolino.com/en/auth/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

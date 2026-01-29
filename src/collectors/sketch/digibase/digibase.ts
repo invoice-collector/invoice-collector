@@ -29,7 +29,7 @@ export class DigibaseCollector extends SketchCollector {
         loginUrl: "https://www.digibase.com/dashboard/organizations/1845813",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

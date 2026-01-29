@@ -29,7 +29,7 @@ export class NetcupCollector extends SketchCollector {
         loginUrl: "https://ccp.netcup.net/run/start.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AscentiumCollector extends SketchCollector {
         loginUrl: "https://accountbutler.ascentiumcapital.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

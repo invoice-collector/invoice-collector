@@ -29,7 +29,7 @@ export class BaydinBoomerangForGmailCollector extends SketchCollector {
         loginUrl: "https://b4g.baydin.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

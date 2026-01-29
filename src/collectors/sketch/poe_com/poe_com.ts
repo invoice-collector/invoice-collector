@@ -29,7 +29,7 @@ export class PoeComCollector extends SketchCollector {
         loginUrl: "https://poe.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

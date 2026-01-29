@@ -29,7 +29,7 @@ export class NetlifyCollector extends SketchCollector {
         loginUrl: "https://app.netlify.com/login/email?next=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

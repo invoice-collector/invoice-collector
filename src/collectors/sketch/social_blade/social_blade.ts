@@ -29,7 +29,7 @@ export class SocialBladeCollector extends SketchCollector {
         loginUrl: "https://socialblade.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

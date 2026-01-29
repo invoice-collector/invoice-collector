@@ -29,7 +29,7 @@ export class TechdataCanadaCollector extends SketchCollector {
         loginUrl: "https://techdata.highradius.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

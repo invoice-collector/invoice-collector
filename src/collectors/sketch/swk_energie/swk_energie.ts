@@ -29,7 +29,7 @@ export class SwkEnergieCollector extends SketchCollector {
         loginUrl: "https://kundencenter.swk.de/okc/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

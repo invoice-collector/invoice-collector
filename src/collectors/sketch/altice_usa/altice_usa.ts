@@ -29,7 +29,7 @@ export class AlticeUsaCollector extends SketchCollector {
         loginUrl: "http://www.alticeusa.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

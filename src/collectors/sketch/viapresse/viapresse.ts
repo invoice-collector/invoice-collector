@@ -29,7 +29,7 @@ export class ViapresseCollector extends SketchCollector {
         loginUrl: "https://www.viapresse.com/customer/account/login/referer/aHR0cHM6Ly93d3cudmlhcHJlc3NlLmNvbS9jdXN0b21lci9hY2NvdW50L2luZGV4Lw,,/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

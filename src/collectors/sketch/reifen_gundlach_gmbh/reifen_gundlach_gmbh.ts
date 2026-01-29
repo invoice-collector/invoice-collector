@@ -29,7 +29,7 @@ export class ReifenGundlachGmbhCollector extends SketchCollector {
         loginUrl: "https://shop.reifengundlach.de/Start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TessolCollector extends SketchCollector {
         loginUrl: "https://portal.tessol.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

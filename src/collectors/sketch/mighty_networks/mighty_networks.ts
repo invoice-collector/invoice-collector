@@ -29,7 +29,7 @@ export class MightyNetworksCollector extends SketchCollector {
         loginUrl: "https://mightynetworks.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

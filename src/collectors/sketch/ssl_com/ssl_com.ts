@@ -29,7 +29,7 @@ export class SslComCollector extends SketchCollector {
         loginUrl: "https://secure.ssl.com/team/a1a-1gtohvd/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

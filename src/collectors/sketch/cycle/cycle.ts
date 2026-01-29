@@ -29,7 +29,7 @@ export class CycleCollector extends SketchCollector {
         loginUrl: "https://erp.app-room.de/org/office/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BookboltCollector extends SketchCollector {
         loginUrl: "https://members.bookbolt.io/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

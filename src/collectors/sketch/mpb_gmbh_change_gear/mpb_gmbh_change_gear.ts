@@ -29,7 +29,7 @@ export class MpbGmbhChangeGearCollector extends SketchCollector {
         loginUrl: "https://www.mpb.com/de-de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

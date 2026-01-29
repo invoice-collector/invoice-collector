@@ -29,7 +29,7 @@ export class AllnetFachhandelHandlerAnmeldungCollector extends SketchCollector {
         loginUrl: "https://shop.allnet.de/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

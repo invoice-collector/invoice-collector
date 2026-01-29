@@ -29,7 +29,7 @@ export class NextKraftwerkeCollector extends SketchCollector {
         loginUrl: "https://mein-kraftwerk.next-kraftwerke.de/document/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

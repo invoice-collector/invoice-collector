@@ -29,7 +29,7 @@ export class AmeropaCollector extends SketchCollector {
         loginUrl: "https://service.ameropa.de/kreditoren/?action=avisen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

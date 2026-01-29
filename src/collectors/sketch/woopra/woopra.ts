@@ -29,7 +29,7 @@ export class WoopraCollector extends SketchCollector {
         loginUrl: "http://www.woopra.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

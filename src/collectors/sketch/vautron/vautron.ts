@@ -29,7 +29,7 @@ export class VautronCollector extends SketchCollector {
         loginUrl: "https://kundencenter.n0q.de/index.php?load=rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

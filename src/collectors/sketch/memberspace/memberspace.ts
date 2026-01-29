@@ -29,7 +29,7 @@ export class MemberspaceCollector extends SketchCollector {
         loginUrl: "https://admin.memberspace.com/sites/12236",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

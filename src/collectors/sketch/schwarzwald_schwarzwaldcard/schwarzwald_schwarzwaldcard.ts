@@ -29,7 +29,7 @@ export class SchwarzwaldSchwarzwaldcardCollector extends SketchCollector {
         loginUrl: "https://tourist.avs.de/swc/index.php/de/1/onlineterminal/login/1/ef6e76a17beb2532cf529f3c0b75825b@2a6bfa5338301b34448c8cc8b1488f9f7c4598d73b2267c7db36ea851541f534",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TangoUsCollector extends SketchCollector {
         loginUrl: "https://app.tango.us/app/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

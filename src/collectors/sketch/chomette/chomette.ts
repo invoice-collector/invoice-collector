@@ -29,7 +29,7 @@ export class ChometteCollector extends SketchCollector {
         loginUrl: "https://www.chomette.com/fr_fr/customer/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

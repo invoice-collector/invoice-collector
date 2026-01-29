@@ -29,7 +29,7 @@ export class IntegromatCollector extends SketchCollector {
         loginUrl: "https://www.integromat.com/en/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

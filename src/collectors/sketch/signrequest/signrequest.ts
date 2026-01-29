@@ -29,7 +29,7 @@ export class SignrequestCollector extends SketchCollector {
         loginUrl: "https://signrequest.com/#/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

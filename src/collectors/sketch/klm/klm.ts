@@ -29,7 +29,7 @@ export class KlmCollector extends SketchCollector {
         loginUrl: "https://www.klm.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

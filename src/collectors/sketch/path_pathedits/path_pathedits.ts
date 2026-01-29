@@ -29,7 +29,7 @@ export class PathPatheditsCollector extends SketchCollector {
         loginUrl: "https://dashboard.pathedits.com/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

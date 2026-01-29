@@ -29,7 +29,7 @@ export class PasteByWetransferCollector extends SketchCollector {
         loginUrl: "https://pasteapp.com/?next=%2Fadmin%2Fteams%2Fbilling",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

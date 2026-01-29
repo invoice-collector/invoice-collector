@@ -29,7 +29,7 @@ export class DiscoCollector extends SketchCollector {
         loginUrl: "https://www.billingportal.com/s/disco-usd/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

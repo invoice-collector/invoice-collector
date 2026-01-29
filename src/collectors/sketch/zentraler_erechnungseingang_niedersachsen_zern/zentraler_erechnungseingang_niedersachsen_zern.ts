@@ -29,7 +29,7 @@ export class ZentralerErechnungseingangNiedersachsenZernCollector extends Sketch
         loginUrl: "https://erechnung.niedersachsen.de/Identity/Account/Login?returnUrl=~/vorgang%2Fbfdd9a76-1545-4d77-964b-d823ba5ed29c",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

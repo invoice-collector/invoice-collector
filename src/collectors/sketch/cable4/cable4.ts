@@ -29,7 +29,7 @@ export class Cable4Collector extends SketchCollector {
         loginUrl: "https://kdportal.cable4.de/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

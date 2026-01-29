@@ -29,7 +29,7 @@ export class GistronCollector extends SketchCollector {
         loginUrl: "http://www.gistron.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

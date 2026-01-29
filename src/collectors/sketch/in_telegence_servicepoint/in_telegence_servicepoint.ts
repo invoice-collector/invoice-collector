@@ -29,7 +29,7 @@ export class InTelegenceServicepointCollector extends SketchCollector {
         loginUrl: "https://www.in-servicepoint.net/sp/files.iface",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

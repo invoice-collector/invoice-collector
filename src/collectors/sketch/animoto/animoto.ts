@@ -29,7 +29,7 @@ export class AnimotoCollector extends SketchCollector {
         loginUrl: "https://animoto.com/log_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

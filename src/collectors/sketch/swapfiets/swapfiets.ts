@@ -29,7 +29,7 @@ export class SwapfietsCollector extends SketchCollector {
         loginUrl: "https://identity.swapfiets.com/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

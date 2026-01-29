@@ -29,7 +29,7 @@ export class LactalisFrCollector extends SketchCollector {
         loginUrl: "https://www.lactalis.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

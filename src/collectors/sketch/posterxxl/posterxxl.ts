@@ -29,7 +29,7 @@ export class PosterxxlCollector extends SketchCollector {
         loginUrl: "https://www.posterxxl.de/kundenkonto/sammelrechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

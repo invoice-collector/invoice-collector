@@ -29,7 +29,7 @@ export class SpeechmaticsCollector extends SketchCollector {
         loginUrl: "https://portal.speechmatics.com/billing/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StreamyardCollector extends SketchCollector {
         loginUrl: "https://streamyard.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

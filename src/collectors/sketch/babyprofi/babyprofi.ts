@@ -29,7 +29,7 @@ export class BabyprofiCollector extends SketchCollector {
         loginUrl: "https://www.babyprofi.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GithostCollector extends SketchCollector {
         loginUrl: "https://githost.io/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

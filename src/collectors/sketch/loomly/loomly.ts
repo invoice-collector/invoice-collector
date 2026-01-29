@@ -29,7 +29,7 @@ export class LoomlyCollector extends SketchCollector {
         loginUrl: "https://www.loomly.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

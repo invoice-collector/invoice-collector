@@ -29,7 +29,7 @@ export class Shk4youPietschGruppeCollector extends SketchCollector {
         loginUrl: "https://www.shk-4you.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

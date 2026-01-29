@@ -29,7 +29,7 @@ export class ImmoDeFranceCollector extends SketchCollector {
         loginUrl: "https://www.immodefrance.com/fr/video-services-en-ligne",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RecrasCollector extends SketchCollector {
         loginUrl: "https://www.recras.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

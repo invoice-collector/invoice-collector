@@ -29,7 +29,7 @@ export class OmnisendCollector extends SketchCollector {
         loginUrl: "https://app.omnisend.com/accounts/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

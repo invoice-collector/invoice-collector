@@ -29,7 +29,7 @@ export class AmavatEuCollector extends SketchCollector {
         loginUrl: "https://portal.amavat.eu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

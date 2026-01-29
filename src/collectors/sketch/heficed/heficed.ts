@@ -29,7 +29,7 @@ export class HeficedCollector extends SketchCollector {
         loginUrl: "https://terminal.heficed.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

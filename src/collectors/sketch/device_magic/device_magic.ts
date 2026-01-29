@@ -29,7 +29,7 @@ export class DeviceMagicCollector extends SketchCollector {
         loginUrl: "https://www.devicemagic.com/users/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InternationalMarketCentersCollector extends SketchCollector {
         loginUrl: "https://billing.imcenters.com/Account/Login?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

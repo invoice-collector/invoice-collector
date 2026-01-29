@@ -29,7 +29,7 @@ export class StarpoolDeCollector extends SketchCollector {
         loginUrl: "https://www.starpool.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

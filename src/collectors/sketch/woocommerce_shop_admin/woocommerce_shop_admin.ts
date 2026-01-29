@@ -29,7 +29,7 @@ export class WoocommerceShopAdminCollector extends SketchCollector {
         loginUrl: "http://www.woocommerce.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

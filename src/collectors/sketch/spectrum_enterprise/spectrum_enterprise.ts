@@ -29,7 +29,7 @@ export class SpectrumEnterpriseCollector extends SketchCollector {
         loginUrl: "https://spectrumenterprise.net/login?signed-out=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

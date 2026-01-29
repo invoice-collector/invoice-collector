@@ -29,7 +29,7 @@ export class StreamableCollector extends SketchCollector {
         loginUrl: "https://streamable.com/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

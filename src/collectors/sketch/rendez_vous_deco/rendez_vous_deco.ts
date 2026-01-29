@@ -29,7 +29,7 @@ export class RendezVousDecoCollector extends SketchCollector {
         loginUrl: "https://www.rendezvousdeco.com/customer/account/login/?___SID=S",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

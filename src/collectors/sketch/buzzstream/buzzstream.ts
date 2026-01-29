@@ -29,7 +29,7 @@ export class BuzzstreamCollector extends SketchCollector {
         loginUrl: "https://app.buzzstream.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

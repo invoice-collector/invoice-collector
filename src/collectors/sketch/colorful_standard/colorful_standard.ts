@@ -29,7 +29,7 @@ export class ColorfulStandardCollector extends SketchCollector {
         loginUrl: "https://colorfulstandard.spysystem.dk/b2b#tab=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

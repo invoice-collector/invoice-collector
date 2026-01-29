@@ -29,7 +29,7 @@ export class OrdersmartPartnerCollector extends SketchCollector {
         loginUrl: "https://my.ordersmart.de/ClientInvoices/BillingPeriodIndex",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

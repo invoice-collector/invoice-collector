@@ -29,7 +29,7 @@ export class Xchangeb2bCollector extends SketchCollector {
         loginUrl: "https://xchangeb2b.com/XCH/V4.1d_TC/tr_invoice_history.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

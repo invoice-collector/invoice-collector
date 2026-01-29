@@ -29,7 +29,7 @@ export class GeruCollector extends SketchCollector {
         loginUrl: "https://www.geru.com/customers/orders/NWMKRR",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TelepacificCommunicationsCollector extends SketchCollector {
         loginUrl: "https://www.tpx.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LbsPrimalianCollector extends SketchCollector {
         loginUrl: "https://portail-lbs33.artis.fr/ArtisWebLbs33/portail/ventes/factures/entree.action?cKey=1&cStatus=P&session=fGkPzEhOldEBb3wS&typeLicence=LBS17",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

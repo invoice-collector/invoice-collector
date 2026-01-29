@@ -29,7 +29,7 @@ export class PowerWattEnergyIslandCollector extends SketchCollector {
         loginUrl: "https://pwe.wolfcrm.es/intranet/#wrapper",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

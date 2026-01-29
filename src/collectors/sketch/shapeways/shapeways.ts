@@ -29,7 +29,7 @@ export class ShapewaysCollector extends SketchCollector {
         loginUrl: "https://www.shapeways.com/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

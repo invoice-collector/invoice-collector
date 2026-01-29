@@ -29,7 +29,7 @@ export class CicAvisDeVirementsCollector extends SketchCollector {
         loginUrl: "https://www.cic.fr/fr/banque/virements/vplw_bl.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

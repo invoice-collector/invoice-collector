@@ -29,7 +29,7 @@ export class KometDentalCollector extends SketchCollector {
         loginUrl: "https://www.kometstore.de/de-de/special-pages/my-account.aspx?page=orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

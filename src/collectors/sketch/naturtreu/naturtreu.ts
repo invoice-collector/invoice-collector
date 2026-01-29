@@ -29,7 +29,7 @@ export class NaturtreuCollector extends SketchCollector {
         loginUrl: "https://naturtreu.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

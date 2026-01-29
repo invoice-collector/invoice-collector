@@ -29,7 +29,7 @@ export class SkyComCollector extends SketchCollector {
         loginUrl: "https://myaccount.sky.com/bill",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

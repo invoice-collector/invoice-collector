@@ -29,7 +29,7 @@ export class AppleDeveloperProgrammCollector extends SketchCollector {
         loginUrl: "https://developer.apple.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

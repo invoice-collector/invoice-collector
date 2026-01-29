@@ -29,7 +29,7 @@ export class AlphinCollector extends SketchCollector {
         loginUrl: "https://app.alphin.io/billing/overview?utm_source=zuora&utm_medium=email&utm_campaign=invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

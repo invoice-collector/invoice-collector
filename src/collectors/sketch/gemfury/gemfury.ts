@@ -29,7 +29,7 @@ export class GemfuryCollector extends SketchCollector {
         loginUrl: "https://manage.fury.io/manage/orgs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

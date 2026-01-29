@@ -29,7 +29,7 @@ export class AbfallwirtschaftSudholsteinAwshCollector extends SketchCollector {
         loginUrl: "https://www.awsh.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

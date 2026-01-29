@@ -29,7 +29,7 @@ export class HandyparkenAtCollector extends SketchCollector {
         loginUrl: "https://www.handyparken.at/mopa3/index.sp#/my-transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

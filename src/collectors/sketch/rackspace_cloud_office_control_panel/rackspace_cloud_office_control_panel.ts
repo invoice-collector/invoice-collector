@@ -29,7 +29,7 @@ export class RackspaceCloudOfficeControlPanelCollector extends SketchCollector {
         loginUrl: "https://cp.rackspace.com/Default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MilanoteCollector extends SketchCollector {
         loginUrl: "https://app.milanote.com/account/plan/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

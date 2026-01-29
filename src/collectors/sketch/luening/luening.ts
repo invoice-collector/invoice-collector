@@ -29,7 +29,7 @@ export class LueningCollector extends SketchCollector {
         loginUrl: "https://www.luening-24.de/de/mein-luening/rechnungen-lieferscheine-sonstige-liefer-belege/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

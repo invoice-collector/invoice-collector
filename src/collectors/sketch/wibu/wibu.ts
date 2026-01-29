@@ -29,7 +29,7 @@ export class WibuCollector extends SketchCollector {
         loginUrl: "https://www.wibu.care/de-de/customer/order/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

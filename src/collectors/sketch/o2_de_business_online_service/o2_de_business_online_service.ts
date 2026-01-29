@@ -29,7 +29,7 @@ export class O2DeBusinessOnlineServiceCollector extends SketchCollector {
         loginUrl: "https://easyaccess.o2business.de/s/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

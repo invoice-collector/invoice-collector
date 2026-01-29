@@ -29,7 +29,7 @@ export class KontentWebmailCollector extends SketchCollector {
         loginUrl: "https://webmail.kontent.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

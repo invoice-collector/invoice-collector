@@ -29,7 +29,7 @@ export class HopinCollector extends SketchCollector {
         loginUrl: "https://dashboard.hopin.com/org/recode_law_42KL2CHkrue9QhIUBvMTL81md/manage/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

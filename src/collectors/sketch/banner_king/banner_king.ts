@@ -29,7 +29,7 @@ export class BannerKingCollector extends SketchCollector {
         loginUrl: "https://www.banner-king.de/authentifizierung?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

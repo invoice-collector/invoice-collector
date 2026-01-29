@@ -29,7 +29,7 @@ export class GrandLyonHabitatCollector extends SketchCollector {
         loginUrl: "https://www.grandlyonhabitat.fr/extranet/tenant/avis-echeance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

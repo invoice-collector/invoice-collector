@@ -29,7 +29,7 @@ export class DocControlCollector extends SketchCollector {
         loginUrl: "https://doccontrol.mitglieder.buedingen-holding.de/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

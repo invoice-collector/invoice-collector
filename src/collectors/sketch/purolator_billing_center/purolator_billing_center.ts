@@ -29,7 +29,7 @@ export class PurolatorBillingCenterCollector extends SketchCollector {
         loginUrl: "https://billingcentre.purolator.com/billingcentre/obpp/portal/#/accountsummary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

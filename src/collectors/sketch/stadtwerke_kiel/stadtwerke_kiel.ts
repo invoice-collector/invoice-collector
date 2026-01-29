@@ -29,7 +29,7 @@ export class StadtwerkeKielCollector extends SketchCollector {
         loginUrl: "https://onlineservices.stadtwerke-kiel.de/onlineservices/page/postfach.xhtml?conversationContext=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DnConnectCollector extends SketchCollector {
         loginUrl: "https://www.dn-connect.de/kunden-bereich.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ArvalBnpParibasGroupCollector extends SketchCollector {
         loginUrl: "https://www.myarval.com/ArvalSmartExperience/ArvalDocuments.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

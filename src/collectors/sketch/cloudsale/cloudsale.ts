@@ -29,7 +29,7 @@ export class CloudsaleCollector extends SketchCollector {
         loginUrl: "http://www.clousale.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

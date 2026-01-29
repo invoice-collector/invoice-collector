@@ -29,7 +29,7 @@ export class NrjMobileCollector extends SketchCollector {
         loginUrl: "https://www.nrjmobile.fr/identification/vip-nrj-mobile.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

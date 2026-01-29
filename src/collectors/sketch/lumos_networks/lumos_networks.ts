@@ -29,7 +29,7 @@ export class LumosNetworksCollector extends SketchCollector {
         loginUrl: "https://rsb.lumosnetworks.com/myaccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

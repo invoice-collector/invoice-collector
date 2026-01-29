@@ -29,7 +29,7 @@ export class AlanCollector extends SketchCollector {
         loginUrl: "https://alan.com/app/dashboard/pro/admin/paie-et-comptabilite",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

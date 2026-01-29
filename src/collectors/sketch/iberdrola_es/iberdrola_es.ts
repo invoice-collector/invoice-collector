@@ -29,7 +29,7 @@ export class IberdrolaEsCollector extends SketchCollector {
         loginUrl: "https://www.iberdrola.es/webclifr/mac/#/misfacturas/evolucionFacturacion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class JiffyboxCollector extends SketchCollector {
         loginUrl: "https://admin.jiffybox.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

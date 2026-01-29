@@ -29,7 +29,7 @@ export class UservoiceCollector extends SketchCollector {
         loginUrl: "https://www.billingportal.com/s/uservoice/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

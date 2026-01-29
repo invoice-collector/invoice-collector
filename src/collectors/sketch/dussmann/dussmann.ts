@@ -29,7 +29,7 @@ export class DussmannCollector extends SketchCollector {
         loginUrl: "https://www.kulturkaufhaus.de/de/anmelden?bpmtab=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

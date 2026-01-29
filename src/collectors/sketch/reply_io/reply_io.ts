@@ -29,7 +29,7 @@ export class ReplyIoCollector extends SketchCollector {
         loginUrl: "https://run.reply.io/Home/Login?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

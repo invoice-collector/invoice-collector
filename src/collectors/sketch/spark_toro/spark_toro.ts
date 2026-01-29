@@ -29,7 +29,7 @@ export class SparkToroCollector extends SketchCollector {
         loginUrl: "https://sparktoro.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtwerkeDuisburgCollector extends SketchCollector {
         loginUrl: "https://mein.swdu.de/postbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

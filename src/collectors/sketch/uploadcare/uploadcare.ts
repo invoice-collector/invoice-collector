@@ -29,7 +29,7 @@ export class UploadcareCollector extends SketchCollector {
         loginUrl: "https://uploadcare.com/accounts/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class CoriolisCollector extends SketchCollector {
         loginUrl: "https://espaceclient.coriolis.com/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

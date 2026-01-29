@@ -29,7 +29,7 @@ export class BoostingboxCollector extends SketchCollector {
         loginUrl: "http://www.boostingbox.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

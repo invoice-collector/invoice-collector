@@ -29,7 +29,7 @@ export class NutrimuscleCollector extends SketchCollector {
         loginUrl: "https://www.nutrimuscle.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

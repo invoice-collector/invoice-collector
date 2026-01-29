@@ -29,7 +29,7 @@ export class AppalachianPowerCollector extends SketchCollector {
         loginUrl: "https://www.appalachianpower.com/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

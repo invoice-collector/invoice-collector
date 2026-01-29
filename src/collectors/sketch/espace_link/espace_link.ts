@@ -29,7 +29,7 @@ export class EspaceLinkCollector extends SketchCollector {
         loginUrl: "https://icoworking.espace.link/gestion/factures/recurrentes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

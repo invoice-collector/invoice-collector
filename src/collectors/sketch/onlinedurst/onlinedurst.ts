@@ -29,7 +29,7 @@ export class OnlinedurstCollector extends SketchCollector {
         loginUrl: "https://onlinedurst.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

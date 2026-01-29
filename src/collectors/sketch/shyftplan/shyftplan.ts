@@ -29,7 +29,7 @@ export class ShyftplanCollector extends SketchCollector {
         loginUrl: "https://shyftplan.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

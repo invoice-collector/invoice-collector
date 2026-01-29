@@ -29,7 +29,7 @@ export class TrustindexCollector extends SketchCollector {
         loginUrl: "https://admin.trustindex.io/payment/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

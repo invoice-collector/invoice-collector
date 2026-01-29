@@ -29,7 +29,7 @@ export class RichardVinsAndSpiritueuxCollector extends SketchCollector {
         loginUrl: "https://pro.vinsrichard.fr/vin/factures/view#bigbook",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

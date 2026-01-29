@@ -29,7 +29,7 @@ export class TeledataCollector extends SketchCollector {
         loginUrl: "https://kundenlogin.teledata-fn.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

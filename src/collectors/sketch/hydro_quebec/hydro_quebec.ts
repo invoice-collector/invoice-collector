@@ -29,7 +29,7 @@ export class HydroQuebecCollector extends SketchCollector {
         loginUrl: "https://www.hydroquebec.com/portail/en/group/clientele/gerer-mon-compte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

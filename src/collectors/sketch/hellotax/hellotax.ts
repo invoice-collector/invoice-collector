@@ -29,7 +29,7 @@ export class HellotaxCollector extends SketchCollector {
         loginUrl: "https://app.hellotax.com/en/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

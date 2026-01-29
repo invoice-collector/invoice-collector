@@ -29,7 +29,7 @@ export class MoebelDeHandlerportalCollector extends SketchCollector {
         loginUrl: "https://www.moebel.de/portalispartner/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class _123pneusFrCollector extends SketchCollector {
         loginUrl: "https://www.123pneus.fr/cgi-bin/my-account.pl?dsco=125",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

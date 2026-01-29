@@ -29,7 +29,7 @@ export class NeurapixCollector extends SketchCollector {
         loginUrl: "https://neurapix.com/webui/dashboard/profile/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

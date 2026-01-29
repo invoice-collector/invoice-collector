@@ -29,7 +29,7 @@ export class GambioCollector extends SketchCollector {
         loginUrl: "https://www.gambio-support.de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

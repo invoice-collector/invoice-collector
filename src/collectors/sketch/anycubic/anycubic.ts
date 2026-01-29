@@ -29,7 +29,7 @@ export class AnycubicCollector extends SketchCollector {
         loginUrl: "www.anycubic.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

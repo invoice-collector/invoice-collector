@@ -29,7 +29,7 @@ export class MonizzeCollector extends SketchCollector {
         loginUrl: "https://client.monizze.be/customer/85887/invoices/overview#page=1&sort=date_added&direction=desc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

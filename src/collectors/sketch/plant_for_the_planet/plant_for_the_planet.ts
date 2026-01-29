@@ -29,7 +29,7 @@ export class PlantForThePlanetCollector extends SketchCollector {
         loginUrl: "https://www1.plant-for-the-planet.org/profile/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

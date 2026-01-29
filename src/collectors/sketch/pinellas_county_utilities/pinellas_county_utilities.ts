@@ -29,7 +29,7 @@ export class PinellasCountyUtilitiesCollector extends SketchCollector {
         loginUrl: "http://www.pinellascounty.org",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

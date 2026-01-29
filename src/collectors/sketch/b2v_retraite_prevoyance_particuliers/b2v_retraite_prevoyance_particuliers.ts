@@ -29,7 +29,7 @@ export class B2vRetraitePrevoyanceParticuliersCollector extends SketchCollector 
         loginUrl: "https://www.b2v.fr/particuliers/espace-client",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

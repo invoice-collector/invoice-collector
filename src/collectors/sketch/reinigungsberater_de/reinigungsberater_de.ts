@@ -29,7 +29,7 @@ export class ReinigungsberaterDeCollector extends SketchCollector {
         loginUrl: "https://www.reinigungsberater.de/mein_konto/uebersicht.php?kontolink=meine_bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

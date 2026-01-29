@@ -29,7 +29,7 @@ export class MarcariaCollector extends SketchCollector {
         loginUrl: "https://www.marcaria.com/mydomains/my_domain_invoices.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CityOfSanfordCollector extends SketchCollector {
         loginUrl: "https://sanf-egov.aspgov.com/Click2GovCX/billingdetail.html?OWASP_CSRFTOKEN=OFY8-V7ON-VWPN-YQ6O-IFBE-SEQA-9CJU-AH1R&billingHistoryView=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

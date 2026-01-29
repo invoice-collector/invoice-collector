@@ -29,7 +29,7 @@ export class CommercialcafeSecurecafe3Collector extends SketchCollector {
         loginUrl: "https://www.securecafe3.com/newtenantportal/content2/login/?companyID=1816&propertyID=65162",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

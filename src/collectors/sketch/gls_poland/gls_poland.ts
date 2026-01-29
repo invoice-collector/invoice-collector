@@ -29,7 +29,7 @@ export class GlsPolandCollector extends SketchCollector {
         loginUrl: "https://adeplus.gls-poland.com/adeplus/lm/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DVelopPostboxCollector extends SketchCollector {
         loginUrl: "https://postbox.foxdox.de/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MatthiesAutoteileCollector extends SketchCollector {
         loginUrl: "https://www.matthies.de/mein-matthies/e-rechnung-belegarchiv.html?no_cache=1#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

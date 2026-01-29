@@ -29,7 +29,7 @@ export class RemediaHomoeopathieCollector extends SketchCollector {
         loginUrl: "https://remedia-homoeopathie.de/konto/meine-bestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

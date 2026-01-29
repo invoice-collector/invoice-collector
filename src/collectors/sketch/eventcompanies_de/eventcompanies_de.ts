@@ -29,7 +29,7 @@ export class EventcompaniesDeCollector extends SketchCollector {
         loginUrl: "https://www.eventcompanies.de/unternehmen/content.php?whcontentid=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

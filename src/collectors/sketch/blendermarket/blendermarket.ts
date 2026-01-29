@@ -29,7 +29,7 @@ export class BlendermarketCollector extends SketchCollector {
         loginUrl: "https://blendermarket.com/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

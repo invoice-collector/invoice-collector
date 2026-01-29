@@ -29,7 +29,7 @@ export class UemElectriciteDeMetzCollector extends SketchCollector {
         loginUrl: "https://monagence.uem-metz.fr/efluidAEL/jsp/arc/habilitation/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

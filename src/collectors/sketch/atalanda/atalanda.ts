@@ -29,7 +29,7 @@ export class AtalandaCollector extends SketchCollector {
         loginUrl: "https://atalanda.com/nordfriesland/admin/platform_to_vendor_bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

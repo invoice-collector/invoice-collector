@@ -29,7 +29,7 @@ export class MinkBurstenFrCollector extends SketchCollector {
         loginUrl: "https://www.mink-buersten.com/fr/connexionpanier-darticles/connexion-form.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

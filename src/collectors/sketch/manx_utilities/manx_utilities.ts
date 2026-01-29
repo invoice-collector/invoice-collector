@@ -29,7 +29,7 @@ export class ManxUtilitiesCollector extends SketchCollector {
         loginUrl: "https://www.manxutilities.im/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

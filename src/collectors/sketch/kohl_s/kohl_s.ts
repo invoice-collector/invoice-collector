@@ -29,7 +29,7 @@ export class KohlSCollector extends SketchCollector {
         loginUrl: "https://www.kohls.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

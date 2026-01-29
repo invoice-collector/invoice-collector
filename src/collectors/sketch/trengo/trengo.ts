@@ -29,7 +29,7 @@ export class TrengoCollector extends SketchCollector {
         loginUrl: "https://app.trengo.com/admin/subscription_settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

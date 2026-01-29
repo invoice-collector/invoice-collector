@@ -29,7 +29,7 @@ export class CityOfJohannesburgCollector extends SketchCollector {
         loginUrl: "https://eservices.joburg.org.za/Pages/eStatements.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

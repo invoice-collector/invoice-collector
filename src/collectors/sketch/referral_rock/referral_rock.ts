@@ -29,7 +29,7 @@ export class ReferralRockCollector extends SketchCollector {
         loginUrl: "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

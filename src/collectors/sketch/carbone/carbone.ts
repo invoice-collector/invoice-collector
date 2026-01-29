@@ -29,7 +29,7 @@ export class CarboneCollector extends SketchCollector {
         loginUrl: "https://studio.carbone.io/#/studio",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

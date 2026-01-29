@@ -29,7 +29,7 @@ export class RefersionCollector extends SketchCollector {
         loginUrl: "https://hq.refersion.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

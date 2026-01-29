@@ -29,7 +29,7 @@ export class A2HostingPartnersCollector extends SketchCollector {
         loginUrl: "https://affiliates.a2hosting.com/affiliates/panel.php#Payouts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

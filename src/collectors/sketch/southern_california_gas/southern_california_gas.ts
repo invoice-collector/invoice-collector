@@ -29,7 +29,7 @@ export class SouthernCaliforniaGasCollector extends SketchCollector {
         loginUrl: "https://myaccount.socalgas.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DocspringCollector extends SketchCollector {
         loginUrl: "https://app.docspring.com/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

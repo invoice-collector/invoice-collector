@@ -29,7 +29,7 @@ export class ClockodoCollector extends SketchCollector {
         loginUrl: "https://my.clockodo.com/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

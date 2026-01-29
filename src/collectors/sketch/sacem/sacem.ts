@@ -29,7 +29,7 @@ export class SacemCollector extends SketchCollector {
         loginUrl: "https://clients.sacem.fr/mon-compte/mes-factures?cid=30004454302",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

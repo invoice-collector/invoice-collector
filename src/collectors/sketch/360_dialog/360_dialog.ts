@@ -29,7 +29,7 @@ export class _360DialogCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xR1h2bnZLamtXN0JNSnpSLF9NbnkyRTNRRjBCcjNWTHViTEtMaVZVbWJVSGtKVHVu0100PH0iR6wo",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

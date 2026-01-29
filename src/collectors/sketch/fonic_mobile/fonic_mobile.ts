@@ -29,7 +29,7 @@ export class FonicMobileCollector extends SketchCollector {
         loginUrl: "https://www.fonic-mobile.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

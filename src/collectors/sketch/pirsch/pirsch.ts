@@ -29,7 +29,7 @@ export class PirschCollector extends SketchCollector {
         loginUrl: "https://dashboard.pirsch.io/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

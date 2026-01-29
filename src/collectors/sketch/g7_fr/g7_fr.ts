@@ -29,7 +29,7 @@ export class G7FrCollector extends SketchCollector {
         loginUrl: "https://www.g7.fr/tableau-de-bord/historique-de-courses",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

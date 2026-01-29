@@ -29,7 +29,7 @@ export class PingcordCollector extends SketchCollector {
         loginUrl: "https://pingcord.xyz/payments/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

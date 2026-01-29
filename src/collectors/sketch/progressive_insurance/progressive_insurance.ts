@@ -29,7 +29,7 @@ export class ProgressiveInsuranceCollector extends SketchCollector {
         loginUrl: "https://servicing5.progressive.com/xps.web/s4/scripts/DisplayPage.aspx?Page=Documents&TransactionName=ProofOfInsurance&Zone=LocalNav_Zone&Filter=Forms&Location=BunkerWest&Userid=f51eb364-f97c-41c3-be65-8bae5d6c463c&OfferingId=CAAAAAAG201804&transNum=&Act=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

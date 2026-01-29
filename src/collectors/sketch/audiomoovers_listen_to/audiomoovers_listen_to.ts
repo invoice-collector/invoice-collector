@@ -29,7 +29,7 @@ export class AudiomooversListenToCollector extends SketchCollector {
         loginUrl: "https://audiomovers.com/wp/account/#billing_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

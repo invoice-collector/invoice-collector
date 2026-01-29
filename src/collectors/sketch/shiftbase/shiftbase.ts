@@ -29,7 +29,7 @@ export class ShiftbaseCollector extends SketchCollector {
         loginUrl: "https://app.shiftbase.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

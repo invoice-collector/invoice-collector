@@ -29,7 +29,7 @@ export class MyEeMobileAndBroadbandCollector extends SketchCollector {
         loginUrl: "https://myaccount.ee.co.uk/app/top-up-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

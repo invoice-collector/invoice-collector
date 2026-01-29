@@ -29,7 +29,7 @@ export class TeslaCollector extends SketchCollector {
         loginUrl: "https://auth.tesla.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

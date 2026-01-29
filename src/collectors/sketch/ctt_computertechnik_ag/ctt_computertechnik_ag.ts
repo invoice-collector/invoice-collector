@@ -29,7 +29,7 @@ export class CttComputertechnikAgCollector extends SketchCollector {
         loginUrl: "https://ctt.de/customer/account/login/referer/aHR0cHM6Ly9jdHQuZGUv/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

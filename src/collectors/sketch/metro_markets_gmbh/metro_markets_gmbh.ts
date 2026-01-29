@@ -29,7 +29,7 @@ export class MetroMarketsGmbhCollector extends SketchCollector {
         loginUrl: "https://www.metro.de/marktplatz/account/orders-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

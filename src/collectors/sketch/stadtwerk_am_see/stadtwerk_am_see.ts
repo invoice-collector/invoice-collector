@@ -29,7 +29,7 @@ export class StadtwerkAmSeeCollector extends SketchCollector {
         loginUrl: "https://portal.stadtwerk-am-see.de/mailbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

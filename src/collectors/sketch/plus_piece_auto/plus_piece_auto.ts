@@ -29,7 +29,7 @@ export class PlusPieceAutoCollector extends SketchCollector {
         loginUrl: "https://www.automecanik.com/myak/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KeysExpressFrCollector extends SketchCollector {
         loginUrl: "https://keys.express/FR/sales/order/invoice/order_id/105568/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

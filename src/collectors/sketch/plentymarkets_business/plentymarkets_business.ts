@@ -29,7 +29,7 @@ export class PlentymarketsBusinessCollector extends SketchCollector {
         loginUrl: "https://plentymarkets-cloud-de.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

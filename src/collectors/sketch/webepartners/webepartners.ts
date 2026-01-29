@@ -29,7 +29,7 @@ export class WebepartnersCollector extends SketchCollector {
         loginUrl: "https://panel.webepartners.pl/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

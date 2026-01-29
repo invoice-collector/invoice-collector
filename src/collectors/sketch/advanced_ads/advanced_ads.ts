@@ -29,7 +29,7 @@ export class AdvancedAdsCollector extends SketchCollector {
         loginUrl: "https://wpadvancedads.com/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GetidaCollector extends SketchCollector {
         loginUrl: "http://www.getida.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

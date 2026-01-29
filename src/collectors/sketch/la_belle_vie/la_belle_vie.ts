@@ -29,7 +29,7 @@ export class LaBelleVieCollector extends SketchCollector {
         loginUrl: "https://www.labellevie.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

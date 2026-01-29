@@ -29,7 +29,7 @@ export class FactoryMotorPartsCustomerPaymentCollector extends SketchCollector {
         loginUrl: "https://ebilling.factorymotorparts.com/custportal/PayInvoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

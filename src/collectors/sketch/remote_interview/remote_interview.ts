@@ -29,7 +29,7 @@ export class RemoteInterviewCollector extends SketchCollector {
         loginUrl: "https://app.remoteinterview.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

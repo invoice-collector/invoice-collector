@@ -29,7 +29,7 @@ export class CityOfGroverBeachCollector extends SketchCollector {
         loginUrl: "https://grover.dpnetbill.com/secure/customer/default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

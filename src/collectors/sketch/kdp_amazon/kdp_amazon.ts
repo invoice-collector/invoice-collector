@@ -29,7 +29,7 @@ export class KdpAmazonCollector extends SketchCollector {
         loginUrl: "https://advertising.amazon.de/billing/history?entityId=ENTITY1M5SF34Z03AZI",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

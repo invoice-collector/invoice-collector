@@ -29,7 +29,7 @@ export class PlugAndPayCollector extends SketchCollector {
         loginUrl: "https://plugandpay.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

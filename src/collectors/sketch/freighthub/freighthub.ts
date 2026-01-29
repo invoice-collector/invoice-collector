@@ -29,7 +29,7 @@ export class FreighthubCollector extends SketchCollector {
         loginUrl: "https://ship.freighthub.com/shipments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

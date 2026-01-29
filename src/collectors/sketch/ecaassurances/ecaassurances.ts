@@ -29,7 +29,7 @@ export class EcaassurancesCollector extends SketchCollector {
         loginUrl: "https://espaceclient.eca-assurances.com/espace-client/login.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

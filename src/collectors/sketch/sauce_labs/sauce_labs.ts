@@ -29,7 +29,7 @@ export class SauceLabsCollector extends SketchCollector {
         loginUrl: "https://saucelabs.com/beta/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

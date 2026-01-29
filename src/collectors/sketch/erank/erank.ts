@@ -29,7 +29,7 @@ export class ErankCollector extends SketchCollector {
         loginUrl: "https://erank.com/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

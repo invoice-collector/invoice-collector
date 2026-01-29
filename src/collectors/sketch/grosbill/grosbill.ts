@@ -29,7 +29,7 @@ export class GrosbillCollector extends SketchCollector {
         loginUrl: "https://www.grosbill.com/comptev2/index.php?redirection=compte_accueil",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

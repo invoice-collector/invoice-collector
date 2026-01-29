@@ -29,7 +29,7 @@ export class LosAngelesDepartmentOfWaterAndPowerCollector extends SketchCollecto
         loginUrl: "http://www.ladwp.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

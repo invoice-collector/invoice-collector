@@ -29,7 +29,7 @@ export class CanalDeIsabelIiCollector extends SketchCollector {
         loginUrl: "https://oficinavirtual.canaldeisabelsegunda.es/recytal/public/inicio.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

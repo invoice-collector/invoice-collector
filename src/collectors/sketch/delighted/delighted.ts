@@ -29,7 +29,7 @@ export class DelightedCollector extends SketchCollector {
         loginUrl: "https://delighted.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

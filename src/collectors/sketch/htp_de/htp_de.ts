@@ -29,7 +29,7 @@ export class HtpDeCollector extends SketchCollector {
         loginUrl: "https://kundencenter.htp.net/doorway.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

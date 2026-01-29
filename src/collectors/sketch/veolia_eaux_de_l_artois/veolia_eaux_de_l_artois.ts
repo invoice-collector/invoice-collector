@@ -29,7 +29,7 @@ export class VeoliaEauxDeLArtoisCollector extends SketchCollector {
         loginUrl: "https://www.service.eau.veolia.fr/files/live/sites/veolia/files/EDA.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

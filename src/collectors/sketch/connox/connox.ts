@@ -29,7 +29,7 @@ export class ConnoxCollector extends SketchCollector {
         loginUrl: "https://www.connox.de/kundenkonto/ihre-bestellungen/rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MydpdUkCollector extends SketchCollector {
         loginUrl: "https://www.dpd.co.uk/umslogon/public/doLogon.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

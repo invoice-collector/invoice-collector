@@ -29,7 +29,7 @@ export class WpUmbrellaCollector extends SketchCollector {
         loginUrl: "https://app.wp-umbrella.com/auth/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

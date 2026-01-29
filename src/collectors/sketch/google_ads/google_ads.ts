@@ -29,7 +29,7 @@ export class GoogleAdsCollector extends SketchCollector {
         loginUrl: "https://ads.google.com/aw/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

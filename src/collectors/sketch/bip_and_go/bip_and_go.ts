@@ -29,7 +29,7 @@ export class BipAndGoCollector extends SketchCollector {
         loginUrl: "https://www.bipandgo.com/login_form?came_from=https%3A//www.bipandgo.com/mon_compte/&retry=&disable_cookie_login__=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

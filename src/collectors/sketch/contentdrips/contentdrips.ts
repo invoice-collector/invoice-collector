@@ -29,7 +29,7 @@ export class ContentdripsCollector extends SketchCollector {
         loginUrl: "https://contentdrips.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

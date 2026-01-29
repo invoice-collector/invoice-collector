@@ -29,7 +29,7 @@ export class DirectAssurancesContratsCollector extends SketchCollector {
         loginUrl: "https://www.direct-assurance.fr/Sales/QBQQ2B7Q/Common/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

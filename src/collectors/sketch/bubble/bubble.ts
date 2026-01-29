@@ -29,7 +29,7 @@ export class BubbleCollector extends SketchCollector {
         loginUrl: "https://www.bubble.is",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

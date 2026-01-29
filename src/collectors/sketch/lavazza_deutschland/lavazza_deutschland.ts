@@ -29,7 +29,7 @@ export class LavazzaDeutschlandCollector extends SketchCollector {
         loginUrl: "https://customerportal.lavazza.com/s/login/?language=en_US",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

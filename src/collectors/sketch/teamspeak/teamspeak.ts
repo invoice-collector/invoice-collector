@@ -29,7 +29,7 @@ export class TeamspeakCollector extends SketchCollector {
         loginUrl: "https://sales.teamspeakusa.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

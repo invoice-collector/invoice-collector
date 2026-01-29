@@ -29,7 +29,7 @@ export class KsAuxiliaCollector extends SketchCollector {
         loginUrl: "https://portal.ks-auxilia.de/ng/#/kunden/dokumente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

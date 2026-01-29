@@ -29,7 +29,7 @@ export class ImpotsProfessionnelsCollector extends SketchCollector {
         loginUrl: "https://cfspro.impots.gouv.fr/LoginAccess?op=c",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

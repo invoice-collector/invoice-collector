@@ -29,7 +29,7 @@ export class InteractiveBrokersCollector extends SketchCollector {
         loginUrl: "https://ndcdyn.interactivebrokers.com/sso/Login?RL=1&locale=en_US",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

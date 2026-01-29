@@ -29,7 +29,7 @@ export class LechwerkeCollector extends SketchCollector {
         loginUrl: "https://www.lew.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

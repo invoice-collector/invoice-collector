@@ -29,7 +29,7 @@ export class MeilleurDuChefCollector extends SketchCollector {
         loginUrl: "https://www.meilleurduchef.com/en/perso/commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

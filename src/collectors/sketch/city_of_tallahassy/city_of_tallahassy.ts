@@ -29,7 +29,7 @@ export class CityOfTallahassyCollector extends SketchCollector {
         loginUrl: "https://selfservice.talgov.com/billing/AP0036948/100148649",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

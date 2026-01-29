@@ -29,7 +29,7 @@ export class NutritiendaCollector extends SketchCollector {
         loginUrl: "https://www.nutritienda.com/de/mein-konto?tab=orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

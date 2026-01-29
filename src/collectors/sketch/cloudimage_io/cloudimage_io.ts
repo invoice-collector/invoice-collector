@@ -29,7 +29,7 @@ export class CloudimageIoCollector extends SketchCollector {
         loginUrl: "https://admin.cloudimage.io/account/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

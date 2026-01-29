@@ -29,7 +29,7 @@ export class PublicStorageCollector extends SketchCollector {
         loginUrl: "http://www.publicstorage.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

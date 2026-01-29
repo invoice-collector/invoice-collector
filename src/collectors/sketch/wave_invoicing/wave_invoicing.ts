@@ -29,7 +29,7 @@ export class WaveInvoicingCollector extends SketchCollector {
         loginUrl: "https://my.waveapps.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GvlCollector extends SketchCollector {
         loginUrl: "https://www.artsys.gvl.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

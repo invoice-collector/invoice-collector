@@ -29,7 +29,7 @@ export class KashflowAccountingCollector extends SketchCollector {
         loginUrl: "https://securedwebapp.com/login.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

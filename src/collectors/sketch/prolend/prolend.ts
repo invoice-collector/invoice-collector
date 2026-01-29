@@ -29,7 +29,7 @@ export class ProlendCollector extends SketchCollector {
         loginUrl: "https://portal.prolend.de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

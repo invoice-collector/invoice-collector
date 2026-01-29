@@ -29,7 +29,7 @@ export class BreezyCollector extends SketchCollector {
         loginUrl: "https://breezy.hr/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

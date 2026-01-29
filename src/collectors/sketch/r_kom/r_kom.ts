@@ -29,7 +29,7 @@ export class RKomCollector extends SketchCollector {
         loginUrl: "https://kundenportal.r-kom.de/intern/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

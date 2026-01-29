@@ -29,7 +29,7 @@ export class ClickmagickCollector extends SketchCollector {
         loginUrl: "https://www.clickmagick.com/user/account/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

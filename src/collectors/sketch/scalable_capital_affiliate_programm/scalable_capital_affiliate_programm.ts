@@ -29,7 +29,7 @@ export class ScalableCapitalAffiliateProgrammCollector extends SketchCollector {
         loginUrl: "https://partner.scalable-capital.de/auszahlungen.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

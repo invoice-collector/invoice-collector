@@ -29,7 +29,7 @@ export class TelenetBeCollector extends SketchCollector {
         loginUrl: "https://www2.telenet.be/content/www-telenet-be/fr/business/klantenservice/raadpleeg-uw-saldo-en-factuur",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

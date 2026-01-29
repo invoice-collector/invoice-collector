@@ -29,7 +29,7 @@ export class OrbytCollector extends SketchCollector {
         loginUrl: "https://seguro.orbyt.es/registro_nuevo/v3/?view=userArea",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PolylangCollector extends SketchCollector {
         loginUrl: "https://polylang.pro/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

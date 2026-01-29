@@ -29,7 +29,7 @@ export class PicsartEnterpriseCollector extends SketchCollector {
         loginUrl: "https://console.picsart.io/usage/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AscoreGestionCollector extends SketchCollector {
         loginUrl: "https://www.ascoregestion.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

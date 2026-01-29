@@ -29,7 +29,7 @@ export class CleantalkCollector extends SketchCollector {
         loginUrl: "https://cleantalk.org/my/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

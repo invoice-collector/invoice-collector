@@ -29,7 +29,7 @@ export class EtepeteteCollector extends SketchCollector {
         loginUrl: "https://etepetete-bio.de/mein-konto/#lastorder",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

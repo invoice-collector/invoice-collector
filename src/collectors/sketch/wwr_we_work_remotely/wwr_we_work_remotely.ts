@@ -29,7 +29,7 @@ export class WwrWeWorkRemotelyCollector extends SketchCollector {
         loginUrl: "https://weworkremotely.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LightingseoCollector extends SketchCollector {
         loginUrl: "https://www.lightingseo.com/fr/user/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

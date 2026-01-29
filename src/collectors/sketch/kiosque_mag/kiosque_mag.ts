@@ -29,7 +29,7 @@ export class KiosqueMagCollector extends SketchCollector {
         loginUrl: "https://www.kiosquemag.com/mon-espace/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

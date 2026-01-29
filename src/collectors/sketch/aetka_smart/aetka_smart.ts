@@ -29,7 +29,7 @@ export class AetkaSmartCollector extends SketchCollector {
         loginUrl: "https://www.aetkasmart.de/mein-aetkasmart.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

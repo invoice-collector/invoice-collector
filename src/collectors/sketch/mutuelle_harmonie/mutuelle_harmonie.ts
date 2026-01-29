@@ -29,7 +29,7 @@ export class MutuelleHarmonieCollector extends SketchCollector {
         loginUrl: "https://www.harmonie-mutuelle.fr/web/tout-harmonie",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

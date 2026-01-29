@@ -29,7 +29,7 @@ export class KickboxCollector extends SketchCollector {
         loginUrl: "https://app.kickbox.com/accounts/ls4oBBrK/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

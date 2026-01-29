@@ -29,7 +29,7 @@ export class GeizhalsServiceDeCollector extends SketchCollector {
         loginUrl: "https://service.geizhals.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

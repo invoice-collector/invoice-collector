@@ -29,7 +29,7 @@ export class PrivatefloorCollector extends SketchCollector {
         loginUrl: "https://es.privatefloor.com/cuenta/pedidos/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

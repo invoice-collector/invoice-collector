@@ -29,7 +29,7 @@ export class UsermavenCollector extends SketchCollector {
         loginUrl: "https://app.usermaven.com/env/UMIeWR2K8l/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

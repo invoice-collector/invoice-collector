@@ -29,7 +29,7 @@ export class FroneriSchollerGmbhCollector extends SketchCollector {
         loginUrl: "https://www.froneri-schoeller.de/mein-schoeller/meine-bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

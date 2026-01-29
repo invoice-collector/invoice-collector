@@ -29,7 +29,7 @@ export class TracktorFrCollector extends SketchCollector {
         loginUrl: "https://tracktor.fr/users/2060-simon/bookings/14604#facturation",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

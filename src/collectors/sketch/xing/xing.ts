@@ -29,7 +29,7 @@ export class XingCollector extends SketchCollector {
         loginUrl: "https://www.xing.com/payments/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

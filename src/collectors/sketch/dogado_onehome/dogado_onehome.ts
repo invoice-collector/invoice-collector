@@ -29,7 +29,7 @@ export class DogadoOnehomeCollector extends SketchCollector {
         loginUrl: "https://onehome.dogado.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

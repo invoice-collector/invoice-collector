@@ -29,7 +29,7 @@ export class AwazeCollector extends SketchCollector {
         loginUrl: "https://login.novasol.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

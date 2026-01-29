@@ -29,7 +29,7 @@ export class ImdbProCollector extends SketchCollector {
         loginUrl: "https://pro.imdb.com/account/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

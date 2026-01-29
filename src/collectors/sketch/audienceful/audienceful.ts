@@ -29,7 +29,7 @@ export class AudiencefulCollector extends SketchCollector {
         loginUrl: "https://app.audienceful.com/settings/plan-and-billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SpringGlobalDeliverySolutionsG3WorldwideMailCollector extends Sketc
         loginUrl: "http://www.spring-gds.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

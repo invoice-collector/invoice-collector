@@ -29,7 +29,7 @@ export class EnelCollector extends SketchCollector {
         loginUrl: "https://www.enel.it/it/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

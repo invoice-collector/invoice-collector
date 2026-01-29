@@ -29,7 +29,7 @@ export class WerLiefertWasCollector extends SketchCollector {
         loginUrl: "https://www.wlw.de/de/mein-konto/uebersicht/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

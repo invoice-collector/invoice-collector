@@ -29,7 +29,7 @@ export class BookerCollector extends SketchCollector {
         loginUrl: "https://www.booker.co.uk/account/loginregister/userlogin.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

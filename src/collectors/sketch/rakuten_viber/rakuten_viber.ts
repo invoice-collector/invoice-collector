@@ -29,7 +29,7 @@ export class RakutenViberCollector extends SketchCollector {
         loginUrl: "https://www.viber.com/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

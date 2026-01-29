@@ -29,7 +29,7 @@ export class RexRotaryCollector extends SketchCollector {
         loginUrl: "https://rex-demat.fr/programs/adminirex_client",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

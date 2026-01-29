@@ -29,7 +29,7 @@ export class TwagoCollector extends SketchCollector {
         loginUrl: "https://www.twago.de/authenticate",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

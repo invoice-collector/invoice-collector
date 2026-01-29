@@ -29,7 +29,7 @@ export class WatsonNutritionCollector extends SketchCollector {
         loginUrl: "https://watsonnutrition.de/mein-konto/view-order/55313/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

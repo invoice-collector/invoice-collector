@@ -29,7 +29,7 @@ export class StadtwerkeFellbachCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-fellbach.de/csit/action/csLogin?formReset.x=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

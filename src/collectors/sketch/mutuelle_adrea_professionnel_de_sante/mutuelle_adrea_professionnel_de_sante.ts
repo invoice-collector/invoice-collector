@@ -29,7 +29,7 @@ export class MutuelleAdreaProfessionnelDeSanteCollector extends SketchCollector 
         loginUrl: "https://corporate.adrea.fr/professionnel-de-sante/espace-securise/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

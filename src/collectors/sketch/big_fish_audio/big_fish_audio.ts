@@ -29,7 +29,7 @@ export class BigFishAudioCollector extends SketchCollector {
         loginUrl: "https://www.bigfishaudio.com/account.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

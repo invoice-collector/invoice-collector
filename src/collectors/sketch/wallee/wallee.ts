@@ -29,7 +29,7 @@ export class WalleeCollector extends SketchCollector {
         loginUrl: "https://app-wallee.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

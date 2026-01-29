@@ -29,7 +29,7 @@ export class ZendutyCollector extends SketchCollector {
         loginUrl: "https://www.zenduty.com/dashboard/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

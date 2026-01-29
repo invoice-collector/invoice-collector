@@ -29,7 +29,7 @@ export class VodafoneExArcorCollector extends SketchCollector {
         loginUrl: "https://www.vodafone.de/meinvodafone/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

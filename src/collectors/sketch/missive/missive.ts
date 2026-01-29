@@ -29,7 +29,7 @@ export class MissiveCollector extends SketchCollector {
         loginUrl: "https://mail.missiveapp.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

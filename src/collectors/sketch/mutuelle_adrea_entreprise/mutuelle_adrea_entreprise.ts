@@ -29,7 +29,7 @@ export class MutuelleAdreaEntrepriseCollector extends SketchCollector {
         loginUrl: "https://entreprise.adrea.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

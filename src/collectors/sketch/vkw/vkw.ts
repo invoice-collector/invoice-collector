@@ -29,7 +29,7 @@ export class VkwCollector extends SketchCollector {
         loginUrl: "https://online-services.vkw.at/powercommerce/portal/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

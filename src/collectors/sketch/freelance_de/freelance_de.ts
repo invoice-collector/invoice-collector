@@ -29,7 +29,7 @@ export class FreelanceDeCollector extends SketchCollector {
         loginUrl: "https://www.freelance.de/account/edit_payment_data.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

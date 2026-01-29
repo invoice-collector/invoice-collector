@@ -29,7 +29,7 @@ export class MailflossCollector extends SketchCollector {
         loginUrl: "https://app.mailfloss.com/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

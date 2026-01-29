@@ -29,7 +29,7 @@ export class DbEnergieCollector extends SketchCollector {
         loginUrl: "https://dbenergie.sps-ocs.de/Document/Documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

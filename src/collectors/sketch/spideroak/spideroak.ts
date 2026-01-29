@@ -29,7 +29,7 @@ export class SpideroakCollector extends SketchCollector {
         loginUrl: "https://spideroak.com/user/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

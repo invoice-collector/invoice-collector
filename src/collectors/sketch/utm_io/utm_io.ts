@@ -29,7 +29,7 @@ export class UtmIoCollector extends SketchCollector {
         loginUrl: "https://app.utm.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

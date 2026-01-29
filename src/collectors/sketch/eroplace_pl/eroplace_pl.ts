@@ -29,7 +29,7 @@ export class EroplacePlCollector extends SketchCollector {
         loginUrl: "https://en.eroplace.pl/moje-konto/zamowienia",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

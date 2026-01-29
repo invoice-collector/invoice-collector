@@ -29,7 +29,7 @@ export class ViralLaunchCollector extends SketchCollector {
         loginUrl: "https://viral-launch.com/sellers/launch-staging/pages/account-management.html#/account-settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

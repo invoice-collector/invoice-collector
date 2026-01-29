@@ -29,7 +29,7 @@ export class DvFactoringplusCollector extends SketchCollector {
         loginUrl: "https://factoringplus.dv-portal.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

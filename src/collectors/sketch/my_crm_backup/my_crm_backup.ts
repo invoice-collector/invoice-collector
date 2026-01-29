@@ -29,7 +29,7 @@ export class MyCrmBackupCollector extends SketchCollector {
         loginUrl: "https://app.mycrmbackup.com/subscription/edit",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

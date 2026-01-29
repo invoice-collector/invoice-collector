@@ -29,7 +29,7 @@ export class Protection24BnpParibasCollector extends SketchCollector {
         loginUrl: "https://eclients.protection24.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

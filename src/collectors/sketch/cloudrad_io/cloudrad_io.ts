@@ -29,7 +29,7 @@ export class CloudradIoCollector extends SketchCollector {
         loginUrl: "https://console.cloudrad.io/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

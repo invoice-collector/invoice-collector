@@ -29,7 +29,7 @@ export class AwinAffiliateCollector extends SketchCollector {
         loginUrl: "https://ui.awin.com/awin/affiliate/392069/payments/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

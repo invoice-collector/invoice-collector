@@ -29,7 +29,7 @@ export class ShivaFrCollector extends SketchCollector {
         loginUrl: "https://portail.shiva.fr/?cookies",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

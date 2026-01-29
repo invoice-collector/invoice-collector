@@ -29,7 +29,7 @@ export class SeobilityCollector extends SketchCollector {
         loginUrl: "https://www.seobility.net/de/settings/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RpOnlineCollector extends SketchCollector {
         loginUrl: "https://id.rp-online.de/login?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

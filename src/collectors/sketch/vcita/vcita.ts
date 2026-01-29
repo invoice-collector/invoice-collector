@@ -29,7 +29,7 @@ export class VcitaCollector extends SketchCollector {
         loginUrl: "https://www.vcita.com/login?o=top_menu",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

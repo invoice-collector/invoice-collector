@@ -29,7 +29,7 @@ export class PromocashCollector extends SketchCollector {
         loginUrl: "https://www.promocash.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

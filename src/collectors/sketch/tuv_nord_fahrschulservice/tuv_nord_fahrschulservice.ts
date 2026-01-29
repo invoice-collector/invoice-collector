@@ -29,7 +29,7 @@ export class TuvNordFahrschulserviceCollector extends SketchCollector {
         loginUrl: "https://www4.tuev-nord.de/efa/#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

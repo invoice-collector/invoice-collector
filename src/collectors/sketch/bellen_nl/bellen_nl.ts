@@ -29,7 +29,7 @@ export class BellenNlCollector extends SketchCollector {
         loginUrl: "https://translate.google.ro/translate?hl=ro&sl=nl&tl=ro&u=http%3A%2F%2Fforum.bellen.com%2F&anno=2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

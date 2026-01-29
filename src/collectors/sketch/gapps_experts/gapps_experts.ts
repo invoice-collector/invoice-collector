@@ -29,7 +29,7 @@ export class GappsExpertsCollector extends SketchCollector {
         loginUrl: "https://billing.gappsexperts.com/app/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

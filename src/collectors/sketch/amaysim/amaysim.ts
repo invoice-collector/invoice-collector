@@ -29,7 +29,7 @@ export class AmaysimCollector extends SketchCollector {
         loginUrl: "https://accounts.amaysim.com.au/identity/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

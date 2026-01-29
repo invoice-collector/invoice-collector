@@ -29,7 +29,7 @@ export class PentacodeCollector extends SketchCollector {
         loginUrl: "https://manage.pentacode.app/settings/billing?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

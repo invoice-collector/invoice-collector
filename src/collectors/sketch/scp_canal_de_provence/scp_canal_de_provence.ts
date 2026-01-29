@@ -29,7 +29,7 @@ export class ScpCanalDeProvenceCollector extends SketchCollector {
         loginUrl: "https://moncompteclient.canaldeprovence.com/factures/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

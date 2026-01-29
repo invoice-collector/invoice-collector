@@ -29,7 +29,7 @@ export class PdffillerCollector extends SketchCollector {
         loginUrl: "https://www.pdffiller.com/en/login/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

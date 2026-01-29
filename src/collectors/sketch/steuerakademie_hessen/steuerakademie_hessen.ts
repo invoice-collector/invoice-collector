@@ -29,7 +29,7 @@ export class SteuerakademieHessenCollector extends SketchCollector {
         loginUrl: "https://steuerakademie-hessen.de/kundenkontogesamtuebersicht/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

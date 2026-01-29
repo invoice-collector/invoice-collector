@@ -29,7 +29,7 @@ export class ManpowerEmployerPortalCollector extends SketchCollector {
         loginUrl: "https://www.manpower.us/en/Employers.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

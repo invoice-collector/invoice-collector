@@ -29,7 +29,7 @@ export class StocklearCollector extends SketchCollector {
         loginUrl: "https://stocklear.co.uk/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

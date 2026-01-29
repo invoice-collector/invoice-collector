@@ -29,7 +29,7 @@ export class Helium10Collector extends SketchCollector {
         loginUrl: "https://members.helium10.com/profile/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

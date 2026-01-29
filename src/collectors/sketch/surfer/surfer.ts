@@ -29,7 +29,7 @@ export class SurferCollector extends SketchCollector {
         loginUrl: "https://app.surferseo.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

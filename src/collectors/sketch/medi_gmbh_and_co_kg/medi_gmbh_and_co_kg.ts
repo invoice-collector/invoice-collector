@@ -29,7 +29,7 @@ export class MediGmbhAndCoKgCollector extends SketchCollector {
         loginUrl: "https://id.medi.de/login?state=g6Fo2SBpb0VBdms0Q3dNR25USUcwajV1cEZCNjNZNGZrTlJ1RKN0aWTZIC1neGJpWnpFd0NhRm9LSmhuYWFOOHZTNC1ybWd4TEZLo2NpZNkgekRaMklNbXYxN292NmVscmUwMlhFdzF0V21Sb01KMTc&client=zDZ2IMmv17ov6elre02XEw1tWmRoMJ17&protocol=oauth2&scope=openid%20p",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

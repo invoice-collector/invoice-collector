@@ -29,7 +29,7 @@ export class AfterbuyCollector extends SketchCollector {
         loginUrl: "https://login.afterbuy.de/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

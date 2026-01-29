@@ -29,7 +29,7 @@ export class PiskorskiBoisEnergieCollector extends SketchCollector {
         loginUrl: "https://www.piskorski-bois-energie.fr/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

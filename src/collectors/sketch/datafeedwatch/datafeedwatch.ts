@@ -29,7 +29,7 @@ export class DatafeedwatchCollector extends SketchCollector {
         loginUrl: "https://app.datafeedwatch.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

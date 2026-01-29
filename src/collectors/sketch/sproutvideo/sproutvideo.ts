@@ -29,7 +29,7 @@ export class SproutvideoCollector extends SketchCollector {
         loginUrl: "https://sproutvideo.com/settings/billing#details_212262",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

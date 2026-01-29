@@ -29,7 +29,7 @@ export class KindergardenChargesCollector extends SketchCollector {
         loginUrl: "https://app.kidsview.pl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

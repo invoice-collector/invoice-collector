@@ -29,7 +29,7 @@ export class DripCollector extends SketchCollector {
         loginUrl: "https://www.getdrip.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

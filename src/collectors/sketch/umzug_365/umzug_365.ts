@@ -29,7 +29,7 @@ export class Umzug365Collector extends SketchCollector {
         loginUrl: "https://www.umzug-365.de/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

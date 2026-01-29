@@ -29,7 +29,7 @@ export class HubstaffCollector extends SketchCollector {
         loginUrl: "https://account.hubstaff.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

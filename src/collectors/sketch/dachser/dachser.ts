@@ -29,7 +29,7 @@ export class DachserCollector extends SketchCollector {
         loginUrl: "https://elogistics.dachser.com/login/home?5",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

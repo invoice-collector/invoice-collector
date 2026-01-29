@@ -29,7 +29,7 @@ export class CoraCreditCollector extends SketchCollector {
         loginUrl: "https://www.cora.fr/credit/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

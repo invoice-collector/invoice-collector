@@ -29,7 +29,7 @@ export class HelinetPrivatkundenCollector extends SketchCollector {
         loginUrl: "https://mein.helinet.de/kundenportal.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

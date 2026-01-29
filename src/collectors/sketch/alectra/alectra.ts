@@ -29,7 +29,7 @@ export class AlectraCollector extends SketchCollector {
         loginUrl: "https://myaccount.alectrautilities.com/app/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

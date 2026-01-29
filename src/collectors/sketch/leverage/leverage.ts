@@ -29,7 +29,7 @@ export class LeverageCollector extends SketchCollector {
         loginUrl: "https://leverage.immo/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

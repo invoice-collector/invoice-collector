@@ -29,7 +29,7 @@ export class OrmcoCollector extends SketchCollector {
         loginUrl: "https://aligners.ormcodigital.com/sso/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

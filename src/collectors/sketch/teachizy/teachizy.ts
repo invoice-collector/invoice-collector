@@ -29,7 +29,7 @@ export class TeachizyCollector extends SketchCollector {
         loginUrl: "https://app.teachizy.fr/parametres/facturation",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

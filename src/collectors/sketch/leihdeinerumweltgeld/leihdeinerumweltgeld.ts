@@ -29,7 +29,7 @@ export class LeihdeinerumweltgeldCollector extends SketchCollector {
         loginUrl: "https://invest.leihdeinerumweltgeld.de/account/tax_documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

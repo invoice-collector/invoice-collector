@@ -29,7 +29,7 @@ export class UmschlageDeutschlandCollector extends SketchCollector {
         loginUrl: "https://www.umschlaege.com/customer?xCmd=account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

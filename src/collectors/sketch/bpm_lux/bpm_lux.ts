@@ -29,7 +29,7 @@ export class BpmLuxCollector extends SketchCollector {
         loginUrl: "https://www.bpm-lux.com/mybpm/#account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

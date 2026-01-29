@@ -29,7 +29,7 @@ export class PcaCollector extends SketchCollector {
         loginUrl: "https://reporting.pca.de/web-main/app/reporting/invoices?execution=e5s7",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

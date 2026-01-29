@@ -29,7 +29,7 @@ export class BoltBusinessCollector extends SketchCollector {
         loginUrl: "https://business.bolt.eu/login?utm_campaign=bolt-business&utm_medium=navbar&utm_source=business-welcome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

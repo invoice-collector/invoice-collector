@@ -29,7 +29,7 @@ export class StadtwerkeBonnCollector extends SketchCollector {
         loginUrl: "https://css.stadtwerke-bonn.de/portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

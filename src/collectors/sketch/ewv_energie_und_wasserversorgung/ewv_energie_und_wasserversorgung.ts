@@ -29,7 +29,7 @@ export class EwvEnergieUndWasserversorgungCollector extends SketchCollector {
         loginUrl: "https://kundenportal.ewv.de/ewvGips/Gips?SessionMandant=EWV&Anwendung=CMSWEBPAGE&Methode=ShowHTMLAusgabe&RessourceID=4645&Startlink=&utm_source=Webseite+Startseite+Icons+Header&utm_medium=Textlink&utm_campaign=Startseite-Header-Kundenportal-Icon&_ga=2.136",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

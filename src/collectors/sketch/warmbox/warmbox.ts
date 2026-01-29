@@ -29,7 +29,7 @@ export class WarmboxCollector extends SketchCollector {
         loginUrl: "https://app.warmbox.ai/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

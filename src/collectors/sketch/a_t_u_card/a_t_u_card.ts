@@ -29,7 +29,7 @@ export class ATUCardCollector extends SketchCollector {
         loginUrl: "https://www.atu.de/pages/service/atucard/persoenlicherzugang/kontouebersicht.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InternetBsCollector extends SketchCollector {
         loginUrl: "https://internetbs.net/de/Domainregistrierung/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

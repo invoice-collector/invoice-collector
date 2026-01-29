@@ -29,7 +29,7 @@ export class SignalIdunaCollector extends SketchCollector {
         loginUrl: "https://sb-serviceframe.ui.signal-iduna.org/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UberBoxCollector extends SketchCollector {
         loginUrl: "https://uber.app.box.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

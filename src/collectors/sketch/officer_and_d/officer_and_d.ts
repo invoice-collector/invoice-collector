@@ -29,7 +29,7 @@ export class OfficerAndDCollector extends SketchCollector {
         loginUrl: "https://www.officernd.com/billing/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ManagerMagazinCollector extends SketchCollector {
         loginUrl: "https://www.manager-magazin.de/premium/access/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

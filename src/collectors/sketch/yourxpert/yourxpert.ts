@@ -29,7 +29,7 @@ export class YourxpertCollector extends SketchCollector {
         loginUrl: "https://www.yourxpert.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

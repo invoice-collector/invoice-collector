@@ -29,7 +29,7 @@ export class HightailCollector extends SketchCollector {
         loginUrl: "https://spaces.hightail.com/dashboard/news",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

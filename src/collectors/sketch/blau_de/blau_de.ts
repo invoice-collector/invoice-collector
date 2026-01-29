@@ -29,7 +29,7 @@ export class BlauDeCollector extends SketchCollector {
         loginUrl: "https://www.blau.de/mein-blau/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

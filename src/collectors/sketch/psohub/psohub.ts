@@ -29,7 +29,7 @@ export class PsohubCollector extends SketchCollector {
         loginUrl: "https://psohubdevelopment.chargebee.com/portal/v2/billing_history?source=home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

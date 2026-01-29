@@ -29,7 +29,7 @@ export class KabelTvBinzCollector extends SketchCollector {
         loginUrl: "http://www.kabel-tv-binz.de/login/index/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

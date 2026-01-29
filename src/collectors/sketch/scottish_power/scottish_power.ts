@@ -29,7 +29,7 @@ export class ScottishPowerCollector extends SketchCollector {
         loginUrl: "https://www.scottishpower.co.uk/account/login.process?execution=e1s1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

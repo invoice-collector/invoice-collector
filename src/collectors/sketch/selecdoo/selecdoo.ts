@@ -29,7 +29,7 @@ export class SelecdooCollector extends SketchCollector {
         loginUrl: "https://work.selecdoo.com/affiliates/login.php#login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

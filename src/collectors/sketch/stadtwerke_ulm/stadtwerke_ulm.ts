@@ -29,7 +29,7 @@ export class StadtwerkeUlmCollector extends SketchCollector {
         loginUrl: "https://www.swu.de/privatkunden/service/meine-swu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

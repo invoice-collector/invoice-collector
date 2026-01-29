@@ -29,7 +29,7 @@ export class OnehubCollector extends SketchCollector {
         loginUrl: "https://ws.onehub.com/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

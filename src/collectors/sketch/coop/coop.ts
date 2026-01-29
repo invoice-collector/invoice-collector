@@ -29,7 +29,7 @@ export class CoopCollector extends SketchCollector {
         loginUrl: "https://om.coop.dk/forside.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

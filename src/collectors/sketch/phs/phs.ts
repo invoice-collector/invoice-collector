@@ -29,7 +29,7 @@ export class PhsCollector extends SketchCollector {
         loginUrl: "https://my.phs.co.uk/documents?utm_source=myphs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

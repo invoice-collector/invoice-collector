@@ -29,7 +29,7 @@ export class LiftstarCollector extends SketchCollector {
         loginUrl: "https://www.liftstar-partner.de/belegcenter",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

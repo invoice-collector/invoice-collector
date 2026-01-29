@@ -29,7 +29,7 @@ export class HostingerPartnersCollector extends SketchCollector {
         loginUrl: "https://affiliates.hostinger.com/publisher/#!/billing?limit=50&page=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

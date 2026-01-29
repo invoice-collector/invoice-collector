@@ -29,7 +29,7 @@ export class IkksCollector extends SketchCollector {
         loginUrl: "https://www.ikks.com/en/login/?original=%2Fen%2Faccount%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HotelSpiderCollector extends SketchCollector {
         loginUrl: "https://extranet.hotel-spider.ch/hotel/#/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

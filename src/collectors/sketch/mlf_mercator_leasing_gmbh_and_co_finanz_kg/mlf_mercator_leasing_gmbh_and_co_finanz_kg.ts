@@ -29,7 +29,7 @@ export class MlfMercatorLeasingGmbhAndCoFinanzKgCollector extends SketchCollecto
         loginUrl: "https://messenger.mercator-leasing.de/login.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

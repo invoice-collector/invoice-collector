@@ -29,7 +29,7 @@ export class SchauinslandReisenCollector extends SketchCollector {
         loginUrl: "https://www.slr-info.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

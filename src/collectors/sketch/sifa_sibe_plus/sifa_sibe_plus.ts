@@ -29,7 +29,7 @@ export class SifaSibePlusCollector extends SketchCollector {
         loginUrl: "https://www.sifa-sibe.de/aboplus-service-center/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

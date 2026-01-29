@@ -29,7 +29,7 @@ export class KoodoMobileCollector extends SketchCollector {
         loginUrl: "https://www.koodomobile.com/my-account/billing/bill_summary?INTCMP=KMNew_NavBar_Billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

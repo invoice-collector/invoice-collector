@@ -29,7 +29,7 @@ export class WoltCollector extends SketchCollector {
         loginUrl: "https://wolt.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

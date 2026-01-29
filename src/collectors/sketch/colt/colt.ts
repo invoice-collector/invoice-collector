@@ -29,7 +29,7 @@ export class ColtCollector extends SketchCollector {
         loginUrl: "https://dcp.colt.net/myBillsView/viewInvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

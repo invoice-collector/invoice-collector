@@ -29,7 +29,7 @@ export class BergfurstCollector extends SketchCollector {
         loginUrl: "https://de.bergfuerst.com/nachrichten/posteingang",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

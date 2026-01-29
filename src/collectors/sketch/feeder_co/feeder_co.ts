@@ -29,7 +29,7 @@ export class FeederCoCollector extends SketchCollector {
         loginUrl: "https://feeder.co/reader?view=account-settings%2Finvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

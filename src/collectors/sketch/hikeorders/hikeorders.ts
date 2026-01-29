@@ -29,7 +29,7 @@ export class HikeordersCollector extends SketchCollector {
         loginUrl: "https://a11yenabler.hikeorders.com/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

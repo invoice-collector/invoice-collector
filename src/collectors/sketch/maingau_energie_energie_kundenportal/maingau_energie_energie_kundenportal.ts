@@ -29,7 +29,7 @@ export class MaingauEnergieEnergieKundenportalCollector extends SketchCollector 
         loginUrl: "https://www.maingau-energie.de/strom",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

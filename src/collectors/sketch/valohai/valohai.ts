@@ -29,7 +29,7 @@ export class ValohaiCollector extends SketchCollector {
         loginUrl: "https://app.valohai.com/organizations/3717/#/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

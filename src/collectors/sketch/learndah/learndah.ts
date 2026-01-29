@@ -29,7 +29,7 @@ export class LearndahCollector extends SketchCollector {
         loginUrl: "https://account.learndash.com/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

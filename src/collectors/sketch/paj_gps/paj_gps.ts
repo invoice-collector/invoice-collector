@@ -29,7 +29,7 @@ export class PajGpsCollector extends SketchCollector {
         loginUrl: "https://start.finder-portal.com/de/mein-konto/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

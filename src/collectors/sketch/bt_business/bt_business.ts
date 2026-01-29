@@ -29,7 +29,7 @@ export class BtBusinessCollector extends SketchCollector {
         loginUrl: "https://secure.business.bt.com/Account/LoginRedirect.aspx?tabId=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ShortpixelCollector extends SketchCollector {
         loginUrl: "https://shortpixel.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

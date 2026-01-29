@@ -29,7 +29,7 @@ export class VectorizerCollector extends SketchCollector {
         loginUrl: "https://de.cedarlakeventures.com/account/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

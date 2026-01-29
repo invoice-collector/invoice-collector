@@ -29,7 +29,7 @@ export class TimeonePerformancePublisherCollector extends SketchCollector {
         loginUrl: "https://performance.timeonegroup.com/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

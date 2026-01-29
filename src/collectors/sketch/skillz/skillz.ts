@@ -29,7 +29,7 @@ export class SkillzCollector extends SketchCollector {
         loginUrl: "https://developers.skillz.com/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Host1NoCollector extends SketchCollector {
         loginUrl: "https://host1.no/client/clientarea.php?language=Norwegian",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EbayDeCollector extends SketchCollector {
         loginUrl: "https://www.ebay.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

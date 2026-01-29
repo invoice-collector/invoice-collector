@@ -28,7 +28,7 @@ export class BMStoresCollector extends SketchCollector {
         loginUrl: "https://bmstores.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

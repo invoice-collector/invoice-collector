@@ -29,7 +29,7 @@ export class ApiComputerhandelCollector extends SketchCollector {
         loginUrl: "https://shop.api.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

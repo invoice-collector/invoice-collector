@@ -29,7 +29,7 @@ export class ResmioCollector extends SketchCollector {
         loginUrl: "https://app.resmio.com/die-blaue-agave/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

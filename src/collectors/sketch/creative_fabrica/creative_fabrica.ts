@@ -29,7 +29,7 @@ export class CreativeFabricaCollector extends SketchCollector {
         loginUrl: "https://www.creativefabrica.com/de/my-account/subscriptions/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

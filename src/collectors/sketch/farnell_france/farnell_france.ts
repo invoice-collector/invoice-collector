@@ -29,7 +29,7 @@ export class FarnellFranceCollector extends SketchCollector {
         loginUrl: "https://fr.farnell.com/webapp/wcs/stores/servlet/LogonForm?returnToURL&URL=https%3A%2F%2Ffr.farnell.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

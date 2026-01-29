@@ -29,7 +29,7 @@ export class NsPrivateCollector extends SketchCollector {
         loginUrl: "https://login.ns.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

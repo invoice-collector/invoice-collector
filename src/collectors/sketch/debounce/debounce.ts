@@ -29,7 +29,7 @@ export class DebounceCollector extends SketchCollector {
         loginUrl: "https://app.debounce.io/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IpowerCollector extends SketchCollector {
         loginUrl: "https://secure.ipower.com/secure/login.bml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

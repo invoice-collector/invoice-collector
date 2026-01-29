@@ -29,7 +29,7 @@ export class DigidipCollector extends SketchCollector {
         loginUrl: "https://www.digidip.net/publisher/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

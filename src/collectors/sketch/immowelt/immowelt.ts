@@ -29,7 +29,7 @@ export class ImmoweltCollector extends SketchCollector {
         loginUrl: "https://meine.immowelt.de/0-558/meineimmowelt/index.aspx?returnurl=%2f0-558%2fmeineimmowelt%2fverwaltung%2faccountoverview.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ZenhubCollector extends SketchCollector {
         loginUrl: "https://app.zenhub.com/dashboard/o/ridecapital/account-details",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

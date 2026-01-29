@@ -29,7 +29,7 @@ export class AprCollector extends SketchCollector {
         loginUrl: "https://goapr.de/account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AdsterraPartnersCollector extends SketchCollector {
         loginUrl: "https://partners.adsterra.com/finances",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

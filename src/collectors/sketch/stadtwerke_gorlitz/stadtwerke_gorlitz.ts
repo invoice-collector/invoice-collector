@@ -29,7 +29,7 @@ export class StadtwerkeGorlitzCollector extends SketchCollector {
         loginUrl: "https://digitaldirect.plusportal.de/#/devices/dsl/61841/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LkqCorpKeystoneCollector extends SketchCollector {
         loginUrl: "https://preview.orderkeystone.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

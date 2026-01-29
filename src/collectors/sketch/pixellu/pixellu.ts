@@ -29,7 +29,7 @@ export class PixelluCollector extends SketchCollector {
         loginUrl: "https://account.pixellu.com/checkout/purchase-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

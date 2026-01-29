@@ -29,7 +29,7 @@ export class _101domainCollector extends SketchCollector {
         loginUrl: "https://my.101domain.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TalktalkUkBusinessCollector extends SketchCollector {
         loginUrl: "https://supportcentre.talktalkbusiness.co.uk/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

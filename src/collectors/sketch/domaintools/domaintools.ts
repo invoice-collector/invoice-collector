@@ -29,7 +29,7 @@ export class DomaintoolsCollector extends SketchCollector {
         loginUrl: "https://account.domaintools.com/my-account/?tab=history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

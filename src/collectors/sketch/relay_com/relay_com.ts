@@ -29,7 +29,7 @@ export class RelayComCollector extends SketchCollector {
         loginUrl: "https://www.relay.com/mon-compte.html?ReturnUrl=%2fdefault.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

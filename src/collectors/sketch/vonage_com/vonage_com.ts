@@ -29,7 +29,7 @@ export class VonageComCollector extends SketchCollector {
         loginUrl: "https://secure.vonage.com/account/doLogin.html?icmp=HO_LOGIN_BANNER",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

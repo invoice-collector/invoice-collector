@@ -29,7 +29,7 @@ export class LifewaveCollector extends SketchCollector {
         loginUrl: "https://www.lifewave.com/corporphan/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

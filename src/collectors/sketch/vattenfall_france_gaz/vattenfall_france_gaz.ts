@@ -29,7 +29,7 @@ export class VattenfallFranceGazCollector extends SketchCollector {
         loginUrl: "https://espaceclientgaz.vattenfall-energies.fr/list/view/4",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

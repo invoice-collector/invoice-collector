@@ -29,7 +29,7 @@ export class BauschLombDeCollector extends SketchCollector {
         loginUrl: "https://www.bausch-lomb.de/single-pages/e-rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

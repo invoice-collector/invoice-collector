@@ -29,7 +29,7 @@ export class MrsSportyCollector extends SketchCollector {
         loginUrl: "https://portal.mrssporty.com/ControlPanel/Bwa",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

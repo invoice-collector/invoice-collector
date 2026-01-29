@@ -29,7 +29,7 @@ export class MiagCollector extends SketchCollector {
         loginUrl: "https://app.miag.com/member/de/services/rma",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

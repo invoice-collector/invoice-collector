@@ -29,7 +29,7 @@ export class DeskbookersCollector extends SketchCollector {
         loginUrl: "https://www.deskbookers.com/en-gb/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

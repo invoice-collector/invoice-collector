@@ -29,7 +29,7 @@ export class ApolloIoCollector extends SketchCollector {
         loginUrl: "https://app.apollo.io/#/settings/plans/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

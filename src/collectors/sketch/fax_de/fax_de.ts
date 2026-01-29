@@ -29,7 +29,7 @@ export class FaxDeCollector extends SketchCollector {
         loginUrl: "https://www.fax.de/center/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SkypeManagerCollector extends SketchCollector {
         loginUrl: "https://manager.skype.com/reports/purchases/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PrintifyCollector extends SketchCollector {
         loginUrl: "https://printify.com/app/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

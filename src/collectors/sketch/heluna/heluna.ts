@@ -29,7 +29,7 @@ export class HelunaCollector extends SketchCollector {
         loginUrl: "https://heluna.com/clients/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

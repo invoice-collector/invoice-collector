@@ -29,7 +29,7 @@ export class AdvanceAutoPartsCollector extends SketchCollector {
         loginUrl: "https://shop.advanceautoparts.com/web/TrackOrderStatus?storeId=10151&catalogId=10051&langId=-1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AquaserviceCollector extends SketchCollector {
         loginUrl: "https://clientes.aquaservice.com/facturas",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

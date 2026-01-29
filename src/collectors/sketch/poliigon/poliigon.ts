@@ -29,7 +29,7 @@ export class PoliigonCollector extends SketchCollector {
         loginUrl: "https://www.poliigon.com/account/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

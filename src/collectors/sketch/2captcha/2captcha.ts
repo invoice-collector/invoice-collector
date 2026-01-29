@@ -29,7 +29,7 @@ export class _2captchaCollector extends SketchCollector {
         loginUrl: "https://2captcha.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

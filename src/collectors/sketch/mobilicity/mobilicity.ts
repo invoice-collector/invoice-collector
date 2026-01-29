@@ -29,7 +29,7 @@ export class MobilicityCollector extends SketchCollector {
         loginUrl: "http://www.mobilicity.ca",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

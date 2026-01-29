@@ -29,7 +29,7 @@ export class ApiaryCollector extends SketchCollector {
         loginUrl: "https://login.apiary.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

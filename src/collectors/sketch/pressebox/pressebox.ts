@@ -29,7 +29,7 @@ export class PresseboxCollector extends SketchCollector {
         loginUrl: "https://www.pressebox.de/mybox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

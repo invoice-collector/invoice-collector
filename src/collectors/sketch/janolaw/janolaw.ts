@@ -29,7 +29,7 @@ export class JanolawCollector extends SketchCollector {
         loginUrl: "https://www.janolaw.de/myjanolaw/rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

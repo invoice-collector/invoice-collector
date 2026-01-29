@@ -29,7 +29,7 @@ export class IntegraphoneCollector extends SketchCollector {
         loginUrl: "https://integraphone.facturationtelecom.fr/FinalUserAccount/factures.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

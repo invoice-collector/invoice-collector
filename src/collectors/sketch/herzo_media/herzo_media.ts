@@ -29,7 +29,7 @@ export class HerzoMediaCollector extends SketchCollector {
         loginUrl: "http://www.herzomedia.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

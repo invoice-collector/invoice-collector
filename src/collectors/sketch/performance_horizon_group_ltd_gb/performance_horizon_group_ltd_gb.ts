@@ -29,7 +29,7 @@ export class PerformanceHorizonGroupLtdGbCollector extends SketchCollector {
         loginUrl: "https://appleservices-console.partnerize.com/login/appleservices/de?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

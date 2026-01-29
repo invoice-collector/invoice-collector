@@ -29,7 +29,7 @@ export class LigneWebServicesCollector extends SketchCollector {
         loginUrl: "https://panel.lws.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

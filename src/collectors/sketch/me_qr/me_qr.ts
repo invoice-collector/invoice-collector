@@ -29,7 +29,7 @@ export class MeQrCollector extends SketchCollector {
         loginUrl: "https://me-qr.com/subscription/admin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PdfEscapeCollector extends SketchCollector {
         loginUrl: "https://www.pdfescape.com/account/profile/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

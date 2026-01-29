@@ -29,7 +29,7 @@ export class _123rechtDeCollector extends SketchCollector {
         loginUrl: "https://www.123recht.de/thick_register.asp?noiframe=1&goto=https%3A%2F%2Fwww%2E123recht%2Enet%2FDefault%2Easp%3F&ccheck=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

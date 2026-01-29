@@ -29,7 +29,7 @@ export class CardCompleteControlCustomerPortalCollector extends SketchCollector 
         loginUrl: "https://www.cardcomplete.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

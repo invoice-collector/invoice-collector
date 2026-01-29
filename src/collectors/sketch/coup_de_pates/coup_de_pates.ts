@@ -29,7 +29,7 @@ export class CoupDePatesCollector extends SketchCollector {
         loginUrl: "https://shop.coupdepates.fr/my-account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

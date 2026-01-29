@@ -29,7 +29,7 @@ export class DandomainDkCollector extends SketchCollector {
         loginUrl: "https://kundecenter.dandomain.dk/login.aspx?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

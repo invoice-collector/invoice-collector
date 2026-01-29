@@ -29,7 +29,7 @@ export class VexelsCollector extends SketchCollector {
         loginUrl: "https://www.vexels.com/profile/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RiversidePublicUtilitesCollector extends SketchCollector {
         loginUrl: "https://billpay.riversideca.gov/iwr/billing/billingManager.seam?cid=8887&rvn=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

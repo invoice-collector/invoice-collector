@@ -29,7 +29,7 @@ export class MutuelleMercerProfessionnelsDeSanteCollector extends SketchCollecto
         loginUrl: "https://prosante.mercernet.fr/login#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

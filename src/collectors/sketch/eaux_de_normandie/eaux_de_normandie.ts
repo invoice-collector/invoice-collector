@@ -29,7 +29,7 @@ export class EauxDeNormandieCollector extends SketchCollector {
         loginUrl: "https://www.usagers.eaux-de-normandie.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

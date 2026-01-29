@@ -29,7 +29,7 @@ export class SortlistCollector extends SketchCollector {
         loginUrl: "https://sortlist.recurly.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

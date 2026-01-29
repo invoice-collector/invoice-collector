@@ -29,7 +29,7 @@ export class AssuranceMutuelleDesMotardsAvisDEcheanceCollector extends SketchCol
         loginUrl: "https://ext2.mutuelledesmotards.fr/cas/login?service=https%3A%2F%2Fext2.mutuelledesmotards.fr%2FEspaceSocietaireApplication-web%2Fapp%2Fj_spring_cas_security_check",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

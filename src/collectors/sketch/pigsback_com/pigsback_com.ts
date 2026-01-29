@@ -29,7 +29,7 @@ export class PigsbackComCollector extends SketchCollector {
         loginUrl: "https://www.pigsback.com/en-ie/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

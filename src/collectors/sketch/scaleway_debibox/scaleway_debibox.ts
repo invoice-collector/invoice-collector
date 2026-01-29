@@ -29,7 +29,7 @@ export class ScalewayDebiboxCollector extends SketchCollector {
         loginUrl: "https://console.online.net/fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

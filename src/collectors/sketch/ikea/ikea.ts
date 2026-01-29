@@ -28,7 +28,7 @@ export class IkeaCollector extends SketchCollector {
         loginUrl: "https://www.ikea.com/fr/fr/profile/login?itm_campaign=wlo-user-slider-logged-out&itm_element=customer-service&itm_content=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

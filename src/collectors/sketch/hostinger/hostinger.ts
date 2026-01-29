@@ -29,7 +29,7 @@ export class HostingerCollector extends SketchCollector {
         loginUrl: "https://hpanel.hostinger.com/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

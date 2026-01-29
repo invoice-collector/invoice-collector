@@ -29,7 +29,7 @@ export class SohohouseCollector extends SketchCollector {
         loginUrl: "https://identity.houseseven.com/sessions/new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

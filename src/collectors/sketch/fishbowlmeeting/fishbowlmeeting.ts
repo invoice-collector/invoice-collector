@@ -29,7 +29,7 @@ export class FishbowlmeetingCollector extends SketchCollector {
         loginUrl: "https://fishbowlmeetings.com/billing#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

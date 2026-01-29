@@ -29,7 +29,7 @@ export class UberEatsRestaurantManagerCollector extends SketchCollector {
         loginUrl: "https://restaurant.uber.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

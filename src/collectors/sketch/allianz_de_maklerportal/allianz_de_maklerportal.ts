@@ -29,7 +29,7 @@ export class AllianzDeMaklerportalCollector extends SketchCollector {
         loginUrl: "https://makler.allianz.de/res/startseite/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PflegecampusCollector extends SketchCollector {
         loginUrl: "http://www.pflegecampus.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

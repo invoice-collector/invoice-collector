@@ -29,7 +29,7 @@ export class EwerkSachsenwaldEmobilitycloudCollector extends SketchCollector {
         loginUrl: "https://ewerk.emobilitycloud.com/de/account/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

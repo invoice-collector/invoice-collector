@@ -29,7 +29,7 @@ export class NapaProlinkCollector extends SketchCollector {
         loginUrl: "https://pro.napaprolink.com/my-account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

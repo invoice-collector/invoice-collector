@@ -29,7 +29,7 @@ export class OttoDornerGoPortalCollector extends SketchCollector {
         loginUrl: "https://go.doerner.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CodemagicCollector extends SketchCollector {
         loginUrl: "https://codemagic.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

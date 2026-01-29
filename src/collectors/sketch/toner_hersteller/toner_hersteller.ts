@@ -29,7 +29,7 @@ export class TonerHerstellerCollector extends SketchCollector {
         loginUrl: "http://www.tonerhersteller.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

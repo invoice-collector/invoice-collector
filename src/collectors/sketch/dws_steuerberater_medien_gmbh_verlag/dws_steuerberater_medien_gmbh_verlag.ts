@@ -29,7 +29,7 @@ export class DwsSteuerberaterMedienGmbhVerlagCollector extends SketchCollector {
         loginUrl: "https://www.dws-verlag.de/customer/account/index/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

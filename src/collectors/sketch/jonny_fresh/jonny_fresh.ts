@@ -29,7 +29,7 @@ export class JonnyFreshCollector extends SketchCollector {
         loginUrl: "https://shop.jonnyfresh.com/account/my-orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OneBillTelecomUkCollector extends SketchCollector {
         loginUrl: "https://www.onebilltelecom.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

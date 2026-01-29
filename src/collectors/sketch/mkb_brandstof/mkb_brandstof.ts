@@ -29,7 +29,7 @@ export class MkbBrandstofCollector extends SketchCollector {
         loginUrl: "https://www.mkb-brandstof.nl/inloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

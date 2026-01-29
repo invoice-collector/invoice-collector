@@ -29,7 +29,7 @@ export class ClickguardCollector extends SketchCollector {
         loginUrl: "https://app.clickguard.com/user/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

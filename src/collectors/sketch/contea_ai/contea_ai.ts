@@ -29,7 +29,7 @@ export class ConteaAiCollector extends SketchCollector {
         loginUrl: "https://app.contea.ai/user/plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

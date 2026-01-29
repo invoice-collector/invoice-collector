@@ -28,7 +28,7 @@ export class VivaquaCollector extends SketchCollector {
         loginUrl: "https://secure.doccle.be/doccle-euui/login/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

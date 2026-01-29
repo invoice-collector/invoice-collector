@@ -29,7 +29,7 @@ export class PlanBNetZeroEnergyCollector extends SketchCollector {
         loginUrl: "https://kundenportal.planbnetzero-energy.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

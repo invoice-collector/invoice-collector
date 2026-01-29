@@ -29,7 +29,7 @@ export class SkySalesPortalCollector extends SketchCollector {
         loginUrl: "https://smp.nureg.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

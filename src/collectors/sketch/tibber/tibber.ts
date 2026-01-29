@@ -29,7 +29,7 @@ export class TibberCollector extends SketchCollector {
         loginUrl: "https://tibber.com/de/portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

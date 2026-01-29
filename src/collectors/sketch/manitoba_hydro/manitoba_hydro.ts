@@ -29,7 +29,7 @@ export class ManitobaHydroCollector extends SketchCollector {
         loginUrl: "https://www.hydro.mb.ca/mybillapp/loginf5?action=acctsummary&lang=en_CA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

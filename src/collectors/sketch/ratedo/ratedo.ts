@@ -29,7 +29,7 @@ export class RatedoCollector extends SketchCollector {
         loginUrl: "https://www.ratedo.de/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

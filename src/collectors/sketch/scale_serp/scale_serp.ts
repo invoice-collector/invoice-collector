@@ -29,7 +29,7 @@ export class ScaleSerpCollector extends SketchCollector {
         loginUrl: "https://app.scaleserp.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

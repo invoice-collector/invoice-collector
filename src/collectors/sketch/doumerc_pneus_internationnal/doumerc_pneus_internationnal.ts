@@ -29,7 +29,7 @@ export class DoumercPneusInternationnalCollector extends SketchCollector {
         loginUrl: "https://www.doumercpneus.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

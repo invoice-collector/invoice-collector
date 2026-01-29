@@ -29,7 +29,7 @@ export class _3dkBerlinCollector extends SketchCollector {
         loginUrl: "https://3dk.berlin/verwaltung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

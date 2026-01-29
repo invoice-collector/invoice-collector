@@ -29,7 +29,7 @@ export class SnipeitCollector extends SketchCollector {
         loginUrl: "https://snipeitapp.com/account/invoices/in_1Eb3TLLn2xhxKhITMn4NrvC7/download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

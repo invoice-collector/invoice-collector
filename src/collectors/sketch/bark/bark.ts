@@ -29,7 +29,7 @@ export class BarkCollector extends SketchCollector {
         loginUrl: "https://www.bark.com/de/de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

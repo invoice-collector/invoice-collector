@@ -29,7 +29,7 @@ export class BienIciCollector extends SketchCollector {
         loginUrl: "https://pro.bienici.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

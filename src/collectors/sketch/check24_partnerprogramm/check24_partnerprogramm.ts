@@ -29,7 +29,7 @@ export class Check24PartnerprogrammCollector extends SketchCollector {
         loginUrl: "https://www.check24-partnerprogramm.de/berichte/gutschriften/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

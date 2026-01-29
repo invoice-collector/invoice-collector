@@ -29,7 +29,7 @@ export class EmbEnergieCollector extends SketchCollector {
         loginUrl: "https://www.emb-gmbh.de/onlineservice/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

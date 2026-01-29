@@ -29,7 +29,7 @@ export class PfizerFrCollector extends SketchCollector {
         loginUrl: "https://www.pfizerpro.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

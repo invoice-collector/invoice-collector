@@ -29,7 +29,7 @@ export class AutopayIoCollector extends SketchCollector {
         loginUrl: "https://autopay.io/payments/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

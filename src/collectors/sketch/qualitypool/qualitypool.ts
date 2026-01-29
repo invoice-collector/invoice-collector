@@ -29,7 +29,7 @@ export class QualitypoolCollector extends SketchCollector {
         loginUrl: "https://extranet.asc-online.de/intern/Postkorb/Lieferung/B1A38EDB-45CB-4D7E-826D-AAF2CE8B8183",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

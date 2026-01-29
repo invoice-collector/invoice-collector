@@ -29,7 +29,7 @@ export class MinterIoCollector extends SketchCollector {
         loginUrl: "https://minter.io/payment/in_1EY83nF8TNScfXnTDEIdJFLR/in_1EY83nF8TNScfXnTDEIdJFLR",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

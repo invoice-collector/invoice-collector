@@ -29,7 +29,7 @@ export class ParcelhubCollector extends SketchCollector {
         loginUrl: "https://accounts.parcelhub.net/query/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

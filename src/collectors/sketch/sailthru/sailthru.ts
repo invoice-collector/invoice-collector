@@ -29,7 +29,7 @@ export class SailthruCollector extends SketchCollector {
         loginUrl: "https://my.sailthru.com/login?redirect=http%3A%2F%2Fmy.sailthru.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

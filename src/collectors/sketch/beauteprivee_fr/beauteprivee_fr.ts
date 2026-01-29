@@ -29,7 +29,7 @@ export class BeautepriveeFrCollector extends SketchCollector {
         loginUrl: "https://www.beauteprivee.fr/signin/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

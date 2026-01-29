@@ -29,7 +29,7 @@ export class QuixelEpicGamesCollector extends SketchCollector {
         loginUrl: "https://quixel.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

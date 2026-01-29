@@ -29,7 +29,7 @@ export class CurrencyfairCollector extends SketchCollector {
         loginUrl: "https://app.currencyfair.com/accounts/statements/ALL/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

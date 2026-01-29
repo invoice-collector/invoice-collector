@@ -29,7 +29,7 @@ export class GelsenNetCollector extends SketchCollector {
         loginUrl: "http://www.gelsen-net.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GDataCollector extends SketchCollector {
         loginUrl: "https://www.gdata.de/mygdata",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

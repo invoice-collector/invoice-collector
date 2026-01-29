@@ -29,7 +29,7 @@ export class ProvenexpertCollector extends SketchCollector {
         loginUrl: "https://www.provenexpert.com/de-de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KautBullingerCollector extends SketchCollector {
         loginUrl: "https://www.kautbullinger.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

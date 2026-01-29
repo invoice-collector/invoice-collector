@@ -29,7 +29,7 @@ export class NewshostingCollector extends SketchCollector {
         loginUrl: "https://controlpanel.newshosting.com/customer/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

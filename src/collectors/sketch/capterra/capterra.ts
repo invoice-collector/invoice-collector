@@ -29,7 +29,7 @@ export class CapterraCollector extends SketchCollector {
         loginUrl: "https://www.capterra.com/vp/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

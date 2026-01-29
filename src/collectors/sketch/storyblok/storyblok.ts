@@ -29,7 +29,7 @@ export class StoryblokCollector extends SketchCollector {
         loginUrl: "Storyblok.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

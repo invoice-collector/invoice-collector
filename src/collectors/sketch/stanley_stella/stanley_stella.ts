@@ -29,7 +29,7 @@ export class StanleyStellaCollector extends SketchCollector {
         loginUrl: "https://www.stanleystella.com/de-de/profile/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SmartconferenceCollector extends SketchCollector {
         loginUrl: "https://portal.smartconference.de/private/billing/index.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

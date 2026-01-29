@@ -29,7 +29,7 @@ export class GrundrissCollector extends SketchCollector {
         loginUrl: "https://www.grundriss.com/auftragsuebersicht.html?rechnungen=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AdcashCollector extends SketchCollector {
         loginUrl: "https://adcash.myadcash.com/adv_finance/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

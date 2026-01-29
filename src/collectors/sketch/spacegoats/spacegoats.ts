@@ -29,7 +29,7 @@ export class SpacegoatsCollector extends SketchCollector {
         loginUrl: "http://www.spacegoats.io",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

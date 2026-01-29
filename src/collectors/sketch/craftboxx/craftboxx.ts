@@ -29,7 +29,7 @@ export class CraftboxxCollector extends SketchCollector {
         loginUrl: "https://planner.craftboxx.de/admin/companywide-settings#payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DomainbestellsystemCollector extends SketchCollector {
         loginUrl: "https://www.domain-bestellsystem.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

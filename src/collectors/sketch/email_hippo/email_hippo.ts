@@ -29,7 +29,7 @@ export class EmailHippoCollector extends SketchCollector {
         loginUrl: "https://portal.emailhippo.com/Settings/Cancel",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

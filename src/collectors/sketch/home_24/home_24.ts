@@ -29,7 +29,7 @@ export class Home24Collector extends SketchCollector {
         loginUrl: "https://partner.net.home24.com/app/index.html#/account/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

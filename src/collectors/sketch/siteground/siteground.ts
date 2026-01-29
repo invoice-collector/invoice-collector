@@ -29,7 +29,7 @@ export class SitegroundCollector extends SketchCollector {
         loginUrl: "https://ua.siteground.com/login.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

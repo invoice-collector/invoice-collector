@@ -29,7 +29,7 @@ export class TMobileAtPrivatCollector extends SketchCollector {
         loginUrl: "https://www.t-mobile.at/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

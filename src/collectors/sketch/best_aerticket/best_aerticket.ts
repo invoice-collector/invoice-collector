@@ -29,7 +29,7 @@ export class BestAerticketCollector extends SketchCollector {
         loginUrl: "https://cockpit.best-aerticket.de/home/mein-best-aer/rechnungen-und-gutschriften/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

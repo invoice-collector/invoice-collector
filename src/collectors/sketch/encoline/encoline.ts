@@ -29,7 +29,7 @@ export class EncolineCollector extends SketchCollector {
         loginUrl: "https://www.encoline.de/www/encoline/kundenlogin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TopachatComCollector extends SketchCollector {
         loginUrl: "https://www.topachat.com/pages/authentification.php?f=http://www.topachat.com/accueil/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

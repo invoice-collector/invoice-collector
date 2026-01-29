@@ -29,7 +29,7 @@ export class VelocityfleetDeCollector extends SketchCollector {
         loginUrl: "https://www.velocityfleet.com/app/invoices/list/all-invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

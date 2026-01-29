@@ -29,7 +29,7 @@ export class TvGesundheitCollector extends SketchCollector {
         loginUrl: "https://www.tv-gesundheit.com/Account/Rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

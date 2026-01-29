@@ -29,7 +29,7 @@ export class ConstantcontentCollector extends SketchCollector {
         loginUrl: "https://www.constant-content.com/area/dlogin.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

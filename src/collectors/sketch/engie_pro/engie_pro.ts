@@ -29,7 +29,7 @@ export class EngieProCollector extends SketchCollector {
         loginUrl: "https://espace-client.pro.engie.fr/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

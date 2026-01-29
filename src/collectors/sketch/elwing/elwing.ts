@@ -29,7 +29,7 @@ export class ElwingCollector extends SketchCollector {
         loginUrl: "https://books.zoho.eu/portal/elwingtech/index#/invoices?sort_order=D",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

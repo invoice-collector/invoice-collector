@@ -29,7 +29,7 @@ export class ScrewfixUkCollector extends SketchCollector {
         loginUrl: "https://credit.trade.co.uk/Secure/Statements.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

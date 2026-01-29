@@ -29,7 +29,7 @@ export class TollcollectCollector extends SketchCollector {
         loginUrl: "https://www.toll-collect.de/de/toll_collect/systemservice/login/Login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WavveCollector extends SketchCollector {
         loginUrl: "https://app.wavve.co/plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

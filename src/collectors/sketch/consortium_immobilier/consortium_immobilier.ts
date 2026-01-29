@@ -29,7 +29,7 @@ export class ConsortiumImmobilierCollector extends SketchCollector {
         loginUrl: "https://www.consortium-immobilier.fr/gestion.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

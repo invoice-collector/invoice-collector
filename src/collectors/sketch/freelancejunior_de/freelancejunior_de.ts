@@ -29,7 +29,7 @@ export class FreelancejuniorDeCollector extends SketchCollector {
         loginUrl: "https://www.freelancejunior.de/meine-rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

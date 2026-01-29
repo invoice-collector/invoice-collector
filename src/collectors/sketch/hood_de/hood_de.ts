@@ -29,7 +29,7 @@ export class HoodDeCollector extends SketchCollector {
         loginUrl: "https://www.hood.de/mein-hood.htm?sec=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

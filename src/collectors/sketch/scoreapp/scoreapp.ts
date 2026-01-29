@@ -29,7 +29,7 @@ export class ScoreappCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/session/_IUb4yKuPztUkkt0NkewbjYY4DroKz0v",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

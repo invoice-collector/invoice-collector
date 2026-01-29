@@ -29,7 +29,7 @@ export class YourfoneCollector extends SketchCollector {
         loginUrl: "https://service.yourfone.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

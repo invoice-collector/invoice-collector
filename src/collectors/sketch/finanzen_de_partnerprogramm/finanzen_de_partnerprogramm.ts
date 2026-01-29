@@ -29,7 +29,7 @@ export class FinanzenDePartnerprogrammCollector extends SketchCollector {
         loginUrl: "https://www.finanzen.de/partner/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

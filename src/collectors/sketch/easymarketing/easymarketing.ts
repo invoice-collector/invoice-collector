@@ -29,7 +29,7 @@ export class EasymarketingCollector extends SketchCollector {
         loginUrl: "https://easymarketing.de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

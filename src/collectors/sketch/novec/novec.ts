@@ -29,7 +29,7 @@ export class NovecCollector extends SketchCollector {
         loginUrl: "https://novec.smarthub.coop/ui/#/billingHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ErwinMullerCollector extends SketchCollector {
         loginUrl: "https://de.erwinmueller.com/account?aktion=showRech",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

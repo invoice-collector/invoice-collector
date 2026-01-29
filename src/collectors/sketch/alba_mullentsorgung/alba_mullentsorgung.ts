@@ -29,7 +29,7 @@ export class AlbaMullentsorgungCollector extends SketchCollector {
         loginUrl: "https://www.albaclick.de/invoice?customerId=50-9145486",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

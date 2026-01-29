@@ -29,7 +29,7 @@ export class InStylefashionCollector extends SketchCollector {
         loginUrl: "https://www.in-stylefashion.de/customer/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

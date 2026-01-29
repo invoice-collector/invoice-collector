@@ -29,7 +29,7 @@ export class WolseleyCollector extends SketchCollector {
         loginUrl: "https://www.wolseley.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CspCollector extends SketchCollector {
         loginUrl: "https://www.csp-epl.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

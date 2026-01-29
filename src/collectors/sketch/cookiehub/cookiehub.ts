@@ -29,7 +29,7 @@ export class CookiehubCollector extends SketchCollector {
         loginUrl: "https://dash.cookiehub.com/billing/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

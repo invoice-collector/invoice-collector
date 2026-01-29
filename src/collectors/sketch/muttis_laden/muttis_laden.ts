@@ -29,7 +29,7 @@ export class MuttisLadenCollector extends SketchCollector {
         loginUrl: "https://muttis-laden.de/LogIn.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

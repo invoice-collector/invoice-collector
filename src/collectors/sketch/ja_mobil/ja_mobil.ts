@@ -29,7 +29,7 @@ export class JaMobilCollector extends SketchCollector {
         loginUrl: "https://jamobil.congstar.de/mein-jamobil/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

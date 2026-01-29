@@ -29,7 +29,7 @@ export class BmwUsaCollector extends SketchCollector {
         loginUrl: "https://www.bmwusa.com/secured/content/forms/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

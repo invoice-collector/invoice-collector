@@ -29,7 +29,7 @@ export class AdnetcomNethostingCollector extends SketchCollector {
         loginUrl: "http://www.nethosting.ws/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

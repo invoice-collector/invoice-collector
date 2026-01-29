@@ -29,7 +29,7 @@ export class TeliaDkCollector extends SketchCollector {
         loginUrl: "https://www.telia.dk/mit-telia/privat/log-ind",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

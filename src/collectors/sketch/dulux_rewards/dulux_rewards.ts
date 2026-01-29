@@ -29,7 +29,7 @@ export class DuluxRewardsCollector extends SketchCollector {
         loginUrl: "https://rewards.dulux.com.au",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RaidboxesCollector extends SketchCollector {
         loginUrl: "https://dashboard.raidboxes.de/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

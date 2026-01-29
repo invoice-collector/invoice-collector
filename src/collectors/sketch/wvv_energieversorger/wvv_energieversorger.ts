@@ -29,7 +29,7 @@ export class WvvEnergieversorgerCollector extends SketchCollector {
         loginUrl: "https://onlineservice.wvv.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EversignCollector extends SketchCollector {
         loginUrl: "https://eversign.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

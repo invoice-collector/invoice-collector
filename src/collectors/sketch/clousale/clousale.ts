@@ -29,7 +29,7 @@ export class ClousaleCollector extends SketchCollector {
         loginUrl: "https://www.clousale.com/central/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

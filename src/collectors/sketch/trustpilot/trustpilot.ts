@@ -29,7 +29,7 @@ export class TrustpilotCollector extends SketchCollector {
         loginUrl: "https://businessapp.b2b.trustpilot.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

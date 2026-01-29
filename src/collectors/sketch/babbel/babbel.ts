@@ -29,7 +29,7 @@ export class BabbelCollector extends SketchCollector {
         loginUrl: "https://babbel.com/users/payments?locale=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

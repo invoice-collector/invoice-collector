@@ -29,7 +29,7 @@ export class DampsoftCollector extends SketchCollector {
         loginUrl: "https://shop.dampsoft.de/einkaufshistorie.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

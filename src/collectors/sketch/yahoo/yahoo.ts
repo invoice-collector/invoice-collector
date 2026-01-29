@@ -29,7 +29,7 @@ export class YahooCollector extends SketchCollector {
         loginUrl: "https://mysubscriptions.yahoo.com/manage/billing-statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

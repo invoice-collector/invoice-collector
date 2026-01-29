@@ -29,7 +29,7 @@ export class ReweCollector extends SketchCollector {
         loginUrl: "https://shop.rewe.de/mydata/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

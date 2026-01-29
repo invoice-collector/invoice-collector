@@ -29,7 +29,7 @@ export class IpapiCollector extends SketchCollector {
         loginUrl: "https://ipapi.co/login/?next=/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

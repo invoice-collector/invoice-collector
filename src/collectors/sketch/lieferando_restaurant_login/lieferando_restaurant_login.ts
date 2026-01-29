@@ -29,7 +29,7 @@ export class LieferandoRestaurantLoginCollector extends SketchCollector {
         loginUrl: "https://restaurants.lieferando.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

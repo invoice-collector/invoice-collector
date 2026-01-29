@@ -29,7 +29,7 @@ export class AlldomainsHostingCollector extends SketchCollector {
         loginUrl: "https://alldomains.hosting/kundencenter-login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

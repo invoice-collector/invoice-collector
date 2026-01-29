@@ -29,7 +29,7 @@ export class DynCollector extends SketchCollector {
         loginUrl: "https://account.dyn.com/entrance/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

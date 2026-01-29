@@ -29,7 +29,7 @@ export class EnmaxReportsCollector extends SketchCollector {
         loginUrl: "https://www.enmax.com/reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

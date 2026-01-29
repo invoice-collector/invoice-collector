@@ -29,7 +29,7 @@ export class TelekomBusinessKundenCollector extends SketchCollector {
         loginUrl: "https://www.rechnung-online-business.telekom.de/dtroot/login/loginpage.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

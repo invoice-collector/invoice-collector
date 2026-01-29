@@ -29,7 +29,7 @@ export class LearnyBoxCollector extends SketchCollector {
         loginUrl: "https://learnybox.com/connexion_lb/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

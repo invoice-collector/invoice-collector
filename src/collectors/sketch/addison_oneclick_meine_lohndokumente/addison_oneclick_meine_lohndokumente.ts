@@ -29,7 +29,7 @@ export class AddisonOneclickMeineLohndokumenteCollector extends SketchCollector 
         loginUrl: "https://www.one-click.de/html/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

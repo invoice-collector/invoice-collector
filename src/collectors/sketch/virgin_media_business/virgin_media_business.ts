@@ -29,7 +29,7 @@ export class VirginMediaBusinessCollector extends SketchCollector {
         loginUrl: "https://mybill.virginmediabusiness.co.uk/group/analysis/downloads",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

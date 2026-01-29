@@ -29,7 +29,7 @@ export class PubluuCollector extends SketchCollector {
         loginUrl: "https://cms1.publuu.com/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

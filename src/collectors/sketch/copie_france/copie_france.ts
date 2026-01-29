@@ -29,7 +29,7 @@ export class CopieFranceCollector extends SketchCollector {
         loginUrl: "https://espace-client.copiefrance.fr/fr/espace-client",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

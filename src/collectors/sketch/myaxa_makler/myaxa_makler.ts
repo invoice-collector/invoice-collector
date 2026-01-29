@@ -29,7 +29,7 @@ export class MyaxaMaklerCollector extends SketchCollector {
         loginUrl: "https://entry.axa.de/vertriebsportal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MyfitecoSalairesCollector extends SketchCollector {
         loginUrl: "https://myfiteco.com/bulletins-salaires",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

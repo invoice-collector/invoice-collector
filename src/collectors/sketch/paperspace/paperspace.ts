@@ -29,7 +29,7 @@ export class PaperspaceCollector extends SketchCollector {
         loginUrl: "https://www.paperspace.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

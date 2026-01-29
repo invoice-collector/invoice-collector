@@ -29,7 +29,7 @@ export class WebgoPartnersCollector extends SketchCollector {
         loginUrl: "https://wpp.webgo.de/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

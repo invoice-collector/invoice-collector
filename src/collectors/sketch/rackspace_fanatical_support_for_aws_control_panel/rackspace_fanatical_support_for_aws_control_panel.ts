@@ -29,7 +29,7 @@ export class RackspaceFanaticalSupportForAwsControlPanelCollector extends Sketch
         loginUrl: "https://www.rackspace.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VidaxlB2bCollector extends SketchCollector {
         loginUrl: "https://b2b.vidaxl.com/profile/customers/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

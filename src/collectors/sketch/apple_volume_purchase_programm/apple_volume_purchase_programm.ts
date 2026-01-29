@@ -29,7 +29,7 @@ export class AppleVolumePurchaseProgrammCollector extends SketchCollector {
         loginUrl: "https://vpp.itunes.apple.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AlertiCollector extends SketchCollector {
         loginUrl: "https://app.alerti.com/#/en/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TopviewCollector extends SketchCollector {
         loginUrl: "https://www.topview.ai/dashboard/subscription?type=Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

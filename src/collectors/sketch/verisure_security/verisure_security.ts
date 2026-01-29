@@ -29,7 +29,7 @@ export class VerisureSecurityCollector extends SketchCollector {
         loginUrl: "https://customers.verisure.co.uk/gb/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

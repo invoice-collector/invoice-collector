@@ -29,7 +29,7 @@ export class FulliCollector extends SketchCollector {
         loginUrl: "https://www.fulli.com/customer-space/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EnergiaVmCollector extends SketchCollector {
         loginUrl: "https://suministro.energyavm.es/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

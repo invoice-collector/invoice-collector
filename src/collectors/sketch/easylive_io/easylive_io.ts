@@ -29,7 +29,7 @@ export class EasyliveIoCollector extends SketchCollector {
         loginUrl: "https://studio.easylive.io/settings/customer/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

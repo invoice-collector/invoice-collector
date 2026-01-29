@@ -29,7 +29,7 @@ export class InspireNetNzCollector extends SketchCollector {
         loginUrl: "http://www.inspire.net.nz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

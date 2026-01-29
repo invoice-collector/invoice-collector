@@ -29,7 +29,7 @@ export class FirecrawlCollector extends SketchCollector {
         loginUrl: "https://www.firecrawl.dev/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

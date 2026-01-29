@@ -29,7 +29,7 @@ export class DomadooCollector extends SketchCollector {
         loginUrl: "https://www.domadoo.fr/fr/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

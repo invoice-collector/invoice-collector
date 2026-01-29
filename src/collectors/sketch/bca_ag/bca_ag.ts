@@ -29,7 +29,7 @@ export class BcaAgCollector extends SketchCollector {
         loginUrl: "https://diva.bca.de/#/Organizer/Postfach",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

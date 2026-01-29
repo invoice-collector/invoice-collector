@@ -29,7 +29,7 @@ export class KerlogCollector extends SketchCollector {
         loginUrl: "https://www.ecorec-online.fr/Kerlog/Portail/#/ecoportail/document/Documents%20KERLOG",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

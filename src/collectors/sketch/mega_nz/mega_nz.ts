@@ -29,7 +29,7 @@ export class MegaNzCollector extends SketchCollector {
         loginUrl: "https://mega.nz/fm/user-management/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

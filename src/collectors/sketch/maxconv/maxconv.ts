@@ -29,7 +29,7 @@ export class MaxconvCollector extends SketchCollector {
         loginUrl: "https://app.maxconv.com/app/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

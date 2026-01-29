@@ -29,7 +29,7 @@ export class AvayaCollector extends SketchCollector {
         loginUrl: "https://xbp1-1.avaya.com/portal/apo.nsf/apo2data?open&tab=30.10#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

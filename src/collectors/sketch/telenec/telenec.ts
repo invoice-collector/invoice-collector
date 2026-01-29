@@ -29,7 +29,7 @@ export class TelenecCollector extends SketchCollector {
         loginUrl: "http://portal.telenec.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NorseenergyCollector extends SketchCollector {
         loginUrl: "http://www.norseenergy.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

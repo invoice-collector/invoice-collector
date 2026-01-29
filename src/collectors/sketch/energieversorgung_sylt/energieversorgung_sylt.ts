@@ -29,7 +29,7 @@ export class EnergieversorgungSyltCollector extends SketchCollector {
         loginUrl: "https://kundencenter.energieversorgung-sylt.de/csit/action/csShowInvoices?formReset.x=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

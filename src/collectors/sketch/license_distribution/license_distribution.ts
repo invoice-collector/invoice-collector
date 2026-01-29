@@ -29,7 +29,7 @@ export class LicenseDistributionCollector extends SketchCollector {
         loginUrl: "http://www.license-distribution.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

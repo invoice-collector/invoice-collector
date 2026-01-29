@@ -29,7 +29,7 @@ export class BudgetphoneCollector extends SketchCollector {
         loginUrl: "https://portal.budgetphone.nl/changes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

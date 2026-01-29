@@ -29,7 +29,7 @@ export class InterleaseEadCollector extends SketchCollector {
         loginUrl: "https://interlease.ws/NEpNOGc1aG00UjM2b3ZvUjVWbzVHSjFKckpnMjFzR3NlN0JLVDA4MG9kRT0=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

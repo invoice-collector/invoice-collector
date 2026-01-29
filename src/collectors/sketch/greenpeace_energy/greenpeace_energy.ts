@@ -29,7 +29,7 @@ export class GreenpeaceEnergyCollector extends SketchCollector {
         loginUrl: "https://www.greenpeace-energy.de/privatkunden.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

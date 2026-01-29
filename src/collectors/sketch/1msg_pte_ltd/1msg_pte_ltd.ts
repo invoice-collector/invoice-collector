@@ -29,7 +29,7 @@ export class _1msgPteLtdCollector extends SketchCollector {
         loginUrl: "https://my.1msg.io/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

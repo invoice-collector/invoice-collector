@@ -29,7 +29,7 @@ export class EnecoCollector extends SketchCollector {
         loginUrl: "https://www.eneco.nl/inloggen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

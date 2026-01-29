@@ -29,7 +29,7 @@ export class NaturaMedicatrixCollector extends SketchCollector {
         loginUrl: "https://www.naturamedicatrix.fr/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

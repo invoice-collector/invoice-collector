@@ -29,7 +29,7 @@ export class SeDomicilierCollector extends SketchCollector {
         loginUrl: "https://espace-client.sedomicilier.fr/configuration/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

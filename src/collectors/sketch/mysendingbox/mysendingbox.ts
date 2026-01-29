@@ -29,7 +29,7 @@ export class MysendingboxCollector extends SketchCollector {
         loginUrl: "https://www.mysendingbox.fr/app/dashboard/settings/invoicing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

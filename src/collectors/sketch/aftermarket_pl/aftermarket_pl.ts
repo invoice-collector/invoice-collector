@@ -29,7 +29,7 @@ export class AftermarketPlCollector extends SketchCollector {
         loginUrl: "https://www.aftermarket.pl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

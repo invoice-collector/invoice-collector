@@ -29,7 +29,7 @@ export class PottsalatCollector extends SketchCollector {
         loginUrl: "https://pottsalat.de/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

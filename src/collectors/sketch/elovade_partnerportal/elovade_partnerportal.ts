@@ -29,7 +29,7 @@ export class ElovadePartnerportalCollector extends SketchCollector {
         loginUrl: "https://partnerportal.elovade.com/index.cfm?content=rechnungen/rechnungen.cfm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EFluxCollector extends SketchCollector {
         loginUrl: "https://dashboard.e-flux.io/my-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

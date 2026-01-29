@@ -29,7 +29,7 @@ export class ButCollector extends SketchCollector {
         loginUrl: "https://www.but.fr/Customer/Account/Identification",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

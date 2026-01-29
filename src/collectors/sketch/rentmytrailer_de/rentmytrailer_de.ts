@@ -29,7 +29,7 @@ export class RentmytrailerDeCollector extends SketchCollector {
         loginUrl: "https://www.rentmytrailer.de/Account/Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

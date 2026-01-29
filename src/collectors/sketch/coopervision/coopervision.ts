@@ -29,7 +29,7 @@ export class CoopervisionCollector extends SketchCollector {
         loginUrl: "https://www.ecommerce.coopervision.com/Invoices/Invoices.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

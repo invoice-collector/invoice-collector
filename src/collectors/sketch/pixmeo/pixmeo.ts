@@ -29,7 +29,7 @@ export class PixmeoCollector extends SketchCollector {
         loginUrl: "https://pixmeo.pixmeo.com/pixmeo/login/subscription/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

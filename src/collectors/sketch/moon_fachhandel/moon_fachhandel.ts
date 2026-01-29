@@ -29,7 +29,7 @@ export class MoonFachhandelCollector extends SketchCollector {
         loginUrl: "https://www.moon-fachhandel.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

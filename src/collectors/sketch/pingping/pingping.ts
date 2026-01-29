@@ -29,7 +29,7 @@ export class PingpingCollector extends SketchCollector {
         loginUrl: "https://pingping.io/account/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

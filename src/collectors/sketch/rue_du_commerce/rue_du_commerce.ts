@@ -29,7 +29,7 @@ export class RueDuCommerceCollector extends SketchCollector {
         loginUrl: "https://www.rueducommerce.fr/client/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

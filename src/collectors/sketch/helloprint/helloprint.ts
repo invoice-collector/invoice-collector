@@ -29,7 +29,7 @@ export class HelloprintCollector extends SketchCollector {
         loginUrl: "https://www.helloprint.fr/index.php?controller=order-slip",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

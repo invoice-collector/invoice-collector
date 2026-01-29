@@ -29,7 +29,7 @@ export class MeeboxDkCollector extends SketchCollector {
         loginUrl: "https://www.unoeuro.com/controlpanel/login/?return=%2Fcontrolpanel%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

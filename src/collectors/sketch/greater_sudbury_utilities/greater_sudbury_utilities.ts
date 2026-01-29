@@ -29,7 +29,7 @@ export class GreaterSudburyUtilitiesCollector extends SketchCollector {
         loginUrl: "https://myaccount.gsuinc.ca/app/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EpsonReadyPrintEuCollector extends SketchCollector {
         loginUrl: "https://subscription.epson.eu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

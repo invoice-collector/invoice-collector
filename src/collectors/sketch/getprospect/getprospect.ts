@@ -29,7 +29,7 @@ export class GetprospectCollector extends SketchCollector {
         loginUrl: "https://getprospect.io/app/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EnbridgeGasCollector extends SketchCollector {
         loginUrl: "https://enbridgegas.okta.com/login/login.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

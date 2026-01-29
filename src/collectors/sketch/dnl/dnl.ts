@@ -29,7 +29,7 @@ export class DnlCollector extends SketchCollector {
         loginUrl: "https://www.dnl.fr/moncompte_comptabilite_liste.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

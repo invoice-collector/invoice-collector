@@ -29,7 +29,7 @@ export class BSCardServicePortalCollector extends SketchCollector {
         loginUrl: "https://login.pay1.de/auth/realms/financegate/protocol/openid-connect/auth?response_type=code&client_id=pmi&redirect_uri=https://pmi.pay1.de/merchants/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

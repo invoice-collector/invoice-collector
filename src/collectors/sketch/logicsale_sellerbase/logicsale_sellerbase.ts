@@ -29,7 +29,7 @@ export class LogicsaleSellerbaseCollector extends SketchCollector {
         loginUrl: "https://sellerbase.logicsale.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

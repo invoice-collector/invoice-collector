@@ -28,7 +28,7 @@ export class GineysCollector extends SketchCollector {
         loginUrl: "https://commande.gineys.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

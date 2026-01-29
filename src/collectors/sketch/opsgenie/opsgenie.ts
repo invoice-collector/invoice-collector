@@ -29,7 +29,7 @@ export class OpsgenieCollector extends SketchCollector {
         loginUrl: "https://app.opsgenie.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

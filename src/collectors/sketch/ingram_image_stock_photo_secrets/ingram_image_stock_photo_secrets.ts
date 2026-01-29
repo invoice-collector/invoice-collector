@@ -29,7 +29,7 @@ export class IngramImageStockPhotoSecretsCollector extends SketchCollector {
         loginUrl: "https://stockphotosecrets.recurly.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

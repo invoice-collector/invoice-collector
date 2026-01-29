@@ -29,7 +29,7 @@ export class IdocusCollector extends SketchCollector {
         loginUrl: "https://www.idocus.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

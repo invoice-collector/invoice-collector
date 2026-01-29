@@ -29,7 +29,7 @@ export class RakutenMarketingCollector extends SketchCollector {
         loginUrl: "https://login.linkshare.com/sso/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

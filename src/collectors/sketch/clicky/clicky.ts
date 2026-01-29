@@ -29,7 +29,7 @@ export class ClickyCollector extends SketchCollector {
         loginUrl: "https://clicky.com/user/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

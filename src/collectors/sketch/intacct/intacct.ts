@@ -29,7 +29,7 @@ export class IntacctCollector extends SketchCollector {
         loginUrl: "https://www.intacct.com/ia/acct/login.phtml?_ga=2.74544722.1779628590.1523427773-399854463.1523427773",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

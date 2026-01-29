@@ -29,7 +29,7 @@ export class SpreadmindCollector extends SketchCollector {
         loginUrl: "https://akademie.spiritbalance.de/wp-admin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

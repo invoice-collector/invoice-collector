@@ -29,7 +29,7 @@ export class MainovaPrivatkundenCollector extends SketchCollector {
         loginUrl: "https://www.mainova.de/onlineservice/privatkunden/kundennummer.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

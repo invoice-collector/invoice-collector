@@ -29,7 +29,7 @@ export class OrangePolskaBiznesUslugiMobilneCollector extends SketchCollector {
         loginUrl: "https://www.orange.pl/zaloguj.phtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

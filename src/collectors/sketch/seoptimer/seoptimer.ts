@@ -29,7 +29,7 @@ export class SeoptimerCollector extends SketchCollector {
         loginUrl: "https://www.seoptimer.com/myaccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PlistaCollector extends SketchCollector {
         loginUrl: "https://selfservice.plista.com/de/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

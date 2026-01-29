@@ -29,7 +29,7 @@ export class SvbSiegenCollector extends SketchCollector {
         loginUrl: "https://www.svb-siegen.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

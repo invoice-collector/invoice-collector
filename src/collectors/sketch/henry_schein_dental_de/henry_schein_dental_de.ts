@@ -29,7 +29,7 @@ export class HenryScheinDentalDeCollector extends SketchCollector {
         loginUrl: "https://www.henryschein-dental.de/global/olp/onlineinvoice.aspx?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

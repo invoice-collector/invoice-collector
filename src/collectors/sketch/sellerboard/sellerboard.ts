@@ -29,7 +29,7 @@ export class SellerboardCollector extends SketchCollector {
         loginUrl: "https://app.sellerboard.com/en/auth/login/?_ga=2.186678696.1679769345.1559218854-1670839472.1559218854",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

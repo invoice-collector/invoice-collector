@@ -29,7 +29,7 @@ export class ConforamaCollector extends SketchCollector {
         loginUrl: "https://www.conforama.fr/identification",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

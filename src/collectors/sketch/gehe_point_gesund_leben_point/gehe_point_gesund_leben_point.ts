@@ -29,7 +29,7 @@ export class GehePointGesundLebenPointCollector extends SketchCollector {
         loginUrl: "https://www.gehe-point.de/de/auswertungen/rechonline/esare/index.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

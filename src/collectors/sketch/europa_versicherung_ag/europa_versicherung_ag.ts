@@ -29,7 +29,7 @@ export class EuropaVersicherungAgCollector extends SketchCollector {
         loginUrl: "http://www.europa-go.de/service/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

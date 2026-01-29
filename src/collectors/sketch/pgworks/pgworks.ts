@@ -29,7 +29,7 @@ export class PgworksCollector extends SketchCollector {
         loginUrl: "https://myaccount.pgworks.com/Portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

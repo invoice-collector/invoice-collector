@@ -29,7 +29,7 @@ export class MercavusCollector extends SketchCollector {
         loginUrl: "https://www.mercavus.com/de?modal=retailer-signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

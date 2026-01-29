@@ -29,7 +29,7 @@ export class AmexpoolAgCollector extends SketchCollector {
         loginUrl: "https://amex-online.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

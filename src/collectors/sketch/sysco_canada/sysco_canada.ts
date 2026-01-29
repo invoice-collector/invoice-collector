@@ -29,7 +29,7 @@ export class SyscoCanadaCollector extends SketchCollector {
         loginUrl: "https://syscosource.ca/pnet/eOrder",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

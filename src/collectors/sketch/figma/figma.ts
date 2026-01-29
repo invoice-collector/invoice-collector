@@ -29,7 +29,7 @@ export class FigmaCollector extends SketchCollector {
         loginUrl: "https://www.figma.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

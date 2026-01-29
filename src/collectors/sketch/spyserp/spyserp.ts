@@ -29,7 +29,7 @@ export class SpyserpCollector extends SketchCollector {
         loginUrl: "https://spyserp.com/panel/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

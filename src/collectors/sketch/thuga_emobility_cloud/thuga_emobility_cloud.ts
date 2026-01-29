@@ -29,7 +29,7 @@ export class ThugaEmobilityCloudCollector extends SketchCollector {
         loginUrl: "https://thuega-energie.emobilitycloud.com/de/account/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

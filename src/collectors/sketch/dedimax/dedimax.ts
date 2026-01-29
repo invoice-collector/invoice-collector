@@ -29,7 +29,7 @@ export class DedimaxCollector extends SketchCollector {
         loginUrl: "https://panel.dedimax.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

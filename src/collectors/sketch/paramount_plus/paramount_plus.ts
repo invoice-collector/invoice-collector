@@ -29,7 +29,7 @@ export class ParamountPlusCollector extends SketchCollector {
         loginUrl: "https://www.paramountplus.com/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

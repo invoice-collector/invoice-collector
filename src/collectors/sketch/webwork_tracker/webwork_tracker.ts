@@ -29,7 +29,7 @@ export class WebworkTrackerCollector extends SketchCollector {
         loginUrl: "https://www.webwork-tracker.com/app/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

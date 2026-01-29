@@ -29,7 +29,7 @@ export class _5hostingCollector extends SketchCollector {
         loginUrl: "https://whmcs.webhoster.ag/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TrackerSoftwareCollector extends SketchCollector {
         loginUrl: "https://www.tracker-software.com/account/my_account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

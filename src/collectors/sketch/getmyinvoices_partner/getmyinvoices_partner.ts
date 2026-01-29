@@ -29,7 +29,7 @@ export class GetmyinvoicesPartnerCollector extends SketchCollector {
         loginUrl: "https://partners.getmyinvoices.com/credits.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

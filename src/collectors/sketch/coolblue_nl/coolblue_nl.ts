@@ -29,7 +29,7 @@ export class CoolblueNlCollector extends SketchCollector {
         loginUrl: "https://www.coolblue.nl/mijn-coolblue-account/orderoverzicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

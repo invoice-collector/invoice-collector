@@ -29,7 +29,7 @@ export class SigniticCollector extends SketchCollector {
         loginUrl: "https://signitic.app/settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

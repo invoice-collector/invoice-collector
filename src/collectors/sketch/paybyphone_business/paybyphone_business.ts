@@ -29,7 +29,7 @@ export class PaybyphoneBusinessCollector extends SketchCollector {
         loginUrl: "https://business.paybyphone.com/monthly-statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

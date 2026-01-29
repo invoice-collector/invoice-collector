@@ -29,7 +29,7 @@ export class RoyalmailObaCollector extends SketchCollector {
         loginUrl: "https://www.oba.royalmail.com/irj/portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

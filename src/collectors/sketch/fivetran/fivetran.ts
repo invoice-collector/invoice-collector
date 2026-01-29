@@ -29,7 +29,7 @@ export class FivetranCollector extends SketchCollector {
         loginUrl: "https://fivetran.com/dashboard/account/billing-usage/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

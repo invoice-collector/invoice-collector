@@ -29,7 +29,7 @@ export class GysoCollector extends SketchCollector {
         loginUrl: "https://www.gyso.ch/de/letzte-rechnung.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

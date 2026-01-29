@@ -29,7 +29,7 @@ export class SerprobotCollector extends SketchCollector {
         loginUrl: "https://www.serprobot.com/user/dashboard.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

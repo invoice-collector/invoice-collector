@@ -29,7 +29,7 @@ export class ColourlabAiCollector extends SketchCollector {
         loginUrl: "https://colourlab.ai/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EWieEinfachCollector extends SketchCollector {
         loginUrl: "https://mein.e-wie-einfach.de/qpo/portal/ewi/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

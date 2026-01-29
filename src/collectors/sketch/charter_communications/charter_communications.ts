@@ -29,7 +29,7 @@ export class CharterCommunicationsCollector extends SketchCollector {
         loginUrl: "https://www.spectrum.net/billing-and-transactions/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

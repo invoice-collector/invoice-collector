@@ -29,7 +29,7 @@ export class EdelkroneCollector extends SketchCollector {
         loginUrl: "https://edelkrone.eu/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

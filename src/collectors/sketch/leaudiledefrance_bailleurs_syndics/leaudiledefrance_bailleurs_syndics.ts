@@ -28,7 +28,7 @@ export class LeauDileDeFranceBailleursSyndicsCollector extends SketchCollector {
         loginUrl: "https://connexion.leaudiledefrance.fr/espace-bailleurs-syndics/s/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LwcDrinksCollector extends SketchCollector {
         loginUrl: "https://www.lwc-drinks.co.uk/lwc-online/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

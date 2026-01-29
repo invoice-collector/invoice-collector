@@ -29,7 +29,7 @@ export class MediafinanzCollector extends SketchCollector {
         loginUrl: "https://mandos.mediafinanz.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

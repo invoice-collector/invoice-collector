@@ -29,7 +29,7 @@ export class DeployhqCollector extends SketchCollector {
         loginUrl: "https://identity.atechmedia.com/login/deploy",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

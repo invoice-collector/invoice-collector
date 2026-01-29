@@ -29,7 +29,7 @@ export class BigmailerCollector extends SketchCollector {
         loginUrl: "https://app.bigmailer.io/console/accounts/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

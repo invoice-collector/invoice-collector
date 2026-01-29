@@ -29,7 +29,7 @@ export class SubmagicCollector extends SketchCollector {
         loginUrl: "https://app.submagic.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

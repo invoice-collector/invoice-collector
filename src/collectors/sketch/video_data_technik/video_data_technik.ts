@@ -29,7 +29,7 @@ export class VideoDataTechnikCollector extends SketchCollector {
         loginUrl: "https://www.videodata.de/shop/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

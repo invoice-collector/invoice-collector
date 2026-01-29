@@ -29,7 +29,7 @@ export class FreddieSFlowersCollector extends SketchCollector {
         loginUrl: "https://www.freddiesflowers.de/konto/mein-konto-verwalten",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TelkomCollector extends SketchCollector {
         loginUrl: "https://www.telkom.co.za/today/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

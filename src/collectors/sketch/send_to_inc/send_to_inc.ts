@@ -29,7 +29,7 @@ export class SendToIncCollector extends SketchCollector {
         loginUrl: "https://sendtoinc.com/accounts/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PrinzenartCollector extends SketchCollector {
         loginUrl: "https://kathrin-prinz-8wdn.squarespace.com/config/settings/billing/view-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

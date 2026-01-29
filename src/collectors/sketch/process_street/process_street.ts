@@ -29,7 +29,7 @@ export class ProcessStreetCollector extends SketchCollector {
         loginUrl: "https://app.process.st/organizations/manage/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

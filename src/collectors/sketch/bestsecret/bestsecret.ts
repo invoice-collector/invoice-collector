@@ -29,7 +29,7 @@ export class BestsecretCollector extends SketchCollector {
         loginUrl: "https://www.bestsecret.com/orders.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

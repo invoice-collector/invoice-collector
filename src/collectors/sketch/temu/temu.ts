@@ -28,7 +28,7 @@ export class TemuCollector extends SketchCollector {
         loginUrl: "https://www.temu.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

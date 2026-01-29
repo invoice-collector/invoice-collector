@@ -29,7 +29,7 @@ export class MirandoCollector extends SketchCollector {
         loginUrl: "https://ads.mirando.de/credits/listall",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

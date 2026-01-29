@@ -29,7 +29,7 @@ export class AutomoxCollector extends SketchCollector {
         loginUrl: "https://console.automox.com/settings?o=9311",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

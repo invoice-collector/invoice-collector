@@ -29,7 +29,7 @@ export class ZeitDigitalCollector extends SketchCollector {
         loginUrl: "https://meine.zeit.de/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

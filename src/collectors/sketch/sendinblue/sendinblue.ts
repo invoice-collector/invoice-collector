@@ -29,7 +29,7 @@ export class SendinblueCollector extends SketchCollector {
         loginUrl: "https://account.sendinblue.com/pricing#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

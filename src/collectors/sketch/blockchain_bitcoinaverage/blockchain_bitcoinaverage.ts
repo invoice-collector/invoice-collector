@@ -29,7 +29,7 @@ export class BlockchainBitcoinaverageCollector extends SketchCollector {
         loginUrl: "https://pro.bitcoinaverage.com/pages/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

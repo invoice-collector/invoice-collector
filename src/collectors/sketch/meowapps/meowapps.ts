@@ -29,7 +29,7 @@ export class MeowappsCollector extends SketchCollector {
         loginUrl: "https://meowapps.com/account/purchases/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

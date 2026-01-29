@@ -29,7 +29,7 @@ export class PublishpressCollector extends SketchCollector {
         loginUrl: "https://publishpress.com/wp-login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

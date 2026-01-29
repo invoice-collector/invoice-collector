@@ -29,7 +29,7 @@ export class SimpleboCollector extends SketchCollector {
         loginUrl: "https://compte.simplebo.net/sites-internet/mes-sites/Sh_Of6Ohn-hBbjb8T_n6nQ/tableau-de-bord",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

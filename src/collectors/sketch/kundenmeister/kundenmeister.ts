@@ -29,7 +29,7 @@ export class KundenmeisterCollector extends SketchCollector {
         loginUrl: "https://www.kundenmeister.com/crm/index.php/invoices/listInvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

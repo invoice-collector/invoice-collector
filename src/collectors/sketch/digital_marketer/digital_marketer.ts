@@ -29,7 +29,7 @@ export class DigitalMarketerCollector extends SketchCollector {
         loginUrl: "https://lab.digitalmarketer.com/users/edit",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

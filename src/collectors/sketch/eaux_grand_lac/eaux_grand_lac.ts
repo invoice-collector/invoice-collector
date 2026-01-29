@@ -29,7 +29,7 @@ export class EauxGrandLacCollector extends SketchCollector {
         loginUrl: "https://portail-eau.grand-lac.fr/wp/home.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

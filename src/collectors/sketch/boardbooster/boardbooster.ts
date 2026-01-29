@@ -29,7 +29,7 @@ export class BoardboosterCollector extends SketchCollector {
         loginUrl: "https://boardbooster.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

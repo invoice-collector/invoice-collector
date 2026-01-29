@@ -29,7 +29,7 @@ export class IlleCollector extends SketchCollector {
         loginUrl: "https://portal.ille.eu/accounts/login/?next=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

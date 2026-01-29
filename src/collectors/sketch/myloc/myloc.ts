@@ -29,7 +29,7 @@ export class MylocCollector extends SketchCollector {
         loginUrl: "https://zkm.myloc.de/s/billing/overview/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PlanIoCollector extends SketchCollector {
         loginUrl: "https://accounts.plan.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

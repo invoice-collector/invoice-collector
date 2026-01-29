@@ -29,7 +29,7 @@ export class InterlloydVersicherungCollector extends SketchCollector {
         loginUrl: "https://meine.interlloyd.de/services/postfach",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

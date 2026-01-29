@@ -29,7 +29,7 @@ export class RinganaCollector extends SketchCollector {
         loginUrl: "https://www.ringana.com/mein-kundenkonto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

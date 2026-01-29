@@ -29,7 +29,7 @@ export class StonexCollector extends SketchCollector {
         loginUrl: "https://payments.stonex.com/einloggen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

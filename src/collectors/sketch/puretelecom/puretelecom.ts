@@ -29,7 +29,7 @@ export class PuretelecomCollector extends SketchCollector {
         loginUrl: "https://mypure.puretelecom.ie/MyPure/billHistory.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

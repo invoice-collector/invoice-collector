@@ -29,7 +29,7 @@ export class JetbrainsCollector extends SketchCollector {
         loginUrl: "https://account.jetbrains.com/licenses/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

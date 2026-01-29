@@ -29,7 +29,7 @@ export class TelecashCustomerCareCenterCollector extends SketchCollector {
         loginUrl: "https://my.telecash.de/de/DownloadCenter/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

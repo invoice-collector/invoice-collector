@@ -29,7 +29,7 @@ export class SectigoCollector extends SketchCollector {
         loginUrl: "https://store.sectigo.com/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

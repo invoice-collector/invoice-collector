@@ -29,7 +29,7 @@ export class IlmProviderCollector extends SketchCollector {
         loginUrl: "https://service.ilm-provider.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

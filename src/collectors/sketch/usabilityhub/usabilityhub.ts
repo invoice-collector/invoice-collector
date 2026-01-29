@@ -29,7 +29,7 @@ export class UsabilityhubCollector extends SketchCollector {
         loginUrl: "https://app.usabilityhub.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

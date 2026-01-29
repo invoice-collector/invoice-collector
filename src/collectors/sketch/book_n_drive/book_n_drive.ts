@@ -29,7 +29,7 @@ export class BookNDriveCollector extends SketchCollector {
         loginUrl: "https://book-n-drive.dbcarsharing-buchung.de/kundenbuchung/process.php?proc=rechnung&f=5",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

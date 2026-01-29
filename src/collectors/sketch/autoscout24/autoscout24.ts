@@ -29,7 +29,7 @@ export class Autoscout24Collector extends SketchCollector {
         loginUrl: "https://accounts.autoscout24.com/twosteplogin?ReturnUrl=%2foidc%2fauthorize%3fclient_id%3dmyarea%26scope%3dopenid%2bemail%26redirect_uri%3dhttps%253A%252F%252Fmyarea.autoscout24.de%252Foidc%252Fcallback%26state%3d6fe91c10b1594e9e9d33c15ef652e334%26nonce%3",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

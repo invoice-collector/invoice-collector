@@ -29,7 +29,7 @@ export class MutavieCollector extends SketchCollector {
         loginUrl: "https://www.macif.fr/assurance/particuliers/vos-espaces-macif",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

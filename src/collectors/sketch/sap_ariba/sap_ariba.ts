@@ -29,7 +29,7 @@ export class SapAribaCollector extends SketchCollector {
         loginUrl: "https://service.ariba.com/ProfileManagement.aw/109544067/aw?awh=r&awssk=Q00yLHqP&dard=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

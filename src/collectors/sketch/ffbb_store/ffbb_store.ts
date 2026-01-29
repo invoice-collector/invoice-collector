@@ -29,7 +29,7 @@ export class FfbbStoreCollector extends SketchCollector {
         loginUrl: "http://www.ffbbstore.com/index.php?controller=authentication&back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GetStreamCollector extends SketchCollector {
         loginUrl: "https://getstream.io/dashboard/organization/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

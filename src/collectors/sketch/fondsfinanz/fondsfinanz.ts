@@ -29,7 +29,7 @@ export class FondsfinanzCollector extends SketchCollector {
         loginUrl: "https://www.fondsfinanz.de/myff/myfondsfinanz/?re=4",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

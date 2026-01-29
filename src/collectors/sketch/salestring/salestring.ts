@@ -29,7 +29,7 @@ export class SalestringCollector extends SketchCollector {
         loginUrl: "http://salestring.hasoffers.com/publisher/#!/billing?limit=10&page=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

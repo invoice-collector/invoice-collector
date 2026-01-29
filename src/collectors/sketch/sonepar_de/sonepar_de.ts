@@ -28,7 +28,7 @@ export class SoneparDeCollector extends SketchCollector {
         loginUrl: "https://www.sonepar.de/authentication/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

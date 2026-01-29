@@ -29,7 +29,7 @@ export class BsrBerlinerStadtreinigungCollector extends SketchCollector {
         loginUrl: "https://kundenportal.bsr.de/bsr/services/kundenportal/BillPrintDocDownloadSet(PrintDocID=\'",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

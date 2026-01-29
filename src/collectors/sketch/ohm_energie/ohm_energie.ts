@@ -29,7 +29,7 @@ export class OhmEnergieCollector extends SketchCollector {
         loginUrl: "https://espace-client.ohm-energie.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

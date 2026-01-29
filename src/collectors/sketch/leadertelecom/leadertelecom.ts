@@ -29,7 +29,7 @@ export class LeadertelecomCollector extends SketchCollector {
         loginUrl: "https://order.leadertelecom.biz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

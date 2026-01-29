@@ -29,7 +29,7 @@ export class KontentCollector extends SketchCollector {
         loginUrl: "https://admin.kontent.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

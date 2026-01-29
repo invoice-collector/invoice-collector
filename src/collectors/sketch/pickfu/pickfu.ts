@@ -29,7 +29,7 @@ export class PickfuCollector extends SketchCollector {
         loginUrl: "https://www.pickfu.com/my/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

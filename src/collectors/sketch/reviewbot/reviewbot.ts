@@ -29,7 +29,7 @@ export class ReviewbotCollector extends SketchCollector {
         loginUrl: "https://app.reviewbot.io/dashboard/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

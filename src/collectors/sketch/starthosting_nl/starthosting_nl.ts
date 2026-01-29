@@ -29,7 +29,7 @@ export class StarthostingNlCollector extends SketchCollector {
         loginUrl: "http://www.starthosting.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

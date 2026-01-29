@@ -29,7 +29,7 @@ export class VirginMediaIeCollector extends SketchCollector {
         loginUrl: "https://www.virginmedia.ie/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

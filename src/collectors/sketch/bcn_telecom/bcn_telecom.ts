@@ -29,7 +29,7 @@ export class BcnTelecomCollector extends SketchCollector {
         loginUrl: "https://tbs.bcntele.com/v35/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

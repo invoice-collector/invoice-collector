@@ -29,7 +29,7 @@ export class NeonTechCollector extends SketchCollector {
         loginUrl: "https://console.neon.tech/app/billing#payment_info",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

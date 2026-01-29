@@ -29,7 +29,7 @@ export class CafeynCoCollector extends SketchCollector {
         loginUrl: "https://www.cafeyn.co/fr/publication/l-argus/21844253",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

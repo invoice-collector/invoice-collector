@@ -29,7 +29,7 @@ export class DistrokidCollector extends SketchCollector {
         loginUrl: "https://distrokid.com/receipts/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CalcumateCollector extends SketchCollector {
         loginUrl: "https://calcumate.co/admin/my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

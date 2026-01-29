@@ -29,7 +29,7 @@ export class ThecubenetCollector extends SketchCollector {
         loginUrl: "https://www.thecubenet.com/clients/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

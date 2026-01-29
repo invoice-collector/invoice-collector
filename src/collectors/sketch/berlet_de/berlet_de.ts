@@ -29,7 +29,7 @@ export class BerletDeCollector extends SketchCollector {
         loginUrl: "https://www.berlet.de/mein-konto.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

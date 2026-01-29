@@ -29,7 +29,7 @@ export class TiwagCollector extends SketchCollector {
         loginUrl: "https://kundenportal.tiwag.at/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

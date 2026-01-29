@@ -29,7 +29,7 @@ export class EOnSwedenCollector extends SketchCollector {
         loginUrl: "https://www.eon.se/privat.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

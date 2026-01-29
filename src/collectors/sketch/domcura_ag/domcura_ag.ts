@@ -29,7 +29,7 @@ export class DomcuraAgCollector extends SketchCollector {
         loginUrl: "https://office.domcura.de/index.php?m=domcura&c=profile&f=provabrg",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

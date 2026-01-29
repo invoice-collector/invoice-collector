@@ -29,7 +29,7 @@ export class Xs4allCollector extends SketchCollector {
         loginUrl: "https://inloggen.xs4all.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

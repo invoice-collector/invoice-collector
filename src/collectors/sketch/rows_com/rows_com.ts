@@ -29,7 +29,7 @@ export class RowsComCollector extends SketchCollector {
         loginUrl: "https://rows.com/vegconomist/settings/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

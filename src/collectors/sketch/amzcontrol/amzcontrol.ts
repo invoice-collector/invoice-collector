@@ -29,7 +29,7 @@ export class AmzcontrolCollector extends SketchCollector {
         loginUrl: "https://dashboard.amzcontrol.com/en/auth/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

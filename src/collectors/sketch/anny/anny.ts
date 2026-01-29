@@ -29,7 +29,7 @@ export class AnnyCollector extends SketchCollector {
         loginUrl: "https://app.anny.co",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

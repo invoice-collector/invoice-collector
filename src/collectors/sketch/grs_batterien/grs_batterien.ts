@@ -29,7 +29,7 @@ export class GrsBatterienCollector extends SketchCollector {
         loginUrl: "https://www.batterieregister.de/grs-batterien/public/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

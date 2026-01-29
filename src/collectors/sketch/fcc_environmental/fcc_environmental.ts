@@ -29,7 +29,7 @@ export class FccEnvironmentalCollector extends SketchCollector {
         loginUrl: "https://fccenvironmental.com/pay-your-bill/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

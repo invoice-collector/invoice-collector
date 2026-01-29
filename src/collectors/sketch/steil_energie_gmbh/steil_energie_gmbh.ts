@@ -29,7 +29,7 @@ export class SteilEnergieGmbhCollector extends SketchCollector {
         loginUrl: "https://portal.steil-energie.de/aviacard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

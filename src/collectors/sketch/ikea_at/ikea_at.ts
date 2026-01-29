@@ -29,7 +29,7 @@ export class IkeaAtCollector extends SketchCollector {
         loginUrl: "https://www.ikea.com/at/de/purchases/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

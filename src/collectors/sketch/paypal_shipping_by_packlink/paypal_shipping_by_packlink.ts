@@ -29,7 +29,7 @@ export class PaypalShippingByPacklinkCollector extends SketchCollector {
         loginUrl: "https://paypal.packlink.com/de/private/settings/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

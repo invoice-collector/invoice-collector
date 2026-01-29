@@ -29,7 +29,7 @@ export class ResolutionMediaMunchenGmbhCollector extends SketchCollector {
         loginUrl: "https://rm-nn.de/index.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

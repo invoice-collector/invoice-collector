@@ -29,7 +29,7 @@ export class YocoCollector extends SketchCollector {
         loginUrl: "https://portal.yoco.co.za/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

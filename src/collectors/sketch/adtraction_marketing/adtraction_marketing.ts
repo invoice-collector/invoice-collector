@@ -29,7 +29,7 @@ export class AdtractionMarketingCollector extends SketchCollector {
         loginUrl: "https://adtraction.com/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

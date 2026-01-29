@@ -29,7 +29,7 @@ export class BauhausDeCollector extends SketchCollector {
         loginUrl: "https://www.bauhaus.info/mein-konto/bestellungen/30056485#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ChunkrAiCollector extends SketchCollector {
         loginUrl: "https://chunkr.ai/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

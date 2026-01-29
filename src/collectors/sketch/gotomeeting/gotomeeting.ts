@@ -29,7 +29,7 @@ export class GotomeetingCollector extends SketchCollector {
         loginUrl: "https://cmrc.logmeininc.com/billingHistory.tmpl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

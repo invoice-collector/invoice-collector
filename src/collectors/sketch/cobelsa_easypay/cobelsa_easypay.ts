@@ -29,7 +29,7 @@ export class CobelsaEasypayCollector extends SketchCollector {
         loginUrl: "https://cobelsa-easyonline.easypay-group.com/doc/611/20240220/EXTRA_INFO_PERFORMSHEET_258933_00000894ENGINE014lnt_2024022012082741_R.pdf?rule=com.easypaygroup.global.control.basedata.document.util.GloDocumentUserRule",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

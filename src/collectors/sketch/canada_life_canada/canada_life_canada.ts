@@ -29,7 +29,7 @@ export class CanadaLifeCanadaCollector extends SketchCollector {
         loginUrl: "https://groupnet-pa.canadalife.com/secureGnRTE/english/Billing/BPT3.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

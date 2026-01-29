@@ -29,7 +29,7 @@ export class FilloutComCollector extends SketchCollector {
         loginUrl: "https://build.fillout.com/home/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

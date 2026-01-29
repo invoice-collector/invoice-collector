@@ -29,7 +29,7 @@ export class TrafficstarsCollector extends SketchCollector {
         loginUrl: "https://admin.trafficstars.com/advertisers/accounting/show/70270.pdf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

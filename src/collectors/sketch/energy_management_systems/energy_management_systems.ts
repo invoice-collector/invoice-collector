@@ -29,7 +29,7 @@ export class EnergyManagementSystemsCollector extends SketchCollector {
         loginUrl: "https://portal.ems3.com/consumer/bill-copy",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

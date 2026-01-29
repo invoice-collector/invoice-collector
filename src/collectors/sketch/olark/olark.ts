@@ -29,7 +29,7 @@ export class OlarkCollector extends SketchCollector {
         loginUrl: "https://www.olark.com/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VirginMobileCollector extends SketchCollector {
         loginUrl: "https://www.virgin.com/virgingroup/company/virgin-mobile-france",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

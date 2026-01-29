@@ -29,7 +29,7 @@ export class LinkedinHelperCollector extends SketchCollector {
         loginUrl: "https://www.linkedhelper.com/member/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

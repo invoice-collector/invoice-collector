@@ -29,7 +29,7 @@ export class LivewebinarCollector extends SketchCollector {
         loginUrl: "https://app.livewebinar.com/billing/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

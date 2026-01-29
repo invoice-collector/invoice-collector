@@ -29,7 +29,7 @@ export class NovaScotiaPowerCollector extends SketchCollector {
         loginUrl: "https://myaccount.nspower.ca/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

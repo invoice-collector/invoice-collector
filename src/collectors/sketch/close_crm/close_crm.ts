@@ -29,7 +29,7 @@ export class CloseCrmCollector extends SketchCollector {
         loginUrl: "https://app.close.com/settings/billing/payment/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InsydiumLtdCollector extends SketchCollector {
         loginUrl: "https://insydium.ltd/shop/index.php?route=account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

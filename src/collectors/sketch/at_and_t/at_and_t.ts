@@ -29,7 +29,7 @@ export class AtAndTCollector extends SketchCollector {
         loginUrl: "https://www.att.com/my/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

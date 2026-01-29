@@ -29,7 +29,7 @@ export class WodifyCollector extends SketchCollector {
         loginUrl: "https://app.wodify.com/WodifyAdminTheme/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

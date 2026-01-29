@@ -29,7 +29,7 @@ export class HostpointAgCollector extends SketchCollector {
         loginUrl: "https://hostpoint.ch/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

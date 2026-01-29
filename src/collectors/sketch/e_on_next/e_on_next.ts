@@ -29,7 +29,7 @@ export class EOnNextCollector extends SketchCollector {
         loginUrl: "https://www.eonnext.com/dashboard/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

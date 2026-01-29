@@ -29,7 +29,7 @@ export class RogersBusinessSelfServiceSmallBusinessCollector extends SketchColle
         loginUrl: "https://bss.rogers.com/bizonline/bss-login-menu.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

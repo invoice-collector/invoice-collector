@@ -29,7 +29,7 @@ export class DeutscheTelekomBusinessServicePortalCollector extends SketchCollect
         loginUrl: "https://bsp.t-mobile.de/portal/login.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

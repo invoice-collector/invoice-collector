@@ -29,7 +29,7 @@ export class ThuringerNetkomCollector extends SketchCollector {
         loginUrl: "https://dsl.netkom.de/portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

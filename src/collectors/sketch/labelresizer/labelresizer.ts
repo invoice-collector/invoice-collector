@@ -29,7 +29,7 @@ export class LabelresizerCollector extends SketchCollector {
         loginUrl: "https://www.labelresizer.com/member/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

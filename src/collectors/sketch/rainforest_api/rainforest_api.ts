@@ -29,7 +29,7 @@ export class RainforestApiCollector extends SketchCollector {
         loginUrl: "https://app.rainforestapi.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

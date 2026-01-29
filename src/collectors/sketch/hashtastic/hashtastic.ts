@@ -29,7 +29,7 @@ export class HashtasticCollector extends SketchCollector {
         loginUrl: "https://app.hashtastic.eu/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

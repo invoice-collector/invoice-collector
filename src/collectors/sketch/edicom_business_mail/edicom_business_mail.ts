@@ -29,7 +29,7 @@ export class EdicomBusinessMailCollector extends SketchCollector {
         loginUrl: "https://www.businessmail.net/index.htm?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

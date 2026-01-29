@@ -29,7 +29,7 @@ export class OkofenCollector extends SketchCollector {
         loginUrl: "https://www.oekofen.com/de-de/pelletheizung/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SiteSearchCollector extends SketchCollector {
         loginUrl: "https://control.sitesearch360.com/#section=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

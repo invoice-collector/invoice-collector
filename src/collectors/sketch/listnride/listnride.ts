@@ -29,7 +29,7 @@ export class ListnrideCollector extends SketchCollector {
         loginUrl: "https://www.listnride.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

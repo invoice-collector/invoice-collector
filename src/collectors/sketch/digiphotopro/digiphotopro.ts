@@ -29,7 +29,7 @@ export class DigiphotoproCollector extends SketchCollector {
         loginUrl: "https://digiphotopro.de/registrierung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MoverIoCollector extends SketchCollector {
         loginUrl: "https://app.mover.io/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

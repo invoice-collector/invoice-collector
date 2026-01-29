@@ -29,7 +29,7 @@ export class LandbotCollector extends SketchCollector {
         loginUrl: "https://app.landbot.io/gui/subscription/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

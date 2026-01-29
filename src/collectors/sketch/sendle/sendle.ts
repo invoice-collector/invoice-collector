@@ -29,7 +29,7 @@ export class SendleCollector extends SketchCollector {
         loginUrl: "https://www.sendle.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

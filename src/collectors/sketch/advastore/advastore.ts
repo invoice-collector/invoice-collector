@@ -29,7 +29,7 @@ export class AdvastoreCollector extends SketchCollector {
         loginUrl: "https://merchant.advastore.com/my-storage/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

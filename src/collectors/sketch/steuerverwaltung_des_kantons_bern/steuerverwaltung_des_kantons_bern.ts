@@ -29,7 +29,7 @@ export class SteuerverwaltungDesKantonsBernCollector extends SketchCollector {
         loginUrl: "http://www.fin.be.ch",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class O2CoUkCollector extends SketchCollector {
         loginUrl: "https://accounts.o2.co.uk/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

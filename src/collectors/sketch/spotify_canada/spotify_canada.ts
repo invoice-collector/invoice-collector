@@ -29,7 +29,7 @@ export class SpotifyCanadaCollector extends SketchCollector {
         loginUrl: "https://www.spotify.com/ca-en/account/subscription/receipt/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtwerkeEutinCollector extends SketchCollector {
         loginUrl: "https://portal.stadtwerke-eutin.de/SWE/MeineRechnungen.cms?ActiveID=1002",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

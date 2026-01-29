@@ -29,7 +29,7 @@ export class ViktorNussbaumerBestesFurKucheUndGastlichkeitGmbhAndCoKgCollector e
         loginUrl: "https://nussbaumer.servicebund.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

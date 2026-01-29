@@ -29,7 +29,7 @@ export class EledoCollector extends SketchCollector {
         loginUrl: "https://eledo.online/manage/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ScreencastifyCollector extends SketchCollector {
         loginUrl: "https://app.screencastify.com/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

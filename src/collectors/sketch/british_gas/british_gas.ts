@@ -29,7 +29,7 @@ export class BritishGasCollector extends SketchCollector {
         loginUrl: "https://www.britishgas.co.uk/identity/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

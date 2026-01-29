@@ -29,7 +29,7 @@ export class VattenfallFranceElectriciteCollector extends SketchCollector {
         loginUrl: "https://espaceclient.vattenfall.fr/grandcompte/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

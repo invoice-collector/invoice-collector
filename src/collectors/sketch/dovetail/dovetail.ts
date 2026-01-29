@@ -29,7 +29,7 @@ export class DovetailCollector extends SketchCollector {
         loginUrl: "https://dovetailapp.com/auth/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

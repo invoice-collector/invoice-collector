@@ -29,7 +29,7 @@ export class BkaContentCollector extends SketchCollector {
         loginUrl: "https://www.bkacontent.com/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

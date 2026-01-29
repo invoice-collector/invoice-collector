@@ -29,7 +29,7 @@ export class IngetourCollector extends SketchCollector {
         loginUrl: "https://ingetr.biz.mb3m.com/Piece",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EirIeCollector extends SketchCollector {
         loginUrl: "https://my.eir.ie/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MonsumCollector extends SketchCollector {
         loginUrl: "https://app.monsum.com/index.php?cmd=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SentryCollector extends SketchCollector {
         loginUrl: "https://sentry.io/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

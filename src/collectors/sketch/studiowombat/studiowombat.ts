@@ -29,7 +29,7 @@ export class StudiowombatCollector extends SketchCollector {
         loginUrl: "https://www.studiowombat.com/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

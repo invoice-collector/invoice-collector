@@ -29,7 +29,7 @@ export class VooCollector extends SketchCollector {
         loginUrl: "https://newmy.voo.be/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PhillipsSpeedliveCollector extends SketchCollector {
         loginUrl: "https://www.speechexec.com/ger/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

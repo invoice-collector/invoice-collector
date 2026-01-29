@@ -29,7 +29,7 @@ export class CollectCollector extends SketchCollector {
         loginUrl: "https://app.usecollect.com/settings/plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

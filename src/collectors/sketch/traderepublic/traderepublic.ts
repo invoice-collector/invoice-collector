@@ -29,7 +29,7 @@ export class TraderepublicCollector extends SketchCollector {
         loginUrl: "https://traderepublic-data-production.s3.eu-central-1.amazonaws.com/timeline/postbox/2023...",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

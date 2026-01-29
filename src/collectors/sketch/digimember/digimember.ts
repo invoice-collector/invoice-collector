@@ -29,7 +29,7 @@ export class DigimemberCollector extends SketchCollector {
         loginUrl: "https://digimember.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

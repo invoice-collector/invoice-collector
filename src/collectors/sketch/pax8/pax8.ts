@@ -29,7 +29,7 @@ export class Pax8Collector extends SketchCollector {
         loginUrl: "https://app.pax8.com/billing?activeTab=Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

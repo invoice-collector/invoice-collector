@@ -29,7 +29,7 @@ export class CityOfSacramentoUtilitiesCollector extends SketchCollector {
         loginUrl: "https://secure8.i-doxs.net/CityofSacramento/Secure/Home.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

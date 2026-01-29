@@ -29,7 +29,7 @@ export class DeathToStockphotoCollector extends SketchCollector {
         loginUrl: "https://app.deathtothestockphoto.com/account/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

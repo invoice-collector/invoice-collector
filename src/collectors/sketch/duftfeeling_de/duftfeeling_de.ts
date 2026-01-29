@@ -29,7 +29,7 @@ export class DuftfeelingDeCollector extends SketchCollector {
         loginUrl: "https://duftfeeling.de/jtl.php?view=bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SalzburgAgCollector extends SketchCollector {
         loginUrl: "https://shop.salzburg-ag.at/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

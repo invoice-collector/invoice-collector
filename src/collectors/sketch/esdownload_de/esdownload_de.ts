@@ -29,7 +29,7 @@ export class EsdownloadDeCollector extends SketchCollector {
         loginUrl: "https://esdownload.de/bestellungsverlauf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

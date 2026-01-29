@@ -29,7 +29,7 @@ export class TaroxCollector extends SketchCollector {
         loginUrl: "https://www.tarox-onlineshop.de/index.php?page=rechnungsnachdruck",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

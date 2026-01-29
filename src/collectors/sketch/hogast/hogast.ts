@@ -29,7 +29,7 @@ export class HogastCollector extends SketchCollector {
         loginUrl: "https://easygoing.hogast.de/WebShop/fibu/menuBuchhaltungsdaten.do?showNeueRechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PhorestCollector extends SketchCollector {
         loginUrl: "https://messenger6.phorest.com/clientlogin.php?lang=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

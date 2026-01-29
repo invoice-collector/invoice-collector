@@ -29,7 +29,7 @@ export class XneeloCollector extends SketchCollector {
         loginUrl: "https://xneelo.co.za/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

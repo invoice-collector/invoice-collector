@@ -29,7 +29,7 @@ export class DekkelOnlineCollector extends SketchCollector {
         loginUrl: "http://dekkel-online.lekker.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

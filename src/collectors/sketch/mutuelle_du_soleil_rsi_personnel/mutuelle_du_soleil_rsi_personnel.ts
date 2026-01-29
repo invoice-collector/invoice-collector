@@ -29,7 +29,7 @@ export class MutuelleDuSoleilRsiPersonnelCollector extends SketchCollector {
         loginUrl: "https://adherents.mutuellesdusoleil.fr/login#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

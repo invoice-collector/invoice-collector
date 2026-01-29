@@ -29,7 +29,7 @@ export class IcomoonCollector extends SketchCollector {
         loginUrl: "https://icomoon.io/#login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

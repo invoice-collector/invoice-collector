@@ -29,7 +29,7 @@ export class DeutscheBahnDokumentenAndRechnungsportalCollector extends SketchCol
         loginUrl: "https://documentportal.deutschebahn.com/Logon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NiniteProCollector extends SketchCollector {
         loginUrl: "https://ninite.com/me/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

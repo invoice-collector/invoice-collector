@@ -29,7 +29,7 @@ export class AdobeAdminConsoleCollector extends SketchCollector {
         loginUrl: "https://adminconsole.adobe.com/2B7A015D60D18D5C0A495E16@AdobeOrg/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

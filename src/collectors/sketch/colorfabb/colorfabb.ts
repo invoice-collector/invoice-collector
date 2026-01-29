@@ -29,7 +29,7 @@ export class ColorfabbCollector extends SketchCollector {
         loginUrl: "https://colorfabb.com/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

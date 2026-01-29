@@ -29,7 +29,7 @@ export class MdsCentprodCollector extends SketchCollector {
         loginUrl: "https://mds.centprod.com/situation_comptable/search.html?newfulldisplay=true&p=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

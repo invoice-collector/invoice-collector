@@ -29,7 +29,7 @@ export class Cram101Collector extends SketchCollector {
         loginUrl: "http://cram101.com/index.html#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

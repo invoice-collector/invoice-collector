@@ -29,7 +29,7 @@ export class GokiGollnestAndKieselCollector extends SketchCollector {
         loginUrl: "https://goki.eu/de/customerDocumentList-customerDocumentListId-invoice.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

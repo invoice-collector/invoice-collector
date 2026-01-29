@@ -29,7 +29,7 @@ export class LusFiberCollector extends SketchCollector {
         loginUrl: "https://esp.lusfiber.com/esp/security/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KarafunCollector extends SketchCollector {
         loginUrl: "https://www.karafun.fr/my/receipts.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LeadtableCollector extends SketchCollector {
         loginUrl: "https://portal.lead-table.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

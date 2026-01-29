@@ -29,7 +29,7 @@ export class NinjarmmCollector extends SketchCollector {
         loginUrl: "https://eu.ninjarmm.com/auth/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class QaseCollector extends SketchCollector {
         loginUrl: "https://app.qase.io/billing/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

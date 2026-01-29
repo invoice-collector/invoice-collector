@@ -29,7 +29,7 @@ export class Icons8Collector extends SketchCollector {
         loginUrl: "https://icons8.com/register/?back=https%3A%2F%2Ficons8.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

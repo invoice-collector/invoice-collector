@@ -29,7 +29,7 @@ export class PagerangersCollector extends SketchCollector {
         loginUrl: "https://app.pagerangers.com/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

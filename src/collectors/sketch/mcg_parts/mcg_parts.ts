@@ -29,7 +29,7 @@ export class McgPartsCollector extends SketchCollector {
         loginUrl: "https://www.mcg-parts.de/customer/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

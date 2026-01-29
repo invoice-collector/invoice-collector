@@ -29,7 +29,7 @@ export class RamnodeCollector extends SketchCollector {
         loginUrl: "https://clientarea.ramnode.com/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

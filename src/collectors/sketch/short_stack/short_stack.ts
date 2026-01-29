@@ -29,7 +29,7 @@ export class ShortStackCollector extends SketchCollector {
         loginUrl: "https://app2.shortstackapp.com/manage/#/account?tab=statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

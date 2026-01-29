@@ -29,7 +29,7 @@ export class WswEnergieAndWasserWuppertalCollector extends SketchCollector {
         loginUrl: "https://meine-wsw.wsw-online.de/DKS/MyInvoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VereinigteStadtwerkeMediaCollector extends SketchCollector {
         loginUrl: "https://mediaportal.vereinigte-stadtwerke.de/self-service/authentication/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

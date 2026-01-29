@@ -29,7 +29,7 @@ export class EonHungariaCollector extends SketchCollector {
         loginUrl: "https://e-portal.eon-hungaria.com/ugyintezes/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

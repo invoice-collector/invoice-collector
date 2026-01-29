@@ -29,7 +29,7 @@ export class ScreenconnectCollector extends SketchCollector {
         loginUrl: "https://cloud.screenconnect.com/#/account#1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

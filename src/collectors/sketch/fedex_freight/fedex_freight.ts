@@ -29,7 +29,7 @@ export class FedexFreightCollector extends SketchCollector {
         loginUrl: "https://secure2.billtrust.com/fedex/ig/open",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

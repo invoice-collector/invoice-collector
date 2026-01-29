@@ -29,7 +29,7 @@ export class BeefreeDeveloperCollector extends SketchCollector {
         loginUrl: "https://developers.beefree.io/subscriptions/16000/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HttpNetCollector extends SketchCollector {
         loginUrl: "https://partner.http.net/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

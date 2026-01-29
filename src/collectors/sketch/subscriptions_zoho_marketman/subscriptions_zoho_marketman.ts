@@ -29,7 +29,7 @@ export class SubscriptionsZohoMarketmanCollector extends SketchCollector {
         loginUrl: "https://subscriptions.zoho.com/portal/marketmanuk/index#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

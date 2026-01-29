@@ -29,7 +29,7 @@ export class Water2businessCollector extends SketchCollector {
         loginUrl: "https://portal.water2business.co.uk/SignIn?returnUrl=/my-profile/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

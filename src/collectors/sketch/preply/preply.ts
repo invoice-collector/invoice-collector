@@ -29,7 +29,7 @@ export class PreplyCollector extends SketchCollector {
         loginUrl: "https://preply.de/de/settings/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

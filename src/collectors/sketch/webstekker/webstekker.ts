@@ -29,7 +29,7 @@ export class WebstekkerCollector extends SketchCollector {
         loginUrl: "https://mijn.webstekker.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

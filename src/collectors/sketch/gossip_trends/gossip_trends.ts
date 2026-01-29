@@ -29,7 +29,7 @@ export class GossipTrendsCollector extends SketchCollector {
         loginUrl: "https://gossiptrends.goaffpro.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

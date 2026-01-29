@@ -29,7 +29,7 @@ export class FantasticbookCollector extends SketchCollector {
         loginUrl: "https://brocolis.fantasticbook.co/user/clients/bank/Qi1-NQ",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

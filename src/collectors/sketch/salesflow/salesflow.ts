@@ -29,7 +29,7 @@ export class SalesflowCollector extends SketchCollector {
         loginUrl: "https://salesflow.io/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

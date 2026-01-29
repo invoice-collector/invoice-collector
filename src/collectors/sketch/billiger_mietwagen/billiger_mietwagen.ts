@@ -29,7 +29,7 @@ export class BilligerMietwagenCollector extends SketchCollector {
         loginUrl: "https://www.billiger-mietwagen.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

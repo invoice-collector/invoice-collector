@@ -29,7 +29,7 @@ export class WetransferCollector extends SketchCollector {
         loginUrl: "https://wetransfer.com/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

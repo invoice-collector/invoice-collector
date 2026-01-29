@@ -29,7 +29,7 @@ export class VeoliaReunionIslandCollector extends SketchCollector {
         loginUrl: "https://www.service.eau.veolia.fr/home.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VrPaymentBelegserviceCollector extends SketchCollector {
         loginUrl: "https://vr-payment.belegservice.de/download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BoondmanagerCollector extends SketchCollector {
         loginUrl: "https://ui.boondmanager.com/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

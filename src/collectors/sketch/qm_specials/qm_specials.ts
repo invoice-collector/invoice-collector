@@ -29,7 +29,7 @@ export class QmSpecialsCollector extends SketchCollector {
         loginUrl: "https://www.qmspecials.ie/home.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

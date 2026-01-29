@@ -29,7 +29,7 @@ export class Beds24Collector extends SketchCollector {
         loginUrl: "https://www.beds24.com/control2.php?pagetype=accountinvoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

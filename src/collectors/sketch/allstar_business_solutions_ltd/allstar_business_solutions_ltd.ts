@@ -29,7 +29,7 @@ export class AllstarBusinessSolutionsLtdCollector extends SketchCollector {
         loginUrl: "https://myaccount.allstaronline.co.uk/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

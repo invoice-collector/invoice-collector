@@ -29,7 +29,7 @@ export class SudwestbankAgCollector extends SketchCollector {
         loginUrl: "https://www.banking-suedwestbank.de/banking-private/entry",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

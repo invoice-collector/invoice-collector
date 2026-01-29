@@ -29,7 +29,7 @@ export class ComunifiedInteractiveDigitalMediaGmbhCollector extends SketchCollec
         loginUrl: "https://www.comunified.com/service/invoice.php?menu=8",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

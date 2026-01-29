@@ -29,7 +29,7 @@ export class TranslatepressCollector extends SketchCollector {
         loginUrl: "https://translatepress.com/?edd_action=view_invoice&payment_id=1272812&invoice=edbcfe0c6953edc174ecdcc783c82093",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

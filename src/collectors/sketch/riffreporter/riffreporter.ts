@@ -29,7 +29,7 @@ export class RiffreporterCollector extends SketchCollector {
         loginUrl: "https://www.riffreporter.de/de/kaeufe",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RaygunCollector extends SketchCollector {
         loginUrl: "https://app.raygun.com/signin?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

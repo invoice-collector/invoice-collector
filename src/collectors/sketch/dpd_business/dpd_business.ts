@@ -29,7 +29,7 @@ export class DpdBusinessCollector extends SketchCollector {
         loginUrl: "https://business.dpd.de/profil/meinkonto/rechnung-archiv.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

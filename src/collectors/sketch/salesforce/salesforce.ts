@@ -29,7 +29,7 @@ export class SalesforceCollector extends SketchCollector {
         loginUrl: "https://login.salesforce.com/?locale=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

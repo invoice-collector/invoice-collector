@@ -29,7 +29,7 @@ export class StitchDataCollector extends SketchCollector {
         loginUrl: "https://app.stitchdata.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SonyMusicArtistportalCollector extends SketchCollector {
         loginUrl: "https://sme-artistportal.com/#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

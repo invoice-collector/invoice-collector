@@ -29,7 +29,7 @@ export class AntratekCollector extends SketchCollector {
         loginUrl: "https://www.antratek.de/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

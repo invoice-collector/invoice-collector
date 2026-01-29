@@ -29,7 +29,7 @@ export class EmeraCollector extends SketchCollector {
         loginUrl: "http://www.emera.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

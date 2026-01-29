@@ -29,7 +29,7 @@ export class EflowCollector extends SketchCollector {
         loginUrl: "https://www.eflow.ie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TaskrabbitFranceCollector extends SketchCollector {
         loginUrl: "https://www.taskrabbit.fr/dashboard/completed",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

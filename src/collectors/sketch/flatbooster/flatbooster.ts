@@ -29,7 +29,7 @@ export class FlatboosterCollector extends SketchCollector {
         loginUrl: "https://flatbooster.com/de/client/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

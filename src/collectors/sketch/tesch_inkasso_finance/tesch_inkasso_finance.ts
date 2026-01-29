@@ -29,7 +29,7 @@ export class TeschInkassoFinanceCollector extends SketchCollector {
         loginUrl: "https://arag.tesch-finance.de/a/forderungen.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

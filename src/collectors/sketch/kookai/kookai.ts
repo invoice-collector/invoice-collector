@@ -29,7 +29,7 @@ export class KookaiCollector extends SketchCollector {
         loginUrl: "https://www.kookai.com.au/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

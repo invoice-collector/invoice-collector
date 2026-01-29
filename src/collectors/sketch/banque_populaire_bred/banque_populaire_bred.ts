@@ -29,7 +29,7 @@ export class BanquePopulaireBredCollector extends SketchCollector {
         loginUrl: "https://www.bred.fr/authentification",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

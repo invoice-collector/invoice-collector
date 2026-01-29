@@ -29,7 +29,7 @@ export class IxlHostingCollector extends SketchCollector {
         loginUrl: "https://www.ixlhosting.nl/login/aanmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

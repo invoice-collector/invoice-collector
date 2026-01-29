@@ -29,7 +29,7 @@ export class FtdDeCollector extends SketchCollector {
         loginUrl: "https://www.ftd.de/kommtnurnachlogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

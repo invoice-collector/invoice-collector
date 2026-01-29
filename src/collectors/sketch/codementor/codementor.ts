@@ -29,7 +29,7 @@ export class CodementorCollector extends SketchCollector {
         loginUrl: "https://www.codementor.io/settings/payment-history?type=invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

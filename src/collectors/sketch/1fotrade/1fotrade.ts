@@ -28,7 +28,7 @@ export class UnFotradeCollector extends SketchCollector {
         loginUrl: "https://www.1fotrade.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

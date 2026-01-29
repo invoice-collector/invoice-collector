@@ -29,7 +29,7 @@ export class PlaneteOuiCollector extends SketchCollector {
         loginUrl: "https://www.planete-oui.fr/particuliers",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

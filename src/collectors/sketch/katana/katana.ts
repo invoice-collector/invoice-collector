@@ -29,7 +29,7 @@ export class KatanaCollector extends SketchCollector {
         loginUrl: "https://katanamrp.recurly.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

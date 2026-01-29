@@ -29,7 +29,7 @@ export class PostscanmailCollector extends SketchCollector {
         loginUrl: "https://app.postscanmail.com/settings/billing-statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

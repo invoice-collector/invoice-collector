@@ -29,7 +29,7 @@ export class Vgk24Collector extends SketchCollector {
         loginUrl: "https://www.vgk24.de/wp-login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

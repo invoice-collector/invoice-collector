@@ -29,7 +29,7 @@ export class ProductipCollector extends SketchCollector {
         loginUrl: "https://secure.productip.com/account-documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

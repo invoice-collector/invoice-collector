@@ -29,7 +29,7 @@ export class CominCollector extends SketchCollector {
         loginUrl: "https://www2.purtel.com/res/res100260/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

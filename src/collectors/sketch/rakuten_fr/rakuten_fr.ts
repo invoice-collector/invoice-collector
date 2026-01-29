@@ -29,7 +29,7 @@ export class RakutenFrCollector extends SketchCollector {
         loginUrl: "https://fr.shopping.rakuten.com/usersecure?action=invoicesaction",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

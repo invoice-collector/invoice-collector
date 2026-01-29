@@ -29,7 +29,7 @@ export class MyminifactoryCollector extends SketchCollector {
         loginUrl: "https://www.myminifactory.com/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

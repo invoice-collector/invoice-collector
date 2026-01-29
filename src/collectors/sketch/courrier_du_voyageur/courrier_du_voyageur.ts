@@ -29,7 +29,7 @@ export class CourrierDuVoyageurCollector extends SketchCollector {
         loginUrl: "https://mon-compte.courrier-du-voyageur.com/bpi.php?p=ec_account&mapage=fac",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

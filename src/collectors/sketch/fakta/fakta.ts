@@ -29,7 +29,7 @@ export class FaktaCollector extends SketchCollector {
         loginUrl: "https://fakta.dk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

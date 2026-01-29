@@ -29,7 +29,7 @@ export class BriaTeamsCollector extends SketchCollector {
         loginUrl: "https://teams.softphone.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GalaxusDeCollector extends SketchCollector {
         loginUrl: "https://www.galaxus.de/de/Order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

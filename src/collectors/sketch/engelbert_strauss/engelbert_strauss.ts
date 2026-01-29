@@ -29,7 +29,7 @@ export class EngelbertStraussCollector extends SketchCollector {
         loginUrl: "https://www.engelbert-strauss.de/Anmeldung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

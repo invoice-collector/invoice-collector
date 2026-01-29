@@ -29,7 +29,7 @@ export class VuelingCollector extends SketchCollector {
         loginUrl: "http://www.vueling.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

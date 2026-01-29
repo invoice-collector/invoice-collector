@@ -29,7 +29,7 @@ export class BridgeCollector extends SketchCollector {
         loginUrl: "https://dashboard.bridgeapi.io/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

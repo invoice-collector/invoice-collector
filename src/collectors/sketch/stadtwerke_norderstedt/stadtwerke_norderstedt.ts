@@ -29,7 +29,7 @@ export class StadtwerkeNorderstedtCollector extends SketchCollector {
         loginUrl: "https://stadtwerke-norderstedt.ivurz.de/powercommerce/nor/fo/portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

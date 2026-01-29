@@ -29,7 +29,7 @@ export class FutalisCollector extends SketchCollector {
         loginUrl: "https://futalis.de/customer/account/index/#/bestellungen/378577?utm_campaign=systemmail&utm_medium=email&utm_source=system",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

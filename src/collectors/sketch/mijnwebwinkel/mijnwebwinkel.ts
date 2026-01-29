@@ -29,7 +29,7 @@ export class MijnwebwinkelCollector extends SketchCollector {
         loginUrl: "https://account.mijnwebwinkel.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

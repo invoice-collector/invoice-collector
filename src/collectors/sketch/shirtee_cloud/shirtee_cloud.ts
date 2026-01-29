@@ -29,7 +29,7 @@ export class ShirteeCloudCollector extends SketchCollector {
         loginUrl: "https://dashboard.shirtee.cloud/wallet",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

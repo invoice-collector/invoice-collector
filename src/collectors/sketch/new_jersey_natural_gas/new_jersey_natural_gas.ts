@@ -29,7 +29,7 @@ export class NewJerseyNaturalGasCollector extends SketchCollector {
         loginUrl: "https://myaccount.njng.com/portal/default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

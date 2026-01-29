@@ -29,7 +29,7 @@ export class ActivateByReclayCollector extends SketchCollector {
         loginUrl: "https://activate.reclay.de/activate_germany_german/customer/account/login/referer/aHR0cHM6Ly9hY3RpdmF0ZS5yZWNsYXkuZGUvYWN0aXZhdGVfZ2VybWFueV9nZXJtYW4v/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

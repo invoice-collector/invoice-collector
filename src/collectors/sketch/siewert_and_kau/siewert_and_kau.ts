@@ -29,7 +29,7 @@ export class SiewertAndKauCollector extends SketchCollector {
         loginUrl: "http://www.siewert-kau.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

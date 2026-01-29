@@ -29,7 +29,7 @@ export class AccredibleCollector extends SketchCollector {
         loginUrl: "https://dashboard.accredible.com/issuer/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

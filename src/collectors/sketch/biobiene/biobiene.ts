@@ -29,7 +29,7 @@ export class BiobieneCollector extends SketchCollector {
         loginUrl: "https://www.biobiene.com/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

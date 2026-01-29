@@ -29,7 +29,7 @@ export class FloricolorCollector extends SketchCollector {
         loginUrl: "https://fos3.floricolor.pt/orderhistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

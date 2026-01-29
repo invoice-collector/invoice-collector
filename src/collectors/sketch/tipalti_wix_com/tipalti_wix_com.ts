@@ -29,7 +29,7 @@ export class TipaltiWixComCollector extends SketchCollector {
         loginUrl: "https://suppliers.tipalti.com/wix/Portal/Index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IMotionCollector extends SketchCollector {
         loginUrl: "http://www.i-motion.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

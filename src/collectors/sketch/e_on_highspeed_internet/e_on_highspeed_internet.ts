@@ -29,7 +29,7 @@ export class EOnHighspeedInternetCollector extends SketchCollector {
         loginUrl: "https://service.eon-highspeed.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SlateDigitalCollector extends SketchCollector {
         loginUrl: "https://app.completeaccess.audio/users/11555379/account-info",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

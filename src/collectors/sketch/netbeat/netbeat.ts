@@ -29,7 +29,7 @@ export class NetbeatCollector extends SketchCollector {
         loginUrl: "https://www.netbeat.de/kundencenter/daten/rechnungsuebersicht.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

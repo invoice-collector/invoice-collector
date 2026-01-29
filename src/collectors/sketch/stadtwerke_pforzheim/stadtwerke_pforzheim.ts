@@ -29,7 +29,7 @@ export class StadtwerkePforzheimCollector extends SketchCollector {
         loginUrl: "https://portal.stadtwerke-pforzheim.de/powercommerce/swph/fo/portal/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

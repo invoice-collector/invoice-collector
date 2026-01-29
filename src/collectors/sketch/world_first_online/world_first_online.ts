@@ -29,7 +29,7 @@ export class WorldFirstOnlineCollector extends SketchCollector {
         loginUrl: "https://trading.worldfirst.com/user/auth/login?lang=en_GB",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

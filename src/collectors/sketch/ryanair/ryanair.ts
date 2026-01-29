@@ -29,7 +29,7 @@ export class RyanairCollector extends SketchCollector {
         loginUrl: "https://www.ryanair.com/de/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

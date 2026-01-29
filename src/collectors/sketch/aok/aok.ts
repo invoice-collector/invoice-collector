@@ -29,7 +29,7 @@ export class AokCollector extends SketchCollector {
         loginUrl: "https://plus.meine.aok.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EuservCollector extends SketchCollector {
         loginUrl: "https://support.euserv.com/index.iphp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

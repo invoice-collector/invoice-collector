@@ -29,7 +29,7 @@ export class SmallchatCollector extends SketchCollector {
         loginUrl: "https://my.small.chat/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

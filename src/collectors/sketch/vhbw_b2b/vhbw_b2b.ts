@@ -29,7 +29,7 @@ export class VhbwB2bCollector extends SketchCollector {
         loginUrl: "https://vhbw-b2b.de/kunden/bestelluebersicht.htm?st=5",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

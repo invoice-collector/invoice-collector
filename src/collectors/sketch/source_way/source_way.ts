@@ -29,7 +29,7 @@ export class SourceWayCollector extends SketchCollector {
         loginUrl: "http://www.sourceway.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

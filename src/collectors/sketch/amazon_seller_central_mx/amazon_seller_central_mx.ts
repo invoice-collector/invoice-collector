@@ -29,7 +29,7 @@ export class AmazonSellerCentralMxCollector extends SketchCollector {
         loginUrl: "https://sellercentral.amazon.com.mx/sellertaxinvoice/displaySellerTaxInvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

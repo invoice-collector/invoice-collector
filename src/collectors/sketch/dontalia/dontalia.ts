@@ -29,7 +29,7 @@ export class DontaliaCollector extends SketchCollector {
         loginUrl: "https://www.dontalia.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

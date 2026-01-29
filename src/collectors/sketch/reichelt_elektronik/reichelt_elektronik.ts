@@ -29,7 +29,7 @@ export class ReicheltElektronikCollector extends SketchCollector {
         loginUrl: "https://www.reichelt.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

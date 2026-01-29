@@ -29,7 +29,7 @@ export class StadtwerkeHildenCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-hilden.de/csit/action/csStart",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

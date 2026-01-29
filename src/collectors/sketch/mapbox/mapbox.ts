@@ -29,7 +29,7 @@ export class MapboxCollector extends SketchCollector {
         loginUrl: "https://www.mapbox.com/studio/signin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

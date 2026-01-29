@@ -29,7 +29,7 @@ export class MailmunchCollector extends SketchCollector {
         loginUrl: "https://app.mailmunch.co/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

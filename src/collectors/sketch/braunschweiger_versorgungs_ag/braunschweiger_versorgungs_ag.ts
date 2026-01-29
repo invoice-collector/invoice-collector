@@ -29,7 +29,7 @@ export class BraunschweigerVersorgungsAgCollector extends SketchCollector {
         loginUrl: "https://meinportal.bs-energy.de/css/public/bsen/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

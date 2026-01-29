@@ -29,7 +29,7 @@ export class FreestylelibreDeCollector extends SketchCollector {
         loginUrl: "https://www.freestylelibre.de/anmelden/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

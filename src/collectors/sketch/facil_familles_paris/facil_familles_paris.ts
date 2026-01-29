@@ -29,7 +29,7 @@ export class FacilFamillesParisCollector extends SketchCollector {
         loginUrl: "https://teleservices.paris.fr/ffaxssl/page/teamnetauth/action/login/error/invalid",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

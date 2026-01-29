@@ -29,7 +29,7 @@ export class JuicerCollector extends SketchCollector {
         loginUrl: "https://www.juicer.io/log-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

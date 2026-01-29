@@ -29,7 +29,7 @@ export class DeezerCollector extends SketchCollector {
         loginUrl: "https://www.deezer.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

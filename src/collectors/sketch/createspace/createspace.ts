@@ -29,7 +29,7 @@ export class CreatespaceCollector extends SketchCollector {
         loginUrl: "https://www.createspace.com/Customer/Account.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

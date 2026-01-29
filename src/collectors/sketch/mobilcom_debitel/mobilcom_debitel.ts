@@ -29,7 +29,7 @@ export class MobilcomDebitelCollector extends SketchCollector {
         loginUrl: "https://www.freenet-mobilfunk.de/onlineservice/meine-rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

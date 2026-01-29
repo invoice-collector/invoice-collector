@@ -29,7 +29,7 @@ export class KickresumeCollector extends SketchCollector {
         loginUrl: "https://www.kickresume.com/profile/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PractitestCollector extends SketchCollector {
         loginUrl: "https://prod.practitest.com/accounts/7226/payment_details/12360",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

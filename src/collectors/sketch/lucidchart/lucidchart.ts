@@ -29,7 +29,7 @@ export class LucidchartCollector extends SketchCollector {
         loginUrl: "https://www.lucidchart.com/users/login?passwordOnly=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

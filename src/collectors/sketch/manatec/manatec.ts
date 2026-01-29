@@ -29,7 +29,7 @@ export class ManatecCollector extends SketchCollector {
         loginUrl: "https://erp.manatec.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

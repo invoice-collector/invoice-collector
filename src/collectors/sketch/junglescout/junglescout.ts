@@ -29,7 +29,7 @@ export class JunglescoutCollector extends SketchCollector {
         loginUrl: "https://members.junglescout.com/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

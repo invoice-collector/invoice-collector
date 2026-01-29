@@ -29,7 +29,7 @@ export class MorflaxCollector extends SketchCollector {
         loginUrl: "https://studio.morflax.com/dashboard/user/billing/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

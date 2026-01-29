@@ -29,7 +29,7 @@ export class MaterielNetCollector extends SketchCollector {
         loginUrl: "https://www.materiel.net/pm/client/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

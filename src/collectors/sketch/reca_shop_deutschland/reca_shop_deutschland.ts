@@ -29,7 +29,7 @@ export class RecaShopDeutschlandCollector extends SketchCollector {
         loginUrl: "https://shop.recanorm.de/de/DE/EUR/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

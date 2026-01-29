@@ -29,7 +29,7 @@ export class VereinigteStadtwerkeCollector extends SketchCollector {
         loginUrl: "https://kundenportal.vereinigte-stadtwerke.de/sap/bc/ui5_ui5/sap/z_mcf_lief/index.html#Logon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

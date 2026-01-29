@@ -29,7 +29,7 @@ export class MercedesMeFinanceCollector extends SketchCollector {
         loginUrl: "https://customerportal.mercedes-benz.com/cp-de/portal/documentArchive.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

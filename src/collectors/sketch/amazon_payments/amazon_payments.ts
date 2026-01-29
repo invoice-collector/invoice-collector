@@ -29,7 +29,7 @@ export class AmazonPaymentsCollector extends SketchCollector {
         loginUrl: "https://sellercentral-europe.amazon.com/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

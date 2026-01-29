@@ -29,7 +29,7 @@ export class FSecureCollector extends SketchCollector {
         loginUrl: "https://www.f-secure.com/en/home/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

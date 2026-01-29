@@ -29,7 +29,7 @@ export class NErgieNetzGmbhCollector extends SketchCollector {
         loginUrl: "https://www.n-ergie-netz.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

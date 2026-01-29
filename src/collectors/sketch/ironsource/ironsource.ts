@@ -29,7 +29,7 @@ export class IronsourceCollector extends SketchCollector {
         loginUrl: "https://platform.ironsrc.com/partners/funds/payments/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

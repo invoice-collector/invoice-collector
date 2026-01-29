@@ -29,7 +29,7 @@ export class TowerdataCollector extends SketchCollector {
         loginUrl: "https://instantdata.towerdata.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

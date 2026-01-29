@@ -29,7 +29,7 @@ export class IonosEsCollector extends SketchCollector {
         loginUrl: "https://login.ionos.es/?__lf=Static",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

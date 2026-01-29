@@ -29,7 +29,7 @@ export class DeinestadtklebtCollector extends SketchCollector {
         loginUrl: "https://www.deinestadtklebt.de/kundenbereich/auftraege/abgeschlossene",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

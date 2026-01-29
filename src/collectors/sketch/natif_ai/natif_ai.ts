@@ -29,7 +29,7 @@ export class NatifAiCollector extends SketchCollector {
         loginUrl: "https://platform.natif.ai/api-hub/workflow/invoice_extraction/live-interface",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

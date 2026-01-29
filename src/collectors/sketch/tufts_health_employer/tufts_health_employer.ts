@@ -29,7 +29,7 @@ export class TuftsHealthEmployerCollector extends SketchCollector {
         loginUrl: "https://employers.tufts-health.com/nonsec/emlogon.fcc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

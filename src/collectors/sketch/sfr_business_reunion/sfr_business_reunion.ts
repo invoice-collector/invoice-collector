@@ -29,7 +29,7 @@ export class SfrBusinessReunionCollector extends SketchCollector {
         loginUrl: "https://mon-espace-entreprise.sfr.re/documents/3133363030333338343a666163747572655f5346525f575743445f313731363631365f41424f5f3836303031375f3230323231302e706466",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

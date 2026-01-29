@@ -29,7 +29,7 @@ export class ShopvoteBetrieberCollector extends SketchCollector {
         loginUrl: "https://www.shopvote.de/betreiber/index.php?site=invoice&shopid=22901",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

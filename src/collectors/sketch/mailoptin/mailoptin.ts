@@ -29,7 +29,7 @@ export class MailoptinCollector extends SketchCollector {
         loginUrl: "https://my.mailoptin.io/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

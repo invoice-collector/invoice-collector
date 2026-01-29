@@ -35,7 +35,7 @@ export class WurthDeCollector extends SketchCollector {
         loginUrl: "https://eshop.wuerth.de/de/DE/EUR/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

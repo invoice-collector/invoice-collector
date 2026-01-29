@@ -29,7 +29,7 @@ export class UtilityWarehouseUkCollector extends SketchCollector {
         loginUrl: "https://uw.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

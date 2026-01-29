@@ -29,7 +29,7 @@ export class VisualParadigmCollector extends SketchCollector {
         loginUrl: "http://www.visual-paradigm.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

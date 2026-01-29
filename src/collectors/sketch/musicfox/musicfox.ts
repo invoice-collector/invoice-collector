@@ -29,7 +29,7 @@ export class MusicfoxCollector extends SketchCollector {
         loginUrl: "https://www.musicfox.com/kunde/rechnungen.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

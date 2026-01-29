@@ -29,7 +29,7 @@ export class IntercomCollector extends SketchCollector {
         loginUrl: "https://app.intercom.com/admins/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

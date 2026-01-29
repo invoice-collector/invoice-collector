@@ -29,7 +29,7 @@ export class MutuelleVivinterEspaceEntrepriseCollector extends SketchCollector {
         loginUrl: "https://www.psf-services.com/index_entreprise_vivinter.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FreshserviceCollector extends SketchCollector {
         loginUrl: "https://freshservice.com/signup",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DigitPhotoCollector extends SketchCollector {
         loginUrl: "https://www.digit-photo.com/login.html?back=compteclient.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GerlDentalCollector extends SketchCollector {
         loginUrl: "https://gerl-dental.de/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

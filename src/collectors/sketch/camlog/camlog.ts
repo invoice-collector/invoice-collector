@@ -29,7 +29,7 @@ export class CamlogCollector extends SketchCollector {
         loginUrl: "https://eshop.camlog.de/bestellhistorie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

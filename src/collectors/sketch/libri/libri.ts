@@ -29,7 +29,7 @@ export class LibriCollector extends SketchCollector {
         loginUrl: "https://mein.libri.de/lieferung/lieferscheine-und-gutschriftanzeigen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

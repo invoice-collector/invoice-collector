@@ -29,7 +29,7 @@ export class ExactOnlineCollector extends SketchCollector {
         loginUrl: "https://start.exactonline.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

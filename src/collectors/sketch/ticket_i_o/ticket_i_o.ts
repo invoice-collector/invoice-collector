@@ -29,7 +29,7 @@ export class TicketIOCollector extends SketchCollector {
         loginUrl: "https://backstage.ticket.io/payoff/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

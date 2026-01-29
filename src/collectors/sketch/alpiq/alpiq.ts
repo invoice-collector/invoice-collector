@@ -29,7 +29,7 @@ export class AlpiqCollector extends SketchCollector {
         loginUrl: "https://meine-energie.alpiq.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

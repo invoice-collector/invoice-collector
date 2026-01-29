@@ -29,7 +29,7 @@ export class WexMotorpassCollector extends SketchCollector {
         loginUrl: "https://osc.motorpass.com.au/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

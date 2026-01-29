@@ -29,7 +29,7 @@ export class PhoneaCollector extends SketchCollector {
         loginUrl: "https://login.phonea.de/rechnungen.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

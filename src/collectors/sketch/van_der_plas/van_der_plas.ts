@@ -29,7 +29,7 @@ export class VanDerPlasCollector extends SketchCollector {
         loginUrl: "https://shop.vdplas.com/Service/Factuur",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

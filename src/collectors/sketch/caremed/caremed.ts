@@ -29,7 +29,7 @@ export class CaremedCollector extends SketchCollector {
         loginUrl: "https://caremedgmbh.de/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

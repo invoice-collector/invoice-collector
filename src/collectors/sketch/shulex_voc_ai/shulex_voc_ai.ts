@@ -29,7 +29,7 @@ export class ShulexVocAiCollector extends SketchCollector {
         loginUrl: "https://apps.voc.ai/app#/account/user?redirect=%2Fapp&type=billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

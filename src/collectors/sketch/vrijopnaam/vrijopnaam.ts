@@ -29,7 +29,7 @@ export class VrijopnaamCollector extends SketchCollector {
         loginUrl: "http://www.vrijopnaam.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

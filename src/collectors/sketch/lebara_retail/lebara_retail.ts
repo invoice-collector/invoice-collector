@@ -29,7 +29,7 @@ export class LebaraRetailCollector extends SketchCollector {
         loginUrl: "https://retail.lebara.com/order/invoicehistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RelogDresdenGmbhAndCoKgCollector extends SketchCollector {
         loginUrl: "https://relog-lohn-dresden.portal-bereich.de/html/#documentsharing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ToomCollector extends SketchCollector {
         loginUrl: "https://toom.de/warenkorb",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

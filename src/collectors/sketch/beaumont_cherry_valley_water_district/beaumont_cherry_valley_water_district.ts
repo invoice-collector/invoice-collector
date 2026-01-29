@@ -29,7 +29,7 @@ export class BeaumontCherryValleyWaterDistrictCollector extends SketchCollector 
         loginUrl: "https://bcvwd.merchanttransact.com/secure/MyBill",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

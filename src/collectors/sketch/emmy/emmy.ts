@@ -29,7 +29,7 @@ export class EmmyCollector extends SketchCollector {
         loginUrl: "https://emmy-sharing.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

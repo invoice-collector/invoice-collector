@@ -29,7 +29,7 @@ export class Rent24Collector extends SketchCollector {
         loginUrl: "https://members.rent24.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

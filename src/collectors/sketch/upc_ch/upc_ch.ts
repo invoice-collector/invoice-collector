@@ -29,7 +29,7 @@ export class UpcChCollector extends SketchCollector {
         loginUrl: "https://www.upc.ch/en/account/login/credentials/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

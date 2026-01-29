@@ -29,7 +29,7 @@ export class FederatedAutoPartsFederatedLinkCollector extends SketchCollector {
         loginUrl: "https://www.federatedlink.com/ecomm/ar/Invoices.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

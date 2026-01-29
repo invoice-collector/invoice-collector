@@ -29,7 +29,7 @@ export class MutuelleIndustriePetroleCollector extends SketchCollector {
         loginUrl: "https://secure.mutuelles.biz/-MIP-",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

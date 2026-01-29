@@ -29,7 +29,7 @@ export class SchmetterlingInternationalCollector extends SketchCollector {
         loginUrl: "https://app.schmetterling-argus.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

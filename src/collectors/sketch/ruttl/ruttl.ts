@@ -29,7 +29,7 @@ export class RuttlCollector extends SketchCollector {
         loginUrl: "https://web.ruttl.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

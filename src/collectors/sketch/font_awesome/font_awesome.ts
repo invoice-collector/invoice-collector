@@ -29,7 +29,7 @@ export class FontAwesomeCollector extends SketchCollector {
         loginUrl: "https://fontawesome.com/sessions/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

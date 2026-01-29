@@ -29,7 +29,7 @@ export class ScreenshotlayerCollector extends SketchCollector {
         loginUrl: "https://screenshotlayer.com/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

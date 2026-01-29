@@ -29,7 +29,7 @@ export class SnaptradeCollector extends SketchCollector {
         loginUrl: "http://www.snapsoft.de/snaptrade/login?langcode=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

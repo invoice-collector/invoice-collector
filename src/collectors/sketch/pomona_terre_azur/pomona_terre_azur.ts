@@ -29,7 +29,7 @@ export class PomonaTerreAzurCollector extends SketchCollector {
         loginUrl: "https://login.groupe-pomona.fr/auth/realms/web/protocol/openid-connect/auth?client_id=prd-drupal-ta&response_type=code&scope=openid%20email%20profile&redirect_uri=https%3A//www.terreazur.fr/openid-connect/pomona_keycloak&state=zUhTIlGnaKsIF8l5PIVe7CQF2Apm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

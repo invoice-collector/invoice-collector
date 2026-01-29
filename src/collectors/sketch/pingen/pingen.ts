@@ -29,7 +29,7 @@ export class PingenCollector extends SketchCollector {
         loginUrl: "https://app.pingen.com/organisation",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

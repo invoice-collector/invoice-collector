@@ -29,7 +29,7 @@ export class InternetwerkCollector extends SketchCollector {
         loginUrl: "https://verwaltung.internetwerk.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

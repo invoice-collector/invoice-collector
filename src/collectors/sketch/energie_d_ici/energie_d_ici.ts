@@ -29,7 +29,7 @@ export class EnergieDIciCollector extends SketchCollector {
         loginUrl: "https://mon.energiedici.fr/wp/showDisplayBills.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

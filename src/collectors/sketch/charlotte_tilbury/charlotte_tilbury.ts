@@ -29,7 +29,7 @@ export class CharlotteTilburyCollector extends SketchCollector {
         loginUrl: "https://www.charlottetilbury.com/de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

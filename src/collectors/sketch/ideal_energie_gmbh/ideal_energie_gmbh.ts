@@ -29,7 +29,7 @@ export class IdealEnergieGmbhCollector extends SketchCollector {
         loginUrl: "https://www.idealenergie.de/kundenportal/anmeldung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

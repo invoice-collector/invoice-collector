@@ -29,7 +29,7 @@ export class EauDugrandlyonCollector extends SketchCollector {
         loginUrl: "https://agence.eaudugrandlyon.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

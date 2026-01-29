@@ -29,7 +29,7 @@ export class Printer4youCollector extends SketchCollector {
         loginUrl: "https://www.printer4you.com/de/customer/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

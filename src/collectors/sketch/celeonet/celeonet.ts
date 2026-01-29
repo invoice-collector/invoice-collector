@@ -29,7 +29,7 @@ export class CeleonetCollector extends SketchCollector {
         loginUrl: "https://extranet.celeonet.fr/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

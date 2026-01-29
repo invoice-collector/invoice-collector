@@ -29,7 +29,7 @@ export class BooksZohoCollector extends SketchCollector {
         loginUrl: "https://books.zoho.eu",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RedVolcanoCollector extends SketchCollector {
         loginUrl: "https://magma.redvolcano.uk/pages/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

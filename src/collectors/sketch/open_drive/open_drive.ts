@@ -29,7 +29,7 @@ export class OpenDriveCollector extends SketchCollector {
         loginUrl: "https://www.opendrive.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

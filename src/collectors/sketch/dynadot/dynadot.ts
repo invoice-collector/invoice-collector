@@ -29,7 +29,7 @@ export class DynadotCollector extends SketchCollector {
         loginUrl: "https://www.dynadot.com/account/info/order/list.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

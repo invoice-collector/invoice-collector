@@ -29,7 +29,7 @@ export class MagentaCollector extends SketchCollector {
         loginUrl: "https://rechnung.magenta.at/index.cfm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

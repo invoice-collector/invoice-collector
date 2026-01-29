@@ -29,7 +29,7 @@ export class HygiDeCollector extends SketchCollector {
         loginUrl: "https://www.hygi.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

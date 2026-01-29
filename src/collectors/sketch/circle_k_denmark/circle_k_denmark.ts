@@ -29,7 +29,7 @@ export class CircleKDenmarkCollector extends SketchCollector {
         loginUrl: "https://www.circlek.dk/dk_DK/pg1334072984722/privat/voresbutikker/PrivatKort/MitCircleK.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

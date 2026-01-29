@@ -29,7 +29,7 @@ export class ImpotsParticuliersCollector extends SketchCollector {
         loginUrl: "https://cfspart.impots.gouv.fr/LoginMDP?op=c",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

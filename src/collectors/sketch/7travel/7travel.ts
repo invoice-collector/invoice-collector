@@ -29,7 +29,7 @@ export class _7travelCollector extends SketchCollector {
         loginUrl: "https://partner.net.7travel.de/app/index.html#/account/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

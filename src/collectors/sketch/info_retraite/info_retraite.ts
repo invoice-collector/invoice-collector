@@ -29,7 +29,7 @@ export class InfoRetraiteCollector extends SketchCollector {
         loginUrl: "https://www.info-retraite.fr/portail-services/#/login#header",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

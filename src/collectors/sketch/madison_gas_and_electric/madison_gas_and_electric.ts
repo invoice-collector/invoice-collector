@@ -29,7 +29,7 @@ export class MadisonGasAndElectricCollector extends SketchCollector {
         loginUrl: "https://www.mge.com/my_mge/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

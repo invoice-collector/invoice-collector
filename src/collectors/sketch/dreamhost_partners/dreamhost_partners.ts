@@ -29,7 +29,7 @@ export class DreamhostPartnersCollector extends SketchCollector {
         loginUrl: "https://aff-dreamhost.pay.tune.com/payment-orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

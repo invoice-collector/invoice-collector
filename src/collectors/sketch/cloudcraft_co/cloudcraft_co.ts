@@ -29,7 +29,7 @@ export class CloudcraftCoCollector extends SketchCollector {
         loginUrl: "https://cloudcraft.co/app",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

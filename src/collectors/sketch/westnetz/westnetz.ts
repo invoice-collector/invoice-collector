@@ -29,7 +29,7 @@ export class WestnetzCollector extends SketchCollector {
         loginUrl: "https://service.westnetz.de/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

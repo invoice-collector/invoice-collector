@@ -29,7 +29,7 @@ export class VoxTelecomSaCollector extends SketchCollector {
         loginUrl: "https://www.vox.co.za/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

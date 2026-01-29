@@ -29,7 +29,7 @@ export class WebreusCollector extends SketchCollector {
         loginUrl: "http://www.webreus.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

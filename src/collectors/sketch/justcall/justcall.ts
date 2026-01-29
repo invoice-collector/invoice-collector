@@ -29,7 +29,7 @@ export class JustcallCollector extends SketchCollector {
         loginUrl: "https://justcall.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

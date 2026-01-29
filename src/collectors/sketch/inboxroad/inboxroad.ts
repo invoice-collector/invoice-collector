@@ -29,7 +29,7 @@ export class InboxroadCollector extends SketchCollector {
         loginUrl: "https://www.inboxroad.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

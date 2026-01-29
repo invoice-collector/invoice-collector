@@ -29,7 +29,7 @@ export class HanseaticCoffeeCollector extends SketchCollector {
         loginUrl: "https://hanseatic-coffee.com/account?_gl=1*p38520*_up*MQ..*_ga*MTk0NjIwNDkwNC4xNzM5MDQxMTI4*_ga_0N79EF267Y*MTczOTA0MTEyNy4xLjAuMTczOTA0MTEyNy4wLjAuMA..",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

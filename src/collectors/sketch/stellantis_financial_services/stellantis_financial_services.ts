@@ -29,7 +29,7 @@ export class StellantisFinancialServicesCollector extends SketchCollector {
         loginUrl: "https://myprofile.stellantis-financial-services.be/nl/web/cuspor/invoices?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BsPayoneMerchantServiceCollector extends SketchCollector {
         loginUrl: "https://pmi.pay1.de/merchants/index.php?request=makecsv&mode=0&navi=rechn&year=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

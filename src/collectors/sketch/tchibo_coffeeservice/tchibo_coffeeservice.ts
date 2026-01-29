@@ -29,7 +29,7 @@ export class TchiboCoffeeserviceCollector extends SketchCollector {
         loginUrl: "https://www.tchibo-coffeeservice.de/shop/bestellhistorie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

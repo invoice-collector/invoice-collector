@@ -29,7 +29,7 @@ export class MyServiceOttawaCollector extends SketchCollector {
         loginUrl: "https://myservice.ottawa.ca/profile/account/login?lang=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DesigncrowdCollector extends SketchCollector {
         loginUrl: "https://www.designcrowd.de/registration",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

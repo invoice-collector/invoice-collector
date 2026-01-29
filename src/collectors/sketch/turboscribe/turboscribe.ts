@@ -29,7 +29,7 @@ export class TurboscribeCollector extends SketchCollector {
         loginUrl: "https://turboscribe.ai/de/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

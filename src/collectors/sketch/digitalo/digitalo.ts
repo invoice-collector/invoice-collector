@@ -29,7 +29,7 @@ export class DigitaloCollector extends SketchCollector {
         loginUrl: "https://www.digitalo.de/my/orders.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AktivbankFactoringCollector extends SketchCollector {
         loginUrl: "https://online.aktivbank-factoring.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

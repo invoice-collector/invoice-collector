@@ -29,7 +29,7 @@ export class MomoxCollector extends SketchCollector {
         loginUrl: "https://www.momox.de/konto/profil/verkaeufe/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

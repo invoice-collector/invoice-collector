@@ -29,7 +29,7 @@ export class TheGoodRollCollector extends SketchCollector {
         loginUrl: "https://thegoodroll.com/nl-nl/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

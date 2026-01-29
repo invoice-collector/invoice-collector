@@ -29,7 +29,7 @@ export class StadtwerkeVelbertCollector extends SketchCollector {
         loginUrl: "https://meine.stadtwerke-velbert.de/privatkunden/meine-velbert/services",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EggheadCollector extends SketchCollector {
         loginUrl: "https://egghead.io/transaction_receipt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

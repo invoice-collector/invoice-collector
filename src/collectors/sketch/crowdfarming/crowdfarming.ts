@@ -29,7 +29,7 @@ export class CrowdfarmingCollector extends SketchCollector {
         loginUrl: "https://www.crowdfarming.com/de/private-zone/my-order/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

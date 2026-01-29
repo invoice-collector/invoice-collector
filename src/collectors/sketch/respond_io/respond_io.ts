@@ -29,7 +29,7 @@ export class RespondIoCollector extends SketchCollector {
         loginUrl: "https://app.respond.io/organization/76901/billing/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

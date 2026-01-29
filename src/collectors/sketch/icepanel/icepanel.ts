@@ -29,7 +29,7 @@ export class IcepanelCollector extends SketchCollector {
         loginUrl: "https://app.icepanel.io/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

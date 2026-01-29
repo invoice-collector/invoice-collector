@@ -29,7 +29,7 @@ export class AmadeusEbillingPortalCollector extends SketchCollector {
         loginUrl: "https://ebillingcentre.de.amadeus.com/sfiler/Tree.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

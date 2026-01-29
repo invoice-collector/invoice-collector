@@ -29,7 +29,7 @@ export class DhgateCollector extends SketchCollector {
         loginUrl: "https://dg.dhgate.com/buyerordmng/orderList/list.do?pahttps://dg.dhgate.com/buyerordmng/orderList/list.do?params.linkType=100rams.linkType=100",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

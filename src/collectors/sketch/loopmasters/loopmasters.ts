@@ -29,7 +29,7 @@ export class LoopmastersCollector extends SketchCollector {
         loginUrl: "https://www.loopmasters.com/auth/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

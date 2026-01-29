@@ -29,7 +29,7 @@ export class PublicServicesCollector extends SketchCollector {
         loginUrl: "https://www.girocockpit.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

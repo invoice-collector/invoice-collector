@@ -29,7 +29,7 @@ export class PerstistiqCollector extends SketchCollector {
         loginUrl: "https://persistiq.com/app#/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

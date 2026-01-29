@@ -29,7 +29,7 @@ export class DoopicCollector extends SketchCollector {
         loginUrl: "https://my.doopic.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

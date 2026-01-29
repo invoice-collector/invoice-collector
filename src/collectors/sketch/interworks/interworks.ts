@@ -29,7 +29,7 @@ export class InterworksCollector extends SketchCollector {
         loginUrl: "https://bss.adncloud.de/ModulePages/Invoices/Invoices.aspx#v=689",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

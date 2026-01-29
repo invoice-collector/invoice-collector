@@ -29,7 +29,7 @@ export class TreehouseCollector extends SketchCollector {
         loginUrl: "https://teamtreehouse.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

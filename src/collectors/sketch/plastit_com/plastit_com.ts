@@ -28,7 +28,7 @@ export class Plastit35Collector extends SketchCollector {
         loginUrl:  "https://plastit35.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FlextrackCollector extends SketchCollector {
         loginUrl: "https://www.flextrack.ca/Account/LogOn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

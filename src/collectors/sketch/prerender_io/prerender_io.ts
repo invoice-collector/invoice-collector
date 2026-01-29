@@ -29,7 +29,7 @@ export class PrerenderIoCollector extends SketchCollector {
         loginUrl: "https://prerender.io/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

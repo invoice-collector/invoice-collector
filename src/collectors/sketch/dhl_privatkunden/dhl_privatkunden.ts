@@ -29,7 +29,7 @@ export class DhlPrivatkundenCollector extends SketchCollector {
         loginUrl: "https://www.dhl.de/de/privatkunden/pakete-versenden/online-frankieren.html?type=ShoppingCartHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

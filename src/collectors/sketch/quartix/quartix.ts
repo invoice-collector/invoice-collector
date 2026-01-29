@@ -29,7 +29,7 @@ export class QuartixCollector extends SketchCollector {
         loginUrl: "https://www.quartix.com/en-ie/sign-in/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

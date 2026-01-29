@@ -29,7 +29,7 @@ export class HazHannoverscheAllgemeineZeitungCollector extends SketchCollector {
         loginUrl: "https://account.rnd.de/v4/hub/sso/login?client_id=madsack-haznp-haz-portal-one-web&redirect_uri=https%3A%2F%2Fwww.haz.de&response_type=code&code_challenge=ARe1x8QWQ3-Z0dH1QeNRZSwinM9IfkrSXUTJ3MPKgVc&code_challenge_method=S256&state=https%3A%2F%2Fwww.haz.d",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

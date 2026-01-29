@@ -29,7 +29,7 @@ export class SgbEnergieCollector extends SketchCollector {
         loginUrl: "https://kundenportal.sgb-energie.de/index.php?page=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

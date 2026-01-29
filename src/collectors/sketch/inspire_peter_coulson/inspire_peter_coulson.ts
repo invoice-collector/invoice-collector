@@ -29,7 +29,7 @@ export class InspirePeterCoulsonCollector extends SketchCollector {
         loginUrl: "https://inspire.peter-coulson.com.au/my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

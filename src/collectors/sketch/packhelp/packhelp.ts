@@ -29,7 +29,7 @@ export class PackhelpCollector extends SketchCollector {
         loginUrl: "https://app.packhelp.de/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

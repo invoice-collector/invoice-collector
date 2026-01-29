@@ -29,7 +29,7 @@ export class TpaConnectAppCollector extends SketchCollector {
         loginUrl: "https://portal.tpa-connect.app/webapp/#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SmartbrokerPartnerprogrammCollector extends SketchCollector {
         loginUrl: "https://partner.net.smartbroker.de/app/index.html#/account/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

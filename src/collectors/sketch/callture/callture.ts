@@ -29,7 +29,7 @@ export class CalltureCollector extends SketchCollector {
         loginUrl: "https://support.callture.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

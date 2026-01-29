@@ -29,7 +29,7 @@ export class CezanneCollector extends SketchCollector {
         loginUrl: "https://w3.cezanneondemand.com/CezanneOnDemand/Account/LogIn?ReturnUrl=~%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

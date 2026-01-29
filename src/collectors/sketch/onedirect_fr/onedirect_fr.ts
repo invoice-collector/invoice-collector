@@ -29,7 +29,7 @@ export class OnedirectFrCollector extends SketchCollector {
         loginUrl: "https://www.onedirect.fr/customer/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

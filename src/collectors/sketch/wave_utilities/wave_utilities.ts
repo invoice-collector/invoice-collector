@@ -29,7 +29,7 @@ export class WaveUtilitiesCollector extends SketchCollector {
         loginUrl: "https://www.wave-utilities.co.uk/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

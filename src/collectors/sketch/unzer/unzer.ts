@@ -29,7 +29,7 @@ export class UnzerCollector extends SketchCollector {
         loginUrl: "https://insights.unzer.com/signin?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

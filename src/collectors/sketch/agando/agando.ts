@@ -29,7 +29,7 @@ export class AgandoCollector extends SketchCollector {
         loginUrl: "https://www.agando-shop.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SocieteGeneraleProfessionnelsCollector extends SketchCollector {
         loginUrl: "https://professionnels.secure.societegenerale.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

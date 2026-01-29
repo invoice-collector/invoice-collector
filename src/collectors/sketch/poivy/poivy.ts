@@ -29,7 +29,7 @@ export class PoivyCollector extends SketchCollector {
         loginUrl: "http://www.poivy.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

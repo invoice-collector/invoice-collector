@@ -29,7 +29,7 @@ export class SteuerakademieSHCollector extends SketchCollector {
         loginUrl: "https://stbvsh-seminare.de/auctores/scs/imc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

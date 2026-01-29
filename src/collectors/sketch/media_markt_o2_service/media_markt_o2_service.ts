@@ -29,7 +29,7 @@ export class MediaMarktO2ServiceCollector extends SketchCollector {
         loginUrl: "https://mediamarkt.o2service.de/kundencenter/public/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

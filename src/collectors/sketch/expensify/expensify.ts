@@ -29,7 +29,7 @@ export class ExpensifyCollector extends SketchCollector {
         loginUrl: "https://www.expensify.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

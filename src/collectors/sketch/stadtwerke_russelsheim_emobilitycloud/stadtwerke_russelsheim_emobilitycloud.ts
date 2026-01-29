@@ -29,7 +29,7 @@ export class StadtwerkeRusselsheimEmobilitycloudCollector extends SketchCollecto
         loginUrl: "https://stadtwerke-ruesselsheim.emobilitycloud.com/de/account/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CanadianSolarCollector extends SketchCollector {
         loginUrl: "https://canadiansolar.us3.list-manage.com/subscribe/post?u=c9428931ef1d8f14e9b0616e1&id=43582f2947",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

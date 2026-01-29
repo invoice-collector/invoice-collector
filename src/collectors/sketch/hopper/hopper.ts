@@ -29,7 +29,7 @@ export class HopperCollector extends SketchCollector {
         loginUrl: "https://payments.stunning.co/receipts/1486mxkdfperpsfzinstdbdxd/cus_CfO9mnuPwtisjA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

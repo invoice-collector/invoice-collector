@@ -28,7 +28,7 @@ export class EngieFrCollector extends SketchCollector {
         loginUrl: "https://particuliers.engie.fr/login-page/authentification.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

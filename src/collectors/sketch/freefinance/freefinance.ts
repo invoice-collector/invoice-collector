@@ -29,7 +29,7 @@ export class FreefinanceCollector extends SketchCollector {
         loginUrl: "https://www.freefinance.at/rechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

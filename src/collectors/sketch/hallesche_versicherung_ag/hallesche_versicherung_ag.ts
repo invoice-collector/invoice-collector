@@ -29,7 +29,7 @@ export class HallescheVersicherungAgCollector extends SketchCollector {
         loginUrl: "https://hallesche-firmenportal.de/portal/app/module/firma/postfach?rnd=5955&OWASP_CSRFTOKEN=MVMH-2SYF-4MFF-974P-YYG2-13JL-LL57-U5JA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

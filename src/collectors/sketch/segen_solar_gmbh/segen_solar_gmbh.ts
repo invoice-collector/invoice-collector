@@ -29,7 +29,7 @@ export class SegenSolarGmbhCollector extends SketchCollector {
         loginUrl: "https://portal.segensolar.de/Reseller/Orders/RecentInvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PostPlannerCollector extends SketchCollector {
         loginUrl: "https://www.billingportal.com/s/postplanner/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

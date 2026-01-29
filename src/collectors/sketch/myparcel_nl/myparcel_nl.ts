@@ -29,7 +29,7 @@ export class MyparcelNlCollector extends SketchCollector {
         loginUrl: "https://www.myparcel.nl/plogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

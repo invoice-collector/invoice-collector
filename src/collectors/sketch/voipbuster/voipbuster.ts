@@ -29,7 +29,7 @@ export class VoipbusterCollector extends SketchCollector {
         loginUrl: "https://www.voipbuster.com/purchases",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

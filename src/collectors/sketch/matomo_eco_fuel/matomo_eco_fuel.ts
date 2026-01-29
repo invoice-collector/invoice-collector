@@ -29,7 +29,7 @@ export class MatomoEcoFuelCollector extends SketchCollector {
         loginUrl: "https://eco2fuelproject.matomo.cloud/index.php?module=Billing&action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

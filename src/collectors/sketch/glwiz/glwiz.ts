@@ -29,7 +29,7 @@ export class GlwizCollector extends SketchCollector {
         loginUrl: "https://www.glwiz.com/Pages/MyAccount-Information/MyAccount-Information.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

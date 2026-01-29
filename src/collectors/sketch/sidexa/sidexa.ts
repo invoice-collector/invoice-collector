@@ -29,7 +29,7 @@ export class SidexaCollector extends SketchCollector {
         loginUrl: "https://services.sidexa.fr/fr/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

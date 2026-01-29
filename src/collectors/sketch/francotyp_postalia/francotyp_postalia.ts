@@ -29,7 +29,7 @@ export class FrancotypPostaliaCollector extends SketchCollector {
         loginUrl: "https://www.myfrancotyp.com/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FashionjobsCollector extends SketchCollector {
         loginUrl: "https://fr.fashionjobs.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

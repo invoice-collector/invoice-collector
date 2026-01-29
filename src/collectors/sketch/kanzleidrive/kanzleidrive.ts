@@ -29,7 +29,7 @@ export class KanzleidriveCollector extends SketchCollector {
         loginUrl: "https://app.kanzleidrive.de/backoffice/office/accounting/subscriptions/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

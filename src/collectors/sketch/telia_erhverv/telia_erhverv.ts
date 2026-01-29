@@ -29,7 +29,7 @@ export class TeliaErhvervCollector extends SketchCollector {
         loginUrl: "https://www.telia.dk/lux/cr/hjem/faktura/fakturaoverblik/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

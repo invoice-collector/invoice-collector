@@ -29,7 +29,7 @@ export class AragCollector extends SketchCollector {
         loginUrl: "https://www.arag.de/meinearag/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

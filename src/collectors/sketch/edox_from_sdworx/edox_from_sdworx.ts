@@ -29,7 +29,7 @@ export class EdoxFromSdworxCollector extends SketchCollector {
         loginUrl: "https://www.sd.be/edoxv2/release/#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

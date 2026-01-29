@@ -29,7 +29,7 @@ export class VariaStoreCollector extends SketchCollector {
         loginUrl: "https://varia-store.com/de/mein-konto/bestellungen/uebersicht.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

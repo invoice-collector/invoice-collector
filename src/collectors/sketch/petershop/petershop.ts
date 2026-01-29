@@ -29,7 +29,7 @@ export class PetershopCollector extends SketchCollector {
         loginUrl: "https://www.petershop.de/index.php?cl=tc_b2b_item_list_document",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

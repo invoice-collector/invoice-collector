@@ -29,7 +29,7 @@ export class BlogvaultCollector extends SketchCollector {
         loginUrl: "https://app.blogvault.net/app/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

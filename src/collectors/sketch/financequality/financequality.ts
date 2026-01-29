@@ -29,7 +29,7 @@ export class FinancequalityCollector extends SketchCollector {
         loginUrl: "https://www.financequality.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

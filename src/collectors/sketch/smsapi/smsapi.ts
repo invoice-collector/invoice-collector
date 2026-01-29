@@ -29,7 +29,7 @@ export class SmsapiCollector extends SketchCollector {
         loginUrl: "https://ssl.smsapi.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

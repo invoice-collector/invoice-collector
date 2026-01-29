@@ -29,7 +29,7 @@ export class MyfenceDeCollector extends SketchCollector {
         loginUrl: "https://www.myfence.de/authentifizierung?back=history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

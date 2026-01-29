@@ -29,7 +29,7 @@ export class ErnstingsFamilyPartnerCollector extends SketchCollector {
         loginUrl: "https://pvn.ernstings-family.de/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

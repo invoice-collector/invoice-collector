@@ -29,7 +29,7 @@ export class DerTheaterVerlagCollector extends SketchCollector {
         loginUrl: "https://shop.der-theaterverlag.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

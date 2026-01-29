@@ -29,7 +29,7 @@ export class WaveDistributionCollector extends SketchCollector {
         loginUrl: "https://www.wave-distribution.de/Mein-Konto/Bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

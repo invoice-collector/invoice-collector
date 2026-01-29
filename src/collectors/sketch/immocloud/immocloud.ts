@@ -29,7 +29,7 @@ export class ImmocloudCollector extends SketchCollector {
         loginUrl: "https://app.immocloud.de/settings/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

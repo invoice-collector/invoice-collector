@@ -29,7 +29,7 @@ export class PdfArchitectCollector extends SketchCollector {
         loginUrl: "http://myaccount.pdfarchitect.org/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

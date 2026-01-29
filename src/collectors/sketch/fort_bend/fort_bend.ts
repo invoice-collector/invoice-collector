@@ -29,7 +29,7 @@ export class FortBendCollector extends SketchCollector {
         loginUrl: "https://www.eonlinebill.com/bapp/ftbend/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

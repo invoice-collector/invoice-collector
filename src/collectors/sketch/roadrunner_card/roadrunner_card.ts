@@ -29,7 +29,7 @@ export class RoadrunnerCardCollector extends SketchCollector {
         loginUrl: "https://kundenportal.roadrunner-card.com/kundenbereich.php?bc=rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

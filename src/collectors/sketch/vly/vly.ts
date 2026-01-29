@@ -29,7 +29,7 @@ export class VlyCollector extends SketchCollector {
         loginUrl: "https://www.vlyfoods.com/tools/recurring/portal/72f5a1fc2fb5056f70bb9f6b3d731c/orders?token=1cee0f50f0e34d7a8775a6534c96eb5f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NorthHudsonSewerageAuthorityCollector extends SketchCollector {
         loginUrl: "https://wipp.edmundsassoc.com/Wipp/?wippid=NHSA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

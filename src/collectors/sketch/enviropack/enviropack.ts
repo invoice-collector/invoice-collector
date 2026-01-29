@@ -29,7 +29,7 @@ export class EnviropackCollector extends SketchCollector {
         loginUrl: "https://www.enviropack.org.uk/user?current=node",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

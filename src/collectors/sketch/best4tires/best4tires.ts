@@ -29,7 +29,7 @@ export class Best4tiresCollector extends SketchCollector {
         loginUrl: "https://login.best4tires.com/auth/realms/mygundlach/protocol/openid-connect/auth?client_id=frontend&redirect_uri=https%3A%2F%2Fwww.best4tires.com%2Fde%2Fuser%2Fcallback%2F&response_type=code&state=&ui_locales=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

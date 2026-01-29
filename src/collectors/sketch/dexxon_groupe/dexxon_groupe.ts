@@ -29,7 +29,7 @@ export class DexxonGroupeCollector extends SketchCollector {
         loginUrl: "https://plus.dexxon.eu/index.php/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

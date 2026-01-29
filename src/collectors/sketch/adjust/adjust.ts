@@ -29,7 +29,7 @@ export class AdjustCollector extends SketchCollector {
         loginUrl: "https://dash.adjust.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

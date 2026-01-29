@@ -29,7 +29,7 @@ export class EpiphanCloudCollector extends SketchCollector {
         loginUrl: "https://go.epiphan.cloud/xxxxxxxx/settings/billing-usage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BaurCollector extends SketchCollector {
         loginUrl: "https://www.baur.de/#els=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

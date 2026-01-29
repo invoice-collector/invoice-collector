@@ -29,7 +29,7 @@ export class EntegaPrivatkundenCollector extends SketchCollector {
         loginUrl: "https://www.meineentega.de/start/anmeldung.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

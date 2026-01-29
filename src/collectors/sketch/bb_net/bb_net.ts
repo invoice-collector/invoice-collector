@@ -29,7 +29,7 @@ export class BbNetCollector extends SketchCollector {
         loginUrl: "https://shop.bb-net.de/kundenmenu.php?page=bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

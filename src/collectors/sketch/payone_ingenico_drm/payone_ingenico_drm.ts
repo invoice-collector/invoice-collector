@@ -29,7 +29,7 @@ export class PayoneIngenicoDrmCollector extends SketchCollector {
         loginUrl: "https://ger-drm.mc.ingenico.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

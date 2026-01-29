@@ -29,7 +29,7 @@ export class SalesloftCollector extends SketchCollector {
         loginUrl: "https://accounts.salesloft.com/sign_in?return_to=https://app.salesloft.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

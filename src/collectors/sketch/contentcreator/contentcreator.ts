@@ -29,7 +29,7 @@ export class ContentcreatorCollector extends SketchCollector {
         loginUrl: "https://www.contentcreator.com/settings/purchase_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

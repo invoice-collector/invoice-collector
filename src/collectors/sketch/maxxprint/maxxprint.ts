@@ -29,7 +29,7 @@ export class MaxxprintCollector extends SketchCollector {
         loginUrl: "https://maxxprint.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

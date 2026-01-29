@@ -29,7 +29,7 @@ export class PassportcardCollector extends SketchCollector {
         loginUrl: "https://mein.passportcard.de/site/plan/expenses",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

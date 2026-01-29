@@ -29,7 +29,7 @@ export class ShinyappsCollector extends SketchCollector {
         loginUrl: "https://www.shinyapps.io/admin/#/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

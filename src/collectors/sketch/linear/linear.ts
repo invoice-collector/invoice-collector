@@ -29,7 +29,7 @@ export class LinearCollector extends SketchCollector {
         loginUrl: "https://linear.app/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

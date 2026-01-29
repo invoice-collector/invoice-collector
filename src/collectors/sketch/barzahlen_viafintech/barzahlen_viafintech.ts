@@ -29,7 +29,7 @@ export class BarzahlenViafintechCollector extends SketchCollector {
         loginUrl: "https://controlcenter.barzahlen.de/#/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

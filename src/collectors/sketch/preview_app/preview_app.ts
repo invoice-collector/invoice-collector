@@ -29,7 +29,7 @@ export class PreviewAppCollector extends SketchCollector {
         loginUrl: "https://preview.app/settings/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

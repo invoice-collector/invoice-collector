@@ -29,7 +29,7 @@ export class ChefsculinarShopCollector extends SketchCollector {
         loginUrl: "https://shop.chefsculinar.de/de-de/account/bestell%C3%BCbersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

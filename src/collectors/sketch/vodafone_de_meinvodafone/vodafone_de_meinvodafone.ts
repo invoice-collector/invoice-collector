@@ -29,7 +29,7 @@ export class VodafoneDeMeinvodafoneCollector extends SketchCollector {
         loginUrl: "https://www.vodafone.de/ussa/login/login.ftel",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

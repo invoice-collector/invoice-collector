@@ -29,7 +29,7 @@ export class SageComCollector extends SketchCollector {
         loginUrl: "https://customers.sage.com/s/my-subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

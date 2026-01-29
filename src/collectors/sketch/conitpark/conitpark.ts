@@ -29,7 +29,7 @@ export class ConitparkCollector extends SketchCollector {
         loginUrl: "https://pcard.mein-contipark.de/konto/transaktionen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BrunnenOnlineshopCollector extends SketchCollector {
         loginUrl: "https://shop.brunnen.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

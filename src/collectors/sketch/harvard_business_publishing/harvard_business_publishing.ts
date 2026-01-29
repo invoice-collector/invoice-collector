@@ -29,7 +29,7 @@ export class HarvardBusinessPublishingCollector extends SketchCollector {
         loginUrl: "https://hbsp.harvard.edu/home/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IgaOpticCollector extends SketchCollector {
         loginUrl: "https://10934.gwsshop.de/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

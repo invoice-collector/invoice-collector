@@ -29,7 +29,7 @@ export class BestbrewCollector extends SketchCollector {
         loginUrl: "https://www.bestbrew.de/my/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GootenCollector extends SketchCollector {
         loginUrl: "https://www.gooten.com/Admin/Account/Login?ReturnUrl=%2fAdmin%2f#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

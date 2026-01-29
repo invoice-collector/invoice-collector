@@ -29,7 +29,7 @@ export class GumroadCollector extends SketchCollector {
         loginUrl: "http://www.gumroad.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

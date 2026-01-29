@@ -29,7 +29,7 @@ export class TelfortCollector extends SketchCollector {
         loginUrl: "https://www.telfort.nl/persoonlijk/inloggen-mijn-telfort.htm#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

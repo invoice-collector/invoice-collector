@@ -29,7 +29,7 @@ export class TockifyCollector extends SketchCollector {
         loginUrl: "https://tockify.com/i/site/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

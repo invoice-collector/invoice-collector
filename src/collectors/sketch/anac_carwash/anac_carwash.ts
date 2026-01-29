@@ -29,7 +29,7 @@ export class AnacCarwashCollector extends SketchCollector {
         loginUrl: "https://www.anaccarwash.com/unlimited-inloggen-nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

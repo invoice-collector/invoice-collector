@@ -29,7 +29,7 @@ export class DtnIqfeedCollector extends SketchCollector {
         loginUrl: "https://myaccount.dtn.com/storefront/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

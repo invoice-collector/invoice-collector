@@ -29,7 +29,7 @@ export class BaabooEuropeOuCollector extends SketchCollector {
         loginUrl: "https://baaboo.shop/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

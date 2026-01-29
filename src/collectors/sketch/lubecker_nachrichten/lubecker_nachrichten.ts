@@ -29,7 +29,7 @@ export class LubeckerNachrichtenCollector extends SketchCollector {
         loginUrl: "https://www.ln-online.de/mein-konto/#Abonnement/Plus",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

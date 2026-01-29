@@ -29,7 +29,7 @@ export class PodbeanCollector extends SketchCollector {
         loginUrl: "https://www.podbean.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

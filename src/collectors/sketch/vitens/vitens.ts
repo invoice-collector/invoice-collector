@@ -29,7 +29,7 @@ export class VitensCollector extends SketchCollector {
         loginUrl: "https://www.vitens.nl/inloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MyparcelBeCollector extends SketchCollector {
         loginUrl: "https://backoffice.sendmyparcel.be/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

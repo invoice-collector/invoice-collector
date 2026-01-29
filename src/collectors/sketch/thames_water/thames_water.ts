@@ -29,7 +29,7 @@ export class ThamesWaterCollector extends SketchCollector {
         loginUrl: "https://myaccount.thameswater.co.uk/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

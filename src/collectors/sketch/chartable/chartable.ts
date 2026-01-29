@@ -29,7 +29,7 @@ export class ChartableCollector extends SketchCollector {
         loginUrl: "https://chartable.com/teams/bimanu-wertgeschaetzt/dashboard/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

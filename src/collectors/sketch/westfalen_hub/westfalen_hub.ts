@@ -29,7 +29,7 @@ export class WestfalenHubCollector extends SketchCollector {
         loginUrl: "https://hub.westfalen.com/wcc-management",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

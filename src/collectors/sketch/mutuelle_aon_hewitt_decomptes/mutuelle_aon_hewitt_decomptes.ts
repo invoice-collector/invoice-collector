@@ -29,7 +29,7 @@ export class MutuelleAonHewittDecomptesCollector extends SketchCollector {
         loginUrl: "https://www.aon.com/france/produits-et-services/rh/gestion_frais_medicaux_regimes_prevoyance.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

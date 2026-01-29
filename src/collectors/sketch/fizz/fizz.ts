@@ -29,7 +29,7 @@ export class FizzCollector extends SketchCollector {
         loginUrl: "https://fizz.ca/en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

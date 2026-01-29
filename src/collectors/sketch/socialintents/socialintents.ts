@@ -29,7 +29,7 @@ export class SocialintentsCollector extends SketchCollector {
         loginUrl: "https://www.socialintents.com/plan.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

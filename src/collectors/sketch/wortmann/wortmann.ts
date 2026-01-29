@@ -29,7 +29,7 @@ export class WortmannCollector extends SketchCollector {
         loginUrl: "https://b2b.wortmann.de/de-de/profile/login.aspx?returnurl=%2fde-de%2fproductlist%2faktionsprodukte%2fherzlich-willkommen.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BelboonServiceCollector extends SketchCollector {
         loginUrl: "https://ui.service.belboon.com/app/index.html#/finance/billing/advertiser",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

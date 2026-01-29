@@ -29,7 +29,7 @@ export class AustraliaPostBusinessCollector extends SketchCollector {
         loginUrl: "https://auspost.com.au/mypost-business/auth/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

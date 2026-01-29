@@ -29,7 +29,7 @@ export class SystemeIoCollector extends SketchCollector {
         loginUrl: "https://systeme.io/dashboard/payment/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

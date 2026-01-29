@@ -29,7 +29,7 @@ export class HeiseDePlusCollector extends SketchCollector {
         loginUrl: "https://www.heise.de/sso/registration/add_subscriber_id",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

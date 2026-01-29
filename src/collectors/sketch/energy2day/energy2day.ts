@@ -29,7 +29,7 @@ export class Energy2dayCollector extends SketchCollector {
         loginUrl: "https://portal.energy2day.de/mailbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

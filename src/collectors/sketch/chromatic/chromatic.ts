@@ -29,7 +29,7 @@ export class ChromaticCollector extends SketchCollector {
         loginUrl: "https://www.chromatic.com/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

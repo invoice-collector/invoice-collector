@@ -29,7 +29,7 @@ export class AhaCollector extends SketchCollector {
         loginUrl: "https://secure.aha.io/session/new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

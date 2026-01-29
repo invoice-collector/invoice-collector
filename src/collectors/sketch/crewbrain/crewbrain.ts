@@ -29,7 +29,7 @@ export class CrewbrainCollector extends SketchCollector {
         loginUrl: "https://visua-two.crewbrain.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

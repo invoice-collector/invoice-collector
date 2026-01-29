@@ -29,7 +29,7 @@ export class EniFrCollector extends SketchCollector {
         loginUrl: "https://www.editions-eni.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

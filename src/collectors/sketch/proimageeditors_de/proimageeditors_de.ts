@@ -29,7 +29,7 @@ export class ProimageeditorsDeCollector extends SketchCollector {
         loginUrl: "https://pigonline.proimageeditors.de/index.php?fuseaction=proimageCustomer.orderList",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

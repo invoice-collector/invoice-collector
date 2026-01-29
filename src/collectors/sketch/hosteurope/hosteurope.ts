@@ -29,7 +29,7 @@ export class HosteuropeCollector extends SketchCollector {
         loginUrl: "https://kis.hosteurope.de/kundenkonto/rechnungen/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

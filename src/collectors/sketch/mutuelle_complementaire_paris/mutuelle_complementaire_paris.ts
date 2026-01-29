@@ -29,7 +29,7 @@ export class MutuelleComplementaireParisCollector extends SketchCollector {
         loginUrl: "https://mcvpap.mc602.fr/espaceadherents/login-adherent_new.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

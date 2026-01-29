@@ -29,7 +29,7 @@ export class OceanIoCollector extends SketchCollector {
         loginUrl: "https://app.ocean.io/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

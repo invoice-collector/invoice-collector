@@ -29,7 +29,7 @@ export class SynaxonEgisCollector extends SketchCollector {
         loginUrl: "https://www.egis-online.de/cgi-bin/WebObjects.exe/EGIS.woa",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

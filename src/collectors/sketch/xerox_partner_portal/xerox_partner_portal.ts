@@ -29,7 +29,7 @@ export class XeroxPartnerPortalCollector extends SketchCollector {
         loginUrl: "https://partneraccounts.services.xerox.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

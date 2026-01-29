@@ -29,7 +29,7 @@ export class OttoCollector extends SketchCollector {
         loginUrl: "https://www.otto.de/user/login?entryPoint=loginArea",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BoldenCollector extends SketchCollector {
         loginUrl: "https://bolden.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

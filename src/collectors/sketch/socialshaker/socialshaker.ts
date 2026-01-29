@@ -29,7 +29,7 @@ export class SocialshakerCollector extends SketchCollector {
         loginUrl: "https://www.socialshaker.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

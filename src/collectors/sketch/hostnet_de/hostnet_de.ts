@@ -29,7 +29,7 @@ export class HostnetDeCollector extends SketchCollector {
         loginUrl: "http://www.hostnet.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

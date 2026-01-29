@@ -29,7 +29,7 @@ export class ReselloCollector extends SketchCollector {
         loginUrl: "https://www.resello.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

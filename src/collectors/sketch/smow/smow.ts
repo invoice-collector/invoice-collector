@@ -29,7 +29,7 @@ export class SmowCollector extends SketchCollector {
         loginUrl: "https://www.smow.de/kundenkonto/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

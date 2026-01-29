@@ -29,7 +29,7 @@ export class SuburbanPropaneCollector extends SketchCollector {
         loginUrl: "https://account.suburbanpropane.com/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

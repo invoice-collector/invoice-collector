@@ -29,7 +29,7 @@ export class TurnoCollector extends SketchCollector {
         loginUrl: "https://app.turno.com/payments/methods",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

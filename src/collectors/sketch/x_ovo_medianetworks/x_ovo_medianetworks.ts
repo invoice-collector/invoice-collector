@@ -29,7 +29,7 @@ export class XOvoMedianetworksCollector extends SketchCollector {
         loginUrl: "https://secure.domainpartner.net/billing/invoices/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

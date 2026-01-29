@@ -29,7 +29,7 @@ export class OrthegCollector extends SketchCollector {
         loginUrl: "https://www.ortheg.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

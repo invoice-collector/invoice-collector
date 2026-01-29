@@ -29,7 +29,7 @@ export class TeamweekCollector extends SketchCollector {
         loginUrl: "https://plan.toggl.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

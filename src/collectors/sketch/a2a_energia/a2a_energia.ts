@@ -29,7 +29,7 @@ export class A2aEnergiaCollector extends SketchCollector {
         loginUrl: "http://www.a2aenergia.eu",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

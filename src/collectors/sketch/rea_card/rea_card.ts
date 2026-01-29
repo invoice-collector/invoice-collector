@@ -29,7 +29,7 @@ export class ReaCardCollector extends SketchCollector {
         loginUrl: "https://www.rea-service.de/main/de/forward.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

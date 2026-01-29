@@ -29,7 +29,7 @@ export class DrJoeDispenzaCollector extends SketchCollector {
         loginUrl: "https://drjoedispenza.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NeubaukompassCollector extends SketchCollector {
         loginUrl: "https://partner.neubaukompass.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

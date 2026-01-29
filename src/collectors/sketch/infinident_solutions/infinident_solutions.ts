@@ -29,7 +29,7 @@ export class InfinidentSolutionsCollector extends SketchCollector {
         loginUrl: "https://erp.infinidentsolutions.com/Infinident_myo/web/Portal-infinident_sol_myo-1/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

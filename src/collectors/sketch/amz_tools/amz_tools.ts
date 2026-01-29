@@ -29,7 +29,7 @@ export class AmzToolsCollector extends SketchCollector {
         loginUrl: "https://amz.tools/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

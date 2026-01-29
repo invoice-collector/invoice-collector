@@ -29,7 +29,7 @@ export class CsiiCollector extends SketchCollector {
         loginUrl: "https://secure.eplustechnologies.com/esalesplus/home_CSI.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

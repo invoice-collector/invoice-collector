@@ -29,7 +29,7 @@ export class StadtreinigungHamburgCollector extends SketchCollector {
         loginUrl: "https://meine.stadtreinigung.hamburg/portal/index.html?sap-client=101&sap-language=DE&sap-sec_session_created=X#/InvoiceList",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

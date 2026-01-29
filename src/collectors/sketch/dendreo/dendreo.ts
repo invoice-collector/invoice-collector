@@ -29,7 +29,7 @@ export class DendreoCollector extends SketchCollector {
         loginUrl: "https://pro.dendreo.com/institut_reikiologie/abonnement/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

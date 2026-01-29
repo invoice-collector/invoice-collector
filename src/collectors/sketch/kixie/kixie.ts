@@ -29,7 +29,7 @@ export class KixieCollector extends SketchCollector {
         loginUrl: "https://www.kixie.com/app/billing.html?userid=&duration=&start=&end=&businessid=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SpielmaterialCollector extends SketchCollector {
         loginUrl: "https://www.spielematerial.de/de/sales/order/invoice/order_id/129376/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

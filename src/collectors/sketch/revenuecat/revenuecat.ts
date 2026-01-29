@@ -29,7 +29,7 @@ export class RevenuecatCollector extends SketchCollector {
         loginUrl: "https://app.revenuecat.com/settings/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class OxstalCollector extends SketchCollector {
         loginUrl: "https://www.oxstal.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

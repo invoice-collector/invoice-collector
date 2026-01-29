@@ -29,7 +29,7 @@ export class CityBankUsaCollector extends SketchCollector {
         loginUrl: "https://secure.city.bank/CityBankOnline/uux.aspx#/landingPage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrangeCaraibeClientSpaceCollector extends SketchCollector {
         loginUrl: "https://espaceclient.orangecaraibe.com/fel/loginOut#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

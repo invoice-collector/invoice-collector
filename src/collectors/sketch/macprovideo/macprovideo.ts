@@ -29,7 +29,7 @@ export class MacprovideoCollector extends SketchCollector {
         loginUrl: "https://www.macprovideo.com/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

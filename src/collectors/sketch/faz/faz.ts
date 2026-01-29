@@ -29,7 +29,7 @@ export class FazCollector extends SketchCollector {
         loginUrl: "https://digitale-angebote.faz.net/selfservice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AgipiCollector extends SketchCollector {
         loginUrl: "https://www.assurancevie-agipi.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

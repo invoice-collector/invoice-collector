@@ -29,7 +29,7 @@ export class EventTempleCollector extends SketchCollector {
         loginUrl: "https://app.eventtemple.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

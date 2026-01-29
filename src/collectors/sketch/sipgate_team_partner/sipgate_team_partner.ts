@@ -29,7 +29,7 @@ export class SipgateTeamPartnerCollector extends SketchCollector {
         loginUrl: "https://app.sipgate.com/w0/team/settings/affiliate",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

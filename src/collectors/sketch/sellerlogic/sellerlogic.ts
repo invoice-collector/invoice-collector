@@ -29,7 +29,7 @@ export class SellerlogicCollector extends SketchCollector {
         loginUrl: "https://client.sellerlogic.com/payments/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

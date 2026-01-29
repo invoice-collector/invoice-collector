@@ -29,7 +29,7 @@ export class HeimatguthabenCollector extends SketchCollector {
         loginUrl: "https://www.heimatguthaben.de/signIn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

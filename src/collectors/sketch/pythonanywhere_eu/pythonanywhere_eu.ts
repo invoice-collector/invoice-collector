@@ -29,7 +29,7 @@ export class PythonanywhereEuCollector extends SketchCollector {
         loginUrl: "https://eu.pythonanywhere.com/login/?next=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

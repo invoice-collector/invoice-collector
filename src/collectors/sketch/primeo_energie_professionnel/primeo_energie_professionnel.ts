@@ -29,7 +29,7 @@ export class PrimeoEnergieProfessionnelCollector extends SketchCollector {
         loginUrl: "https://pro.primeo-energie.fr/invoices-pc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

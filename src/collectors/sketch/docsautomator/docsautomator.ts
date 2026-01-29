@@ -29,7 +29,7 @@ export class DocsautomatorCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/login/14kdSXcohdlweNafYY?prefilled_email=info@netzeroacademy.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LaCarteCarburantClientCollector extends SketchCollector {
         loginUrl: "https://client.lacartecarburant.com/authentification?returnUrl=%2Ffactures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

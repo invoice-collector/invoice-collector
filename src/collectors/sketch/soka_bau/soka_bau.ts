@@ -29,7 +29,7 @@ export class SokaBauCollector extends SketchCollector {
         loginUrl: "https://service.soka-bau.de/css-webapp/pages/postfach.sbo",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

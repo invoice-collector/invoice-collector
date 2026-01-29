@@ -29,7 +29,7 @@ export class MyjobquoteCollector extends SketchCollector {
         loginUrl: "https://www.myjobquote.co.uk/my-account/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

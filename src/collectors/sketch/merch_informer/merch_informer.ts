@@ -29,7 +29,7 @@ export class MerchInformerCollector extends SketchCollector {
         loginUrl: "https://members.merchinformer.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

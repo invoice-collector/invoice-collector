@@ -29,7 +29,7 @@ export class BoxAtWorkCollector extends SketchCollector {
         loginUrl: "http://www.boxatwork.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

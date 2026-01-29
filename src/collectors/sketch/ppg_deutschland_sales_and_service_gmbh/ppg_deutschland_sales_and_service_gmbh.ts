@@ -29,7 +29,7 @@ export class PpgDeutschlandSalesAndServiceGmbhCollector extends SketchCollector 
         loginUrl: "https://refeuinvoices.ppg.com/ppg/#/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SegmentComCollector extends SketchCollector {
         loginUrl: "https://app.segment.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

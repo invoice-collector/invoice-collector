@@ -29,7 +29,7 @@ export class EnergieeffizienzexpertenCollector extends SketchCollector {
         loginUrl: "https://www.energie-effizienz-experten.de/fuer-experten/benutzerkonto/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

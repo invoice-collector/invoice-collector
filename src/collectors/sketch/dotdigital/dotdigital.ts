@@ -29,7 +29,7 @@ export class DotdigitalCollector extends SketchCollector {
         loginUrl: "https://r1-app.dotdigital.com/account/my-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

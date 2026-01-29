@@ -29,7 +29,7 @@ export class ConbrIoFilesharingCollector extends SketchCollector {
         loginUrl: "https://conbr.io/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

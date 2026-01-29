@@ -29,7 +29,7 @@ export class DtnCollector extends SketchCollector {
         loginUrl: "https://online.dtn.com/online/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

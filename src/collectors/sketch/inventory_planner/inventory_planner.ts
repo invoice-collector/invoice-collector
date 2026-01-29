@@ -29,7 +29,7 @@ export class InventoryPlannerCollector extends SketchCollector {
         loginUrl: "https://app.inventory-planner.com/#/settings/billing?a=a1988",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

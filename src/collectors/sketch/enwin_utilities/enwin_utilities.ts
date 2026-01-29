@@ -29,7 +29,7 @@ export class EnwinUtilitiesCollector extends SketchCollector {
         loginUrl: "https://myaccount.enwin.com/CC/Login.xml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

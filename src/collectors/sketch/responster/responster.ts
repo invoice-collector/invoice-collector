@@ -29,7 +29,7 @@ export class ResponsterCollector extends SketchCollector {
         loginUrl: "https://account.responster.com/#page=billing&tab=&id=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

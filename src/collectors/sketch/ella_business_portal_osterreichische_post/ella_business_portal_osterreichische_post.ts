@@ -29,7 +29,7 @@ export class EllaBusinessPortalOsterreichischePostCollector extends SketchCollec
         loginUrl: "https://ella.post.at/en/my-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

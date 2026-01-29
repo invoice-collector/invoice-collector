@@ -28,7 +28,7 @@ export class IleDeFranceMobilitesCollector extends SketchCollector {
         loginUrl: "https://mon-espace.iledefrance-mobilites.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

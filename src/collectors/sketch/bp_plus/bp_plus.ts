@@ -29,7 +29,7 @@ export class BpPlusCollector extends SketchCollector {
         loginUrl: "https://www.bpplus.com/pages/am/Invoice_List.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

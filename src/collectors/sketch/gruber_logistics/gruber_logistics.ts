@@ -29,7 +29,7 @@ export class GruberLogisticsCollector extends SketchCollector {
         loginUrl: "https://mydesk.gruber-logistics.com/customer-invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

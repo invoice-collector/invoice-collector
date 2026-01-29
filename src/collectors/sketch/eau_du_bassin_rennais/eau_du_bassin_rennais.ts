@@ -29,7 +29,7 @@ export class EauDuBassinRennaisCollector extends SketchCollector {
         loginUrl: "https://www.eaudubassinrennais.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

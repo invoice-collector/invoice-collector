@@ -29,7 +29,7 @@ export class AgilecrmCollector extends SketchCollector {
         loginUrl: "https://my.agilecrm.com/enter-domain?to=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

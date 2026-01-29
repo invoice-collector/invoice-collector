@@ -29,7 +29,7 @@ export class DeadManSSnitchCollector extends SketchCollector {
         loginUrl: "http://www.deadmanssnitch.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

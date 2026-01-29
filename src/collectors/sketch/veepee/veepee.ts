@@ -29,7 +29,7 @@ export class VeepeeCollector extends SketchCollector {
         loginUrl: "https://www.veepee.fr/authentication/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

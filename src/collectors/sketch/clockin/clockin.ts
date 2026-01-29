@@ -29,7 +29,7 @@ export class ClockinCollector extends SketchCollector {
         loginUrl: "http://www.clockin.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

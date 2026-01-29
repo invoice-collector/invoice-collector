@@ -29,7 +29,7 @@ export class NatureEtDecouvertesCollector extends SketchCollector {
         loginUrl: "https://marketplace.natureetdecouvertes.com/mmp/shop/accounting-document/finalized?limit=50&order=DESC&sort=dateCreated",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

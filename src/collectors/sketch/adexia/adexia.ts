@@ -29,7 +29,7 @@ export class AdexiaCollector extends SketchCollector {
         loginUrl: "https://client.groupe-adexia.com/isuiteexpert/pages/iged/iged.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

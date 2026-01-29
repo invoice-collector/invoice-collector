@@ -29,7 +29,7 @@ export class GevGrundeigentumerVersicherungCollector extends SketchCollector {
         loginUrl: "https://www.gev-versicherung.de/service/?q=nav",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class SeopCollector extends SketchCollector {
         loginUrl: "https://www.seop.fr/mon-compte-en-ligne/je-me-connecte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

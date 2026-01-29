@@ -29,7 +29,7 @@ export class CapturingRealityCollector extends SketchCollector {
         loginUrl: "https://www.capturingreality.com/my.invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

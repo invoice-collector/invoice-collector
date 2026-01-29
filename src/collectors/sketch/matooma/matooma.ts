@@ -29,7 +29,7 @@ export class MatoomaCollector extends SketchCollector {
         loginUrl: "https://m2mmanager.matooma.com/en/home/offers-management/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

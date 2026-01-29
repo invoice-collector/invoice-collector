@@ -29,7 +29,7 @@ export class ZencoderCollector extends SketchCollector {
         loginUrl: "https://app.zencoder.com/account/statements/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class XeroxCollector extends SketchCollector {
         loginUrl: "https://www.accounts.xerox.com/auth/login.jsf?&locale=en_US",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

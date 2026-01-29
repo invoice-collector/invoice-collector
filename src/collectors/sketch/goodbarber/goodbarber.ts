@@ -29,7 +29,7 @@ export class GoodbarberCollector extends SketchCollector {
         loginUrl: "https://www.goodbarber.com/reseller/manage/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FluiduiComCollector extends SketchCollector {
         loginUrl: "https://www.fluidui.com/editor/live/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

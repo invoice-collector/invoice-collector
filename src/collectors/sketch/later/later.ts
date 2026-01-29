@@ -29,7 +29,7 @@ export class LaterCollector extends SketchCollector {
         loginUrl: "https://app.later.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

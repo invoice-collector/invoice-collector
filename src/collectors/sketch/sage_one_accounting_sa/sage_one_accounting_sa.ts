@@ -29,7 +29,7 @@ export class SageOneAccountingSaCollector extends SketchCollector {
         loginUrl: "https://accounting.sageone.co.za/Landing/Default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

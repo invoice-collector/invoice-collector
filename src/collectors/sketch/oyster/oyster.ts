@@ -29,7 +29,7 @@ export class OysterCollector extends SketchCollector {
         loginUrl: "https://app.oysterhr.com/company/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

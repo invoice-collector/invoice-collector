@@ -29,7 +29,7 @@ export class DccDkCollector extends SketchCollector {
         loginUrl: "https://en.dcc.dk/customercenter/credit-note",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

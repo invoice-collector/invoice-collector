@@ -29,7 +29,7 @@ export class FixschaltenCollector extends SketchCollector {
         loginUrl: "https://www.fixschalten.de/home.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WebDeCollector extends SketchCollector {
         loginUrl: "https://mein.web.de/rechnungen?inner=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

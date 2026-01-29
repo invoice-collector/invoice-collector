@@ -29,7 +29,7 @@ export class BhnRewardsCollector extends SketchCollector {
         loginUrl: "https://app.rybbon.net/ui/reports/payment-report",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MmfProCollector extends SketchCollector {
         loginUrl: "https://www.mmf-pro.com/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

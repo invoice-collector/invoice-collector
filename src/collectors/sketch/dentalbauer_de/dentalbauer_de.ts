@@ -29,7 +29,7 @@ export class DentalbauerDeCollector extends SketchCollector {
         loginUrl: "http://www.dentalbauer.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PhotoboxFrCollector extends SketchCollector {
         loginUrl: "http://www.photobox.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AirtimeCollector extends SketchCollector {
         loginUrl: "https://airtame.cloud/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

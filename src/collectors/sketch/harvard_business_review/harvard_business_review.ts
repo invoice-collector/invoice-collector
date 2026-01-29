@@ -29,7 +29,7 @@ export class HarvardBusinessReviewCollector extends SketchCollector {
         loginUrl: "https://hbr.org/my-library/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

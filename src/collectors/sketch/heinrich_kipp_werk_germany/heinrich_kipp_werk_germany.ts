@@ -29,7 +29,7 @@ export class HeinrichKippWerkGermanyCollector extends SketchCollector {
         loginUrl: "https://www.kippwerk.de/de/my-account/order/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

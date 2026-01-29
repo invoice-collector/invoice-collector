@@ -29,7 +29,7 @@ export class XadapterCollector extends SketchCollector {
         loginUrl: "https://www.xadapter.com/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DictumCollector extends SketchCollector {
         loginUrl: "https://www.dictum.com/de/konto/meine-bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

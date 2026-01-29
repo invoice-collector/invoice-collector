@@ -29,7 +29,7 @@ export class RingCollector extends SketchCollector {
         loginUrl: "https://ring.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

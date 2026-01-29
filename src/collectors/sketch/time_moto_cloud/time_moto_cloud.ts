@@ -29,7 +29,7 @@ export class TimeMotoCloudCollector extends SketchCollector {
         loginUrl: "https://auth-eu.timemoto.com/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3DCloud%26redirect_uri%3Dhttps%253A%252F%252Fcloud-eu.timemoto.com%26response_type%3Dcode%26scope%3Dopenid%2520profile%2520public-api%26nonce%3D940fc10e5585",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

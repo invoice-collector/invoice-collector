@@ -29,7 +29,7 @@ export class UsFoodsCollector extends SketchCollector {
         loginUrl: "https://www3.usfoods.com/order/faces/oracle/webcenter/portalapp/pages/invoice/invoiceInquiry.jspx?_adf.ctrl-state=c4yt4t9gs_4&_afrLoop=73457099228509#!",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

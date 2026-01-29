@@ -29,7 +29,7 @@ export class SouthernCaliforniaEdisonCollector extends SketchCollector {
         loginUrl: "http://www.sce.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

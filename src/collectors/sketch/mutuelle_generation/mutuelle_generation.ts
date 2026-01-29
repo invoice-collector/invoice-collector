@@ -29,7 +29,7 @@ export class MutuelleGenerationCollector extends SketchCollector {
         loginUrl: "https://www.generation.fr/View/AccueilProSante.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

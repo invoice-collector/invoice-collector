@@ -29,7 +29,7 @@ export class DataforseoCollector extends SketchCollector {
         loginUrl: "https://app.dataforseo.com/users/getrows",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

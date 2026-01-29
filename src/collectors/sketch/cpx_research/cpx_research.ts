@@ -29,7 +29,7 @@ export class CpxResearchCollector extends SketchCollector {
         loginUrl: "https://publisher.cpx-research.com/index.php?page=statistics_account_balance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

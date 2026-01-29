@@ -29,7 +29,7 @@ export class Uk2numbersCollector extends SketchCollector {
         loginUrl: "http://www.uk2numbers.co.uk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

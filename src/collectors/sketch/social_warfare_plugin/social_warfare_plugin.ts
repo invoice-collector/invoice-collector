@@ -29,7 +29,7 @@ export class SocialWarfarePluginCollector extends SketchCollector {
         loginUrl: "https://warfareplugins.com/wp-login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

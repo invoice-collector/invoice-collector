@@ -29,7 +29,7 @@ export class LogoMakerCollector extends SketchCollector {
         loginUrl: "https://www.logomaker.com/de/websites-management",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

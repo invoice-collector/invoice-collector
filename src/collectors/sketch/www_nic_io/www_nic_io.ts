@@ -29,7 +29,7 @@ export class WwwNicIoCollector extends SketchCollector {
         loginUrl: "https://my.nic.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

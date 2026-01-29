@@ -29,7 +29,7 @@ export class Tyre24Collector extends SketchCollector {
         loginUrl: "https://www.tyre24.com/de/de/user/login/page/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

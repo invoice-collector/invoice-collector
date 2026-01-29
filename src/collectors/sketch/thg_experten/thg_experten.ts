@@ -29,7 +29,7 @@ export class ThgExpertenCollector extends SketchCollector {
         loginUrl: "https://thg-experten.de/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

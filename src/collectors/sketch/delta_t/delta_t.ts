@@ -29,7 +29,7 @@ export class DeltaTCollector extends SketchCollector {
         loginUrl: "https://www.messdienst24.de/?md=dth#!",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

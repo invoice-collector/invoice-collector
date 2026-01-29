@@ -29,7 +29,7 @@ export class IncorewebComCollector extends SketchCollector {
         loginUrl: "https://www.incoreweb.com/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {
