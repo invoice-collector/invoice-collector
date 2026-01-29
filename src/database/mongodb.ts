@@ -8,7 +8,6 @@ import { buildCustomerStatsPipeline } from "./mongodbConstants";
 import { State } from "../model/state";
 import { CollectorMemory } from "../model/collectorMemory";
 import { Actions } from "../model/actions";
-import { Secret } from "../model/secret";
 
 export class MongoDB extends AbstractDatabase {
 
