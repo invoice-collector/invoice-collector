@@ -24,7 +24,6 @@ export class Bitwarden extends AbstractSecretManager {
             deviceType: DeviceType.SDK,
         };
         this.client = new BitwardenClient(settings, 2);
-        this.connect();
     }
 
     async connect(): Promise<void> {

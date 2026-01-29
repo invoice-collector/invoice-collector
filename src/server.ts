@@ -47,8 +47,9 @@ export class Server {
         // Connect to database
         await DatabaseFactory.getDatabase().connect();
 
-        // Connect to secret manager
-        await SecretManagerFactory.getSecretManager();
+        // Load secret manager and connect to it
+        await SecretManagerFactory.load();
+        await SecretManagerFactory.getSecretManager().connect();
 
         // Check if registery server is reachable
         RegistryServer.getInstance().ping();

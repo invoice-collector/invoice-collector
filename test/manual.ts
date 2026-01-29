@@ -19,7 +19,7 @@ import { SecretManagerFactory } from '../src/secret_manager/secretManagerFactory
 import { WebSocketServer } from '../src/websocket/webSocketServer';
 import * as utils from '../src/utils';
 import { WebCollector } from '../src/collectors/webCollector';
-import { AbstractCollector, CollectorType, Config } from '../src/collectors/abstractCollector';
+import { AbstractCollector, Config } from '../src/collectors/abstractCollector';
 import { TwofaPromise } from '../src/collect/twofaPromise';
 import { Secret } from '../src/model/secret';
 
@@ -35,6 +35,8 @@ async function getCredentialFromId(credential_id: string): Promise<IcCredential>
 
 async function getSecretFromCredential(credential: IcCredential): Promise<Secret> {
     let secret = credential.getSecret();
+    await SecretManagerFactory.load();
+    await SecretManagerFactory.getSecretManager().connect();
     secret.value = await SecretManagerFactory.getSecretManager().getValue(credential.secret_id);
     if(secret == null) {
         throw new Error(`No secret with id "${credential.secret_id}" found.`);
