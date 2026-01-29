@@ -29,7 +29,7 @@ export class BordGaisEnergyCollector extends SketchCollector {
         loginUrl: "https://www.bordgaisenergy.ie/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

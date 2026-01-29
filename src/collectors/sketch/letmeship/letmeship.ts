@@ -29,7 +29,7 @@ export class LetmeshipCollector extends SketchCollector {
         loginUrl: "https://www.letmeship.de/InvoicesArchive?2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

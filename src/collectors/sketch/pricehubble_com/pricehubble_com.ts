@@ -29,7 +29,7 @@ export class PricehubbleComCollector extends SketchCollector {
         loginUrl: "https://dash.pricehubble.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

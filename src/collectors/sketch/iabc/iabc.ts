@@ -29,7 +29,7 @@ export class IabcCollector extends SketchCollector {
         loginUrl: "https://members.iabc.com/my-account/my-profile/?tab=activememberships",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

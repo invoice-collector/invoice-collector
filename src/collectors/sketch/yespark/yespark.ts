@@ -29,7 +29,7 @@ export class YesparkCollector extends SketchCollector {
         loginUrl: "https://www.yespark.fr/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WnOnlineCollector extends SketchCollector {
         loginUrl: "https://my.wn-onlineservice.de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

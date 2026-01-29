@@ -29,7 +29,7 @@ export class Schreibburo24Collector extends SketchCollector {
         loginUrl: "https://www.schreibbuero-24.com/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

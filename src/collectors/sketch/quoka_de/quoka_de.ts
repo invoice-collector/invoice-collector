@@ -29,7 +29,7 @@ export class QuokaDeCollector extends SketchCollector {
         loginUrl: "https://www.quoka.de/mein-konto/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

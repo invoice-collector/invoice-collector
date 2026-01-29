@@ -29,7 +29,7 @@ export class CentronCollector extends SketchCollector {
         loginUrl: "https://ccenter.internet1.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

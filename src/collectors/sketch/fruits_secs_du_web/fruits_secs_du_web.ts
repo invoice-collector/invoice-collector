@@ -29,7 +29,7 @@ export class FruitsSecsDuWebCollector extends SketchCollector {
         loginUrl: "https://www.fruitssecsduweb.com/commande",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KohlForderungsmanagementCollector extends SketchCollector {
         loginUrl: "https://kundenlogin.kohlkg.de/MP/Menue.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

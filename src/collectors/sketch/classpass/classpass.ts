@@ -29,7 +29,7 @@ export class ClasspassCollector extends SketchCollector {
         loginUrl: "https://classpass.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

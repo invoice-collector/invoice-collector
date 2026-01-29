@@ -29,7 +29,7 @@ export class GainCollector extends SketchCollector {
         loginUrl: "https://manage.gainapp.com/14577/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

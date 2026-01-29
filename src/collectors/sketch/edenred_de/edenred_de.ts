@@ -29,7 +29,7 @@ export class EdenredDeCollector extends SketchCollector {
         loginUrl: "https://firmenkunden.mein-edenred.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

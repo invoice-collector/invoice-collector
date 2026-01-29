@@ -29,7 +29,7 @@ export class PremiumsimCollector extends SketchCollector {
         loginUrl: "https://service.premiumsim.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DeutschePostElektronischesAuftragsmanagementCollector extends Sketc
         loginUrl: "https://auftragsmanagement.deutschepost.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

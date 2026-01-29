@@ -29,7 +29,7 @@ export class InsightAtCollector extends SketchCollector {
         loginUrl: "https://at.insight.com/de/apps/account/invoices.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

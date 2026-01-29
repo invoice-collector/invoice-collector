@@ -29,7 +29,7 @@ export class TssGroupCollector extends SketchCollector {
         loginUrl: "https://www.tss.coop/intranet9/chefsache/rechnungsarchiv.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

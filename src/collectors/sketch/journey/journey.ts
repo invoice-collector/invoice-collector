@@ -29,7 +29,7 @@ export class JourneyCollector extends SketchCollector {
         loginUrl: "https://app.journey.io/mariolueddemann/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TombaExpressCollector extends SketchCollector {
         loginUrl: "https://www.tomba-express.com/index.php?action=my_orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

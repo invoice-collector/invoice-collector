@@ -29,7 +29,7 @@ export class CommunicationadsCollector extends SketchCollector {
         loginUrl: "https://login.communicationads.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

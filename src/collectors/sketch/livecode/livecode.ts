@@ -29,7 +29,7 @@ export class LivecodeCollector extends SketchCollector {
         loginUrl: "https://livecode.com/account/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

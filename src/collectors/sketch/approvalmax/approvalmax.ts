@@ -29,7 +29,7 @@ export class ApprovalmaxCollector extends SketchCollector {
         loginUrl: "https://www.approvalmax.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

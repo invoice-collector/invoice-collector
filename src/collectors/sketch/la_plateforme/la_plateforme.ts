@@ -29,7 +29,7 @@ export class LaPlateformeCollector extends SketchCollector {
         loginUrl: "https://www.laplateforme.com/users/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

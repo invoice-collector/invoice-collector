@@ -29,7 +29,7 @@ export class EauDuPonantCollector extends SketchCollector {
         loginUrl: "https://espace-abonne.eauduponant.fr//#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

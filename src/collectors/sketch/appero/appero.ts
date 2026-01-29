@@ -29,7 +29,7 @@ export class ApperoCollector extends SketchCollector {
         loginUrl: "https://admin.appero.co/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

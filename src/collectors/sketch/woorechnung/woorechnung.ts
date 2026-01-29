@@ -29,7 +29,7 @@ export class WoorechnungCollector extends SketchCollector {
         loginUrl: "https://woorechnung.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

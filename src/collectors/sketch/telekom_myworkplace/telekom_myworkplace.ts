@@ -29,7 +29,7 @@ export class TelekomMyworkplaceCollector extends SketchCollector {
         loginUrl: "https://myworkplace.t-systems.com/MyWorkplace/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

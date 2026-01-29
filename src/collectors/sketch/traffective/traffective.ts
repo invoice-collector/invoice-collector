@@ -29,7 +29,7 @@ export class TraffectiveCollector extends SketchCollector {
         loginUrl: "https://cockpit.traffective.com/payment/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

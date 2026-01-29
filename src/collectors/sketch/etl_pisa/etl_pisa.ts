@@ -29,7 +29,7 @@ export class EtlPisaCollector extends SketchCollector {
         loginUrl: "https://pisa.etl.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

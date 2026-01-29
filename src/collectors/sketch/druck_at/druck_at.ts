@@ -29,7 +29,7 @@ export class DruckAtCollector extends SketchCollector {
         loginUrl: "https://www.druck.at/user/tracking/?type=invoice#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

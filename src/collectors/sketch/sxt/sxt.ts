@@ -29,7 +29,7 @@ export class SxtCollector extends SketchCollector {
         loginUrl: "https://www.sxt-scooters.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

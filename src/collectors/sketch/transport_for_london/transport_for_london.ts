@@ -29,7 +29,7 @@ export class TransportForLondonCollector extends SketchCollector {
         loginUrl: "https://reg.web.tflcc.co.uk/TFL.LRUC.AccountAuth/S9",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

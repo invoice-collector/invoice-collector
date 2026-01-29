@@ -29,7 +29,7 @@ export class ExtraenergieCollector extends SketchCollector {
         loginUrl: "https://www.extraenergie.com/selfcare",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

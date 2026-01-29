@@ -47,9 +47,9 @@ export class CollectorLoader {
                         try {
                             // Replace enum references with their values before eval
                             let configStr = configMatch[1]
-                            .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
+                            .replace("CollectorState.PLANNED", `"${CollectorState.PLANNED.toString()}"`)
                             .replace("CollectorState.DEVELOPMENT", `"${CollectorState.DEVELOPMENT.toString()}"`)
-                            .replace("CollectorState.MAINTENANCE", `"${CollectorState.MAINTENANCE.toString()}"`)
+                            .replace("CollectorState.ACTIVE", `"${CollectorState.ACTIVE.toString()}"`)
                             .replace("CollectorCaptcha.NONE", `"${CollectorCaptcha.NONE.toString()}"`)
                             .replace("CollectorCaptcha.CLOUDFLARE", `"${CollectorCaptcha.CLOUDFLARE.toString()}"`)
                             .replace("CollectorCaptcha.DATADOME", `"${CollectorCaptcha.DATADOME.toString()}"`)

@@ -29,7 +29,7 @@ export class GmxCollector extends SketchCollector {
         loginUrl: "http://www.gmx.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

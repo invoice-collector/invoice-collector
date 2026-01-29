@@ -29,7 +29,7 @@ export class CrelloCollector extends SketchCollector {
         loginUrl: "https://crello.com/fr/user/settings/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

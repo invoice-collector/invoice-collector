@@ -29,7 +29,7 @@ export class TradermadeCollector extends SketchCollector {
         loginUrl: "https://www.tradermade.com/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BunnyCollector extends SketchCollector {
         loginUrl: "https://panel.bunny.net/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

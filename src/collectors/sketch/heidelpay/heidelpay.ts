@@ -29,7 +29,7 @@ export class HeidelpayCollector extends SketchCollector {
         loginUrl: "https://heidelpay.hpcgw.net/hip/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

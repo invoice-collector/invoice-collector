@@ -29,7 +29,7 @@ export class ConceptBoardCollector extends SketchCollector {
         loginUrl: "https://app.conceptboard.com/login-redirect",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

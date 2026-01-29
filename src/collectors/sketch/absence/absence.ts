@@ -29,7 +29,7 @@ export class AbsenceCollector extends SketchCollector {
         loginUrl: "https://app.absence.io/#/actions/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

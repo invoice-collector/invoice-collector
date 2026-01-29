@@ -29,7 +29,7 @@ export class DeploybotCollector extends SketchCollector {
         loginUrl: "https://login.deploybot.com/session/new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

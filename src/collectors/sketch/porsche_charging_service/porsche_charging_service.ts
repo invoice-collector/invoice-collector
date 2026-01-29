@@ -29,7 +29,7 @@ export class PorscheChargingServiceCollector extends SketchCollector {
         loginUrl: "https://inbox.porsche.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

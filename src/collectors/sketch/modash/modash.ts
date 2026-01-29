@@ -29,7 +29,7 @@ export class ModashCollector extends SketchCollector {
         loginUrl: "https://marketer.modash.io/billing/plan-details",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IngramMicroCloudBeCollector extends SketchCollector {
         loginUrl: "https://cp.be.eu.cloud.im/ccp/v/pa/ccp-billing/history-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

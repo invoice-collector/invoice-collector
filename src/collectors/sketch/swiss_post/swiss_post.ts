@@ -29,7 +29,7 @@ export class SwissPostCollector extends SketchCollector {
         loginUrl: "https://account.post.ch/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

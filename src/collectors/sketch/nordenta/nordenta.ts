@@ -29,7 +29,7 @@ export class NordentaCollector extends SketchCollector {
         loginUrl: "https://www.nordenta.de/my-account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

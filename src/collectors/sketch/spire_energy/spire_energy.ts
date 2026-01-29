@@ -29,7 +29,7 @@ export class SpireEnergyCollector extends SketchCollector {
         loginUrl: "https://www.spireenergy.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

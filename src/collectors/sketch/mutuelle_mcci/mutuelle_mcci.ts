@@ -29,7 +29,7 @@ export class MutuelleMcciCollector extends SketchCollector {
         loginUrl: "https://www.mcci.fr/php/adherent.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ArvivrCollector extends SketchCollector {
         loginUrl: "https://vrp.arvilab.com/client/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

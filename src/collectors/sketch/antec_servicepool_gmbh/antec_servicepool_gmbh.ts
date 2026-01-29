@@ -29,7 +29,7 @@ export class AntecServicepoolGmbhCollector extends SketchCollector {
         loginUrl: "https://webportal.antec-servicepool.de:1443/DocumentArc/DocumentArchive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

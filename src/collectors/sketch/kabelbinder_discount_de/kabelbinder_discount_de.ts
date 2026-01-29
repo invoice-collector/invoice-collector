@@ -29,7 +29,7 @@ export class KabelbinderDiscountDeCollector extends SketchCollector {
         loginUrl: "https://kabelbinder-discount.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

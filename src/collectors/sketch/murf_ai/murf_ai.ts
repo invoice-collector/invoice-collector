@@ -29,7 +29,7 @@ export class MurfAiCollector extends SketchCollector {
         loginUrl: "https://murf.ai/user/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EsetCollector extends SketchCollector {
         loginUrl: "https://portal.eset.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

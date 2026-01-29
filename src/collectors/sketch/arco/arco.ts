@@ -29,7 +29,7 @@ export class ArcoCollector extends SketchCollector {
         loginUrl: "https://simplyui-icd2.azurewebsites.net/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

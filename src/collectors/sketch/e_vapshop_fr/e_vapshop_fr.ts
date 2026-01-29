@@ -29,7 +29,7 @@ export class EVapshopFrCollector extends SketchCollector {
         loginUrl: "https://www.e-vapshop.fr/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

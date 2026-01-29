@@ -29,7 +29,7 @@ export class MorrisonsCollector extends SketchCollector {
         loginUrl: "https://groceries.morrisons.com/webshop/login.go?from=header",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class A1BusinessCollector extends SketchCollector {
         loginUrl: "https://ppp.a1.net/start/index.sp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

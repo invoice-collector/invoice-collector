@@ -29,7 +29,7 @@ export class AppfollowCollector extends SketchCollector {
         loginUrl: "https://watch.appfollow.io/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

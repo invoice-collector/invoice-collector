@@ -29,7 +29,7 @@ export class MrpEasyCollector extends SketchCollector {
         loginUrl: "https://app.mrpeasy.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

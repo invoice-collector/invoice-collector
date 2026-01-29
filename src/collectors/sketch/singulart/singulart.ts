@@ -29,7 +29,7 @@ export class SingulartCollector extends SketchCollector {
         loginUrl: "https://www.singulart.com/my-singulart/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

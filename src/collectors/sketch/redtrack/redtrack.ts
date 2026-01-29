@@ -29,7 +29,7 @@ export class RedtrackCollector extends SketchCollector {
         loginUrl: "https://app.redtrack.io/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

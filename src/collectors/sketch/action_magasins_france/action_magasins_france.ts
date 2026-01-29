@@ -29,7 +29,7 @@ export class ActionMagasinsFranceCollector extends SketchCollector {
         loginUrl: "https://www.action.com/fr-fr/mon-action/#mes-tickets-de-caisse",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

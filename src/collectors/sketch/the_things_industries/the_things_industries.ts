@@ -29,7 +29,7 @@ export class TheThingsIndustriesCollector extends SketchCollector {
         loginUrl: "https://accounts.thethingsindustries.com/dashboard/subscriptions/sub_1ObdRdBfIIHupA2rb7uAawLm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

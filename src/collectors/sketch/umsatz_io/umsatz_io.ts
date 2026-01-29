@@ -29,7 +29,7 @@ export class UmsatzIoCollector extends SketchCollector {
         loginUrl: "https://app.umsatz.io/invitation?token=eyJ0eXAiOiJqd3QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ing3MXJMT3NxNlpPSWVELWx5SXRaUkVlSnp3VVplRG5jcjZyLWtYZW5JRG8ifQ.eyJ0ZW5hbnRJZCI6IjhmY2Y3MTVmLTM5NTgtNGY4MS1iZGQwLTZlYzc4NDMwY2Q5MiIsImFjY291bnRJZCI6IjMyNjY0ZjdmLWZiOGUtNDcwM",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

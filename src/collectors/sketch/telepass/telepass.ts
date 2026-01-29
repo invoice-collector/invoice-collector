@@ -29,7 +29,7 @@ export class TelepassCollector extends SketchCollector {
         loginUrl: "https://www.telepass.com/KTI/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

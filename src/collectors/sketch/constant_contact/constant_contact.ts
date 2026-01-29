@@ -29,7 +29,7 @@ export class ConstantContactCollector extends SketchCollector {
         loginUrl: "https://login.constantcontact.com/login/login.sdo?goto=https%3A%2F%2Fwww.constantcontact.com%2Fprocessing_login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

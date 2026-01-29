@@ -29,7 +29,7 @@ export class MonsterzeugCollector extends SketchCollector {
         loginUrl: "https://www.monsterzeug.de/account.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

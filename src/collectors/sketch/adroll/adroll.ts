@@ -29,7 +29,7 @@ export class AdrollCollector extends SketchCollector {
         loginUrl: "https://app.adroll.com/account/signin?next=%2Fdashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

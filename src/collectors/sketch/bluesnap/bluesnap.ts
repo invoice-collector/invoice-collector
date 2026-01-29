@@ -29,7 +29,7 @@ export class BluesnapCollector extends SketchCollector {
         loginUrl: "https://cp.bluesnap.com/jsp/account_login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

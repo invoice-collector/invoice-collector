@@ -29,7 +29,7 @@ export class HamburgEnergieCollector extends SketchCollector {
         loginUrl: "https://portal.hamburgenergie.de/powercommerce/hhe/fo/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

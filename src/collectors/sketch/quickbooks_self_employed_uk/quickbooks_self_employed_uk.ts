@@ -29,7 +29,7 @@ export class QuickbooksSelfEmployedUkCollector extends SketchCollector {
         loginUrl: "https://quickbooks.intuit.com/uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

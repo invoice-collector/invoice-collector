@@ -29,7 +29,7 @@ export class YumpuCollector extends SketchCollector {
         loginUrl: "https://www.yumpu.com/de/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

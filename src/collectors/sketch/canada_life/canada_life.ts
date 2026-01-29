@@ -29,7 +29,7 @@ export class CanadaLifeCollector extends SketchCollector {
         loginUrl: "https://partnernet.canadalife.de/selfcare/CleAdvisorLoginSelfCare/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

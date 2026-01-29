@@ -29,7 +29,7 @@ export class CollmexCollector extends SketchCollector {
         loginUrl: "https://www.collmex.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

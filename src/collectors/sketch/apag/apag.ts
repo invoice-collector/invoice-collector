@@ -29,7 +29,7 @@ export class ApagCollector extends SketchCollector {
         loginUrl: "https://www.meine.apag.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

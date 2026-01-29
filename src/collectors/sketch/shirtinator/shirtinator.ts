@@ -29,7 +29,7 @@ export class ShirtinatorCollector extends SketchCollector {
         loginUrl: "https://www.shirtinator.de/einloggen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

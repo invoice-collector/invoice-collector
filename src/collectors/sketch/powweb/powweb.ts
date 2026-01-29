@@ -29,7 +29,7 @@ export class PowwebCollector extends SketchCollector {
         loginUrl: "https://secure.powweb.com/secure/login.bml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

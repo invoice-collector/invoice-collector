@@ -29,7 +29,7 @@ export class LucidpicCollector extends SketchCollector {
         loginUrl: "https://lucidpic.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

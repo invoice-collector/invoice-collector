@@ -29,7 +29,7 @@ export class Felix1DeCollector extends SketchCollector {
         loginUrl: "https://www.felix1.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

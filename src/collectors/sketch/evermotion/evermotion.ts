@@ -29,7 +29,7 @@ export class EvermotionCollector extends SketchCollector {
         loginUrl: "https://evermotion.org/shop/my_orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

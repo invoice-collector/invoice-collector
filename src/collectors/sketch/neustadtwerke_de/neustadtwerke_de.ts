@@ -29,7 +29,7 @@ export class NeustadtwerkeDeCollector extends SketchCollector {
         loginUrl: "https://portal.neustadtwerke.de/powercommerce/ivu/fo/portal/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

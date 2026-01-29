@@ -29,7 +29,7 @@ export class TrainlineBusinessCollector extends SketchCollector {
         loginUrl: "https://www.trainline.fr/organization/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

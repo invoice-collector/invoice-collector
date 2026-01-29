@@ -29,7 +29,7 @@ export class ZeitLohnCollector extends SketchCollector {
         loginUrl: "https://zeit-lohn.net/Home/Index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

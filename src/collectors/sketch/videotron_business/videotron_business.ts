@@ -29,7 +29,7 @@ export class VideotronBusinessCollector extends SketchCollector {
         loginUrl: "https://videotron.com/business/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

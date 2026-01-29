@@ -29,7 +29,7 @@ export class RicohIdxCollector extends SketchCollector {
         loginUrl: "https://www.ricoh-idx.net/portalv3/Documents/#/Inbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

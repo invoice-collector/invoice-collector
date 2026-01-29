@@ -29,7 +29,7 @@ export class SocialWorksCollector extends SketchCollector {
         loginUrl: "https://techfusion.azurewebsites.net/Invoices/List#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RainbowprintCollector extends SketchCollector {
         loginUrl: "http://www.rainbowprint.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrsonCollector extends SketchCollector {
         loginUrl: "https://secure.orson.io/fr/billings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

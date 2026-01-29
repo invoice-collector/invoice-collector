@@ -29,7 +29,7 @@ export class RhenusOfficeSystemsCollector extends SketchCollector {
         loginUrl: "https://www.aktenvernichtung.de/race-kundenportal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

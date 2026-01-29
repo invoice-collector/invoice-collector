@@ -29,7 +29,7 @@ export class GaianaCollector extends SketchCollector {
         loginUrl: "https://gaiana.nl/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

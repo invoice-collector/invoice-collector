@@ -29,7 +29,7 @@ export class StackheroCollector extends SketchCollector {
         loginUrl: "https://dashboard.stackhero.io/account/organizations/org-cnrq47/billing/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

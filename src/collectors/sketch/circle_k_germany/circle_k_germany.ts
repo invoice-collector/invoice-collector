@@ -29,7 +29,7 @@ export class CircleKGermanyCollector extends SketchCollector {
         loginUrl: "https://fleet.circlek-deutschland.de/secure/clients/factures/recherche.do#anchorRecherche",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

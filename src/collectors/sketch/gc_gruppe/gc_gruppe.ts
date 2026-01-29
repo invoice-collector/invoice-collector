@@ -29,7 +29,7 @@ export class GcGruppeCollector extends SketchCollector {
         loginUrl: "https://www.gconlineplus.de/#MainPage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

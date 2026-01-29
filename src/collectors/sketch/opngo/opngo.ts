@@ -29,7 +29,7 @@ export class OpngoCollector extends SketchCollector {
         loginUrl: "https://www.opngo.com/fr/account/orders/current",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

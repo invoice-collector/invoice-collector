@@ -29,7 +29,7 @@ export class BhostedNlCollector extends SketchCollector {
         loginUrl: "https://mijn.bhosted.nl/financieel/facturen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

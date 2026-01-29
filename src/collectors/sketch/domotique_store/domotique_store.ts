@@ -29,7 +29,7 @@ export class DomotiqueStoreCollector extends SketchCollector {
         loginUrl: "https://www.domotique-store.fr/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

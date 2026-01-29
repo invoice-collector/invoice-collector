@@ -29,7 +29,7 @@ export class SasktelCollector extends SketchCollector {
         loginUrl: "https://sso.sasktel.com/iam/SasktelLogin?bmctx=573900EFA02B1469DB53F7C6EEA40B1EEE1C650556767FD737825CC81F92B053&contextType=external&username=string&OverrideRetryLimit=3&password=secure_string&challenge_url=%2Fiam%2FSasktelLogin&request_id=404331019806325",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

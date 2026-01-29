@@ -29,7 +29,7 @@ export class TellaCollector extends SketchCollector {
         loginUrl: "https://www.tella.tv/api/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

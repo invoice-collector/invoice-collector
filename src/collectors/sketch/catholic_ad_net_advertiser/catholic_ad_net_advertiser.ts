@@ -29,7 +29,7 @@ export class CatholicAdNetAdvertiserCollector extends SketchCollector {
         loginUrl: "https://www.catholicadnet.com/advertiser/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

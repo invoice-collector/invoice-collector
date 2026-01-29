@@ -29,7 +29,7 @@ export class OpusEnergyCollector extends SketchCollector {
         loginUrl: "https://my.opusenergy.com/login?ReturnUrl=https://my.opusenergy.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

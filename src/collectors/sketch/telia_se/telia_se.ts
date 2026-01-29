@@ -29,7 +29,7 @@ export class TeliaSeCollector extends SketchCollector {
         loginUrl: "https://www.telia.se/privat/mitt-telia/logga-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

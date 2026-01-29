@@ -29,7 +29,7 @@ export class WexVelocityCollector extends SketchCollector {
         loginUrl: "https://www.wexvelocity.com/accounts/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

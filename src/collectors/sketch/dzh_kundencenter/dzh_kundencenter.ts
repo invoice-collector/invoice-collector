@@ -29,7 +29,7 @@ export class DzhKundencenterCollector extends SketchCollector {
         loginUrl: "https://kundencenter.dzh-online.de/redirect.ac",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

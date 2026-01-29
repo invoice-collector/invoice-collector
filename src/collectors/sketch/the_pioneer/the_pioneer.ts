@@ -29,7 +29,7 @@ export class ThePioneerCollector extends SketchCollector {
         loginUrl: "https://www.thepioneer.de/account/membership/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

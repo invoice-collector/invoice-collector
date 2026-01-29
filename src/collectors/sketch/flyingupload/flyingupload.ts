@@ -29,7 +29,7 @@ export class FlyinguploadCollector extends SketchCollector {
         loginUrl: "https://flyingupload.com/user-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

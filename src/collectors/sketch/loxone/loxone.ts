@@ -29,7 +29,7 @@ export class LoxoneCollector extends SketchCollector {
         loginUrl: "https://www.loxone.com/dede/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

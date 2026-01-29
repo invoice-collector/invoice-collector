@@ -29,7 +29,7 @@ export class RundfunkbeitragCollector extends SketchCollector {
         loginUrl: "https://portal.rundfunkbeitrag.de/portal/portal/kontostamm.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

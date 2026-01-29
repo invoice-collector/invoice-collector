@@ -29,7 +29,7 @@ export class NorthernAccessCollector extends SketchCollector {
         loginUrl: "http://www.northern-access.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

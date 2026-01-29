@@ -29,7 +29,7 @@ export class LegindaCollector extends SketchCollector {
         loginUrl: "https://www.leginda.de/app/index.php?ACTION=BILL_LIST_CUSTOMER",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

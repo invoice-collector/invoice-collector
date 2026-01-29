@@ -29,7 +29,7 @@ export class DnsMadeEasyCollector extends SketchCollector {
         loginUrl: "https://cp.dnsmadeeasy.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

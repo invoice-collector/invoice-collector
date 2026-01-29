@@ -29,7 +29,7 @@ export class DirectinvoicesCollector extends SketchCollector {
         loginUrl: "https://www.directinvoices.com/users/sign_up?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ObbOebbAtCollector extends SketchCollector {
         loginUrl: "https://tickets.oebb.at",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

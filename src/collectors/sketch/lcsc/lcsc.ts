@@ -29,7 +29,7 @@ export class LcscCollector extends SketchCollector {
         loginUrl: "https://www.lcsc.com/order/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

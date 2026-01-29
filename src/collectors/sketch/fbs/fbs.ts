@@ -29,7 +29,7 @@ export class FbsCollector extends SketchCollector {
         loginUrl: "https://www.fk-server.org/vue/#/abrechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SklumCollector extends SketchCollector {
         loginUrl: "https://www.sklum.com/fr/historial-de-pedidos",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LeguideComCollector extends SketchCollector {
         loginUrl: "https://merchant.kelkoogroup.com/app/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

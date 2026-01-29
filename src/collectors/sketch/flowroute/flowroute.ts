@@ -29,7 +29,7 @@ export class FlowrouteCollector extends SketchCollector {
         loginUrl: "https://manage.flowroute.com/accounts/billing/?show_all=t",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

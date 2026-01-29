@@ -29,7 +29,7 @@ export class NorthgateCollector extends SketchCollector {
         loginUrl: "https://services.intralinks.com/branding/4461927055/?status=LOGIN&clientID=4461927055",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

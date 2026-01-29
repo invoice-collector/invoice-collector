@@ -29,7 +29,7 @@ export class RiverCleanerCollector extends SketchCollector {
         loginUrl: "https://rivercleaner.com/member-profile/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

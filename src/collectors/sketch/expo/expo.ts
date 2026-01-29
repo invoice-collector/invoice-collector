@@ -29,7 +29,7 @@ export class ExpoCollector extends SketchCollector {
         loginUrl: "https://expo.dev/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

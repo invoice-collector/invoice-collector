@@ -29,7 +29,7 @@ export class FuelGenieCollector extends SketchCollector {
         loginUrl: "https://mma.fuelgenie.co.uk/secure/login.aspx?hideApply=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

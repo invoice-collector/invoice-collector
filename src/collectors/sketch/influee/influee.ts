@@ -29,7 +29,7 @@ export class InflueeCollector extends SketchCollector {
         loginUrl: "https://dashboard.influee.co/billing/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

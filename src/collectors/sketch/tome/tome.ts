@@ -29,7 +29,7 @@ export class TomeCollector extends SketchCollector {
         loginUrl: "https://auth.tome.app/u/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

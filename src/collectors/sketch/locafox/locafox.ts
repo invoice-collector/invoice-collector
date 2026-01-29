@@ -29,7 +29,7 @@ export class LocafoxCollector extends SketchCollector {
         loginUrl: "https://pos.locafox.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

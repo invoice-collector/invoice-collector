@@ -29,7 +29,7 @@ export class BlazemeterCollector extends SketchCollector {
         loginUrl: "https://a.blazemeter.com/app/#/settings/accounts/352924/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

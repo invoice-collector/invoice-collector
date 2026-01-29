@@ -29,7 +29,7 @@ export class CobotCollector extends SketchCollector {
         loginUrl: "https://www.cobot.me/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

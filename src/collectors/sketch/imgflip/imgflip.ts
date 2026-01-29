@@ -29,7 +29,7 @@ export class ImgflipCollector extends SketchCollector {
         loginUrl: "https://imgflip.com/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

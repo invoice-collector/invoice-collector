@@ -29,7 +29,7 @@ export class UbigiCollector extends SketchCollector {
         loginUrl: "https://ubigi.me/#/order-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ShootproofCollector extends SketchCollector {
         loginUrl: "https://studio.shootproof.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

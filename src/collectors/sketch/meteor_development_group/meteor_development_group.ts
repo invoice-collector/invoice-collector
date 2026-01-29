@@ -29,7 +29,7 @@ export class MeteorDevelopmentGroupCollector extends SketchCollector {
         loginUrl: "https://eu-west-1.galaxy.meteor.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MacstadiumCollector extends SketchCollector {
         loginUrl: "https://macstadium.com/users/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

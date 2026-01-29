@@ -29,7 +29,7 @@ export class JeunesseGlobalCollector extends SketchCollector {
         loginUrl: "https://joffice.jeunesseglobal.com//login.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EcammCollector extends SketchCollector {
         loginUrl: "https://ecamm.recurly.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

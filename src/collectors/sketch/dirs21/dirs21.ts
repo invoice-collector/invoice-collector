@@ -29,7 +29,7 @@ export class Dirs21Collector extends SketchCollector {
         loginUrl: "https://office.dirs21.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

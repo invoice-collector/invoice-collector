@@ -29,7 +29,7 @@ export class HexonetOtAndECollector extends SketchCollector {
         loginUrl: "https://account-ote.hexonet.net/token=f7batt1c/#/invoicelist",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

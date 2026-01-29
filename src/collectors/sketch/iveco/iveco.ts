@@ -29,7 +29,7 @@ export class IvecoCollector extends SketchCollector {
         loginUrl: "https://cnhice.espaceclient.fineasy.com/group/france-iveco/factures-avoirs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

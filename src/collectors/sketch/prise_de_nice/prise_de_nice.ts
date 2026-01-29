@@ -29,7 +29,7 @@ export class PriseDeNiceCollector extends SketchCollector {
         loginUrl: "https://www.prisedenice.fr/account/#/monitoring#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GvlLabelCollector extends SketchCollector {
         loginUrl: "https://label.gvl.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EdenredPlusCollector extends SketchCollector {
         loginUrl: "https://client.edenredplus.com/fr/fr/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

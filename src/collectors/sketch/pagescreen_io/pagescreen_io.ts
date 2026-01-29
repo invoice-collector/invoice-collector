@@ -29,7 +29,7 @@ export class PagescreenIoCollector extends SketchCollector {
         loginUrl: "https://app.pagescreen.io/account/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

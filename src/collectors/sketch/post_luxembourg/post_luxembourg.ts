@@ -29,7 +29,7 @@ export class PostLuxembourgCollector extends SketchCollector {
         loginUrl: "https://www.mypost.lu/fixe-web/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

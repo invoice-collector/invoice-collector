@@ -29,7 +29,7 @@ export class YakaroulerCollector extends SketchCollector {
         loginUrl: "https://www.yakarouler.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

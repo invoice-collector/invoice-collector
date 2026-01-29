@@ -29,7 +29,7 @@ export class JkrGruppeCollector extends SketchCollector {
         loginUrl: "https://jkr-gruppe.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

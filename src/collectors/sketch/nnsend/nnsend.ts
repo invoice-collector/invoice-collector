@@ -29,7 +29,7 @@ export class NnsendCollector extends SketchCollector {
         loginUrl: "https://ebill.nnsend.net/vfne/documents/list_by?action=update",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FrametraxxCollector extends SketchCollector {
         loginUrl: "http://www.frametraxx.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DomainpeopleCollector extends SketchCollector {
         loginUrl: "https://sitecontrol.domainpeople.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

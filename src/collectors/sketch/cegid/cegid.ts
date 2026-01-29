@@ -29,7 +29,7 @@ export class CegidCollector extends SketchCollector {
         loginUrl: "https://www.cegidlife.com/fr/factures-et-avoirs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SunsamaCollector extends SketchCollector {
         loginUrl: "https://app.sunsama.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

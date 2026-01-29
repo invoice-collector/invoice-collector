@@ -29,7 +29,7 @@ export class SucuriCollector extends SketchCollector {
         loginUrl: "https://dashboard.sucuri.net/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

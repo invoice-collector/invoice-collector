@@ -29,7 +29,7 @@ export class FlexbitsCollector extends SketchCollector {
         loginUrl: "https://hub.flexibits.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

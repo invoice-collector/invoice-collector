@@ -29,7 +29,7 @@ export class GoldenStateWaterCompanyCollector extends SketchCollector {
         loginUrl: "https://www.gswater.mygswater-cap.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

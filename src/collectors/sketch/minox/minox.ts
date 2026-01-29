@@ -29,7 +29,7 @@ export class MinoxCollector extends SketchCollector {
         loginUrl: "https://www.minox.nl/feature-categories/minox-open-api/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

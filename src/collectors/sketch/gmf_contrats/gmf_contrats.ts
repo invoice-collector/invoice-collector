@@ -29,7 +29,7 @@ export class GmfContratsCollector extends SketchCollector {
         loginUrl: "https://espace-assure.gmf.fr/public/pages/securite/IC2.faces",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

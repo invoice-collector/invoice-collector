@@ -29,7 +29,7 @@ export class XxxlutzMarktplatzCollector extends SketchCollector {
         loginUrl: "https://marketplace.xxxlgroup.com/sellerpayment/shop/accounting-document/list?sort=issueDate%2CDESC&limit=25",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MymetroAtCollector extends SketchCollector {
         loginUrl: "https://mymetro.at/Invoices/10097842",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CalorGasCollector extends SketchCollector {
         loginUrl: "https://www.mycalorgas.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

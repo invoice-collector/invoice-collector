@@ -29,7 +29,7 @@ export class LinodeCollector extends SketchCollector {
         loginUrl: "https://cloud.linode.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PortokasseDeutschePostCollector extends SketchCollector {
         loginUrl: "https://portokasse.deutschepost.de/portokasse/#!/journal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

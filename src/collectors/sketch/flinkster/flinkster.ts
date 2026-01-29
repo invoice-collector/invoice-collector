@@ -29,7 +29,7 @@ export class FlinksterCollector extends SketchCollector {
         loginUrl: "https://www.flinkster.de/kundenbuchung/process.php?proc=rechnung&f=3",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

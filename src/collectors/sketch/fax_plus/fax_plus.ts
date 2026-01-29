@@ -29,7 +29,7 @@ export class FaxPlusCollector extends SketchCollector {
         loginUrl: "https://app.fax.plus/profile/plan_billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

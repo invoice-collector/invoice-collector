@@ -29,7 +29,7 @@ export class CapitalAreaAccessoryDistributorsCollector extends SketchCollector {
         loginUrl: "https://customerportal.gmcaad.com/scs/my_account.ssp#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LinkedinAdsCollector extends SketchCollector {
         loginUrl: "https://www.linkedin.com/campaignmanager/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

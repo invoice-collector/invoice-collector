@@ -29,7 +29,7 @@ export class LuckyregisterCollector extends SketchCollector {
         loginUrl: "https://sso.secureserver.net/login?plid=103615&prog_id=Luckyregister&realm=idp&path=%2Fproducts&app=account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

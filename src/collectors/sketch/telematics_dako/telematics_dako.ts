@@ -29,7 +29,7 @@ export class TelematicsDakoCollector extends SketchCollector {
         loginUrl: "https://www.tachoweb.eu",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

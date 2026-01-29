@@ -29,7 +29,7 @@ export class TawkToCollector extends SketchCollector {
         loginUrl: "https://dashboard.tawk.to/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

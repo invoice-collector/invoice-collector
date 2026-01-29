@@ -29,7 +29,7 @@ export class TixforgigsCollector extends SketchCollector {
         loginUrl: "https://promoter.tixforgigs.com/de-DE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

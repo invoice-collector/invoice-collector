@@ -29,7 +29,7 @@ export class SauberEnergieCollector extends SketchCollector {
         loginUrl: "https://onlineservice.service-rz.de/?act=login&werknr=18&tid=a0710196399aa100bcff4f280f19801f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

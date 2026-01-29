@@ -29,7 +29,7 @@ export class AxaSanteSalariesCollector extends SketchCollector {
         loginUrl: "https://entreprise.axa.fr/espace-client.html#panel2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

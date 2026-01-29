@@ -29,7 +29,7 @@ export class MailreachCollector extends SketchCollector {
         loginUrl: "https://app.mailreach.co/dashboard/12497/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

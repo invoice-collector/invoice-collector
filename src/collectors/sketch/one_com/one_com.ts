@@ -29,7 +29,7 @@ export class OneComCollector extends SketchCollector {
         loginUrl: "https://login.one.com/cp/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

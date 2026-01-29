@@ -29,7 +29,7 @@ export class HelvetiaCollector extends SketchCollector {
         loginUrl: "https://ebusiness.helvetia.com/de/helvetianet/de/secure/showapp.html?app=vpk&page=message.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

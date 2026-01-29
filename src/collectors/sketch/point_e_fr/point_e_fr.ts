@@ -29,7 +29,7 @@ export class PointEFrCollector extends SketchCollector {
         loginUrl: "https://boutique.point-e.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

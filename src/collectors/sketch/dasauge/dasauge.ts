@@ -29,7 +29,7 @@ export class DasaugeCollector extends SketchCollector {
         loginUrl: "https://dasauge.de/mitglieder/rechnungen/?utm_source=erinnerung&utm_medium=email",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

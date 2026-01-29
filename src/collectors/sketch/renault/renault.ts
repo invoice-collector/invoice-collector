@@ -29,7 +29,7 @@ export class RenaultCollector extends SketchCollector {
         loginUrl: "https://dd2.dcs2.renault.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

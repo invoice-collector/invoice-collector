@@ -29,7 +29,7 @@ export class ContoraAgCollector extends SketchCollector {
         loginUrl: "https://kunden.contora.de/index.php?id=333&no_cache=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

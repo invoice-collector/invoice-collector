@@ -29,7 +29,7 @@ export class GrandAndToyCollector extends SketchCollector {
         loginUrl: "https://www.grandandtoy.com/Account/Logon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

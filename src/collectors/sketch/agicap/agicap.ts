@@ -29,7 +29,7 @@ export class AgicapCollector extends SketchCollector {
         loginUrl: "https://app.agicap.com/fr/app/user/recuPaiement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

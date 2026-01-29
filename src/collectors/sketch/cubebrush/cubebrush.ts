@@ -29,7 +29,7 @@ export class CubebrushCollector extends SketchCollector {
         loginUrl: "http://www.cubebrush.co",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

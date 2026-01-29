@@ -29,7 +29,7 @@ export class BuchhaltungsbutlerCollector extends SketchCollector {
         loginUrl: "https://webapp.buchhaltungsbutler.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

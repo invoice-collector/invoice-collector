@@ -29,7 +29,7 @@ export class BavariadirektCollector extends SketchCollector {
         loginUrl: "https://www.bavariadirekt.de/meinebavariadirekt/meine-vertraege-und-dokumente/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

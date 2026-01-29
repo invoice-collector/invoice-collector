@@ -29,7 +29,7 @@ export class Ccm19Collector extends SketchCollector {
         loginUrl: "https://www.ccm19.de/account.php?menuid=248&account_extuser=2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

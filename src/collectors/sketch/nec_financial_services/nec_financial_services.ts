@@ -29,7 +29,7 @@ export class NecFinancialServicesCollector extends SketchCollector {
         loginUrl: "https://necleasebillpay.osgview.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

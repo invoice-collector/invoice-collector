@@ -29,7 +29,7 @@ export class AvaconNetzKundenportalCollector extends SketchCollector {
         loginUrl: "https://www.avacon-netz.de/de/service/public/kundenportal.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

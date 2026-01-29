@@ -29,7 +29,7 @@ export class LinkmatchCollector extends SketchCollector {
         loginUrl: "https://www.linkmatch.net/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

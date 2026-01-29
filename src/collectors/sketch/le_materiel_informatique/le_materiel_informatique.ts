@@ -29,7 +29,7 @@ export class LeMaterielInformatiqueCollector extends SketchCollector {
         loginUrl: "https://www.materiel-informatique.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

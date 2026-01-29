@@ -29,7 +29,7 @@ export class WordpressCollector extends SketchCollector {
         loginUrl: "https://wordpress.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

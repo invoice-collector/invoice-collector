@@ -29,7 +29,7 @@ export class AlternateCollector extends SketchCollector {
         loginUrl: "https://www.alternate.de/MEIN-KONTO-(B2B)/Meine-Bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

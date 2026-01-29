@@ -29,7 +29,7 @@ export class BgvBadischeVersicherungMaklerportalCollector extends SketchCollecto
         loginUrl: "https://makler.bgv.de/makler/bestand/kundenverwaltung/epostkorb/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

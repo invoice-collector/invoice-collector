@@ -29,7 +29,7 @@ export class GetraenkebringdienstUmbachCollector extends SketchCollector {
         loginUrl: "https://shop.getraenkebringdienst-umbach.de/document/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

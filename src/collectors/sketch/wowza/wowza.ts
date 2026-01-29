@@ -29,7 +29,7 @@ export class WowzaCollector extends SketchCollector {
         loginUrl: "http://cloud.wowza.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

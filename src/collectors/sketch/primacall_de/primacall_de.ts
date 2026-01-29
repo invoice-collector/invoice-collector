@@ -29,7 +29,7 @@ export class PrimacallDeCollector extends SketchCollector {
         loginUrl: "http://www.primacall.de/mein-primacall.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

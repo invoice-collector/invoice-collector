@@ -29,7 +29,7 @@ export class RadiusvelocityCollector extends SketchCollector {
         loginUrl: "https://www.velocityfleet.com/app/invoices/list/fuel/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

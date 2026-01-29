@@ -29,7 +29,7 @@ export class IndianaMichiganPowerCollector extends SketchCollector {
         loginUrl: "http://www.indianamichiganpower.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MyalconCollector extends SketchCollector {
         loginUrl: "https://order.myalcon.ca/alconCA/en_CA/CAD/visioncare/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

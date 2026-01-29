@@ -29,7 +29,7 @@ export class EdudipAffiliateCollector extends SketchCollector {
         loginUrl: "https://affiliate.edudip.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

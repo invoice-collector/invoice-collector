@@ -29,7 +29,7 @@ export class HaberkornOsterreichCollector extends SketchCollector {
         loginUrl: "https://www.haberkorn.com/at/de/bestellungen/ausgeliefert",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

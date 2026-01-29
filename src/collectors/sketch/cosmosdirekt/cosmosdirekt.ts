@@ -29,7 +29,7 @@ export class CosmosdirektCollector extends SketchCollector {
         loginUrl: "https://www.cosmosdirekt.de/services/mcd-info/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

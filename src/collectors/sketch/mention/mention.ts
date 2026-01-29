@@ -29,7 +29,7 @@ export class MentionCollector extends SketchCollector {
         loginUrl: "https://web.mention.com/#settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

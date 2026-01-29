@@ -29,7 +29,7 @@ export class BiothermCollector extends SketchCollector {
         loginUrl: "https://www.biotherm.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

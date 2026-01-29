@@ -29,7 +29,7 @@ export class TollbirdCollector extends SketchCollector {
         loginUrl: "https://www.tollbird.com/travellers/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

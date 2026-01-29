@@ -29,7 +29,7 @@ export class PerformanceheroesCollector extends SketchCollector {
         loginUrl: "https://performancehero.de/de/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

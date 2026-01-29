@@ -29,7 +29,7 @@ export class EweGoCollector extends SketchCollector {
         loginUrl: "https://service.ewe-go.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

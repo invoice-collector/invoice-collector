@@ -29,7 +29,7 @@ export class MiamiDadeWaterCollector extends SketchCollector {
         loginUrl: "https://apps.miamidade.gov/wasdservice/index.html#!/wasd/2227824657/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KassenzahnarztlicheVereinigungKzvbCollector extends SketchCollector
         loginUrl: "https://srv.kzvb.de/eHealthPortal/core/protected/dms/zeigeDokumente.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

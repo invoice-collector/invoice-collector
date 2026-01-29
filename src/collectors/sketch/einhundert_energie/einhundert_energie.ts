@@ -29,7 +29,7 @@ export class EinhundertEnergieCollector extends SketchCollector {
         loginUrl: "https://portal.einhundert-energie.de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

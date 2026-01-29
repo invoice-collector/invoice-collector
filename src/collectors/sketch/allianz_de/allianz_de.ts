@@ -29,7 +29,7 @@ export class AllianzDeCollector extends SketchCollector {
         loginUrl: "https://meine.allianz.de/protected/res/postfach/posteingang/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

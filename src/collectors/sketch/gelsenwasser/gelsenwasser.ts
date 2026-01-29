@@ -29,7 +29,7 @@ export class GelsenwasserCollector extends SketchCollector {
         loginUrl: "https://onlineservice.gelsenwasser.de/sap/bc/ui5_ui5/sap/zmcf_ui/index.html?CompanyID=1101000_GWAG&sap-client=110",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

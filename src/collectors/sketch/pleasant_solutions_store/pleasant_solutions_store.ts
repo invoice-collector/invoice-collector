@@ -29,7 +29,7 @@ export class PleasantSolutionsStoreCollector extends SketchCollector {
         loginUrl: "https://store.pleasantsolutions.com/Account/SignIn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

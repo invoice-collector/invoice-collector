@@ -29,7 +29,7 @@ export class ReifenleaderCollector extends SketchCollector {
         loginUrl: "https://www.reifenleader.at/profi/account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

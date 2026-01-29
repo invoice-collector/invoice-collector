@@ -29,7 +29,7 @@ export class MybglCollector extends SketchCollector {
         loginUrl: "https://www.mybgl.com.au/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

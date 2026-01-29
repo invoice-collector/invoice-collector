@@ -29,7 +29,7 @@ export class AvocadostoreDeCollector extends SketchCollector {
         loginUrl: "https://www.avocadostore.de/user_session/new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

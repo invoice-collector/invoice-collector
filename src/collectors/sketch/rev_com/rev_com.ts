@@ -29,7 +29,7 @@ export class RevComCollector extends SketchCollector {
         loginUrl: "https://www.rev.com/account/orders/orderhistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

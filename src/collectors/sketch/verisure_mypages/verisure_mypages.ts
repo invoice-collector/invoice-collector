@@ -29,7 +29,7 @@ export class VerisureMypagesCollector extends SketchCollector {
         loginUrl: "https://mypages.verisure.com/de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

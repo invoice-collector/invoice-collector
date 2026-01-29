@@ -29,7 +29,7 @@ export class JordanCollector extends SketchCollector {
         loginUrl: "https://www.jordan-kassel.de/unternehmen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

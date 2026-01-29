@@ -29,7 +29,7 @@ export class TmdHostingCollector extends SketchCollector {
         loginUrl: "https://my.tmdhosting.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

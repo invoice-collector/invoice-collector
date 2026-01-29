@@ -29,7 +29,7 @@ export class SmavaCollector extends SketchCollector {
         loginUrl: "https://affiliate.smava.de/dashboard/payoff",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

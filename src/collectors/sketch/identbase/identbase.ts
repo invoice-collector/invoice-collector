@@ -29,7 +29,7 @@ export class IdentbaseCollector extends SketchCollector {
         loginUrl: "https://identbase.de/shop/system/?func=customer&action=orderlist&",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

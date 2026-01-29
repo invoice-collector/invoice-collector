@@ -29,7 +29,7 @@ export class SparkCoNzCollector extends SketchCollector {
         loginUrl: "https://www.spark.co.nz/myspark/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

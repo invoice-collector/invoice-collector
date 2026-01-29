@@ -29,7 +29,7 @@ export class SteuertippsVonWoltersKluwerCollector extends SketchCollector {
         loginUrl: "https://www.steuertipps.de/profil",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

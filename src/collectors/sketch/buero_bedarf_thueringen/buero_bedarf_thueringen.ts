@@ -29,7 +29,7 @@ export class BueroBedarfThueringenCollector extends SketchCollector {
         loginUrl: "https://www.buero-bedarf-thueringen.de/mein-Konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

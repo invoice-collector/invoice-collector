@@ -29,7 +29,7 @@ export class GmassCollector extends SketchCollector {
         loginUrl: "https://www.gmass.co",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

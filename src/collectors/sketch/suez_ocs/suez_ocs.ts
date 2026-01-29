@@ -29,7 +29,7 @@ export class SuezOcsCollector extends SketchCollector {
         loginUrl: "https://suez.sps-ocs.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

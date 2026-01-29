@@ -29,7 +29,7 @@ export class FondsdepotbankCollector extends SketchCollector {
         loginUrl: "https://finanzportal.fondsdepotbank.de/fdb/abaxx-?$part=Home.content.Welcome.Dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OttonowCollector extends SketchCollector {
         loginUrl: "https://ottonow.de/konto/vertraege/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

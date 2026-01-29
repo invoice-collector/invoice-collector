@@ -29,7 +29,7 @@ export class MddslCollector extends SketchCollector {
         loginUrl: "https://portal.mddsl.org/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

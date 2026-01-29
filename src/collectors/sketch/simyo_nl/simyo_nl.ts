@@ -29,7 +29,7 @@ export class SimyoNlCollector extends SketchCollector {
         loginUrl: "https://mijn.simyo.nl/inloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

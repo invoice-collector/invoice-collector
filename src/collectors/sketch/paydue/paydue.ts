@@ -29,7 +29,7 @@ export class PaydueCollector extends SketchCollector {
         loginUrl: "https://paydue.de/paydesk/clearing.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

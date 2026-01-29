@@ -29,7 +29,7 @@ export class CycleschemeLtdCollector extends SketchCollector {
         loginUrl: "https://extranet.myschemes.co.uk/cs/index/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

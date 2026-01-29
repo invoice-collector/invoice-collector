@@ -29,7 +29,7 @@ export class HostelworldCollector extends SketchCollector {
         loginUrl: "https://inbox.hostelworld.com/reports/vatinvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

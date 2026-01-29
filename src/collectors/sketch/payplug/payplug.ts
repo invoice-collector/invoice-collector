@@ -29,7 +29,7 @@ export class PayplugCollector extends SketchCollector {
         loginUrl: "https://portal.payplug.com/login?_ga=2.195810350.301149794.1561138934-1387182231.1561138934",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

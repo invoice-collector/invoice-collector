@@ -29,7 +29,7 @@ export class WindsorAiCollector extends SketchCollector {
         loginUrl: "https://windsor.ai/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

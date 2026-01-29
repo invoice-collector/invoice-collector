@@ -29,7 +29,7 @@ export class DataclayCollector extends SketchCollector {
         loginUrl: "https://dataclay.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

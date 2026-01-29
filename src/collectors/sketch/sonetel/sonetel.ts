@@ -29,7 +29,7 @@ export class SonetelCollector extends SketchCollector {
         loginUrl: "https://portal.sonetel.com/portal/UI/pages/SignIn/SignIn.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PlanolyCollector extends SketchCollector {
         loginUrl: "https://billing.planoly.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

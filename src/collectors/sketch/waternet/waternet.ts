@@ -29,7 +29,7 @@ export class WaternetCollector extends SketchCollector {
         loginUrl: "https://mijn.waternet.nl/?_ga=2.193516461.1875114429.1524075147-2083055620.1524075147",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

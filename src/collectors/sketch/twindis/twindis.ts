@@ -29,7 +29,7 @@ export class TwindisCollector extends SketchCollector {
         loginUrl: "https://www.twindis.com/en/account/inloggen.html?_returnURL=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

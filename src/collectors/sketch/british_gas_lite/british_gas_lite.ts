@@ -29,7 +29,7 @@ export class BritishGasLiteCollector extends SketchCollector {
         loginUrl: "https://customer.britishgaslite.co.uk/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

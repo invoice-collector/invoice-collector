@@ -29,7 +29,7 @@ export class UberspaceCollector extends SketchCollector {
         loginUrl: "https://uberspace.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

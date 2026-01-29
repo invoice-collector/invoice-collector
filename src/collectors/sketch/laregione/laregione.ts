@@ -29,7 +29,7 @@ export class LaregioneCollector extends SketchCollector {
         loginUrl: "https://aboshop.laregione.ch/?login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

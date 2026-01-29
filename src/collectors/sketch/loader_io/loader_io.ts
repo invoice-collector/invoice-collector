@@ -29,7 +29,7 @@ export class LoaderIoCollector extends SketchCollector {
         loginUrl: "https://loader.io/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

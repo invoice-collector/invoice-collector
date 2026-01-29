@@ -29,7 +29,7 @@ export class CozigouCollector extends SketchCollector {
         loginUrl: "https://client.cozigou.com/invoice/history/index/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

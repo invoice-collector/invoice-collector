@@ -29,7 +29,7 @@ export class EasybookingCollector extends SketchCollector {
         loginUrl: "https://web-eb-de-3.easy-booking.at/julia/?customer=2647",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

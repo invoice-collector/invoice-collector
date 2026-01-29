@@ -29,7 +29,7 @@ export class TradedoublerCollector extends SketchCollector {
         loginUrl: "https://login.tradedoubler.com/public/aLogin.action?language=de&country=GB",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HostingsolutionsItCollector extends SketchCollector {
         loginUrl: "https://pdc.hostingsolutions.it/MasterCP/MasterLogin.pl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

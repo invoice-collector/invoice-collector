@@ -29,7 +29,7 @@ export class SimplyEnergyCollector extends SketchCollector {
         loginUrl: "https://myaccount.simplyenergy.com.au/simplyenergy/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

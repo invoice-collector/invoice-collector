@@ -29,7 +29,7 @@ export class SwaggerhubCollector extends SketchCollector {
         loginUrl: "https://app.swaggerhub.com/settings/billings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

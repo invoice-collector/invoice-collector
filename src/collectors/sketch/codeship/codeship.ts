@@ -29,7 +29,7 @@ export class CodeshipCollector extends SketchCollector {
         loginUrl: "https://app.codeship.com/sessions/new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

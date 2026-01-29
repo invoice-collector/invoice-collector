@@ -29,7 +29,7 @@ export class DLivingDeCollector extends SketchCollector {
         loginUrl: "https://www.mytime.de/login.php?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

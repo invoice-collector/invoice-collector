@@ -29,7 +29,7 @@ export class MutuelleAprilEntrepriseCollector extends SketchCollector {
         loginUrl: "http://www.april-entreprise.fr/accedez-a-votre-espace",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CircleKIrelandBusinessCollector extends SketchCollector {
         loginUrl: "https://www.circlek.ie/business/fuel-card/login-to-your-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

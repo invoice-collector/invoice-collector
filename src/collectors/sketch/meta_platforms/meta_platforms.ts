@@ -29,7 +29,7 @@ export class MetaPlatformsCollector extends SketchCollector {
         loginUrl: "https://adsmanager.facebook.com/ads/manager/billing_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

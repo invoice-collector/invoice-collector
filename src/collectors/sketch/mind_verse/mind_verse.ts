@@ -29,7 +29,7 @@ export class MindVerseCollector extends SketchCollector {
         loginUrl: "https://ai.mind-verse.de/?p=settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

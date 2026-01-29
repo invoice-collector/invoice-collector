@@ -29,7 +29,7 @@ export class OfriCollector extends SketchCollector {
         loginUrl: "https://www.ofri.ch/users/123580/account_balances",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

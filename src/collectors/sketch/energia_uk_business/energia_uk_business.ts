@@ -29,7 +29,7 @@ export class EnergiaUkBusinessCollector extends SketchCollector {
         loginUrl: "https://www.energia-online.co.uk/energiaplus/Energia.Utilities.Q4C.WebPages/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MagnetNetworksCollector extends SketchCollector {
         loginUrl: "https://www.magnetnetworks.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class QrIoMarketingCollector extends SketchCollector {
         loginUrl: "https://qr.io/dashboard/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

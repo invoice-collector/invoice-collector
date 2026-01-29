@@ -29,7 +29,7 @@ export class CampaignMonitorCollector extends SketchCollector {
         loginUrl: "https://login.createsend.com/l?_ga=2.41260645.657612371.1523338420-1375527042.1523338420",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

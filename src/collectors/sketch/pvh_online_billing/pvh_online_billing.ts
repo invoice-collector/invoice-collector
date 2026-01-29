@@ -29,7 +29,7 @@ export class PvhOnlineBillingCollector extends SketchCollector {
         loginUrl: "https://secure2.billtrust.com/pvh-de/ig/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DreamloveCollector extends SketchCollector {
         loginUrl: "https://store.dreamlove.es/mf-1-53-mis_facturas/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

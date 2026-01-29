@@ -29,7 +29,7 @@ export class ConquestEntertainmentCollector extends SketchCollector {
         loginUrl: "https://com.cqe.cz/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

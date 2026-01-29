@@ -29,7 +29,7 @@ export class IngramCloudFrCollector extends SketchCollector {
         loginUrl: "https://cp.fr.eu.cloud.im/ccp/v/pa/ccp-billing/invoice?pbaDocumentId=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

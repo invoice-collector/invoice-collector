@@ -29,7 +29,7 @@ export class PhonestyCollector extends SketchCollector {
         loginUrl: "https://www.phonesty.de/myAccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

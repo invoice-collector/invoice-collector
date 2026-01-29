@@ -29,7 +29,7 @@ export class AzubiheftCollector extends SketchCollector {
         loginUrl: "https://www.azubiheft.de/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

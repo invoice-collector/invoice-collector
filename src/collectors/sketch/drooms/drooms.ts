@@ -29,7 +29,7 @@ export class DroomsCollector extends SketchCollector {
         loginUrl: "shop.drooms.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

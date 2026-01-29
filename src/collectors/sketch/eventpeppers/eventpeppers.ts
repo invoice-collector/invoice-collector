@@ -29,7 +29,7 @@ export class EventpeppersCollector extends SketchCollector {
         loginUrl: "https://www.eventpeppers.com/de/private-v/epp738776746/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UsersnapCollector extends SketchCollector {
         loginUrl: "https://usersnap.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ThaliaDeCollector extends SketchCollector {
         loginUrl: "https://www.thalia.de/shop/home/login/login/?_token=5826bcba-526b-4d5b-bcb5-a836f66341a6",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MydpdAtCollector extends SketchCollector {
         loginUrl: "https://www.mydpd.at/meine-pakete",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

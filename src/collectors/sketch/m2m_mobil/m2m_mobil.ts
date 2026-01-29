@@ -29,7 +29,7 @@ export class M2mMobilCollector extends SketchCollector {
         loginUrl: "https://service.m2m-mobil.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

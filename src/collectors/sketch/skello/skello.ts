@@ -29,7 +29,7 @@ export class SkelloCollector extends SketchCollector {
         loginUrl: "https://skello.io/?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

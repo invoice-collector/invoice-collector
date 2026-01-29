@@ -29,7 +29,7 @@ export class QuincaillerieAnglesCollector extends SketchCollector {
         loginUrl: "https://www.quincaillerie-angles.fr/qangles/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

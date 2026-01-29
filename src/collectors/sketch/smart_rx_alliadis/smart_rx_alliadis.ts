@@ -29,7 +29,7 @@ export class SmartRxAlliadisCollector extends SketchCollector {
         loginUrl: "https://www.smart-rx.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

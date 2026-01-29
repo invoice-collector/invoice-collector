@@ -29,7 +29,7 @@ export class SimyoEsCollector extends SketchCollector {
         loginUrl: "https://www.simyo.es",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

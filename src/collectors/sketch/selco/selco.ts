@@ -29,7 +29,7 @@ export class SelcoCollector extends SketchCollector {
         loginUrl: "https://www.selco.ie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

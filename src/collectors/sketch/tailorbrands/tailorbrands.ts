@@ -29,7 +29,7 @@ export class TailorbrandsCollector extends SketchCollector {
         loginUrl: "https://tailorbrands.hasoffers.com/publisher/#!/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

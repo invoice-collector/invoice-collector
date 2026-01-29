@@ -29,7 +29,7 @@ export class VoelknerCollector extends SketchCollector {
         loginUrl: "https://www.voelkner.de/account/history.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

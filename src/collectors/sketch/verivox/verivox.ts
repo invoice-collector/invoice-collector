@@ -29,7 +29,7 @@ export class VerivoxCollector extends SketchCollector {
         loginUrl: "https://partner.verivox.de/auszahlungen.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

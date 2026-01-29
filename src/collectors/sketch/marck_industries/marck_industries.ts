@@ -29,7 +29,7 @@ export class MarckIndustriesCollector extends SketchCollector {
         loginUrl: "https://waste.marck.net/truxweb/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class _4overCollector extends SketchCollector {
         loginUrl: "https://4over.com/sales/order/history/#customer-content",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

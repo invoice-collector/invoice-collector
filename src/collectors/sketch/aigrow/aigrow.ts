@@ -29,7 +29,7 @@ export class AigrowCollector extends SketchCollector {
         loginUrl: "https://app.aigrow.me/account/subscriptions#tab-payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

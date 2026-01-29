@@ -29,7 +29,7 @@ export class SpoonacularApiCollector extends SketchCollector {
         loginUrl: "https://spoonacular.com/food-api/console#Plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

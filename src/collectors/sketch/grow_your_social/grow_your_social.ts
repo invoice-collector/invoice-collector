@@ -29,7 +29,7 @@ export class GrowYourSocialCollector extends SketchCollector {
         loginUrl: "https://app.grow-your-social.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

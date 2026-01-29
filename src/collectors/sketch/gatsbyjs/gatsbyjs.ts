@@ -29,7 +29,7 @@ export class GatsbyjsCollector extends SketchCollector {
         loginUrl: "https://www.gatsbyjs.com/dashboard/organization/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

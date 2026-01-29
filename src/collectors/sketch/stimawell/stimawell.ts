@@ -29,7 +29,7 @@ export class StimawellCollector extends SketchCollector {
         loginUrl: "https://shop.schwa-medico.de/de/invoice/94613/download?check_logged_in=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

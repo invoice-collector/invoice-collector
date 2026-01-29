@@ -29,7 +29,7 @@ export class EuraniaGmbhCollector extends SketchCollector {
         loginUrl: "https://www.germoffice.de/kupo/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

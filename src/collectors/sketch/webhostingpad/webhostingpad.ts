@@ -29,7 +29,7 @@ export class WebhostingpadCollector extends SketchCollector {
         loginUrl: "https://secure.webhostingpad.com/billing/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

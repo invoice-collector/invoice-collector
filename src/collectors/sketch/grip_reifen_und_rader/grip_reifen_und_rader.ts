@@ -29,7 +29,7 @@ export class GripReifenUndRaderCollector extends SketchCollector {
         loginUrl: "https://shop.gripreifenraeder.de/order-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

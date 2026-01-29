@@ -29,7 +29,7 @@ export class ColizeyCollector extends SketchCollector {
         loginUrl: "https://extranet.colizey.fr/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

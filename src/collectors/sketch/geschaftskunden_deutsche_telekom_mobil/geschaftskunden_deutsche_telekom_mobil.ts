@@ -29,7 +29,7 @@ export class GeschaftskundenDeutscheTelekomMobilCollector extends SketchCollecto
         loginUrl: "https://mbsp.geschaeftskunden.telekom.de/mbsp/noaccess",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

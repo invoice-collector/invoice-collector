@@ -29,7 +29,7 @@ export class ZeroheightCollector extends SketchCollector {
         loginUrl: "https://purpleplanet.zeroheight.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

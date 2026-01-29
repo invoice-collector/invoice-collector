@@ -29,7 +29,7 @@ export class ProSitemapsComCollector extends SketchCollector {
         loginUrl: "https://pro-sitemaps.com/account/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

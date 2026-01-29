@@ -29,7 +29,7 @@ export class TeuxdeuxCollector extends SketchCollector {
         loginUrl: "https://teuxdeux.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

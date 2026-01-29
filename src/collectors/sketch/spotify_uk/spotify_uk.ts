@@ -29,7 +29,7 @@ export class SpotifyUkCollector extends SketchCollector {
         loginUrl: "https://accounts.spotify.com/en/login/?continue=https:%2F%2Fwww.spotify.com%2Fuk%2Faccount%2Foverview%2F&_locale=en-GB",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

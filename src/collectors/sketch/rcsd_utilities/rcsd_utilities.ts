@@ -29,7 +29,7 @@ export class RcsdUtilitiesCollector extends SketchCollector {
         loginUrl: "https://www.invoicecloud.com/portal/(S(kql2xvubnjjlcksmunpilrp3))/2/CustomerGroupLedger.aspx?mode=open",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

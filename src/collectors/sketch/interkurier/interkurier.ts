@@ -29,7 +29,7 @@ export class InterkurierCollector extends SketchCollector {
         loginUrl: "https://cloud-11.datenbanken24.de/apps/ikauftrag/base.nsf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

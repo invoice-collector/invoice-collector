@@ -29,7 +29,7 @@ export class BulksmsComCollector extends SketchCollector {
         loginUrl: "https://www2.bulksms.com/login.mc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

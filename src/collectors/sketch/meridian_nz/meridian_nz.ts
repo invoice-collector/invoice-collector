@@ -29,7 +29,7 @@ export class MeridianNzCollector extends SketchCollector {
         loginUrl: "http://www.meridianenergy.co.nz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CleverreachCollector extends SketchCollector {
         loginUrl: "https://eu1.cleverreach.com/admin/login.php?ref=%2Fadmin%2Faccount_invoices.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

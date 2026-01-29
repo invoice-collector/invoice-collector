@@ -29,7 +29,7 @@ export class NevercodeCollector extends SketchCollector {
         loginUrl: "https://nevercode.io/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

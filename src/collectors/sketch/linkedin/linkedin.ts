@@ -29,7 +29,7 @@ export class LinkedinCollector extends SketchCollector {
         entryUrl: "https://www.linkedin.com/manage/purchases-payments/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

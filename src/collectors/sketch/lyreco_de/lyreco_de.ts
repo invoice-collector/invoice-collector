@@ -29,7 +29,7 @@ export class LyrecoDeCollector extends SketchCollector {
         loginUrl: "https://www.lyreco.com/webshop/DEDE/wslogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

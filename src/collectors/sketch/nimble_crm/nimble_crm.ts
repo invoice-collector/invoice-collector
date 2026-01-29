@@ -29,7 +29,7 @@ export class NimbleCrmCollector extends SketchCollector {
         loginUrl: "https://app.nimble.com/#login/enter",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

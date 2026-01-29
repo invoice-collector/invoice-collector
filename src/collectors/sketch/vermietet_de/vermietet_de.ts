@@ -29,7 +29,7 @@ export class VermietetDeCollector extends SketchCollector {
         loginUrl: "https://portal.vermietet.de/shop/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TecspaceCollector extends SketchCollector {
         loginUrl: "https://admin.tecspace.net/?action=invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

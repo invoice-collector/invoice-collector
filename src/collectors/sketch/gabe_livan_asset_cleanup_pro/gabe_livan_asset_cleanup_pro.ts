@@ -29,7 +29,7 @@ export class GabeLivanAssetCleanupProCollector extends SketchCollector {
         loginUrl: "https://www.gabelivan.com/checkout/purchase-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

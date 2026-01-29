@@ -29,7 +29,7 @@ export class RingoverCollector extends SketchCollector {
         loginUrl: "https://dashboard.ringover.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GivveCollector extends SketchCollector {
         loginUrl: "https://b2b.givve.com/user/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

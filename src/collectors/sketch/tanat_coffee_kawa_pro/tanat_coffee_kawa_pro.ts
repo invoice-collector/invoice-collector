@@ -29,7 +29,7 @@ export class TanatCoffeeKawaProCollector extends SketchCollector {
         loginUrl: "https://pro.kawa.coffee/mon-compte/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

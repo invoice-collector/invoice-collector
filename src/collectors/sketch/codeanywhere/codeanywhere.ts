@@ -29,7 +29,7 @@ export class CodeanywhereCollector extends SketchCollector {
         loginUrl: "http://www.codeanywhere.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

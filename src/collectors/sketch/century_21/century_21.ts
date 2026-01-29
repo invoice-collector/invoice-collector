@@ -29,7 +29,7 @@ export class Century21Collector extends SketchCollector {
         loginUrl: "https://www.orchestrav2.egiweb.net/Works/Docnew.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

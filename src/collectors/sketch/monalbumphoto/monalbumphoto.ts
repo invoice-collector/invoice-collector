@@ -29,7 +29,7 @@ export class MonalbumphotoCollector extends SketchCollector {
         loginUrl: "https://www.monalbumphoto.fr/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

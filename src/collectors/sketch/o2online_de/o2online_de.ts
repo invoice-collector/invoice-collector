@@ -29,7 +29,7 @@ export class O2onlineDeCollector extends SketchCollector {
         loginUrl: "https://www.o2online.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

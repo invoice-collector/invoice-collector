@@ -29,7 +29,7 @@ export class SimCollector extends SketchCollector {
         loginUrl: "https://manage.simplus.fr/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

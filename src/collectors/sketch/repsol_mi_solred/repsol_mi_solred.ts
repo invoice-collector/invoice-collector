@@ -29,7 +29,7 @@ export class RepsolMiSolredCollector extends SketchCollector {
         loginUrl: "https://misolred.repsol.com/facturas",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

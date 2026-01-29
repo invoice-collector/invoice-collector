@@ -29,7 +29,7 @@ export class NexityCollector extends SketchCollector {
         loginUrl: "https://www.nexity.fr/espace-personnel",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

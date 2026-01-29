@@ -29,7 +29,7 @@ export class RebusfarmCollector extends SketchCollector {
         loginUrl: "https://de.rebusfarm.net/de/de-alternative-login?view=login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

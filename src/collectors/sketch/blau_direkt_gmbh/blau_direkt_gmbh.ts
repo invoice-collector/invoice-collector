@@ -29,7 +29,7 @@ export class BlauDirektGmbhCollector extends SketchCollector {
         loginUrl: "https://www.maklerinfo.biz/maklerportal/?job=Konto&Job_art=lizenz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

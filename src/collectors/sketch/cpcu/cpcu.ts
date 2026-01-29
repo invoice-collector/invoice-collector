@@ -28,7 +28,7 @@ export class CpcuCollector extends SketchCollector {
         loginUrl: "https://monespace.cpcu.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

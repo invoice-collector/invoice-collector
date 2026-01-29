@@ -29,7 +29,7 @@ export class Onedrive4BusinessCollector extends SketchCollector {
         loginUrl: "https://onedrive.live.com/about/de-CH/download/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

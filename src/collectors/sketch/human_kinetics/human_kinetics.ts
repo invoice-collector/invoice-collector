@@ -29,7 +29,7 @@ export class HumanKineticsCollector extends SketchCollector {
         loginUrl: "http://www.humankinetics.com/?&LoginOverlay=true&Returndoc=%252F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

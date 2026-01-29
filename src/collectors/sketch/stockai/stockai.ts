@@ -29,7 +29,7 @@ export class StockaiCollector extends SketchCollector {
         loginUrl: "https://www.stockai.com/profile/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

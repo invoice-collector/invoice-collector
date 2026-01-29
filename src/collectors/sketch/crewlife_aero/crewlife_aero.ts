@@ -29,7 +29,7 @@ export class CrewlifeAeroCollector extends SketchCollector {
         loginUrl: "https://portal.crewlife.aero/app/profi/partner/anzeigen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

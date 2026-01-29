@@ -28,7 +28,7 @@ export class TotalEnergiesMobilityCollector extends SketchCollector {
         loginUrl: "https://client.mobilitybusiness.totalenergies.com/signIn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

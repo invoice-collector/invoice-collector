@@ -29,7 +29,7 @@ export class MeineOnlineapoCollector extends SketchCollector {
         loginUrl: "https://www.meine-onlineapo.de/kundenbereich/bestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

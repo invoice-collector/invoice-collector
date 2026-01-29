@@ -29,7 +29,7 @@ export class ApothekenRechenzentrumGmbhCollector extends SketchCollector {
         loginUrl: "https://www.arz-darmstadt.de/azuro/azuro_new/AbrechnungAction.do?anzeigen.x&SSO_TOKEN=ea6f0e2e-32f3-4c99-9c55-fe6237abb2e2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

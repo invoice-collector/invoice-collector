@@ -29,7 +29,7 @@ export class EmbedsocialCollector extends SketchCollector {
         loginUrl: "https://embedsocial.com/admin/embedsocial_accounts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

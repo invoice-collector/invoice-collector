@@ -29,7 +29,7 @@ export class MagentaKabelInternetCollector extends SketchCollector {
         loginUrl: "https://www.magenta.at/mein-magenta-kabel/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

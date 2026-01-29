@@ -29,7 +29,7 @@ export class BtsLwlShop24Collector extends SketchCollector {
         loginUrl: "https://www.lwl-shop24.de/belegarchiv/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

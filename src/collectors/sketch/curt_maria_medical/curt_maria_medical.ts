@@ -29,7 +29,7 @@ export class CurtMariaMedicalCollector extends SketchCollector {
         loginUrl: "https://shop.curtmaria.de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

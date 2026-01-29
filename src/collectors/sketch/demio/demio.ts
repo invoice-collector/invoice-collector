@@ -29,7 +29,7 @@ export class DemioCollector extends SketchCollector {
         loginUrl: "https://my.demio.com/manage/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

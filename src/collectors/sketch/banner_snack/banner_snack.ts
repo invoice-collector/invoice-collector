@@ -29,7 +29,7 @@ export class BannerSnackCollector extends SketchCollector {
         loginUrl: "https://app.bannersnack.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

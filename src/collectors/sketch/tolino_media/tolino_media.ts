@@ -29,7 +29,7 @@ export class TolinoMediaCollector extends SketchCollector {
         loginUrl: "https://www.tolino-media.de/mein-konto/#/my-royalties",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

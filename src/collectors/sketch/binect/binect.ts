@@ -29,7 +29,7 @@ export class BinectCollector extends SketchCollector {
         loginUrl: "https://app.binect.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

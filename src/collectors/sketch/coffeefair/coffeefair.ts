@@ -29,7 +29,7 @@ export class CoffeefairCollector extends SketchCollector {
         loginUrl: "https://www.coffeefair.de/mein-konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

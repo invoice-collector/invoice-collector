@@ -29,7 +29,7 @@ export class TimetasticCollector extends SketchCollector {
         loginUrl: "https://app.timetastic.co.uk/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

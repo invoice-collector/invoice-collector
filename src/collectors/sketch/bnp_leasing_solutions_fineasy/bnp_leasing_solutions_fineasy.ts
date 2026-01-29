@@ -29,7 +29,7 @@ export class BnpLeasingSolutionsFineasyCollector extends SketchCollector {
         loginUrl: "https://leasingsolutions.kundenportal.fineasy.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

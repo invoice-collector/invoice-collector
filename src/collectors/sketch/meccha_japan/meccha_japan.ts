@@ -29,7 +29,7 @@ export class MecchaJapanCollector extends SketchCollector {
         loginUrl: "https://meccha-japan.com/en/login?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

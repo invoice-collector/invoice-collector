@@ -29,7 +29,7 @@ export class MsaAttestationFiscaleCollector extends SketchCollector {
         loginUrl: "https://monespaceprive.msa.fr/lfy/web/msa-mayenne-orne-sarthe/attestation-fiscale1?modalId=2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CilexCollector extends SketchCollector {
         loginUrl: "https://www.cilex.org.uk/mycilex",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

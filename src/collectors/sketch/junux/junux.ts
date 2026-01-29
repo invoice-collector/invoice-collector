@@ -29,7 +29,7 @@ export class JunuxCollector extends SketchCollector {
         loginUrl: "https://account.junux.de/auth/login?returnUrl=%2Faccount%2Fsubscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

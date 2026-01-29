@@ -29,7 +29,7 @@ export class CapitalOneCollector extends SketchCollector {
         loginUrl: "https://www.capitalone.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

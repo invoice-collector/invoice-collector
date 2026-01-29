@@ -29,7 +29,7 @@ export class FsComGmbhCollector extends SketchCollector {
         loginUrl: "https://www.fs.com/de/order_invoice?id=1406983&type=2&orderType=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

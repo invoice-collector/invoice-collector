@@ -29,7 +29,7 @@ export class PrimerocomDeCollector extends SketchCollector {
         loginUrl: "https://mein.primerocom.de/Default.asp?rq_Lang=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

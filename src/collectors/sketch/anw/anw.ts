@@ -29,7 +29,7 @@ export class AnwCollector extends SketchCollector {
         loginUrl: "https://secure.anw.es/extranet/admin.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

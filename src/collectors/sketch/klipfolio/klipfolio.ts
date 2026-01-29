@@ -29,7 +29,7 @@ export class KlipfolioCollector extends SketchCollector {
         loginUrl: "https://app.klipfolio.com/company/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

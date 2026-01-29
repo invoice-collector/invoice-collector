@@ -29,7 +29,7 @@ export class InexioDslCollector extends SketchCollector {
         loginUrl: "https://webmail.inexio.email/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

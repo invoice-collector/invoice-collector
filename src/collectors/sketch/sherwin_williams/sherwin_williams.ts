@@ -29,7 +29,7 @@ export class SherwinWilliamsCollector extends SketchCollector {
         loginUrl: "https://www.sherwin-williams.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

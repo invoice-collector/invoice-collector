@@ -29,7 +29,7 @@ export class BoostMobileCollector extends SketchCollector {
         loginUrl: "https://myaccount.boostmobile.com/sign-in.html?intnav=UtilNav:SignIn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

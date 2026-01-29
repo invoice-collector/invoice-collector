@@ -29,7 +29,7 @@ export class TopvisorCollector extends SketchCollector {
         loginUrl: "https://topvisor.com/account/bank/#to_bank_docs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

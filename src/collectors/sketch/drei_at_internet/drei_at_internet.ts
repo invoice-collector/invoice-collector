@@ -29,7 +29,7 @@ export class DreiAtInternetCollector extends SketchCollector {
         loginUrl: "http://kundenzone.drei.at/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

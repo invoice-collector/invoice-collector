@@ -29,7 +29,7 @@ export class TruelancerCollector extends SketchCollector {
         loginUrl: "https://www.truelancer.com/payments/mymoney",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

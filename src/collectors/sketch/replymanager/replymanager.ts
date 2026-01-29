@@ -29,7 +29,7 @@ export class ReplymanagerCollector extends SketchCollector {
         loginUrl: "https://dashboard-3.replymanager.com/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

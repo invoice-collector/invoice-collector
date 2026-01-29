@@ -29,7 +29,7 @@ export class ClickatellCollector extends SketchCollector {
         loginUrl: "https://app.clickatell.com/billing/services",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

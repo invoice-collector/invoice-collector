@@ -29,7 +29,7 @@ export class CoinpaprikaCollector extends SketchCollector {
         loginUrl: "https://coinpaprika.com/api/pricing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

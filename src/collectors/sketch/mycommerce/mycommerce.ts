@@ -29,7 +29,7 @@ export class MycommerceCollector extends SketchCollector {
         loginUrl: "https://account.mycommerce.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

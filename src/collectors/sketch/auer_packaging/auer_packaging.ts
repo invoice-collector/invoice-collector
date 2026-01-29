@@ -29,7 +29,7 @@ export class AuerPackagingCollector extends SketchCollector {
         loginUrl: "https://www.auer-packaging.com/de/de/Mein-AUER.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

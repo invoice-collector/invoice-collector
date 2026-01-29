@@ -29,7 +29,7 @@ export class KFeeCollector extends SketchCollector {
         loginUrl: "https://shop.k-fee.com/de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

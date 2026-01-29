@@ -29,7 +29,7 @@ export class WindunieCollector extends SketchCollector {
         loginUrl: "https://www.windunie.nl/inloggen/?URL=/mijn-windunie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

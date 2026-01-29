@@ -29,7 +29,7 @@ export class JeevesCollector extends SketchCollector {
         loginUrl: "https://prod.jeev.es/client/statement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

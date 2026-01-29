@@ -29,7 +29,7 @@ export class AawpCollector extends SketchCollector {
         loginUrl: "https://aawp.de/dashboard/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

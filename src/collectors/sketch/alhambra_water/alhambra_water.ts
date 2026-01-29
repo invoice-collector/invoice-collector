@@ -29,7 +29,7 @@ export class AlhambraWaterCollector extends SketchCollector {
         loginUrl: "https://drink.alhambrawater.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

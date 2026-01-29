@@ -29,7 +29,7 @@ export class ClinicDressCollector extends SketchCollector {
         loginUrl: "https://www.clinicdress.de/bestellungsverlauf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MercuryNzCollector extends SketchCollector {
         loginUrl: "https://myaccount.mercury.co.nz/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

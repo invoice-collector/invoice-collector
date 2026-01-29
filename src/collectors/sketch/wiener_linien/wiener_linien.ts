@@ -29,7 +29,7 @@ export class WienerLinienCollector extends SketchCollector {
         loginUrl: "https://shop.wienmobil.at/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

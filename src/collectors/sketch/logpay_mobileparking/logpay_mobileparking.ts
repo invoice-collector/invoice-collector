@@ -29,7 +29,7 @@ export class LogpayMobileparkingCollector extends SketchCollector {
         loginUrl: "https://www.logpay.de/DE/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

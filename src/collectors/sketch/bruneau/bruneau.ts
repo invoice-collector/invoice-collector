@@ -29,7 +29,7 @@ export class BruneauCollector extends SketchCollector {
         loginUrl: "https://www.bruneau.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

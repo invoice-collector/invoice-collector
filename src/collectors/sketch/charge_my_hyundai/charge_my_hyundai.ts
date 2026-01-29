@@ -29,7 +29,7 @@ export class ChargeMyHyundaiCollector extends SketchCollector {
         loginUrl: "https://chargemyhyundai.com/web/hyundai-de/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

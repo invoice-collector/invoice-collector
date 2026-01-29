@@ -29,7 +29,7 @@ export class IdriveE2Collector extends SketchCollector {
         loginUrl: "https://app.idrivee2.com/account-info/billing-overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

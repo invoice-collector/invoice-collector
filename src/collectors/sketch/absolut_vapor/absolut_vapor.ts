@@ -29,7 +29,7 @@ export class AbsolutVaporCollector extends SketchCollector {
         loginUrl: "https://www.absolut-vapor.com/ecigarette-eliquide/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

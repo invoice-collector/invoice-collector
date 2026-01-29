@@ -29,7 +29,7 @@ export class MutuelleSquadraCollector extends SketchCollector {
         loginUrl: "http://www.mutuelle-et-assurance.net/tag/squadra/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

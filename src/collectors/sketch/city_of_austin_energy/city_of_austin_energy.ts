@@ -29,7 +29,7 @@ export class CityOfAustinEnergyCollector extends SketchCollector {
         loginUrl: "https://dss-coa.opower.com/dss/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

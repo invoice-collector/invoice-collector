@@ -29,7 +29,7 @@ export class WascoCollector extends SketchCollector {
         loginUrl: "https://www.wasco.nl/inloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

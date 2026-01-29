@@ -29,7 +29,7 @@ export class GulpDeGutschriftstoolCollector extends SketchCollector {
         loginUrl: "https://www.gulp.de/gstool",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

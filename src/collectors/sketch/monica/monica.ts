@@ -29,7 +29,7 @@ export class MonicaCollector extends SketchCollector {
         loginUrl: "https://monica.im/login?redirectTo=https%3A%2F%2Fmonica.im%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

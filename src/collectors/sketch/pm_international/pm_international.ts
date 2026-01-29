@@ -29,7 +29,7 @@ export class PmInternationalCollector extends SketchCollector {
         loginUrl: "https://office.pm-international.com/account/documents/?lang=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

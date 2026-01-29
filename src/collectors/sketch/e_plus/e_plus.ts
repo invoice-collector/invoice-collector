@@ -29,7 +29,7 @@ export class EPlusCollector extends SketchCollector {
         loginUrl: "https://dsl.o2online.de/selfcare/content/segment/kundencenter/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

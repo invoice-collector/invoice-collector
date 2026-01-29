@@ -28,7 +28,7 @@ export class ZuiverCollector extends SketchCollector {
         loginUrl: "https://www.zuiver.com/en/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

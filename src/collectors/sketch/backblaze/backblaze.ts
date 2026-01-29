@@ -29,7 +29,7 @@ export class BackblazeCollector extends SketchCollector {
         loginUrl: "https://secure.backblaze.com/billing.htm?billing_page=backup",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

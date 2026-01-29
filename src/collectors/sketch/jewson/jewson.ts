@@ -29,7 +29,7 @@ export class JewsonCollector extends SketchCollector {
         loginUrl: "https://www.jewson.co.uk/accounts/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

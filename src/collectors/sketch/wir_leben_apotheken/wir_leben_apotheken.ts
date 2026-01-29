@@ -29,7 +29,7 @@ export class WirLebenApothekenCollector extends SketchCollector {
         loginUrl: "https://www.wirleben.de/myshop/orders/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

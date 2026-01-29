@@ -29,7 +29,7 @@ export class ApotalDeCollector extends SketchCollector {
         loginUrl: "https://shop.apotal.de/checkLogin/main",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

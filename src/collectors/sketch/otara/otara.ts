@@ -29,7 +29,7 @@ export class OtaraCollector extends SketchCollector {
         loginUrl: "https://otara.de/account#hide-registration",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

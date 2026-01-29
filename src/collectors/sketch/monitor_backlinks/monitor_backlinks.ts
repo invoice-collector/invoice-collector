@@ -29,7 +29,7 @@ export class MonitorBacklinksCollector extends SketchCollector {
         loginUrl: "https://monitorbacklinks.com/app/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

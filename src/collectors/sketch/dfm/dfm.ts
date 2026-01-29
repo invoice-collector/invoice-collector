@@ -29,7 +29,7 @@ export class DfmCollector extends SketchCollector {
         loginUrl: "https://portail-dfm.artis.fr/dfm/portail/login/auth/DO.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

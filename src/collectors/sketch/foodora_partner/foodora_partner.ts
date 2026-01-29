@@ -29,7 +29,7 @@ export class FoodoraPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.foodora.com/finance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

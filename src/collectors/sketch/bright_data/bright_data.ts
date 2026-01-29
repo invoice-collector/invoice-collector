@@ -29,7 +29,7 @@ export class BrightDataCollector extends SketchCollector {
         loginUrl: "https://brightdata.com/cp/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

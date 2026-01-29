@@ -29,7 +29,7 @@ export class TogglCollector extends SketchCollector {
         loginUrl: "https://www.toggl.com/app/subscription/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DigitaloceanCollector extends SketchCollector {
         loginUrl: "https://cloud.digitalocean.com/droplets",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

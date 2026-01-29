@@ -29,7 +29,7 @@ export class GimberCollector extends SketchCollector {
         loginUrl: "https://portal.gimber.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

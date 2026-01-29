@@ -29,7 +29,7 @@ export class TapfiliateCollector extends SketchCollector {
         loginUrl: "https://tapfiliate.com/login_check",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

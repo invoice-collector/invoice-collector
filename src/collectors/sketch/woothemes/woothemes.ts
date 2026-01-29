@@ -29,7 +29,7 @@ export class WoothemesCollector extends SketchCollector {
         loginUrl: "https://woocommerce.com/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CgImmobilierLogeImmobilierCollector extends SketchCollector {
         loginUrl: "https://extranet.ics.fr/V4/connexion-logeimmobilier.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

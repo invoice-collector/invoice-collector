@@ -28,7 +28,7 @@ export class AviaFranceCollector extends SketchCollector {
         loginUrl: "https://avia-france.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

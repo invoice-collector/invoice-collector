@@ -29,7 +29,7 @@ export class FirstenergyCollector extends SketchCollector {
         loginUrl: "https://www.firstenergycorp.com/log_in.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

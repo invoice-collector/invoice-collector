@@ -29,7 +29,7 @@ export class VspEmployerCollector extends SketchCollector {
         loginUrl: "https://billing.vsp.com/bd/startEBPP.sap",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

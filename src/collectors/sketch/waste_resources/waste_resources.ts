@@ -29,7 +29,7 @@ export class WasteResourcesCollector extends SketchCollector {
         loginUrl: "https://wrk-prd-tow-etr.amcsplatform.com/WR/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

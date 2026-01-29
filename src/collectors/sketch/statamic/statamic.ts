@@ -29,7 +29,7 @@ export class StatamicCollector extends SketchCollector {
         loginUrl: "https://statamic.com/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

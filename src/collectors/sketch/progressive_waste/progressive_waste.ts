@@ -29,7 +29,7 @@ export class ProgressiveWasteCollector extends SketchCollector {
         loginUrl: "https://secure3.i-doxs.net/iesi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

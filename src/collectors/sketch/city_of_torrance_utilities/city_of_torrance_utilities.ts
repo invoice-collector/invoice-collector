@@ -29,7 +29,7 @@ export class CityOfTorranceUtilitiesCollector extends SketchCollector {
         loginUrl: "https://torranceca.myutilitydirect.com/customerportal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

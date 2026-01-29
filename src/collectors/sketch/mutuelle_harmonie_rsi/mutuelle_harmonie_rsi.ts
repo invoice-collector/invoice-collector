@@ -29,7 +29,7 @@ export class MutuelleHarmonieRsiCollector extends SketchCollector {
         loginUrl: "https://www.harmonie-mutuelle.fr/web/professionnels-independants-et-tpe",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

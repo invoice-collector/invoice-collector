@@ -29,7 +29,7 @@ export class LavegoCollector extends SketchCollector {
         loginUrl: "https://portal.lavego.de/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

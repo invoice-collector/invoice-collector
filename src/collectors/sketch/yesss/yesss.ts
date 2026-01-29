@@ -29,7 +29,7 @@ export class YesssCollector extends SketchCollector {
         loginUrl: "https://www.yesss.at/kontomanager.at/aufladungen_rechnungsbelege.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

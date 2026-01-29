@@ -29,7 +29,7 @@ export class BellCanadaMybellCollector extends SketchCollector {
         loginUrl: "https://mybell.bell.ca/MyBills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

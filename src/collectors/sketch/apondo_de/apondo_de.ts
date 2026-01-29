@@ -29,7 +29,7 @@ export class ApondoDeCollector extends SketchCollector {
         loginUrl: "https://www.apondo.de/myOrders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

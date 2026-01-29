@@ -29,7 +29,7 @@ export class VoysCollector extends SketchCollector {
         loginUrl: "https://freedom.voys.nl/user/login/?next=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SachsennetCollector extends SketchCollector {
         loginUrl: "https://sachsennet.plusportal.de/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

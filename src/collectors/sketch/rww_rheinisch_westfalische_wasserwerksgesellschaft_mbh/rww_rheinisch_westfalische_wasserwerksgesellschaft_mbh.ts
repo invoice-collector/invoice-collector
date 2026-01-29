@@ -29,7 +29,7 @@ export class RwwRheinischWestfalischeWasserwerksgesellschaftMbhCollector extends
         loginUrl: "https://onlineservice.service-rz.de/?act=login&werknr=29#normal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

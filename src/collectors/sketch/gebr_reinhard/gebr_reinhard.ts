@@ -29,7 +29,7 @@ export class GebrReinhardCollector extends SketchCollector {
         loginUrl: "https://shop.reinhard-stahl.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

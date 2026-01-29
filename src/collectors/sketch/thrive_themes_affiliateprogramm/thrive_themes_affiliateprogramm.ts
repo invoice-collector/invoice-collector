@@ -29,7 +29,7 @@ export class ThriveThemesAffiliateprogrammCollector extends SketchCollector {
         loginUrl: "https://thrivethemes.com/affiliates/account.php?page=3",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

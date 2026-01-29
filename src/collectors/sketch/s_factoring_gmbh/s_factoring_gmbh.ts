@@ -29,7 +29,7 @@ export class SFactoringGmbhCollector extends SketchCollector {
         loginUrl: "https://portal.s-factoring.de/#Docs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AzendooCollector extends SketchCollector {
         loginUrl: "https://repo.octobat.com/customers/1473788658420ra3f2bc2d",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

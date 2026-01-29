@@ -29,7 +29,7 @@ export class SacramentoMunicipalUtilityDistrictCollector extends SketchCollector
         loginUrl: "https://myaccount.smud.org/signin/accountselection",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

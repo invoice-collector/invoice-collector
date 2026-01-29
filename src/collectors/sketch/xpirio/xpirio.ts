@@ -29,7 +29,7 @@ export class XpirioCollector extends SketchCollector {
         loginUrl: "http://www.xpirio.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

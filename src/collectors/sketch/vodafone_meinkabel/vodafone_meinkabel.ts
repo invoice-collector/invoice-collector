@@ -29,7 +29,7 @@ export class VodafoneMeinkabelCollector extends SketchCollector {
         loginUrl: "https://kabel.vodafone.de/meinkabel/rechnungen/rechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

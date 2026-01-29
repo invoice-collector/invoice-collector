@@ -29,7 +29,7 @@ export class FoussierCollector extends SketchCollector {
         loginUrl: "https://www.foussier.fr/recherche?q=amenagement%20salle%20de%20bain&gclid=EAIaIQobChMIrJbLiI_c7QIVFrqWCh1EdgNVEAAYASAAEgJH_fD_BwE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

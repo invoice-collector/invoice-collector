@@ -29,7 +29,7 @@ export class LeadjetCollector extends SketchCollector {
         loginUrl: "https://account.leadjet.io/settings/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

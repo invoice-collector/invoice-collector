@@ -29,7 +29,7 @@ export class VgsdVerbandDerGrunderUndSelbststandigenEVCollector extends SketchCo
         loginUrl: "https://www.vgsd.de/account/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

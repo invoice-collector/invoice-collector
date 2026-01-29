@@ -29,7 +29,7 @@ export class EkwateurProCollector extends SketchCollector {
         loginUrl: "https://espace-energie.ekwateur.fr/search/regroupement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

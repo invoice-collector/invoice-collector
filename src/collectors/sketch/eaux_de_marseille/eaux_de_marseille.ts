@@ -29,7 +29,7 @@ export class EauxDeMarseilleCollector extends SketchCollector {
         loginUrl: "https://espaceclients.eaudemarseille-metropole.fr/index.html#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

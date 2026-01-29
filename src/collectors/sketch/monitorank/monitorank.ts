@@ -29,7 +29,7 @@ export class MonitorankCollector extends SketchCollector {
         loginUrl: "https://account.monitorank.com/fr/#/connection/connection/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ClsMedCollector extends SketchCollector {
         loginUrl: "https://www.cls-med.de/login.php?MODsid=7b3c779e52b77d562ec1b5be1832ba33",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

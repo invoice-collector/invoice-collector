@@ -29,7 +29,7 @@ export class LivestormCollector extends SketchCollector {
         loginUrl: "https://app.livestorm.co/#/settings?page=settings&tab=billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

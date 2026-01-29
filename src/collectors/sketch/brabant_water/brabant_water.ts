@@ -29,7 +29,7 @@ export class BrabantWaterCollector extends SketchCollector {
         loginUrl: "https://mijn.brabantwater.nl/Paginas/Inloggen.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WmfCollector extends SketchCollector {
         loginUrl: "http://www.wmf.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HpsmartCollector extends SketchCollector {
         loginUrl: "https://www.hpsmart.com/de/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

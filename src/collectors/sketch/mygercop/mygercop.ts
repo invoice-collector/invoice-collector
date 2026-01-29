@@ -29,7 +29,7 @@ export class MygercopCollector extends SketchCollector {
         loginUrl: "https://etudeamboise.mygercop.com/xnet/locataire/mes-documents/classeur/1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

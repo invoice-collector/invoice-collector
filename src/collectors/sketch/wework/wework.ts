@@ -29,7 +29,7 @@ export class WeworkCollector extends SketchCollector {
         loginUrl: "https://members.wework.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

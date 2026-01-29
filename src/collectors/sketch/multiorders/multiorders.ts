@@ -29,7 +29,7 @@ export class MultiordersCollector extends SketchCollector {
         loginUrl: "https://app.multiorders.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

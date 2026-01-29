@@ -29,7 +29,7 @@ export class PayzoneIeCollector extends SketchCollector {
         loginUrl: "https://www.payzone.ie/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrangeConnexCollector extends SketchCollector {
         loginUrl: "https://fulfillment.orangeconnex.com/seller/login?redirectUrl=https%3A%2F%2Ffulfillment.orangeconnex.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

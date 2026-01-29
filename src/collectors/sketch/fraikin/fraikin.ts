@@ -29,7 +29,7 @@ export class FraikinCollector extends SketchCollector {
         loginUrl: "https://customerportal.fraikin.com/login?ec=302&startURL=%2Fs%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

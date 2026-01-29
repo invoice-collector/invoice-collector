@@ -29,7 +29,7 @@ export class CityOfRedlandsUtilitiesCollector extends SketchCollector {
         loginUrl: "https://myredconnectaccount.org/iwr/billing/billingManager.seam?cid=3694&rvn=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

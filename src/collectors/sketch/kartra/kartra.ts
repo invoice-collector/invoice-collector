@@ -29,7 +29,7 @@ export class KartraCollector extends SketchCollector {
         loginUrl: "https://home.kartra.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

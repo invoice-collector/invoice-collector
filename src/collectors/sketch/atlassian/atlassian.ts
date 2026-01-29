@@ -29,7 +29,7 @@ export class AtlassianCollector extends SketchCollector {
         loginUrl: "https://id.atlassian.com/login?application=mac&continue=https://my.atlassian.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

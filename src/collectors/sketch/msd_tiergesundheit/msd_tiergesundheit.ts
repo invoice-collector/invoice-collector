@@ -29,7 +29,7 @@ export class MsdTiergesundheitCollector extends SketchCollector {
         loginUrl: "https://myaccount.authentication.us10.hana.ondemand.com/saml/login/alias/myaccount.aws-live?disco=true&idp=https%3A%2F%2Fwww.msd-tiergesundheit.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

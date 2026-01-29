@@ -29,7 +29,7 @@ export class FanzoExAllomatchCollector extends SketchCollector {
         loginUrl: "https://business.fanzo.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

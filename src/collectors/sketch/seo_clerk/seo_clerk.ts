@@ -29,7 +29,7 @@ export class SeoClerkCollector extends SketchCollector {
         loginUrl: "https://www.seoclerks.com/balance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

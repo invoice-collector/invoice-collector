@@ -29,7 +29,7 @@ export class DatapartCollector extends SketchCollector {
         loginUrl: "https://mydatapart.de/dp_fs_message/account/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

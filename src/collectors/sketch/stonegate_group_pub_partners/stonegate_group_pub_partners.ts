@@ -29,7 +29,7 @@ export class StonegateGroupPubPartnersCollector extends SketchCollector {
         loginUrl: "https://www.stonegatepubpartners.co.uk/sites/myaccount/my-pub/Pages/invoices-documents.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

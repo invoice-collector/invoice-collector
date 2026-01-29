@@ -29,7 +29,7 @@ export class PalmBeachCountyWaterPbcCollector extends SketchCollector {
         loginUrl: "https://ebill.pbcwater.com/billing/viewbillUI.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

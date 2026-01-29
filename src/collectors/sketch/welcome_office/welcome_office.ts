@@ -29,7 +29,7 @@ export class WelcomeOfficeCollector extends SketchCollector {
         loginUrl: "https://www.welcomeoffice.com/UserAccount_V3/Authentification.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SuperprofCollector extends SketchCollector {
         loginUrl: "https://www.superprof.de/dashboard.html/premium",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

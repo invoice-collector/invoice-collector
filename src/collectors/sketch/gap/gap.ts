@@ -29,7 +29,7 @@ export class GapCollector extends SketchCollector {
         loginUrl: "https://gap-france.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

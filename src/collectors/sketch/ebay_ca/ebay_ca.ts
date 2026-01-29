@@ -29,7 +29,7 @@ export class EbayCaCollector extends SketchCollector {
         loginUrl: "https://cgi3.ebay.ca/ws/eBayISAPI.dll?MfcISAPICommand=ViewAccount&acctpagetype=0&invoiceYear=0&sortorder=1&daysback=-1&startmonth=&startday=&startyear=&endmonth=&endday=&endyear=&TabSelected=PaymentsRefunds&cid=002",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

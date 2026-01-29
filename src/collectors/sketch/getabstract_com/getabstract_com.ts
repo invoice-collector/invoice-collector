@@ -29,7 +29,7 @@ export class GetabstractComCollector extends SketchCollector {
         loginUrl: "https://www.getabstract.com/de/myaccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

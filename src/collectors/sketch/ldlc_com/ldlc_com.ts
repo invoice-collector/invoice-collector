@@ -29,7 +29,7 @@ export class LdlcComCollector extends SketchCollector {
         loginUrl: "https://secure.ldlc.com/Account/LoginPage.aspx?redir=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

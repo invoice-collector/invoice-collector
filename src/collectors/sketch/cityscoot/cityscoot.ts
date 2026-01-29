@@ -29,7 +29,7 @@ export class CityscootCollector extends SketchCollector {
         loginUrl: "https://www.cityscoot.eu/en/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

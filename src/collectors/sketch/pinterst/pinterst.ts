@@ -29,7 +29,7 @@ export class PinterstCollector extends SketchCollector {
         loginUrl: "https://ads.pinterest.com/advertiser/549762496194/billing/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

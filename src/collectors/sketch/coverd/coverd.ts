@@ -29,7 +29,7 @@ export class CoverdCollector extends SketchCollector {
         loginUrl: "https://www.coverd.co/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

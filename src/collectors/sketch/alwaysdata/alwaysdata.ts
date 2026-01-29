@@ -29,7 +29,7 @@ export class AlwaysdataCollector extends SketchCollector {
         loginUrl: "https://admin.alwaysdata.com/login/?next=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RideTicketingCollector extends SketchCollector {
         loginUrl: "https://abo.ride-ticketing.de/management-dashboard/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WeworkAccountCentralCollector extends SketchCollector {
         loginUrl: "https://accounts.wework.com/dashboard/balance-and-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

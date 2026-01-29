@@ -29,7 +29,7 @@ export class MarketscreenerCollector extends SketchCollector {
         loginUrl: "https://de.marketscreener.com/mein-konto/abonnements/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

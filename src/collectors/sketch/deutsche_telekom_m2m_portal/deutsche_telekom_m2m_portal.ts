@@ -29,7 +29,7 @@ export class DeutscheTelekomM2mPortalCollector extends SketchCollector {
         loginUrl: "https://portal-m2m.telekom.de/m2m-customer-portal/user/invoices/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EveryoneonlineCollector extends SketchCollector {
         loginUrl: "https://mijn.everyoneonline.nl/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

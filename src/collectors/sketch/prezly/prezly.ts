@@ -29,7 +29,7 @@ export class PrezlyCollector extends SketchCollector {
         loginUrl: "https://rock.prezly.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

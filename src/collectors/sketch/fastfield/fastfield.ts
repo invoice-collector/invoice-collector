@@ -29,7 +29,7 @@ export class FastfieldCollector extends SketchCollector {
         loginUrl: "https://manage.fastfieldforms.com/Account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

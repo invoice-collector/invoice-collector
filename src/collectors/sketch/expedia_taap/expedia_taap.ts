@@ -29,7 +29,7 @@ export class ExpediaTaapCollector extends SketchCollector {
         loginUrl: "https://www.expediataap.de/trips",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

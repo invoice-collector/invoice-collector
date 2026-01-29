@@ -29,7 +29,7 @@ export class PleexyCollector extends SketchCollector {
         loginUrl: "https://app.asana.com/-/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

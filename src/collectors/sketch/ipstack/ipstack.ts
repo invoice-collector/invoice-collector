@@ -29,7 +29,7 @@ export class IpstackCollector extends SketchCollector {
         loginUrl: "https://ipstack.com/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

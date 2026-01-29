@@ -29,7 +29,7 @@ export class ReweFurSieCollector extends SketchCollector {
         loginUrl: "https://portal.fuer-sie-eg.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

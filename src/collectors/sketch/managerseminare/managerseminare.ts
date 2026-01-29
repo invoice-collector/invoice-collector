@@ -29,7 +29,7 @@ export class ManagerseminareCollector extends SketchCollector {
         loginUrl: "https://www.managerseminare.de/Login/Rechnungseinstellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

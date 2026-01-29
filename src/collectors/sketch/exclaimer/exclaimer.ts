@@ -29,7 +29,7 @@ export class ExclaimerCollector extends SketchCollector {
         loginUrl: "https://portal.exclaimer.com/?lang=en-TT&__hstc=35025022.3cadb767afbf989b60fc8c4b5900b99e.1523643125933.1523643125934.1523643125934.1&__hssc=35025022.1.1523643125935&__hsfp=3161351056&_ga=2.95465628.1017851034.1523643124-695165310.1523643124",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

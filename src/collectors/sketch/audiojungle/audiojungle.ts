@@ -29,7 +29,7 @@ export class AudiojungleCollector extends SketchCollector {
         loginUrl: "https://audiojungle.net/user/thebuddies/statement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

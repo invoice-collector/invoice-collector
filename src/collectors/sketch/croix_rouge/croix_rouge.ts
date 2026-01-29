@@ -29,7 +29,7 @@ export class CroixRougeCollector extends SketchCollector {
         loginUrl: "https://www.croix-rouge.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

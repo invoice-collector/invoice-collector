@@ -29,7 +29,7 @@ export class ByledCollector extends SketchCollector {
         loginUrl: "https://www.byled.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

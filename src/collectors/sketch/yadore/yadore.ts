@@ -29,7 +29,7 @@ export class YadoreCollector extends SketchCollector {
         loginUrl: "https://publisher.yadore.com/credit-notes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RoboformCollector extends SketchCollector {
         loginUrl: "https://online.roboform.com/login?lang=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

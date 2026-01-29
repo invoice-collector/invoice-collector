@@ -29,7 +29,7 @@ export class UrlboxCollector extends SketchCollector {
         loginUrl: "https://urlbox.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

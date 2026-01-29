@@ -29,7 +29,7 @@ export class SimpliBotCollector extends SketchCollector {
         loginUrl: "https://app.simpli-marketing.de/v2/location/8jJXUWtFF5Ga34nqSbKM/settings/company-billing/billing?tab=payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

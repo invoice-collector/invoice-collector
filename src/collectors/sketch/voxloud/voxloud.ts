@@ -29,7 +29,7 @@ export class VoxloudCollector extends SketchCollector {
         loginUrl: "https://controlpanel.voxloud.com/main/#/app/subscription-review",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

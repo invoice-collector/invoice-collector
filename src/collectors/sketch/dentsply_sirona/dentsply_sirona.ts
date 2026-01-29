@@ -29,7 +29,7 @@ export class DentsplySironaCollector extends SketchCollector {
         loginUrl: "https://www.dentsplysirona.com/de-de/shop/nutzer/mein-konto/bestellhistorie.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

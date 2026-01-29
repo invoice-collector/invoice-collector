@@ -29,7 +29,7 @@ export class ExcoffierRecyclageCollector extends SketchCollector {
         loginUrl: "https://extranet.excoffierrecyclage.com/Facture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MyAyvensManagerCollector extends SketchCollector {
         loginUrl: "https://manager.ayvens.fr/portal/aldnetpal/depenses/votre_coffre_fort/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WapplerCollector extends SketchCollector {
         loginUrl: "https://account5.wappler.io/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

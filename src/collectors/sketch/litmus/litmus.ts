@@ -29,7 +29,7 @@ export class LitmusCollector extends SketchCollector {
         loginUrl: "https://litmus.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

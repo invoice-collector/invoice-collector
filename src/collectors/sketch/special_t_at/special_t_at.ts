@@ -29,7 +29,7 @@ export class SpecialTAtCollector extends SketchCollector {
         loginUrl: "https://at.special-t.com/de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UnityPaymentCollector extends SketchCollector {
         loginUrl: "https://payments.unity3d.com/portal/viewAllInvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

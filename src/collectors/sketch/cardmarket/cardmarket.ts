@@ -29,7 +29,7 @@ export class CardmarketCollector extends SketchCollector {
         loginUrl: "https://www.cardmarket.com/en/Magic/Account/Finance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

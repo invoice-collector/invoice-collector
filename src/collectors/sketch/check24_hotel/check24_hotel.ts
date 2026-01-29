@@ -29,7 +29,7 @@ export class Check24HotelCollector extends SketchCollector {
         loginUrl: "https://extranet.hotel.check24.de/hotel/70627928/accounting/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

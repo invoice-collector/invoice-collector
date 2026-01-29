@@ -29,7 +29,7 @@ export class ChasePaymentechOnlineReportingCollector extends SketchCollector {
         loginUrl: "https://secure.paymentech.com/signin/pages/login.faces?CT_ORIG_URL=https%3A%2F%2Fsecure.paymentech.com%3A443%2Fportal%2F&ct_orig_uri=%2Fportal%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

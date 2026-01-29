@@ -29,7 +29,7 @@ export class FlitsmeisterCollector extends SketchCollector {
         loginUrl: "https://mijn.flitsmeister.nl/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

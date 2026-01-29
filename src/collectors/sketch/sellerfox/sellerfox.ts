@@ -29,7 +29,7 @@ export class SellerfoxCollector extends SketchCollector {
         loginUrl: "http://www.sellerfox.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

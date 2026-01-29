@@ -28,7 +28,7 @@ export class BricomanCollector extends SketchCollector {
         loginUrl: "https://www.bricoman.fr/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

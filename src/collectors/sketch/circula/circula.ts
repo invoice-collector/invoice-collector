@@ -29,7 +29,7 @@ export class CirculaCollector extends SketchCollector {
         loginUrl: "https://app.circula.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ParadiseProCollector extends SketchCollector {
         loginUrl: "https://pro.paradise-distribution.com/de/app/admin/finance/statements?offset=0&rowNum=20&sort=statementAccountingPeriod-desc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

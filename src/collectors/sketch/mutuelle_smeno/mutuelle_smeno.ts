@@ -29,7 +29,7 @@ export class MutuelleSmenoCollector extends SketchCollector {
         loginUrl: "https://espace-perso.smeno.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

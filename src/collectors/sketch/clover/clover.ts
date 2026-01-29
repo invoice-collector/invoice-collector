@@ -29,7 +29,7 @@ export class CloverCollector extends SketchCollector {
         loginUrl: "https://www.eu.clover.com/reporting/sales-overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

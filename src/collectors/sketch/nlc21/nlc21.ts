@@ -29,7 +29,7 @@ export class Nlc21Collector extends SketchCollector {
         loginUrl: "https://nlc21.com/rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

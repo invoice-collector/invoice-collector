@@ -29,7 +29,7 @@ export class MagistoCollector extends SketchCollector {
         loginUrl: "https://www.magisto.com/account/my_invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

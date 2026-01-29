@@ -29,7 +29,7 @@ export class OnofficeDeCollector extends SketchCollector {
         loginUrl: "https://smart.onoffice.de/smart/index.php?_ga=2.74610130.1155995631.1647524971-2123919288.1647524971",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

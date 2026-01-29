@@ -29,7 +29,7 @@ export class CityOfBeverlyHillsCollector extends SketchCollector {
         loginUrl: "https://idp.beverlyhills.org/ui/clogin.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

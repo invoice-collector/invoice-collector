@@ -29,7 +29,7 @@ export class TecoTampaElectricCollector extends SketchCollector {
         loginUrl: "https://account.tecoenergy.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

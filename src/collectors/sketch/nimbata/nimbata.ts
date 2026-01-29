@@ -29,7 +29,7 @@ export class NimbataCollector extends SketchCollector {
         loginUrl: "https://app.nimbata.com/account/plans-and-billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

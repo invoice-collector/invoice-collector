@@ -29,7 +29,7 @@ export class BilikCollector extends SketchCollector {
         loginUrl: "https://pro.bilik.fr/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

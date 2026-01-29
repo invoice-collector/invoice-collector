@@ -29,7 +29,7 @@ export class NorthdataCollector extends SketchCollector {
         loginUrl: "https://www.northdata.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

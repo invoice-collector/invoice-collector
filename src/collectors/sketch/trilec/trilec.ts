@@ -29,7 +29,7 @@ export class TrilecCollector extends SketchCollector {
         loginUrl: "https://www.triconnect.be/nl/Accountancy/InvoiceOverview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

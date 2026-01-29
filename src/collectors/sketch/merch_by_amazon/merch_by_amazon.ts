@@ -29,7 +29,7 @@ export class MerchByAmazonCollector extends SketchCollector {
         loginUrl: "https://merch.amazon.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

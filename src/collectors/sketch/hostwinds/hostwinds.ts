@@ -29,7 +29,7 @@ export class HostwindsCollector extends SketchCollector {
         loginUrl: "https://clients.hostwinds.com/clientarea.php?_ga=2.94389849.438283618.1636343183-124337738.1636203898",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

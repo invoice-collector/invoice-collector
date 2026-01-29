@@ -29,7 +29,7 @@ export class GroupamaContratsCollector extends SketchCollector {
         loginUrl: "https://www.groupama.fr/coups-de-pouce",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

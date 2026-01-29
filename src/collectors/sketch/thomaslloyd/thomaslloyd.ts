@@ -29,7 +29,7 @@ export class ThomaslloydCollector extends SketchCollector {
         loginUrl: "https://tl.vpportal.de/show/Posteingang",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

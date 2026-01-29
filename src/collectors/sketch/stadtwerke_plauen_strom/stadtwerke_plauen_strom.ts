@@ -29,7 +29,7 @@ export class StadtwerkePlauenStromCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-strom-plauen.de/bkp/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

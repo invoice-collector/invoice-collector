@@ -29,7 +29,7 @@ export class ServmaskCollector extends SketchCollector {
         loginUrl: "https://servmask.com/subscription/fee64cdd-78c0-4b79-82eb-54134e2db720/billing-details",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ImmobiliereLandisCollector extends SketchCollector {
         loginUrl: "https://immobiliere-landis.mygercop.com/connexion/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

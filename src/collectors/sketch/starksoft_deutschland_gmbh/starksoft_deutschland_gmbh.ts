@@ -29,7 +29,7 @@ export class StarksoftDeutschlandGmbhCollector extends SketchCollector {
         loginUrl: "https://www.insikacenter.de/insikaoffice/script/module/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

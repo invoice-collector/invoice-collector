@@ -29,7 +29,7 @@ export class BundesdruckereiTestCollector extends SketchCollector {
         loginUrl: "https://test.xrechnung-bdr.de/portal/Documents/#/Inbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

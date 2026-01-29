@@ -29,7 +29,7 @@ export class ZinioCollector extends SketchCollector {
         loginUrl: "https://www.zinio.com/gb/sign-in?redirect_to=%2Fmy-library",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

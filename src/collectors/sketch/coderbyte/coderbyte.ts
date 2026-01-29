@@ -29,7 +29,7 @@ export class CoderbyteCollector extends SketchCollector {
         loginUrl: "https://coderbyte.com/dashboard/avimedical-bijzh#settings-plan_and_billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

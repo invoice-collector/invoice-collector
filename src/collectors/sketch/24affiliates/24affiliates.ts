@@ -29,7 +29,7 @@ export class _24affiliatesCollector extends SketchCollector {
         loginUrl: "http://partner.24affiliates.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

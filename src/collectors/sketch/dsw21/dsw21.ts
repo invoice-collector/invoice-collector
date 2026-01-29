@@ -29,7 +29,7 @@ export class Dsw21Collector extends SketchCollector {
         loginUrl: "https://meinabo.dsw21.de/de/company/0001248199/type/default/agreement/0007008793/main/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

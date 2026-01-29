@@ -29,7 +29,7 @@ export class CompagnieParisienneDeChauffageUrbainCpcuCollector extends SketchCol
         loginUrl: "https://cpcu-ec.dsa-prod.myoddcloud.com/my/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

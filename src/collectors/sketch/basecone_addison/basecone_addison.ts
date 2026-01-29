@@ -29,7 +29,7 @@ export class BaseconeAddisonCollector extends SketchCollector {
         loginUrl: "https://identity.basecone.com/authentication/login?signin=6dd09df2f7dca6eada587463a123cbe7",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

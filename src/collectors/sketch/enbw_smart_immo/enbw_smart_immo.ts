@@ -29,7 +29,7 @@ export class EnbwSmartImmoCollector extends SketchCollector {
         loginUrl: "https://smartenergysuite.enbw.com/smartimmo/home/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

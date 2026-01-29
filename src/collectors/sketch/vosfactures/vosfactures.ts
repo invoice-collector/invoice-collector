@@ -29,7 +29,7 @@ export class VosfacturesCollector extends SketchCollector {
         loginUrl: "https://evenove.vosfactures.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UtaCollector extends SketchCollector {
         loginUrl: "https://www.uta.com/servicecenter/prod/spr/login-flow?execution=e1s1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

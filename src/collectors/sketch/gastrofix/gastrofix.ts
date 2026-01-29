@@ -29,7 +29,7 @@ export class GastrofixCollector extends SketchCollector {
         loginUrl: "https://cloud.gastrofix.com/client/#/financial/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AppearInCollector extends SketchCollector {
         loginUrl: "https://appear.in/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

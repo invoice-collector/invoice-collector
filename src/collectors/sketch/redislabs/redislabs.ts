@@ -29,7 +29,7 @@ export class RedislabsCollector extends SketchCollector {
         loginUrl: "https://app.redislabs.com/#/login?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

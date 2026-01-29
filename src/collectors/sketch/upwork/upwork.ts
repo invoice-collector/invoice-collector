@@ -29,7 +29,7 @@ export class UpworkCollector extends SketchCollector {
         loginUrl: "https://www.upwork.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

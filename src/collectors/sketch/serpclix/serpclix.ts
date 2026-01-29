@@ -29,7 +29,7 @@ export class SerpclixCollector extends SketchCollector {
         loginUrl: "https://serpclix.com/buyers/profile/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

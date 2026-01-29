@@ -29,7 +29,7 @@ export class LichtblickFahrstromGeschaftskundenCollector extends SketchCollector
         loginUrl: "https://www.lichtblick.de/konto#/posteingang",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

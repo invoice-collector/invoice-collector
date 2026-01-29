@@ -29,7 +29,7 @@ export class SwpSudwestPresseCollector extends SketchCollector {
         loginUrl: "https://www.swp.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

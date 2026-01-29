@@ -29,7 +29,7 @@ export class InternetMediaCollector extends SketchCollector {
         loginUrl: "https://my.internet-media.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

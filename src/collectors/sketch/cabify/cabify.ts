@@ -29,7 +29,7 @@ export class CabifyCollector extends SketchCollector {
         loginUrl: "https://www.cabify.com/app/billing/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

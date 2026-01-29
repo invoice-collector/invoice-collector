@@ -29,7 +29,7 @@ export class TravelersInsuranceCollector extends SketchCollector {
         loginUrl: "https://signin.travelers.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BiffaCollector extends SketchCollector {
         loginUrl: "https://customerzone.biffa.co.uk/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

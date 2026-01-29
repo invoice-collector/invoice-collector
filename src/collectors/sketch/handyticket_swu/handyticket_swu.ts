@@ -29,7 +29,7 @@ export class HandyticketSwuCollector extends SketchCollector {
         loginUrl: "https://handyticket.de/portals/web/nutzer/swu/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

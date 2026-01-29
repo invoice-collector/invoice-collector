@@ -29,7 +29,7 @@ export class GrooveAttackCollector extends SketchCollector {
         loginUrl: "https://pro.grooveattack.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

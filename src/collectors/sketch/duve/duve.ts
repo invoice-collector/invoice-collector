@@ -29,7 +29,7 @@ export class DuveCollector extends SketchCollector {
         loginUrl: "https://frontdesk.duve.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

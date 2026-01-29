@@ -29,7 +29,7 @@ export class HgkHotelUndGastronomieKaufEgCollector extends SketchCollector {
         loginUrl: "https://www.h-g-k.de/belege_letzter_monat/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

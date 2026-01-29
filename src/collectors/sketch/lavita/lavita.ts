@@ -29,7 +29,7 @@ export class LavitaCollector extends SketchCollector {
         loginUrl: "https://account.lavita.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

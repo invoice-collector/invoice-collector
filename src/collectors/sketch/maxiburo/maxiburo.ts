@@ -29,7 +29,7 @@ export class MaxiburoCollector extends SketchCollector {
         loginUrl: "https://www.maxiburo.fr/Client/Identification?ReturnUrl=%2fmon-compte%2faccueil.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

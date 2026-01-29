@@ -29,7 +29,7 @@ export class ThingsboardCollector extends SketchCollector {
         loginUrl: "https://license.thingsboard.io/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

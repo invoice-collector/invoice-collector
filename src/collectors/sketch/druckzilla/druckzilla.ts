@@ -29,7 +29,7 @@ export class DruckzillaCollector extends SketchCollector {
         loginUrl: "https://www.druckzilla.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

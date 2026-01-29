@@ -29,7 +29,7 @@ export class NiceMatinCollector extends SketchCollector {
         loginUrl: "https://www.nicematin.com/user/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

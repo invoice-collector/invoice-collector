@@ -29,7 +29,7 @@ export class SnipcartCollector extends SketchCollector {
         loginUrl: "https://app.snipcart.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BesUtilitiesCollector extends SketchCollector {
         loginUrl: "https://account.besutilities.co.uk/Login/Login?ReturnUrl=%2fCustomer%2fLogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

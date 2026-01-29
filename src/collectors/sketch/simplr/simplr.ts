@@ -29,7 +29,7 @@ export class SimplrCollector extends SketchCollector {
         loginUrl: "https://login.simplr.de/#/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

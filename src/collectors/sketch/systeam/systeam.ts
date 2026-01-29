@@ -29,7 +29,7 @@ export class SysteamCollector extends SketchCollector {
         loginUrl: "http://www.systeam.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

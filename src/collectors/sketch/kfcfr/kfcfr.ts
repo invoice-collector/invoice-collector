@@ -28,7 +28,7 @@ export class KfcFrCollector extends SketchCollector {
         loginUrl: "https://www.kfc.fr/mon-compte/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

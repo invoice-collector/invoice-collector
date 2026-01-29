@@ -29,7 +29,7 @@ export class SearchviuGmbhCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xSHpscFdMWmtEczdSVWJmLF9OU25pVzZLZlFQRktMejlhcmdwSG92Rlc0UUJzQ0po01003ESql5Aq",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

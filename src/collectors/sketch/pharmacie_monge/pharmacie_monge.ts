@@ -29,7 +29,7 @@ export class PharmacieMongeCollector extends SketchCollector {
         loginUrl: "https://pharmacie-monge.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

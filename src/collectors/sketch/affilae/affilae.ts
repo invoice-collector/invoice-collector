@@ -29,7 +29,7 @@ export class AffilaeCollector extends SketchCollector {
         loginUrl: "https://affilae.com/fr/logiciel-affiliation/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

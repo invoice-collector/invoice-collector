@@ -29,7 +29,7 @@ export class TerralinkNetworksCollector extends SketchCollector {
         loginUrl: "https://www.terralink.de/dsl-festnetztarife-fuer-privatkunden.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

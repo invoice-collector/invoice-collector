@@ -29,7 +29,7 @@ export class KelaKeckAndLangGmbhCollector extends SketchCollector {
         loginUrl: "https://b2b.kela.de/html/de/customerDocumentList-customerDocumentListId-invoice.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

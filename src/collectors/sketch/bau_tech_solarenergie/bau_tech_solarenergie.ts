@@ -29,7 +29,7 @@ export class BauTechSolarenergieCollector extends SketchCollector {
         loginUrl: "https://www.bau-tech.shop/customer",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

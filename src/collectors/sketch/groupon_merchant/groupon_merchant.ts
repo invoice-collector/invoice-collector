@@ -29,7 +29,7 @@ export class GrouponMerchantCollector extends SketchCollector {
         loginUrl: "https://www.groupon.de/merchant/center/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

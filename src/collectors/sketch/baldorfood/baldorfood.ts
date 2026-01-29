@@ -29,7 +29,7 @@ export class BaldorfoodCollector extends SketchCollector {
         loginUrl: "https://www.baldorfood.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PrismaPbsGmbhCollector extends SketchCollector {
         loginUrl: "https://archiv.pbs-gmbh.com/cgi-bin/m210000.asp/Aktion=Archiv&Neu_BelegArt=ZR",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

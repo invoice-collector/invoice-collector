@@ -29,7 +29,7 @@ export class IconfinderCollector extends SketchCollector {
         loginUrl: "https://www.iconfinder.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PaperformCollector extends SketchCollector {
         loginUrl: "https://paperform.co/account/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

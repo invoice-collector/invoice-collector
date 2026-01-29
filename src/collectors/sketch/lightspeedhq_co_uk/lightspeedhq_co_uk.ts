@@ -29,7 +29,7 @@ export class LightspeedhqCoUkCollector extends SketchCollector {
         loginUrl: "https://www.lightspeedhq.co.uk/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

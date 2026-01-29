@@ -29,7 +29,7 @@ export class TbaytelCollector extends SketchCollector {
         loginUrl: "https://www.tbaytel.net/tbaytellogin?returnurl=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

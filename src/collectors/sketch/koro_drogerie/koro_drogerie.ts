@@ -29,7 +29,7 @@ export class KoroDrogerieCollector extends SketchCollector {
         loginUrl: "https://www.korodrogerie.de/account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

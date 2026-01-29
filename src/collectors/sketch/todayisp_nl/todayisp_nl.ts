@@ -29,7 +29,7 @@ export class TodayispNlCollector extends SketchCollector {
         loginUrl: "http://mijn.todayisp.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

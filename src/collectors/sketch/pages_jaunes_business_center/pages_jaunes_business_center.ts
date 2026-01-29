@@ -29,7 +29,7 @@ export class PagesJaunesBusinessCenterCollector extends SketchCollector {
         loginUrl: "https://businesscenter.pagesjaunes.fr/nouvelles_audiences/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

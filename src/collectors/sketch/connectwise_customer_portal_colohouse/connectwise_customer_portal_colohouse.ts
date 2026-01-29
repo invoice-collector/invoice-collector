@@ -29,7 +29,7 @@ export class ConnectwiseCustomerPortalColohouseCollector extends SketchCollector
         loginUrl: "https://na.myconnectwise.net/colohouse?company=colohouse",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

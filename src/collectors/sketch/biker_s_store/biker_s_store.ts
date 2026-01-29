@@ -29,7 +29,7 @@ export class BikerSStoreCollector extends SketchCollector {
         loginUrl: "https://www.bikers-store.fr/client.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

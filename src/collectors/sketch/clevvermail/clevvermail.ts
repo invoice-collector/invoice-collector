@@ -29,7 +29,7 @@ export class ClevvermailCollector extends SketchCollector {
         loginUrl: "https://eu.clevvermail.com/app/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

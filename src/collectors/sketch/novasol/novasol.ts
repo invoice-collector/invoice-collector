@@ -29,7 +29,7 @@ export class NovasolCollector extends SketchCollector {
         loginUrl: "https://www.novasol.dk/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

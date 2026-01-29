@@ -29,7 +29,7 @@ export class ImvOnlineCollector extends SketchCollector {
         loginUrl: "https://www.imv-online.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

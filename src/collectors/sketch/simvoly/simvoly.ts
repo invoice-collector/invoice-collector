@@ -29,7 +29,7 @@ export class SimvolyCollector extends SketchCollector {
         loginUrl: "https://simvoly.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

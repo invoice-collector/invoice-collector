@@ -29,7 +29,7 @@ export class MutuelleIrpAutoEntrepriseCollector extends SketchCollector {
         loginUrl: "https://www.irp-auto.com/acces-votre-compte-entreprise",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

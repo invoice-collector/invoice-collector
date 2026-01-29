@@ -29,7 +29,7 @@ export class AutarcCollector extends SketchCollector {
         loginUrl: "https://app2.autarc.energy/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ShoopDeCollector extends SketchCollector {
         loginUrl: "http://www.shoop.de/meinkonto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

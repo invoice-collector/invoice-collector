@@ -29,7 +29,7 @@ export class PachmyrCollector extends SketchCollector {
         loginUrl: "https://www.pachmayr.de/shop/neu-im-sortiment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ContentsCollector extends SketchCollector {
         loginUrl: "https://dashboard.contents.com/en/myprofile?tool=mybalance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

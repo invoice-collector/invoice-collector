@@ -29,7 +29,7 @@ export class ArtsmartAiCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xTHNLTmFMb1pCN0lxQ2RvLF9PVU9zVzhESnNPZ1o2aWZ0eDhRTHk0ZXlrbHBQajZr0100qcAJxUiA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

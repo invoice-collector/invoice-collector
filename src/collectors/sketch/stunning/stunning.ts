@@ -29,7 +29,7 @@ export class StunningCollector extends SketchCollector {
         loginUrl: "https://stunning.co/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

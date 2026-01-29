@@ -29,7 +29,7 @@ export class LiwestCollector extends SketchCollector {
         loginUrl: "https://mein.liwest.at/csc/#/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

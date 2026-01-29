@@ -29,7 +29,7 @@ export class LittleLunchCollector extends SketchCollector {
         loginUrl: "https://www.littlelunch.com/de-de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

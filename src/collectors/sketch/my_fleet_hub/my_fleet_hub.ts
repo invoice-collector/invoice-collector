@@ -29,7 +29,7 @@ export class MyFleetHubCollector extends SketchCollector {
         loginUrl: "https://login.myfleethub.co.uk/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

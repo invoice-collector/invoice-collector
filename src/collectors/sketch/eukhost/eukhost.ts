@@ -29,7 +29,7 @@ export class EukhostCollector extends SketchCollector {
         loginUrl: "http://www.eukhost.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

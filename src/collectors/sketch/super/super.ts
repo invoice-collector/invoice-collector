@@ -29,7 +29,7 @@ export class SuperCollector extends SketchCollector {
         loginUrl: "https://app.super.so/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

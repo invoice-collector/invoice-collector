@@ -29,7 +29,7 @@ export class TopbizCollector extends SketchCollector {
         loginUrl: "https://www.topbiz.fr/historique-commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

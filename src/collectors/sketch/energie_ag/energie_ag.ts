@@ -29,7 +29,7 @@ export class EnergieAgCollector extends SketchCollector {
         loginUrl: "https://e-portal.energieag.at/steward/login.html?ts=1691698324022&redirectUrlForSteward=https%3A%2F%2Fe-portal.energieag.at%2FblueContent%2Fj_security_check%3Furl%3D%252F4%252F0%252F_%252Findex.html%26pk_vid%3Da251d9b60f9345c8169169832365b0e9",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

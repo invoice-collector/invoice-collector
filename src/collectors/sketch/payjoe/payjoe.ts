@@ -29,7 +29,7 @@ export class PayjoeCollector extends SketchCollector {
         loginUrl: "https://login.payjoe.de/activities?month=1&year=2021",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

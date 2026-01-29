@@ -29,7 +29,7 @@ export class MistergooddealComCollector extends SketchCollector {
         loginUrl: "https://www.mistergooddeal.com/views/account/identification.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

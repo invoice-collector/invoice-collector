@@ -29,7 +29,7 @@ export class BasecampCollector extends SketchCollector {
         loginUrl: "https://launchpad.37signals.com/basecamp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

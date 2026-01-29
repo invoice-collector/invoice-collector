@@ -29,7 +29,7 @@ export class IncontactLoginCollector extends SketchCollector {
         loginUrl: "https://support.niceincontact.com/OnlineBill/Invoice/Overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

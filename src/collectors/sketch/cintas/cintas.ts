@@ -29,7 +29,7 @@ export class CintasCollector extends SketchCollector {
         loginUrl: "https://www.cintas.com/_landing_pages/bill-pay/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

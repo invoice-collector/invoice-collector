@@ -29,7 +29,7 @@ export class ThemeforestCollector extends SketchCollector {
         loginUrl: "https://themeforest.net/downloads",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

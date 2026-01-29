@@ -29,7 +29,7 @@ export class SkeddlyCollector extends SketchCollector {
         loginUrl: "https://app.skeddly.com/Billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

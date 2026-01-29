@@ -28,7 +28,7 @@ export class BoliaCollector extends SketchCollector {
         loginUrl: "https://www.bolia.com/fr-fr/mybolia/se-connecter/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EreceptionistCollector extends SketchCollector {
         loginUrl: "https://www.ereceptionist.co.uk/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

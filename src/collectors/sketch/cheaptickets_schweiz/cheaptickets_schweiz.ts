@@ -29,7 +29,7 @@ export class CheapticketsSchweizCollector extends SketchCollector {
         loginUrl: "https://www.cheaptickets.ch/account/bookings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

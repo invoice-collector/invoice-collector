@@ -29,7 +29,7 @@ export class ParfumsclubCollector extends SketchCollector {
         loginUrl: "https://www.parfumsclub.de/de/konto/login/?returnUrl=/?returnUrl=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

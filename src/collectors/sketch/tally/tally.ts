@@ -29,7 +29,7 @@ export class TallyCollector extends SketchCollector {
         loginUrl: "https://tally.so/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

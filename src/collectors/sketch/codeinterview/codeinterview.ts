@@ -29,7 +29,7 @@ export class CodeinterviewCollector extends SketchCollector {
         loginUrl: "https://codeinterview.io/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

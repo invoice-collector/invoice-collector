@@ -29,7 +29,7 @@ export class LivefreshCollector extends SketchCollector {
         loginUrl: "https://livefresh.de/apps/download-pdf/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

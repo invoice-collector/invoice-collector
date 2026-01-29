@@ -29,7 +29,7 @@ export class HotelsAndCarsByPointsCollector extends SketchCollector {
         loginUrl: "https://milesandmore.points.com/me/trips",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

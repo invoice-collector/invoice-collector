@@ -29,7 +29,7 @@ export class AccesSapProsCollector extends SketchCollector {
         loginUrl: "https://adherent.acces-sap.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

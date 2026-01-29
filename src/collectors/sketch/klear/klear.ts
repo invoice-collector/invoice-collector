@@ -29,7 +29,7 @@ export class KlearCollector extends SketchCollector {
         loginUrl: "https://klear.com/settings#/account/general",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

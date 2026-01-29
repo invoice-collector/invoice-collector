@@ -29,7 +29,7 @@ export class WeeblrComCollector extends SketchCollector {
         loginUrl: "https://weeblr.com/dashboard?layout=subscription&subscription_key=8O56WJCO5F94",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

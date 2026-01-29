@@ -29,7 +29,7 @@ export class EfgOnlinePlusCollector extends SketchCollector {
         loginUrl: "www.efgonlineplus.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

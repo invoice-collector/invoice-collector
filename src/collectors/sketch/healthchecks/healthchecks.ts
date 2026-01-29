@@ -29,7 +29,7 @@ export class HealthchecksCollector extends SketchCollector {
         loginUrl: "https://healthchecks.io/accounts/profile/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

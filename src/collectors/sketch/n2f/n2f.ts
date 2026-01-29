@@ -29,7 +29,7 @@ export class N2fCollector extends SketchCollector {
         loginUrl: "https://www.n2f.com/app/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

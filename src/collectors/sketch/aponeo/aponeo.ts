@@ -29,7 +29,7 @@ export class AponeoCollector extends SketchCollector {
         loginUrl: "https://www.aponeo.de/kundenbereich/bestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

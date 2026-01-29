@@ -29,7 +29,7 @@ export class EnbwSmartMobilitySuiteCollector extends SketchCollector {
         loginUrl: "https://smartenergysuite.enbw.com/smartmobility/fleet",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

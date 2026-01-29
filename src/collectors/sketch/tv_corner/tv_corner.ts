@@ -29,7 +29,7 @@ export class TvCornerCollector extends SketchCollector {
         loginUrl: "https://www.tvcorner.com/?__wo_var=_pcs2::cpte,",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

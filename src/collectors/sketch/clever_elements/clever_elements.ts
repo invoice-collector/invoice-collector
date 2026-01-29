@@ -29,7 +29,7 @@ export class CleverElementsCollector extends SketchCollector {
         loginUrl: "https://www.sendcockpit.com/appl/ce/software/code/DoorLogin.php?&b=cleverelements&bid=?&bid=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

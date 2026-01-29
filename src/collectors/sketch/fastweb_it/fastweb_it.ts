@@ -29,7 +29,7 @@ export class FastwebItCollector extends SketchCollector {
         loginUrl: "https://fastweb.it/myfastpage/accesso/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OptilioCollector extends SketchCollector {
         loginUrl: "https://app.optillio.com/#/page/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

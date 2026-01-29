@@ -29,7 +29,7 @@ export class ResourceGuruCollector extends SketchCollector {
         loginUrl: "https://resourceguruapp.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

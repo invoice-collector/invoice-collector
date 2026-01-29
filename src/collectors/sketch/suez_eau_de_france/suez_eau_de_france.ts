@@ -29,7 +29,7 @@ export class SuezEauDeFranceCollector extends SketchCollector {
         loginUrl: "https://www.toutsurmoneau.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

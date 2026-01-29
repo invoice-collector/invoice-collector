@@ -29,7 +29,7 @@ export class StudiolutionCollector extends SketchCollector {
         loginUrl: "https://www.studiolution.com/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AkiflowCollector extends SketchCollector {
         loginUrl: "https://web.akiflow.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

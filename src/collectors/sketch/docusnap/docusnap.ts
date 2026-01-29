@@ -29,7 +29,7 @@ export class DocusnapCollector extends SketchCollector {
         loginUrl: "https://www.docusnap.com/mydocusnap/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

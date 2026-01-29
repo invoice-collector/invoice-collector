@@ -29,7 +29,7 @@ export class RedGiantCollector extends SketchCollector {
         loginUrl: "https://www.redgiant.com/store/customer/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

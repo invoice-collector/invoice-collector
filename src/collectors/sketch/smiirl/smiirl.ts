@@ -29,7 +29,7 @@ export class SmiirlCollector extends SketchCollector {
         loginUrl: "https://my.smiirl.com/de/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

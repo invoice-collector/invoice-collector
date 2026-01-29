@@ -29,7 +29,7 @@ export class DbIpCollector extends SketchCollector {
         loginUrl: "https://db-ip.com/account/account.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

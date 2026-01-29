@@ -29,7 +29,7 @@ export class SubtelCollector extends SketchCollector {
         loginUrl: "https://www.subtel.fr/index.php?cl=subtel_account_extend_bill",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

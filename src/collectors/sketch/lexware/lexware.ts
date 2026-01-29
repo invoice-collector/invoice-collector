@@ -29,7 +29,7 @@ export class LexwareCollector extends SketchCollector {
         loginUrl: "https://www.lexware.de/kontakt/meinkonto/meine-daten/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

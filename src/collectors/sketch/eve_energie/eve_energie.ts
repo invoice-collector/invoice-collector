@@ -29,7 +29,7 @@ export class EveEnergieCollector extends SketchCollector {
         loginUrl: "https://onlineservice.eve-energie.de/portal/postbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

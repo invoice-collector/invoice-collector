@@ -29,7 +29,7 @@ export class CocaColaAuCollector extends SketchCollector {
         loginUrl: "https://www.mycca.com.au/login?returnUrl=%2FDashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

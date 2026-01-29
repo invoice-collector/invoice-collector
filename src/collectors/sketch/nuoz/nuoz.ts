@@ -29,7 +29,7 @@ export class NuozCollector extends SketchCollector {
         loginUrl: "http://nuoz.com/customer-login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

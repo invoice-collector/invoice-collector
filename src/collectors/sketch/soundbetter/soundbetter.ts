@@ -29,7 +29,7 @@ export class SoundbetterCollector extends SketchCollector {
         loginUrl: "https://soundbetter.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

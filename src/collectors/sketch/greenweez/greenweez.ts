@@ -29,7 +29,7 @@ export class GreenweezCollector extends SketchCollector {
         loginUrl: "https://greenweezfr-prod.mirakl.net/sellerpayment/shop/accounting-document/list?limit=25&sort=issueDate%2CDESC",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

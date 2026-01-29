@@ -29,7 +29,7 @@ export class SirvoyCollector extends SketchCollector {
         loginUrl: "https://secured.sirvoy.com/account/statement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

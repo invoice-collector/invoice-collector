@@ -29,7 +29,7 @@ export class DetercentreCollector extends SketchCollector {
         loginUrl: "https://e.detercentre.heegeo.fr/historique-factures.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

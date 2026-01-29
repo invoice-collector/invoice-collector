@@ -29,7 +29,7 @@ export class BrandnoozCollector extends SketchCollector {
         loginUrl: "https://www.brandnooz.de/profil/meine_bestellungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

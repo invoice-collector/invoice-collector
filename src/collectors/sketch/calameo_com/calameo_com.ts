@@ -29,7 +29,7 @@ export class CalameoComCollector extends SketchCollector {
         loginUrl: "https://de.calameo.com/account/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DAndHCanadaCollector extends SketchCollector {
         loginUrl: "https://www.dandh.ca/v4/view?pageReq=myOrders&int_cid=LP33&utm_campaign=OpenOrder",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

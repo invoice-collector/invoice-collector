@@ -29,7 +29,7 @@ export class MacnificosCollector extends SketchCollector {
         loginUrl: "https://www.macnificos.com/cuenta/mis-pedidos",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SwbCollector extends SketchCollector {
         loginUrl: "https://gk-selfservice.swb.de/portal/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DallexpressCollector extends SketchCollector {
         loginUrl: "https://www.dallexpress.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

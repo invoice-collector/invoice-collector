@@ -29,7 +29,7 @@ export class TheReceptionistCollector extends SketchCollector {
         loginUrl: "https://app.thereceptionist.com/billing/hq/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

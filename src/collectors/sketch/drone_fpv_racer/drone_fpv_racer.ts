@@ -29,7 +29,7 @@ export class DroneFpvRacerCollector extends SketchCollector {
         loginUrl: "https://www.drone-fpv-racer.com/authentification?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

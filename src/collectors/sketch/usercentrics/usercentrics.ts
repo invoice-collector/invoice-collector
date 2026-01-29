@@ -29,7 +29,7 @@ export class UsercentricsCollector extends SketchCollector {
         loginUrl: "https://admin.usercentrics.eu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

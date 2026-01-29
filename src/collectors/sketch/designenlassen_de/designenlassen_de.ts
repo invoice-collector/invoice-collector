@@ -29,7 +29,7 @@ export class DesignenlassenDeCollector extends SketchCollector {
         loginUrl: "https://www.designenlassen.de/account.php?page=transaktionen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

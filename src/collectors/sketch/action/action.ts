@@ -29,7 +29,7 @@ export class ActionCollector extends SketchCollector {
         loginUrl: "https://www.action.com/de-de/favoriten/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

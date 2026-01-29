@@ -29,7 +29,7 @@ export class Ametra06Collector extends SketchCollector {
         loginUrl: "https://pst-ametra06.medtra.fr/liste-factures-adh.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

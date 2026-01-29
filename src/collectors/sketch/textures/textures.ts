@@ -29,7 +29,7 @@ export class TexturesCollector extends SketchCollector {
         loginUrl: "https://www.textures.com/myAccount/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ToolaniCollector extends SketchCollector {
         loginUrl: "https://www.toolani.com/de-de/members/einstellungen/#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

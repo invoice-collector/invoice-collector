@@ -29,7 +29,7 @@ export class InstauprgadeCollector extends SketchCollector {
         loginUrl: "https://abo.instaupgrade.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

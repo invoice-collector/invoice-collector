@@ -29,7 +29,7 @@ export class OpoOeschgerCollector extends SketchCollector {
         loginUrl: "https://www.opo.de/de/shop/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

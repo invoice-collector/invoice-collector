@@ -29,7 +29,7 @@ export class PresseplusCollector extends SketchCollector {
         loginUrl: "https://www.presseplus.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

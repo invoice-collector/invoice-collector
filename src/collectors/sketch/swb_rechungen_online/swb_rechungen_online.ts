@@ -29,7 +29,7 @@ export class SwbRechungenOnlineCollector extends SketchCollector {
         loginUrl: "https://mein.swb-gruppe.de/nordcomcss/secure/billingOverview.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

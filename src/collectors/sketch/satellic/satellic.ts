@@ -29,7 +29,7 @@ export class SatellicCollector extends SketchCollector {
         loginUrl: "https://rup.satellic.be/rup/login?wicket-crypt=ZNKDKzsV46U",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

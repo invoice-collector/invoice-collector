@@ -29,7 +29,7 @@ export class LevaparcInCarParkCollector extends SketchCollector {
         loginUrl: "https://reza-levaparc.axigap.com/Account/Factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

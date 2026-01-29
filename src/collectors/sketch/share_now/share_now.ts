@@ -29,7 +29,7 @@ export class ShareNowCollector extends SketchCollector {
         loginUrl: "https://www.share-now.com/customer/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RelianceHomeComfortCollector extends SketchCollector {
         loginUrl: "https://reliancehomecomfort.com/paperless-billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LiveagentCollector extends SketchCollector {
         loginUrl: "https://www.liveagent.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

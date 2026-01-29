@@ -29,7 +29,7 @@ export class MoninCollector extends SketchCollector {
         loginUrl: "https://www.moninside.com/BMS/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

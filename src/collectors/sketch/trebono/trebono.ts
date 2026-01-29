@@ -29,7 +29,7 @@ export class TrebonoCollector extends SketchCollector {
         loginUrl: "https://service.trebono.de/admin/module.php?load=billing&Section=invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

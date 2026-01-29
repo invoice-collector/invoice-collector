@@ -29,7 +29,7 @@ export class ServicepartnerOneCollector extends SketchCollector {
         loginUrl: "https://web.servicepartner.one/invoices-orders/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

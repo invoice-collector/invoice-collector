@@ -29,7 +29,7 @@ export class SosavCollector extends SketchCollector {
         loginUrl: "https://www.sosav.fr/store/historique-commandes#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

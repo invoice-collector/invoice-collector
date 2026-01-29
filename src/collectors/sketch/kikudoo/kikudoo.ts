@@ -29,7 +29,7 @@ export class KikudooCollector extends SketchCollector {
         loginUrl: "https://kikudoo.com/users/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

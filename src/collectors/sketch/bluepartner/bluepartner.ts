@@ -29,7 +29,7 @@ export class BluepartnerCollector extends SketchCollector {
         loginUrl: "https://kundenportal.bluepartner.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

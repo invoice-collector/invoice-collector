@@ -29,7 +29,7 @@ export class ActindoCollector extends SketchCollector {
         loginUrl: "https://www.actindo.biz/actindo/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtwerkeHammCollector extends SketchCollector {
         loginUrl: "https://onlineservice.stadtwerke-hamm.de/internetportal/fo/portal/invoiceDetails",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

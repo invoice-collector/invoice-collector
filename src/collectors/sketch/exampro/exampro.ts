@@ -29,7 +29,7 @@ export class ExamproCollector extends SketchCollector {
         loginUrl: "https://app.exampro.co/student/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

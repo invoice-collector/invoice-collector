@@ -29,7 +29,7 @@ export class PoulpeoCollector extends SketchCollector {
         loginUrl: "https://www.poulpeo.com/login.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

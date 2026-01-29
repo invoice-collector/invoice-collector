@@ -29,7 +29,7 @@ export class MinolMesstechnikCollector extends SketchCollector {
         loginUrl: "https://www.minol.de/minoldirect.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

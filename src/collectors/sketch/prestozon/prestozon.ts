@@ -29,7 +29,7 @@ export class PrestozonCollector extends SketchCollector {
         loginUrl: "https://prestozon.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

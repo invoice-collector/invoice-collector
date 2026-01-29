@@ -29,7 +29,7 @@ export class DomainnameshopNoCollector extends SketchCollector {
         loginUrl: "https://domainname.shop/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

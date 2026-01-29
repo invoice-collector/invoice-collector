@@ -29,7 +29,7 @@ export class MacwayCollector extends SketchCollector {
         loginUrl: "https://www.macway.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

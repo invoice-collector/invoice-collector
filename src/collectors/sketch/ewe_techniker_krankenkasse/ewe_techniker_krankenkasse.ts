@@ -29,7 +29,7 @@ export class EweTechnikerKrankenkasseCollector extends SketchCollector {
         loginUrl: "https://meine-tk.ewe.de/eCare",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

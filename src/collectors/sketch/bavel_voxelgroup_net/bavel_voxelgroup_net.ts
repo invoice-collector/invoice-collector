@@ -29,7 +29,7 @@ export class BavelVoxelgroupNetCollector extends SketchCollector {
         loginUrl: "bavelfinder.voxelgroup.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

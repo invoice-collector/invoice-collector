@@ -29,7 +29,7 @@ export class MaingauEnergieCollector extends SketchCollector {
         loginUrl: "https://onlineservice.service-rz.de/?act=login&werknr=52&tid=19739fd31cbf3f5fe3764e6b03128f5e#email",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

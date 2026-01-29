@@ -29,7 +29,7 @@ export class EbilanzOnlineCollector extends SketchCollector {
         loginUrl: "https://www.ebilanzonline.de/ebo/#:sections:user:transactions.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

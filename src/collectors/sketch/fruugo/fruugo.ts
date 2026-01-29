@@ -29,7 +29,7 @@ export class FruugoCollector extends SketchCollector {
         loginUrl: "https://retailer.fruugo.com/index?rccsPublicRootUrl=https%3A%2F%2Fwww.fruugo.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LosAngelesCountyWaterworksCollector extends SketchCollector {
         loginUrl: "https://dpw.lacounty.gov/mywam/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ProworkflowCollector extends SketchCollector {
         loginUrl: "https://www.proworkflow.com/clients/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

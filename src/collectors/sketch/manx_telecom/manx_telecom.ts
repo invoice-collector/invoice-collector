@@ -29,7 +29,7 @@ export class ManxTelecomCollector extends SketchCollector {
         loginUrl: "https://mymt.manxtelecom.com/my-account#login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

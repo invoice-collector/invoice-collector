@@ -29,7 +29,7 @@ export class SuderelbeInkassoSiGmbhCollector extends SketchCollector {
         loginUrl: "https://luca.se-inkasso.de/invoice.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

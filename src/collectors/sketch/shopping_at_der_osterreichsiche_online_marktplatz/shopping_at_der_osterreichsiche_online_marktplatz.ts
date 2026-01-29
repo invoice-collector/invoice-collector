@@ -29,7 +29,7 @@ export class ShoppingAtDerOsterreichsicheOnlineMarktplatzCollector extends Sketc
         loginUrl: "https://portal.shoepping.at/marketplaceportal/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BambulabCollector extends SketchCollector {
         loginUrl: "https://eu.store.bambulab.com/de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

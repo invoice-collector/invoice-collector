@@ -28,7 +28,7 @@ export class PaypalCollector extends SketchCollector {
         loginUrl: "https://www.paypal.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

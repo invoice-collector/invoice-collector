@@ -29,7 +29,7 @@ export class LuccaCollector extends SketchCollector {
         loginUrl: "https://hypnovr.ilucca.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

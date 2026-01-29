@@ -29,7 +29,7 @@ export class HeluCollector extends SketchCollector {
         loginUrl: "https://my.helu.io/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

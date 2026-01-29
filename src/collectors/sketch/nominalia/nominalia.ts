@@ -29,7 +29,7 @@ export class NominaliaCollector extends SketchCollector {
         loginUrl: "https://controlpanel.nominalia.com/welcome.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

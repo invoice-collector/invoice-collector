@@ -29,7 +29,7 @@ export class MidamericanEnergyServicesCollector extends SketchCollector {
         loginUrl: "https://www.midamericanenergyservices.com/ema",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

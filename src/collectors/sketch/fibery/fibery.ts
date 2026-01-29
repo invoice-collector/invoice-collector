@@ -29,7 +29,7 @@ export class FiberyCollector extends SketchCollector {
         loginUrl: "https://iq-hub.fibery.io/fibery/settings/plan-and-billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

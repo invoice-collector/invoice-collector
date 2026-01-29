@@ -29,7 +29,7 @@ export class RecupPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.recup.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

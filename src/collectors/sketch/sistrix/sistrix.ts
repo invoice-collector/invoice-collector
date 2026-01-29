@@ -29,7 +29,7 @@ export class SistrixCollector extends SketchCollector {
         loginUrl: "https://de.sistrix.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

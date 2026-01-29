@@ -29,7 +29,7 @@ export class JokaCollector extends SketchCollector {
         loginUrl: "https://www.joka.de/joka-parkett-laminat-teppich-designboeden-und-mehr.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

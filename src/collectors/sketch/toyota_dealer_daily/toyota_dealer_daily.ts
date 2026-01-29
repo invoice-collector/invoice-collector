@@ -29,7 +29,7 @@ export class ToyotaDealerDailyCollector extends SketchCollector {
         loginUrl: "https://www.toyotaedp.standardregister.com/Pages/UserPages/SearchInvoices.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GkvSpitzenverbandCollector extends SketchCollector {
         loginUrl: "https://antraege.gkv-spitzenverband.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

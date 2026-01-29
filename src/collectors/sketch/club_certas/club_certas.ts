@@ -29,7 +29,7 @@ export class ClubCertasCollector extends SketchCollector {
         loginUrl: "https://www.club-certas.com/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

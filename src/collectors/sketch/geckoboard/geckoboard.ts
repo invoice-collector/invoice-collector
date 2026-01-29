@@ -29,7 +29,7 @@ export class GeckoboardCollector extends SketchCollector {
         loginUrl: "https://app.geckoboard.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

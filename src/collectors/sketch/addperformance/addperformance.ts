@@ -29,7 +29,7 @@ export class AddperformanceCollector extends SketchCollector {
         loginUrl: "https://www.addperformance.de/de/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

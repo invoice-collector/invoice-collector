@@ -29,7 +29,7 @@ export class EnpcEdiserCollector extends SketchCollector {
         loginUrl: "https://www.enpc-center.fr/mon-compte/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VisitorAnalyticsCollector extends SketchCollector {
         loginUrl: "https://app.visitor-analytics.io/website/92ab0db8-c4c6-11ed-b589-901b0edac50a/settings/subscription#payment-method",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

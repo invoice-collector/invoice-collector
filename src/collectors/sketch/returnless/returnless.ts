@@ -29,7 +29,7 @@ export class ReturnlessCollector extends SketchCollector {
         loginUrl: "https://panel.returnless.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

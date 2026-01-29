@@ -29,7 +29,7 @@ export class BerlinerWasserbetriebeCollector extends SketchCollector {
         loginUrl: "https://aquanet.berlinwasser.de/onlineportal-bwb/logon/logonServlet",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

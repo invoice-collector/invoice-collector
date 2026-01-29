@@ -29,7 +29,7 @@ export class EnedisCollector extends SketchCollector {
         loginUrl: "https://mon-compte-entreprise.enedis.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AdsimpleCollector extends SketchCollector {
         loginUrl: "https://www.adsimple.at/mein-benutzerkonto/bestellungen-liste/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SellersuiteCollector extends SketchCollector {
         loginUrl: "https://pay.stripe.com/invoice/invst_0Ty0ieAwz12P2OoIYVcjmCjygU",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

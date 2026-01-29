@@ -29,7 +29,7 @@ export class AnDeCollector extends SketchCollector {
         loginUrl: "https://kunde.an.de/account/Rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

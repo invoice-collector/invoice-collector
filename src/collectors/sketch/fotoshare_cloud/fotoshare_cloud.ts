@@ -29,7 +29,7 @@ export class FotoshareCloudCollector extends SketchCollector {
         loginUrl: "https://fotoshare.co/admin/licenses/fotoshare_cloud",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

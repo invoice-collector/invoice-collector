@@ -29,7 +29,7 @@ export class Digistore24Collector extends SketchCollector {
         loginUrl: "https://www.digistore24.com/de/reports/payouts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

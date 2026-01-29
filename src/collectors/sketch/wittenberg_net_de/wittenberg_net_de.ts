@@ -29,7 +29,7 @@ export class WittenbergNetDeCollector extends SketchCollector {
         loginUrl: "http://www.wittenberg-net.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

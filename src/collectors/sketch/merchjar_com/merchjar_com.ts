@@ -29,7 +29,7 @@ export class MerchjarComCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/session/live_YWNjdF8xSU9KbnpJdHBYWUFzRlQ0LF9Mbm9CTDdEczFIMkxTZkVjcXczM2p1Vkl4bzdDR1hw0100AUloo4Sf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KiblyCollector extends SketchCollector {
         loginUrl: "https://my.kibly.com/Login?last=Dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

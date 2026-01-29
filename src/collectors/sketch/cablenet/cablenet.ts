@@ -29,7 +29,7 @@ export class CablenetCollector extends SketchCollector {
         loginUrl: "https://pay.cablenet.me/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

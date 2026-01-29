@@ -29,7 +29,7 @@ export class _1bluCollector extends SketchCollector {
         loginUrl: "https://login.1blu.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

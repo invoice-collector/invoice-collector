@@ -29,7 +29,7 @@ export class _4scottyComCollector extends SketchCollector {
         loginUrl: "https://4scotty.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

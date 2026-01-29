@@ -29,7 +29,7 @@ export class CloudlinuxCollector extends SketchCollector {
         loginUrl: "https://cln.cloudlinux.com/clweb/account/reseller/billing.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

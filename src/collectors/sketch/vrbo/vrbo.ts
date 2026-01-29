@@ -29,7 +29,7 @@ export class VrboCollector extends SketchCollector {
         loginUrl: "https://www.vrbo.com/p/properties",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MyhermesDeGeschaftskundenCollector extends SketchCollector {
         loginUrl: "https://business.myhermes.de/konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

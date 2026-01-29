@@ -29,7 +29,7 @@ export class BorlabsCollector extends SketchCollector {
         loginUrl: "https://service.borlabs.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

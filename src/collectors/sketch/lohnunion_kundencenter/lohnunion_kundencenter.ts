@@ -29,7 +29,7 @@ export class LohnunionKundencenterCollector extends SketchCollector {
         loginUrl: "https://www.lohnunioncenter.de/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

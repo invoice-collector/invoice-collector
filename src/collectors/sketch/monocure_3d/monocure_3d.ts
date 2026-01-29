@@ -29,7 +29,7 @@ export class Monocure3dCollector extends SketchCollector {
         loginUrl: "https://www.monocure3d.com.au/Receipt_PrinterFriendly.asp?OrderID=3131",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

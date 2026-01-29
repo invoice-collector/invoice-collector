@@ -29,7 +29,7 @@ export class GrenkebankDeCollector extends SketchCollector {
         loginUrl: "https://www.onlinebanking-grenkebank.de/banking-business/portal?menuId=Postfach&token=6865410398368038915",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UptrendsCollector extends SketchCollector {
         loginUrl: "https://app.uptrends.com/Report/AccountSettings#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

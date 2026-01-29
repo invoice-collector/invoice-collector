@@ -29,7 +29,7 @@ export class LimangoCollector extends SketchCollector {
         loginUrl: "http://www.limango.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

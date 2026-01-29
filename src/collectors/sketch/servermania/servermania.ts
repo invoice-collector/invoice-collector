@@ -29,7 +29,7 @@ export class ServermaniaCollector extends SketchCollector {
         loginUrl: "http://www.servermania.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

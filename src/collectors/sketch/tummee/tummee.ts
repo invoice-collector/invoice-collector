@@ -29,7 +29,7 @@ export class TummeeCollector extends SketchCollector {
         loginUrl: "https://www.tummee.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

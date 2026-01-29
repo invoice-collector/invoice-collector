@@ -29,7 +29,7 @@ export class HydroOneBramptonCollector extends SketchCollector {
         loginUrl: "https://www.bramptonhydro.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

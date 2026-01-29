@@ -29,7 +29,7 @@ export class ZalandoConnectedRetailCollector extends SketchCollector {
         loginUrl: "https://connected-retail.zalando.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HostnetNlCollector extends SketchCollector {
         loginUrl: "https://mijn.hostnet.nl/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

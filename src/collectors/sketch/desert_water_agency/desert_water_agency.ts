@@ -29,7 +29,7 @@ export class DesertWaterAgencyCollector extends SketchCollector {
         loginUrl: "https://desertwateragencyca.municipalonlinepayments.com/desertwateragencyca/utilities",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

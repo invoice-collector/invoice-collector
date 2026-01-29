@@ -29,7 +29,7 @@ export class GriffatiCollector extends SketchCollector {
         loginUrl: "https://www.griffati.com/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

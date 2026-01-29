@@ -29,7 +29,7 @@ export class KusmiTeaCollector extends SketchCollector {
         loginUrl: "http://www.kusmitea.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

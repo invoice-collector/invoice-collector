@@ -29,7 +29,7 @@ export class GmPackagingCollector extends SketchCollector {
         loginUrl: "http://www.gmpackaging.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

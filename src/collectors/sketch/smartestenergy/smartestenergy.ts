@@ -29,7 +29,7 @@ export class SmartestenergyCollector extends SketchCollector {
         loginUrl: "https://smartweb.smartestenergy.com/Account/LogIn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

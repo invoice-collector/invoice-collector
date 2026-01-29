@@ -29,7 +29,7 @@ export class ThePieSlicerCollector extends SketchCollector {
         loginUrl: "https://thepieslicer.com/settings#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

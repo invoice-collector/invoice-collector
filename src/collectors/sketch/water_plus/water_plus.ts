@@ -29,7 +29,7 @@ export class WaterPlusCollector extends SketchCollector {
         loginUrl: "https://www.water-plus.co.uk/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

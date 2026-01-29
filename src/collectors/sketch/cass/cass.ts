@@ -29,7 +29,7 @@ export class CassCollector extends SketchCollector {
         loginUrl: "https://online.cass.ad/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

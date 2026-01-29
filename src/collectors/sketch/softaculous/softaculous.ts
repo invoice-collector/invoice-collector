@@ -29,7 +29,7 @@ export class SoftaculousCollector extends SketchCollector {
         loginUrl: "https://www.softaculous.com/clients?ca=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

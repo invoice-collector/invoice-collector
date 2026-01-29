@@ -29,7 +29,7 @@ export class CityOfSignalHillCollector extends SketchCollector {
         loginUrl: "https://signalhillca.municipalonlinepayments.com/signalhillca/utilities",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

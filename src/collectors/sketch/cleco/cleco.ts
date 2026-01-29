@@ -29,7 +29,7 @@ export class ClecoCollector extends SketchCollector {
         loginUrl: "http://www.cleco.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

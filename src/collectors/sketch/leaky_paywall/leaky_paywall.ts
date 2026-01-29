@@ -29,7 +29,7 @@ export class LeakyPaywallCollector extends SketchCollector {
         loginUrl: "https://leakypaywall.com/my-account/#tabs-1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Klean13Collector extends SketchCollector {
         loginUrl: "https://app.klean13.com/invoice?invoice_id=3676",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

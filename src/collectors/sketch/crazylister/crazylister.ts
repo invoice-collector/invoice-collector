@@ -29,7 +29,7 @@ export class CrazylisterCollector extends SketchCollector {
         loginUrl: "https://crazylister.com/application/user/account/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

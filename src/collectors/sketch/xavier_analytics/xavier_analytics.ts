@@ -29,7 +29,7 @@ export class XavierAnalyticsCollector extends SketchCollector {
         loginUrl: "https://xavier-analytics.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

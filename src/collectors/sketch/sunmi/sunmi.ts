@@ -29,7 +29,7 @@ export class SunmiCollector extends SketchCollector {
         loginUrl: "https://partner.sunmi.com/sunmi-wallet/invoice-management",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

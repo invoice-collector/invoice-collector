@@ -29,7 +29,7 @@ export class CpamRelevesMensuelsAmeliFrCollector extends SketchCollector {
         loginUrl: "https://utilisateur-forum-assures.ameli.fr/cas/login?service=https%3A%2F%2Fforum-assures.ameli.fr%2Fquestions%2F1559000-telecharger-releves-mensuels-paiements&env=desk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

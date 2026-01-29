@@ -29,7 +29,7 @@ export class MutuelleIntegranceItutelleCollector extends SketchCollector {
         loginUrl: "https://itutelle.integrance.fr/itutelle",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

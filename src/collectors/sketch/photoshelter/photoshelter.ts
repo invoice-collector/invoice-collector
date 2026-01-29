@@ -29,7 +29,7 @@ export class PhotoshelterCollector extends SketchCollector {
         loginUrl: "https://www.photoshelter.com/mem/account/order-list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

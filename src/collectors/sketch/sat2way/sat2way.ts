@@ -29,7 +29,7 @@ export class Sat2wayCollector extends SketchCollector {
         loginUrl: "https://my.europasat.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

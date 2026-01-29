@@ -29,7 +29,7 @@ export class CallgearCollector extends SketchCollector {
         loginUrl: "https://app.callgear.com/#controller.id=%22account.usabilling.controller.Page%22&siteId=null&dateRange.startDate=%222023-09-27T00%3A00%3A00%22&dateRange.endDate=%222023-10-03T23%3A59%3A59%22&dateRange.compareStartDate=null&dateRange.compareEndDate=null",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

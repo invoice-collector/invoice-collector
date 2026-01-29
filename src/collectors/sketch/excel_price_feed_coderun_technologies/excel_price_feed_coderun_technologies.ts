@@ -29,7 +29,7 @@ export class ExcelPriceFeedCoderunTechnologiesCollector extends SketchCollector 
         loginUrl: "https://www.excelpricefeed.com/about",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ApothekenerfolgCollector extends SketchCollector {
         loginUrl: "https://mein.apothekenerfolg.de/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WyomindAddonsForMagentoCollector extends SketchCollector {
         loginUrl: "https://www.wyomind.com/customer/invoice/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

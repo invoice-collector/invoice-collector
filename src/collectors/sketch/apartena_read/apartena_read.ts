@@ -29,7 +29,7 @@ export class ApartenaReadCollector extends SketchCollector {
         loginUrl: "https://read.apartena.net/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

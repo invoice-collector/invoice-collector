@@ -29,7 +29,7 @@ export class LaravelForgeCollector extends SketchCollector {
         loginUrl: "https://forge.laravel.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

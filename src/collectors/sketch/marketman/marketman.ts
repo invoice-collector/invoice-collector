@@ -29,7 +29,7 @@ export class MarketmanCollector extends SketchCollector {
         loginUrl: "https://buyer.marketman.com/Login.html?ReturnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

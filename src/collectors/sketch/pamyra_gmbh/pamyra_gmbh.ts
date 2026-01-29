@@ -29,7 +29,7 @@ export class PamyraGmbhCollector extends SketchCollector {
         loginUrl: "https://www.pamyra.de/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

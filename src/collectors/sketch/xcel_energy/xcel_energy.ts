@@ -29,7 +29,7 @@ export class XcelEnergyCollector extends SketchCollector {
         loginUrl: "http://www.xcelenergy.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

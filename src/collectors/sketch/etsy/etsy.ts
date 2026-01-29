@@ -29,7 +29,7 @@ export class EtsyCollector extends SketchCollector {
         loginUrl: "https://www.etsy.com/your/bill?ref=seller-platform-mcnav",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

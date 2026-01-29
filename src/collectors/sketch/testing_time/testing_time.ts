@@ -29,7 +29,7 @@ export class TestingTimeCollector extends SketchCollector {
         loginUrl: "https://app.testingtime.com/web/customer/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

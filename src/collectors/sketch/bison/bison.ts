@@ -29,7 +29,7 @@ export class BisonCollector extends SketchCollector {
         loginUrl: "https://trade.bisonapp.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

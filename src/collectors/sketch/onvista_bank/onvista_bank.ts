@@ -29,7 +29,7 @@ export class OnvistaBankCollector extends SketchCollector {
         loginUrl: "https://www.onvista-bank.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

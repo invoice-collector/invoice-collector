@@ -29,7 +29,7 @@ export class VaillantCollector extends SketchCollector {
         loginUrl: "https://www.vaillant.de/fachpartnernet/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

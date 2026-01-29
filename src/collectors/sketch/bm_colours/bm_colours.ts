@@ -29,7 +29,7 @@ export class BmColoursCollector extends SketchCollector {
         loginUrl: "https://www.bmcolours.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

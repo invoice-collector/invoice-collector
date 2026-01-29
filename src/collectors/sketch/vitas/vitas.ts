@@ -29,7 +29,7 @@ export class VitasCollector extends SketchCollector {
         loginUrl: "https://app.telefonassistent.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

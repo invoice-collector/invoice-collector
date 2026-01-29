@@ -29,7 +29,7 @@ export class GlipCollector extends SketchCollector {
         loginUrl: "https://service.ringcentral.com/login/unifiedLoginM.html?session=-983496917345042139&responseType=code&clientId=cZPfEqZkQxKa9dUEu9RkCA&brandId=1210&state=/rc&localeId=en_US&endpointId=&display=touch&prompt=login%20sso&scope=&appUrlScheme=https%3A%2F%2Fapp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VideoaskCollector extends SketchCollector {
         loginUrl: "https://app.videoask.com/app/account?tab=plan_and_billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

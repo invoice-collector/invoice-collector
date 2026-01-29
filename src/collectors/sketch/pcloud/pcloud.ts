@@ -29,7 +29,7 @@ export class PcloudCollector extends SketchCollector {
         loginUrl: "https://my.pcloud.com/#page=settings&settings=tab-finance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

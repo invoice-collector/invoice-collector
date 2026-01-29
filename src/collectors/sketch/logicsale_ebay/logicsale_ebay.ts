@@ -29,7 +29,7 @@ export class LogicsaleEbayCollector extends SketchCollector {
         loginUrl: "https://ebay.logicsale.com/index.php?action=mydata",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

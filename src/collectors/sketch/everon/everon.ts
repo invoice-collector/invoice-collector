@@ -29,7 +29,7 @@ export class EveronCollector extends SketchCollector {
         loginUrl: "https://evbox.everon.io/account/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

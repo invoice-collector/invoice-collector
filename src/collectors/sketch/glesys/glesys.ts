@@ -29,7 +29,7 @@ export class GlesysCollector extends SketchCollector {
         loginUrl: "https://cloud.glesys.com/#/customer/11681/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

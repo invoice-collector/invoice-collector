@@ -28,7 +28,7 @@ export class GegCollector extends SketchCollector {
         loginUrl: "https://monagence.geg.fr/aelPROD/jsp/arc/habilitation/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

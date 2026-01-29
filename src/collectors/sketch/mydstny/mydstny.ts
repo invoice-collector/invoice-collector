@@ -29,7 +29,7 @@ export class MydstnyCollector extends SketchCollector {
         loginUrl: "https://bim-oto-it.extranet.mydstny.fr/Client/Factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

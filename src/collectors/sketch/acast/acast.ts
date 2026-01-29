@@ -29,7 +29,7 @@ export class AcastCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xOEpUZG5CanlCYUNneVBYLF9TbEwyaHZwTVNzQUJ6bWw3WUwycjg1S01aSjJ5Y1I50100e93SJcbH",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

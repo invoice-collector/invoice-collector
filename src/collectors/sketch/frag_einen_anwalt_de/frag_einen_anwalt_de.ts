@@ -29,7 +29,7 @@ export class FragEinenAnwaltDeCollector extends SketchCollector {
         loginUrl: "https://www.123recht.de/thick_register.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

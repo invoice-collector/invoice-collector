@@ -29,7 +29,7 @@ export class ElektroMosterCollector extends SketchCollector {
         loginUrl: "https://moster.elektro-online.de/shop/myorders/get.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

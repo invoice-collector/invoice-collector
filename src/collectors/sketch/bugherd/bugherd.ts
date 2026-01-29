@@ -29,7 +29,7 @@ export class BugherdCollector extends SketchCollector {
         loginUrl: "https://www.bugherd.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

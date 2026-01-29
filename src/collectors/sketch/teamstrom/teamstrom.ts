@@ -29,7 +29,7 @@ export class TeamstromCollector extends SketchCollector {
         loginUrl: "https://portal.teamstrom.de/bkp/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

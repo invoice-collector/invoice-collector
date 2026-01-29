@@ -29,7 +29,7 @@ export class ParfimoCollector extends SketchCollector {
         loginUrl: "https://www.parfimo.de/b2c/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

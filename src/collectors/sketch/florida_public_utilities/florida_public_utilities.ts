@@ -29,7 +29,7 @@ export class FloridaPublicUtilitiesCollector extends SketchCollector {
         loginUrl: "https://secure8.i-doxs.net/Florida/Secure/Bills.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

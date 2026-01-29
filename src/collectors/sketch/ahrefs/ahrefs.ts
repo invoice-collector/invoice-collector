@@ -29,7 +29,7 @@ export class AhrefsCollector extends SketchCollector {
         loginUrl: "https://app.ahrefs.com/account/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

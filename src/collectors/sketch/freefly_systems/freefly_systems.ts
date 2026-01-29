@@ -29,7 +29,7 @@ export class FreeflySystemsCollector extends SketchCollector {
         loginUrl: "https://store.freeflysystems.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

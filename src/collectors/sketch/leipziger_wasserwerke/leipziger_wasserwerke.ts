@@ -29,7 +29,7 @@ export class LeipzigerWasserwerkeCollector extends SketchCollector {
         loginUrl: "https://kupowasser.l.de/#/Logon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

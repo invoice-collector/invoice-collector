@@ -29,7 +29,7 @@ export class TestomatoCollector extends SketchCollector {
         loginUrl: "https://www.testomato.com/invoice/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

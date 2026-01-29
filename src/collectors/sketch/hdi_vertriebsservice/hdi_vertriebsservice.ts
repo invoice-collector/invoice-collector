@@ -29,7 +29,7 @@ export class HdiVertriebsserviceCollector extends SketchCollector {
         loginUrl: "https://vertriebsservice.hdi-gerling.de/content/public/de/common/index.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

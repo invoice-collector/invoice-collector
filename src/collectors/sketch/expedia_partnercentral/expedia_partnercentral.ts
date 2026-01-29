@@ -29,7 +29,7 @@ export class ExpediaPartnercentralCollector extends SketchCollector {
         loginUrl: "https://www.expediapartnercentral.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HukAutoweltCollector extends SketchCollector {
         loginUrl: "https://www.huk-autowelt.de/order/159467/details",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

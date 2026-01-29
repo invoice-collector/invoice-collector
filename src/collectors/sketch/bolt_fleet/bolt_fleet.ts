@@ -29,7 +29,7 @@ export class BoltFleetCollector extends SketchCollector {
         loginUrl: "https://fleets.bolt.eu/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

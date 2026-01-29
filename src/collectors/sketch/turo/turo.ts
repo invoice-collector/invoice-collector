@@ -28,7 +28,7 @@ export class TuroCollector extends SketchCollector {
         loginUrl: "https://turo.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

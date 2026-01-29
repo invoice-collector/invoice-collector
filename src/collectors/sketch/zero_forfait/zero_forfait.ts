@@ -29,7 +29,7 @@ export class ZeroForfaitCollector extends SketchCollector {
         loginUrl: "https://www.prixtel.com/pws/SSO/authentication?callback=/client",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

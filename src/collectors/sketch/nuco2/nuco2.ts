@@ -29,7 +29,7 @@ export class Nuco2Collector extends SketchCollector {
         loginUrl: "https://www.billeriq.com/ebpp/NuCO2/BillPay",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

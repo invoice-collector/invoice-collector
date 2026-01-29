@@ -29,7 +29,7 @@ export class OriginEnergyCollector extends SketchCollector {
         loginUrl: "https://www.originenergy.com.au/#login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

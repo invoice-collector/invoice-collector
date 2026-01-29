@@ -29,7 +29,7 @@ export class TunePayCollector extends SketchCollector {
         loginUrl: "https://aff-tailorbrands.pay.tune.com/payment-orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

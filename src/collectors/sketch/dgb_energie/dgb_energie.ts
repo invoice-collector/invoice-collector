@@ -29,7 +29,7 @@ export class DgbEnergieCollector extends SketchCollector {
         loginUrl: "https://mijn.dgbenergie.nl/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class RaindropCollector extends SketchCollector {
         loginUrl: "https://raindrop.onfastspring.com/account/v0iOIrtqQCaoR0giOKLqkA/zX6n0mAkT2M",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

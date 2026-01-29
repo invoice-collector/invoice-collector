@@ -29,7 +29,7 @@ export class WannafindDkCollector extends SketchCollector {
         loginUrl: "https://controlpanel.wannafind.dk/Login?ReturnURL=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

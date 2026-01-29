@@ -29,7 +29,7 @@ export class JournalVosgesMatinCollector extends SketchCollector {
         loginUrl: "https://c.vosgesmatin.fr/espace-client/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

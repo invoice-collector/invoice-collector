@@ -29,7 +29,7 @@ export class PerspectiveSoftwareGmbhCollector extends SketchCollector {
         loginUrl: "https://app.perspective.co/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

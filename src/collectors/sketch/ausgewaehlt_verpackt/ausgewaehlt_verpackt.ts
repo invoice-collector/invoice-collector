@@ -29,7 +29,7 @@ export class AusgewaehltVerpacktCollector extends SketchCollector {
         loginUrl: "https://www.ausgewaehlt.com/sales/order/invoice/order_id/5929/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

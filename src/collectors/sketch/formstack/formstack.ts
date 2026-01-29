@@ -29,7 +29,7 @@ export class FormstackCollector extends SketchCollector {
         loginUrl: "https://www.formstack.com/admin/account/settings-view/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AmundiEpargneEntrepriseCompagnieCollector extends SketchCollector {
         loginUrl: "https://www.amundi-tc.com/ent/start.swe?SWECmd=Login&_sn=2fZ0SNaa7H9myYHE0wc8Iy1bTJpfx-wUrU-dHXRMgf0_&SWEHo=www.amundi-tc.com&SWETS=1550590900",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

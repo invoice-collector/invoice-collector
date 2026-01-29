@@ -29,7 +29,7 @@ export class ProprofsHelpiqCollector extends SketchCollector {
         loginUrl: "https://www.proprofs.com/knowledgebase/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

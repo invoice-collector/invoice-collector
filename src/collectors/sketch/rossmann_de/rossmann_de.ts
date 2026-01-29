@@ -29,7 +29,7 @@ export class RossmannDeCollector extends SketchCollector {
         loginUrl: "https://www.rossmann.de/de/my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

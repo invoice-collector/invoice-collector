@@ -29,7 +29,7 @@ export class GenesisEnergyCollector extends SketchCollector {
         loginUrl: "https://myaccount.genesisenergy.co.nz/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LibsynCollector extends SketchCollector {
         loginUrl: "https://four.libsyn.com/billing/billing-form/type/change-plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

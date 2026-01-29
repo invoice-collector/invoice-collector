@@ -29,7 +29,7 @@ export class ChargebeeEuCollector extends SketchCollector {
         loginUrl: "https://theargonauts.chargebee.com/users/edit_account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

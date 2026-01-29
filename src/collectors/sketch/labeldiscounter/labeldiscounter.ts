@@ -29,7 +29,7 @@ export class LabeldiscounterCollector extends SketchCollector {
         loginUrl: "https://www.labeldiscounter.de/customer/account/login/referer/aHR0cHM6Ly93d3cubGFiZWxkaXNjb3VudGVyLmRlL2N1c3RvbWVyL2FjY291bnQvaW5kZXgv/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

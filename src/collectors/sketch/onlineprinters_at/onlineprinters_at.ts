@@ -29,7 +29,7 @@ export class OnlineprintersAtCollector extends SketchCollector {
         loginUrl: "https://www.onlineprinters.at/websale8/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

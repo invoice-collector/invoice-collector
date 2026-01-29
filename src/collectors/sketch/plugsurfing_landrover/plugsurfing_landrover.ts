@@ -29,7 +29,7 @@ export class PlugsurfingLandroverCollector extends SketchCollector {
         loginUrl: "https://landroverportal.plugsurfing.com/charging-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

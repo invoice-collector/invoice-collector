@@ -29,7 +29,7 @@ export class KalenderDigitalCollector extends SketchCollector {
         loginUrl: "https://settings.kalender.digital/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

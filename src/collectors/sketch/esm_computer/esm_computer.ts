@@ -29,7 +29,7 @@ export class EsmComputerCollector extends SketchCollector {
         loginUrl: "https://www.esm-computer.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

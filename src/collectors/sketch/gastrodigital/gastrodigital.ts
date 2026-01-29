@@ -29,7 +29,7 @@ export class GastrodigitalCollector extends SketchCollector {
         loginUrl: "https://kunden.gastro.digital/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

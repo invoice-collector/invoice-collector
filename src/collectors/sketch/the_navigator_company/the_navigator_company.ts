@@ -29,7 +29,7 @@ export class TheNavigatorCompanyCollector extends SketchCollector {
         loginUrl: "http://en.thenavigatorcompany.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ConectabalearCollector extends SketchCollector {
         loginUrl: "https://www.conectabalear.com/en/clientes/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

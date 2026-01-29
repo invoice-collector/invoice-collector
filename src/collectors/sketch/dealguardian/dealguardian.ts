@@ -29,7 +29,7 @@ export class DealguardianCollector extends SketchCollector {
         loginUrl: "https://dealguardian.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

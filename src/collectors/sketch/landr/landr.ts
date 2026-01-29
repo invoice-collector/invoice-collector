@@ -29,7 +29,7 @@ export class LandrCollector extends SketchCollector {
         loginUrl: "https://app.landr.com/account/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EbriefDeCollector extends SketchCollector {
         loginUrl: "https://www.ebrief.de/component/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

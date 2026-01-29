@@ -29,7 +29,7 @@ export class WemindCollector extends SketchCollector {
         loginUrl: "https://membre.wemind.io/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

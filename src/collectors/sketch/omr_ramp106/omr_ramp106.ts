@@ -29,7 +29,7 @@ export class OmrRamp106Collector extends SketchCollector {
         loginUrl: "https://omr.com/report/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

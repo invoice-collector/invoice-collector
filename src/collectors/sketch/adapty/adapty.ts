@@ -29,7 +29,7 @@ export class AdaptyCollector extends SketchCollector {
         loginUrl: "https://app.adapty.io/account/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

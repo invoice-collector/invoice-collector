@@ -29,7 +29,7 @@ export class ColumbiaGasOfPennsylvaniaCollector extends SketchCollector {
         loginUrl: "https://myaccount.columbiagaspa.com/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

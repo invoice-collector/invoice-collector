@@ -29,7 +29,7 @@ export class EbesucherCollector extends SketchCollector {
         loginUrl: "https://www.ebesucher.de/?link=userinvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

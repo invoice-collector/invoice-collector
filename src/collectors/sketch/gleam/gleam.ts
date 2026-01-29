@@ -29,7 +29,7 @@ export class GleamCollector extends SketchCollector {
         loginUrl: "https://gleam.io",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

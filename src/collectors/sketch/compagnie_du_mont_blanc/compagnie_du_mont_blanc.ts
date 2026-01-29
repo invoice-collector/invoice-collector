@@ -29,7 +29,7 @@ export class CompagnieDuMontBlancCollector extends SketchCollector {
         loginUrl: "https://www.compagniedumontblanc.fr/en/portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

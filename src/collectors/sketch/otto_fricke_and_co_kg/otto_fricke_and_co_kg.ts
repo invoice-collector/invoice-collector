@@ -29,7 +29,7 @@ export class OttoFrickeAndCoKgCollector extends SketchCollector {
         loginUrl: "https://portal.fricke-oil.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

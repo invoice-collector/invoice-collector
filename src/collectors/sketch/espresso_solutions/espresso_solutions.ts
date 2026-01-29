@@ -29,7 +29,7 @@ export class EspressoSolutionsCollector extends SketchCollector {
         loginUrl: "https://www.espresso-solutions.co.uk/login.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

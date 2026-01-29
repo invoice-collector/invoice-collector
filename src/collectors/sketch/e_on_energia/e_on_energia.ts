@@ -29,7 +29,7 @@ export class EOnEnergiaCollector extends SketchCollector {
         loginUrl: "https://www.eon-energia.com/it/area-riservata.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GtcTelecommunicationCollector extends SketchCollector {
         loginUrl: "https://gtc.de/infos-kontakt/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

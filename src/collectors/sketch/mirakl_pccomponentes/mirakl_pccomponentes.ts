@@ -29,7 +29,7 @@ export class MiraklPccomponentesCollector extends SketchCollector {
         loginUrl: "https://pccomponentes-prod.mirakl.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

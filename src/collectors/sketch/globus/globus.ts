@@ -29,7 +29,7 @@ export class GlobusCollector extends SketchCollector {
         loginUrl: "https://www.globus.de/kundenprogramme/mein-globus/digitaler-kassenbon.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

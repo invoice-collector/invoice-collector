@@ -29,7 +29,7 @@ export class NationalGridCollector extends SketchCollector {
         loginUrl: "https://www1.nationalgridus.com/SignIn",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

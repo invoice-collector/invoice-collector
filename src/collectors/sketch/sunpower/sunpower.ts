@@ -29,7 +29,7 @@ export class SunpowerCollector extends SketchCollector {
         loginUrl: "http://us.sunpower.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

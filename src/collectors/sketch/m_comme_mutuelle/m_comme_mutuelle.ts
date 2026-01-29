@@ -29,7 +29,7 @@ export class MCommeMutuelleCollector extends SketchCollector {
         loginUrl: "https://www.mgen.fr/login-adherent/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

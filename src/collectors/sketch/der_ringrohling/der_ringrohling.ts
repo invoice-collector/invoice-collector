@@ -29,7 +29,7 @@ export class DerRingrohlingCollector extends SketchCollector {
         loginUrl: "https://www.derringrohling.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

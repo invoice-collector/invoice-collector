@@ -29,7 +29,7 @@ export class SimplyhealthCollector extends SketchCollector {
         loginUrl: "https://www.simplyhealth.co.uk/corporate-portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

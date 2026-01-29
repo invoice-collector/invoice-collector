@@ -29,7 +29,7 @@ export class BazoomCollector extends SketchCollector {
         loginUrl: "https://app.bazoom.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

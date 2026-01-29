@@ -29,7 +29,7 @@ export class FinnhubCollector extends SketchCollector {
         loginUrl: "https://finnhub.io/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

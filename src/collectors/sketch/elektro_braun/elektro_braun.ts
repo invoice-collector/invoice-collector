@@ -29,7 +29,7 @@ export class ElektroBraunCollector extends SketchCollector {
         loginUrl: "https://www.elektro-braun.de/kunde-werden/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

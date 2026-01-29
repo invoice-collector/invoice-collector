@@ -29,7 +29,7 @@ export class EmiratesCollector extends SketchCollector {
         loginUrl: "https://www.emirates.com/de/german/manage-booking",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GemaCollector extends SketchCollector {
         loginUrl: "https://www.gema.de/portal/app/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

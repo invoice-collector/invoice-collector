@@ -29,7 +29,7 @@ export class FlyerBeCollector extends SketchCollector {
         loginUrl: "https://www.flyer.be/benl/myprintconnect/login?return=myprintconnect",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

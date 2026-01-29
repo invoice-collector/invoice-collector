@@ -29,7 +29,7 @@ export class LogrocketCollector extends SketchCollector {
         loginUrl: "https://app.logrocket.com/4yjbpy/debug/settings/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

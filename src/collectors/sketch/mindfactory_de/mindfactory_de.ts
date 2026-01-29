@@ -29,7 +29,7 @@ export class MindfactoryDeCollector extends SketchCollector {
         loginUrl: "https://www.mindfactory.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CatalogmachineComCollector extends SketchCollector {
         loginUrl: "https://www.catalogmachine.com/account/signin?ReturnUrl=%2Fapp%2Fmyaccount%2Finvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

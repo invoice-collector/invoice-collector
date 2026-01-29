@@ -29,7 +29,7 @@ export class OrttoCollector extends SketchCollector {
         loginUrl: "https://ortto.app/deinarchitekt/billing/invoices?from=%2Fhome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FsbGmbhCollector extends SketchCollector {
         loginUrl: "https://fsb-fachinstitut.de/seminarverwaltung/kundenkontogesamtuebersicht/belege/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

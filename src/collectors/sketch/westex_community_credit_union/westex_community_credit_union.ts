@@ -29,7 +29,7 @@ export class WestexCommunityCreditUnionCollector extends SketchCollector {
         loginUrl: "https://www.mobicint.net/wnk/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

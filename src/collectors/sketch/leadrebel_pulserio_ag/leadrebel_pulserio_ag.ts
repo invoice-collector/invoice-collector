@@ -29,7 +29,7 @@ export class LeadrebelPulserioAgCollector extends SketchCollector {
         loginUrl: "https://app.leadrebel.io/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SaneboxCollector extends SketchCollector {
         loginUrl: "https://www.sanebox.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

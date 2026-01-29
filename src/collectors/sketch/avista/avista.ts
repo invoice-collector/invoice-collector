@@ -29,7 +29,7 @@ export class AvistaCollector extends SketchCollector {
         loginUrl: "https://www.myavista.com/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

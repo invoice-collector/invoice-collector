@@ -29,7 +29,7 @@ export class UgiCollector extends SketchCollector {
         loginUrl: "https://onlineaccount.ugi.com/portal/BillingHistory.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

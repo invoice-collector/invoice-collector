@@ -29,7 +29,7 @@ export class ToursMetropoleValDeLoireCollector extends SketchCollector {
         loginUrl: "https://abonnes-eau.tours-metropole.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

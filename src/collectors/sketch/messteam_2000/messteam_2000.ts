@@ -29,7 +29,7 @@ export class Messteam2000Collector extends SketchCollector {
         loginUrl: "https://mt2000.prohka-cloud.de/objects",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

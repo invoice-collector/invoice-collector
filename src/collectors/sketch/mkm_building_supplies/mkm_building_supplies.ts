@@ -29,7 +29,7 @@ export class MkmBuildingSuppliesCollector extends SketchCollector {
         loginUrl: "https://www.mkmbs.co.uk/templates/mkm/pages/login/login.aspx/?returnurl=/my-account/my-account-landing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

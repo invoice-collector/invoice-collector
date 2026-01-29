@@ -29,7 +29,7 @@ export class JuraDirektGmbhCollector extends SketchCollector {
         loginUrl: "https://secure.juradirekt.com/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

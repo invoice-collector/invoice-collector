@@ -29,7 +29,7 @@ export class TaskworldCollector extends SketchCollector {
         loginUrl: "https://europe-enterprise.taskworld.com/msg-beauty/#/workspace/workspace-plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

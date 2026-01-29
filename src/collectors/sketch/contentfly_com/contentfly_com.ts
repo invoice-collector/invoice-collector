@@ -29,7 +29,7 @@ export class ContentflyComCollector extends SketchCollector {
         loginUrl: "https://app.contentfly.com/#/c/me/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

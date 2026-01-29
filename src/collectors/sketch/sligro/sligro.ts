@@ -29,7 +29,7 @@ export class SligroCollector extends SketchCollector {
         loginUrl: "http://www.sligro.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FahrradDeCollector extends SketchCollector {
         loginUrl: "https://www.fahrrad.de/login/?original=%2Fkundenkonto%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

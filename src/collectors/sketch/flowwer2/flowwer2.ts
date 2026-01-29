@@ -29,7 +29,7 @@ export class Flowwer2Collector extends SketchCollector {
         loginUrl: "https://www.flowwer2.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

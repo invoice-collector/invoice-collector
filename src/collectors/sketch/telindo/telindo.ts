@@ -29,7 +29,7 @@ export class TelindoCollector extends SketchCollector {
         loginUrl: "https://www.telindo.de/mein_konto/32/bestelluebersicht.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AlzaAtCollector extends SketchCollector {
         loginUrl: "https://www.alza.at/my-account/orders.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

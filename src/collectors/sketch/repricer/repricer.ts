@@ -29,7 +29,7 @@ export class RepricerCollector extends SketchCollector {
         loginUrl: "https://dashboard-3.repricer.com/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

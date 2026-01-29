@@ -29,7 +29,7 @@ export class GnipCollector extends SketchCollector {
         loginUrl: "https://twitter.com/login?redirect_after_login=https:/developer.twitter.com/en/enterprise",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

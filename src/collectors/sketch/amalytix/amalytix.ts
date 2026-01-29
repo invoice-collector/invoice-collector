@@ -29,7 +29,7 @@ export class AmalytixCollector extends SketchCollector {
         loginUrl: "https://tool.amalytix.com/#/index/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

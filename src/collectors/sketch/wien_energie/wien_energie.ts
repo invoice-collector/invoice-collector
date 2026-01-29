@@ -29,7 +29,7 @@ export class WienEnergieCollector extends SketchCollector {
         loginUrl: "https://service.wienenergie.at",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

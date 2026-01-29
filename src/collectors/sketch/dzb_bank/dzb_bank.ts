@@ -29,7 +29,7 @@ export class DzbBankCollector extends SketchCollector {
         loginUrl: "https://portal.dzb-bank.de/dzb/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MypostcardCollector extends SketchCollector {
         loginUrl: "https://www.mypostcard.com/kundenkonto/guthaben-aufladen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

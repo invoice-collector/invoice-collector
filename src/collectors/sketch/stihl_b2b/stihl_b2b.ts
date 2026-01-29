@@ -29,7 +29,7 @@ export class StihlB2bCollector extends SketchCollector {
         loginUrl: "https://stihl.logistics-mall.com/group/stihl-rechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

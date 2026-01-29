@@ -29,7 +29,7 @@ export class TeslaHandschuhfachCollector extends SketchCollector {
         loginUrl: "https://www.tesla.com/de_DE/teslaaccount/ownership?rn=RN114491712",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FifthThirdBankCollector extends SketchCollector {
         loginUrl: "https://onlinebanking.53.com/olb/#/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

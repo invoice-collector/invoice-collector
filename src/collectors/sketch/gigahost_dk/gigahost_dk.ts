@@ -29,7 +29,7 @@ export class GigahostDkCollector extends SketchCollector {
         loginUrl: "https://controlcenter.gigahost.dk/?module=login&lang=da",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

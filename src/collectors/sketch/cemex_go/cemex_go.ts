@@ -29,7 +29,7 @@ export class CemexGoCollector extends SketchCollector {
         loginUrl: "https://www.cemexgo.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

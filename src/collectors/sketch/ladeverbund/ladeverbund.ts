@@ -29,7 +29,7 @@ export class LadeverbundCollector extends SketchCollector {
         loginUrl: "https://ladeverbundplus.chargecloud.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

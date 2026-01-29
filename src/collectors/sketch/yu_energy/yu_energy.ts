@@ -29,7 +29,7 @@ export class YuEnergyCollector extends SketchCollector {
         loginUrl: "https://myaccount.yuenergy.co.uk/MyAccount/s/account-overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

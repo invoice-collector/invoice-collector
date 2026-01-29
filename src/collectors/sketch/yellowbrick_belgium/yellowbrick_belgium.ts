@@ -29,7 +29,7 @@ export class YellowbrickBelgiumCollector extends SketchCollector {
         loginUrl: "https://my.yellowbrick.be/MyYellowbrick/invoice/list?interval=1&searchField=Date&searchValue=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

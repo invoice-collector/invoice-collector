@@ -29,7 +29,7 @@ export class Autoscout24HandlerCollector extends SketchCollector {
         loginUrl: "https://www.autoscout24.de/dealer-invoice-download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

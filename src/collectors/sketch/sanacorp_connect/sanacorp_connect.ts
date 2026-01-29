@@ -29,7 +29,7 @@ export class SanacorpConnectCollector extends SketchCollector {
         loginUrl: "https://connect.sanacorp.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

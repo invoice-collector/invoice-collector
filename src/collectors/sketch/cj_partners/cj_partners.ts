@@ -29,7 +29,7 @@ export class CjPartnersCollector extends SketchCollector {
         loginUrl: "https://cjaffiliate.my.site.com/publisher/s/invoice/Invoice__c/00B6O00000BN5LqUAL",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

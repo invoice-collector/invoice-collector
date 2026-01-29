@@ -29,7 +29,7 @@ export class AtmosfairCollector extends SketchCollector {
         loginUrl: "https://www.atmosfair.de/de/myatmosfair",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

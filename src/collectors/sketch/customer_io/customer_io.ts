@@ -29,7 +29,7 @@ export class CustomerIoCollector extends SketchCollector {
         loginUrl: "https://fly.customer.io/settings/receipts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

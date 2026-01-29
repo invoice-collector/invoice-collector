@@ -29,7 +29,7 @@ export class ImaProtectCollector extends SketchCollector {
         loginUrl: "https://www.imaprotect.com/fr/client/account/contract",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

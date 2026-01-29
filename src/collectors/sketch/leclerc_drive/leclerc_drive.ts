@@ -29,7 +29,7 @@ export class LeclercDriveCollector extends SketchCollector {
         loginUrl: "https://www.leclercdrive.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

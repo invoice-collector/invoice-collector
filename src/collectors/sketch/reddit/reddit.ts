@@ -29,7 +29,7 @@ export class RedditCollector extends SketchCollector {
         loginUrl: "https://www.reddit.com/adslogin?dest=https://ads.reddit.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

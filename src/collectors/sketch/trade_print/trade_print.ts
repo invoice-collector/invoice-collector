@@ -29,7 +29,7 @@ export class TradePrintCollector extends SketchCollector {
         loginUrl: "https://www.tradeprint.co.uk/my-account#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

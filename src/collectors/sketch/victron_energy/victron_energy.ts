@@ -29,7 +29,7 @@ export class VictronEnergyCollector extends SketchCollector {
         loginUrl: "https://www.victronenergy.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

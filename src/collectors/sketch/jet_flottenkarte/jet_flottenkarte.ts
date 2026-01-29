@@ -29,7 +29,7 @@ export class JetFlottenkarteCollector extends SketchCollector {
         loginUrl: "https://flottenkarte.jet-tankstellen.de/default.ixsp#{20}",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

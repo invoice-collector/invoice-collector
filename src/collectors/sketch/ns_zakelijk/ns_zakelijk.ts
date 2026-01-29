@@ -29,7 +29,7 @@ export class NsZakelijkCollector extends SketchCollector {
         loginUrl: "https://www.ns.nl/mijnnszakelijk/login?15",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class JantyFranceCollector extends SketchCollector {
         loginUrl: "https://www.janty.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

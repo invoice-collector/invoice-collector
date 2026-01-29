@@ -29,7 +29,7 @@ export class GraphcommonsCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xNlZoOHFIMU9WMlJDaWdxLF9QamdvNmExeEt0SVFNQzdPUjI3WUxseWZKdUJYMWRs0100WpT2BNvK",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

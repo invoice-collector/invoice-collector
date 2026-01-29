@@ -29,7 +29,7 @@ export class PrettyLinksCollector extends SketchCollector {
         loginUrl: "https://prettylinks.com/account/?action=payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

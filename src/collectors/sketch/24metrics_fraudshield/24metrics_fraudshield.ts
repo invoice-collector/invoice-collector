@@ -29,7 +29,7 @@ export class _24metricsFraudshieldCollector extends SketchCollector {
         loginUrl: "https://fraudshield.24metrics.com/app#/billing?tab=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

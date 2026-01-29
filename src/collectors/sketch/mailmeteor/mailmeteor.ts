@@ -29,7 +29,7 @@ export class MailmeteorCollector extends SketchCollector {
         loginUrl: "https://billing.stripe.com/p/session/live_YWNjdF8xRWFTTjdLQUxJalp1c3VRLF9OT0xTNzFKZnVsZllCZzdhUzJRSUo2eEJvUHVTeEVz0100jgHDZKN7",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

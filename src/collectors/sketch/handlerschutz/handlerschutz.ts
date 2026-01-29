@@ -29,7 +29,7 @@ export class HandlerschutzCollector extends SketchCollector {
         loginUrl: "https://www.haendlerschutz.com/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

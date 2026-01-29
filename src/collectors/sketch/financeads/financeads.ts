@@ -29,7 +29,7 @@ export class FinanceadsCollector extends SketchCollector {
         loginUrl: "https://login.financeads.net/de/index.php?module=login&msg=cookieerr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

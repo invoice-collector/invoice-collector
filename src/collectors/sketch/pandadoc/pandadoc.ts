@@ -29,7 +29,7 @@ export class PandadocCollector extends SketchCollector {
         loginUrl: "https://app.pandadoc.com/login/?next=/a/#/dashboard/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

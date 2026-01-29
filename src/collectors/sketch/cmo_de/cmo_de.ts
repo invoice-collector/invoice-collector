@@ -29,7 +29,7 @@ export class CmoDeCollector extends SketchCollector {
         loginUrl: "https://customer.cmo.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

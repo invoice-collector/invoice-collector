@@ -29,7 +29,7 @@ export class HyggerCollector extends SketchCollector {
         loginUrl: "https://accounts.hygger.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

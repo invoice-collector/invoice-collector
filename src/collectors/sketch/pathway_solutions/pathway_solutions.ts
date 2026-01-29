@@ -29,7 +29,7 @@ export class PathwaySolutionsCollector extends SketchCollector {
         loginUrl: "https://app.pathway-solutions.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

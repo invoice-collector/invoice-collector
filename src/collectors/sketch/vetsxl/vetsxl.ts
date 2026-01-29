@@ -29,7 +29,7 @@ export class VetsxlCollector extends SketchCollector {
         loginUrl: "https://www.myvetsxl.com/de/Konto/Konto_Rechnungen/Default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

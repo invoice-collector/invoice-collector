@@ -29,7 +29,7 @@ export class OptisignsCollector extends SketchCollector {
         loginUrl: "https://app.optisigns.com/app/s/payment-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

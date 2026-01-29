@@ -29,7 +29,7 @@ export class AmazonSellerCentralItCollector extends SketchCollector {
         loginUrl: "https://sellercentral.amazon.it/tax/seller-fee-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

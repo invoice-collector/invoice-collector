@@ -29,7 +29,7 @@ export class NiftyimagesCollector extends SketchCollector {
         loginUrl: "https://ux.niftyimages.com/Billing/Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

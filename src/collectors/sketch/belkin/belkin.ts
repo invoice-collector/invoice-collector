@@ -29,7 +29,7 @@ export class BelkinCollector extends SketchCollector {
         loginUrl: "https://www.belkin.com/fr/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

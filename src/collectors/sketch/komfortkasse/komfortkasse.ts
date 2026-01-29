@@ -29,7 +29,7 @@ export class KomfortkasseCollector extends SketchCollector {
         loginUrl: "https://ssl.komfortkasse.eu/dealer/invoices.jsf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

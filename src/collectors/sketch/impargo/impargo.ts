@@ -29,7 +29,7 @@ export class ImpargoCollector extends SketchCollector {
         loginUrl: "https://apps.impargo.de/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

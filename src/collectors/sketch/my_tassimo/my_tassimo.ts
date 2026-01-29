@@ -29,7 +29,7 @@ export class MyTassimoCollector extends SketchCollector {
         loginUrl: "https://www.tassimo.com/fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

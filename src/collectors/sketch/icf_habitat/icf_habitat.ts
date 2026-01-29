@@ -29,7 +29,7 @@ export class IcfHabitatCollector extends SketchCollector {
         loginUrl: "https://www.espaceclient.icfhabitat.fr/locataires/index.php/accueil-non-connecte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

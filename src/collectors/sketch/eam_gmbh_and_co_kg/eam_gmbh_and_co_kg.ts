@@ -29,7 +29,7 @@ export class EamGmbhAndCoKgCollector extends SketchCollector {
         loginUrl: "https://eam.mein-portal.de/swp/eam/BILLING",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

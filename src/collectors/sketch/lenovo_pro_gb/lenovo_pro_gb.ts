@@ -29,7 +29,7 @@ export class LenovoProGbCollector extends SketchCollector {
         loginUrl: "https://account.lenovo.com/gb/lenovopro/en/smbaccount/gatekeeper/showpage",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

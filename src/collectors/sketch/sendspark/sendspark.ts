@@ -29,7 +29,7 @@ export class SendsparkCollector extends SketchCollector {
         loginUrl: "https://sendspark.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

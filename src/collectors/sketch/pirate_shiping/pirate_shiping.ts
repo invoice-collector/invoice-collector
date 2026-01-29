@@ -29,7 +29,7 @@ export class PirateShipingCollector extends SketchCollector {
         loginUrl: "https://ship.pirateship.com/reports/paymentreceipt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

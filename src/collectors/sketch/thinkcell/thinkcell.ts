@@ -29,7 +29,7 @@ export class ThinkcellCollector extends SketchCollector {
         loginUrl: "https://server.think-cell.com/portal/en/licenses.srf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

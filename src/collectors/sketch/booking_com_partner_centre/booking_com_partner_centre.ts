@@ -29,7 +29,7 @@ export class BookingComPartnerCentreCollector extends SketchCollector {
         loginUrl: "https://spadmin.booking.com/partner/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

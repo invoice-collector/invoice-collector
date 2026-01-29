@@ -29,7 +29,7 @@ export class CosComputerCollector extends SketchCollector {
         loginUrl: "https://shop.cos-computer.com/index.php/~customerCenter_InvoiceOrderController/start/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BellCanadaMediumAndLargeBusinessPortalCollector extends SketchColle
         loginUrl: "https://www.businessportal.bell.ca/auth/Login?LOCALE=en_US",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

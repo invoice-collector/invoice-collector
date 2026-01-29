@@ -29,7 +29,7 @@ export class KioskBrowserRemoteCollector extends SketchCollector {
         loginUrl: "https://www.kbremote.net/Home/Start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

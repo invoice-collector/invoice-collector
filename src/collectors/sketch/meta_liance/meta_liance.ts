@@ -29,7 +29,7 @@ export class MetaLianceCollector extends SketchCollector {
         loginUrl: "https://my.metaliance.de/index.php?rp=/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

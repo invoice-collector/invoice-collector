@@ -29,7 +29,7 @@ export class SasquatchCollector extends SketchCollector {
         loginUrl: "https://www.sasquatchmail.com/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

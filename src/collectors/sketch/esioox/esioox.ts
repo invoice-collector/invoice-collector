@@ -29,7 +29,7 @@ export class EsiooxCollector extends SketchCollector {
         loginUrl: "https://www.placedescartes.fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

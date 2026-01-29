@@ -29,7 +29,7 @@ export class PhraseappCollector extends SketchCollector {
         loginUrl: "https://phraseapp.com/de/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

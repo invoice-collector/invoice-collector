@@ -29,7 +29,7 @@ export class ItNerd24Collector extends SketchCollector {
         loginUrl: "https://it-nerd24.de/account#hide-registration",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WortAndBildServiceCollector extends SketchCollector {
         loginUrl: "https://cockpit.wub-service.de/#/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

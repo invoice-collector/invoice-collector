@@ -29,7 +29,7 @@ export class StadtwerkeRadolfzellCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-radolfzell.de/powercommerce/csit3/fo/portal/invoiceDetails",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

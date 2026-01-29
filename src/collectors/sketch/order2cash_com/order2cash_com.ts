@@ -29,7 +29,7 @@ export class Order2cashComCollector extends SketchCollector {
         loginUrl: "https://secure.order2cash.com/i2d/#XD3sCs1EKZFx44kyf7RSSQ",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

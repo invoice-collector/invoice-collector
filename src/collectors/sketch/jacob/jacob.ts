@@ -29,7 +29,7 @@ export class JacobCollector extends SketchCollector {
         loginUrl: "https://www.jacob.de/bestellstatus.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

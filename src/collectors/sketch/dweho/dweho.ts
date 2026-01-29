@@ -29,7 +29,7 @@ export class DwehoCollector extends SketchCollector {
         loginUrl: "https://espaceximi.colibriwithus.com/dweo/client/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

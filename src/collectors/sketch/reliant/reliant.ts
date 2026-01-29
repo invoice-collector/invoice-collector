@@ -29,7 +29,7 @@ export class ReliantCollector extends SketchCollector {
         loginUrl: "https://www.reliant.com/public/altLogon.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

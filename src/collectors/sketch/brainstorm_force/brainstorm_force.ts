@@ -29,7 +29,7 @@ export class BrainstormForceCollector extends SketchCollector {
         loginUrl: "https://store.brainstormforce.com/purchase-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PageflowCollector extends SketchCollector {
         loginUrl: "https://creator.hosted-pageflow.com/admin/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

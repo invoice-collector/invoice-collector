@@ -29,7 +29,7 @@ export class _1nceCollector extends SketchCollector {
         loginUrl: "https://portal.1nce.com/portal/customer/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

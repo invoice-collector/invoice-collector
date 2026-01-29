@@ -29,7 +29,7 @@ export class _4phonesCollector extends SketchCollector {
         loginUrl: "https://4phones.eu/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

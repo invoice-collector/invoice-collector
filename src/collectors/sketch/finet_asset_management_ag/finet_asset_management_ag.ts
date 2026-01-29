@@ -29,7 +29,7 @@ export class FinetAssetManagementAgCollector extends SketchCollector {
         loginUrl: "https://my.finet.de/portal/tiles/artikel.cfm?ID_Seite=282",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

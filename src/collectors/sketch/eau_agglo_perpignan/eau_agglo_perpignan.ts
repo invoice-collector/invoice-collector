@@ -29,7 +29,7 @@ export class EauAggloPerpignanCollector extends SketchCollector {
         loginUrl: "https://www.ea-pm.fr/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

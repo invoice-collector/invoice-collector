@@ -29,7 +29,7 @@ export class KoelscheBlisterCollector extends SketchCollector {
         loginUrl: "https://kundenportal.koelsche-blister.de/browse//Rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

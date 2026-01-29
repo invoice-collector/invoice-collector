@@ -29,7 +29,7 @@ export class VolkswagenNaturstromCollector extends SketchCollector {
         loginUrl: "https://naturstrom.elli.eco/kundenportal/exec/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

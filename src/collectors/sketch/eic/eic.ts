@@ -29,7 +29,7 @@ export class EicCollector extends SketchCollector {
         loginUrl: "https://www.eic.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

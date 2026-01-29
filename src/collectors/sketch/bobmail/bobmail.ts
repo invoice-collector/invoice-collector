@@ -29,7 +29,7 @@ export class BobmailCollector extends SketchCollector {
         loginUrl: "https://bobmail.nl/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

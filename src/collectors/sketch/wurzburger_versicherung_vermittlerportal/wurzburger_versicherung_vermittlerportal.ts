@@ -29,7 +29,7 @@ export class WurzburgerVersicherungVermittlerportalCollector extends SketchColle
         loginUrl: "https://www.wuerzburger.com/vermittlerportal/logon.aspx?ReturnUrl=%2fvermittlerportal%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

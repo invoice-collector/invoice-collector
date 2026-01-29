@@ -29,7 +29,7 @@ export class VaiTradeCollector extends SketchCollector {
         loginUrl: "https://vaitrade.de/de/app/deals/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

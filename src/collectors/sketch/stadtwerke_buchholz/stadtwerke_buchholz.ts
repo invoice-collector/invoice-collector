@@ -29,7 +29,7 @@ export class StadtwerkeBuchholzCollector extends SketchCollector {
         loginUrl: "https://portal.buchholz-stadtwerke.de/powercommerce/ivu/fo/portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

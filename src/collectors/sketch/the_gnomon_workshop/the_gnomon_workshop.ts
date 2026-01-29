@@ -29,7 +29,7 @@ export class TheGnomonWorkshopCollector extends SketchCollector {
         loginUrl: "https://www.thegnomonworkshop.com/settings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

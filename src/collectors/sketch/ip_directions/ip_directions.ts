@@ -29,7 +29,7 @@ export class IpDirectionsCollector extends SketchCollector {
         loginUrl: "https://extranet.ipdirections.net/UI/Login/LoginPage.aspx?returnUrl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

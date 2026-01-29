@@ -29,7 +29,7 @@ export class VionityPrepaidHosterCollector extends SketchCollector {
         loginUrl: "https://www.vionity.de/clientarea/my/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

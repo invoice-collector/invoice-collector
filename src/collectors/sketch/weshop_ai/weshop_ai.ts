@@ -29,7 +29,7 @@ export class WeshopAiCollector extends SketchCollector {
         loginUrl: "https://www.weshop.ai/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HostmonsterCollector extends SketchCollector {
         loginUrl: "https://my.hostmonster.com/web-hosting/cplogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

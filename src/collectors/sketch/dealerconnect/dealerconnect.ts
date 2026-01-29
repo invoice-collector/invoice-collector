@@ -29,7 +29,7 @@ export class DealerconnectCollector extends SketchCollector {
         loginUrl: "https://dealerconnect.chrysler.com/portal/Controller/Portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

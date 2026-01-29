@@ -29,7 +29,7 @@ export class AnswerThePublicCollector extends SketchCollector {
         loginUrl: "https://answerthepublic.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LomaxCollector extends SketchCollector {
         loginUrl: "https://www.lomax.dk/min-konto/fakturaer/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

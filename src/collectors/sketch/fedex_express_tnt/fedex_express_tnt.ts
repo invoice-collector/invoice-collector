@@ -29,7 +29,7 @@ export class FedexExpressTntCollector extends SketchCollector {
         loginUrl: "https://esipub.esi-sa.com/TNT_Archive/archive/document",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

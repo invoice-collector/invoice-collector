@@ -29,7 +29,7 @@ export class IpcComputerCollector extends SketchCollector {
         loginUrl: "https://www.ipc-computer.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

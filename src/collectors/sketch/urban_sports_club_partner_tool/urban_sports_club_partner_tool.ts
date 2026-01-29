@@ -29,7 +29,7 @@ export class UrbanSportsClubPartnerToolCollector extends SketchCollector {
         loginUrl: "https://partner.urbansportsclub.com/payout",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

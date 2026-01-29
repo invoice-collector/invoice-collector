@@ -29,7 +29,7 @@ export class SumologicCollector extends SketchCollector {
         loginUrl: "https://service.sumologic.com/ui/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

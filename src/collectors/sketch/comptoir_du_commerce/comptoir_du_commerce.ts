@@ -29,7 +29,7 @@ export class ComptoirDuCommerceCollector extends SketchCollector {
         loginUrl: "http://www.comptoirducommerce.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

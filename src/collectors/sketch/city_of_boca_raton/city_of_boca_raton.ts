@@ -29,7 +29,7 @@ export class CityOfBocaRatonCollector extends SketchCollector {
         loginUrl: "https://myubaccount.myboca.us/app/capricorn?para=index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

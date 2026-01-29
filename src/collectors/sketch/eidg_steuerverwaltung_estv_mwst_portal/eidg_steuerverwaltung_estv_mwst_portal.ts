@@ -29,7 +29,7 @@ export class EidgSteuerverwaltungEstvMwstPortalCollector extends SketchCollector
         loginUrl: "https://www.mwstabrechnen.estv.admin.ch/pro/declarations",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ShieldSecurityProCollector extends SketchCollector {
         loginUrl: "https://getshieldsecurity.com/account/purchase-history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

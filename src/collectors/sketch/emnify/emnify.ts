@@ -29,7 +29,7 @@ export class EmnifyCollector extends SketchCollector {
         loginUrl: "https://cdn.emnify.net/#/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

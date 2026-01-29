@@ -29,7 +29,7 @@ export class SuperchatDeCollector extends SketchCollector {
         loginUrl: "https://app.superchat.de/subscription/invoicing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

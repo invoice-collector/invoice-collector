@@ -29,7 +29,7 @@ export class SeterusCollector extends SketchCollector {
         loginUrl: "http://www.seterus.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

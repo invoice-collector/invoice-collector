@@ -29,7 +29,7 @@ export class DatadogEuCollector extends SketchCollector {
         loginUrl: "https://app.datadoghq.eu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

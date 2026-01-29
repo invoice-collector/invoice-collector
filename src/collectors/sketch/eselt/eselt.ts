@@ -29,7 +29,7 @@ export class EseltCollector extends SketchCollector {
         loginUrl: "https://app.eselt.de/user/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

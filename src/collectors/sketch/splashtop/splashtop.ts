@@ -29,7 +29,7 @@ export class SplashtopCollector extends SketchCollector {
         loginUrl: "https://my.splashtop.eu/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

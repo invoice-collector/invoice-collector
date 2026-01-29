@@ -29,7 +29,7 @@ export class BlitzzCollector extends SketchCollector {
         loginUrl: "https://subscriptions.zoho.com/portal/blitzz/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

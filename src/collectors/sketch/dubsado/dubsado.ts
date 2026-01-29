@@ -29,7 +29,7 @@ export class DubsadoCollector extends SketchCollector {
         loginUrl: "https://hello.dubsado.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

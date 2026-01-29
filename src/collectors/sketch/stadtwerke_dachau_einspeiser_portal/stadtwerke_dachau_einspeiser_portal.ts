@@ -29,7 +29,7 @@ export class StadtwerkeDachauEinspeiserPortalCollector extends SketchCollector {
         loginUrl: "https://www.stadtwerke-dachau.de/service-beratung/online-services/einspeiser-portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

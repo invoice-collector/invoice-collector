@@ -29,7 +29,7 @@ export class CakesmithsCollector extends SketchCollector {
         loginUrl: "https://www.cakesmiths.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

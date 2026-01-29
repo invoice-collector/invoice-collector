@@ -29,7 +29,7 @@ export class PostnordCollector extends SketchCollector {
         loginUrl: "http://www.postnord.dk",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

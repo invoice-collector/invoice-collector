@@ -29,7 +29,7 @@ export class WessexWaterCollector extends SketchCollector {
         loginUrl: "https://myaccount.wessexwater.co.uk/profile/summary/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

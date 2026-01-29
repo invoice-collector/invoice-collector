@@ -29,7 +29,7 @@ export class StephanoiseDesEauxCollector extends SketchCollector {
         loginUrl: "http://www.stephanoise-eaux.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

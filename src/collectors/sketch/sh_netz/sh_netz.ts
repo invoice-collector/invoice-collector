@@ -29,7 +29,7 @@ export class ShNetzCollector extends SketchCollector {
         loginUrl: "https://www.sh-netz.com/de/service/rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DrukwerkdealCollector extends SketchCollector {
         loginUrl: "https://www.drukwerkdeal.nl/nl/account/login-page",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

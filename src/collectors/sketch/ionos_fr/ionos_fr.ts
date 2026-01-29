@@ -29,7 +29,7 @@ export class IonosFrCollector extends SketchCollector {
         loginUrl: "https://login.ionos.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

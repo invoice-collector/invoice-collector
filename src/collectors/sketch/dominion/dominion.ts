@@ -29,7 +29,7 @@ export class DominionCollector extends SketchCollector {
         loginUrl: "https://myaccount.dominionenergy.com/portal/#/Billinghistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

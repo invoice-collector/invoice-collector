@@ -29,7 +29,7 @@ export class AckermannCollector extends SketchCollector {
         loginUrl: "https://ackermann-edv.de/op/rechnungen.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DatacakeCollector extends SketchCollector {
         loginUrl: "https://app.datacake.de/bed/administration/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

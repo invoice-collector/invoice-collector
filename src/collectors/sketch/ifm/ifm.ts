@@ -29,7 +29,7 @@ export class IfmCollector extends SketchCollector {
         loginUrl: "https://www.ifm.com/de/de/secure/my-account#!/invoiceList",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

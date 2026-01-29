@@ -29,7 +29,7 @@ export class DashlaneCollector extends SketchCollector {
         loginUrl: "https://www.dashlane.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

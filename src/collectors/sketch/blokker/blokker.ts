@@ -29,7 +29,7 @@ export class BlokkerCollector extends SketchCollector {
         loginUrl: "https://www.blokker.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

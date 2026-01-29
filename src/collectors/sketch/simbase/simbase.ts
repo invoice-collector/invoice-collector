@@ -29,7 +29,7 @@ export class SimbaseCollector extends SketchCollector {
         loginUrl: "https://dashboard.simbase.com/dashboard/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UmfrageonlineCollector extends SketchCollector {
         loginUrl: "https://www.umfrageonline.com/user/account/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

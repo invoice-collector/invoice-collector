@@ -29,7 +29,7 @@ export class Labelprint24Collector extends SketchCollector {
         loginUrl: "https://www.labelprint24.com/en/account/overview.php?id=orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

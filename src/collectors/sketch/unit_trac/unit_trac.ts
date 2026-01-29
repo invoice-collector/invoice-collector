@@ -29,7 +29,7 @@ export class UnitTracCollector extends SketchCollector {
         loginUrl: "https://www.unittrac.com/Secure/Settings/UTBilling",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

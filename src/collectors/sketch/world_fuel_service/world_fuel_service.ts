@@ -29,7 +29,7 @@ export class WorldFuelServiceCollector extends SketchCollector {
         loginUrl: "https://aviation.wfscorp.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

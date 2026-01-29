@@ -29,7 +29,7 @@ export class VidyardCollector extends SketchCollector {
         loginUrl: "https://auth.vidyard.com/login?rid=x0blYo1AmZsKRA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

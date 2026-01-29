@@ -29,7 +29,7 @@ export class SncbInternationalCollector extends SketchCollector {
         loginUrl: "https://agent.b-europe.com/fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

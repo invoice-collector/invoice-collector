@@ -29,7 +29,7 @@ export class DkvMobilityComCollector extends SketchCollector {
         loginUrl: "https://my.dkv-mobility.com/customer/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

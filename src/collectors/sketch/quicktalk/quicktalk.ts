@@ -29,7 +29,7 @@ export class QuicktalkCollector extends SketchCollector {
         loginUrl: "https://app.quicktalk.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

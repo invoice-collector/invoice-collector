@@ -29,7 +29,7 @@ export class PlaneteDomotiqueCollector extends SketchCollector {
         loginUrl: "https://www.planete-domotique.com/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

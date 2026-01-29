@@ -29,7 +29,7 @@ export class StgsSocieteDeTravauxGestionEtServicesCollector extends SketchCollec
         loginUrl: "https://espaceabonne.stgs.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

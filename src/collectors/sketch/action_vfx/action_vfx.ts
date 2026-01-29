@@ -29,7 +29,7 @@ export class ActionVfxCollector extends SketchCollector {
         loginUrl: "https://www.actionvfx.com/#sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

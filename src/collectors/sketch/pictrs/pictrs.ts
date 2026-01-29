@@ -29,7 +29,7 @@ export class PictrsCollector extends SketchCollector {
         loginUrl: "https://www.pictrs.com/shopadmin/my_bills#tab-shopfee",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

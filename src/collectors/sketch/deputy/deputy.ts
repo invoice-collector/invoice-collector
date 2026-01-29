@@ -29,7 +29,7 @@ export class DeputyCollector extends SketchCollector {
         loginUrl: "https://once.deputy.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

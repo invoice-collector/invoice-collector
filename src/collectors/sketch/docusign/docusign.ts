@@ -29,7 +29,7 @@ export class DocusignCollector extends SketchCollector {
         loginUrl: "https://account.docusign.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

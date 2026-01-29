@@ -29,7 +29,7 @@ export class BechtleBiosCollector extends SketchCollector {
         loginUrl: "https://bios.bechtle.com/de/orderHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

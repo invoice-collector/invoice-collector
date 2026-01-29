@@ -29,7 +29,7 @@ export class RollecoFrCollector extends SketchCollector {
         loginUrl: "https://www.rolleco.fr/connexion?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

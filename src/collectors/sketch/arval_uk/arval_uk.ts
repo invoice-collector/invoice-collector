@@ -29,7 +29,7 @@ export class ArvalUkCollector extends SketchCollector {
         loginUrl: "https://www.myarval.com/myarvalwebtheme/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AdbutlerSparklitCollector extends SketchCollector {
         loginUrl: "https://www.sparklit.com/common_admin.spark?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PointPCollector extends SketchCollector {
         loginUrl: "https://www.pointp.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

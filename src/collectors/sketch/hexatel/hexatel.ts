@@ -29,7 +29,7 @@ export class HexatelCollector extends SketchCollector {
         loginUrl: "https://portail.hexatel.fr/s/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

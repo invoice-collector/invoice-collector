@@ -29,7 +29,7 @@ export class SudkuriertelCollector extends SketchCollector {
         loginUrl: "http://www.suedkuriertel.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

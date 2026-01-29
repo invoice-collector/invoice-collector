@@ -29,7 +29,7 @@ export class EpubliCollector extends SketchCollector {
         loginUrl: "https://www.epubli.de/myaccount/statistics/receipt/2019/01?p=211449",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

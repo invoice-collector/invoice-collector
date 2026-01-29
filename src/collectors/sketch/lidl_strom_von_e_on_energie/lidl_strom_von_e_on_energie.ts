@@ -29,7 +29,7 @@ export class LidlStromVonEOnEnergieCollector extends SketchCollector {
         loginUrl: "https://www.eon.de/de/meineon/start.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

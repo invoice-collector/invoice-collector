@@ -29,7 +29,7 @@ export class IsoChemieCollector extends SketchCollector {
         loginUrl: "https://portal.iso-chemie.eu/dokumente/auftragsdokumente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

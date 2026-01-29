@@ -29,7 +29,7 @@ export class PsngrCollector extends SketchCollector {
         loginUrl: "https://psngr.co/dashboard/billing/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

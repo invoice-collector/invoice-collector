@@ -29,7 +29,7 @@ export class JungDmsAndCieCollector extends SketchCollector {
         loginUrl: "https://icrm.jungdms.de/commission/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

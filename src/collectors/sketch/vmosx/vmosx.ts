@@ -29,7 +29,7 @@ export class VmosxCollector extends SketchCollector {
         loginUrl: "http://www.virtualmacosx.com/billing/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

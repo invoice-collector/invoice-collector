@@ -29,7 +29,7 @@ export class InsignCollector extends SketchCollector {
         loginUrl: "https://app.getinsign.de/shopcustomerportal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

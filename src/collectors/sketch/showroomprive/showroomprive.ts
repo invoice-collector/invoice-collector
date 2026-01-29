@@ -29,7 +29,7 @@ export class ShowroompriveCollector extends SketchCollector {
         loginUrl: "https://www.showroomprive.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

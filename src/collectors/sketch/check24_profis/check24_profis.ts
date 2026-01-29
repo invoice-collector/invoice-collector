@@ -29,7 +29,7 @@ export class Check24ProfisCollector extends SketchCollector {
         loginUrl: "https://experts.handwerk.check24.de/craftsmen/sp/desktop/prime/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

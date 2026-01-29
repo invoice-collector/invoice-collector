@@ -29,7 +29,7 @@ export class ArtlistIoCollector extends SketchCollector {
         loginUrl: "https://artlist.io/page/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

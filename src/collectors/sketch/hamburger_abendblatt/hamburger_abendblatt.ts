@@ -29,7 +29,7 @@ export class HamburgerAbendblattCollector extends SketchCollector {
         loginUrl: "http://www.abo.abendblatt.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

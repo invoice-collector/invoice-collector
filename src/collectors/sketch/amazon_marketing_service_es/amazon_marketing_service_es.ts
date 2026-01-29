@@ -29,7 +29,7 @@ export class AmazonMarketingServiceEsCollector extends SketchCollector {
         loginUrl: "https://advertising.amazon.es",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

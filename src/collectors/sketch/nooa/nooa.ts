@@ -29,7 +29,7 @@ export class NooaCollector extends SketchCollector {
         loginUrl: "https://web.nooa.app/de-DE/app/admin-cockpit/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

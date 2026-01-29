@@ -29,7 +29,7 @@ export class MetroMarktplatzCollector extends SketchCollector {
         loginUrl: "https://www.metro-selleroffice.com/workplace/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AutodeskCollector extends SketchCollector {
         loginUrl: "https://accounts.autodesk.com/Authentication/LogOn#username",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

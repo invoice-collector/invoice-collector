@@ -29,7 +29,7 @@ export class WistiaCollector extends SketchCollector {
         loginUrl: "https://secure.wistia.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

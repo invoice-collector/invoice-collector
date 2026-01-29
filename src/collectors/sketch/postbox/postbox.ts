@@ -29,7 +29,7 @@ export class PostboxCollector extends SketchCollector {
         loginUrl: "http://www.postbox-inc.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

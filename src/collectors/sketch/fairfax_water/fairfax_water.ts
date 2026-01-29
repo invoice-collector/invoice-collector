@@ -29,7 +29,7 @@ export class FairfaxWaterCollector extends SketchCollector {
         loginUrl: "https://fwcustomer.org/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

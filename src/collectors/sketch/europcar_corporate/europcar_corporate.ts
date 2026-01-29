@@ -29,7 +29,7 @@ export class EuropcarCorporateCollector extends SketchCollector {
         loginUrl: "http://europcar.generix.biz/txe/ui/portal.jsf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

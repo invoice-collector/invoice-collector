@@ -29,7 +29,7 @@ export class PurchasePowerCollector extends SketchCollector {
         loginUrl: "https://www.pitneybowes.us/signin/logon.go?request_locale=en_US#/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OntarioMunicipalUtilitiesCollector extends SketchCollector {
         loginUrl: "https://customer.ontarioca.gov/Main-Menu/My-Account/Billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PowerZeroCollector extends SketchCollector {
         loginUrl: "https://power-zero.com/fr/shop/historique-commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

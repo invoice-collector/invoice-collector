@@ -29,7 +29,7 @@ export class BnTBlatzheimNetworksCollector extends SketchCollector {
         loginUrl: "https://my.bn-t.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

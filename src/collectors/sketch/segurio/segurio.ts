@@ -29,7 +29,7 @@ export class SegurioCollector extends SketchCollector {
         loginUrl: "https://segurio.com/de/users/sign_in?l=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

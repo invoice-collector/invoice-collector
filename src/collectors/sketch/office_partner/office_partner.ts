@@ -29,7 +29,7 @@ export class OfficePartnerCollector extends SketchCollector {
         loginUrl: "https://www.office-partner.de/login#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

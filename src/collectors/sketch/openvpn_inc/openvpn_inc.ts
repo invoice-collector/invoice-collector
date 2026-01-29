@@ -29,7 +29,7 @@ export class OpenvpnIncCollector extends SketchCollector {
         loginUrl: "https://as-billing.openvpn.net/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

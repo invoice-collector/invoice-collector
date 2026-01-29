@@ -29,7 +29,7 @@ export class CloudprinterCollector extends SketchCollector {
         loginUrl: "https://admin.cloudprinter.com/#common/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

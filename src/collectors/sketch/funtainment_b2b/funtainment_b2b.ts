@@ -29,7 +29,7 @@ export class FuntainmentB2bCollector extends SketchCollector {
         loginUrl: "https://funtainment-b2b.de/index.php?ID=18",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

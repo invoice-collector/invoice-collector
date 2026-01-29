@@ -29,7 +29,7 @@ export class DegussaSonneMondGoldhandelGmbhCollector extends SketchCollector {
         loginUrl: "https://www.degussa-goldankauf.de/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

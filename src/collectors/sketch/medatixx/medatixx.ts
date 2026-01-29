@@ -29,7 +29,7 @@ export class MedatixxCollector extends SketchCollector {
         loginUrl: "https://shop.medatixx.de/postbox/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

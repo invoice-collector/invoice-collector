@@ -29,7 +29,7 @@ export class NzzCollector extends SketchCollector {
         loginUrl: "https://abo.nzz.ch/benutzerkonto/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

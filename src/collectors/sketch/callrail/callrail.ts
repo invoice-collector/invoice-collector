@@ -29,7 +29,7 @@ export class CallrailCollector extends SketchCollector {
         loginUrl: "https://app.callrail.com/settings/a/292910140/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

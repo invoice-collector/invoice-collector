@@ -29,7 +29,7 @@ export class WizaCollector extends SketchCollector {
         loginUrl: "https://wiza.co/?xsln5i53hj2e7a7rjwjumiuhoa=suxroadeng6eyg3n7a32nmkrlq",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

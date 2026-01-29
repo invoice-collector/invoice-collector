@@ -29,7 +29,7 @@ export class MultitankcardNlCollector extends SketchCollector {
         loginUrl: "https://www.mtc.nl/inloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

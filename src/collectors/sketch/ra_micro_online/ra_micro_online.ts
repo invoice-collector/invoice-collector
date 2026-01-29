@@ -29,7 +29,7 @@ export class RaMicroOnlineCollector extends SketchCollector {
         loginUrl: "https://www.ra-micro-online.de/net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

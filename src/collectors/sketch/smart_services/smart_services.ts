@@ -29,7 +29,7 @@ export class SmartServicesCollector extends SketchCollector {
         loginUrl: "https://client.smart-services.com/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

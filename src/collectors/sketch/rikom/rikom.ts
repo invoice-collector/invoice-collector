@@ -29,7 +29,7 @@ export class RikomCollector extends SketchCollector {
         loginUrl: "http://rikom-dsl.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

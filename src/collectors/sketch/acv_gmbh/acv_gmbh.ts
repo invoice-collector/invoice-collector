@@ -29,7 +29,7 @@ export class AcvGmbhCollector extends SketchCollector {
         loginUrl: "https://shop.acvgmbh.de/de/kundencenter/rechnungen.html?&_date=1705273200",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

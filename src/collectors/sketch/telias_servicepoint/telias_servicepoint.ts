@@ -29,7 +29,7 @@ export class TeliasServicepointCollector extends SketchCollector {
         loginUrl: "https://www.telias.de/login/de#overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

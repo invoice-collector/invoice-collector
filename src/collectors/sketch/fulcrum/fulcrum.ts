@@ -29,7 +29,7 @@ export class FulcrumCollector extends SketchCollector {
         loginUrl: "https://web.fulcrumapp.com/settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SaarbruckerZeitungCollector extends SketchCollector {
         loginUrl: "https://id.saarbruecker-zeitung.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

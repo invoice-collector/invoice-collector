@@ -29,7 +29,7 @@ export class JumingoCollector extends SketchCollector {
         loginUrl: "https://www.jumingo.com/de-de/pro/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

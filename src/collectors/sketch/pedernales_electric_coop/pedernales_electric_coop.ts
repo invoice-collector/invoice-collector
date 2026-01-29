@@ -29,7 +29,7 @@ export class PedernalesElectricCoopCollector extends SketchCollector {
         loginUrl: "https://pec.smarthub.coop/ui/#/billingHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

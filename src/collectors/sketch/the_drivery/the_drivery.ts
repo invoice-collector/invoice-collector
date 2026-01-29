@@ -29,7 +29,7 @@ export class TheDriveryCollector extends SketchCollector {
         loginUrl: "https://space.thedrivery.com/membership",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

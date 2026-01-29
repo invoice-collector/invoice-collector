@@ -29,7 +29,7 @@ export class WalmartComCollector extends SketchCollector {
         loginUrl: "https://www.walmart.com/account/login?tid=0&returnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

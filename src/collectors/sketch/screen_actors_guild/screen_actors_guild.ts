@@ -29,7 +29,7 @@ export class ScreenActorsGuildCollector extends SketchCollector {
         loginUrl: "https://www.sagaftra.org/welcome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

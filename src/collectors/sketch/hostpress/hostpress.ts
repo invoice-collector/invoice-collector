@@ -29,7 +29,7 @@ export class HostpressCollector extends SketchCollector {
         loginUrl: "https://my.hostpress.de/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

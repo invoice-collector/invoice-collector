@@ -29,7 +29,7 @@ export class DerGrunePunktDualesSystemCollector extends SketchCollector {
         loginUrl: "https://portal.gruener-punkt.de/onlinedsd/f?p=200:101:::NO:RP::",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

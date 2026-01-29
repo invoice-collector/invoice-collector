@@ -29,7 +29,7 @@ export class Auto1Collector extends SketchCollector {
         loginUrl: "http://www.auto1.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

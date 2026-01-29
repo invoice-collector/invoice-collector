@@ -29,7 +29,7 @@ export class SmsPartnerCollector extends SketchCollector {
         loginUrl: "https://my.smspartner.fr/dashboard/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GrihedServiceGmbhCollector extends SketchCollector {
         loginUrl: "https://www.grihed.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

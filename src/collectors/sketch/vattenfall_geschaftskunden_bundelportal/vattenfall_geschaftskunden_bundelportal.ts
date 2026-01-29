@@ -29,7 +29,7 @@ export class VattenfallGeschaftskundenBundelportalCollector extends SketchCollec
         loginUrl: "https://portal.realestate.vattenfall.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

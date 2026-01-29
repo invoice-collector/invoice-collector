@@ -29,7 +29,7 @@ export class CuedbCollector extends SketchCollector {
         loginUrl: "https://app.cuedb.com/teams/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

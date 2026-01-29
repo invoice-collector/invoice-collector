@@ -29,7 +29,7 @@ export class BaleanacloudCollector extends SketchCollector {
         loginUrl: "https://dashboard.balena-cloud.com/billing/summary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

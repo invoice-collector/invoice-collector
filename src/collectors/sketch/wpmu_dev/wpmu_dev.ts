@@ -29,7 +29,7 @@ export class WpmuDevCollector extends SketchCollector {
         loginUrl: "https://premium.wpmudev.org/hub/account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

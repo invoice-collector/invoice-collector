@@ -29,7 +29,7 @@ export class EntegaMedianetCollector extends SketchCollector {
         loginUrl: "http://www.entega-medianet.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

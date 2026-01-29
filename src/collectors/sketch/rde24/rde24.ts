@@ -29,7 +29,7 @@ export class Rde24Collector extends SketchCollector {
         loginUrl: "https://paiement.rde24.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

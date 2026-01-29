@@ -29,7 +29,7 @@ export class MarketpringCollector extends SketchCollector {
         loginUrl: "https://app.marketprint.de/api/invoice/5044959543562",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

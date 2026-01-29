@@ -29,7 +29,7 @@ export class TheBrickCollector extends SketchCollector {
         loginUrl: "https://www.thebrick.com/account/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

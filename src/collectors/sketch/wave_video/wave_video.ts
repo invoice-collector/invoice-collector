@@ -29,7 +29,7 @@ export class WaveVideoCollector extends SketchCollector {
         loginUrl: "https://www.animatron.com/wave/settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

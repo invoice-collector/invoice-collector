@@ -29,7 +29,7 @@ export class SchunkCollector extends SketchCollector {
         loginUrl: "https://iseg.schunck.es/oskar/views/seg/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

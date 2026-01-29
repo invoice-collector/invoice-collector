@@ -29,7 +29,7 @@ export class BackmartketMerchantCollector extends SketchCollector {
         loginUrl: "https://www.backmarket.de/bo_merchant/invoices/past-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

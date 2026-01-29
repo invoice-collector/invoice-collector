@@ -29,7 +29,7 @@ export class AbossCollector extends SketchCollector {
         loginUrl: "https://agency.a-boss.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

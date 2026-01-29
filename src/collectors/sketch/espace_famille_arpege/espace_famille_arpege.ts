@@ -29,7 +29,7 @@ export class EspaceFamilleArpegeCollector extends SketchCollector {
         loginUrl: "https://espaceclients.arpege.fr/Accueil/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NpowerPersonalCollector extends SketchCollector {
         loginUrl: "https://www.npower.com/at_home/applications/atlas.web/billsandpayments.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

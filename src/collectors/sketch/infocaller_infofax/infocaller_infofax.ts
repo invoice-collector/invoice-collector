@@ -29,7 +29,7 @@ export class InfocallerInfofaxCollector extends SketchCollector {
         loginUrl: "https://infocaller.com/console/InMicuenta.aspx?gnid=639#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

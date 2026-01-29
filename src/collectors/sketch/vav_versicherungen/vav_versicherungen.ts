@@ -29,7 +29,7 @@ export class VavVersicherungenCollector extends SketchCollector {
         loginUrl: "https://mein.vav.at/meinvav/meine-polizzen/polizzen-details?id=1495719001",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

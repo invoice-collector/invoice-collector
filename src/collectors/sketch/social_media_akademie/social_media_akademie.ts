@@ -29,7 +29,7 @@ export class SocialMediaAkademieCollector extends SketchCollector {
         loginUrl: "https://elearning.socialmediaakademie.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

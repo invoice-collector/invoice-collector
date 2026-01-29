@@ -29,7 +29,7 @@ export class CommerzbankFirmenkundenCollector extends SketchCollector {
         loginUrl: "https://cbportal.commerzbank.com/gpp/pages/konto/tabs/uebersicht.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SonVideoComCollector extends SketchCollector {
         loginUrl: "https://www.son-video.com/mon-compte/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

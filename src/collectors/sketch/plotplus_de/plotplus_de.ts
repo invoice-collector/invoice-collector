@@ -29,7 +29,7 @@ export class PlotplusDeCollector extends SketchCollector {
         loginUrl: "https://www.plotplus.de/mein-konto/user/invoice/your-invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

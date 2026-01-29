@@ -29,7 +29,7 @@ export class QobuzCollector extends SketchCollector {
         loginUrl: "https://www.qobuz.com/account/music-streaming/receipt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

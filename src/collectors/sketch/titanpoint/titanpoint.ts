@@ -29,7 +29,7 @@ export class TitanpointCollector extends SketchCollector {
         loginUrl: "https://titanpoint.de/account/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

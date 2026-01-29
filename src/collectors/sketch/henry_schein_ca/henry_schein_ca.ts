@@ -29,7 +29,7 @@ export class HenryScheinCaCollector extends SketchCollector {
         loginUrl: "https://www.henryschein.ca/ca-en/Dental/Default.aspx?did=Dental-CA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

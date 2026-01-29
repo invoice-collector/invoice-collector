@@ -29,7 +29,7 @@ export class GrasshopperCollector extends SketchCollector {
         loginUrl: "https://portal.us.grasshopper.com/login.aspx?ReturnUrl=%2fMemberPages%2fDashboard.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

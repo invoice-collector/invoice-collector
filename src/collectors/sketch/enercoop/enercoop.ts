@@ -29,7 +29,7 @@ export class EnercoopCollector extends SketchCollector {
         loginUrl: "https://espace-client.enercoop.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SextantMonetiqueEspaceClientCollector extends SketchCollector {
         loginUrl: "https://espace-clients.sextant-monetique.fr/index.php?module=pages&page=ListeFactures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

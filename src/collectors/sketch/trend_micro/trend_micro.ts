@@ -29,7 +29,7 @@ export class TrendMicroCollector extends SketchCollector {
         loginUrl: "https://wfbs-svc-nabu.trendmicro.com/wfbs-svc/portal/en/view/index#/reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

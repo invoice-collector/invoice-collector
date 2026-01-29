@@ -29,7 +29,7 @@ export class GlockAppsCollector extends SketchCollector {
         loginUrl: "https://app.glockapps.com/settings/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

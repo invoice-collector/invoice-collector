@@ -29,7 +29,7 @@ export class MagentaBusinessAtCollector extends SketchCollector {
         loginUrl: "https://csc.magentabusiness.at/client/login?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

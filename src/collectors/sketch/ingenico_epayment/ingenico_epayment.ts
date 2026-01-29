@@ -29,7 +29,7 @@ export class IngenicoEpaymentCollector extends SketchCollector {
         loginUrl: "https://secure.ogone.com/Ncol/Prod/Invoices.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

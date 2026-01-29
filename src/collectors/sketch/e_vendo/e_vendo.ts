@@ -29,7 +29,7 @@ export class EVendoCollector extends SketchCollector {
         loginUrl: "https://www.e-vendo.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

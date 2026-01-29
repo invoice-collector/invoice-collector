@@ -29,7 +29,7 @@ export class StratoDeCollector extends SketchCollector {
         loginUrl: "https://www.strato.de/apps/CustomerService",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

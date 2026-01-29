@@ -29,7 +29,7 @@ export class LorchGruppeCollector extends SketchCollector {
         loginUrl: "https://shop.lorch-kg.de/home/vma/b2b/init.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AxessSolutionsSanteCollector extends SketchCollector {
         loginUrl: "https://pst-astgl.medtra.fr/liste-factures-adh.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

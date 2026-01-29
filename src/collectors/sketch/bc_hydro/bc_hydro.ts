@@ -29,7 +29,7 @@ export class BcHydroCollector extends SketchCollector {
         loginUrl: "https://app.bchydro.com/sso/UI/Login?realm=bch-ps&goto=https%3A%2F%2Fapp.bchydro.com%3A443%2FBCHCustomerPortal%2Fweb%2Flogin.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

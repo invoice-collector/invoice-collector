@@ -29,7 +29,7 @@ export class CoservCollector extends SketchCollector {
         loginUrl: "https://coserv.smarthub.coop/Login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

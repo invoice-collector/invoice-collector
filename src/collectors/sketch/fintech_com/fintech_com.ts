@@ -29,7 +29,7 @@ export class FintechComCollector extends SketchCollector {
         loginUrl: "https://www.fintech.net/fms/reports/retailer_invoice_information_summary.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

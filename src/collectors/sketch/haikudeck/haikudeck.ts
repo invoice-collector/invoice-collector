@@ -29,7 +29,7 @@ export class HaikudeckCollector extends SketchCollector {
         loginUrl: "https://www.haikudeck.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

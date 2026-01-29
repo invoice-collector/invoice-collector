@@ -29,7 +29,7 @@ export class GrundlInstitutCollector extends SketchCollector {
         loginUrl: "https://lernwelt.grundl-institut.de/meine-bestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

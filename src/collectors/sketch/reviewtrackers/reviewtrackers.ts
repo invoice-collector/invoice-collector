@@ -29,7 +29,7 @@ export class ReviewtrackersCollector extends SketchCollector {
         loginUrl: "https://app.reviewtrackers.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

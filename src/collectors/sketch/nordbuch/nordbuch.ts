@@ -29,7 +29,7 @@ export class NordbuchCollector extends SketchCollector {
         loginUrl: "https://mein.nordbuch.com/lieferung/lieferscheine-und-gutschriftanzeigen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

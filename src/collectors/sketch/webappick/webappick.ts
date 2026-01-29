@@ -29,7 +29,7 @@ export class WebappickCollector extends SketchCollector {
         loginUrl: "https://webappick.com/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

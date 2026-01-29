@@ -29,7 +29,7 @@ export class SelfservicerepairCollector extends SketchCollector {
         loginUrl: "https://selfservicerepair.eu/de-DE/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DattoGmbhSaasCollector extends SketchCollector {
         loginUrl: "https://store.datto.com/account/purchases/monthly-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

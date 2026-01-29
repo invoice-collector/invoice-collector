@@ -29,7 +29,7 @@ export class LobCollector extends SketchCollector {
         loginUrl: "https://dashboard.lob.com/#/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

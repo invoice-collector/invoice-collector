@@ -29,7 +29,7 @@ export class EweEnergieCollector extends SketchCollector {
         loginUrl: "https://meine.ewe.de/strom#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

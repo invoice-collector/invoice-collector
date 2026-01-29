@@ -29,7 +29,7 @@ export class JyllandsPostenCollector extends SketchCollector {
         loginUrl: "https://jyllands-posten.dk/login?returnUrl=%2F%3FloggedIn%3Dtrue%26loggedIn%3Dtrue",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AntiloCscCollector extends SketchCollector {
         loginUrl: "https://csc.antilo.de/cgi-bin/uncgi/main.cgi?session=X5kfy1ndAT4AAGWZE-oAAAAA",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

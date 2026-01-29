@@ -29,7 +29,7 @@ export class BinaryedgeCollector extends SketchCollector {
         loginUrl: "https://www.binaryedge.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

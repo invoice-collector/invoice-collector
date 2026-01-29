@@ -29,7 +29,7 @@ export class SyncBlueCollector extends SketchCollector {
         loginUrl: "https://app.sync.blue/auth/signup/?mid=www-sb-header",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

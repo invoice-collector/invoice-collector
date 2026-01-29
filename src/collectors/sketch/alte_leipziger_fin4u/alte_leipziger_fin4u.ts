@@ -29,7 +29,7 @@ export class AlteLeipzigerFin4uCollector extends SketchCollector {
         loginUrl: "https://app.fin4u.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

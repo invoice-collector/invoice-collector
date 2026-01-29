@@ -29,7 +29,7 @@ export class GurockCollector extends SketchCollector {
         loginUrl: "https://secure.gurock.com/customers/auth/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

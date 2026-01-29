@@ -29,7 +29,7 @@ export class GetyourguidePartnerCollector extends SketchCollector {
         loginUrl: "https://partner.getyourguide.com/de-de/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

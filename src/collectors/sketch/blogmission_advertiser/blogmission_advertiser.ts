@@ -29,7 +29,7 @@ export class BlogmissionAdvertiserCollector extends SketchCollector {
         loginUrl: "https://blogmission.com/advertiser/guthaben",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

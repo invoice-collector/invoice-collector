@@ -29,7 +29,7 @@ export class JustEnergyCollector extends SketchCollector {
         loginUrl: "https://www.justenergy.com/myaccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

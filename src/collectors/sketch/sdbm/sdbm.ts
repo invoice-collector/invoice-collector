@@ -29,7 +29,7 @@ export class SdbmCollector extends SketchCollector {
         loginUrl: "https://www.sdbm.mc/icd/zco/public-index.html#zco",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

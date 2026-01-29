@@ -29,7 +29,7 @@ export class CompteurEnergieCollector extends SketchCollector {
         loginUrl: "http://www.compteur-energie.com/mag/fr/acc_account.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MedialeadPublisherCollector extends SketchCollector {
         loginUrl: "https://www.medialead.de/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

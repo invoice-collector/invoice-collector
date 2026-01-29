@@ -29,7 +29,7 @@ export class DtmsCollector extends SketchCollector {
         loginUrl: "http://www.dtms.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

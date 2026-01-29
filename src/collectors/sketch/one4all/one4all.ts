@@ -29,7 +29,7 @@ export class One4allCollector extends SketchCollector {
         loginUrl: "https://www.one4all.ie/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

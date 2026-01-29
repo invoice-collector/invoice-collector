@@ -29,7 +29,7 @@ export class MytaxiBusinessCollector extends SketchCollector {
         loginUrl: "https://business.mytaxi.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

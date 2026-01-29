@@ -29,7 +29,7 @@ export class UtmBuilderCollector extends SketchCollector {
         loginUrl: "https://app.utm-builder.com/app/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

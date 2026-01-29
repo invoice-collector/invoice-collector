@@ -29,7 +29,7 @@ export class DeadlineFunnelCollector extends SketchCollector {
         loginUrl: "https://deadlinefunnel.com/auth/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

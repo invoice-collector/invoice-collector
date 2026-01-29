@@ -29,7 +29,7 @@ export class RewardfulCollector extends SketchCollector {
         loginUrl: "https://app.getrewardful.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VeoliaEauEspaceClientCollector extends SketchCollector {
         loginUrl: "https://espace-client.vedif.eau.veolia.fr/s/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

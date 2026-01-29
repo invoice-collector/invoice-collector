@@ -29,7 +29,7 @@ export class _15fiveCollector extends SketchCollector {
         loginUrl: "https://1985663.ecommerce.zuora.com/portal/viewAllInvoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

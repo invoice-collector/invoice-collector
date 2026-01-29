@@ -29,7 +29,7 @@ export class SafecoInsuranceCollector extends SketchCollector {
         loginUrl: "https://customer.safeco.com/accountmanager/billing/summary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

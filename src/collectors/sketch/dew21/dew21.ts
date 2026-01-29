@@ -29,7 +29,7 @@ export class Dew21Collector extends SketchCollector {
         loginUrl: "https://www.dew21.de/mein-konto/anmeldung/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

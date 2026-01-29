@@ -29,7 +29,7 @@ export class ExchangeratesCollector extends SketchCollector {
         loginUrl: "https://manage.exchangeratesapi.io/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

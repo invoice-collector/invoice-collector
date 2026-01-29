@@ -29,7 +29,7 @@ export class DogadoCollector extends SketchCollector {
         loginUrl: "https://www.cloudpit.io/customer/tab/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

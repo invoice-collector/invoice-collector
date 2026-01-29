@@ -29,7 +29,7 @@ export class LovableCollector extends SketchCollector {
         loginUrl: "https://lovable.dev/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

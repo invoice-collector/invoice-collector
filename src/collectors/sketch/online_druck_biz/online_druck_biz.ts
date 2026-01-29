@@ -29,7 +29,7 @@ export class OnlineDruckBizCollector extends SketchCollector {
         loginUrl: "https://www.online-druck.biz",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

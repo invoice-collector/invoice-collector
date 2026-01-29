@@ -29,7 +29,7 @@ export class FeiyrCollector extends SketchCollector {
         loginUrl: "https://accounts.feiyr.com/statements.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

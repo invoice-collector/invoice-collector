@@ -29,7 +29,7 @@ export class BeaverBuilderCollector extends SketchCollector {
         loginUrl: "https://www.wpbeaverbuilder.com/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

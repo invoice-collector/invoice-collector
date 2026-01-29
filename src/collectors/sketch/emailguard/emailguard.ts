@@ -29,7 +29,7 @@ export class EmailguardCollector extends SketchCollector {
         loginUrl: "https://app.emailguard.io/billing/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

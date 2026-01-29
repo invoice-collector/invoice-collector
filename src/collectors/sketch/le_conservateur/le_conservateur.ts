@@ -29,7 +29,7 @@ export class LeConservateurCollector extends SketchCollector {
         loginUrl: "https://espaceclient.conservateur.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

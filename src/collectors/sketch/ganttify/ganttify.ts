@@ -29,7 +29,7 @@ export class GanttifyCollector extends SketchCollector {
         loginUrl: "https://gantt-chart.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

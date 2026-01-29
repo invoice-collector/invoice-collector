@@ -29,7 +29,7 @@ export class VgnVerkehrsverbundGrossraumNurnbergCollector extends SketchCollecto
         loginUrl: "http://www.vgn.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SmartAwareCollector extends SketchCollector {
         loginUrl: "https://www.smart-aware.de/lms/mitglied/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

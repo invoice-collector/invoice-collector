@@ -29,7 +29,7 @@ export class Site5Collector extends SketchCollector {
         loginUrl: "https://customers.site5.com/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WoltersKluwerNederlandCollector extends SketchCollector {
         loginUrl: "https://www.wolterskluwer.nl/inloggen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

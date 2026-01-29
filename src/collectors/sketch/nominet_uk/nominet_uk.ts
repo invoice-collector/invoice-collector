@@ -29,7 +29,7 @@ export class NominetUkCollector extends SketchCollector {
         loginUrl: "https://secure.nominet.org.uk/account/credit/online-payments.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PolitikenCollector extends SketchCollector {
         loginUrl: "https://politiken.dk/minside/betaling/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

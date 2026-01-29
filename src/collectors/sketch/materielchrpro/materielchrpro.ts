@@ -29,7 +29,7 @@ export class MaterielChrProCollector extends SketchCollector {
         loginUrl: "https://www.materiel-chr-pro.com/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

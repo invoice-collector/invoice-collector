@@ -29,7 +29,7 @@ export class MwaCollector extends SketchCollector {
         loginUrl: "https://portal.mwa-gmbh.de//dashboard-rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

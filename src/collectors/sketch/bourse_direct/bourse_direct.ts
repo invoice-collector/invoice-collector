@@ -29,7 +29,7 @@ export class BourseDirectCollector extends SketchCollector {
         loginUrl: "https://www.boursedirect.fr/frmIdentif.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

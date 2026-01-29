@@ -29,7 +29,7 @@ export class VeoliaUkCollector extends SketchCollector {
         loginUrl: "https://customerhub.veolia.co.uk/new/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

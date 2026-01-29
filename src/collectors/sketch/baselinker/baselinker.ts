@@ -29,7 +29,7 @@ export class BaselinkerCollector extends SketchCollector {
         loginUrl: "https://panel-e.baselinker.com/other_payments.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

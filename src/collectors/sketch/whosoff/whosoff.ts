@@ -29,7 +29,7 @@ export class WhosoffCollector extends SketchCollector {
         loginUrl: "https://staff.whosoff.com/login/?Redirect=/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

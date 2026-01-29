@@ -29,7 +29,7 @@ export class AlmaCollector extends SketchCollector {
         loginUrl: "https://dashboard.getalma.eu/data",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

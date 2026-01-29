@@ -29,7 +29,7 @@ export class DiaparCollector extends SketchCollector {
         loginUrl: "https://www.intranet-diapar.com/se-connecter?destination=client/compta",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

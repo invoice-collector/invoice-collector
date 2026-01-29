@@ -29,7 +29,7 @@ export class StlTonesCollector extends SketchCollector {
         loginUrl: "https://www.stltones.com/account?a=orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SalesourceCollector extends SketchCollector {
         loginUrl: "https://salesource.io/subscription/billing_details",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

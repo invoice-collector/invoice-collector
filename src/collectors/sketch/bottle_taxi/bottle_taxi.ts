@@ -29,7 +29,7 @@ export class BottleTaxiCollector extends SketchCollector {
         loginUrl: "https://bottle.taxi/me/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

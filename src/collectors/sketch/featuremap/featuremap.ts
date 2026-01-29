@@ -29,7 +29,7 @@ export class FeaturemapCollector extends SketchCollector {
         loginUrl: "https://www.featuremap.co/subscription/aHR0cHM6Ly9mZWF0dXJlbWFwLWV1ci5wcm9hYm9uby5jb20vcG9ydGFsLWNvbnRhY3Qvdk93d09NU0V6UURCSjlVTmJqN090TkpQRFk5RUhSOXFLTDBXb3NkVUxBZ2dUdUk3MEFPM3Zmc0c4aDk5R0xnQ1hZcXBlV2QzQVVGaWZCVkVjRnhyd2MzWEtiN1BUSjhxYVIwMGVBVGljcWs%3d",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

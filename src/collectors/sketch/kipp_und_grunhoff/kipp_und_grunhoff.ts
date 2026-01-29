@@ -29,7 +29,7 @@ export class KippUndGrunhoffCollector extends SketchCollector {
         loginUrl: "https://www.kipp.shop/login/page",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

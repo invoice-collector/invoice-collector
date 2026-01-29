@@ -29,7 +29,7 @@ export class ImageBrokerCollector extends SketchCollector {
         loginUrl: "https://my.imagebroker.com/de/verkaeufe/?tab=2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

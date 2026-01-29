@@ -29,7 +29,7 @@ export class _50hertzCollector extends SketchCollector {
         loginUrl: "https://rechnungsportal.50hertz.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

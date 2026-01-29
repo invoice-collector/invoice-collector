@@ -29,7 +29,7 @@ export class PabfMeldeportalCollector extends SketchCollector {
         loginUrl: "https://abf-nds.de/meine_dateien",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

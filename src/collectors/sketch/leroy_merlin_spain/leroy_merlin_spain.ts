@@ -29,7 +29,7 @@ export class LeyroyMerlinSpainCollector extends SketchCollector {
         loginUrl: "https://www.leroymerlin.es/mi-cuenta/mis-compras/historial",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

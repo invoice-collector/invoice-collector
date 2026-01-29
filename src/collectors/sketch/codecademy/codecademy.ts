@@ -29,7 +29,7 @@ export class CodecademyCollector extends SketchCollector {
         loginUrl: "https://www.codecademy.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

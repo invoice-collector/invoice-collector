@@ -29,7 +29,7 @@ export class QvcPartnerCollector extends SketchCollector {
         loginUrl: "https://partner.qvc.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

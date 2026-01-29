@@ -29,7 +29,7 @@ export class VinMalinCollector extends SketchCollector {
         loginUrl: "https://www.vin-malin.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

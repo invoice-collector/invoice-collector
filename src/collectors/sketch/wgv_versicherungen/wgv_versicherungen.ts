@@ -29,7 +29,7 @@ export class WgvVersicherungenCollector extends SketchCollector {
         loginUrl: "https://www.wgv.de/app/pks2020/postfach",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

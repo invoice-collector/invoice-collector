@@ -28,7 +28,7 @@ export class PlanywayCollector extends SketchCollector {
         loginUrl: "https://planyway.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

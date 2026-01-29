@@ -29,7 +29,7 @@ export class MixmaxCollector extends SketchCollector {
         loginUrl: "https://app.mixmax.com/dashboard?login=new",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

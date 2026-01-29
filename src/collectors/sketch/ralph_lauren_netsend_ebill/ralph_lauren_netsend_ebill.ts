@@ -29,7 +29,7 @@ export class RalphLaurenNetsendEbillCollector extends SketchCollector {
         loginUrl: "https://ebill.nnsend.net/ralp/documents/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

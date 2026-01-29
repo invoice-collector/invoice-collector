@@ -29,7 +29,7 @@ export class ElektroSkateboardShopCollector extends SketchCollector {
         loginUrl: "https://shop.elektro-skateboard.de/rechnungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

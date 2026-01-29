@@ -29,7 +29,7 @@ export class ZinewayCollector extends SketchCollector {
         loginUrl: "https://www.zineway.fr/accueil.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

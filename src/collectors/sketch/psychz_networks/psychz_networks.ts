@@ -29,7 +29,7 @@ export class PsychzNetworksCollector extends SketchCollector {
         loginUrl: "https://www.psychz.net/dashboard/client/web/site/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

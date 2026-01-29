@@ -29,7 +29,7 @@ export class EnvatoElementsCollector extends SketchCollector {
         loginUrl: "https://elements.envato.com/de/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

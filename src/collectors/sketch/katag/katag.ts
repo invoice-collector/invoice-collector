@@ -29,7 +29,7 @@ export class KatagCollector extends SketchCollector {
         loginUrl: "https://zronline.katag.net/gui/#search",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

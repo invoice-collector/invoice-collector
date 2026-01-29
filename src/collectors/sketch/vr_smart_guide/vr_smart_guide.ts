@@ -29,7 +29,7 @@ export class VrSmartGuideCollector extends SketchCollector {
         loginUrl: "https://app.vr-smart-guide.de/datev",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

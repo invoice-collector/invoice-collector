@@ -29,7 +29,7 @@ export class StratoNlCollector extends SketchCollector {
         loginUrl: "https://www.strato.nl/apps/CustomerService#/skl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

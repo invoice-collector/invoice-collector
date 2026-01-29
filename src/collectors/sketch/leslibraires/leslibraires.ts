@@ -29,7 +29,7 @@ export class LeslibrairesCollector extends SketchCollector {
         loginUrl: "https://www.leslibraires.fr/pc/account/customer/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

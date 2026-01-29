@@ -29,7 +29,7 @@ export class CityOfSantaMonicaCollector extends SketchCollector {
         loginUrl: "https://utilityportal.santamonica.gov/app/login.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

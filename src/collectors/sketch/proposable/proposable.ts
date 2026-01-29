@@ -29,7 +29,7 @@ export class ProposableCollector extends SketchCollector {
         loginUrl: "https://proposable.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

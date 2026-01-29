@@ -29,7 +29,7 @@ export class SmskaufenComCollector extends SketchCollector {
         loginUrl: "https://www.smskaufen.com/sms/index.php?seite=konto",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

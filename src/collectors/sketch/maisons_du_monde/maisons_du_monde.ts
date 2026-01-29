@@ -29,7 +29,7 @@ export class MaisonsDuMondeCollector extends SketchCollector {
         loginUrl: "https://www.maisonsdumonde.com/DE/de/account/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

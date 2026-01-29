@@ -29,7 +29,7 @@ export class WeatherstackCollector extends SketchCollector {
         loginUrl: "https://weatherstack.com/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

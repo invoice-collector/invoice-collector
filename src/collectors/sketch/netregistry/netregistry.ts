@@ -29,7 +29,7 @@ export class NetregistryCollector extends SketchCollector {
         loginUrl: "http://www.netregistry.com.au",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

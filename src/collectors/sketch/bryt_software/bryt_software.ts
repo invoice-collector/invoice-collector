@@ -29,7 +29,7 @@ export class BrytSoftwareCollector extends SketchCollector {
         loginUrl: "https://client.brytsoftware.com/Account/LogIn?ReturnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

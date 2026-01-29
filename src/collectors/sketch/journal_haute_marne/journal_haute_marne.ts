@@ -29,7 +29,7 @@ export class JournalHauteMarneCollector extends SketchCollector {
         loginUrl: "https://jhm.fr/mon-compte/mes-abonnements/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

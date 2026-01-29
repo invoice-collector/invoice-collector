@@ -29,7 +29,7 @@ export class _4playersCollector extends SketchCollector {
         loginUrl: "https://login.4players.de/4players.php/login/?callback=http://www.4players.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

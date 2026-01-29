@@ -29,7 +29,7 @@ export class LiveuCollector extends SketchCollector {
         loginUrl: "https://solo.liveu.tv/dashboard/invoice/in_1IgVMsAcRTuYLIIw5yfSOChu",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WpRechnungenCollector extends SketchCollector {
         loginUrl: "http://www.wp-rechnungen.de/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

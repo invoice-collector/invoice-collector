@@ -29,7 +29,7 @@ export class PipiadsCollector extends SketchCollector {
         loginUrl: "https://www.pipiads.com/user-center/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

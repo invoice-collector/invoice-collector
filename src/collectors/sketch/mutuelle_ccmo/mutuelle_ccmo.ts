@@ -29,7 +29,7 @@ export class MutuelleCcmoCollector extends SketchCollector {
         loginUrl: "https://espace-adherent.ccmo.fr/login#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

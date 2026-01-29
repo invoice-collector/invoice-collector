@@ -29,7 +29,7 @@ export class AccessallyCollector extends SketchCollector {
         loginUrl: "https://access.accessally.com/my-account/my-orders-and-subscriptions/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

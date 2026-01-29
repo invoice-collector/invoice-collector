@@ -29,7 +29,7 @@ export class RewagCollector extends SketchCollector {
         loginUrl: "https://meine.rewag.de/sap/bc/ui5_ui5/sap/zmcf_customer/index.html?sap-client=200&sap-language=DE#/invoiceslatest",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

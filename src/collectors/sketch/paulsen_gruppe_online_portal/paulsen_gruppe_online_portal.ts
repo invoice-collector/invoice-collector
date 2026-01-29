@@ -29,7 +29,7 @@ export class PaulsenGruppeOnlinePortalCollector extends SketchCollector {
         loginUrl: "https://online.bfgruppe.de/v3/rechnungsarchiv.csp#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

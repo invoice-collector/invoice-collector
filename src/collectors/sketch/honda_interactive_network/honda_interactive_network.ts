@@ -29,7 +29,7 @@ export class HondaInteractiveNetworkCollector extends SketchCollector {
         loginUrl: "https://www.in.honda.com/RRAAApps/login/asp/rraalog.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

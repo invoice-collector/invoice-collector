@@ -29,7 +29,7 @@ export class AmenFrCollector extends SketchCollector {
         loginUrl: "https://controlpanel.amen.fr/welcome.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

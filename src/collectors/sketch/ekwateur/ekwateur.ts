@@ -29,7 +29,7 @@ export class EkwateurCollector extends SketchCollector {
         loginUrl: "https://ekwateur.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class IinetCollector extends SketchCollector {
         loginUrl: "https://www.iinet.net.au/customers/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

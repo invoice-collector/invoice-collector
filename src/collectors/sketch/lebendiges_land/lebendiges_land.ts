@@ -29,7 +29,7 @@ export class LebendigesLandCollector extends SketchCollector {
         loginUrl: "https://www.lebendiges-land.de/shop/logon.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

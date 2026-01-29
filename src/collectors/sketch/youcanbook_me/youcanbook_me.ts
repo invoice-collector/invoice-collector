@@ -29,7 +29,7 @@ export class YoucanbookMeCollector extends SketchCollector {
         loginUrl: "https://app.youcanbook.me/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

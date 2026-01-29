@@ -29,7 +29,7 @@ export class MeistertaskCollector extends SketchCollector {
         loginUrl: "https://accounts.meister.co/billing/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OnePelotonCollector extends SketchCollector {
         loginUrl: "https://www.onepeloton.de/mymembership/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

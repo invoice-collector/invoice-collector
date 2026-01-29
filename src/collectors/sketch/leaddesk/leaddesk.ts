@@ -29,7 +29,7 @@ export class LeaddeskCollector extends SketchCollector {
         loginUrl: "https://login.leaddesk.com/r79.6/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

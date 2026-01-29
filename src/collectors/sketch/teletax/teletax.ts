@@ -29,7 +29,7 @@ export class TeletaxCollector extends SketchCollector {
         loginUrl: "http://www.teletax.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DatahawkCollector extends SketchCollector {
         loginUrl: "https://analytics.datahawk.co/app/36451/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SofengoCollector extends SketchCollector {
         loginUrl: "https://www.sofengo.de/usersettingspayment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

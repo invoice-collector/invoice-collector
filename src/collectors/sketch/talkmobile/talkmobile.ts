@@ -29,7 +29,7 @@ export class TalkmobileCollector extends SketchCollector {
         loginUrl: "https://myaccount.talkmobile.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

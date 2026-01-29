@@ -29,7 +29,7 @@ export class OnnectwiseCollector extends SketchCollector {
         loginUrl: "https://cw.connectwise.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

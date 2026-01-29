@@ -29,7 +29,7 @@ export class EGonCollector extends SketchCollector {
         loginUrl: "https://energiegemeinschaften.ezn.at/backend/e/invoice/list/user",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

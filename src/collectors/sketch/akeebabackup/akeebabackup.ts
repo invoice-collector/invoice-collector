@@ -29,7 +29,7 @@ export class AkeebabackupCollector extends SketchCollector {
         loginUrl: "https://www.akeebabackup.com/my-subscriptions/subscriptions.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

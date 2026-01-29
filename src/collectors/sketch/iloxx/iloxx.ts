@@ -29,7 +29,7 @@ export class IloxxCollector extends SketchCollector {
         loginUrl: "https://www.iloxx.de/myiloxx/orders/invoices.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

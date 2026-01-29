@@ -29,7 +29,7 @@ export class WecandooCommissionsCollector extends SketchCollector {
         loginUrl: "https://wecandoo.fr/espace-artisan/facturation/commissions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

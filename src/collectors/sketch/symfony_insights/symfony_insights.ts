@@ -29,7 +29,7 @@ export class SymfonyInsightsCollector extends SketchCollector {
         loginUrl: "https://insight.symfony.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

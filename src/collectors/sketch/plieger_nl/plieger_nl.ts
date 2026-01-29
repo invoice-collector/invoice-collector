@@ -29,7 +29,7 @@ export class PliegerNlCollector extends SketchCollector {
         loginUrl: "https://web.plieger.nl/B2B/PAGE_Start/xEMAAO1FevNLU3lMaHlOQXJCjwE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

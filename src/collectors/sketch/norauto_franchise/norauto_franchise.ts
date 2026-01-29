@@ -29,7 +29,7 @@ export class NorautoFranchiseCollector extends SketchCollector {
         loginUrl: "https://www.norauto-franchise.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

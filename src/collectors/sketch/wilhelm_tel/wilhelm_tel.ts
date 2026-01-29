@@ -29,7 +29,7 @@ export class WilhelmTelCollector extends SketchCollector {
         loginUrl: "https://portal.wtnet.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

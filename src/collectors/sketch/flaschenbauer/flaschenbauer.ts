@@ -29,7 +29,7 @@ export class FlaschenbauerCollector extends SketchCollector {
         loginUrl: "https://www.flaschenbauer.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

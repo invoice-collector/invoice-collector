@@ -29,7 +29,7 @@ export class SeobserverCollector extends SketchCollector {
         loginUrl: "https://www.seobserver.com/en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

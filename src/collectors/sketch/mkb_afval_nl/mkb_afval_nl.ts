@@ -29,7 +29,7 @@ export class MkbAfvalNlCollector extends SketchCollector {
         loginUrl: "https://www.mkb-afval.nl/login/?ReturnUrl=%2fmijn-mkb%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

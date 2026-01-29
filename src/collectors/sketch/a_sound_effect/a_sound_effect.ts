@@ -29,7 +29,7 @@ export class ASoundEffectCollector extends SketchCollector {
         loginUrl: "https://www.asoundeffect.com/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

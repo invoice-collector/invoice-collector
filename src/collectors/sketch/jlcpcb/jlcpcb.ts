@@ -29,7 +29,7 @@ export class JlcpcbCollector extends SketchCollector {
         loginUrl: "https://jlcpcb.com/client/index.html#/order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

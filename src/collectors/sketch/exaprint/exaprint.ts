@@ -29,7 +29,7 @@ export class ExaprintCollector extends SketchCollector {
         loginUrl: "https://www.exaprint.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

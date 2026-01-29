@@ -29,7 +29,7 @@ export class ImpotsAvisEtDeclarationsCompagniesCollector extends SketchCollector
         loginUrl: "https://cfspro.impots.gouv.fr/LoginAccess?op=c&url=aHR0cHM6Ly9jZnNwcm8uaW1wb3RzLmdvdXYuZnIvbWlyZS9hY2N1ZWlsLmRv",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

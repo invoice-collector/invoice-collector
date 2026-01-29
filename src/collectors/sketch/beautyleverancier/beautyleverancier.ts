@@ -29,7 +29,7 @@ export class BeautyleverancierCollector extends SketchCollector {
         loginUrl: "https://www.beautyleverancier.nl/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

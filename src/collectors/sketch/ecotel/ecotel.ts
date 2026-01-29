@@ -29,7 +29,7 @@ export class EcotelCollector extends SketchCollector {
         loginUrl: "https://www.ecotel.de/index.php/login-link",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

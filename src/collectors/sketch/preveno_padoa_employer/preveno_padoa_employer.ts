@@ -29,7 +29,7 @@ export class PrevenoPadoaEmployerCollector extends SketchCollector {
         loginUrl: "https://preveno.padoa.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

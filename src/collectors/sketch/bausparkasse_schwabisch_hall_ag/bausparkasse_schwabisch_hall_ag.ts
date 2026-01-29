@@ -29,7 +29,7 @@ export class BausparkasseSchwabischHallAgCollector extends SketchCollector {
         loginUrl: "https://www.schwaebisch-hall.de/mein-konto.html#messages",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

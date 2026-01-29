@@ -29,7 +29,7 @@ export class LeadinfoCollector extends SketchCollector {
         loginUrl: "https://portal.leadinfo.com/settings/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

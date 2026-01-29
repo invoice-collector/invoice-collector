@@ -29,7 +29,7 @@ export class RubartDeCollector extends SketchCollector {
         loginUrl: "https://www.rubart.de/index.php?view=account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

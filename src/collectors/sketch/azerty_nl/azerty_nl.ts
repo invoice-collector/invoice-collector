@@ -29,7 +29,7 @@ export class AzertyNlCollector extends SketchCollector {
         loginUrl: "https://azerty.nl/aanmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SideCoCollector extends SketchCollector {
         loginUrl: "https://team.side.co/beta/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GuardianLifeCollector extends SketchCollector {
         loginUrl: "https://signin.guardianlife.com/signin/precheck/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

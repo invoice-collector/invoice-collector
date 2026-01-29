@@ -29,7 +29,7 @@ export class BuywordsCollector extends SketchCollector {
         loginUrl: "http://www.buywords.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

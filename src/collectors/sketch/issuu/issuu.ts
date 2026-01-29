@@ -29,7 +29,7 @@ export class IssuuCollector extends SketchCollector {
         loginUrl: "https://issuu.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FlikiAiCollector extends SketchCollector {
         loginUrl: "https://app.fliki.ai/?login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

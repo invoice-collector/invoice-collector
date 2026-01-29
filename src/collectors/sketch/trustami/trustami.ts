@@ -29,7 +29,7 @@ export class TrustamiCollector extends SketchCollector {
         loginUrl: "https://app.trustami.com/signin/www/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

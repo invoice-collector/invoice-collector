@@ -29,7 +29,7 @@ export class EvnCollector extends SketchCollector {
         loginUrl: "https://www.evn.at/CustomerPortal/InvoicesArchive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

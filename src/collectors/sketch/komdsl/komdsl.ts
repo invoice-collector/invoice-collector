@@ -29,7 +29,7 @@ export class KomdslCollector extends SketchCollector {
         loginUrl: "https://komdsl.plusportal.de/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

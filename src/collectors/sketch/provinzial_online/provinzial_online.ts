@@ -29,7 +29,7 @@ export class ProvinzialOnlineCollector extends SketchCollector {
         loginUrl: "https://www.provinzial-online.de/content/privat/meine-provinzial/elektronisches-postfach/#!/elpo",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class QuickbaseCollector extends SketchCollector {
         loginUrl: "https://allmyhomes.quickbase.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TruskCollector extends SketchCollector {
         loginUrl: "https://pro.trusk.com/fr/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

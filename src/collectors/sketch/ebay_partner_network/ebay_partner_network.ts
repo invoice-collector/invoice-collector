@@ -29,7 +29,7 @@ export class EbayPartnerNetworkCollector extends SketchCollector {
         loginUrl: "https://epn.ebay.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

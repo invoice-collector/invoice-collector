@@ -29,7 +29,7 @@ export class WintopItServiceCollector extends SketchCollector {
         loginUrl: "https://www.emeldeschein.de/oms/hausstat/viewAbrechnung.xhtml?faces-redirect=trueewAbrechnung.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

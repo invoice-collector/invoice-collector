@@ -29,7 +29,7 @@ export class QuickbooksOnlineFrCollector extends SketchCollector {
         loginUrl: "https://quickbooks.intuit.com/fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

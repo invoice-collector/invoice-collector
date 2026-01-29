@@ -29,7 +29,7 @@ export class WayfairCollector extends SketchCollector {
         loginUrl: "https://www.wayfair.de/v/account/welcome/show",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

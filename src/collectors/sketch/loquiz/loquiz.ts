@@ -29,7 +29,7 @@ export class LoquizCollector extends SketchCollector {
         loginUrl: "https://creator.loquiz.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

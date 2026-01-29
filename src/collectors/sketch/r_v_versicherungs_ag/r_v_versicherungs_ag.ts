@@ -29,7 +29,7 @@ export class RVVersicherungsAgCollector extends SketchCollector {
         loginUrl: "https://www.ruv.de/meineruv/portal/vertraege",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

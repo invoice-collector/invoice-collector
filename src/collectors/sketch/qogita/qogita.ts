@@ -29,7 +29,7 @@ export class QogitaCollector extends SketchCollector {
         loginUrl: "https://www.qogita.com/login/?redirectTo=%2Faccount%2Fprofile%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

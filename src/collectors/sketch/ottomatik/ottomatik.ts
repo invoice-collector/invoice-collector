@@ -29,7 +29,7 @@ export class OttomatikCollector extends SketchCollector {
         loginUrl: "https://ottomatik.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

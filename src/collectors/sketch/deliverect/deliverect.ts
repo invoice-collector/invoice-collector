@@ -29,7 +29,7 @@ export class DeliverectCollector extends SketchCollector {
         loginUrl: "https://deliverect.chargebeeportal.com/portal/v2/billing_history?source=home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

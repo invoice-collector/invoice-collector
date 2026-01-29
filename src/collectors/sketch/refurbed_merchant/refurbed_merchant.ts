@@ -29,7 +29,7 @@ export class RefurbedMerchantCollector extends SketchCollector {
         loginUrl: "https://merchant.refurbed.com/sales/sales-payouts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

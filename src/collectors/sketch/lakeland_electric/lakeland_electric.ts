@@ -29,7 +29,7 @@ export class LakelandElectricCollector extends SketchCollector {
         loginUrl: "https://lakelandelectric.com/billing/home.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

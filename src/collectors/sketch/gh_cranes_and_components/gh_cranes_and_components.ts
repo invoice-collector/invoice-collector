@@ -29,7 +29,7 @@ export class GhCranesAndComponentsCollector extends SketchCollector {
         loginUrl: "https://portal.ghcranes.com/clientesat/es/intervenciones",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AxonautCollector extends SketchCollector {
         loginUrl: "https://axonaut.com/account/rocket/creditList",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

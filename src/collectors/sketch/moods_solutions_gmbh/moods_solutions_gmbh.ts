@@ -29,7 +29,7 @@ export class MoodsSolutionsGmbhCollector extends SketchCollector {
         loginUrl: "https://dms.moodssolutions.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

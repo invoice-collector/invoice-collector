@@ -29,7 +29,7 @@ export class TribehrCollector extends SketchCollector {
         loginUrl: "https://www.mytribehr.com/users/login/find",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PcbWayCollector extends SketchCollector {
         loginUrl: "https://www.pcbway.com/member/login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

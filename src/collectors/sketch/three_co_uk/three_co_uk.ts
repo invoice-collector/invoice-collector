@@ -29,7 +29,7 @@ export class ThreeCoUkCollector extends SketchCollector {
         loginUrl: "https://www.three.co.uk/My3Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

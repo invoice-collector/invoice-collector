@@ -29,7 +29,7 @@ export class GeotargetingwpCollector extends SketchCollector {
         loginUrl: "https://geotargetingwp.com/dashboard/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

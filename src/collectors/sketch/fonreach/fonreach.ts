@@ -29,7 +29,7 @@ export class FonreachCollector extends SketchCollector {
         loginUrl: "http://www.fonreach.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

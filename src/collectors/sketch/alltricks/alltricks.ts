@@ -29,7 +29,7 @@ export class AlltricksCollector extends SketchCollector {
         loginUrl: "https://www.alltricks.fr/mon-compte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

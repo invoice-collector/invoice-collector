@@ -29,7 +29,7 @@ export class FattoriaLaViallaDeCollector extends SketchCollector {
         loginUrl: "https://www.lavialla.com/de-DE/meine-bestellungen-und-lieferungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

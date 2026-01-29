@@ -29,7 +29,7 @@ export class RakutenAdvertisingCollector extends SketchCollector {
         loginUrl: "https://publisher.rakutenadvertising.com/reports/payments/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

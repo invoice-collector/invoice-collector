@@ -29,7 +29,7 @@ export class QscAgCollector extends SketchCollector {
         loginUrl: "https://www.myplusnet.de/login_form.php?st=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PierreFabreCollector extends SketchCollector {
         loginUrl: "https://sso.pierre-fabre.com/user/login?destination=cas/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

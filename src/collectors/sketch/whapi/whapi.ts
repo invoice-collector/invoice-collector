@@ -29,7 +29,7 @@ export class WhapiCollector extends SketchCollector {
         loginUrl: "https://panel.whapi.cloud/billing/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

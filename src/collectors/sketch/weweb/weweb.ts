@@ -29,7 +29,7 @@ export class WewebCollector extends SketchCollector {
         loginUrl: "https://dashboard.weweb.io/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

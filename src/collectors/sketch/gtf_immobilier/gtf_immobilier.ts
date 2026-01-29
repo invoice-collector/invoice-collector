@@ -29,7 +29,7 @@ export class GtfImmobilierCollector extends SketchCollector {
         loginUrl: "https://extranet.gtf.fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

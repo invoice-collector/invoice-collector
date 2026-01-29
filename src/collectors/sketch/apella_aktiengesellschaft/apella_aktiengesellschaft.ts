@@ -29,7 +29,7 @@ export class ApellaAktiengesellschaftCollector extends SketchCollector {
         loginUrl: "https://www.apella.de/login/main/exlogin.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

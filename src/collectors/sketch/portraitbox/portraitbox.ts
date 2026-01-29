@@ -29,7 +29,7 @@ export class PortraitboxCollector extends SketchCollector {
         loginUrl: "https://admin.portraitbox.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

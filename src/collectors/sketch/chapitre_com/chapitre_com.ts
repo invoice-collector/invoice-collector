@@ -29,7 +29,7 @@ export class ChapitreComCollector extends SketchCollector {
         loginUrl: "https://www.chapitre.com/misc/Login.aspx?ReturnUrl=%2faccount%2fDefault.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

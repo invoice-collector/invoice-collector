@@ -29,7 +29,7 @@ export class HolterAtCollector extends SketchCollector {
         loginUrl: "https://online.holter.at/hon40/O4160W.PGM",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

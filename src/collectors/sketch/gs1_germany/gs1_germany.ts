@@ -29,7 +29,7 @@ export class Gs1GermanyCollector extends SketchCollector {
         loginUrl: "https://www.gs1-germany.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

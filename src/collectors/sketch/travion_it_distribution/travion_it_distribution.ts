@@ -29,7 +29,7 @@ export class TravionItDistributionCollector extends SketchCollector {
         loginUrl: "https://www.travion.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

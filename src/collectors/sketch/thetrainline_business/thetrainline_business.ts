@@ -29,7 +29,7 @@ export class ThetrainlineBusinessCollector extends SketchCollector {
         loginUrl: "https://www.businesstravel.thetrainline.com/my-account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

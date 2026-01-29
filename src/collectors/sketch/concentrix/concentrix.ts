@@ -29,7 +29,7 @@ export class ConcentrixCollector extends SketchCollector {
         loginUrl: "https://retaileronline.fdi-logbox.com/documents/invoicingDocuments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

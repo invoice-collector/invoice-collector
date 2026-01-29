@@ -29,7 +29,7 @@ export class EarthClassMailCollector extends SketchCollector {
         loginUrl: "https://www.billingportal.com/s/earthclassmail/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

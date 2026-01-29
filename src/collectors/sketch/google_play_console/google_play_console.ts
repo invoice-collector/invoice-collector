@@ -29,7 +29,7 @@ export class GooglePlayConsoleCollector extends SketchCollector {
         loginUrl: "https://play.google.com/apps/publish/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

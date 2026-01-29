@@ -29,7 +29,7 @@ export class DrJuchheimCollector extends SketchCollector {
         loginUrl: "https://doritmeyer.juchheim-methode.de/de/partner/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

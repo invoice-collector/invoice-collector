@@ -29,7 +29,7 @@ export class AtAndTPremierCollector extends SketchCollector {
         loginUrl: "https://www.wireless.att.com/business/index.jsp?_requestid=29861",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

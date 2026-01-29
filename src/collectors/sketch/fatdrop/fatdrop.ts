@@ -29,7 +29,7 @@ export class FatdropCollector extends SketchCollector {
         loginUrl: "https://www.fatdrop.co.uk/myaccount/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

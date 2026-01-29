@@ -29,7 +29,7 @@ export class SlemmaCollector extends SketchCollector {
         loginUrl: "https://slemma.com/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

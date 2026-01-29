@@ -29,7 +29,7 @@ export class ShCollector extends SketchCollector {
         loginUrl: "https://www.sh-diwi.de/diwi/accounting/accounting-overview.xhtml?c=2-0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

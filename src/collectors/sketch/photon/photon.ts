@@ -29,7 +29,7 @@ export class PhotonCollector extends SketchCollector {
         loginUrl: "https://dashboard.photonengine.com/en-US/Billing/BillingAccount#acc-statement-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

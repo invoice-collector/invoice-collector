@@ -29,7 +29,7 @@ export class VersandoCollector extends SketchCollector {
         loginUrl: "http://www.versando.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

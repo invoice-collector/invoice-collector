@@ -29,7 +29,7 @@ export class AustrocardCollector extends SketchCollector {
         loginUrl: "https://portal.austrocard.at/#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

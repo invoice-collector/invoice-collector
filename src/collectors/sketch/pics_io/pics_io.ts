@@ -29,7 +29,7 @@ export class PicsIoCollector extends SketchCollector {
         loginUrl: "https://pics.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

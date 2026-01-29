@@ -29,7 +29,7 @@ export class ElectroDepotCollector extends SketchCollector {
         loginUrl: "http://erreur.electrodepot.pictime.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

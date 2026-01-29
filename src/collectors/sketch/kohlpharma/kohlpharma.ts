@@ -29,7 +29,7 @@ export class KohlpharmaCollector extends SketchCollector {
         loginUrl: "https://kundenportal.kohlpharma.com/PIDocument/Document/DocumentOverview?isDirectCall=False",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrbnetCollector extends SketchCollector {
         loginUrl: "https://my.orbnet.de/account/downloads/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

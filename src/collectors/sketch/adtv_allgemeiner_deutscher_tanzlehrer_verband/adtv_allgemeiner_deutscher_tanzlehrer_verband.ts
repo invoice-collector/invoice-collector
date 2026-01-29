@@ -29,7 +29,7 @@ export class AdtvAllgemeinerDeutscherTanzlehrerVerbandCollector extends SketchCo
         loginUrl: "https://community.nimbuscloud.at/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

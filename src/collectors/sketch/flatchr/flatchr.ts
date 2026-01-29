@@ -29,7 +29,7 @@ export class FlatchrCollector extends SketchCollector {
         loginUrl: "https://app.flatchr.io/board/settings/plan/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

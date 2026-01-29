@@ -29,7 +29,7 @@ export class StudentjobCollector extends SketchCollector {
         loginUrl: "https://www.studentjob.de/betreff/orders?q%5Bindex_selection%5D=paid_with_invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

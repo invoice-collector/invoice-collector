@@ -29,7 +29,7 @@ export class InstallatronCollector extends SketchCollector {
         loginUrl: "https://installatron.com/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BertramJuwelierserviceCollector extends SketchCollector {
         loginUrl: "https://wertversand.bertram-juwelierservice.de/de/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

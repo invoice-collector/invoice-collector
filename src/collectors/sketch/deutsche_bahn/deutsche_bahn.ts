@@ -29,7 +29,7 @@ export class DeutscheBahnCollector extends SketchCollector {
         loginUrl: "https://www.bahn.de/p/view/meinebahn/login.shtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VertMerchantPortalCollector extends SketchCollector {
         loginUrl: "https://www.vertmember.com/corporate-statements/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

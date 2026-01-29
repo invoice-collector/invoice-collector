@@ -29,7 +29,7 @@ export class NumericableFrCollector extends SketchCollector {
         loginUrl: "https://connexion.numericable.fr/Oauth/Oauth.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

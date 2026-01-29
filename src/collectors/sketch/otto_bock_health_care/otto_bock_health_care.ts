@@ -29,7 +29,7 @@ export class OttoBockHealthCareCollector extends SketchCollector {
         loginUrl: "https://www.ottobock.de/downloadcenter/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

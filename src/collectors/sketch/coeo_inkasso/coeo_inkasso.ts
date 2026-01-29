@@ -29,7 +29,7 @@ export class CoeoInkassoCollector extends SketchCollector {
         loginUrl: "https://coeo-mandanten.de/Account/Login?ReturnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

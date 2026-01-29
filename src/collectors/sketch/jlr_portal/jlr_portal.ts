@@ -29,7 +29,7 @@ export class JlrPortalCollector extends SketchCollector {
         loginUrl: "https://landroverhaendler.jlr-portal.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CurenergiaCollector extends SketchCollector {
         loginUrl: "https://www.curenergia.es/webclifr/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BlogadsCollector extends SketchCollector {
         loginUrl: "https://www.blogads.de/account/booking/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

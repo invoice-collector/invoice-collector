@@ -29,7 +29,7 @@ export class WpAllimportCollector extends SketchCollector {
         loginUrl: "https://www.wpallimport.com/portal/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

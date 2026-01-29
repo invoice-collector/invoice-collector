@@ -29,7 +29,7 @@ export class KeeperSecurityCollector extends SketchCollector {
         loginUrl: "https://keepersecurity.eu/console/#subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

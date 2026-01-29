@@ -29,7 +29,7 @@ export class SapBillerFurLitmosCollector extends SketchCollector {
         loginUrl: "https://directbilling.sap.com/bd_callidus/public/frameset_top_html.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

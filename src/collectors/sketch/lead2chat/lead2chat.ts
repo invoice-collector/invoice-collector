@@ -29,7 +29,7 @@ export class Lead2chatCollector extends SketchCollector {
         loginUrl: "https://app.lead2chat.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

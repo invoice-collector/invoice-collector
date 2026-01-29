@@ -29,7 +29,7 @@ export class HomeBySfrCollector extends SketchCollector {
         loginUrl: "https://boutique.home.sfr.fr/pdf-invoice.php?id_invoice=1684553",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VoicetradingCollector extends SketchCollector {
         loginUrl: "https://www.voicetrading.com/purchases",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

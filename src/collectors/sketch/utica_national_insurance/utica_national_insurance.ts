@@ -29,7 +29,7 @@ export class UticaNationalInsuranceCollector extends SketchCollector {
         loginUrl: "https://myaccount.uticanational.com/ccc-portal/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

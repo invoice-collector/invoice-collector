@@ -29,7 +29,7 @@ export class MiniintheboxComCollector extends SketchCollector {
         loginUrl: "https://www.miniinthebox.com/index.php?main_page=login&src=mainLoginLink&prm=2.1.74.0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

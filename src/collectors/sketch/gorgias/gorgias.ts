@@ -29,7 +29,7 @@ export class GorgiasCollector extends SketchCollector {
         loginUrl: "https://welcome.gorgias.io/select-domain",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

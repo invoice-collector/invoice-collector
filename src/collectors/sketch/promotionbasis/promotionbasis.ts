@@ -29,7 +29,7 @@ export class PromotionbasisCollector extends SketchCollector {
         loginUrl: "https://www.promotionbasis.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

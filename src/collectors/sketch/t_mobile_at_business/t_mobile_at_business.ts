@@ -29,7 +29,7 @@ export class TMobileAtBusinessCollector extends SketchCollector {
         loginUrl: "https://rechnung.t-mobile.at/vpn/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

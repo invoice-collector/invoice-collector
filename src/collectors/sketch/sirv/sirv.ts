@@ -29,7 +29,7 @@ export class SirvCollector extends SketchCollector {
         loginUrl: "https://my.sirv.com/#/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

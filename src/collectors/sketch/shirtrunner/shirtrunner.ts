@@ -29,7 +29,7 @@ export class ShirtrunnerCollector extends SketchCollector {
         loginUrl: "https://www.shirtrunner.de/station/auftragsuebersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

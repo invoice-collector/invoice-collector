@@ -29,7 +29,7 @@ export class FotoworkshopStuttgartDeCollector extends SketchCollector {
         loginUrl: "https://www.fotoworkshop-stuttgart.de/konto/buchungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

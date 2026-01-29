@@ -29,7 +29,7 @@ export class FashionNetworkCollector extends SketchCollector {
         loginUrl: "https://fr.fashionnetwork.com/societeCompte/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SmartboxPartnerCollector extends SketchCollector {
         loginUrl: "https://partners.smartbox-group.com/s/login/?language=en_GB&startURL=%2Fs%2F&ec=302",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

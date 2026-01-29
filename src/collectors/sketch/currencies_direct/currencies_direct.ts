@@ -29,7 +29,7 @@ export class CurrenciesDirectCollector extends SketchCollector {
         loginUrl: "https://business.currenciesdirect.com/businessportal/transactions.htm?search_criteria_name=default_activity_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

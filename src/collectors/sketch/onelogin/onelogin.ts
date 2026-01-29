@@ -29,7 +29,7 @@ export class OneloginCollector extends SketchCollector {
         loginUrl: "https://app.onelogin.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

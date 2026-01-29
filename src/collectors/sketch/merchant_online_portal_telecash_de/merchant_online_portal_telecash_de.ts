@@ -29,7 +29,7 @@ export class MerchantOnlinePortalTelecashDeCollector extends SketchCollector {
         loginUrl: "https://mop.telecash.de/mop/faces/pages/main/tc/main.xhtml?acquirer=tc&language=de&styleFor=tc#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class JsmdGroupCollector extends SketchCollector {
         loginUrl: "https://jep.jsmd-group.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

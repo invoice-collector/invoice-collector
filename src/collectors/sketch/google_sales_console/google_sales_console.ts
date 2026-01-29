@@ -29,7 +29,7 @@ export class GoogleSalesConsoleCollector extends SketchCollector {
         loginUrl: "https://channelservices.cloud.google.com/billing/accounts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

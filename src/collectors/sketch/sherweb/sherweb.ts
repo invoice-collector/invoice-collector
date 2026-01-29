@@ -29,7 +29,7 @@ export class SherwebCollector extends SketchCollector {
         loginUrl: "https://www.sherweb.com/customer-login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

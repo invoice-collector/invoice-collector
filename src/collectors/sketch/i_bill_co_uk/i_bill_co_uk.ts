@@ -29,7 +29,7 @@ export class IBillCoUkCollector extends SketchCollector {
         loginUrl: "https://www.i-bill.co.uk/Invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

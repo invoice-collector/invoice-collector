@@ -29,7 +29,7 @@ export class VoxtelesysCollector extends SketchCollector {
         loginUrl: "https://portal.voxtelesys.net/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

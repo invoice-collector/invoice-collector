@@ -29,7 +29,7 @@ export class TaxFilerCollector extends SketchCollector {
         loginUrl: "https://taxfiler.co.uk/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

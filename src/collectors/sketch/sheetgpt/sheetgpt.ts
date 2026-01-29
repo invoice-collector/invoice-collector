@@ -29,7 +29,7 @@ export class SheetgptCollector extends SketchCollector {
         loginUrl: "https://billing.sheetgpt.ai/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

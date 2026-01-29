@@ -29,7 +29,7 @@ export class PersonizerCollector extends SketchCollector {
         loginUrl: "https://www.personizer.com/app/subscription/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

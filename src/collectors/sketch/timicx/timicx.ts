@@ -29,7 +29,7 @@ export class TimicxCollector extends SketchCollector {
         loginUrl: "https://www.timicx.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

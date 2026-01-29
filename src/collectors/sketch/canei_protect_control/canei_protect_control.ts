@@ -29,7 +29,7 @@ export class CaneiProtectControlCollector extends SketchCollector {
         loginUrl: "https://app.quick.prod.canei.io/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

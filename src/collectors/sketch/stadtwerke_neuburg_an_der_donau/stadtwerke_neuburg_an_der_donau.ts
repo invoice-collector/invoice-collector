@@ -29,7 +29,7 @@ export class StadtwerkeNeuburgAnDerDonauCollector extends SketchCollector {
         loginUrl: "https://www.stw-nd.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

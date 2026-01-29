@@ -29,7 +29,7 @@ export class FirstDebitInkassoCollector extends SketchCollector {
         loginUrl: "https://portal.firstdebit.de/wl/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

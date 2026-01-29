@@ -29,7 +29,7 @@ export class ShoreCollector extends SketchCollector {
         loginUrl: "https://secure.shore.com/merchant/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

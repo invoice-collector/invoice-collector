@@ -29,7 +29,7 @@ export class PabblyCollector extends SketchCollector {
         loginUrl: "https://payments.pabbly.com/portal/app/en/affiliateportal/invoice/1/all",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

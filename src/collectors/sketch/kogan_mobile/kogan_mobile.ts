@@ -29,7 +29,7 @@ export class KoganMobileCollector extends SketchCollector {
         loginUrl: "https://accounts.koganmobile.com.au/customer/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

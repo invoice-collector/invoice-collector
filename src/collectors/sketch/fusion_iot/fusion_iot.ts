@@ -29,7 +29,7 @@ export class FusionIotCollector extends SketchCollector {
         loginUrl: "https://portal.fusion-iot.de/sign/in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

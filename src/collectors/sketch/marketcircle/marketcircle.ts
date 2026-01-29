@@ -29,7 +29,7 @@ export class MarketcircleCollector extends SketchCollector {
         loginUrl: "https://www.marketcircle.com/account/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

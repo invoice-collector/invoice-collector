@@ -29,7 +29,7 @@ export class EasynameAtCollector extends SketchCollector {
         loginUrl: "https://partner.easyname.at/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

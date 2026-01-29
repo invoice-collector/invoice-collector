@@ -29,7 +29,7 @@ export class EdcoCollector extends SketchCollector {
         loginUrl: "https://secure.myonlinebill.com/mob/user/login.do?clientId=MTA4Nzc=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

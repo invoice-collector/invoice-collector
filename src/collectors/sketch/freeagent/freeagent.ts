@@ -29,7 +29,7 @@ export class FreeagentCollector extends SketchCollector {
         loginUrl: "https://login.freeagent.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

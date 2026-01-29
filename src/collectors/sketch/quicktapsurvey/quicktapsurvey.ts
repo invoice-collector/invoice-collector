@@ -29,7 +29,7 @@ export class QuicktapsurveyCollector extends SketchCollector {
         loginUrl: "https://www.quicktapsurvey.com/admin/account/list-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

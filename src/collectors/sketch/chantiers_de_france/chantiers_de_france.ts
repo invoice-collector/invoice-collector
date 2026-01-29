@@ -29,7 +29,7 @@ export class ChantiersDeFranceCollector extends SketchCollector {
         loginUrl: "https://www.chantiersdefrance.fr/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

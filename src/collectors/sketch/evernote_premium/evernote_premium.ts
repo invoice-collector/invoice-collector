@@ -29,7 +29,7 @@ export class EvernotePremiumCollector extends SketchCollector {
         loginUrl: "https://www.evernote.com/Login.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

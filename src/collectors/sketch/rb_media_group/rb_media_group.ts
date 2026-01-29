@@ -29,7 +29,7 @@ export class RbMediaGroupCollector extends SketchCollector {
         loginUrl: "https://www.rb-media-group.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

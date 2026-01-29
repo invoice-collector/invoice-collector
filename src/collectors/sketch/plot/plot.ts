@@ -29,7 +29,7 @@ export class PlotCollector extends SketchCollector {
         loginUrl: "https://app.theplot.io/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FfnConnectCollector extends SketchCollector {
         loginUrl: "https://ffn-connect.de/partner-area/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

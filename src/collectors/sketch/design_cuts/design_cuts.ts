@@ -29,7 +29,7 @@ export class DesignCutsCollector extends SketchCollector {
         loginUrl: "https://www.designcuts.com/your-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

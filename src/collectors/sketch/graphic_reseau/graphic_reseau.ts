@@ -29,7 +29,7 @@ export class GraphicReseauCollector extends SketchCollector {
         loginUrl: "https://www.graphic-reseau.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

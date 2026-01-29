@@ -29,7 +29,7 @@ export class IdexxCollector extends SketchCollector {
         loginUrl: "http://www.idexx.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

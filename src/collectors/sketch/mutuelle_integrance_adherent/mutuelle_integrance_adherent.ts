@@ -29,7 +29,7 @@ export class MutuelleIntegranceAdherentCollector extends SketchCollector {
         loginUrl: "https://sante.integrance.fr/iAdherent",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

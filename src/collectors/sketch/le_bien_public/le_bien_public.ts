@@ -29,7 +29,7 @@ export class LeBienPublicCollector extends SketchCollector {
         loginUrl: "https://c.bienpublic.com/espace-client/mes-factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

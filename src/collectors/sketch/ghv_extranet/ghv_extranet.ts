@@ -29,7 +29,7 @@ export class GhvExtranetCollector extends SketchCollector {
         loginUrl: "https://www.ghv-extranet.de/postbox.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

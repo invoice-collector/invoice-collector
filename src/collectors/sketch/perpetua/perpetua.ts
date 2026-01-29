@@ -29,7 +29,7 @@ export class PerpetuaCollector extends SketchCollector {
         loginUrl: "https://app.perpetua.io/settings?geocompany=4544&selectedTab=3",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

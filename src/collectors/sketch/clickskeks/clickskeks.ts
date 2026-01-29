@@ -29,7 +29,7 @@ export class ClickskeksCollector extends SketchCollector {
         loginUrl: "https://mein.clickskeks.at/domains",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

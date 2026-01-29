@@ -29,7 +29,7 @@ export class DracoonCollector extends SketchCollector {
         loginUrl: "https://www.dracoon.com/de/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

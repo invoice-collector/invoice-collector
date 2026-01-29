@@ -29,7 +29,7 @@ export class StadtwerkeHerfordCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-herford.de/#/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

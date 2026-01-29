@@ -29,7 +29,7 @@ export class ServicityCollector extends SketchCollector {
         loginUrl: "https://invia.servicity.fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

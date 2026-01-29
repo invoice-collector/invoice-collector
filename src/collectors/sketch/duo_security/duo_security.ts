@@ -29,7 +29,7 @@ export class DuoSecurityCollector extends SketchCollector {
         loginUrl: "https://admin-4c9fdb22.duosecurity.com/billing/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Print24ComDeCollector extends SketchCollector {
         loginUrl: "https://print24.com/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

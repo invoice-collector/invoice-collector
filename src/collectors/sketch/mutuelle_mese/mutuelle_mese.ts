@@ -29,7 +29,7 @@ export class MutuelleMeseCollector extends SketchCollector {
         loginUrl: "https://www.certificat-mese.net/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HochzeitManagementCollector extends SketchCollector {
         loginUrl: "https://app.hochzeit.management/Invoice?view=overview&list=all",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

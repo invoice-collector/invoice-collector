@@ -29,7 +29,7 @@ export class StonlyCollector extends SketchCollector {
         loginUrl: "https://stonly.com/authentication",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

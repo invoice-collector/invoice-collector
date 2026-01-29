@@ -29,7 +29,7 @@ export class ReladyneCollector extends SketchCollector {
         loginUrl: "https://my.reladyne.com/invoices.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

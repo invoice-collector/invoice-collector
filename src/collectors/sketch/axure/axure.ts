@@ -29,7 +29,7 @@ export class AxureCollector extends SketchCollector {
         loginUrl: "https://www.axure.com/portal/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

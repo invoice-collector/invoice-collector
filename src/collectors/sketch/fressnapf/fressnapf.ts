@@ -29,7 +29,7 @@ export class FressnapfCollector extends SketchCollector {
         loginUrl: "https://www.fressnapf.de/login/?redirectTo=%2Fmy-account%2F%3F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

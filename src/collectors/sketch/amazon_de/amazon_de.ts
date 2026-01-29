@@ -29,7 +29,7 @@ export class AmazonDeCollector extends SketchCollector {
         loginUrl: "https://www.amazon.de/gp/css/order-history/ref=nav_youraccount_orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

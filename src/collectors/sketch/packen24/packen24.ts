@@ -29,7 +29,7 @@ export class Packen24Collector extends SketchCollector {
         loginUrl: "https://www.packen24.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

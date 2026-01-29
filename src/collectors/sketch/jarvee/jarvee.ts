@@ -29,7 +29,7 @@ export class JarveeCollector extends SketchCollector {
         loginUrl: "https://jarvee.azurewebsites.net/Invoices/Index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

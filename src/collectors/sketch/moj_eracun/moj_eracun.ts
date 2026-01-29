@@ -29,7 +29,7 @@ export class MojEracunCollector extends SketchCollector {
         loginUrl: "https://www2.moj-eracun.hr/b2b/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

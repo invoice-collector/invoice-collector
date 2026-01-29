@@ -29,7 +29,7 @@ export class IngramsparkCollector extends SketchCollector {
         loginUrl: "https://myaccount.ingramspark.com/Orders/PreviousOrders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

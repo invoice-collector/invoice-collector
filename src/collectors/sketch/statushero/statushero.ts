@@ -29,7 +29,7 @@ export class StatusheroCollector extends SketchCollector {
         loginUrl: "https://statushero.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

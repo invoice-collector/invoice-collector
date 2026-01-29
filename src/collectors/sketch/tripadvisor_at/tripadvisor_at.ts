@@ -29,7 +29,7 @@ export class TripadvisorAtCollector extends SketchCollector {
         loginUrl: "https://www.tripadvisor.at/BillingAndPayments?tab=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NiagaraCarwashCollector extends SketchCollector {
         loginUrl: "https://app.niagara.cloud.bnt.io/transactionhistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

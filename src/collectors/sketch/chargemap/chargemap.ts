@@ -29,7 +29,7 @@ export class ChargemapCollector extends SketchCollector {
         loginUrl: "https://fr.chargemap.com/user/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

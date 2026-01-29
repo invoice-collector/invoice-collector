@@ -29,7 +29,7 @@ export class RadioCoCollector extends SketchCollector {
         loginUrl: "https://studio.radio.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

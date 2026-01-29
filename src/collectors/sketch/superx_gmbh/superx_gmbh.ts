@@ -29,7 +29,7 @@ export class SuperxGmbhCollector extends SketchCollector {
         loginUrl: "https://super-chat.eu.auth0.com/login?state=hKFo2SBhT2sxZjBiaE1fLTN1anFIRE9SS2dGV0JlWGQ2MDAzbKFupWxvZ2luo3RpZNkgQ0tJbWU5ZG1TRzlQVlIyQXlTUVd3SklPdmFUWjZ0cnKjY2lk2SBMUWRxRnRpNjRzcjljOTJMYUpXclR6cDZpelQ0YlpkZw&client=LQdqFti64sr9c92LaJWrTzp6izT4bZdg&protocol",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

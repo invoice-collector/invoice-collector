@@ -29,7 +29,7 @@ export class BayerischeIngenieurekammerBauCollector extends SketchCollector {
         loginUrl: "https://bayika.de/de/portal/intern/rechnungen/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

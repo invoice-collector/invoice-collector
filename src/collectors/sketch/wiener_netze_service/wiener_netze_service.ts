@@ -29,7 +29,7 @@ export class WienerNetzeServiceCollector extends SketchCollector {
         loginUrl: "https://service.wienernetze.at/#/rechnungsarchiv/anlagenauswahl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SageEntgeltUndPersonalCollector extends SketchCollector {
         loginUrl: "https://lohnabrechnung.sage.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

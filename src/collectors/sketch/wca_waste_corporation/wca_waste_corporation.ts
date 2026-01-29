@@ -29,7 +29,7 @@ export class WcaWasteCorporationCollector extends SketchCollector {
         loginUrl: "https://secure8.i-doxs.net/WCA/SignIn.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

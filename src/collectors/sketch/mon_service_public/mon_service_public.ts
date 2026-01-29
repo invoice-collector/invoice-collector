@@ -29,7 +29,7 @@ export class MonServicePublicCollector extends SketchCollector {
         loginUrl: "https://www.service-public.fr/compte/se-connecter",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

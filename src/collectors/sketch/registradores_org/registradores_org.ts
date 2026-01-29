@@ -29,7 +29,7 @@ export class RegistradoresOrgCollector extends SketchCollector {
         loginUrl: "https://www.registradores.org/propiedad/pags/estado_cuenta/facturas/ListadoFacturas.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

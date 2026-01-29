@@ -29,7 +29,7 @@ export class TeltaCitynetzCollector extends SketchCollector {
         loginUrl: "https://portal.telta.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

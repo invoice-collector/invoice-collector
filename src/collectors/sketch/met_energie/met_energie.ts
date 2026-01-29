@@ -29,7 +29,7 @@ export class MetEnergieCollector extends SketchCollector {
         loginUrl: "https://espace-client.fr.met.com/client/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

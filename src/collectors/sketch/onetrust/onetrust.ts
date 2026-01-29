@@ -29,7 +29,7 @@ export class OnetrustCollector extends SketchCollector {
         loginUrl: "https://www.onetrust.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

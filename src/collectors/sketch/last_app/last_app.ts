@@ -29,7 +29,7 @@ export class LastAppCollector extends SketchCollector {
         loginUrl: "https://admin.last.app/login?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

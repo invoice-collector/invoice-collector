@@ -29,7 +29,7 @@ export class WurttembergischeVermittlerportalCollector extends SketchCollector {
         loginUrl: "https://vertriebsportal.wuerttembergische.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

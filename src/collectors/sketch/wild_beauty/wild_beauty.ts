@@ -29,7 +29,7 @@ export class WildBeautyCollector extends SketchCollector {
         loginUrl: "https://www.wild-beauty.de/kundenbereich/salon/383EA001-0011-1021-89-83-0000DC01010A",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

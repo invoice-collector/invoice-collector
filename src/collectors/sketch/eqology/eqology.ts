@@ -29,7 +29,7 @@ export class EqologyCollector extends SketchCollector {
         loginUrl: "https://biz.eqology.com/?do=payoutsreport&section=bonusdata&lang=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

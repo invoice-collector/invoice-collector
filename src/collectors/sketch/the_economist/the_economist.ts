@@ -29,7 +29,7 @@ export class TheEconomistCollector extends SketchCollector {
         loginUrl: "https://www.economist.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

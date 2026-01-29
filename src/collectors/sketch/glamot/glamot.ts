@@ -29,7 +29,7 @@ export class GlamotCollector extends SketchCollector {
         loginUrl: "https://www.glamot.de/invoice?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

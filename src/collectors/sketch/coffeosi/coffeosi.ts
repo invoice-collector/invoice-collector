@@ -29,7 +29,7 @@ export class CoffeosiCollector extends SketchCollector {
         loginUrl: "https://coffeosi.com/kasse",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

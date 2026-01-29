@@ -29,7 +29,7 @@ export class MusicmeCollector extends SketchCollector {
         loginUrl: "https://www.musicme.com/#/mon-musicme/connexion/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

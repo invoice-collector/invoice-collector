@@ -29,7 +29,7 @@ export class EdoxCollector extends SketchCollector {
         loginUrl: "http://www.edox.fr/Webshop/DownloadOrderDoc.aspx?filename=[F]858918.pdf&type=facture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

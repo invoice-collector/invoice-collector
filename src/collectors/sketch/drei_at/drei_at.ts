@@ -29,7 +29,7 @@ export class DreiAtCollector extends SketchCollector {
         loginUrl: "https://www.drei.at/selfcare/restricted/toEbill.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

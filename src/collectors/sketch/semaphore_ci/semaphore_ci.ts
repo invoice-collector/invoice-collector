@@ -29,7 +29,7 @@ export class SemaphoreCiCollector extends SketchCollector {
         loginUrl: "https://semaphoreci.com/users/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Apps4rentCollector extends SketchCollector {
         loginUrl: "https://billing.apps4rent.com/clientarea.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

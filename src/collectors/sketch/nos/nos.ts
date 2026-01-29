@@ -29,7 +29,7 @@ export class NosCollector extends SketchCollector {
         loginUrl: "https://login.nos.pt/o/IVLJg6cTEpXit2RLo1kOfpMEmzzFIMMJ/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

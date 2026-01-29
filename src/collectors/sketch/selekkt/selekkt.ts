@@ -29,7 +29,7 @@ export class SelekktCollector extends SketchCollector {
         loginUrl: "https://selekkt.com/selekkt_dropship/vendor/statements/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

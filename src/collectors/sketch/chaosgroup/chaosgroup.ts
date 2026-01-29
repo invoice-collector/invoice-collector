@@ -29,7 +29,7 @@ export class ChaosgroupCollector extends SketchCollector {
         loginUrl: "http://accounts.chaosgroup.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

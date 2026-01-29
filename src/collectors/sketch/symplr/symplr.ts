@@ -29,7 +29,7 @@ export class SymplrCollector extends SketchCollector {
         loginUrl: "https://cockpit.symplr.de/credits/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

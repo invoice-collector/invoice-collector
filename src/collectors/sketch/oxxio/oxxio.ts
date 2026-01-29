@@ -29,7 +29,7 @@ export class OxxioCollector extends SketchCollector {
         loginUrl: "http://www.oxxio.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

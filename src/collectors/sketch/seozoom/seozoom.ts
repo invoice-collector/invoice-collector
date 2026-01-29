@@ -29,7 +29,7 @@ export class SeozoomCollector extends SketchCollector {
         loginUrl: "https://sz2020.seozoom.it/user/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

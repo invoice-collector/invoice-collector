@@ -29,7 +29,7 @@ export class ActronicsGmbhCollector extends SketchCollector {
         loginUrl: "https://www.actronics-gmbh.de/konto/rechnung#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

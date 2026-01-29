@@ -29,7 +29,7 @@ export class FlaconiCollector extends SketchCollector {
         loginUrl: "https://www.flaconi.de/konto/anmelden/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

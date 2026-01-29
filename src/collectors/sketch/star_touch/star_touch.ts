@@ -29,7 +29,7 @@ export class StarTouchCollector extends SketchCollector {
         loginUrl: "http://www.startouch.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

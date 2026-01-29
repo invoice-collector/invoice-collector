@@ -29,7 +29,7 @@ export class DescriptCollector extends SketchCollector {
         loginUrl: "https://web.descript.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

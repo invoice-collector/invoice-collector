@@ -29,7 +29,7 @@ export class VceTrainingCollector extends SketchCollector {
         loginUrl: "https://vcetrainer.com/Account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MutuelleGeneraliCollector extends SketchCollector {
         loginUrl: "https://www.generali.fr/espace-client/public/connexion/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

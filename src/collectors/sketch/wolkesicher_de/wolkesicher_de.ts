@@ -29,7 +29,7 @@ export class WolkesicherDeCollector extends SketchCollector {
         loginUrl: "https://my.wolkesicher.de/custom/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AirBpCollector extends SketchCollector {
         loginUrl: "https://myinvoice.bpglobal.com/sites/airbp#AirBP-Invoice_Bundles&/bundles",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

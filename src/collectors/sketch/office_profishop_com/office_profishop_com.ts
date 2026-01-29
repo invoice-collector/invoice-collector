@@ -29,7 +29,7 @@ export class OfficeProfishopComCollector extends SketchCollector {
         loginUrl: "https://www.office-profishop.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

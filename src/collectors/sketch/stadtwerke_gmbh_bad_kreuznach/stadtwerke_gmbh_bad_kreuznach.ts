@@ -29,7 +29,7 @@ export class StadtwerkeGmbhBadKreuznachCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stadtwerke-kh.de/powercommerce/csit3/fo/portal/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CameranuNlCollector extends SketchCollector {
         loginUrl: "https://www.cameranu.nl/nl/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

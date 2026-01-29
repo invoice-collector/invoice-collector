@@ -29,7 +29,7 @@ export class MutuelleSantePratiqueCollector extends SketchCollector {
         loginUrl: "http://www.mon-compte-en-ligne.fr/mon-compte-sante-pratique/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

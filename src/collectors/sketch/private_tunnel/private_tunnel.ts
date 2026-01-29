@@ -29,7 +29,7 @@ export class PrivateTunnelCollector extends SketchCollector {
         loginUrl: "https://portal.privatetunnel.com/account-details",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

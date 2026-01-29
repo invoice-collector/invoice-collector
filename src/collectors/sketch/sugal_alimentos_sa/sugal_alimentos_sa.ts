@@ -29,7 +29,7 @@ export class SugalAlimentosSaCollector extends SketchCollector {
         loginUrl: "https://einvoice.generixpt.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

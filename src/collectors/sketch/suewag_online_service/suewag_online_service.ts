@@ -29,7 +29,7 @@ export class SuewagOnlineServiceCollector extends SketchCollector {
         loginUrl: "https://online-service.suewag.de/sap/bc/ui5_ui5/sap/zisuumc_b2c_pri/index.html?CompanyID=SUEWAG&sap-client=001&sap-language=DE#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

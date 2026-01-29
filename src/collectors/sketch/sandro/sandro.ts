@@ -29,7 +29,7 @@ export class SandroCollector extends SketchCollector {
         loginUrl: "https://fr.sandro-paris.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

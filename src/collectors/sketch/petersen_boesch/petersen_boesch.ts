@@ -29,7 +29,7 @@ export class PetersenBoeschCollector extends SketchCollector {
         loginUrl: "https://petersen-boesch.portal-bereich.de/html/#kanzleirechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

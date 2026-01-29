@@ -29,7 +29,7 @@ export class HolzspielereiCollector extends SketchCollector {
         loginUrl: "https://holzspielerei.com/jtl.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

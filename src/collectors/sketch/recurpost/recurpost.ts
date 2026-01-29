@@ -29,7 +29,7 @@ export class RecurpostCollector extends SketchCollector {
         loginUrl: "https://sites.fastspring.com/recurpost/order/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

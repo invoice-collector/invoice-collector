@@ -29,7 +29,7 @@ export class GetresponseCollector extends SketchCollector {
         loginUrl: "https://app.getresponse.com/login.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

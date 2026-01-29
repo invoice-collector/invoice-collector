@@ -29,7 +29,7 @@ export class AdnCloudMarketplaceCollector extends SketchCollector {
         loginUrl: "https://marketplace.adncloud.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

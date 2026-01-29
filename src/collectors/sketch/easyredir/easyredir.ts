@@ -29,7 +29,7 @@ export class EasyredirCollector extends SketchCollector {
         loginUrl: "https://dashboard.easyredir.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

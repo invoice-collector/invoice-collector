@@ -29,7 +29,7 @@ export class MaxpoolCollector extends SketchCollector {
         loginUrl: "https://maxoffice.maxpool.de/#/legacy/accountingOverview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

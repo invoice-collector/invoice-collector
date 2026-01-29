@@ -29,7 +29,7 @@ export class LinkfireCollector extends SketchCollector {
         loginUrl: "https://login.linkfire.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

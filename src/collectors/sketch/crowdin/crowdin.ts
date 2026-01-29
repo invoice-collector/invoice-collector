@@ -29,7 +29,7 @@ export class CrowdinCollector extends SketchCollector {
         loginUrl: "https://crowdin.com/settings#payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

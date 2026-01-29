@@ -29,7 +29,7 @@ export class ProjectfactsCollector extends SketchCollector {
         loginUrl: "https://www.projectfacts.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

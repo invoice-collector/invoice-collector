@@ -29,7 +29,7 @@ export class CutDentalCollector extends SketchCollector {
         loginUrl: "https://cut-dental.de/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ViprinetCollector extends SketchCollector {
         loginUrl: "https://license.vlm.support/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

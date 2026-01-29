@@ -29,7 +29,7 @@ export class BaurnewmediaCollector extends SketchCollector {
         loginUrl: "https://www.baurnewmedia.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

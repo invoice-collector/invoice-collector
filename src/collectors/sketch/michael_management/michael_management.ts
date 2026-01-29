@@ -29,7 +29,7 @@ export class MichaelManagementCollector extends SketchCollector {
         loginUrl: "https://www.michaelmanagement.com/edit-account.asp?tab=menu1&childtab=profile8",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

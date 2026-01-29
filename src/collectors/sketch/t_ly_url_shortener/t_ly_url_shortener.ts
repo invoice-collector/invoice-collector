@@ -29,7 +29,7 @@ export class TLyUrlShortenerCollector extends SketchCollector {
         loginUrl: "https://t.ly/settings/teams/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

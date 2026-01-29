@@ -29,7 +29,7 @@ export class Innova24BizCollector extends SketchCollector {
         loginUrl: "https://www.innova24.biz/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

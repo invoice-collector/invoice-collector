@@ -29,7 +29,7 @@ export class AllegroSanitationCollector extends SketchCollector {
         loginUrl: "https://asc.onlineportal.us.com/User/Login?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

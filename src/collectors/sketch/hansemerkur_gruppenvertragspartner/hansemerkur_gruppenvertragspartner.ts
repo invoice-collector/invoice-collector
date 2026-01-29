@@ -29,7 +29,7 @@ export class HansemerkurGruppenvertragspartnerCollector extends SketchCollector 
         loginUrl: "https://groupie.hansemerkur.de/oauth2/authorization/kobil-grpdezentral-login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

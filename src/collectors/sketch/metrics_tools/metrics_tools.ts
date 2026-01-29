@@ -29,7 +29,7 @@ export class MetricsToolsCollector extends SketchCollector {
         loginUrl: "https://metrics-tools.de/#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TelusCollector extends SketchCollector {
         loginUrl: "https://www.telus.com/my-account/billing/summary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

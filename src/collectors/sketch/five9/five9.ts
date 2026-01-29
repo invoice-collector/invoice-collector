@@ -29,7 +29,7 @@ export class Five9Collector extends SketchCollector {
         loginUrl: "https://login.five9.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

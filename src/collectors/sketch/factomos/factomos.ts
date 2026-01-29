@@ -29,7 +29,7 @@ export class FactomosCollector extends SketchCollector {
         loginUrl: "https://factomos.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

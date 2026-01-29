@@ -29,7 +29,7 @@ export class IngenicoEpaymentsCollector extends SketchCollector {
         loginUrl: "https://www.ingenico-payment-services-customerportal.com/public/de/advantages.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DnsNetCollector extends SketchCollector {
         loginUrl: "https://mein.dns-net.de/#/app/welcome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

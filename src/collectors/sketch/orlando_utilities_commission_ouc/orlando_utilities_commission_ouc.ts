@@ -29,7 +29,7 @@ export class OrlandoUtilitiesCommissionOucCollector extends SketchCollector {
         loginUrl: "https://my.ouc.com/myouc/AccountSummary_Home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

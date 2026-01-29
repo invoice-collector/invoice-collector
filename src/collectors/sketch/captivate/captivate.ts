@@ -29,7 +29,7 @@ export class CaptivateCollector extends SketchCollector {
         loginUrl: "https://my.captivate.fm/login?returnUrl=%2Fdashboard%2Fstart",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

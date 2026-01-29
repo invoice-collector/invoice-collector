@@ -29,7 +29,7 @@ export class AdnCollector extends SketchCollector {
         loginUrl: "https://shop.adn.de/index.php?cl=account_order&lang=0&cl=account_order&lang=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

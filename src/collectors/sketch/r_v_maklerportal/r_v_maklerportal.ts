@@ -29,7 +29,7 @@ export class RVMaklerportalCollector extends SketchCollector {
         loginUrl: "https://online.ruv.de/makler/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

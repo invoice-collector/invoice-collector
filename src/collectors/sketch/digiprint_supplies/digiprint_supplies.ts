@@ -29,7 +29,7 @@ export class DigiprintSuppliesCollector extends SketchCollector {
         loginUrl: "https://www.digiprint-supplies.com/en/invoices/index/list/order_id/333694/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

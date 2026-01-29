@@ -29,7 +29,7 @@ export class DimensionsComCollector extends SketchCollector {
         loginUrl: "https://www.dimensions.com/users/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

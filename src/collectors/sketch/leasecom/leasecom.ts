@@ -28,7 +28,7 @@ export class LeasecomCollector extends SketchCollector {
         loginUrl: "https://partenaire.leasecom.fr/authentification-fintake/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

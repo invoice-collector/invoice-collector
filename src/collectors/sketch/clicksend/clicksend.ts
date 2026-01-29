@@ -29,7 +29,7 @@ export class ClicksendCollector extends SketchCollector {
         loginUrl: "https://dashboard.clicksend.com/#/account/billing-recharge/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

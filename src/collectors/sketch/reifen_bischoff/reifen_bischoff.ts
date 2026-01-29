@@ -29,7 +29,7 @@ export class ReifenBischoffCollector extends SketchCollector {
         loginUrl: "https://reifenshopb2b.de/?shop_id=5143",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

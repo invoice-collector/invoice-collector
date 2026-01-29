@@ -29,7 +29,7 @@ export class PapertrailCollector extends SketchCollector {
         loginUrl: "https://papertrailapp.com/account/purchases",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

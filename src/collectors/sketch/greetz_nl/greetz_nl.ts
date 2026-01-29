@@ -29,7 +29,7 @@ export class GreetzNlCollector extends SketchCollector {
         loginUrl: "https://www.greetz.nl/nl/account/login/?returnUrl=%2Fnl%2Fmyaccount%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

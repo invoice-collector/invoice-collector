@@ -29,7 +29,7 @@ export class _1click2DslCollector extends SketchCollector {
         loginUrl: "http://www.1click2dsl.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

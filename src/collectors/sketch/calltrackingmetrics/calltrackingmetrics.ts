@@ -29,7 +29,7 @@ export class CalltrackingmetricsCollector extends SketchCollector {
         loginUrl: "https://app.calltrackingmetrics.com/payment_methods?agency=1#billing-invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TidioCollector extends SketchCollector {
         loginUrl: "https://www.tidio.com/panel/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

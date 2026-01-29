@@ -29,7 +29,7 @@ export class EvoswitchCollector extends SketchCollector {
         loginUrl: "https://auth.evoswitch.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WaipuTvCollector extends SketchCollector {
         loginUrl: "https://customer-self-care.waipu.tv/ui/my_invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

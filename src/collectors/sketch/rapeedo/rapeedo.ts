@@ -29,7 +29,7 @@ export class RapeedoCollector extends SketchCollector {
         loginUrl: "https://mein.kommitt.de/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

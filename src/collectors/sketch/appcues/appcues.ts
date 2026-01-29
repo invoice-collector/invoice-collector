@@ -29,7 +29,7 @@ export class AppcuesCollector extends SketchCollector {
         loginUrl: "https://studio.appcues.com/settings/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

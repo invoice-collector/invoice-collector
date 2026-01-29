@@ -29,7 +29,7 @@ export class StadtwerkePotsdamCollector extends SketchCollector {
         loginUrl: "https://service.swp-potsdam.de/powercommerce/swp/fo/portal/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EmscherLippeEnergieGmbhCollector extends SketchCollector {
         loginUrl: "https://meine.ele.de/privatkunden/meine-ele/services/rechnungen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

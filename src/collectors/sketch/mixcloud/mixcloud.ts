@@ -29,7 +29,7 @@ export class MixcloudCollector extends SketchCollector {
         loginUrl: "https://www.mixcloud.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

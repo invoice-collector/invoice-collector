@@ -29,7 +29,7 @@ export class HamburgerVerkehrsbetriebeHvvCollector extends SketchCollector {
         loginUrl: "https://shop.hvv.de/personal_data/orderList",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

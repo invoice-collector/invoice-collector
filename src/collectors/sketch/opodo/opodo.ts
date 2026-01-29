@@ -29,7 +29,7 @@ export class OpodoCollector extends SketchCollector {
         loginUrl: "https://www.opodo.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

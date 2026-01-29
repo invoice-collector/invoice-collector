@@ -29,7 +29,7 @@ export class AmbarCollector extends SketchCollector {
         loginUrl: "https://comunidad.ambarplus.com/s/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

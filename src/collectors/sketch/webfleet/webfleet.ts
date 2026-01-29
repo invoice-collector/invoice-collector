@@ -29,7 +29,7 @@ export class WebfleetCollector extends SketchCollector {
         loginUrl: "https://www.webfleet.com/webfleet/products/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CicExtraitsDeComptesCollector extends SketchCollector {
         loginUrl: "https://www.cic.fr/fr/authentification.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

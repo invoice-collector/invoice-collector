@@ -29,7 +29,7 @@ export class EasyparkCollector extends SketchCollector {
         loginUrl: "https://easypark.de/history/de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

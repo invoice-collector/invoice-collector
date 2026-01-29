@@ -29,7 +29,7 @@ export class NiftyquoterCollector extends SketchCollector {
         loginUrl: "https://www.niftyquoter.com/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

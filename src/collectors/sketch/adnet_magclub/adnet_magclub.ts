@@ -29,7 +29,7 @@ export class AdnetMagclubCollector extends SketchCollector {
         loginUrl: "https://adnet.magclub.de/de/user/auszahlungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FillibriCollector extends SketchCollector {
         loginUrl: "https://fillibri.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

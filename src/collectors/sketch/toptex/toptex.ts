@@ -29,7 +29,7 @@ export class ToptexCollector extends SketchCollector {
         loginUrl: "https://www.toptex.com/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

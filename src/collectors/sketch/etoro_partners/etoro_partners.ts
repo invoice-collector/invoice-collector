@@ -29,7 +29,7 @@ export class EtoroPartnersCollector extends SketchCollector {
         loginUrl: "https://etoropartners.b2clogin.com/etoropartners.onmicrosoft.com/b2c_1_signin/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fpor.etoro.com%2Fen-gb%2Fauth%2Flogin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

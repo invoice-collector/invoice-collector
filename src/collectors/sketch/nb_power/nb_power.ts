@@ -29,7 +29,7 @@ export class NbPowerCollector extends SketchCollector {
         loginUrl: "https://www.nbpower.com/Welcome.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InvoicefetcherCollector extends SketchCollector {
         loginUrl: "https://www.invoicefetcher.com/de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

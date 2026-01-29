@@ -29,7 +29,7 @@ export class DutchleaseCollector extends SketchCollector {
         loginUrl: "https://dutchlease.fleetplatform.com/FleetPlatform/s:nl_NL/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TicketmasterCollector extends SketchCollector {
         loginUrl: "https://www.ticketmaster.de/myAccount/loginRegister.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

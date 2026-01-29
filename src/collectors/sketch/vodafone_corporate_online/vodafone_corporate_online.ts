@@ -29,7 +29,7 @@ export class VodafoneCorporateOnlineCollector extends SketchCollector {
         loginUrl: "https://www.vcol.co.uk/home/default.vco",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

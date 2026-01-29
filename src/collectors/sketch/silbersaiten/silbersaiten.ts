@@ -29,7 +29,7 @@ export class SilbersaitenCollector extends SketchCollector {
         loginUrl: "https://www.silbersaiten.de/prestashop/de/bestellungsverlauf",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

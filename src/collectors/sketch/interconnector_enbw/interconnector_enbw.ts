@@ -29,7 +29,7 @@ export class InterconnectorEnbwCollector extends SketchCollector {
         loginUrl: "https://portal.interconnector.de/dashboard/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

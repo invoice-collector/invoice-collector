@@ -29,7 +29,7 @@ export class AuxinumCollector extends SketchCollector {
         loginUrl: "https://auxinum.tq-onis.de/Intern/Balance/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class _24DrukwerkNlCollector extends SketchCollector {
         loginUrl: "https://www.24-drukwerk.nl/mijn-account?zenid=shp22s54ojpe07fjrh89fk8tk7",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

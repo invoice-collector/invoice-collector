@@ -29,7 +29,7 @@ export class DhlParcelNlCollector extends SketchCollector {
         loginUrl: "https://billing.dhlparcel.nl/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

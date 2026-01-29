@@ -29,7 +29,7 @@ export class NvidiaCollector extends SketchCollector {
         loginUrl: "http://www.nvidia.de/page/home.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

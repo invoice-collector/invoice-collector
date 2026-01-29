@@ -29,7 +29,7 @@ export class LebaraDeCollector extends SketchCollector {
         loginUrl: "https://www.lebara.de/de/mylebara/postpaid-bills.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class WasteConnectionsCanadaCollector extends SketchCollector {
         loginUrl: "https://secure6.i-doxs.net/bdx/default.aspx?BillerID=H1ol0uvn2h",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

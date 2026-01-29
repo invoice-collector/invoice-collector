@@ -29,7 +29,7 @@ export class WebmergeCollector extends SketchCollector {
         loginUrl: "https://www.webmerge.me/manage/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

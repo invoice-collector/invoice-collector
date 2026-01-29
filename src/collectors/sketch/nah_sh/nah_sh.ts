@@ -29,7 +29,7 @@ export class NahShCollector extends SketchCollector {
         loginUrl: "https://nahsh.tickeos.de/index.php/customer",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

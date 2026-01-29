@@ -29,7 +29,7 @@ export class WasabiCollector extends SketchCollector {
         loginUrl: "https://console.wasabisys.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

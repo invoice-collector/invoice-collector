@@ -29,7 +29,7 @@ export class GoneoCollector extends SketchCollector {
         loginUrl: "https://kundencenter.goneo.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

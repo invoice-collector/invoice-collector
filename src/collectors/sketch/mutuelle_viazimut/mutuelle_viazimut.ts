@@ -29,7 +29,7 @@ export class MutuelleViazimutCollector extends SketchCollector {
         loginUrl: "https://www.harmonie-mutuelle.fr/inscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

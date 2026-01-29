@@ -29,7 +29,7 @@ export class TelefonicaEmpresasCollector extends SketchCollector {
         loginUrl: "https://paut.telefonica.es/facturas",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

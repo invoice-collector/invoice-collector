@@ -29,7 +29,7 @@ export class GeccoFahrschulenCollector extends SketchCollector {
         loginUrl: "https://gecco-fahrschulen.de/fahrschule/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

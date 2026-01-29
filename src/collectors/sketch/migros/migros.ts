@@ -29,7 +29,7 @@ export class MigrosCollector extends SketchCollector {
         loginUrl: "https://www.migros.ch",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

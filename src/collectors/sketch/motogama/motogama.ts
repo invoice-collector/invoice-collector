@@ -29,7 +29,7 @@ export class MotogamaCollector extends SketchCollector {
         loginUrl: "https://motogama.integra.com.pl/Accounts/OpenExportAccount.rails?d=Thu",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

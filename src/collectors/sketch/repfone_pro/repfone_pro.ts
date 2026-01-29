@@ -29,7 +29,7 @@ export class RepfoneProCollector extends SketchCollector {
         loginUrl: "https://repfonepro.fr/index.php?controller=authentication&back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

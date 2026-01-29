@@ -29,7 +29,7 @@ export class HertzEBillingCollector extends SketchCollector {
         loginUrl: "https://www.hertz-ebilling.com/hertz/welcome.html?se32p3dd1r30825ncv9jmpnimb=kc1ehvtqskqqbvgjuh4n6upf91#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

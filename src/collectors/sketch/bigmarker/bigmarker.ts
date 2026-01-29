@@ -29,7 +29,7 @@ export class BigmarkerCollector extends SketchCollector {
         loginUrl: "https://www.bigmarker.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

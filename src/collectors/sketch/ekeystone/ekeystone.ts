@@ -29,7 +29,7 @@ export class EkeystoneCollector extends SketchCollector {
         loginUrl: "https://wwwsc.ekeystone.com/account-center/invoices-returns",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

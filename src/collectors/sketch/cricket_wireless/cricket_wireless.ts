@@ -29,7 +29,7 @@ export class CricketWirelessCollector extends SketchCollector {
         loginUrl: "https://www.cricketwireless.com/myaccount.html#/billingHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

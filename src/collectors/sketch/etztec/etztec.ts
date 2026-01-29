@@ -29,7 +29,7 @@ export class EtztecCollector extends SketchCollector {
         loginUrl: "https://www.timesheetz.net/EtzWeb/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

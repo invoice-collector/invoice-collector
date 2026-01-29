@@ -29,7 +29,7 @@ export class UiliciousCollector extends SketchCollector {
         loginUrl: "https://user.uilicious.com/profile/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

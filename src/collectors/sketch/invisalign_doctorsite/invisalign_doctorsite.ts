@@ -29,7 +29,7 @@ export class InvisalignDoctorsiteCollector extends SketchCollector {
         loginUrl: "https://vip.invisalign.com/v3/auth/patients.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

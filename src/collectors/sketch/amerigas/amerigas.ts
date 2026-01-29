@@ -29,7 +29,7 @@ export class AmerigasCollector extends SketchCollector {
         loginUrl: "https://secure.billtrust.com/AMGS/ig/5587/open",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

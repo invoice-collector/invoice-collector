@@ -29,7 +29,7 @@ export class AnydeskCollector extends SketchCollector {
         loginUrl: "https://my.anydesk.com/migrate;jsessionid=3271D5C0D39AD6082DDF24FDA8886492",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

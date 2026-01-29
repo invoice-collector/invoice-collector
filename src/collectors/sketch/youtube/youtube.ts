@@ -29,7 +29,7 @@ export class YoutubeCollector extends SketchCollector {
         loginUrl: "https://www.youtube.com/paid_memberships",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

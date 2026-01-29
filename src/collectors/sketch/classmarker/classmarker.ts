@@ -29,7 +29,7 @@ export class ClassmarkerCollector extends SketchCollector {
         loginUrl: "https://www.classmarker.com/a/myaccount/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

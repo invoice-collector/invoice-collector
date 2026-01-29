@@ -29,7 +29,7 @@ export class ReplacedirectNlCollector extends SketchCollector {
         loginUrl: "https://www.replacedirect.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

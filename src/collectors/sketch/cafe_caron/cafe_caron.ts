@@ -29,7 +29,7 @@ export class CafeCaronCollector extends SketchCollector {
         loginUrl: "https://pro.cafecaron.com/fr/historique-commandes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

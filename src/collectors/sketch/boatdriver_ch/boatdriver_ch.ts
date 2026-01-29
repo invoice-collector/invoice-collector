@@ -29,7 +29,7 @@ export class BoatdriverChCollector extends SketchCollector {
         loginUrl: "https://www.boatdriver.ch/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

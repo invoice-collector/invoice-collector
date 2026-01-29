@@ -29,7 +29,7 @@ export class SubaruPartnersCollector extends SketchCollector {
         loginUrl: "https://www.subarunet.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

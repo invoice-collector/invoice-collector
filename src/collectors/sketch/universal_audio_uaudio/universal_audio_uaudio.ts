@@ -29,7 +29,7 @@ export class UniversalAudioUaudioCollector extends SketchCollector {
         loginUrl: "https://www.uaudio.de/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

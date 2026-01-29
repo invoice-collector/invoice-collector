@@ -29,7 +29,7 @@ export class EOnRomaniaCollector extends SketchCollector {
         loginUrl: "https://www.eon.ro/myline/facturile-mele",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

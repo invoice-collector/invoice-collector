@@ -29,7 +29,7 @@ export class HostTrackerCollector extends SketchCollector {
         loginUrl: "https://www.host-tracker.com/billing/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

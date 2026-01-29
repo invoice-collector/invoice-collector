@@ -29,7 +29,7 @@ export class SaveEnergiesCollector extends SketchCollector {
         loginUrl: "https://espaceclients.save-energies.fr/web/guest/home?p_p_state=maximized&p_p_mode=view&refererPlid=206189&saveLastPath=false&_com_liferay_login_web_portlet_LoginPortlet_mvcRenderCommandName=%2Flogin%2Flogin&p_p_id=com_liferay_login_web_portlet_LoginPortl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

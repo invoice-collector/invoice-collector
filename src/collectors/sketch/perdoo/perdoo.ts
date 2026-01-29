@@ -29,7 +29,7 @@ export class PerdooCollector extends SketchCollector {
         loginUrl: "https://web.perdoo.com/#/settings/company/general/info",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

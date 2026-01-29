@@ -29,7 +29,7 @@ export class HitenergieCollector extends SketchCollector {
         loginUrl: "https://www.hitenergie.de/selfcare",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

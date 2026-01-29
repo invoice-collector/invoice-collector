@@ -29,7 +29,7 @@ export class AhveasyCollector extends SketchCollector {
         loginUrl: "https://www.eadminportal.ch/portal/Portal.do?embed=/zl/svasg/igseaagap/agap/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

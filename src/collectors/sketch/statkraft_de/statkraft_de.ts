@@ -29,7 +29,7 @@ export class StatkraftDeCollector extends SketchCollector {
         loginUrl: "https://kundenportal.statkraft.de/portal/documents?filter-anlage%5B0%5D=3160&filter-anlage%5B1%5D=3206",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

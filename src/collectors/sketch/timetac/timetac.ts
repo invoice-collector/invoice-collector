@@ -29,7 +29,7 @@ export class TimetacCollector extends SketchCollector {
         loginUrl: "https://go.timetac.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

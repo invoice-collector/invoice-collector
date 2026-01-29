@@ -29,7 +29,7 @@ export class Tool4sellerCollector extends SketchCollector {
         loginUrl: "https://data.tool4seller.com/dashboard/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

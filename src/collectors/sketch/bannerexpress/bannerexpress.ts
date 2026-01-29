@@ -29,7 +29,7 @@ export class BannerexpressCollector extends SketchCollector {
         loginUrl: "http://www.bannerexpress.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LykoCollector extends SketchCollector {
         loginUrl: "https://lyko.com/de/meine-seite/bestellubersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

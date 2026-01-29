@@ -29,7 +29,7 @@ export class Werk1Collector extends SketchCollector {
         loginUrl: "https://werk1.officernd.com/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

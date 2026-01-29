@@ -29,7 +29,7 @@ export class LebaraNlCollector extends SketchCollector {
         loginUrl: "https://www.lebara.nl/nl/mylebara.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

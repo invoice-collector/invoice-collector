@@ -29,7 +29,7 @@ export class GsmplazaNlCollector extends SketchCollector {
         loginUrl: "http://www.gsmplaza.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

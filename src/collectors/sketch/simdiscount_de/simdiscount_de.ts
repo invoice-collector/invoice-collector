@@ -29,7 +29,7 @@ export class SimdiscountDeCollector extends SketchCollector {
         loginUrl: "https://service.simdiscount.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

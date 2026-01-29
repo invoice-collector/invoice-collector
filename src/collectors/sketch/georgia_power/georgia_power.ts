@@ -29,7 +29,7 @@ export class GeorgiaPowerCollector extends SketchCollector {
         loginUrl: "https://customerservice2.southerncompany.com/Billing/BillHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

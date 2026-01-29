@@ -29,7 +29,7 @@ export class BurstSpieleCollector extends SketchCollector {
         loginUrl: "https://www.burstspiele.de/shop2/index.php?page=account&action=bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

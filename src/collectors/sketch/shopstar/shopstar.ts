@@ -29,7 +29,7 @@ export class ShopstarCollector extends SketchCollector {
         loginUrl: "https://www.shopstar.pe/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

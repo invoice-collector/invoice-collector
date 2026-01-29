@@ -29,7 +29,7 @@ export class MutuelleAprevaEntrepriseCollector extends SketchCollector {
         loginUrl: "https://entreprise.apreva.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

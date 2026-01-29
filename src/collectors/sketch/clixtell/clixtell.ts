@@ -29,7 +29,7 @@ export class ClixtellCollector extends SketchCollector {
         loginUrl: "https://app.clixtell.com/#/dashboard/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

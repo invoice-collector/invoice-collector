@@ -29,7 +29,7 @@ export class StratoEShopDeCollector extends SketchCollector {
         loginUrl: "https://shop.strato.de/epages/de.login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

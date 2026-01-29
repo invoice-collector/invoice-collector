@@ -29,7 +29,7 @@ export class StarbueroCollector extends SketchCollector {
         loginUrl: "https://backend.starbuero.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

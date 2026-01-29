@@ -29,7 +29,7 @@ export class StromioCollector extends SketchCollector {
         loginUrl: "https://kundenportal.stromio.de/qpo/portal/stromio/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MuvingCollector extends SketchCollector {
         loginUrl: "https://backend.muving.com/customer.html#invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

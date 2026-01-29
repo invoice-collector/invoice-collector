@@ -29,7 +29,7 @@ export class ReservixVorverkaufCollector extends SketchCollector {
         loginUrl: "https://system.reservix.de/off/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

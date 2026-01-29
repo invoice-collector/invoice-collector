@@ -29,7 +29,7 @@ export class AmazonSellerCentralSeCollector extends SketchCollector {
         loginUrl: "https://sellercentral.amazon.se/payments/event/view?resultsPerPage=10&pageNumber=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

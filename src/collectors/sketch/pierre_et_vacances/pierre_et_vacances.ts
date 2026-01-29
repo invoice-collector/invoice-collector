@@ -29,7 +29,7 @@ export class PierreEtVacancesCollector extends SketchCollector {
         loginUrl: "https://my.pierreetvacances.com/fr-fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

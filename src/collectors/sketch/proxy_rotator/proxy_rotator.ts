@@ -29,7 +29,7 @@ export class ProxyRotatorCollector extends SketchCollector {
         loginUrl: "https://www.proxyrotator.com/app/purchase/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

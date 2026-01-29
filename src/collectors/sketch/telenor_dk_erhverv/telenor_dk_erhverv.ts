@@ -29,7 +29,7 @@ export class TelenorDkErhvervCollector extends SketchCollector {
         loginUrl: "https://www.telenor.dk/erhverv/selvbetjening/faktura/kontooverblik/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

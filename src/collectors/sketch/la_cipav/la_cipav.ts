@@ -29,7 +29,7 @@ export class LaCipavCollector extends SketchCollector {
         loginUrl: "https://espace-personnel.lacipav.fr/#/connexion/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

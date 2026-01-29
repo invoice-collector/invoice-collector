@@ -28,7 +28,7 @@ export class MailboxOrgCollector extends SketchCollector {
         loginUrl: "https://login.mailbox.org/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

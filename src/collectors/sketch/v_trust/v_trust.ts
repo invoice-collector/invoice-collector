@@ -29,7 +29,7 @@ export class VTrustCollector extends SketchCollector {
         loginUrl: "https://www.v-trust.com/My/Payment/List.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

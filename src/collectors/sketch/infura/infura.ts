@@ -29,7 +29,7 @@ export class InfuraCollector extends SketchCollector {
         loginUrl: "https://infura.io/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

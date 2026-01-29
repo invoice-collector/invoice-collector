@@ -29,7 +29,7 @@ export class FotocommunityCollector extends SketchCollector {
         loginUrl: "https://www.fotocommunity.de/settings/premium",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

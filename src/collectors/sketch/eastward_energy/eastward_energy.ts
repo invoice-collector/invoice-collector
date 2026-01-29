@@ -29,7 +29,7 @@ export class EastwardEnergyCollector extends SketchCollector {
         loginUrl: "https://myaccount.eastwardenergy.com/AccountSummary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

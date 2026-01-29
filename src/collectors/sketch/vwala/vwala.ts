@@ -29,7 +29,7 @@ export class VwalaCollector extends SketchCollector {
         loginUrl: "https://www.vwa.la/#/dashboard/16445247/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

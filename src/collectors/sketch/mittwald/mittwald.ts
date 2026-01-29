@@ -29,7 +29,7 @@ export class MittwaldCollector extends SketchCollector {
         loginUrl: "https://login.mittwald.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

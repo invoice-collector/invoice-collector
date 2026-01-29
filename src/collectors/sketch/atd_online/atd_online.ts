@@ -29,7 +29,7 @@ export class AtdOnlineCollector extends SketchCollector {
         loginUrl: "https://atdonline.com/my-account/accounting/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class TelekomRechnungOnlineBusinessCollector extends SketchCollector {
         loginUrl: "https://rechnung.geschaeftskunden.telekom.de/kv/belege_uebersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

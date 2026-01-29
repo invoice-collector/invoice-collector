@@ -29,7 +29,7 @@ export class AbfallwirtschaftSchleswigFlensburgGmbhCollector extends SketchColle
         loginUrl: "https://portal.asf-online.de/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

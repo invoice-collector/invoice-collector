@@ -29,7 +29,7 @@ export class Chrono24Collector extends SketchCollector {
         loginUrl: "https://www.chrono24.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

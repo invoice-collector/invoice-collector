@@ -29,7 +29,7 @@ export class AlfahostingDePartnerportalCollector extends SketchCollector {
         loginUrl: "https://alfahosting.de/affiliate-login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

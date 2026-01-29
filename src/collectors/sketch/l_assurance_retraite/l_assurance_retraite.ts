@@ -29,7 +29,7 @@ export class LAssuranceRetraiteCollector extends SketchCollector {
         loginUrl: "https://www.lassuranceretraite.fr/portail-services-ihm/#/authentifier",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

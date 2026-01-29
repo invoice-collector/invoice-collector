@@ -29,7 +29,7 @@ export class ModelKarteiDeCollector extends SketchCollector {
         loginUrl: "https://www.model-kartei.de/vip/rechnung/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

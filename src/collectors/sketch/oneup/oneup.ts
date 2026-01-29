@@ -29,7 +29,7 @@ export class OneupCollector extends SketchCollector {
         loginUrl: "https://www.oneupapp.io/plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

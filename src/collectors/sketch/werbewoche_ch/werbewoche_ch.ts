@@ -29,7 +29,7 @@ export class WerbewocheChCollector extends SketchCollector {
         loginUrl: "https://www.werbewoche.ch/de/account/view-order/197840/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

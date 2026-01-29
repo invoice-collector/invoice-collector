@@ -29,7 +29,7 @@ export class RenderCollector extends SketchCollector {
         loginUrl: "https://dashboard.render.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

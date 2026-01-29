@@ -29,7 +29,7 @@ export class JochenschweizerMydaysCollector extends SketchCollector {
         loginUrl: "https://login.jsmd-group.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

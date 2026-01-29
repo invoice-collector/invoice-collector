@@ -29,7 +29,7 @@ export class AppleBusinessManagerCollector extends SketchCollector {
         loginUrl: "https://business.apple.com/#main/accounts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

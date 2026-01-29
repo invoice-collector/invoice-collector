@@ -29,7 +29,7 @@ export class TaxuallyCollector extends SketchCollector {
         loginUrl: "https://app.taxually.com/app/transaction-history/active",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

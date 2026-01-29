@@ -29,7 +29,7 @@ export class CovetrusCollector extends SketchCollector {
         loginUrl: "https://covetrus.de/i/konto/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

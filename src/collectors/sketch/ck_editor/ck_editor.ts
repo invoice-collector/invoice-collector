@@ -29,7 +29,7 @@ export class CkEditorCollector extends SketchCollector {
         loginUrl: "https://dashboard.ckeditor.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

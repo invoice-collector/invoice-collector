@@ -29,7 +29,7 @@ export class SupermarketOnlineCollector extends SketchCollector {
         loginUrl: "https://internetowysupermarket.pl/client-orders.php?display=closed",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

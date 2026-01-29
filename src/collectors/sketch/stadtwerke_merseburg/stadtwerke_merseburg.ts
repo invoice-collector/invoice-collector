@@ -29,7 +29,7 @@ export class StadtwerkeMerseburgCollector extends SketchCollector {
         loginUrl: "https://www.stadtwerke-merseburg.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

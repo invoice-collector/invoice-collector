@@ -29,7 +29,7 @@ export class PayproGlobalCollector extends SketchCollector {
         loginUrl: "https://cc.payproglobal.com/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

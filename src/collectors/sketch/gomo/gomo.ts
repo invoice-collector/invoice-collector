@@ -29,7 +29,7 @@ export class GomoCollector extends SketchCollector {
         loginUrl: "https://my.gomo.ie/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

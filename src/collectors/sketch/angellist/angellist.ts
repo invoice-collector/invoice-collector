@@ -29,7 +29,7 @@ export class AngellistCollector extends SketchCollector {
         loginUrl: "https://angel.co/layer-8/recruiting/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

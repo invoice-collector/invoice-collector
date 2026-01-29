@@ -29,7 +29,7 @@ export class InterfaxCollector extends SketchCollector {
         loginUrl: "https://secure.interfax.net/Default.aspx?MenuItem=AccountManagement",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UlysCollector extends SketchCollector {
         loginUrl: "https://espaceabonnes.vinci-autoroutes.com/invoices-consos/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

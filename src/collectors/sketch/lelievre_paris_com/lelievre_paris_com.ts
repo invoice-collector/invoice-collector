@@ -29,7 +29,7 @@ export class LelievreParisComCollector extends SketchCollector {
         loginUrl: "https://lelievreparis.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

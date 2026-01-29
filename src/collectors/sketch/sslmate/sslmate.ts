@@ -29,7 +29,7 @@ export class SslmateCollector extends SketchCollector {
         loginUrl: "https://sslmate.com/dashboard?login=1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

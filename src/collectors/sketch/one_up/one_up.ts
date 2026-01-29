@@ -29,7 +29,7 @@ export class OneUpCollector extends SketchCollector {
         loginUrl: "https://app.oneup.com/#customer_invoice/search?after=2023-01-01&before=2023-12-31&on_date=date&sort=due_date&sortOrder=asc&filter=payment-paid",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

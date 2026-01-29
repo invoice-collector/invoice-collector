@@ -29,7 +29,7 @@ export class OnepageGmbhCollector extends SketchCollector {
         loginUrl: "https://app.onepage.io/sites",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

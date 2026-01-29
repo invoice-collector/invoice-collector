@@ -28,7 +28,7 @@ export class LaCafetiereCatalaneCollector extends SketchCollector {
         loginUrl: "https://www.lacafetierecatalane.com/espace-client?back=my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

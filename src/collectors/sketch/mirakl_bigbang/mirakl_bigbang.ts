@@ -29,7 +29,7 @@ export class MiraklBigbangCollector extends SketchCollector {
         loginUrl: "https://bigbangmarketplace.mirakl.net/sellerpayment/shop/shop-billing-cycles?sort=dateCreated%2CDESC&limit=25",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

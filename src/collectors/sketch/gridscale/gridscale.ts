@@ -29,7 +29,7 @@ export class GridscaleCollector extends SketchCollector {
         loginUrl: "https://my.gridscale.io/?lang=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

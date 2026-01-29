@@ -29,7 +29,7 @@ export class PaysimpleCollector extends SketchCollector {
         loginUrl: "https://payments.paysimple.com/PaySimple/Login/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

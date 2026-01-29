@@ -29,7 +29,7 @@ export class CreoateCollector extends SketchCollector {
         loginUrl: "https://www.creoate.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

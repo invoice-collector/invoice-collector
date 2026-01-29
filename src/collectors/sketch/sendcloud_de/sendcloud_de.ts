@@ -29,7 +29,7 @@ export class SendcloudDeCollector extends SketchCollector {
         loginUrl: "https://panel.sendcloud.sc/accounts/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

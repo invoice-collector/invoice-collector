@@ -29,7 +29,7 @@ export class TeamflowCollector extends SketchCollector {
         loginUrl: "https://app.teamflowhq.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

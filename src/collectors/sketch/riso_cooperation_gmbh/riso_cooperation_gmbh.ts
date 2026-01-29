@@ -29,7 +29,7 @@ export class RisoCooperationGmbhCollector extends SketchCollector {
         loginUrl: "https://www.riso.de/shop/mein-konto/bestellungen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

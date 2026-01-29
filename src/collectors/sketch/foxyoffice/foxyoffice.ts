@@ -29,7 +29,7 @@ export class FoxyofficeCollector extends SketchCollector {
         loginUrl: "https://mars.foxyoffice.eu/ellimachtfit/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GroverCollector extends SketchCollector {
         loginUrl: "https://www.grover.com/de/dashboard/transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

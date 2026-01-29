@@ -29,7 +29,7 @@ export class ArrowCollector extends SketchCollector {
         loginUrl: "https://my.arrowecs.fr/partner-portal/invoices.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

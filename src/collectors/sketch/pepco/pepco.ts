@@ -29,7 +29,7 @@ export class PepcoCollector extends SketchCollector {
         loginUrl: "https://www.pepco.com/Pages/default.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

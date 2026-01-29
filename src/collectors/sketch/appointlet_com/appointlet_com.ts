@@ -29,7 +29,7 @@ export class AppointletComCollector extends SketchCollector {
         loginUrl: "https://www.appointlet.com/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

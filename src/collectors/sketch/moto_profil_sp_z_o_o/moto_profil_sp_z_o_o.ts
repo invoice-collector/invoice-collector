@@ -29,7 +29,7 @@ export class MotoProfilSpZOOCollector extends SketchCollector {
         loginUrl: "https://id.profiauto.pl/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

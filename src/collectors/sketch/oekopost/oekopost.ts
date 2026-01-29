@@ -29,7 +29,7 @@ export class OekopostCollector extends SketchCollector {
         loginUrl: "https://www.oekopost.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

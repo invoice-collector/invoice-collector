@@ -29,7 +29,7 @@ export class CitizCollector extends SketchCollector {
         loginUrl: "https://service.citiz.fr/webapp/my_invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

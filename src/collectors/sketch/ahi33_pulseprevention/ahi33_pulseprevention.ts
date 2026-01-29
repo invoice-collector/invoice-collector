@@ -29,7 +29,7 @@ export class Ahi33PulsepreventionCollector extends SketchCollector {
         loginUrl: "https://portailahi33.pulseprevention.com/Documents/Invoicing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

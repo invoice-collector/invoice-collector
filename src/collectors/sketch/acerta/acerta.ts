@@ -28,7 +28,7 @@ export class AcertaCollector extends SketchCollector {
         loginUrl: "https://signin.acerta.be/am/XUI/?realm=/alpha&locale=en#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

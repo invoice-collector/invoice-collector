@@ -29,7 +29,7 @@ export class HandwerkskamemrStuttgartCollector extends SketchCollector {
         loginUrl: "https://www.hwk-stuttgart.de/download",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

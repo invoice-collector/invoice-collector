@@ -29,7 +29,7 @@ export class TpgTelecomCollector extends SketchCollector {
         loginUrl: "https://www.tpg.com.au/home/myaccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

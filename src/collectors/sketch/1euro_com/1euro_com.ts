@@ -29,7 +29,7 @@ export class _1euroComCollector extends SketchCollector {
         loginUrl: "https://www.cofidis.fr/fr/espace-client/1euro_identification.cgi",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

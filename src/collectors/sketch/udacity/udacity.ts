@@ -29,7 +29,7 @@ export class UdacityCollector extends SketchCollector {
         loginUrl: "https://auth.udacity.com/sign-in?next=https://classroom.udacity.com/authenticated",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

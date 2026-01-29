@@ -29,7 +29,7 @@ export class DeltaAirLinesCollector extends SketchCollector {
         loginUrl: "https://www.delta.com/mydelta/walletMyReceiptSummary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

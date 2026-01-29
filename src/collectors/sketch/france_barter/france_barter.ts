@@ -29,7 +29,7 @@ export class FranceBarterCollector extends SketchCollector {
         loginUrl: "https://korp.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

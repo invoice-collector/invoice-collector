@@ -29,7 +29,7 @@ export class JimdoCollector extends SketchCollector {
         loginUrl: "http://e.jimdo.com/app/siteadmin/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

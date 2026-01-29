@@ -29,7 +29,7 @@ export class FonedayCollector extends SketchCollector {
         loginUrl: "https://foneday.shop/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

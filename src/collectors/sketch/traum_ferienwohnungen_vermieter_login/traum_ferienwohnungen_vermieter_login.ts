@@ -29,7 +29,7 @@ export class TraumFerienwohnungenVermieterLoginCollector extends SketchCollector
         loginUrl: "http://www.traum-ferienwohnungen.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BuyzeroDeCollector extends SketchCollector {
         loginUrl: "https://buyzero.de/en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

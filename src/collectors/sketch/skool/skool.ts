@@ -29,7 +29,7 @@ export class SkoolCollector extends SketchCollector {
         loginUrl: "https://www.skool.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

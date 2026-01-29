@@ -29,7 +29,7 @@ export class KinderdentCollector extends SketchCollector {
         loginUrl: "https://www.kinderdent.com/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

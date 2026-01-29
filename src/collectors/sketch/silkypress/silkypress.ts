@@ -29,7 +29,7 @@ export class SilkypressCollector extends SketchCollector {
         loginUrl: "https://www.silkypress.com/my-account/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

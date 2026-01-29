@@ -29,7 +29,7 @@ export class MitreLinenCollector extends SketchCollector {
         loginUrl: "https://www.mitrelinen.co.uk/my-account/invoicesandcredits",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

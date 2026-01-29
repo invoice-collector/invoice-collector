@@ -29,7 +29,7 @@ export class AdmincolumnsCollector extends SketchCollector {
         loginUrl: "https://www.admincolumns.com/my-account/orders/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

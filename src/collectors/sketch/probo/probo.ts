@@ -29,7 +29,7 @@ export class ProboCollector extends SketchCollector {
         loginUrl: "https://www.probo.de/myaccount/invoice/index/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

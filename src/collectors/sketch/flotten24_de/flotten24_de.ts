@@ -29,7 +29,7 @@ export class Flotten24DeCollector extends SketchCollector {
         loginUrl: "https://www.flotten24.de/cgi-bin/ashop.pl?cart_id=xL6LUMemK3ELRK96.982.499735568&dsco=82&Cookie=&custom=&meinb=yes",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

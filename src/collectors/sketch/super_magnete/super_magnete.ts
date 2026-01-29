@@ -29,7 +29,7 @@ export class SuperMagneteCollector extends SketchCollector {
         loginUrl: "https://www.supermagnete.fr/profile/orderlist",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

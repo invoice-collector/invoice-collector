@@ -29,7 +29,7 @@ export class GreenStarEnergyCollector extends SketchCollector {
         loginUrl: "http://www.mygreenstarenergy.com/My-Energy-World",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

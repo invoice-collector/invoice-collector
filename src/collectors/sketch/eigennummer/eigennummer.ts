@@ -29,7 +29,7 @@ export class EigennummerCollector extends SketchCollector {
         loginUrl: "https://login.eigennummer.nl/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

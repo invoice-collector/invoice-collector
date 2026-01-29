@@ -29,7 +29,7 @@ export class KurpfalztelCollector extends SketchCollector {
         loginUrl: "https://kundenportal.kurpfalztel.de/DocumentArc/DocumentArchive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

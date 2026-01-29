@@ -29,7 +29,7 @@ export class MarklinHandlerPortalCollector extends SketchCollector {
         loginUrl: "https://order.maerklin.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

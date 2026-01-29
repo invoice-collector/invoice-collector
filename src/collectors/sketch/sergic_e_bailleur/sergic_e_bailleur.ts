@@ -29,7 +29,7 @@ export class SergicEBailleurCollector extends SketchCollector {
         loginUrl: "https://www.ebailleur.sergic.com/pages/bailleur/identification.seam",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

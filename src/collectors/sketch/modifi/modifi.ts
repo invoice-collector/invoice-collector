@@ -29,7 +29,7 @@ export class ModifiCollector extends SketchCollector {
         loginUrl: "https://billing.modifi.com/invoices/buyer-finance",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

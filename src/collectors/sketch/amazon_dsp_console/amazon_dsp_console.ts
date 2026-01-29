@@ -29,7 +29,7 @@ export class AmazonDspConsoleCollector extends SketchCollector {
         loginUrl: "https://advertising.amazon.com/de-de/sign-in?ref_=a20m_us_hnav_sgn&countrycode=de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

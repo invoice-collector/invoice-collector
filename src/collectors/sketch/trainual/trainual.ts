@@ -29,7 +29,7 @@ export class TrainualCollector extends SketchCollector {
         loginUrl: "https://app.trainual.com/accounts/universal_login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

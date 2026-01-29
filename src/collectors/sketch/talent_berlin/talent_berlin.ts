@@ -29,7 +29,7 @@ export class TalentBerlinCollector extends SketchCollector {
         loginUrl: "https://www.talent-berlin.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

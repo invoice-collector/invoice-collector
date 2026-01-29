@@ -29,7 +29,7 @@ export class CityOfMansfieldTxCollector extends SketchCollector {
         loginUrl: "https://payments.mansfieldtexas.gov/stw_php/stwub/ubliphst.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

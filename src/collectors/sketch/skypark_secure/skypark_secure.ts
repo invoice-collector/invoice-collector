@@ -29,7 +29,7 @@ export class SkyparkSecureCollector extends SketchCollector {
         loginUrl: "http://www.skyparksecure.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

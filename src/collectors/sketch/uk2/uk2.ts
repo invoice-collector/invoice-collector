@@ -29,7 +29,7 @@ export class Uk2Collector extends SketchCollector {
         loginUrl: "https://chi.uk2.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

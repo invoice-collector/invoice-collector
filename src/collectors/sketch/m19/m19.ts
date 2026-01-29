@@ -29,7 +29,7 @@ export class M19Collector extends SketchCollector {
         loginUrl: "https://board.m19.com/#/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

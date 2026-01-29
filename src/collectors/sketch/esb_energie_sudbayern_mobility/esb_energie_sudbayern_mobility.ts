@@ -29,7 +29,7 @@ export class EsbEnergieSudbayernMobilityCollector extends SketchCollector {
         loginUrl: "https://esb.ladecloud.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

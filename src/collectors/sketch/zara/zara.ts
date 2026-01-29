@@ -29,7 +29,7 @@ export class ZaraCollector extends SketchCollector {
         loginUrl: "https://www.zara.com/fr/fr/logon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

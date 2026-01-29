@@ -29,7 +29,7 @@ export class MaptilerCollector extends SketchCollector {
         loginUrl: "https://cloud.maptiler.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

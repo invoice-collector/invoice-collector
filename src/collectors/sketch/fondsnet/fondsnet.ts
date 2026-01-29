@@ -29,7 +29,7 @@ export class FondsnetCollector extends SketchCollector {
         loginUrl: "https://fondsnet.depotplattform.de/vertriebspartner/abwicklung_provisionsabrechnung.php?mId=102",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

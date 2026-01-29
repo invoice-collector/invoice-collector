@@ -29,7 +29,7 @@ export class EasyloungeCollector extends SketchCollector {
         loginUrl: "https://www.easylounge.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

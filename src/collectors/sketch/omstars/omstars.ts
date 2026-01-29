@@ -29,7 +29,7 @@ export class OmstarsCollector extends SketchCollector {
         loginUrl: "https://omstars.com/sign-in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

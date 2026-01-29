@@ -29,7 +29,7 @@ export class LittleYogaStoreCollector extends SketchCollector {
         loginUrl: "https://www.littleyogastore.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

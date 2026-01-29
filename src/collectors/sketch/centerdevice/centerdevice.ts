@@ -29,7 +29,7 @@ export class CenterdeviceCollector extends SketchCollector {
         loginUrl: "https://www.centerdevice.de/anmelden/.",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

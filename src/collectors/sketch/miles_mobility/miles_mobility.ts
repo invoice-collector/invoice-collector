@@ -29,7 +29,7 @@ export class MilesMobilityCollector extends SketchCollector {
         loginUrl: "https://abo.miles-mobility.com/en/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

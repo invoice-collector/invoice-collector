@@ -29,7 +29,7 @@ export class BugfenderCollector extends SketchCollector {
         loginUrl: "https://bugfender.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

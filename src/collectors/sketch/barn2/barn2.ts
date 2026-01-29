@@ -29,7 +29,7 @@ export class Barn2Collector extends SketchCollector {
         loginUrl: "https://barn2.com/account/#orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

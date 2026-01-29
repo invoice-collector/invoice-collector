@@ -29,7 +29,7 @@ export class StadtwerkeKaiserslauternCollector extends SketchCollector {
         loginUrl: "https://www.meineswk.de/Postfach",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

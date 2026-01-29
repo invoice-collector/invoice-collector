@@ -29,7 +29,7 @@ export class EurosenderCollector extends SketchCollector {
         loginUrl: "https://www.eurosender.com/dashboard/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

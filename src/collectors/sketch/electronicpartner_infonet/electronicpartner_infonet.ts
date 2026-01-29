@@ -29,7 +29,7 @@ export class ElectronicpartnerInfonetCollector extends SketchCollector {
         loginUrl: "https://www.ep-infonet.de/apps/de-DE?layout=v6#/app/zahlungen/de-DE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

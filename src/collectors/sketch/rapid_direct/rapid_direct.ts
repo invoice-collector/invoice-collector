@@ -29,7 +29,7 @@ export class RapidDirectCollector extends SketchCollector {
         loginUrl: "https://app.rapiddirect.com/connorsTeam?createTeamDetailId=16",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

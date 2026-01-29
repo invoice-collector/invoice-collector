@@ -29,7 +29,7 @@ export class StarfaceCollector extends SketchCollector {
         loginUrl: "https://www.starface.de/portal/de/index.php?_ga=2.80546839.1662912395.1551639830-1731990487.1551639830",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

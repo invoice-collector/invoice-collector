@@ -29,7 +29,7 @@ export class FranceExpressCollector extends SketchCollector {
         loginUrl: "https://espace-client.france-express.com/client/home#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

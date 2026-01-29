@@ -29,7 +29,7 @@ export class GetinternetDeCollector extends SketchCollector {
         loginUrl: "https://kunden.getinternet.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

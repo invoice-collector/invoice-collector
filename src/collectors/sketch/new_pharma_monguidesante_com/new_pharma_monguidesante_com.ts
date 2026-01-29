@@ -29,7 +29,7 @@ export class NewPharmaMonguidesanteComCollector extends SketchCollector {
         loginUrl: "https://www.newpharma.fr/myaccount/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

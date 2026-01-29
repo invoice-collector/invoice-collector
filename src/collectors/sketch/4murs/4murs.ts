@@ -29,7 +29,7 @@ export class _4mursCollector extends SketchCollector {
         loginUrl: "https://www.4murs.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

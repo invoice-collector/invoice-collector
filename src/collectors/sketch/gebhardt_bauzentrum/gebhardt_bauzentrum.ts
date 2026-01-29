@@ -29,7 +29,7 @@ export class GebhardtBauzentrumCollector extends SketchCollector {
         loginUrl: "https://www.gebhardt-shop.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

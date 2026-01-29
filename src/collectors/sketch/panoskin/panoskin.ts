@@ -29,7 +29,7 @@ export class PanoskinCollector extends SketchCollector {
         loginUrl: "https://login.panoskin.com/#/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

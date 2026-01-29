@@ -29,7 +29,7 @@ export class NetimComCollector extends SketchCollector {
         loginUrl: "https://www.netim.com/direct/account/orders-and-invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

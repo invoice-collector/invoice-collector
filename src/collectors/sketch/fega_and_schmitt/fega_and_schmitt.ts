@@ -29,7 +29,7 @@ export class FegaAndSchmittCollector extends SketchCollector {
         loginUrl: "https://shop.fega.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

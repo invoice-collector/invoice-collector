@@ -29,7 +29,7 @@ export class NinjatechAiCollector extends SketchCollector {
         loginUrl: "https://myninja.ai/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class VriesiaCollector extends SketchCollector {
         loginUrl: "http://www.vriesia.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

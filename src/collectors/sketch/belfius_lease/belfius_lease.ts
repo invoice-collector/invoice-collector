@@ -29,7 +29,7 @@ export class BelfiusLeaseCollector extends SketchCollector {
         loginUrl: "https://iportal.belfius-lease.be/en/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

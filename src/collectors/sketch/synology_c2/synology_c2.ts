@@ -29,7 +29,7 @@ export class SynologyC2Collector extends SketchCollector {
         loginUrl: "https://eu.c2.synology.com/de-de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

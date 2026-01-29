@@ -29,7 +29,7 @@ export class MakroCoZaCollector extends SketchCollector {
         loginUrl: "https://www.makro.co.za/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

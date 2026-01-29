@@ -29,7 +29,7 @@ export class SpreedlyCollector extends SketchCollector {
         loginUrl: "https://id.spreedly.com/signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

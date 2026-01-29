@@ -29,7 +29,7 @@ export class BornetDeCollector extends SketchCollector {
         loginUrl: "https://kundenportal.deutsche-glasfaser.de/selfcare/#/selfcare/login?returnUrl=%2Fhome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

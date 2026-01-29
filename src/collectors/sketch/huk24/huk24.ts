@@ -29,7 +29,7 @@ export class Huk24Collector extends SketchCollector {
         loginUrl: "https://www.huk24.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DuquesneLightCollector extends SketchCollector {
         loginUrl: "https://duquesnelight.com/account-billing/account-summary",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

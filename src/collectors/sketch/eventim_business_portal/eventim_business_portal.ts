@@ -29,7 +29,7 @@ export class EventimBusinessPortalCollector extends SketchCollector {
         loginUrl: "https://api.eventim.com/identity/auth/realms/tdl-de/protocol/openid-connect/auth?client_id=partnerportal__tdl-de&response_type=code&state=48b1f490db3bca4ba73595648dc8b3f7494ecc67&redirect_uri=https%3A%2F%2Fwww.eventim-business.de%2F%3Frealm%3Dtdl-de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MeinNapa3Collector extends SketchCollector {
         loginUrl: "https://www.mein-napa3.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CatchtigerComCollector extends SketchCollector {
         loginUrl: "https://www.catchtiger.com/en/inloggen/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

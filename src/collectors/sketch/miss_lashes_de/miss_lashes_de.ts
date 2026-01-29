@@ -29,7 +29,7 @@ export class MissLashesDeCollector extends SketchCollector {
         loginUrl: "https://www.miss-lashes.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

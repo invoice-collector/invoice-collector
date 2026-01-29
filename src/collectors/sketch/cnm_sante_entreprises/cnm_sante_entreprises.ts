@@ -29,7 +29,7 @@ export class CnmSanteEntreprisesCollector extends SketchCollector {
         loginUrl: "https://monespacepersonnel.cimut.net/web/cnm-entreprise",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

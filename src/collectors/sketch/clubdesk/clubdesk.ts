@@ -29,7 +29,7 @@ export class ClubdeskCollector extends SketchCollector {
         loginUrl: "https://app.clubdesk.com/clubdesk/start",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

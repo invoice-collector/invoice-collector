@@ -29,7 +29,7 @@ export class DeliciousBrainsCollector extends SketchCollector {
         loginUrl: "https://deliciousbrains.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

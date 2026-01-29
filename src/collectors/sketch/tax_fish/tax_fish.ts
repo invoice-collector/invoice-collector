@@ -29,7 +29,7 @@ export class TaxFishCollector extends SketchCollector {
         loginUrl: "https://online.tax.fish/Dokumente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BuchholzFachinformationsdienstCollector extends SketchCollector {
         loginUrl: "https://partner.bfd-online.info/mybfd/acl_users/credentials_cookie_auth/require_login?came_from=https://partner.bfd-online.info/mybfd/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MedialogCollector extends SketchCollector {
         loginUrl: "https://clients.medialog.fr/Compte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

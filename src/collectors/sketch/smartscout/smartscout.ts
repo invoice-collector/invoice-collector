@@ -29,7 +29,7 @@ export class SmartscoutCollector extends SketchCollector {
         loginUrl: "https://app.smartscout.com/app/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

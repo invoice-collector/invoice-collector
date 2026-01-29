@@ -29,7 +29,7 @@ export class DigixoComCollector extends SketchCollector {
         loginUrl: "https://www.digixo.com/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

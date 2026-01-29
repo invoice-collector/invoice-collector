@@ -29,7 +29,7 @@ export class SynestyCollector extends SketchCollector {
         loginUrl: "https://apps.synesty.com/logon/en-us",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

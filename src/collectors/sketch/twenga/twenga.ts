@@ -29,7 +29,7 @@ export class TwengaCollector extends SketchCollector {
         loginUrl: "https://app.twenga-solutions.com/de/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

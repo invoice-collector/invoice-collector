@@ -29,7 +29,7 @@ export class BusinessOfFashionCollector extends SketchCollector {
         loginUrl: "https://www.businessoffashion.com/spa#/app/account/personal/your-membership",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KMMaklerportalCollector extends SketchCollector {
         loginUrl: "https://secure.konzept-marketing.de/Maklerportal/V2/CourtageListenDownload.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

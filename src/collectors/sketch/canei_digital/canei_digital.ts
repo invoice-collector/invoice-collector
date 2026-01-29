@@ -29,7 +29,7 @@ export class CaneiDigitalCollector extends SketchCollector {
         loginUrl: "https://app.canei.digital/account/abo",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NrcHandelsbladCollector extends SketchCollector {
         loginUrl: "https://login.nrc.nl/login?service=https%3A%2F%2Fservice.nrc.nl%2Finloggen%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

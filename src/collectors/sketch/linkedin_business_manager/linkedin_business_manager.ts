@@ -29,7 +29,7 @@ export class LinkedinBusinessManagerCollector extends SketchCollector {
         loginUrl: "https://www.linkedin.com/businessmanager/accounts/6966019903610884097/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

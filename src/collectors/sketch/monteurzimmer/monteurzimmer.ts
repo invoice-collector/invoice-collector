@@ -29,7 +29,7 @@ export class MonteurzimmerCollector extends SketchCollector {
         loginUrl: "https://www.monteurzimmer.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

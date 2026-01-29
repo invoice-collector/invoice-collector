@@ -29,7 +29,7 @@ export class OnestaffCollector extends SketchCollector {
         loginUrl: "https://www.onestaff.eu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

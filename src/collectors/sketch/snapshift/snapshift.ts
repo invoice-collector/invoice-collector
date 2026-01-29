@@ -29,7 +29,7 @@ export class SnapshiftCollector extends SketchCollector {
         loginUrl: "https://app.snapshift.co/subscription?tab=payment_history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

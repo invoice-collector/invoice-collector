@@ -29,7 +29,7 @@ export class EleshopCollector extends SketchCollector {
         loginUrl: "https://eleshop.fr/sales/order/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

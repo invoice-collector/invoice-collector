@@ -29,7 +29,7 @@ export class CodebaseCollector extends SketchCollector {
         loginUrl: "https://billing.atechmedia.com/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

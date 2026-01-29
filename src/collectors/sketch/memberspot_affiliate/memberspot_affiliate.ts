@@ -29,7 +29,7 @@ export class MemberspotAffiliateCollector extends SketchCollector {
         loginUrl: "https://partner.memberspot.de/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

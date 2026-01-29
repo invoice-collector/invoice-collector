@@ -29,7 +29,7 @@ export class PacklinkProEnCollector extends SketchCollector {
         loginUrl: "https://pro.packlink.com/private/shipments/ready-to-purchase",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

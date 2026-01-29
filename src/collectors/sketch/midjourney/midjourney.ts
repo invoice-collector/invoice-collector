@@ -29,7 +29,7 @@ export class MidjourneyCollector extends SketchCollector {
         loginUrl: "https://www.midjourney.com/home/?callbackUrl=%2Fapp%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

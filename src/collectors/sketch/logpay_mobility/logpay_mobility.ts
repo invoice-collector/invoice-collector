@@ -29,7 +29,7 @@ export class LogpayMobilityCollector extends SketchCollector {
         loginUrl: "https://mandator.logpay.de/dokumente",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

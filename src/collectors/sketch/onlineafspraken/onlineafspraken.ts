@@ -29,7 +29,7 @@ export class OnlineafsprakenCollector extends SketchCollector {
         loginUrl: "https://agenda.onlineafspraken.nl/companies/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

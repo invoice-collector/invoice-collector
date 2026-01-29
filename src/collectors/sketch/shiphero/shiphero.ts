@@ -29,7 +29,7 @@ export class ShipheroCollector extends SketchCollector {
         loginUrl: "https://signin.shiphero.com/login?ref=https://endeavour.shiphero.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HaufeServiceCenterCollector extends SketchCollector {
         loginUrl: "https://account.haufe-lexware.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

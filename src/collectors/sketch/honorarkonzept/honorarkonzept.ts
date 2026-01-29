@@ -29,7 +29,7 @@ export class HonorarkonzeptCollector extends SketchCollector {
         loginUrl: "https://fortuna.honorarkonzept.de/dashboard/#/mailbox/berater",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

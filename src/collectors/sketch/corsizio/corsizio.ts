@@ -29,7 +29,7 @@ export class CorsizioCollector extends SketchCollector {
         loginUrl: "https://manager.corsizio.com/attendees",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

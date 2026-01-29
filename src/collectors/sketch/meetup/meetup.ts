@@ -29,7 +29,7 @@ export class MeetupCollector extends SketchCollector {
         loginUrl: "https://secure.meetup.com/subscription/payment/history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

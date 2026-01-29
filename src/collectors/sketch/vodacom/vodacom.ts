@@ -29,7 +29,7 @@ export class VodacomCollector extends SketchCollector {
         loginUrl: "https://www.vodacom.co.za/cloud/digital/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

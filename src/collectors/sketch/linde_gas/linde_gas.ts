@@ -29,7 +29,7 @@ export class LindeGasCollector extends SketchCollector {
         loginUrl: "https://www.linde-gas.de/shop/NonAjaxAccountProfileFormView?currentSelection=checkoutProfileSlct&fromLink=myAccount&profileFormStyle=strong&catalogId=3074457345616681318&myAcctMain=2&langId=-3&storeId=715845184",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

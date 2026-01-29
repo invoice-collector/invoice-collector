@@ -29,7 +29,7 @@ export class SendibleCollector extends SketchCollector {
         loginUrl: "https://app.sendible.com/#manage/subscription",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

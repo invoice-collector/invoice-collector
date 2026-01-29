@@ -29,7 +29,7 @@ export class KamikomCollector extends SketchCollector {
         loginUrl: "https://app.kamikom.de/login/verwaltung/abrechnung/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InsightlyCollector extends SketchCollector {
         loginUrl: "https://login.insightly.com/User/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

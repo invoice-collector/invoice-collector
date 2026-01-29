@@ -29,7 +29,7 @@ export class DeepinfraCollector extends SketchCollector {
         loginUrl: "https://deepinfra.com/login?from=%2Fdash",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

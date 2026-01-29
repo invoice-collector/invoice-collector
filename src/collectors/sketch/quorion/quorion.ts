@@ -29,7 +29,7 @@ export class QuorionCollector extends SketchCollector {
         loginUrl: "https://delta-a.de/prod/reports",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

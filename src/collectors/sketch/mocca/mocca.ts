@@ -29,7 +29,7 @@ export class MoccaCollector extends SketchCollector {
         loginUrl: "https://www.mobile-customer-care.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

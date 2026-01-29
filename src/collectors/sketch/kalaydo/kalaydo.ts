@@ -29,7 +29,7 @@ export class KalaydoCollector extends SketchCollector {
         loginUrl: "https://www.kalaydo.de/nichtangemeldet.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

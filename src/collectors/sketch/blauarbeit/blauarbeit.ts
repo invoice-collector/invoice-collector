@@ -29,7 +29,7 @@ export class BlauarbeitCollector extends SketchCollector {
         loginUrl: "https://www.blauarbeit.de/usr/login/show.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

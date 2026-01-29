@@ -29,7 +29,7 @@ export class ScalaraDeCollector extends SketchCollector {
         loginUrl: "https://app.scalara.de/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

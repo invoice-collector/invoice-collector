@@ -29,7 +29,7 @@ export class ShipedgeCollector extends SketchCollector {
         loginUrl: "https://flftx.shipedge.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

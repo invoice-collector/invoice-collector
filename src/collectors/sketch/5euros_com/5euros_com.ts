@@ -29,7 +29,7 @@ export class _5eurosComCollector extends SketchCollector {
         loginUrl: "https://www.5euros.com/achats/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

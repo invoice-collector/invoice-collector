@@ -29,7 +29,7 @@ export class FrontierEnhancedOnlineBillingCollector extends SketchCollector {
         loginUrl: "https://enhancedonlinebilling.frontier.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

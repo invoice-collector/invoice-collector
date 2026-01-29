@@ -29,7 +29,7 @@ export class ZenkitCollector extends SketchCollector {
         loginUrl: "https://base.zenkit.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

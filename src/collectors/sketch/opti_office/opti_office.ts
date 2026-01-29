@@ -29,7 +29,7 @@ export class OptiOfficeCollector extends SketchCollector {
         loginUrl: "https://optioffice.eu/optioffice/login/piti.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

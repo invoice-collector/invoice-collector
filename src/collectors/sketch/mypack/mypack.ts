@@ -29,7 +29,7 @@ export class MypackCollector extends SketchCollector {
         loginUrl: "https://www.mypack.de/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LeaseplanSpainCollector extends SketchCollector {
         loginUrl: "https://leaseplan.gestionaturenting.es/serviciosonline/ov2/empresa/facturacion.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BbvRheinNeckarCollector extends SketchCollector {
         loginUrl: "https://bbvpfalz.co.crm-now.de/kundenportal/index.php?module=Documents&action=index&onlymine=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

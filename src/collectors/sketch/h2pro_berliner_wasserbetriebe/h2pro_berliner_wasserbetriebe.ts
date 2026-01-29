@@ -29,7 +29,7 @@ export class H2proBerlinerWasserbetriebeCollector extends SketchCollector {
         loginUrl: "https://h2pro.bwb.de/powercommerce/bwb/fo/portal/professional",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

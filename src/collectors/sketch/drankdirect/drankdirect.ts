@@ -29,7 +29,7 @@ export class DrankdirectCollector extends SketchCollector {
         loginUrl: "https://drankdirect.nl/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

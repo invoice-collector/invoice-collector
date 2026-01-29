@@ -29,7 +29,7 @@ export class AplanoDeCollector extends SketchCollector {
         loginUrl: "https://web.aplano.de/app/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

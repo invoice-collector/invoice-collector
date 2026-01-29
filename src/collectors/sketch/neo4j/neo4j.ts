@@ -29,7 +29,7 @@ export class Neo4jCollector extends SketchCollector {
         loginUrl: "https://console.neo4j.io/?tab=invoices#settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

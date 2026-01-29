@@ -29,7 +29,7 @@ export class ShirtKingCollector extends SketchCollector {
         loginUrl: "https://connect.shirt-king.de/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

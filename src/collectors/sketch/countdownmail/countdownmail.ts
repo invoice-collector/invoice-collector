@@ -29,7 +29,7 @@ export class CountdownmailCollector extends SketchCollector {
         loginUrl: "https://countdownmail.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class FiebigCollector extends SketchCollector {
         loginUrl: "https://kundenportal.fiebig.de/ig-ApothekenWebx/index.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

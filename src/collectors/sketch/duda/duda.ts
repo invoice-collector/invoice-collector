@@ -29,7 +29,7 @@ export class DudaCollector extends SketchCollector {
         loginUrl: "https://www.duda.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

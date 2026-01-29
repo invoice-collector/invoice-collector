@@ -29,7 +29,7 @@ export class FlairAiCollector extends SketchCollector {
         loginUrl: "https://app.flair.ai/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

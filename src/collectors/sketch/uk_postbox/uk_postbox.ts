@@ -29,7 +29,7 @@ export class UkPostboxCollector extends SketchCollector {
         loginUrl: "https://client.ipostalmail.net/Account/Login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

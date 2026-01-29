@@ -29,7 +29,7 @@ export class HbMarketplaceHandlerbundCollector extends SketchCollector {
         loginUrl: "https://auth.hb-marketplace.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

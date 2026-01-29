@@ -29,7 +29,7 @@ export class LaBoutiqueDuNetCollector extends SketchCollector {
         loginUrl: "https://www.laboutiquedunet.com/c-connexion/Connexion.html?ProcessusOrigine=&PageOrigine=&Var1Origine=&Var2Origine=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

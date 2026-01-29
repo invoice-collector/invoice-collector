@@ -29,7 +29,7 @@ export class DocupipeCollector extends SketchCollector {
         loginUrl: "https://www.docupipe.ai/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

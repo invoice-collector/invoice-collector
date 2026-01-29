@@ -29,7 +29,7 @@ export class EclincherCollector extends SketchCollector {
         loginUrl: "https://app.eclincher.com/ec/login?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

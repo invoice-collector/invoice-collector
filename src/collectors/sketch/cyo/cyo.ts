@@ -29,7 +29,7 @@ export class CyoCollector extends SketchCollector {
         loginUrl: "https://www.cyodirect.fr/default-connected.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

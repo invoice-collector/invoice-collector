@@ -29,7 +29,7 @@ export class CoppenrathB2bCollector extends SketchCollector {
         loginUrl: "https://b2b.coppenrath.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

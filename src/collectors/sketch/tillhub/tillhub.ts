@@ -29,7 +29,7 @@ export class TillhubCollector extends SketchCollector {
         loginUrl: "https://dashboard.tillhub.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

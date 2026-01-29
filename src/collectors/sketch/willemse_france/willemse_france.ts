@@ -29,7 +29,7 @@ export class WillemseFranceCollector extends SketchCollector {
         loginUrl: "https://www.willemsefrance.fr/PBUserLogin.asp?CCode=33",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

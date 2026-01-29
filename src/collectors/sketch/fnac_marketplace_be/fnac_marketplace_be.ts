@@ -29,7 +29,7 @@ export class FnacMarketplaceBeCollector extends SketchCollector {
         loginUrl: "https://secure.fr.fnac.be/identity/server/gateway/signin-signup",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

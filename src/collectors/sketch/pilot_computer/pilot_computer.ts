@@ -29,7 +29,7 @@ export class PilotComputerCollector extends SketchCollector {
         loginUrl: "https://shop.pilot-computer.de/index.php/~customerCenter_InvoiceOrderController/start/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

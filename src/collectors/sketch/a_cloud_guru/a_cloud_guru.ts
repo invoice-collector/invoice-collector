@@ -29,7 +29,7 @@ export class ACloudGuruCollector extends SketchCollector {
         loginUrl: "https://acloudguru.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ClubOpticLeaderCollector extends SketchCollector {
         loginUrl: "https://adherents.opticlibre.com/espace-de-connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

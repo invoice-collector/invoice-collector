@@ -29,7 +29,7 @@ export class BestproxyandvpnCollector extends SketchCollector {
         loginUrl: "https://www.bestproxyandvpn.com/control-panel.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

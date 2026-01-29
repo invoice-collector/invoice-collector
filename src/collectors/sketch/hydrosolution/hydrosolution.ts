@@ -29,7 +29,7 @@ export class HydrosolutionCollector extends SketchCollector {
         loginUrl: "https://www.hydrosolution.com/espace-client/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

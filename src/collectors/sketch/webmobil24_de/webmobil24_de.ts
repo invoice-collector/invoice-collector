@@ -29,7 +29,7 @@ export class Webmobil24DeCollector extends SketchCollector {
         loginUrl: "https://secure.webmobil24.com/web/de/secure/einstellungen/rechnungsverwaltung.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

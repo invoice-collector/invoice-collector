@@ -29,7 +29,7 @@ export class HighMobileCollector extends SketchCollector {
         loginUrl: "https://csc.high-mobile.de/high-csc/user/bills/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class KeytchensCollector extends SketchCollector {
         loginUrl: "https://keytchens.app/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

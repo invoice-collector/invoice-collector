@@ -29,7 +29,7 @@ export class ExtrasauberCollector extends SketchCollector {
         loginUrl: "https://www.extrasauber.at/customer/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class CiteoCollector extends SketchCollector {
         loginUrl: "https://clients.citeo.com/fr/public/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

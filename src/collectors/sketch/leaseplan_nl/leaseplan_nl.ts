@@ -29,7 +29,7 @@ export class LeaseplanNlCollector extends SketchCollector {
         loginUrl: "http://www.leaseplan.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

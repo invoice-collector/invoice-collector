@@ -29,7 +29,7 @@ export class LunarpagesCollector extends SketchCollector {
         loginUrl: "https://account.lunarpages.com/login.php?ref=L2luZGV4LnBocA%3D%3D",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

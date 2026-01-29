@@ -29,7 +29,7 @@ export class BuderusCollector extends SketchCollector {
         loginUrl: "https://www.onlineshop.buderus.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

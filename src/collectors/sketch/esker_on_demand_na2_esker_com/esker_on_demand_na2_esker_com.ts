@@ -29,7 +29,7 @@ export class EskerOnDemandNa2EskerComCollector extends SketchCollector {
         loginUrl: "https://na2.esker.com/ondemand/webaccess/asc/documents.aspx?Target=adminList&ViewId=182410030&tab=182410008",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

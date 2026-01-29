@@ -29,7 +29,7 @@ export class EinsEnergieInSachsenGmbhAndCoKgCollector extends SketchCollector {
         loginUrl: "https://onlineservice.eins.de/powercommerce/eins/fo/portal/start?_ga=2.255272256.950415654.1558015875-1970041404.1558015875",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

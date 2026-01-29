@@ -29,7 +29,7 @@ export class WifiberCyprusCollector extends SketchCollector {
         loginUrl: "https://billing.wifiber.com.cy",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SmstradeDeCollector extends SketchCollector {
         loginUrl: "https://login.smstrade.de/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

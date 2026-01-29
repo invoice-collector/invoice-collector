@@ -29,7 +29,7 @@ export class AdleaksCollector extends SketchCollector {
         loginUrl: "https://www.billingportal.com/s/adleaks-bt/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

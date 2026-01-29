@@ -29,7 +29,7 @@ export class H5pCollector extends SketchCollector {
         loginUrl: "https://h5p.com/login/introduce",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

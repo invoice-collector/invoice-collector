@@ -29,7 +29,7 @@ export class PraxisdienstCollector extends SketchCollector {
         loginUrl: "http://www.praxisdienst.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

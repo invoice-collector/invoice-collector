@@ -29,7 +29,7 @@ export class YouExecLlcCollector extends SketchCollector {
         loginUrl: "https://plus.youexec.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

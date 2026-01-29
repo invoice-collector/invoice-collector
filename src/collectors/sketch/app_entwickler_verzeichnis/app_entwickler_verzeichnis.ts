@@ -29,7 +29,7 @@ export class AppEntwicklerVerzeichnisCollector extends SketchCollector {
         loginUrl: "http://www.app-entwickler-verzeichnis.de/login-register",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

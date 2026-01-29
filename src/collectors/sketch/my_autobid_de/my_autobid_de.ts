@@ -29,7 +29,7 @@ export class MyAutobidDeCollector extends SketchCollector {
         loginUrl: "https://my.autobid.de/?action=mailbox&actionPath=mailbox/invoices&portal=all",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

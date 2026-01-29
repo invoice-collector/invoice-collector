@@ -29,7 +29,7 @@ export class AokGesundheitspartnerserviceCollector extends SketchCollector {
         loginUrl: "https://gp.meine.aok.de/client/postbox/inbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

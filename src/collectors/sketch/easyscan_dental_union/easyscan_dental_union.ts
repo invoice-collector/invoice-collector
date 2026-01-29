@@ -29,7 +29,7 @@ export class EasyscanDentalUnionCollector extends SketchCollector {
         loginUrl: "https://easyscan.dental-union.de/index.php/locale:de_DE/archive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class DpdFrCollector extends SketchCollector {
         loginUrl: "https://www.dpd.fr/professionnels",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

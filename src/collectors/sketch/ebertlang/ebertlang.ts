@@ -29,7 +29,7 @@ export class EbertlangCollector extends SketchCollector {
         loginUrl: "https://partnerportal.elovade.com/start.cfm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

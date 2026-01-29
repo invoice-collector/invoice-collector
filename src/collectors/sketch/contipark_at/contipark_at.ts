@@ -29,7 +29,7 @@ export class ContiparkAtCollector extends SketchCollector {
         loginUrl: "https://www.mein-contipark.at/p-card",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

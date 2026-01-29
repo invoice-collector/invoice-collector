@@ -29,7 +29,7 @@ export class DexGetdexCollector extends SketchCollector {
         loginUrl: "https://getdex.com/appv3/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

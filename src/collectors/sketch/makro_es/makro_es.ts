@@ -29,7 +29,7 @@ export class MakroEsCollector extends SketchCollector {
         loginUrl: "https://docs.makro.es/?_ga=2.64458799.1836613730.1568624469-1760255380.1568027377",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

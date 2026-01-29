@@ -29,7 +29,7 @@ export class OneHourTranslationCollector extends SketchCollector {
         loginUrl: "https://www.onehourtranslation.com/auth/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

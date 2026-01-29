@@ -29,7 +29,7 @@ export class WpmlOrgCollector extends SketchCollector {
         loginUrl: "https://wpml.org/view_order/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

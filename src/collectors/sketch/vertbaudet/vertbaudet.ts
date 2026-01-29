@@ -29,7 +29,7 @@ export class VertbaudetCollector extends SketchCollector {
         loginUrl: "https://www.vertbaudet.com/fr/authentification.aspx?intnavid=s_mon-compte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

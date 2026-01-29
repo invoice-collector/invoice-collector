@@ -29,7 +29,7 @@ export class PaycorCollector extends SketchCollector {
         loginUrl: "https://secure.paycor.com/Accounts/Authentication/Signin",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

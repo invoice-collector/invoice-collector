@@ -29,7 +29,7 @@ export class SynalabsCollector extends SketchCollector {
         loginUrl: "https://www.synalabs.com/clientarea.php?action=invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

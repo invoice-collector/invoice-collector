@@ -29,7 +29,7 @@ export class BookATigerCollector extends SketchCollector {
         loginUrl: "https://www.bookatiger.com/de-en/app/closet/my-bookings",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

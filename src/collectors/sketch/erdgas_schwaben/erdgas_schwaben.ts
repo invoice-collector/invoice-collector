@@ -29,7 +29,7 @@ export class ErdgasSchwabenCollector extends SketchCollector {
         loginUrl: "https://erdgasschwaben.emobilitycloud.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

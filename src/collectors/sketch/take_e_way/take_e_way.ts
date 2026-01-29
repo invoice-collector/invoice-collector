@@ -29,7 +29,7 @@ export class TakeEWayCollector extends SketchCollector {
         loginUrl: "https://kundenportal.take-e-way.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

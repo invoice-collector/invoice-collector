@@ -29,7 +29,7 @@ export class EstugoCollector extends SketchCollector {
         loginUrl: "https://hera.estugo.de:8443/login_up.php?success_redirect_url=%2Fsmb%2Fweb%2Fview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

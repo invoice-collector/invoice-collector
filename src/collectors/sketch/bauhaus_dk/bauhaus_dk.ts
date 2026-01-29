@@ -29,7 +29,7 @@ export class BauhausDkCollector extends SketchCollector {
         loginUrl: "https://www.bauhaus.dk/customer/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

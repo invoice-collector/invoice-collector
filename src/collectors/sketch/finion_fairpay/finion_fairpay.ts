@@ -29,7 +29,7 @@ export class FinionFairpayCollector extends SketchCollector {
         loginUrl: "https://my.finion-fairpay.de/clearing.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

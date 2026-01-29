@@ -29,7 +29,7 @@ export class VicuritasCollector extends SketchCollector {
         loginUrl: "https://vicuritas.onlinesuite.de/volz_main/myvast-vo/office/user_detail.php?akt=doc&bid=2220580",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

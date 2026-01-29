@@ -29,7 +29,7 @@ export class TdcDkCollector extends SketchCollector {
         loginUrl: "https://profil.yousee.dk/?context=selfservice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

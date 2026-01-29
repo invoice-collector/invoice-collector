@@ -29,7 +29,7 @@ export class AppleItunesStoreCollector extends SketchCollector {
         loginUrl: "https://reportaproblem.apple.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

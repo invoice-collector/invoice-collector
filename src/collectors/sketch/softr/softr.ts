@@ -29,7 +29,7 @@ export class SoftrCollector extends SketchCollector {
         loginUrl: "https://studio.softr.io/user/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

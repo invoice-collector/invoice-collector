@@ -29,7 +29,7 @@ export class HexonetCollector extends SketchCollector {
         loginUrl: "https://www.hexonet.net/sign-up",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

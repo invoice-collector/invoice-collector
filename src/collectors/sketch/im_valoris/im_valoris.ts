@@ -29,7 +29,7 @@ export class ImValorisCollector extends SketchCollector {
         loginUrl: "https://extranet2.ics.fr/V5/connexion-imvaloris.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

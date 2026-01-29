@@ -29,7 +29,7 @@ export class ClassicAnalyticsGmbhCollector extends SketchCollector {
         loginUrl: "https://www.classic-analytics.de/de/my_account/bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

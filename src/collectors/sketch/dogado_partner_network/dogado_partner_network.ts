@@ -29,7 +29,7 @@ export class DogadoPartnerNetworkCollector extends SketchCollector {
         loginUrl: "https://partner.dogado.de/user-billings.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

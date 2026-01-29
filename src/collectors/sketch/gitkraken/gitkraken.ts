@@ -29,7 +29,7 @@ export class GitkrakenCollector extends SketchCollector {
         loginUrl: "https://gitkraken.dev/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

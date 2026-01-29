@@ -29,7 +29,7 @@ export class UnityIdCollector extends SketchCollector {
         loginUrl: "https://dashboard.unity3d.com/organizations/9071072152015/metered-billing/overview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

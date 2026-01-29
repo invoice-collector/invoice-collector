@@ -29,7 +29,7 @@ export class FactorialCollector extends SketchCollector {
         loginUrl: "https://app.factorialhr.com/settings/plans",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class NestleHealthscienceCollector extends SketchCollector {
         loginUrl: "https://www.nestlehealthscience.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

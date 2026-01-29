@@ -29,7 +29,7 @@ export class AllegorithmicCollector extends SketchCollector {
         loginUrl: "https://www.allegorithmic.com/user/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

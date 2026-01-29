@@ -29,7 +29,7 @@ export class MonteurzimmerguruCollector extends SketchCollector {
         loginUrl: "https://www.monteurzimmerguru.de/myapp/settings/invoices/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

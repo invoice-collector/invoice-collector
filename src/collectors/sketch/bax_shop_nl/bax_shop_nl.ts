@@ -29,7 +29,7 @@ export class BaxShopNlCollector extends SketchCollector {
         loginUrl: "http://www.bax-shop.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

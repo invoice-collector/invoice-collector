@@ -29,7 +29,7 @@ export class MutuelleMgcPersonnelCollector extends SketchCollector {
         loginUrl: "https://monespacepersonnel.cimut.net/web/mgc",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

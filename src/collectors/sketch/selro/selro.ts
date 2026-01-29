@@ -29,7 +29,7 @@ export class SelroCollector extends SketchCollector {
         loginUrl: "https://app5.selro.com/account/index",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

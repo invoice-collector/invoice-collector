@@ -29,7 +29,7 @@ export class FleetizeRoutesCollector extends SketchCollector {
         loginUrl: "https://routes.fleetize.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

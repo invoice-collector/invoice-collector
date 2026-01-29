@@ -29,7 +29,7 @@ export class PlayplayCollector extends SketchCollector {
         loginUrl: "https://playplay.com/app/login?lang=en",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

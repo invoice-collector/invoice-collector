@@ -29,7 +29,7 @@ export class AllStarCardCollector extends SketchCollector {
         loginUrl: "https://www.allstaronline.co.uk/OpenBankingAuthUI/Pages/Public/Login.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

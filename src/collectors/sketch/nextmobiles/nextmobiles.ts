@@ -29,7 +29,7 @@ export class NextmobilesCollector extends SketchCollector {
         loginUrl: "https://www.nextmobiles.com/moncompte/mes-factures/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class Daz3dCollector extends SketchCollector {
         loginUrl: "https://www.daz3d.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

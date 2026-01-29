@@ -29,7 +29,7 @@ export class StadtwerkeBarmstedtCollector extends SketchCollector {
         loginUrl: "https://stadtwerke-barmstedt.de/xitylight/mein-xitylight/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

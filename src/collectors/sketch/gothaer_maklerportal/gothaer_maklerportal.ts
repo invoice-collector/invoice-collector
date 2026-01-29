@@ -29,7 +29,7 @@ export class GothaerMaklerportalCollector extends SketchCollector {
         loginUrl: "https://makler.gothaer.de/app/ProvisionsabrechnungOnline/start.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

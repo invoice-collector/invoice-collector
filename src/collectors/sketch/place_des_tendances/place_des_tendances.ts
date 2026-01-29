@@ -29,7 +29,7 @@ export class PlaceDesTendancesCollector extends SketchCollector {
         loginUrl: "https://www.placedestendances.com/fr/fr",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

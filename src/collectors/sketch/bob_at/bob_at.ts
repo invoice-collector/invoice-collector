@@ -29,7 +29,7 @@ export class BobAtCollector extends SketchCollector {
         loginUrl: "https://rechnung.bob.at",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

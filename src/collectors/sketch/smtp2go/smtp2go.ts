@@ -29,7 +29,7 @@ export class Smtp2goCollector extends SketchCollector {
         loginUrl: "https://app.smtp2go.com/dashboard/updatebilling/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

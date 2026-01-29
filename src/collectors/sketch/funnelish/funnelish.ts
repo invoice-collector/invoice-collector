@@ -29,7 +29,7 @@ export class FunnelishCollector extends SketchCollector {
         loginUrl: "https://app.funnelish.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

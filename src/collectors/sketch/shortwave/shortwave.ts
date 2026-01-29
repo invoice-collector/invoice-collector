@@ -29,7 +29,7 @@ export class ShortwaveCollector extends SketchCollector {
         loginUrl: "https://app.shortwave.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

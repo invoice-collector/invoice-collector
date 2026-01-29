@@ -29,7 +29,7 @@ export class InkassofortCollector extends SketchCollector {
         loginUrl: "https://www.inkasso-sofort.de/forderungsmanager/startseite",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

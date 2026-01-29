@@ -29,7 +29,7 @@ export class VastAiCollector extends SketchCollector {
         loginUrl: "https://cloud.vast.ai/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

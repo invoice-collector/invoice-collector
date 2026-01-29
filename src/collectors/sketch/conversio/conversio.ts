@@ -29,7 +29,7 @@ export class ConversioCollector extends SketchCollector {
         loginUrl: "https://commerce.campaignmonitor.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

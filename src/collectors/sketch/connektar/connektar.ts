@@ -29,7 +29,7 @@ export class ConnektarCollector extends SketchCollector {
         loginUrl: "https://www.connektar.de/dashboard",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

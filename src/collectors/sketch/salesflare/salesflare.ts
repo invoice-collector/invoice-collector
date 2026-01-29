@@ -29,7 +29,7 @@ export class SalesflareCollector extends SketchCollector {
         loginUrl: "https://salesflare.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

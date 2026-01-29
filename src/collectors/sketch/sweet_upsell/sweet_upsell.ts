@@ -29,7 +29,7 @@ export class SweetUpsellCollector extends SketchCollector {
         loginUrl: "https://admin.sweetupsell.com/auth",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GammaCommunicationsCollector extends SketchCollector {
         loginUrl: "https://login.gammacommunications.de/path/app/?rq_AppGuid=FF94DC683D677A9715F5DC21B0BE72CA6FF0E450&rq_TargetPageGuid=88D2C37241A396CF103761CFDC6851BE92D98CC0&qs_link=6DB5FF42AE64D8569442A19905EEF40F2FAD1E4D&qs_mode=new&qs_page=88D2C37241A396CF103761CFDC68",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HuntressCollector extends SketchCollector {
         loginUrl: "https://idt.huntress.io/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

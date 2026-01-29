@@ -29,7 +29,7 @@ export class ZadarmaCollector extends SketchCollector {
         loginUrl: "https://my.zadarma.com/statistics/topup/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

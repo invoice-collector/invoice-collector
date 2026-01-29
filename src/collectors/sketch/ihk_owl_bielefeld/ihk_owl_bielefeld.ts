@@ -29,7 +29,7 @@ export class IhkOwlBielefeldCollector extends SketchCollector {
         loginUrl: "https://ihk-postbox.foxdox.de/services/IHK%20Ostwestfalen",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SimplygreenCollector extends SketchCollector {
         loginUrl: "https://www.meineentega.de/start.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AnixterCollector extends SketchCollector {
         loginUrl: "https://www.eanixter.com/login.xhtml?spring-security-redirect=%2Fhome.xhtml&faces-redirect=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

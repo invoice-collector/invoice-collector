@@ -29,7 +29,7 @@ export class MissionControlCollector extends SketchCollector {
         loginUrl: "http://www.hellomissioncontrol.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

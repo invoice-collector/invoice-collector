@@ -28,7 +28,7 @@ export class PicotyGazCollector extends SketchCollector {
         loginUrl: "https://wap.picoty.fr/igaz/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

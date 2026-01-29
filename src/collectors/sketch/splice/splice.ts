@@ -29,7 +29,7 @@ export class SpliceCollector extends SketchCollector {
         loginUrl: "https://splice.com/profile/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

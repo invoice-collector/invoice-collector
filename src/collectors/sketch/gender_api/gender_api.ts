@@ -29,7 +29,7 @@ export class GenderApiCollector extends SketchCollector {
         loginUrl: "https://gender-api.com/de/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

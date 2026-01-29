@@ -29,7 +29,7 @@ export class StelloCollector extends SketchCollector {
         loginUrl: "https://app.stello.eu/documents",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class EwetelCollector extends SketchCollector {
         loginUrl: "https://mein.ewe.de/ewetelcss/secure/billingOverview.xhtml",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

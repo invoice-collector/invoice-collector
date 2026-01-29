@@ -29,7 +29,7 @@ export class BartlOnlineShopCollector extends SketchCollector {
         loginUrl: "https://b2b.bartlshop.de/de/account/?action=document_archive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

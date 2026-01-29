@@ -29,7 +29,7 @@ export class AlscoCollector extends SketchCollector {
         loginUrl: "https://atrack.alsco.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

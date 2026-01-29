@@ -28,7 +28,7 @@ export class LaFoirFouilleCollector extends SketchCollector {
         loginUrl: "https://www.lafoirfouille.fr/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AlphabetInvoicesCollector extends SketchCollector {
         loginUrl: "https://invoices.alphabet.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

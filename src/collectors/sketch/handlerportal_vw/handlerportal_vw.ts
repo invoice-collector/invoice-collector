@@ -29,7 +29,7 @@ export class HandlerportalVwCollector extends SketchCollector {
         loginUrl: "https://audi-vw-belegportal.inposia.com/inbox",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

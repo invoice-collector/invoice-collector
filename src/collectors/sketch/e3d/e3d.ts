@@ -29,7 +29,7 @@ export class E3dCollector extends SketchCollector {
         loginUrl: "https://e3d-online.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

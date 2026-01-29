@@ -29,7 +29,7 @@ export class MegapathCollector extends SketchCollector {
         loginUrl: "https://my.megapath.com/customeradmin/portal/login.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

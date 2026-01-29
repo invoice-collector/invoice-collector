@@ -29,7 +29,7 @@ export class AcfExtendedCollector extends SketchCollector {
         loginUrl: "https://www.acf-extended.com/account/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

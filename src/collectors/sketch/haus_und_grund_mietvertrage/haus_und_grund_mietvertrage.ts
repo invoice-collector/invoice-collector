@@ -29,7 +29,7 @@ export class HausUndGrundMietvertrageCollector extends SketchCollector {
         loginUrl: "https://www.xn--hausundgrundmietvertrge-g8b.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

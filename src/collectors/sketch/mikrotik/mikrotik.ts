@@ -29,7 +29,7 @@ export class MikrotikCollector extends SketchCollector {
         loginUrl: "https://mikrotik.com/client/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

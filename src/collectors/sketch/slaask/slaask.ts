@@ -29,7 +29,7 @@ export class SlaaskCollector extends SketchCollector {
         loginUrl: "https://simplessusteam.slack.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

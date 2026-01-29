@@ -29,7 +29,7 @@ export class VhvVersicherungenCollector extends SketchCollector {
         loginUrl: "https://sso.vhv.de/auth/realms/kundenportal/protocol/openid-connect/auth?client_id=kundenportal-web&redirect_uri=https%3A%2F%2Fkundenportal.vhv.de%2F&state=b187b06b-b65b-482d-9e04-31119433fa26&response_mode=fragment&response_type=code&scope=openid&nonce=c",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

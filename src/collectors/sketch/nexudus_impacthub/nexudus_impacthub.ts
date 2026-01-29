@@ -29,7 +29,7 @@ export class NexudusImpacthubCollector extends SketchCollector {
         loginUrl: "https://impacthubhamburg.spaces.nexudus.com/profile/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

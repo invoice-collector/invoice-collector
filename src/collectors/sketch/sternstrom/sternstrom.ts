@@ -29,7 +29,7 @@ export class SternstromCollector extends SketchCollector {
         loginUrl: "https://www.sternstrom.de/sternstrom/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

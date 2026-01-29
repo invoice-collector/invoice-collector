@@ -29,7 +29,7 @@ export class VersioCollector extends SketchCollector {
         loginUrl: "https://www.versio.nl/login?uri=/customer/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SubconetCollector extends SketchCollector {
         loginUrl: "https://www.subconet.nl/subconet/mijn-subconet/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

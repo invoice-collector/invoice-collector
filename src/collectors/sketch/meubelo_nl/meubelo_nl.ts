@@ -29,7 +29,7 @@ export class MeubeloNlCollector extends SketchCollector {
         loginUrl: "https://partner.meubelo.nl/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

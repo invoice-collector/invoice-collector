@@ -29,7 +29,7 @@ export class MobileActionCollector extends SketchCollector {
         loginUrl: "https://www.mobileaction.co/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

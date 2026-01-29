@@ -29,7 +29,7 @@ export class MojoPowerCollector extends SketchCollector {
         loginUrl: "https://portal.mojopower.com.au/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

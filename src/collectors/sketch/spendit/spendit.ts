@@ -29,7 +29,7 @@ export class SpenditCollector extends SketchCollector {
         loginUrl: "https://www.spendit.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

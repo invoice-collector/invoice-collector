@@ -29,7 +29,7 @@ export class TagoIoCollector extends SketchCollector {
         loginUrl: "https://admin.tago.io/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

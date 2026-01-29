@@ -29,7 +29,7 @@ export class EdenredCollector extends SketchCollector {
         loginUrl: "https://firmenkunden.mein-edenred.de/Konto_Meine_Rechnungen.htm?ActiveID=1141",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

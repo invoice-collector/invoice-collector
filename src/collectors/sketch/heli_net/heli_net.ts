@@ -29,7 +29,7 @@ export class HeliNetCollector extends SketchCollector {
         loginUrl: "https://www.helimail.de/kundenportal/login.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

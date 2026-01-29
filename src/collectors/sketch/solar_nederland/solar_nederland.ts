@@ -29,7 +29,7 @@ export class SolarNederlandCollector extends SketchCollector {
         loginUrl: "https://webshop.solarnederland.nl/signon?ReturnUrl=%2f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

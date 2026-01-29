@@ -29,7 +29,7 @@ export class DomaintechnikCollector extends SketchCollector {
         loginUrl: "https://manage.domaintechnik.at/invoice_index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

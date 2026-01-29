@@ -29,7 +29,7 @@ export class RakutenMerchantCollector extends SketchCollector {
         loginUrl: "https://merchants.rakuten.de/office/invoice/payout",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

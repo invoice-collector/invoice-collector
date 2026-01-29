@@ -29,7 +29,7 @@ export class MuxCollector extends SketchCollector {
         loginUrl: "https://dashboard.mux.com/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

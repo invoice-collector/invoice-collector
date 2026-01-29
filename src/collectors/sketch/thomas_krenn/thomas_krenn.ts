@@ -29,7 +29,7 @@ export class ThomasKrennCollector extends SketchCollector {
         loginUrl: "https://www.thomas-krenn.com/de/service-support/meine-rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

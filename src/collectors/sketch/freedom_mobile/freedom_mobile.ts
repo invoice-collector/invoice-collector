@@ -29,7 +29,7 @@ export class FreedomMobileCollector extends SketchCollector {
         loginUrl: "https://myaccount.freedommobile.ca/selfcare/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

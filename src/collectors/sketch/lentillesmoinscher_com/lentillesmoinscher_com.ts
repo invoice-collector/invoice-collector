@@ -29,7 +29,7 @@ export class LentillesmoinscherComCollector extends SketchCollector {
         loginUrl: "https://www.lentillesmoinscheres.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

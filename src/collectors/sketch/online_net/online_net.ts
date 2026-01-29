@@ -29,7 +29,7 @@ export class OnlineNetCollector extends SketchCollector {
         loginUrl: "http://www.online.net",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

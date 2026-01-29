@@ -29,7 +29,7 @@ export class KbvKehrmannBeschlagtechnikVelbertCollector extends SketchCollector 
         loginUrl: "https://www.kbv-beschlaege-shop.de/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

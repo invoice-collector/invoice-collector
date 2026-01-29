@@ -29,7 +29,7 @@ export class PlancraftCollector extends SketchCollector {
         loginUrl: "https://plancraft.de/anmelden",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

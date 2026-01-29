@@ -29,7 +29,7 @@ export class CoxBusinessCollector extends SketchCollector {
         loginUrl: "https://www.cox.com/business/home.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

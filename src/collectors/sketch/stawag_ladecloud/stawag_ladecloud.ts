@@ -29,7 +29,7 @@ export class StawagLadecloudCollector extends SketchCollector {
         loginUrl: "https://stawag.ladecloud.de/account-type/customer/view/payment-documents/tab/invoice-transactions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

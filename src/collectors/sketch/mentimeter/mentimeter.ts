@@ -29,7 +29,7 @@ export class MentimeterCollector extends SketchCollector {
         loginUrl: "https://www.mentimeter.com/app/payments",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

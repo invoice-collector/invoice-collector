@@ -29,7 +29,7 @@ export class EpscanCollector extends SketchCollector {
         loginUrl: "https://www.epcan.de/kundenlogin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

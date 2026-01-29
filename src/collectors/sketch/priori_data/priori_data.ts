@@ -29,7 +29,7 @@ export class PrioriDataCollector extends SketchCollector {
         loginUrl: "https://prioridata.com/account/plan",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

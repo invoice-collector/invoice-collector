@@ -29,7 +29,7 @@ export class TracklyCollector extends SketchCollector {
         loginUrl: "https://trackly.io/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

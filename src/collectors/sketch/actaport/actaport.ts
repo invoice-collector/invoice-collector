@@ -29,7 +29,7 @@ export class ActaportCollector extends SketchCollector {
         loginUrl: "https://app.actaport.de/rechnungen/uebersicht",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

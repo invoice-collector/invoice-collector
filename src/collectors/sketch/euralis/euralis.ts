@@ -28,7 +28,7 @@ export class EuralisCollector extends SketchCollector {
         loginUrl: "https://www.terre-vive.fr/extranet/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

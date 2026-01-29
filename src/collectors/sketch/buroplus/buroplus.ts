@@ -28,7 +28,7 @@ export class BuroPlusCollector extends SketchCollector {
         loginUrl: "https://www.buroplus.com/connexion.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

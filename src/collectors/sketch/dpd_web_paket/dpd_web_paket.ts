@@ -29,7 +29,7 @@ export class DpdWebPaketCollector extends SketchCollector {
         loginUrl: "https://www.paketnavigator.de/register/myLogin.aspx",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

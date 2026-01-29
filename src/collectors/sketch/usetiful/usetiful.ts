@@ -29,7 +29,7 @@ export class UsetifulCollector extends SketchCollector {
         loginUrl: "https://invoice.stripe.com/i/acct_1F8P5oKJTHBtFWXX/live_YWNjdF8xRjhQNW9LSlRIQnRGV1hYLF9NWnJQS0hoeEtQM2dwOHpoa1FGdW5XSHlxUTVSUVZ5LDU2ODEzNTYz0200mu9fQaqH?s=il&locale=de-DE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

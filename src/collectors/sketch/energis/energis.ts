@@ -29,7 +29,7 @@ export class EnergisCollector extends SketchCollector {
         loginUrl: "https://meine.energis.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

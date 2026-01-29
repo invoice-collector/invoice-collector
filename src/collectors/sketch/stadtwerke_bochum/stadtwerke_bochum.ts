@@ -29,7 +29,7 @@ export class StadtwerkeBochumCollector extends SketchCollector {
         loginUrl: "https://service.stadtwerke-bochum.de/online/welcome",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

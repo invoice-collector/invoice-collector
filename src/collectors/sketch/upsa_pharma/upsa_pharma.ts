@@ -29,7 +29,7 @@ export class UpsaPharmaCollector extends SketchCollector {
         loginUrl: "https://www.upsapharma.com/upsa/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

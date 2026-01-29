@@ -29,7 +29,7 @@ export class Hygienepartner24Collector extends SketchCollector {
         loginUrl: "https://www.hygienepartner24.de/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

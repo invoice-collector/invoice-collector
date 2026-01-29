@@ -29,7 +29,7 @@ export class PaymoCollector extends SketchCollector {
         loginUrl: "https://app.paymoapp.com/#Paymo.module.subscription/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

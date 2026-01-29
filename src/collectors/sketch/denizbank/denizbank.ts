@@ -29,7 +29,7 @@ export class DenizbankCollector extends SketchCollector {
         loginUrl: "https://ebanking.denizbank.de/Default.aspx?sID=8631632",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

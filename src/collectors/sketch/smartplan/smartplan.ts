@@ -29,7 +29,7 @@ export class SmartplanCollector extends SketchCollector {
         loginUrl: "https://schutzschild.smartplanapp.io/account/payment/billing/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

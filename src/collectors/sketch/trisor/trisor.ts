@@ -29,7 +29,7 @@ export class TrisorCollector extends SketchCollector {
         loginUrl: "https://app.trisor.de/payment/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

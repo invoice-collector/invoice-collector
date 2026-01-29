@@ -29,7 +29,7 @@ export class QnapCollector extends SketchCollector {
         loginUrl: "https://software.qnap.com/sales/order/invoice/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

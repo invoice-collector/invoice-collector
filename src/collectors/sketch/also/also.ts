@@ -29,7 +29,7 @@ export class AlsoCollector extends SketchCollector {
         loginUrl: "https://weblogin.also.com/auth/realms/also-customers/protocol/openid-connect/auth?response_type=code&scope=edit&client_id=pegasos-shop-1010&kc_locale=de&redirect_uri=https%3A%2F%2Fwww.also.com%2Fec%2Fcms5%2Fde_1010%2F1010%2Finformationen%2Fneukundenanmeld",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

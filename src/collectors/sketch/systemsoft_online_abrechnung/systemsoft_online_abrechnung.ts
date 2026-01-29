@@ -29,7 +29,7 @@ export class SystemsoftOnlineAbrechnungCollector extends SketchCollector {
         loginUrl: "https://www.systemsoft-gmbh.de/online-invoice/index.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

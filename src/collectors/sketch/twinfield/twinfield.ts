@@ -29,7 +29,7 @@ export class TwinfieldCollector extends SketchCollector {
         loginUrl: "https://login.twinfield.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class PugetSoundEnergyCollector extends SketchCollector {
         loginUrl: "http://www.pse.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

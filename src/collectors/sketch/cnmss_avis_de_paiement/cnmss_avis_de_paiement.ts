@@ -29,7 +29,7 @@ export class CnmssAvisDePaiementCollector extends SketchCollector {
         loginUrl: "https://www.cnmss.fr/professionnel-de-sante/mes-services-en-ligne/amelipro/consulter-vos-paiements-5772.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

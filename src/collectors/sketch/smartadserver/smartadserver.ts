@@ -29,7 +29,7 @@ export class SmartadserverCollector extends SketchCollector {
         loginUrl: "http://manage.smartadserver.com/ux/admin/financialportal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

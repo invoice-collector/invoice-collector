@@ -29,7 +29,7 @@ export class SynergyAuCollector extends SketchCollector {
         loginUrl: "https://www.synergy.net.au/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

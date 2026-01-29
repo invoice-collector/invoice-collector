@@ -29,7 +29,7 @@ export class SupernovaCollector extends SketchCollector {
         loginUrl: "https://shop.supernova-design.com/my/home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

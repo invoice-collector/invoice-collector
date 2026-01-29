@@ -29,7 +29,7 @@ export class LeasetrackNcmCollector extends SketchCollector {
         loginUrl: "https://ncm.espaceclient.fineasy.com/group/ncm/factures-avoirs",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

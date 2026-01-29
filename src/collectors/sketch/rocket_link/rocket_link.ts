@@ -29,7 +29,7 @@ export class RocketLinkCollector extends SketchCollector {
         loginUrl: "https://www.rocketlinks.net/wallet/deposits",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OrderDeskCollector extends SketchCollector {
         loginUrl: "https://app.orderdesk.me/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

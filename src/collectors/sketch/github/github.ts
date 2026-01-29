@@ -29,7 +29,7 @@ export class GithubCollector extends SketchCollector {
         loginUrl: "https://github.com/settings/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

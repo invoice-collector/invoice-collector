@@ -29,7 +29,7 @@ export class QweebyCollector extends SketchCollector {
         loginUrl: "https://www.qweeby.net/facturesrecues-consultees",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

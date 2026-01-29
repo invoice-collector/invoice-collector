@@ -29,7 +29,7 @@ export class CosmicSportsB2bCollector extends SketchCollector {
         loginUrl: "https://b2b.cosmicsports.com/PrivateLogin/index/requireReload",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

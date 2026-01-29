@@ -29,7 +29,7 @@ export class CargoboardCollector extends SketchCollector {
         loginUrl: "http://www.cargoboard.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

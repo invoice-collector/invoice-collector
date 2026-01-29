@@ -29,7 +29,7 @@ export class GuardianCollector extends SketchCollector {
         loginUrl: "https://www.guardiananytime.com/app3/wps/myportal/!ut/p/z1/pVHBTsMwDP0WDjlSO7QaKRdUUTSYQIgNtOILSllII7Vp1GaU_T0BThNbAe3dbL337GcDQQFk5ZvR0pvWyjrUTzR5vr3PBefi5GYaz3PM0tn08iHheCUSWG4TcCGyQJjk8yRP8W6BQIfoL_hB-oC_6XEPsv_u_5NA4_ZLoO0ROy4wRviK-NsQGkvB01OYAem6Lb8f",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

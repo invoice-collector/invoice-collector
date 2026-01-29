@@ -29,7 +29,7 @@ export class MeineNurnbergerCollector extends SketchCollector {
         loginUrl: "https://meine.nuernberger.de/kunde/pages/startseite.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

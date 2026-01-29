@@ -29,7 +29,7 @@ export class MutuelleAonHewittRelevesMensuelsCollector extends SketchCollector {
         loginUrl: "https://www.aon.com/human-capital-consulting/default.jsp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

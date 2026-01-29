@@ -29,7 +29,7 @@ export class SmabtpCollector extends SketchCollector {
         loginUrl: "https://www.services-smabtp.net/monespace/#/documents/contrats",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

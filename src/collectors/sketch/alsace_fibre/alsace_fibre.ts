@@ -29,7 +29,7 @@ export class AlsaceFibreCollector extends SketchCollector {
         loginUrl: "https://extranet.alsacefibre.fr/facture",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

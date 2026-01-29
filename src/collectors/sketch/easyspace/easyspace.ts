@@ -29,7 +29,7 @@ export class EasyspaceCollector extends SketchCollector {
         loginUrl: "http://www.easyspace.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

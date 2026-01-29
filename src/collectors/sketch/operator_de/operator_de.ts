@@ -29,7 +29,7 @@ export class OperatorDeCollector extends SketchCollector {
         loginUrl: "http://www.telefonkonferenz-operator.de/conference/ng/login.html;jsessionid=9236054249FE742C4E4B3E93A80F8F3C?wicket-crypt=2A0x73ua85w",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

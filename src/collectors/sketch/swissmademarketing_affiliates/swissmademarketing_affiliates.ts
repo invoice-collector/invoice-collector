@@ -29,7 +29,7 @@ export class SwissmademarketingAffiliatesCollector extends SketchCollector {
         loginUrl: "http://affiliates.swissmademarketing.com/affiliates/panel.php#Payouts",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

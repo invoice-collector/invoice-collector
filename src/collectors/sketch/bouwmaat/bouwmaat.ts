@@ -29,7 +29,7 @@ export class BouwmaatCollector extends SketchCollector {
         loginUrl: "https://www.bouwmaat.nl/inloggen-of-registreren",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class OnlinecopyCollector extends SketchCollector {
         loginUrl: "https://shop.online-copy.de/auftrag_rechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

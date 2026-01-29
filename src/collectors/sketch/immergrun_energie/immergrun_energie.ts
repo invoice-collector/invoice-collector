@@ -29,7 +29,7 @@ export class ImmergrunEnergieCollector extends SketchCollector {
         loginUrl: "http://www.immergruen-energie.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

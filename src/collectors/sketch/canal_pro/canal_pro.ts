@@ -29,7 +29,7 @@ export class CanalProCollector extends SketchCollector {
         loginUrl: "https://client.canalpro.fr/espaceclient/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

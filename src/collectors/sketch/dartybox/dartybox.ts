@@ -29,7 +29,7 @@ export class DartyboxCollector extends SketchCollector {
         loginUrl: "https://www.dartybox.com/redbox-frontoffice-web/wac03-forwardLoginPage.do",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

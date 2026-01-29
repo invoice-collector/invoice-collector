@@ -29,7 +29,7 @@ export class JuitCollector extends SketchCollector {
         loginUrl: "https://www.juit.com/de/profile/orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

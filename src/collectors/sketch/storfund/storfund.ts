@@ -29,7 +29,7 @@ export class StorfundCollector extends SketchCollector {
         loginUrl: "https://dashboard.storfund.com/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

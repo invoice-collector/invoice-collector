@@ -29,7 +29,7 @@ export class LanesAndPlanesCollector extends SketchCollector {
         loginUrl: "https://app.lanes-planes.com/admin/#/admin/company/accounting",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

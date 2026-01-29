@@ -29,7 +29,7 @@ export class LingoCollector extends SketchCollector {
         loginUrl: "https://account.lingo.com/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

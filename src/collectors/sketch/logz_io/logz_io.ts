@@ -29,7 +29,7 @@ export class LogzIoCollector extends SketchCollector {
         loginUrl: "https://app.logz.io/#/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

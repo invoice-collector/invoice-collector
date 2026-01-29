@@ -29,7 +29,7 @@ export class Bitrix24Collector extends SketchCollector {
         loginUrl: "https://www.bitrix24.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

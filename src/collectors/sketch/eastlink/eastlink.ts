@@ -29,7 +29,7 @@ export class EastlinkCollector extends SketchCollector {
         loginUrl: "https://my.eastlink.ca/myaccount",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

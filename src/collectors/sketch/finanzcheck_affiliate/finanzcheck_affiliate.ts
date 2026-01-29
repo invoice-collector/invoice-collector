@@ -29,7 +29,7 @@ export class FinanzcheckAffiliateCollector extends SketchCollector {
         loginUrl: "https://affiliate.finanzcheck.de/dashboard/payoff",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

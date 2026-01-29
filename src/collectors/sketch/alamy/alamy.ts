@@ -29,7 +29,7 @@ export class AlamyCollector extends SketchCollector {
         loginUrl: "http://www.alamy.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

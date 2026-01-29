@@ -29,7 +29,7 @@ export class IsagenixBackofficeCollector extends SketchCollector {
         loginUrl: "https://backoffice.isagenix.com/Order/OrderHistory",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

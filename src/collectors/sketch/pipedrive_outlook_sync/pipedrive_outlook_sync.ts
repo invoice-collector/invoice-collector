@@ -29,7 +29,7 @@ export class PipedriveOutlookSyncCollector extends SketchCollector {
         loginUrl: "https://app.pipedriveoutlooksync.com/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

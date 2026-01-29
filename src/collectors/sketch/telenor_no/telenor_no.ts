@@ -29,7 +29,7 @@ export class TelenorNoCollector extends SketchCollector {
         loginUrl: "https://www.telenor.no/privat/mine-sider/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

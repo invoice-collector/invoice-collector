@@ -29,7 +29,7 @@ export class HappyfoxChatCollector extends SketchCollector {
         loginUrl: "https://happyfoxchat.com/a/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

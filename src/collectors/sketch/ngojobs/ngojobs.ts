@@ -29,7 +29,7 @@ export class NgojobsCollector extends SketchCollector {
         loginUrl: "https://www.ngojobs.eu/wp-admin/edit.php?post_type=shop_order",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ExaliCollector extends SketchCollector {
         loginUrl: "https://www.exali.de/Kundencenter/Kunden-Login,100336.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

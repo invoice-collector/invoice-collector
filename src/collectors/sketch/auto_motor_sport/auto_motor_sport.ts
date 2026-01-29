@@ -29,7 +29,7 @@ export class AutoMotorSportCollector extends SketchCollector {
         loginUrl: "https://www.auto-motor-und-sport.de/meine-abonnements/?plenigoSelfService=INVOICE",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

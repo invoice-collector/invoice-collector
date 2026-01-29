@@ -29,7 +29,7 @@ export class AvroEnergyCollector extends SketchCollector {
         loginUrl: "https://www.avroenergy.co.uk/Account/Login2",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

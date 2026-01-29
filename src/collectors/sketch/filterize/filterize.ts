@@ -29,7 +29,7 @@ export class FilterizeCollector extends SketchCollector {
         loginUrl: "https://my.filterize.net/62428332/p/payment",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

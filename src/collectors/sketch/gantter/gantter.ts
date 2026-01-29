@@ -29,7 +29,7 @@ export class GantterCollector extends SketchCollector {
         loginUrl: "https://google.gantter.com/gad/manage/drive",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

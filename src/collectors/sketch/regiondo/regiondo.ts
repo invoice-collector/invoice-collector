@@ -29,7 +29,7 @@ export class RegiondoCollector extends SketchCollector {
         loginUrl: "https://www.regiondo.de/customer/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

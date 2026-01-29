@@ -29,7 +29,7 @@ export class ChargedeskCollector extends SketchCollector {
         loginUrl: "https://chargedesk.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

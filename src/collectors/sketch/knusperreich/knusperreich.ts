@@ -29,7 +29,7 @@ export class KnusperreichCollector extends SketchCollector {
         loginUrl: "http://www.knusperreich.de",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

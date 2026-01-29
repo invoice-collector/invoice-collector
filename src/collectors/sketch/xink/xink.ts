@@ -29,7 +29,7 @@ export class XinkCollector extends SketchCollector {
         loginUrl: "https://auth.xink.io/Account/Logon",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

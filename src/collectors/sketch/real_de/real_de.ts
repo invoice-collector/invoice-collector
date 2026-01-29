@@ -29,7 +29,7 @@ export class RealDeCollector extends SketchCollector {
         loginUrl: "https://www.real.de/account/purchases/#unit_status=all&time_span=all",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

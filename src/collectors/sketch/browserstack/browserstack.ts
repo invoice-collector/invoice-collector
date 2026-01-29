@@ -29,7 +29,7 @@ export class BrowserstackCollector extends SketchCollector {
         loginUrl: "https://www.browserstack.com/accounts/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

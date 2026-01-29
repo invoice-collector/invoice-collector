@@ -29,7 +29,7 @@ export class HdiVersicherungCollector extends SketchCollector {
         loginUrl: "https://www.hdi.de/mein-hdi/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

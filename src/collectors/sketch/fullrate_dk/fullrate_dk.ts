@@ -29,7 +29,7 @@ export class FullrateDkCollector extends SketchCollector {
         loginUrl: "https://www.fullrate.dk/selvbetjening/fakturaoversigt",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

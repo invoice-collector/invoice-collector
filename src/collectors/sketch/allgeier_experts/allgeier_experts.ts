@@ -29,7 +29,7 @@ export class AllgeierExpertsCollector extends SketchCollector {
         loginUrl: "https://portal.allgeier-experts.com/my/documents/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class UptimiaCollector extends SketchCollector {
         loginUrl: "https://www.uptimia.com/cp/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

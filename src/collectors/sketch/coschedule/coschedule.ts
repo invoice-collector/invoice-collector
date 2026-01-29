@@ -29,7 +29,7 @@ export class CoscheduleCollector extends SketchCollector {
         loginUrl: "https://app.coschedule.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

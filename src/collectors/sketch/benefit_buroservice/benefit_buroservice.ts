@@ -29,7 +29,7 @@ export class BenefitBuroserviceCollector extends SketchCollector {
         loginUrl: "https://service.benefit-bueroservice.at/mein-bueroservice#g_benefit_tab_bills",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

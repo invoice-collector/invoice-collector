@@ -29,7 +29,7 @@ export class IlekCollector extends SketchCollector {
         loginUrl: "https://www.ilek.fr/mon-compte/factures",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

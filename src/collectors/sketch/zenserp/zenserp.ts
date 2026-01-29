@@ -29,7 +29,7 @@ export class ZenserpCollector extends SketchCollector {
         loginUrl: "https://app.zenserp.com/settings#/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ZeegCollector extends SketchCollector {
         loginUrl: "https://api.zeeg.me/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

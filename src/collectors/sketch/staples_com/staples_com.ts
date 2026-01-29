@@ -29,7 +29,7 @@ export class StaplesComCollector extends SketchCollector {
         loginUrl: "https://www.staples.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class StadtgutscheinBraunschweigCollector extends SketchCollector {
         loginUrl: "https://www.stadtgutschein-braunschweig.de/administration",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -28,7 +28,7 @@ export class GennevilliersEnergiesCollector extends SketchCollector {
         loginUrl: "https://www.ville-gennevilliers.fr/94-27063/cadre-de-vie/economie-et-commerces/annuaire-des-entreprises/ficheAnnu/gennevilliers-energie.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

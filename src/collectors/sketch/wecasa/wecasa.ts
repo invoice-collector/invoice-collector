@@ -29,7 +29,7 @@ export class WecasaCollector extends SketchCollector {
         loginUrl: "https://www.wecasa.fr/espace-client/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

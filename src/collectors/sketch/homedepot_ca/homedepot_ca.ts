@@ -29,7 +29,7 @@ export class HomedepotCaCollector extends SketchCollector {
         loginUrl: "https://www.retailservicescommercial.citi.com/USCRSF/CMLSVC/index.html?siteId=CANP_HOMEDEPOT",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ProsegurAlarmasCollector extends SketchCollector {
         loginUrl: "https://alarmas.movistarproseguralarmas.es/smart-mv/#!/invoice",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

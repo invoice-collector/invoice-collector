@@ -29,7 +29,7 @@ export class GoodaccessCollector extends SketchCollector {
         loginUrl: "https://account.goodaccess.com/payments/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

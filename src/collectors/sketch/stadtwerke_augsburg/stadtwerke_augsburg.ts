@@ -29,7 +29,7 @@ export class StadtwerkeAugsburgCollector extends SketchCollector {
         loginUrl: "https://onlineservice.sw-augsburg.de/powercommerce5/swa/fo/portal/professional",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

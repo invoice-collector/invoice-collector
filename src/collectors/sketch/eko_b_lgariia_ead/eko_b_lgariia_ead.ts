@@ -29,7 +29,7 @@ export class EkoBLgariiaEadCollector extends SketchCollector {
         loginUrl: "https://invoice.eko.bg/#",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

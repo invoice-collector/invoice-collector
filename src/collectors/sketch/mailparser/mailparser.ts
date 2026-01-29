@@ -29,7 +29,7 @@ export class MailparserCollector extends SketchCollector {
         loginUrl: "https://app.mailparser.io/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BrevoCollector extends SketchCollector {
         loginUrl: "https://app.brevo.com/billing/account/plans/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

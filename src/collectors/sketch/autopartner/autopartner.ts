@@ -29,7 +29,7 @@ export class AutopartnerCollector extends SketchCollector {
         loginUrl: "https://apcat.eu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

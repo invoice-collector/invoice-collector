@@ -29,7 +29,7 @@ export class PcextremeCollector extends SketchCollector {
         loginUrl: "https://secure.pcextreme.nl/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

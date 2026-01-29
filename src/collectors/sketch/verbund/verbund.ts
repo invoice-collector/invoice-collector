@@ -29,7 +29,7 @@ export class VerbundCollector extends SketchCollector {
         loginUrl: "https://www.verbund.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

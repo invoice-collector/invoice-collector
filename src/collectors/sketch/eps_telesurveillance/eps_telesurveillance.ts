@@ -29,7 +29,7 @@ export class EpsTelesurveillanceCollector extends SketchCollector {
         loginUrl: "https://www.espaceps.com/fr/client/myAccount.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AwwwardsCollector extends SketchCollector {
         loginUrl: "https://www.awwwards.com/settings/puchase_history/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

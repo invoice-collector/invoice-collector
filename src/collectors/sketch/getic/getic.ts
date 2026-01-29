@@ -29,7 +29,7 @@ export class GeticCollector extends SketchCollector {
         loginUrl: "https://www.getic.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

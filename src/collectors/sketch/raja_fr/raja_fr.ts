@@ -29,7 +29,7 @@ export class RajaFrCollector extends SketchCollector {
         loginUrl: "https://www.raja.fr/INTERSHOP/web/WFS/RAJA-FR-Site/fr_FR/-/EUR/ViewHeader-ViewAccountIdentification?TargetPipeline=ViewHomepage-Start&T_From=Header",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

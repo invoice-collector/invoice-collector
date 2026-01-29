@@ -29,7 +29,7 @@ export class AndreasPaulsenCollector extends SketchCollector {
         loginUrl: "https://www.paulsen-online.de/v3/rechnungsarchiv.csp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

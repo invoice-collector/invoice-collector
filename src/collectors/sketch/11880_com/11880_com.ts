@@ -29,7 +29,7 @@ export class _11880ComCollector extends SketchCollector {
         loginUrl: "https://my.11880.com/login?callbackUrl=https%3A%2F%2Fwww.11880.com%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

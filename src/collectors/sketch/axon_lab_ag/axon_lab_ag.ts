@@ -29,7 +29,7 @@ export class AxonLabAgCollector extends SketchCollector {
         loginUrl: "https://www.axonlab.com/profile",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

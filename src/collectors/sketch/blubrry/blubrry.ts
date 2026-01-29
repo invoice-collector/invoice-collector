@@ -29,7 +29,7 @@ export class BlubrryCollector extends SketchCollector {
         loginUrl: "https://www.blubrry.com/signin.php",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

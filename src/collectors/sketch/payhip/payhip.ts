@@ -29,7 +29,7 @@ export class PayhipCollector extends SketchCollector {
         loginUrl: "https://payhip.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

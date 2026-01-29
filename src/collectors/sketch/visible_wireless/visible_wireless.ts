@@ -29,7 +29,7 @@ export class VisibleWirelessCollector extends SketchCollector {
         loginUrl: "https://www.visible.com/account/bill-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

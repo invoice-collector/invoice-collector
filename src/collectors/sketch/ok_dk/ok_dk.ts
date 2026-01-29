@@ -29,7 +29,7 @@ export class OkDkCollector extends SketchCollector {
         loginUrl: "https://min.ok.dk/min-ok-forside/login/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

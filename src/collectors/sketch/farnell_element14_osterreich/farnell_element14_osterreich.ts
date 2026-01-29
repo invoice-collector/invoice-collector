@@ -29,7 +29,7 @@ export class FarnellElement14OsterreichCollector extends SketchCollector {
         loginUrl: "http://www.farnell.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

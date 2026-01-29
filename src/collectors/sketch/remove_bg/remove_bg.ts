@@ -29,7 +29,7 @@ export class RemoveBgCollector extends SketchCollector {
         loginUrl: "https://www.remove.bg/profile#payment-billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

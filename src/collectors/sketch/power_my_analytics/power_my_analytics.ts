@@ -29,7 +29,7 @@ export class PowerMyAnalyticsCollector extends SketchCollector {
         loginUrl: "https://hub.powermyanalytics.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SuddenlinkCollector extends SketchCollector {
         loginUrl: "https://account.suddenlink.net/my-account/mybill/viewstatements.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

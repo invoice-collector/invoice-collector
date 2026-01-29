@@ -29,7 +29,7 @@ export class RUOnCollector extends SketchCollector {
         loginUrl: "https://www.r-u-on.com/ctrl?action=assets",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

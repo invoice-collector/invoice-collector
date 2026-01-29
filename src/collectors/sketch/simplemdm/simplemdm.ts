@@ -29,7 +29,7 @@ export class SimplemdmCollector extends SketchCollector {
         loginUrl: "https://a.simplemdm.com/admin/auth/sign_in",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

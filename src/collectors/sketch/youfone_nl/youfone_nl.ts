@@ -29,7 +29,7 @@ export class YoufoneNlCollector extends SketchCollector {
         loginUrl: "https://my.youfone.nl/Login?ReturnUrl=%2F",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

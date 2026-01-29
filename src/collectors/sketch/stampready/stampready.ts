@@ -29,7 +29,7 @@ export class StampreadyCollector extends SketchCollector {
         loginUrl: "https://www.stampready.net/dashboard/account/billing/renderpdf/index.php?token=",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

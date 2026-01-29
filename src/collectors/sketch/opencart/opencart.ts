@@ -29,7 +29,7 @@ export class OpencartCollector extends SketchCollector {
         loginUrl: "https://www.opencart.com/index.php?route=account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

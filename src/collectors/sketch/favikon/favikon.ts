@@ -29,7 +29,7 @@ export class FavikonCollector extends SketchCollector {
         loginUrl: "https://app.favikon.com/signin/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

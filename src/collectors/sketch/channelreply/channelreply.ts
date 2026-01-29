@@ -29,7 +29,7 @@ export class ChannelreplyCollector extends SketchCollector {
         loginUrl: "https://www.channelreply.com/manage#manage-billing-info",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

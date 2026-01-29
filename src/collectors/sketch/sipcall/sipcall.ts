@@ -29,7 +29,7 @@ export class SipcallCollector extends SketchCollector {
         loginUrl: "https://my.sipcall.ch/customer/payment/history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

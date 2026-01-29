@@ -29,7 +29,7 @@ export class AtAndTBusinessCenterCollector extends SketchCollector {
         loginUrl: "https://www.att.com/ebiz/registration/home.jsp#/login?logout=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

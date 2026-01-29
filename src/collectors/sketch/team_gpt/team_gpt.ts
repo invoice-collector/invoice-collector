@@ -29,7 +29,7 @@ export class TeamGptCollector extends SketchCollector {
         loginUrl: "https://chat.team-gpt.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

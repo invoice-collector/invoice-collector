@@ -29,7 +29,7 @@ export class SnovIoCollector extends SketchCollector {
         loginUrl: "https://app.snov.io/login?lang=en&signup_source=landing&signup_page=snov.io&cta_type=button",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

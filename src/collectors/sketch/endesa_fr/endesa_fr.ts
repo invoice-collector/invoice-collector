@@ -29,7 +29,7 @@ export class EndesaFrCollector extends SketchCollector {
         loginUrl: "https://www.portail-endesa.fr/factures/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

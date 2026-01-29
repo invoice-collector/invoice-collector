@@ -29,7 +29,7 @@ export class BeautindaPartnerCollector extends SketchCollector {
         loginUrl: "https://pro.beautinda.de/settings/finance/data-export",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

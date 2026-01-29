@@ -29,7 +29,7 @@ export class PlausibleCollector extends SketchCollector {
         loginUrl: "https://plausible.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

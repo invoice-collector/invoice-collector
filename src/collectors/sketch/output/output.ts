@@ -29,7 +29,7 @@ export class OutputCollector extends SketchCollector {
         loginUrl: "https://output.com/account/subscriptions",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

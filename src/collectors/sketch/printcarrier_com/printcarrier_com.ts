@@ -29,7 +29,7 @@ export class PrintcarrierComCollector extends SketchCollector {
         loginUrl: "https://www.printcarrier.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

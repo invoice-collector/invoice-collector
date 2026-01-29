@@ -29,7 +29,7 @@ export class PushalertCollector extends SketchCollector {
         loginUrl: "https://pushalert.co/dashboard/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

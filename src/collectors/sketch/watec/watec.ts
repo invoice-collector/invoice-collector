@@ -29,7 +29,7 @@ export class WatecCollector extends SketchCollector {
         loginUrl: "http://shop.mobilzubehoer.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

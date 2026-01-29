@@ -29,7 +29,7 @@ export class CityOfLongBeachCollector extends SketchCollector {
         loginUrl: "https://clbutilitywebservices.longbeach.gov/meridian.html#/log",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MarktDeCollector extends SketchCollector {
         loginUrl: "https://www.markt.de/benutzer/shoprechnungen.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

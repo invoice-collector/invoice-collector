@@ -29,7 +29,7 @@ export class TravisPerkinsCollector extends SketchCollector {
         loginUrl: "https://www.travisperkins.co.uk/login?targetUrl=/cart&uiel=Desktop",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

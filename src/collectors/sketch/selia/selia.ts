@@ -29,7 +29,7 @@ export class SeliaCollector extends SketchCollector {
         loginUrl: "https://espaceclient.selia-energies.fr/seolis-web/login?logout=true",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

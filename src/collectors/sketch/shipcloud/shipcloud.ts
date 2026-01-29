@@ -29,7 +29,7 @@ export class ShipcloudCollector extends SketchCollector {
         loginUrl: "https://app.shipcloud.io/de/account/billing_information",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

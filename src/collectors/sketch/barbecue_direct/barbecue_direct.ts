@@ -29,7 +29,7 @@ export class BarbecueDirectCollector extends SketchCollector {
         loginUrl: "https://www.webdistrib.com/barbecue-direct/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HitechprosCollector extends SketchCollector {
         loginUrl: "https://esn.hitechpros.com/mon-espace/parametres#!/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

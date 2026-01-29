@@ -29,7 +29,7 @@ export class StroerOnlineMarketingDeCollector extends SketchCollector {
         loginUrl: "https://kundencenter.stroeer-online-marketing.de/auth/login?next=%2Fanalytics%2Foverview",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

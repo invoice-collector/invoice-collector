@@ -29,7 +29,7 @@ export class AdtCollector extends SketchCollector {
         loginUrl: "https://www.adt.com/customer-service",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

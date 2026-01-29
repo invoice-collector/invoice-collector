@@ -29,7 +29,7 @@ export class AdpWorkforceNowCollector extends SketchCollector {
         loginUrl: "https://workforcenow.adp.com/public/index.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

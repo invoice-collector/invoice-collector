@@ -29,7 +29,7 @@ export class TravantoFerienwohnungenGmbhCollector extends SketchCollector {
         loginUrl: "https://login.travanto.de/vermieter/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

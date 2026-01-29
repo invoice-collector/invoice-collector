@@ -29,7 +29,7 @@ export class HausUndGrundVerlagCollector extends SketchCollector {
         loginUrl: "https://ssl.haus-und-grund.com/rechnungen.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

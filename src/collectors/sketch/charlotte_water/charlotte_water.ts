@@ -29,7 +29,7 @@ export class CharlotteWaterCollector extends SketchCollector {
         loginUrl: "https://secure8.i-doxs.net/CityOfCharlotte/Secure/DistributionView.aspx?DistributionView=1%7C3513%7C8595%7C1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

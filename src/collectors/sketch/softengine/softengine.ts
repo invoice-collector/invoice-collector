@@ -29,7 +29,7 @@ export class SoftengineCollector extends SketchCollector {
         loginUrl: "https://softengine.me/#/application/view/1/Rechnung",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

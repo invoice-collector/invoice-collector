@@ -29,7 +29,7 @@ export class LEtudiantCollector extends SketchCollector {
         loginUrl: "https://www.letudiant.fr/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

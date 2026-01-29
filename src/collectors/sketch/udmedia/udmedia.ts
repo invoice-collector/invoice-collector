@@ -29,7 +29,7 @@ export class UdmediaCollector extends SketchCollector {
         loginUrl: "https://login.udmedia.de/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

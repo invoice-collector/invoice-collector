@@ -29,7 +29,7 @@ export class StadtwerkeRosenheimCollector extends SketchCollector {
         loginUrl: "https://www.swro.de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

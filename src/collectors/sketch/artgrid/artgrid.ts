@@ -29,7 +29,7 @@ export class ArtgridCollector extends SketchCollector {
         loginUrl: "https://artgrid.io/my-account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

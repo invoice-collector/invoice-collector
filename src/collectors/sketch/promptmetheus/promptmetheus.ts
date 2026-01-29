@@ -29,7 +29,7 @@ export class PromptmetheusCollector extends SketchCollector {
         loginUrl: "https://archery.promptmetheus.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

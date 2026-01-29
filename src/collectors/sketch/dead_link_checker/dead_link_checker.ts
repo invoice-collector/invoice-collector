@@ -29,7 +29,7 @@ export class DeadLinkCheckerCollector extends SketchCollector {
         loginUrl: "https://www.deadlinkchecker.com/reports.asp",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BrunataMetronaCollector extends SketchCollector {
         loginUrl: "https://portal.brunata-muenchen.de/Dienste?UHJvcGVydHlNYW5hZ2VtZW50SUQ9JzEwMDAxNTE5OTMn#Shell-home",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

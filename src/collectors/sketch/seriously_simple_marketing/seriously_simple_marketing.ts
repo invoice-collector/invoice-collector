@@ -29,7 +29,7 @@ export class SeriouslySimpleMarketingCollector extends SketchCollector {
         loginUrl: "https://measurementmarketing.io/member/?ref=ssmnav",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class HomeToGoCollector extends SketchCollector {
         loginUrl: "https://my.hometogo.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

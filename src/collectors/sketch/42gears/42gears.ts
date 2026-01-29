@@ -29,7 +29,7 @@ export class _42gearsCollector extends SketchCollector {
         loginUrl: "https://www.billingportal.com/s/42gears-store/statements",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class BucketIoCollector extends SketchCollector {
         loginUrl: "https://app.bucket.io/#/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

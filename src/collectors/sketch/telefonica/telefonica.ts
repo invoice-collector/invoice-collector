@@ -29,7 +29,7 @@ export class TelefonicaCollector extends SketchCollector {
         loginUrl: "http://www.telefonica.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

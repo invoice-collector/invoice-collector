@@ -29,7 +29,7 @@ export class ShareasaleMerchantCollector extends SketchCollector {
         loginUrl: "https://account.shareasale.com/a-login.cfm?",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

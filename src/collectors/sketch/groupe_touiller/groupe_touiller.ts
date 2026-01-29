@@ -29,7 +29,7 @@ export class GroupeTouillerCollector extends SketchCollector {
         loginUrl: "https://portail-touiller.artis.fr/ArtisWebTouiller/portail/login/auth/01.action",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

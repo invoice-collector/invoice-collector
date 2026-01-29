@@ -29,7 +29,7 @@ export class SimpleInvoicesIncCollector extends SketchCollector {
         loginUrl: "https://simpleinvoices.io/settings/account",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

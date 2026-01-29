@@ -29,7 +29,7 @@ export class Home24MiraklCollector extends SketchCollector {
         loginUrl: "https://home24.mirakl.net/sellerpayment/shop/accounting-document/list",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class MifidRecorderCollector extends SketchCollector {
         loginUrl: "https://login.mifid-recorder.com",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

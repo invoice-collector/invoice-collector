@@ -29,7 +29,7 @@ export class GotphotoCollector extends SketchCollector {
         loginUrl: "https://app.gotphoto.at/config/index_invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

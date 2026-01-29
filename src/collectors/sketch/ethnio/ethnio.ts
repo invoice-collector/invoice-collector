@@ -29,7 +29,7 @@ export class EthnioCollector extends SketchCollector {
         loginUrl: "https://ethn.io/users/5423/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

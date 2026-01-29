@@ -29,7 +29,7 @@ export class AustrianCollector extends SketchCollector {
         loginUrl: "https://www.austrian.com/at/de/rechnungsbeleg",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

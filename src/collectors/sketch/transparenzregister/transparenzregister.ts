@@ -29,7 +29,7 @@ export class TransparenzregisterCollector extends SketchCollector {
         loginUrl: "https://www.transparenzregister.de/treg/de/anmelden?1",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class GlsGemeinschaftsbankGeschaftskundenCollector extends SketchCollecto
         loginUrl: "https://www.gls-online-filiale.de/services_cloud/portal",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

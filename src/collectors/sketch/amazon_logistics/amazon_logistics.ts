@@ -29,7 +29,7 @@ export class AmazonLogisticsCollector extends SketchCollector {
         loginUrl: "https://logistics.amazon.de/flexpayments/invoices?navMenuVariant=external",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

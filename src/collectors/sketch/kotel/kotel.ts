@@ -29,7 +29,7 @@ export class KotelCollector extends SketchCollector {
         loginUrl: "https://www.zoozzy.de/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

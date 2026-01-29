@@ -29,7 +29,7 @@ export class PloiIoCollector extends SketchCollector {
         loginUrl: "https://ploi.io/profile?#v-orders",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

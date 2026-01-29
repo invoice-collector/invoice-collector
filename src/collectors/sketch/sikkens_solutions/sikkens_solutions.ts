@@ -28,7 +28,7 @@ export class SikkensSolutionsCollector extends SketchCollector {
         loginUrl: "https://www.sikkens-solutions.fr/profile/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

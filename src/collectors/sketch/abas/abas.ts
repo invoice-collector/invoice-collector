@@ -29,7 +29,7 @@ export class AbasCollector extends SketchCollector {
         loginUrl: "https://abas-erp.com/de/customer-and-partner-logins",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

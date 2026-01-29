@@ -29,7 +29,7 @@ export class PassmarkSoftwareCollector extends SketchCollector {
         loginUrl: "https://www.passmark.com/profile.php?history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class LohmannUndRauscherDeutschlandCollector extends SketchCollector {
         loginUrl: "https://store-de.lrmed.com/mein-konto/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

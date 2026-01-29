@@ -29,7 +29,7 @@ export class ZeplinIoCollector extends SketchCollector {
         loginUrl: "https://app.zeplin.io/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class AvastCollector extends SketchCollector {
         loginUrl: "https://id.avast.com/?target=https%3A%2F%2Fmy.avast.com%2F#login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

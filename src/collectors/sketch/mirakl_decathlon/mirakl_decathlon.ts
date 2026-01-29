@@ -29,7 +29,7 @@ export class MiraklDecathlonCollector extends SketchCollector {
         loginUrl: "https://marketplace-decathlon-eu.mirakl.net/sellerpayment/shop/shop-billing-cycles",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

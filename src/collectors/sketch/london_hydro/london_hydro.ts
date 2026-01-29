@@ -29,7 +29,7 @@ export class LondonHydroCollector extends SketchCollector {
         loginUrl: "https://www.londonhydro.com/site/#!/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

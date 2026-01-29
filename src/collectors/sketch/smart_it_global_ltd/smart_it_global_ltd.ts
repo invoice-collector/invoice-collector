@@ -29,7 +29,7 @@ export class SmartItGlobalLtdCollector extends SketchCollector {
         loginUrl: "https://smartit.shop/de/18744/de/afl/report-onetime/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

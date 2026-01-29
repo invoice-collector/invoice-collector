@@ -29,7 +29,7 @@ export class BmwConnecteddriveCollector extends SketchCollector {
         loginUrl: "https://www.bmw-connecteddrive.de/app/de/index.html#/portal/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

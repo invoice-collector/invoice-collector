@@ -29,7 +29,7 @@ export class SavemyleadsCollector extends SketchCollector {
         loginUrl: "https://u1.savemyleads.com/client/payment-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

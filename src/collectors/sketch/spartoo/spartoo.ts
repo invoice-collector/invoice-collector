@@ -29,7 +29,7 @@ export class SpartooCollector extends SketchCollector {
         loginUrl: "https://www.spartoo.com/securelogin.php?from=compte",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class JitbitCollector extends SketchCollector {
         loginUrl: "https://pruefengel.jitbit.com/helpdesk/Admin/Billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

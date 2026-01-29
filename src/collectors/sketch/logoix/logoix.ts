@@ -29,7 +29,7 @@ export class LogoixCollector extends SketchCollector {
         loginUrl: "https://www.logoix.com/cgi-bin/index.pl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

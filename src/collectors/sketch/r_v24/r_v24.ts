@@ -29,7 +29,7 @@ export class RV24Collector extends SketchCollector {
         loginUrl: "https://www.rv24.de/vertragscenter",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

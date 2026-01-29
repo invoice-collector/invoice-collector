@@ -29,7 +29,7 @@ export class DruckerwolkeCollector extends SketchCollector {
         loginUrl: "https://app.druckerwolke.de/app/account/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

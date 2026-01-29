@@ -29,7 +29,7 @@ export class DusNetCollector extends SketchCollector {
         loginUrl: "https://www.dus.net/de/kundenmenue/kundencenter/bookkeeping.html",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

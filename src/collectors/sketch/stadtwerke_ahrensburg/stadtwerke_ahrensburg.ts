@@ -29,7 +29,7 @@ export class StadtwerkeAhrensburgCollector extends SketchCollector {
         loginUrl: "https://kundenportal-schlossmedia.stadtwerke-ahrensburg.de/#/payments-list?page=0",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

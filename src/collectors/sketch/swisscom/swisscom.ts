@@ -29,7 +29,7 @@ export class SwisscomCollector extends SketchCollector {
         loginUrl: "http://www.swisscom.ch",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

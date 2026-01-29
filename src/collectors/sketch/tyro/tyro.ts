@@ -29,7 +29,7 @@ export class TyroCollector extends SketchCollector {
         loginUrl: "https://www.tyro.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

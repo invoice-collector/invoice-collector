@@ -29,7 +29,7 @@ export class CreditreformCollector extends SketchCollector {
         loginUrl: "https://meine.creditreform.de/vorgaenge/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

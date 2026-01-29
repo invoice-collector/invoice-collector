@@ -29,7 +29,7 @@ export class TigoPanamaCollector extends SketchCollector {
         loginUrl: "https://mi.tigo.com.pa/movil/facturacion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

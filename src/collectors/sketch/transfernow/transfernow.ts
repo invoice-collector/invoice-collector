@@ -29,7 +29,7 @@ export class TransfernowCollector extends SketchCollector {
         loginUrl: "https://jmestudio.transfernow.net/en/account/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class SmartproxyCollector extends SketchCollector {
         loginUrl: "https://smartproxy.com/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

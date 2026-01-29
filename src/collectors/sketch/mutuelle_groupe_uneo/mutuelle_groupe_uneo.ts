@@ -29,7 +29,7 @@ export class MutuelleGroupeUneoCollector extends SketchCollector {
         loginUrl: "https://www.groupe-uneo.fr/connexion/connexion",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

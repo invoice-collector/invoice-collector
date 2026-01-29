@@ -29,7 +29,7 @@ export class AkismetCollector extends SketchCollector {
         loginUrl: "https://akismet.com/account/billing-history",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

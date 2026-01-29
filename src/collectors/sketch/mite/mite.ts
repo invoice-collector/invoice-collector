@@ -29,7 +29,7 @@ export class MiteCollector extends SketchCollector {
         loginUrl: "https://app.mite.yo.lk/where_to_login/de/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

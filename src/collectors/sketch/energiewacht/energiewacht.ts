@@ -29,7 +29,7 @@ export class EnergiewachtCollector extends SketchCollector {
         loginUrl: "http://www.ewacht.nl",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

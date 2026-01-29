@@ -29,7 +29,7 @@ export class NostoCollector extends SketchCollector {
         loginUrl: "https://my.nosto.com/auth/login",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

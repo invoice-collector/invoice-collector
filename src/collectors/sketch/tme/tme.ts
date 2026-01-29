@@ -29,7 +29,7 @@ export class TmeCollector extends SketchCollector {
         loginUrl: "https://www.tme.eu/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class InternetvistaCollector extends SketchCollector {
         loginUrl: "https://www.internetvista.com/en/website-monitoring-service-login.htm",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

@@ -29,7 +29,7 @@ export class ScreenfeedCollector extends SketchCollector {
         loginUrl: "https://www.screenfeed.com/account/billing",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

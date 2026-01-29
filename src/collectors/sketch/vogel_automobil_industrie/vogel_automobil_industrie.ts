@@ -29,7 +29,7 @@ export class VogelAutomobilIndustrieCollector extends SketchCollector {
         loginUrl: "https://www.automobil-industrie.vogel.de/anmelden/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

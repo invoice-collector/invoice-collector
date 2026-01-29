@@ -29,7 +29,7 @@ export class AfilaeCollector extends SketchCollector {
         loginUrl: "https://app.affilae.com/fr/advertiser/billing/invoices",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

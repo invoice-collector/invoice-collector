@@ -29,7 +29,7 @@ export class MgtCommerceComCollector extends SketchCollector {
         loginUrl: "https://www.mgt-commerce.com/customer/account/login/",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {

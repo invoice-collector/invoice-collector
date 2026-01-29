@@ -29,7 +29,7 @@ export class TeagCollector extends SketchCollector {
         loginUrl: "https://energiebanking.thueringerenergie.de/powercommerce/teag/fo/portal/eb",
         captcha: CollectorCaptcha.NONE,
         enableInteractiveLogin: true,
-        state: CollectorState.DEVELOPMENT
+        state: CollectorState.PLANNED
     }
 
     constructor() {
