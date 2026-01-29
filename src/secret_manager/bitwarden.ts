@@ -1,4 +1,4 @@
-import { BitwardenClient, ClientSettings, DeviceType, LogLevel } from "@bitwarden/sdk-napi";
+import { BitwardenClient, ClientSettings, DeviceType } from "@bitwarden/sdk-napi";
 import { AbstractSecretManager } from "./abstractSecretManager";
 import * as utils from "../utils";
 import { Secret } from "../model/secret";
